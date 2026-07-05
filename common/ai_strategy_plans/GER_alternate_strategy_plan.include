@@ -1,0 +1,34 @@
+German_alternate_kaiser:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_democratic:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_democratic_ww:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_kaiser_GD:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_stalinist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_spartacist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+German_alternate_fascist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

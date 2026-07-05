@@ -1,0 +1,19 @@
+ENG_alternate_democratic_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ENG_alternate_communist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ENG_alternate_unaligned_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ENG_alternate_fascist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

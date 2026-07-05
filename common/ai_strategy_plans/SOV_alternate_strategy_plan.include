@@ -1,0 +1,34 @@
+SOV_alternate_plan_1:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_left_opposition_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_left_opposition_cooperative_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_right_opposition_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_right_opposition_cooperative_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_exiles_tsarist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+SOV_exiles_fascist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

@@ -1,0 +1,9 @@
+German_historical:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+GER_minor_allies:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

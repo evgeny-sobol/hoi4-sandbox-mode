@@ -1,0 +1,12 @@
+focus_tree[id = austria_focus_tree]:
+  focus[id = AUS_restoring_our_rightful_flag]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = AUS_seek_to_purchase_alaska]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)

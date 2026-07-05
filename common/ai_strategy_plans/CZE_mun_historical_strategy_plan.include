@@ -1,0 +1,4 @@
+CZE_mun_historical_strategy_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

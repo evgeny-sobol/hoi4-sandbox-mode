@@ -1,0 +1,24 @@
+CZE_mun_alternate_strategy_plan_entente:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+CZE_mun_alternate_strategy_plan_communist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+CZE_mun_alternate_strategy_plan_fascist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+CZE_mun_alternate_strategy_plan_monarchy:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+CZE_mun_alternate_strategy_plan_democratic:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

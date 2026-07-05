@@ -1,0 +1,34 @@
+USA_alternate_plan_1:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_alternate_plan_2:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_war_emergency:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_britain_hostile:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_germany_friendly:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_fascist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+USA_communist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

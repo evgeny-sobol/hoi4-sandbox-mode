@@ -1,0 +1,4 @@
+FRA_historical_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

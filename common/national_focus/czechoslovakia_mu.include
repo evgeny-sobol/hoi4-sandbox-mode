@@ -1,0 +1,650 @@
+focus_tree[id = mu_czech_focus]:
+
+##############################################################################
+# These national focuses have an `ai_will_do` block, but the factor is zero. #
+##############################################################################
+
+  focus[id = CZE_fight_over_silesia]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_divide_germany]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_feeding_the_alligator]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_assist_austria]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_demand_the_istrian_peninsula]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_bend_the_bars]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_destroy_the_fascist_threats]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_denounce_stalinism]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_soviet_alliance]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_ally_poland]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+  focus[id = CZE_skoda_priority_shortcut_finder]:
+    ai_will_do:
+      +modifier:
+        has_global_flag(sandbox_mode_enabled)
+        add(1.0)
+
+##############################################################################
+#         These national focuses have no `ai_will_do` block at all.          #
+##############################################################################
+
+  focus[id = CZE_align_nationalist_parties]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_align_slovak_catholics]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_align_catholic_parties]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_restore_the_monarchy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_semi_constitutional_monarchy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_restore_noble_titles]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_catholic_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_hussite_legacy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_claim_lands_of_the_bohemian_crown]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_restore_the_austro_hungarian_customs_union]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_dismantle_poland]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_deepen_ties_with_puppet_kingdoms]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_usurp_the_mantle]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_unify_the_fascist_parties]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_revive_the_december_bloc]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_cooperate_with_the_sdp]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_integrate_sudeten_germans]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_rally_against_germany]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_pro_rearmament_propaganda]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_revert_1926_anti_military_laws]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_power_to_the_military]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_militarize_the_associations]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_aggressive_foreign_policy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_joint_equipment_designs]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_negotiate_sphere_of_influence]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_set_up_polish_puppet_state]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_demand_slovenia]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_demand_overlordship_of_yugoslav_league]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_a_strong_poland]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_facilitate_a_strong_hungary]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_subjegate_romania]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_integrate_hungary]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_expand_the_rome_protocols]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_return_to_democracy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_cooperate_with_the_allies]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_central_european_faction]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_prepare_for_exile]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_infiltrate_collaborationist_organizations]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_enter_exile]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_contact_the_czech_and_slovak_legion]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_merge_the_paramilitaries]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_integrated_paramilitaries]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_expand_the_communist_press]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_form_workers_brigades]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_anti_rearmament_propaganda]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_anti_democratic_propaganda]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_zapotocky_faction]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_ally_with_moderate_socialists]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_gottwald_faction]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_kohler_faction]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_revolutionary_brigades]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_recruit_communist_exiles]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_destabilize_potential_adversaries]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_nationalize_key_industries]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_control_the_associations]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_agrarian_reform]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_realign_the_church]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_promote_urbanization]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_confiscate_church_lands]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_create_a_secret_police_branch]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_change_the_narrative]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_cooperation_with_the_ussr]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_rehabilitate_the_army]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_recruit_ideologically_aligned_generals]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_cooperate_with_tito]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_czechoslovak_union]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_balkan_union]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_spread_the_revolution]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_exchange_military_expertise]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_join_comintern_pfot]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_pressure_romania]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_revive_the_czechoslovak_legion_dynamic]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_profit_off_the_spanish_civil_war]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_vonapo_20]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_german_nonagressionpact]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_intervene_in_the_ussr]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_claim_ukraine]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_ally_russia]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_forgive_trading_debts]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_improve_balkan_trade_relations]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_strengthen_the_little_entente]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_seek_french_leadership]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_ally_romania]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_ally_austria]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_protect_neutrality]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_mutual_protection_agreement_with_switzerland]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_ally_yugoslavia]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_demand_the_czech_corridor]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_exchange_technology]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_increase_food_and_resource_imports]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_double_down_on_heavy_industry]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_airlift_soviet_support]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_demand_corridor_to_ussr]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_integrate_western_ukrainians]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_realize_the_polish_czechoslovak_confederation]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_jachymov_uranium_mine]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_diversify_bata]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_expand_skoda_offices]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_master_of_armaments]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_only_the_best_is_good_enough]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_an_industrial_legacy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_powerhouse_of_europe]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_continue_armed_force_reform]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_air_force_officer_recruitment]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_trust_in_old_guard]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_expand_the_aero_clubs]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_national_defense_act]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_form_the_state_defense_guard]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_the_tvp_project]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_three_kings]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_department_two_expansion]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_military_intelligence]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_air_intelligence]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_within_the_eagles_nest]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = CZE_restart_naval_gun_production]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)

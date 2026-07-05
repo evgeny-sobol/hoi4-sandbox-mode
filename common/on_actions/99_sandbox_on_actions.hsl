@@ -1,0 +1,26 @@
+on_actions:
+  on_startup:
+    effect:
+      if @can_enable_sandbox_mode():
+        set_global_flag(sandbox_mode_enabled)
+
+        for cty in every_country().which(is_ai()):
+          # For this country, let's choose random *major* rival
+          for rnd in random_other_country().which(
+              is_major() and @can_be_rival_with(cty)):
+            cty.rivals[].add(rnd)
+
+          # For this country, let's choose random *minor* rival
+          for rnd in random_other_country().which(
+              is_neighbor_of(cty) and is_major(no) and @can_be_rival_with(cty)):
+            cty.rivals[].add(rnd)
+
+          # If there is no *minor* rival among the neighbors
+          if cty.rivals[1] == null:
+            for rnd in random_other_country().which(
+                is_major(no) and @can_be_rival_with(cty)):
+              cty.rivals[].add(rnd)
+
+  #on_monthly::effect:
+
+  #on_weekly::effect:

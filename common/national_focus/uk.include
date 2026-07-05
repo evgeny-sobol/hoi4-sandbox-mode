@@ -1,0 +1,95 @@
+focus_tree[id = british_focus]:
+  focus[id = ENG_expand_the_secret_intelligence_service_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = ENG_vickers_experimental_facility_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_extra_tech_slot]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_service_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_mediterranean_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_rock_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_greece_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_malta_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_colonial_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_asia_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_commonwealth_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_india_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_free_india_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_australia_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_new_zealand_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_canada_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = uk_south_africa_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = ENG_embargo_ussr]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = ENG_war_with_ussr]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)

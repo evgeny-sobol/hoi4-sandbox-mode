@@ -1,0 +1,44 @@
+AUS_monarchist_puppet_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_monarchist_annex_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_neutrality_federative_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_communist_SOV_aligned_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_communist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_democratic_federative_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_democratic_allied_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_democratic_alpine_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+AUS_anti_anschluss_stress_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

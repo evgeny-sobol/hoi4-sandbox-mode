@@ -1,0 +1,29 @@
+ITA_alt_fascist_balbo:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ITA_alt_fascist_grandi:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ITA_monarchist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ITA_christian_democracy_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ITA_communist_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+ITA_democratic_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

@@ -1,0 +1,165 @@
+﻿focus_tree[id = french_focus]:
+  focus[id = FRA_extra_research_slot_2]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_fortification_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_alpine_forts]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_extend_the_maginot_line]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_infantry_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_artillery_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_heavy_armor_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_motorized_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_mechanized_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_light_medium_armor]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_cas_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_army_reform]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_naval_rearmament]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_colonial_naval_bases]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_develop_colonial_dockyards]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_the_old_school]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_capital_ship_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_carrier_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_carrier_planes]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_rush_the_richelieus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_prioritize_the_joffre]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_the_young_school]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_undersea_combat]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_surface_combat]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_improved_screen_ships]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_naval_doctrine]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_air_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_fighter_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_heavy_fighter_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_bomber_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_air_doctrine]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_heavy_bomber_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = FRA_naval_bomber_focus]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)

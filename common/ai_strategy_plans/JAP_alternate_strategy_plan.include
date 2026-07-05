@@ -1,0 +1,39 @@
+JAP_manchukuo_player_historical_plan:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_communist:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_communist_tsr:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_communist_2_tsr:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_strike_north:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_kodoha_tsr:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_democratic:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)
+
+JAP_alternate_plan_democratic_tsr:
+  enable:
+    +NOT:
+      has_global_flag(sandbox_mode_enabled)

@@ -1,0 +1,155 @@
+focus_tree[id = usa_focus]:
+  focus[id = USA_unholy_alliance]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_wpa]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_rubber_reserve_company]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_limited_intervention]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_war_propaganda]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_scientist_haven]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_manhattan_project]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_military_construction]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_USACE_projects]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_war_plan_black]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_destroyers_for_bases]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_war_plan_white]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_war_plan_red]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_war_plan_orange]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_defense_of_the_pacific]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_air_war_plans_division]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_air_support]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_strategic_bombing]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_TAC]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_CAS]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_combined_bomber_offensive]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_liberty_ships]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_bureau_of_ships]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_battleship_primacy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_advanced_mahanian_doctrine]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_carrier_primacy]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_bureau_of_aeronautics]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_escort_effort]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_convoy_tactics]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_expand_the_USMC]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
+
+  focus[id = USA_amphibious_operations]:
+    +ai_will_do:
+      has_global_flag(sandbox_mode_enabled)
+      base(1.0)
