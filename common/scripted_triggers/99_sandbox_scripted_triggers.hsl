@@ -1,0 +1,22 @@
+is_sandbox_mode_on:
+  has_country_flag(sandbox_mode_enabled)
+
+can_PREV_get_wargoal_on_THIS:
+  OR:
+    is_friend_of_PREV(no)
+    is_honored_leader(no)
+
+is_friend_of_PREV:
+  custom_override_tooltip:
+    tooltip(LocKey_is_friend_of_PREV_tt)
+    OR:
+      is_ally_with(PREV)
+      is_guaranteed_by(PREV)
+      has_non_aggression_pact_with(PREV)
+
+is_honored_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_honored_leader_tt)
+    OR:
+      has_country_leader_with_trait(LT_honor_honorable)
+      has_country_leader_with_trait(LT_honor_righteous)

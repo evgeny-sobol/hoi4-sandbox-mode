@@ -1,0 +1,32 @@
+leader_traits:
+  LT_personality:
+    random(no)
+    custom_modifier_tooltip(LocKey_personality_tt)
+    custom_modifier_tooltip(LocKey_honor_tt)
+
+  LT_honor_treacherous:
+    random(no)
+    opinion_gain_monthly_factor(-0.15)
+    trade_opinion_factor(-0.30)
+    license_purchase_cost(0.30)
+
+  LT_honor_dishonorable:
+    random(no)
+    opinion_gain_monthly_factor(-0.05)
+    trade_opinion_factor(-0.10)
+    license_purchase_cost(0.10)
+
+  LT_honor_inglorious:
+    random(no)
+
+  LT_honor_honorable:
+    random(no)
+    opinion_gain_monthly_factor(0.05)
+    trade_opinion_factor(0.10)
+    license_purchase_cost(-0.10)
+
+  LT_honor_righteous:
+    random(no)
+    opinion_gain_monthly_factor(0.15)
+    trade_opinion_factor(0.30)
+    license_purchase_cost(-0.30)

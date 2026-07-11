@@ -1,165 +1,261 @@
 ﻿focus_tree[id = french_focus]:
+
+  focus[id = FRA_form_the_popular_front]:
+    completion_reward:
+      hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_national_regeneration]:
+    completion_reward:
+      hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_latin_entente]:
+    completion_reward:
+      +hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_towards_a_new_europe]:
+    completion_reward:
+      +hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_orleanist_restoration]:
+    completion_reward:
+      hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_the_legitimate_heir]:
+    completion_reward:
+      hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_proclaim_the_third_empire]:
+    completion_reward:
+      hidden_effect:
+        SE_update_country_leader_traits()
+
+  focus[id = FRA_intervention_in_greece]:
+    available:
+      GRE::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_the_natural_borders_of_france]:
+    available:
+      +OR:
+        is_honored_leader(no)
+        AND:
+          BEL::is_friend_of_PREV(no)
+          LUX::is_friend_of_PREV(no)
+          HOL::is_friend_of_PREV(no)
+          GER::is_friend_of_PREV(no)
+    completion_reward:
+      if is_sandbox_mode_on():
+        custom_effect_tooltip(generic_skip_one_line_tt)
+        $add_honor(-25)
+
+  focus[id = FRA_split_belgium]:
+    available:
+      BEL::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_align_belgium]:
+    available:
+      BEL::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_bring_home_quebec]:
+    available:
+      CAN::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_dismantle_the_democracies]:
+    available:
+      GER::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_avenge_waterloo]:
+    available:
+      +OR:
+        is_honored_leader(no)
+        AND:
+          BEL::is_friend_of_PREV(no)
+          LUX::is_friend_of_PREV(no)
+          HOL::is_friend_of_PREV(no)
+          ENG::is_friend_of_PREV(no)
+    completion_reward:
+      if is_sandbox_mode_on():
+        custom_effect_tooltip(generic_skip_one_line_tt)
+        $add_honor(-25)
+
+  focus[id = FRA_retribution_for_sedan]:
+    available:
+      GER::can_PREV_get_wargoal_on_THIS()
+
+  focus[id = FRA_return_to_borodino]:
+    available:
+      SOV::can_PREV_get_wargoal_on_THIS()
+
+##############################################################################
+#           These national focuses had no `ai_will_do` block at all          #
+##############################################################################
+
   focus[id = FRA_extra_research_slot_2]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_fortification_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_alpine_forts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_extend_the_maginot_line]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_infantry_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_artillery_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_heavy_armor_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_motorized_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_mechanized_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_light_medium_armor]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_cas_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_army_reform]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_naval_rearmament]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_colonial_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_develop_colonial_dockyards]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_the_old_school]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_capital_ship_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_carrier_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_carrier_planes]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_rush_the_richelieus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_prioritize_the_joffre]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_the_young_school]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_undersea_combat]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_surface_combat]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_improved_screen_ships]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_naval_doctrine]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_air_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_fighter_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_heavy_fighter_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_bomber_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_air_doctrine]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_heavy_bomber_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)
 
   focus[id = FRA_naval_bomber_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
+      is_sandbox_mode_on()
       base(1.0)

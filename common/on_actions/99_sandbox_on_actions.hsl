@@ -1,26 +1,68 @@
 on_actions:
   on_startup:
     effect:
-      if @can_enable_sandbox_mode():
-        set_global_flag(sandbox_mode_enabled)
+      if is_historical_focus_on(yes):
+        for watcher in every_country():
+          # So that these macros can always be used safely:
+          #   $democracy_factor(), $monarchy_factor(), $communism_factor(), $fascism_factor()
+          resize_array(): { array=ideology_factors value=1.0 size=4 }
 
-        for cty in every_country().which(is_ai()):
-          # For this country, let's choose random *major* rival
-          for rnd in random_other_country().which(
-              is_major() and @can_be_rival_with(cty)):
-            cty.rivals[].add(rnd)
+      elif is_historical_focus_on(no):
+        for watcher in every_country():
+          enable_sandbox_mode()
 
-          # For this country, let's choose random *minor* rival
-          for rnd in random_other_country().which(
-              is_neighbor_of(cty) and is_major(no) and @can_be_rival_with(cty)):
-            cty.rivals[].add(rnd)
+          if is_ai() or is_debug():
+            for target in random_other_country().which(
+                is_major(yes) and has_government(var:watcher.rival_ideology)
+              ):
+              watcher.rivals[].add(target)
 
-          # If there is no *minor* rival among the neighbors
-          if cty.rivals[1] == null:
-            for rnd in random_other_country().which(
-                is_major(no) and @can_be_rival_with(cty)):
-              cty.rivals[].add(rnd)
+            for target in random_other_country().which(
+                is_major(no) and has_government(var:watcher.rival_ideology)
+                and is_friend_of_PREV(no)
+                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))
+              ):
+              watcher.rivals[].add(target)
 
-  #on_monthly::effect:
+            for target in random_other_country().which(
+                is_major(no) and target not in watcher.rivals[]
+                and is_friend_of_PREV(no)
+                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
+              watcher.rivals[].add(target)
 
-  #on_weekly::effect:
+            if watcher.rivals[].size() < 3:
+              for target in random_other_country().which(
+                  is_major(no) and target not in watcher.rivals[]
+                  and is_friend_of_PREV(no)
+                  and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
+                watcher.rivals[].add(target)
+
+          update_country_leader_traits()
+          shuffle_political_party_popularities()
+
+  on_monthly:
+    effect:
+      if is_sandbox_mode_on():
+        $add_honor(honor_gain_monthly_factor)
+
+  on_weekly:
+    effect:
+      _watcher <- ROOT
+      if is_sandbox_mode_on():
+        honor_gain_monthly_factor <- 0
+        guaranting[].clear()
+        na_pacts[].clear()
+
+        for target in every_other_country():
+          if is_guaranteed_by(_watcher):
+            _watcher.guaranting[].add(target)
+          if has_non_aggression_pact_with(_watcher):
+            _watcher.na_pacts[].add(target)
+
+        _a <- 0.20 * guaranting[].size()
+        _b <- 0.05 * na_pacts[].size()
+        honor_gain_monthly_factor <- _a + _b
+
+  on_ruling_party_change:
+    effect:
+      update_country_leader_traits()

@@ -1,0 +1,50 @@
+macro set_to_random_int(var_name, min_int, max_int):
+  set_variable_to_random:
+    var(var_name)
+    min(min_int)
+    max(max_int + 1)
+    integer(yes)
+
+macro add_honor(val):
+  if is_sandbox_mode_on():
+    hidden_effect:
+      honor_stat += val
+      clamp_variable(): { var=honor_stat min=-100 max=100 }
+      update_country_leader_traits()
+    custom_effect_tooltip:
+      localization_key(LocKey_honor_change_tt)
+      VALUE(val)
+
+macro democracy_factor():
+  ideology_factors[0]
+macro monarchy_factor():
+  ideology_factors[1]
+macro communism_factor():
+  ideology_factors[2]
+macro fascism_factor():
+  ideology_factors[3]
+
+macro set_random_political_party_popularities(A, B, C, D):
+  pop_budget <- 70
+  rand_pop <- 30
+  set_political_party:
+    ideology(A)
+    popularity(rand_pop)
+
+  set_variable_to_random(): { var=rand_pop min=23 max=27 integer=yes }
+  set_political_party:
+    ideology(B)
+    popularity(rand_pop)
+  pop_budget -= rand_pop
+
+  set_variable_to_random(): { var=rand_pop min=21 max=24 integer=yes }
+  set_political_party:
+    ideology(C)
+    popularity(rand_pop)
+  pop_budget -= rand_pop
+
+  set_political_party:
+    ideology(D)
+    popularity(pop_budget)
+  rand_pop <- null
+  pop_budget <- null

@@ -1,0 +1,15 @@
+﻿l_english:
+  LT_personality:        "Personality"
+  LT_honor_treacherous:  "Treacherous"
+  LT_honor_dishonorable: "Dishonorable"
+  LT_honor_inglorious:   "Inglorious"
+  LT_honor_honorable:    "Honorable"
+  LT_honor_righteous:    "Righteous"
+
+  LocKey_personality_tt:           "Dislikes [?rivals^0.GetFlag]§Y[?rivals^0.GetTag]§!, [?rivals^1.GetFlag]§Y[?rivals^1.GetTag]§!, [?rivals^2.GetFlag]§Y[?rivals^2.GetTag]§!\n  - Tyranny: [?tyranny_stat|.2-]"
+  LocKey_honor_tt:                 "  - Honor: [?honor_stat|.2+] ([?honor_gain_monthly_factor|.2=+] monthly)"
+  LocKey_honor_change_tt:          "Honor $VALUE|C$."
+  LocKey_is_friend_of_PREV_tt:     "Is friend of §Y[?PREV.GetName]§!."
+  LocKey_is_friend_of_PREV_tt_NOT: "Is not friend of §Y[?PREV.GetName]§!."
+  LocKey_is_honored_leader_tt:     "[?PREV.GetFlag]Leader is §YHonorable§! or §YRighteous§!."
+  LocKey_is_honored_leader_tt_NOT: "[?PREV.GetFlag]Leader is not §YHonorable§! or §YRighteous§!."
