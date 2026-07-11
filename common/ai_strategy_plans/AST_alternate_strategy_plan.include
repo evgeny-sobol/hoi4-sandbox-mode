@@ -1,0 +1,55 @@
+AST_adela_fascist_ai:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_peter_fascist_ai:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_random_democratic_ai:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_anti_commonwealth_communist_ai:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_comintern_communist_ai:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_alternate_democratic:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_alternate_fascist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+AST_alternate_communist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

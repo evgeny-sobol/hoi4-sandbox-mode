@@ -1,0 +1,17 @@
+run_generic_operation:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+run_generic_operation_add_more_operatives:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+run_generic_rescue_operation:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

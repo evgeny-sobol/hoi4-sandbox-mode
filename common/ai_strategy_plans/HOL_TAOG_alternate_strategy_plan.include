@@ -1,0 +1,41 @@
+HOL_colonial_alternate_democratic_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+HOL_continental_alternate_democratic_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+HOL_lead_the_minor_democracies_democratic_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+HOL_alternate_communist_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+HOL_alternate_fascist_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+HOL_alternate_monarchist_plan_taog:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

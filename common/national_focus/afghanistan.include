@@ -1,0 +1,1207 @@
+focus_tree[id = afghanistan_tree]:
+
+  focus[id = AFG_expand_telegraph_network]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_sugar_processing]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_fruit_packing]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_clear_malarial_swamps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_qargha_dam]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_kajaki_dam]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_iron_mines]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_chromite_mines]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_modern_economy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_infrastructure_construction]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ministry_of_supply]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_implement_currency_controls]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_karakul_lambskin_industry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_spinzar_cotton_factory]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_look_to_other_partners]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_renew_soviet_trade_agreement]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_salang_pass]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_truck_factory]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_75_year_oil_concessions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_electrification]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_establish_radio_networks]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_connect_the_cities]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_rail_construction]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_kabul_university]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_state_industries]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_maintain_quami]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_asymmetric_warfare]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_quami_template]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_khyber_pass_riflining]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_scavenging]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_militia_cavalry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_encourage_jezail_production]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_mountain_training]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_mountain_training_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_cross_border_ties]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_adopt_nufus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_border_guards]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_approach_foreign_inteligence_services]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_utilize_cameleers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_establish_camelry_regiments]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_new_army]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_officialize_the_turkish_afghan_defense_treaty]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_establish_naval_bases]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_academy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_purchase_tanks]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_purchase_aircraft]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_foreign_military_advisors]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_standing_army]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_equipment_purchases]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_increase_air_purchases]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_prussians_of_the_orient]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_naval_academy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_shipyards]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_research_bonus_1]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_purchase_destroyers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_research_bonus_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_purchase_capital_ships]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_against_kabul]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_contact_amanullah_loyalists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_remember_the_khost_rebellion]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_secure_army_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_contact_rural_loyalists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_hold_a_loya_jirga]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_request_german_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_invite_waziristan_rebels]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_stir_unrest_in_the_east]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_the_faqirs_revolt]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_request_japanese_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_crown_the_golden_emir]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_crown_the_bukharan_emir]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_invite_the_mughal_prince]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_unify_the_islamic_world]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_extend_a_hand_to_tokyo]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_the_madrasas]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_promote_muslim_work_ethic]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_rehabilitate_the_saqqawists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ulugh_beg_academy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_prepare_the_war_industries]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_revive_the_workshop_of_the_world]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reorganize_the_royal_guard]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reintroduce_heavy_cavalry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reintroduce_war_elephants]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_timurid_bureaucracy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_hone_the_shamshir]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_restore_herat]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_integrate_the_basmachi_movement]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_proclaim_the_second_afghan_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ally_the_brahui_khanate]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_the_echoes_of_panipat]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_the_amu_darya_plan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reclaim_the_emperors_lost_domain]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_return_to_delhi]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reclaim_moghulistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ally_the_sikhs]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_the_conquerors_of_persia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reclaim_transoxiana]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_rebuild_the_silk_road]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_restore_the_timurid_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_the_crown_and_the_world]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_enforce_the_pashtunwali]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_form_the_khuddamul_furqan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_instate_a_compulsory_jizya]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_raise_lashkar_regiments]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_support_nort_west_frontier_rebels]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_appraoch_anti_communist_theologians]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_unite_pashtunistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_form_the_turkestan_legion]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_proclaim_a_new_caliphate]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_return_of_the_emir]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_revive_the_1923_constitution]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_education_for_women_and_girls]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_enforce_western_attire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_state_run_factories]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reinforce_the_royal_guard]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_custail_pashtunwali_primacy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_agreement_with_germany]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_renounce_the_durand_line]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_eyes_on_the_north]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_alliance_with_turkik_peoples]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_red_threat]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_fortify_pakistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_into_the_plains_of_india]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_work_with_gestapo]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_pashtun_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ally_basmachi_remnants]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_from_the_ashes]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_exploit_turko_persian_heritage]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_topple_iran]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_secure_baghdad]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_savior_of_the_holy_lands]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_increase_land_and_animal_taxes]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_establish_darulaman]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_darulaman_university]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_alternative_partnerships]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_officer_training]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_permit_axis_airbases]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_join_axis]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_axis_airforce]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_axis_equipment]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_kabul_conference]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_support_king_zahir]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_biding_our_time]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_the_kings_powerbase]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_forge_a_national_identity]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_visit_foreign_capitals]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expand_royal_guard]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_retire_the_uncles]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_introduce_national_service]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_placeholder_1]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_seek_british_investment]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reform_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_secure_dynasty]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_maintain_neutrality]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expel_axis_nationals]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_expel_allied_nationals]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_pursue_our_own_agenda]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_align_with_the_allies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_anti_soviet_cooperation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_protector_of_the_tajiks]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_propose_confederation_with_pakistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_afghan_pakistan_cold_War]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_graveyard_of_empires]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_hot_war_with_pakistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_accelerate_integration]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_prepare_for_operation_countenance]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_secure_iran]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_repeal_the_durand_line]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_future_of_balochistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_khorasan_buffer_state]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_linchpin_of_global_defense]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_promote_the_counter_elite]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_gant_refuge_to_jadidists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_ally_the_young_afghans]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_parliamentary_democracy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_gain_religious_support_for_reforms]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reform_1]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_hold_elections]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reform_3]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_concessions_to_pashtuns]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_reform_4]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_recruit_foreign_experts]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_seek_american_aid]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_rapprochement_with_non_pashtuns]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_defending_democracy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_follower_of_islam]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_republic_of_afghanistan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_sinkiang_intervention]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_socialist_coup]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_request_soviet_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_international_brigades]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_state_atheism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_soviet_research_cooperation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_communist_industrialization]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_communist_propaganda]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_support_soviets_in_asia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_integrate_tajik_and_uzbek_republics]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_sov_iran_war]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_development_in_uzb]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_development_in_taj]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_development_in_tms]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AFG_central_asian_unification]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)

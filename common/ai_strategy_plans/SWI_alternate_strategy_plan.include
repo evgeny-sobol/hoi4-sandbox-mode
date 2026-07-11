@@ -1,0 +1,27 @@
+SWI_alt_allied:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SWI_alt_expansionist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SWI_imperial:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SWI_fascist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

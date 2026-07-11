@@ -1,0 +1,20 @@
+POR_helps_SPD_win_civil_war:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+POR_helps_SPA_win_civil_war:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+POR_helps_SPB_win_civil_war:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

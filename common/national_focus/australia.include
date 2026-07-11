@@ -1,0 +1,565 @@
+focus_tree[id = australian_focus]:
+
+  focus[id = AST_additional_militia_training]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_royal_australian_artillery]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_promote_reservists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_daimler_dingo]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_hmas_assault]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_specialize_equipment]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_australian_womens_army_service]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_australian_army_catering_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_fund_owen_gun_research]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_sentinel_tank_project]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_airborne_defence]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_introduce_unconventional_warfare]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_z_special_unit]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_m_special_unit]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_central_bureau]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_expand_the_raaf]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_cac_boomerang]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_expand_northern_presence]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_cac_woomera]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_volunteer_air_observers_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_naval_bombers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_death_from_down_under]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_womens_auxilliary_australian_air_force]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_dominate_the_skies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_cockatoo_island_shipyards]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_kangaroo_point_shipyards]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_protect_overseas_commerce]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_fly_the_jolly_roger]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_scrap_iron_flotilla]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_royal_australian_submarine_service]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_naval_auxiliary_patrol]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_cruisers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_pacific_area_navy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_standard_gauge_railway]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_industries_assistance_corporation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_western_australian_government_railways]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_south_australian_housing_trust]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_department_of_supply_and_development]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_expand_lithgow_small_arms_factory]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_allied_works_council]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_expand_the_northern_railway]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_australian_arms_production]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_uranium_mining]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_establish_advisory_war_council]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_national_security_act]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_volunteer_defence_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_civil_construction_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_army_inventions_directorate]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_invest_in_victory]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_citizen_military_forces]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_rats_of_tobruk]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_fight_work_or_perish]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_research_collaboration]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_squash_the_squanderbugs]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_rationing_and_recycling]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_classify_aliens]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_fund_australian_defense_research]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_support_the_policy_of_appeasement]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_strengthen_ties_with_uk]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_the_singapore_strategy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_adopt_westminster]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_CSIR]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_swpa_protector]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_empire_air_training_scheme]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_commonwealth_aircraft_corporation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_never_another_gallipoli]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_protect_the_homeland]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_the_swpa_menace]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_sever_ties_with_uk]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_woo_usa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_protect_the_dutch_colonies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_the_south_west_pacific_initiative]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_research_cooperation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_preemptive_intervention]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_abandon_the_westminster_system]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_support_the_centre_party]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_supply_indonesian_nationalists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_support_indonesian_uprising]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_demand_new_zealand]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_protect_the_south_west_pacific]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_a_deal_with_japan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_our_own_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_japan_tech_sharing]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_war_on_japan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_empower_the_workers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_delegation_to_china]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_commitment_to_the_cause]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_indirect_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_direct_support]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_join_comintern]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_workers_paradise]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_research_city_excursions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_nz_puppet]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = AST_the_threat_against_the_people]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)

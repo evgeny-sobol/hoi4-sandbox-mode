@@ -1,0 +1,515 @@
+SOV_unit_production:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_later_unit_roles:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_later_unit_roles:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_bomber_production:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_market_management:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_anti_armor:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_we_want_to_reach_t34_asap:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_we_want_t34_asap:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_build_the_t34:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_time_to_leave_light_tanks:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+southern_thrust:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+claims_on_poland:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+claims_on_finland:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+claims_on_sinkiang:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+japan_ally:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+germany_ally:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+germany_enemy:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+spanish_civil_war_SOV:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+spanish_civil_war_SOV_resistance:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+manchukuo_soviet_aid:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_template_design_1:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_template_design_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_pp_spending:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_decision_pp_spending:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_play_nice_with_ribbentrop_pact:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_naval_role_ratios_historical:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_home_land_is_safe:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_the_nkvd_is_all_the_intel_we_need:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_dont_mess_with_volunteers_for_european_democratic_nations:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_dont_send_volunteers_that_early_to_china:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_send_volunteers_to_sinkiang:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_dont_send_volunteers_to_japan:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_dont_send_lend_lease_that_early_to_china:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_have_some_train_production:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_dont_support_whites:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_dont_ally_us_soviet_civil_was:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_dont_join_wars_during_civil_war:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_support_opposition_with_arms:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_baltics:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_Poland:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_north:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_center:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_moscow:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_scorched_earth_german_front_stalingrad:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_dont_do_so_many_naval_invasions_please:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_molotov_active_sov:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_molotov_active_friendly_others:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_molotov_active_hostile_others:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_litvinov_active_sov:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_litvinov_active_friendly_others:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_litvinov_active_hostile_others:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_khakimov_proposal_sov:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_khakimov_proposal_sau:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_unit_buffer_for_asian_threat:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_coming_to_getcha_iran:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_ENG_tagteam_iran:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_boost_div_upgrades:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_defend_blitzkrieg:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_defend_blitzkrieg_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_wants_civ:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_ultimatum_LIT:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_ultimatum_LAT:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_ultimatum_EST:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_defense_in_depth:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_ultimatum_ROM:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_ultimatum_FIN:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ALLIES_avoid_enemies_for_a_while_ww3:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_defend_leningrad_if_at_war_with_fin:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_dont_send_all_convoys_on_holiday_to_vladivostok:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_convoys_are_needed_for_lendlease:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_historical_dont_attack_poland_too_early:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_cant_stop_wont_stop:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_lets_prep_for_more_advanced_heavy_tanks:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_lets_get_some_kv_tanks:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_lets_get_some_is_tanks:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_we_need_more_tanks_to_smash_the_german_lines:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_aifc_linear_defence:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+SOV_build_tank_destroyers:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

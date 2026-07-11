@@ -1,0 +1,337 @@
+focus_tree[id = austro_hungarian_releasable_focus]:
+
+  focus[id = ah_army_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_equipment_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_motorization_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_doctrine_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_equipment_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_mechanization_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_doctrine_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_equipment_effort_3]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_armor_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_special_forces]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_aviation_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_fighter_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_bomber_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_aviation_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_CAS_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_rocket_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_NAV_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_naval_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_flexible_navy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_large_navy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_submarine_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_cruiser_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_destroyer_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_capital_ships_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_industrial_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_construction_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_production_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_construction_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_production_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_infrastructure_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_production_effort_3]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_infrastructure_effort_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_construction_effort_3]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_nuclear_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_extra_tech_slot]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_extra_tech_slot_2]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_secret_weapons]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_political_effort]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_collectivist_ethos]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_nationalism_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_internationalism_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_liberty_ethos]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_militarism]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_political_correctness]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_neutrality_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_interventionism_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_military_youth]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_deterrence]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_volunteer_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_paramilitarism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_indoctrination_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_foreign_expeditions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_why_we_fight]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_political_commissars]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_ideological_fanaticism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ah_technology_sharing]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)

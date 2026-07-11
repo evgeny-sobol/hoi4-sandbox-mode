@@ -1,34 +1,48 @@
 SOV_alternate_plan_1:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_left_opposition_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_left_opposition_cooperative_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_right_opposition_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_right_opposition_cooperative_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_exiles_tsarist_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 SOV_exiles_fascist_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

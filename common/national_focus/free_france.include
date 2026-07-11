@@ -1,0 +1,139 @@
+focus_tree[id = free_french_focus]:
+
+  focus[id = FRA_appeal_to_the_french_nation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_appeal_to_overseas_territories]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_north_africa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_west_africa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_syria]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_indochina]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_central_africa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_intervention_in_madagascar]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_form_the_national_committee]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_form_the_provisional_government_of_the_republic]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_continue_the_fight]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_the_free_french_navy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_colonial_recruitment]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_the_regiment_normandie]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_refus_absurde]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_the_maquis]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_reach_out_to_trade_unions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_cooperation_with_the_communists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_connections_to_industrialists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_the_civil_and_military_organization]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_national_council_of_the_resistance]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_national_uprising]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = FRA_french_forces_of_the_interior]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)

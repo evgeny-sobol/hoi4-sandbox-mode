@@ -1,0 +1,13 @@
+CHI_warlord_alternate_plan_nationalist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+CHI_warlord_alternate_plan_communist:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

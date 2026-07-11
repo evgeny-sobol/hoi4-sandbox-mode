@@ -1,0 +1,1225 @@
+focus_tree[id = ethiopia_tree]:
+
+  focus[id = ETH_ecole_militaire_haile_selassie_1er]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_university_of_capital]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_scavenging_tactics]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_keep_the_chitet]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_mehal_sefari]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_ethiopian_air_force]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_establish_a_naval_base]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_improve_the_administration]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_mounted_levies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_regional_training_centers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_kebur_zabagna]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_tactical_training]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_peacekeeping_forces]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_copy_plane_designs]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_asmera_naval_college]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_capital_school_of_technology]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_regional_supply_depots]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_levy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_junior_officer_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_camouflage]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_fetno-derash]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_debre_zeyit_air_force_training_center]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_purchase_obsolete_ships]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_new_weapons_and_tactics]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_old_reliable]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_bring_in_foreign_advisors]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_ethiopian_officers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_promote_the_war_heroes]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_officer_corps]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_common_soldier]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_develop_the_capital_region]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_state_bank_of_ethiopia]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_infrastructure_projects]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_state_owned_industry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_encourage_local_development]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_a_port_of_our_own]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expanding_the_railway_network]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_taxing_the_nobility]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_tax_exemptions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reform_the_currency]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_increased_factory_output]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_adapt_and_improve]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_state_court]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_ethiopian_shipbuilding]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_connecting_the_south]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_bomb_proofing]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_rapid_industrial_expansion]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_develop_the_horn_of_africa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invest_in_the_north]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invest_in_the_east]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invest_in_the_west]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_coffee_industry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_modernizing_the_industry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_animal_husbandry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_ethiopian_industrial_research_institute]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invite_foreign_prospectors]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invite_foreign_industrialists]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_second_italo-ethiopian_war]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_renewed_offensive]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_falling_back]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_northern_thrust]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_victory_in_the_desert]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_defense_of_addis_ababa]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_hindenburg_wall]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_mercenaries]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_a_last_stand]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_lessons_of_war]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_rally_around_the_emperor]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_boarding_the_train]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_emperor_stays]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_addressing_the_league_of_nations]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_arms_purchases]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_request_embargo]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_international_brigades]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_closing_the_suez]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_international_mediation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_american_radio_address]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_patriots]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_abuna]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_lion_stands_firm]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_unification_of_the_habesha]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_ferengi]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_recruit_from_the_african_diaspora]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_anti-italian_propaganda]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_heroes_of_ethiopia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_learning_from_the_enemy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_organize_regional_revolts]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_secure_arms]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_volunteers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_fait_accompli]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reclaiming_ethiopia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_heir_of_solomon]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_protector_of_the_somalis]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_king_of_kings]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_rebuilding_the_country]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_support_anti-colonialist_resistance]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_empower_the_ras]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_re-convene_the_parliament]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reintegrate_aussa]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_unite_the_afar]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_lord_of_lords]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_elect_of_god]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_restore_the_empire_of_axum]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_a_federal_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_empower_the_chambers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_african_union]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_pan-africanism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_one_true_heir_of_solomon]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_jah]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_lion_and_the_sun]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_an_ethiopian_navy_in_exile]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_an_arabic_base]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_an_empire_in_the_shade_of_the_sun]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_an_audience_with_countryleadertitle]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_befriend_goring]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_steel_lions]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_german_mediation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_sabotage_italo-german_relations]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_joint_swedish-ethiopian_intelligence_program]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_anti-tank_guns]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_a_libyan_revolt]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_ethiopias_cause_is_ours]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_military_communism]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_defending_our_homes]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_anti_imperialist_agitation]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_in_the_name_of_the_people]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_callout_to_the_world]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_soviet_aid]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_humanitarian_aid]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_support_from_the_japanese_communists]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_international_brigades_communist]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_peoples_army]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_peace_negotiations]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_raise_from_the_ranks]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_new_administration]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_soviet_rifles]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_military_advisors]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_clearing_the_skies]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_counter_the_armored_threat]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_soviet_mediation]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_red_army_engineers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_liberate_aussa]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_demand_DJI]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_laying_the_tracks]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_transformation_of_nature]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_a_guiding_hand]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_local_committees]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_support_spain]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_rif]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_refuge_for_the_spanish_exiles]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_communal_education]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_seize_the_means]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_mass_transit]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_communal_agriculture]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_african_wildfire]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_preparing_for_the_inevitable]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_flames_across_the_sea]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_heavy_industry]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_arms_production]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_mytishchi-ababa_plant]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_send_home_advisors]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_soviet-ethiopian_trade_agreement]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_seek_new_trading_partners]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_our_own_path]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_freedom_at_gunpoint]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_boots_on_the_shore]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_request_soviet_hulls]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_organization_of_african_unity]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_mutual_defense]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_african_central_bank]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_executive_council]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_african_union]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reach_out_to_the_italians]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_sway_the_warlords]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_expand_the_bodyguard]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_declare_for_italy]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_restore_the_country]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invite_italian_settlers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_replace_the_abuna]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_capital_victory_parade]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_amedeos_feast_of_maskal]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_assertiveness]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_exploit_french_weakness]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_invite_italian_investors]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_italian_general_staff]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_cooperation]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reinforce_dynamic_identity]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_underground_wargames]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_adopt_the_lira]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_request_italian_equipment]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_recruit_mercenaries]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_set_up_a_customs_barrier]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_contact_the_exiles]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_outsourced_production]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_together_for_victory]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_our_enemys_enemy]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_raid_italian_depots]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_italian_language]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_compensation]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_negusa_nagast]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_italo-ethiopian_empire]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_reclaim_the_empire]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_the_liberator_of_country_short]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = ETH_consolidate_east_africa]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)

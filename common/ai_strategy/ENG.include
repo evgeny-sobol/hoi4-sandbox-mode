@@ -1,0 +1,593 @@
+ENG_unit_production:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_bomber_production:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_carrier_air_production:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_bba_air_prod_1:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_bba_air_prod_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_build_more_patrol_bombers:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_fighter_enhanced_production:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_the_home_fleet:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_the_med_fleet:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_build_kgv_battleships:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_upgrade_from_interwar_tanks_asap:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_protect_poland_against_germany:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_trade_with_poland:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_less_weapon_purchases_more_for_construction:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_fewer_factories_for_purchases_please:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_protect_poland_against_germany_even_more:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_defend_poland_against_germany:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_royal_air_force:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_template_design_1:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_template_design_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_ALLIES_careful_with_early_invasions:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_USA_careful_with_early_invasions:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_ALLIES_east_prussia_invasion_is_death_trap:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_trying_to_save_benelux_is_deathtrap:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_naval_role_ratios_historical:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_naval_role_ratios_anti_submarines:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_naval_role_ratios_screens_focus:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_the_adriatic_is_dangerous:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_focus_naval_invasions_on_med:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_home_guard:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_home_guard_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_protect_the_channel_from_invasion:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_the_channel_is_dangerous:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_raid_the_channel:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_raid_the_north_sea:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_raid_the_western_appproaches:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_baltic_is_a_trap:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_lifeline_of_the_empire:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_commit_to_the_lifeline:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_focus_on_europe:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_focus_on_europe_more:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_focus_on_europe_loads_more:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_evacuate_troops_after_fall_of_france:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_time_to_ditch_FRA:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_gang_up_GER_with_USA:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_accept_USA_access:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_COMMONWEALTH_dont_get_sucked_into_FRA_and_die:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_please_stop_stomping_italy_so_hard_in_africa_ty:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_in_for_the_long_haul_bruv:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_industry_we_on_an_island_bruv:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_if_the_best_arrangements_are_made_as_they_are_being_made:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_the_best_arrangements_are_made:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_growing_confidence_in_the_air:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_allies_dont_ask_for_diplo_access_to_SOV:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_defend_mediterranean:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_defend_alexandria:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_defend_alexandria_reduced:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_convoy_raids_german_italian_convoys:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_produce_floating_harbors:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_unit_buffer_for_african_defense:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_prepare_for_war_with_iraq:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_ALLIES_norway_is_not_THAT_important:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_super_boost_armor_div:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_super_boost_armor_div_med:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_USA_take_italys_spaghetti:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_onto_the_beaches:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_onto_the_beaches_2:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_onto_the_beaches_3:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_onto_the_beaches_4:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_USA_d_day:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_ALLIES_we_hate_fighting_in_the_balkans:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_sardinia_is_a_stupid_island:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+COMMONWEALTH_disregard_france_a_bit:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_disregard_france_a_bit:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_air_support_north_africa:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_dont_kick_russia_out_from_triple_entente_due_to_gobbling_up_breakaway_states:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_the_baltic_is_a_terrible_holiday_destination:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ENG_chill_on_the_pacific:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_ethiopian_continuation_war:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_to_tobruk:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_naval_landings_in_libya:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_supply_for_tobruk_push:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_upgrade_matrouh_naval_base:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_avoid_balkans_until_africa_is_secure:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_ALLIES_dont_invade_norway:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_prepare_for_naval_invasion_capability:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_prepare_gibraltar:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_raids:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_i_like_raj:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_become_head_of_crypto:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_become_supreme_commander:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_dominate_the_home_islands:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_develop_mediterranean_supremacy:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_med_invasion_phase:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_synthetic_industry_baseline:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ENG_synthetic_industry_pacific_war:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

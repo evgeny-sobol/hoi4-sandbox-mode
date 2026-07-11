@@ -1,0 +1,47 @@
+FIN_alone_in_the_north:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+FIN_the_soviet_threat:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+FIN_trade_with_sweden:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+FIN_trust_nordic_neutrality:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+FIN_antagonize_soviets:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+FIN_continuation_war_wait:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+FIN_continuation_war_attack:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

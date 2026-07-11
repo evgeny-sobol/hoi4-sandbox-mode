@@ -1,24 +1,33 @@
 CZE_mun_alternate_strategy_plan_entente:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 CZE_mun_alternate_strategy_plan_communist:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 CZE_mun_alternate_strategy_plan_fascist:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 CZE_mun_alternate_strategy_plan_monarchy:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
 
 CZE_mun_alternate_strategy_plan_democratic:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

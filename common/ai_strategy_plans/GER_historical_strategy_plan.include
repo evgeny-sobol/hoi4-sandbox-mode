@@ -1,9 +1,13 @@
 German_historical:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 GER_minor_allies:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

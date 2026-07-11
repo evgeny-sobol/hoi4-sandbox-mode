@@ -1,0 +1,36 @@
+ROM_be_nice_to_hitler:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
+
+ROM_build_early_civ:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ROM_highway_to_the_danger_zone_78:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ROM_highway_to_the_danger_zone_766:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ROM_highway_to_the_danger_zone_79:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+ROM_dont_send_air_to_middle_east:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

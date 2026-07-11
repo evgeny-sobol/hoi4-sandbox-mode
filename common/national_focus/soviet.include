@@ -1,975 +1,1867 @@
 focus_tree[id = soviet_focus]:
+
+  focus[id = SOV_infrastructure_effort_nsb]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_heavy_industry]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
   focus[id = SOV_finish_the_five_year_plan]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_improve_railway_network]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_third_five_year_plan]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reorganize_the_pc_of_heavy_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_industrial_modernization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_increase_state_reserves]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_shift_to_armaments_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_optimize_production_lines]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_steel_casting_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_synthetic_rubber]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_oil_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_restoration_and_development]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_fourth_five_year_plan]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_found_the_comecon]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_common_economic_space_initiative]:
-    +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_found_the_warsaw_pact]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_no_time_for_peace]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_national_specialists]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_foreign_experts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_eastern_development]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_develop_the_urals]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_ussr_academy_of_sciences]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_national_academies_of_sciences]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_transformation_of_nature]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_transformation_of_nature_alt]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_transpolar_flights]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_expand_the_aircraft_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_modernize_aircraft_facilities]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_merge_aircraft_plants]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_found_the_jet_institute]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_increase_aircraft_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_foster_flying_clubs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_women_in_aviation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_raskovas_aviation_group]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_intensify_pilot_training_program]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_expand_aviation_institutes]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_ground_support]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_long_range_aircraft]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_modern_war_in_the_skies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_expand_the_red_fleet]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reinforce_western_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reinforce_northern_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reinforce_southern_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reinforce_eastern_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_expand_shipbuilding_plants]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_merge_naval_plants]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_pc_of_the_ussr_navy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_surface_warfare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_submarine_warfare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_offensive_maritime_strategy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_an_oceangoing_navy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_mine_warfare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_long_range_raiders]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_advanced_maneuvers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_expand_the_morskaya_aviatsiya]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_naval_infantry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_found_the_pcdi]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_pc_of_mechanical_engineering]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_superior_war_machines]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_means_to_wage_war]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_soviet_artillery]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_pc_of_mortar_armament]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_development_of_tankograd]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_merge_tank_and_materiel_plants]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_strengthen_the_mobilization_plan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_military_engineering_university]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_leningrad_polytechnical_institute]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_soviet_atomic_bomb_project]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_move_industry_to_the_urals]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_road_of_life]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_molotov_line]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_improve_the_stalin_line]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_defense_of_moscow]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_impregnable_forts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_protect_the_white_sea_baltic_canal]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_far_east_fortification]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_restore_cossack_units]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_cohesion_first]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_rehabilitated_military]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_military_reorganization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_desperate_measures]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_an_adaptable_army]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_lessons_of_war]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_penal_battalions]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_organization_of_the_partisans]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_smersh]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_barrier_troops]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_experts_in_camouflage]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_keep_commissars_organization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_adjoined_battle_priests]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_swap_to_political_advisors]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_glory_of_the_red_army]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_glory_of_the_red_army_alt]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_path_of_marxism_leninism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_centre]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_socialism_in_one_country]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_stalin_constitution]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_zinovyevite_terrorist_center]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_secure_the_administration]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_collectivization_process]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_anti_soviet_trotskyist_center]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_workers_dictatorship]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_organization_centralization_discipline]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_war_economy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_military_conspiracy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_bloc_of_rights_and_trotskyites]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_behead_the_snake]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_stalins_cult_of_personality]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_they_will_know_fear]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_inheritor_of_the_mantle_of_lenin]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_brilliant_genius]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_faithful_servant_of_lenin]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_ban_excessive_hero_worship]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_leader_of_the_party_and_the_people]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_great_commander]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_architect_of_communism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_father_of_nations]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_freedom_of_debate_unity_of_action]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_construction_of_communism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_left_opposition]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_fourth_international]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_bring_old_trotskyists_back]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_organize_the_wreckers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_integrate_smirnovs_bloc]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_left_eliminate_right]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_committee_in_exile]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_approach_tukhachevsky]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_approach_primakov]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_funds_for_the_cause]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_left_opposition_coup]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_vanguard_of_the_true_revolution]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_long_live_the_workers_government]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_left_purges]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_builder_of_the_red_army]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reigniting_the_revolutionary_spirit]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_permanent_revolution]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_depoliticize_the_military]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_system_decentralization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_strengthen_heavy_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_a_global_class_struggle]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_all_power_to_the_soviets]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_regional_development]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_autonomous_soviet_republics]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_international_union_of_soviet_republics]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_onslaught_on_colonialism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_carry_revolution_east]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_end_of_the_imperialist_era]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_right_opposition]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_need_for_policy_changes]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_reverse_the_collectivization_process]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_organize_uprisings_in_the_country]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_dissent_in_the_party]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_eliminate_the_left]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_concessions_to_foreign_powers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_covert_support_for_spanish_poum]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_undermine_stalins_authority]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_clandestine_cells]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_plan_for_the_coup]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_socialist_bulwark]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_coup_detat]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_right_purges]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_power_of_the_peasantry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_curtailment_of_the_collective_farms]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_administrative_reforms]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_a_new_theory_of_revolution]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_back_to_the_nep]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_planned_economy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_paced_industrialization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_trade_union_as_labor_organizer]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_incorporate_local_organizations]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_for_the_common_good]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_victory_over_devastation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_socialist_humanism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_international_revolutionary_marxist_centre]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_a_sustainable_economy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_enemies_of_the_people]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_proclaim_soviet_hegemony]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_military_support]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_divert_attention_towards_military]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_gain_support_from_party_members]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_sway_the_railway_workers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_infiltrate_the_nkvd]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_cooperation_against_stalin]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_align_the_zinovyevites]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_liberate_ryutin]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_return_democracy_to_the_party]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_strengthen_the_trade_unions]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_peoples_revolution]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_supreme_soviet]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_addressing_internal_affairs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_nkvd_primacy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_new_soviet_woman]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_expand_the_agitprop]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_positive_heroism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_revive_the_stakhanovite_movement]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_war_heroes]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_collectivist_propaganda]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_socialist_emulation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_socialist_realism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_komsomol]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_patriarch_of_all_russia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = SOV_the_comintern]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_development_aid_for_eastern_allies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_war_measures_in_the_east]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_annex_tannu_tuva]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_fortify_mongolian_border]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_send_military_advisors_to_spain]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_policy_of_collective_security]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_anti_fascist_policies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_seek_a_defense_pact_with_the_allies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_khakimov_proposal]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_eradicate_western_fascism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_policy_of_individual_security]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_approach_germany]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_liberation_of_the_european_proletariat]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_anti_capitalist_policies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_recover_alaska]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_fight_for_the_pacific]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_baltic_security]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_respect_baltic_self_determination]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_claims_in_baltic]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_secure_leningrad]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_control_scandinavia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_claims_on_poland]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_demand_eastern_poland]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_offer_poland_protection]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_claim_on_bessarabia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_demand_balkan_submission]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_seek_balkan_cooperation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_middle_east_diplomacy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_southern_thrust]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_support_afghan_ideology]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_preemptive_invasion_of_iran]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_threat_from_the_land_of_the_rising_sun]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_gobi_gambit]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_two_red_flags]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_support_the_kuomintang]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_intervention_in_china]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_prepare_a_war_with_japan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_end_the_khalkhin_gol_conflict]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_recover_the_kuril_islands]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reconcile_japan]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_spheres_of_influence_in_china]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_soviet_japanese_pact_against_usa_focus]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_beaten_but_not_defeated]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_unification_of_the_exiles]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_womens_fascist_movement]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_true_tsars]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_national_unification]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_embrace_the_black_hundreds]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_covert_operations]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_muster_the_old_guard]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_approach_semyonov]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_fascist_youth_union]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_tolkachi]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_south_manchuria_railway]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_organize_wreckers]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_eyes_fear]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_hands_do]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_call_for_aid]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_request_imperial_protection]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_sabotage_behind_enemy_lines]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_aristocratic_investments]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_consolidate_power]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_rebuild_the_nation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_bringing_breakaways_back_to_the_fold]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_offer_autonomy_to_former_soviet_republics]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_restore_the_glory_of_the_motherland]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_article_124]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reopen_novodevichi]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_rebuild_the_savior_cathedral]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_synod]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_declaration]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_return_of_the_rocor]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reformalize_the_role_of_the_patriarchate]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reconvene_the_zemsky_sobor]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_dismantle_the_zemsky_sobor]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_russian_corporate_state]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_romanov_reconstruction]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_capital_of_the_tsars]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_church_candidates]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reinstitute_the_mestnichestvo]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_iron_wall_of_russian_resolve]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_my_brothers_keeper]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_rightful_heir_to_the_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_third_rome]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_vengeance_for_the_yoke]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_reclaim_uryankhay_krai]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_westward_bound]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_triple_entente]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_our_slavic_commitments]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_old_enemy]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_secure_finland]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_secure_the_baltics]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_panslavic_nationalism]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_fate_of_romania]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_pacify_the_rim]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_eastern_expansion]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_intervention_in_the_americas]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_restore_the_old_eastern_empire]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_into_central_asia]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_last_break_southward]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_rebuild_the_far_eastern_fleet]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_modernize_the_far_eastern_fleet]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_memories_of_1905]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_lonely_island]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_an_empire_in_the_pacific]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_the_berlin_moscow_axis]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = SOV_japanese_overtures]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)

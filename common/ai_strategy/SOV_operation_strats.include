@@ -1,0 +1,17 @@
+SOV_build_intel_network_in_MEX_strat:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_raid_trotskys_villa_strat:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+SOV_murder_trotsky_strat:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

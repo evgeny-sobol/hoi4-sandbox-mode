@@ -1,0 +1,325 @@
+focus_tree[id = paraguay_focus]:
+
+  focus[id = PAR_fedrerista_land_reforms]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_reach_out_to_european_contacts]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_rebuild_humaita]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_ban_vouchers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_a_great_charter]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_invite_japanese_settlers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_central_bank_of_paraguay]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_allow_unions_to_strike]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_military_pensions]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_allow_women_workers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_request_weapons]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_a_call_out_for_aid]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_to_cross_a_river]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_specialized_terrain_training]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_chaco_war_decoration]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_order_italian_planes]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_urbanization]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_ask_for_bankroll]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_emergency_powers]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_by_all_means_which_to_win]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_assasinate_rafael_franco]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_goad_bolivia]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_put_estigarribia_on_a_pedestal]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_purge_the_military_of_dissent]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_soliders_for_prisoners]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_aftermath_of_the_coup]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_revenge_for_the_chaco_war]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_get_rid_of_obsolete_guns]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_pull_back_troops_from_the_chaco]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_the_permanent_leader]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_discipline_hierarchy_and_order]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_suspend_elections]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_get_rid_of_colonel_peredes]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_ensure_army_loyalty]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_nazify_the_army]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_radicalize_the_police]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_accept_american_loans]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_agricultural_technical_assistence]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_brazilian_road_finance]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_join_the_cominterm]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_ban_the_liberal_party]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_align_with_the_guion_rojo]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_neuter_the_guion_rojo]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_liga_nacional_independiente]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_cult_of_personality]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_union_nacional_revolucionaria]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_adopt_minority_languages]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_free_seconday_schools]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_nationalize_foreign_owned_companies]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_mass_drafts]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_mythologize_the_father_of_the_nation]:
+    ai_will_do:
+      +modifier:
+        is_sandbox_mode_on()
+        base(1.0)
+
+  focus[id = PAR_access_the_sea]:
+    +ai_will_do:
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)

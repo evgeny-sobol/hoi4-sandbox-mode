@@ -1,0 +1,6 @@
+dont_justify_on_historical:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

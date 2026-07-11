@@ -1,0 +1,11 @@
+RUT_we_do_not_guarantee_or_befriend_you:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+RUT_i_am_a_push_over:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

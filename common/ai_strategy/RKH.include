@@ -1,0 +1,17 @@
+RKH_joins_the_team_for_the_big_win_or_the_big_defeat:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+RKH_got_enough_stuff_already:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)
+
+RKH_GER_doesnt_feel_so_good:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

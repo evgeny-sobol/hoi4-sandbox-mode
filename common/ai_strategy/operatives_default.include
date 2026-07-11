@@ -1,0 +1,5 @@
+enable_operative_missions:
+  enable:
+    is_sandbox_mode_on(no)
+  +abort:
+    is_sandbox_mode_on(yes)

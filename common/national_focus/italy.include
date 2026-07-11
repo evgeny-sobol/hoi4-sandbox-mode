@@ -1,1570 +1,1885 @@
 focus_tree[id = italian_focus]:
+
   focus[id = ITA_ethiopian_war_logistics_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italian_highways_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ministry_of_italian_africa]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_develop_ethiopia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_develop_libya]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_develop_eritrea]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_develop_somaliland]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_regional_development]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_litoranea_balbo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_via_della_vittoria]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_libyan_railway]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_prospect_for_oil]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_libyan_refineries]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_polizia_dell_africa_italiana]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_strengthen_ascari_corps]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_comandante_diavolo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_steel_industry_in_terni]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_power_plants_in_terni]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_industria_della_gomma_sintetica]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_strengthen_northern_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_modernize_the_mezzogiorno]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_industrialization_program]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_railway_innovations]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_foggia_farm_fields]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_investments_in_edison]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_national_universities]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_fiocchi_munizioni]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_brescia_small_arms_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_milan_comms_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_redirect_alfa_romeo_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_increase_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_keep_specialization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_thermojet_research]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_army_primacy_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_preserve_army_traditions]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_increase_artillery_production]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_vallo_alpino_del_littorio]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_moschettieri_del_duce]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_bandits_war]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_carica_di_isbuscenskij]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_army_leaders]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_superesercito]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italian_tankettes]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bersaglieri]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_divisioni_alpine]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_fanti_dell_aria]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_self_propelled_guns]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_end_fiat_ansaldo_duopoly]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_modernize_ansaldo_facilities]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ferrea_mole_ferreo_cuore]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_air_innovations_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_citta_dell_aria]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_rome_flying_school]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reggianes_exports]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_diving_bombers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_superaereo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_officers_of_the_service_role]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_standardization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_specialization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_long_range_aircraft]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bomber_designs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_fighter_designs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_multirole_aircraft]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_supremacy_in_the_skies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_naval_power_projection]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_intensify_torpedo_manufacturing]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_naval_facilities]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_oto_naval_guns]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_improve_overseas_naval_bases]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_milizia_marittima_di_artiglieria]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_supermarina]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_stockpile_fuel]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_forza_navale_especiale]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_naval_air_coordination]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_decima_flottiglia_mas]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_incrociatori_leggeri]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_incrociatori_pesanti]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_naval_intelligence]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cooperation_programs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cruiser_submarines]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_midget_submarines]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cacciatorpediniere_di_scorta]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ispettorato_dei_mezzi_antisommergibili]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_navi_da_battaglia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_proper_carriers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_refit_civilian_ships]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_flotta_d_evasione]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_abyssinian_fiasco]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_solid_progress]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_struggle_in_ethiopia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_undermine_the_duce]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_servizio_informazione_militare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_conspiracies_in_the_shadows]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_triumph_in_africa_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_convene_the_grand_council]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_devaluate_the_lire]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_anglo_italian_agreements]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_topple_amhara_rulers]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_new_emperor_of_ethiopia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_culto_del_duce]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_man_of_providence]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_legge_bottai]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_boost_the_grand_council_of_fascism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_to_live_as_a_lion]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_la_battaglia_del_grano]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_la_battaglia_per_la_terra]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_la_battaglia_per_le_nascite]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_strengthen_the_regime]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_devotion]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ministero_della_cultura_popolare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_believe_obey_fight]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_banda_carita]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_banda_koch]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_security_militias]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_battaglioni_d_assalto]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_strengthen_the_blackshirts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_milizia_coloniale]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_towards_a_greater_italy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_heroes_of_the_nation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_capo_supremo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bend_the_bars]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_subdue_the_sentinels]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_colonial_empire]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_by_blood_alone]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_masters_of_the_aegean]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_masters_of_the_mediterranean]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_depose_mussolini]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italo_balbo_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_dino_grandi_focus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_stop_the_squandering]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_consolidate_power]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_purge_the_party]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_fate_of_mussolini]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_divino_duce]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_blackshirt_loyalty]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_greater_purpose]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_spreading_the_eagles_wings]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italian_hegemony]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reorganize_regio_esercito]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reinforce_regia_aeronautica]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_compagnie_auto_avio_sahariane]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_combined_land_and_air_warfare]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_fourth_shore]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_oil_in_tripoli]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_steel_in_tripoli]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_novus_ordo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_seek_british_military_cooperation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_anglo_italian_pact]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_invite_france_to_military_partnership]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_franco_italian_pact]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_proclaim_the_italian_empire]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reorganize_the_party]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_meritocracy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_economic_reforms]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_improve_the_industries]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expanded_corporatism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_monarchia_d_italia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_extraction_industry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_corporations]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_prepare_for_the_coming_wars]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_mobilize_the_railway_guns]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bring_back_old_glories]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_forms_of_weaponry]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_revoke_the_acerbo_law]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_christian_democracy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_democratic_king]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cooperate_with_moderates]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_intelligence_services]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_crush_opposition]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_power_to_the_king]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_disband_the_blackshirts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_utilize_the_blackshirts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_expand_the_royal_guard]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_gloria_al_regno_d_italia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_paramilitary_training]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_seek_papal_support]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_agents_of_the_church]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_strengthen_the_papacy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_setting_course]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_mare_nostrum_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_auxiliaries]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_italian_legions]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_roman_citizens]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_all_roads_lead_to_rome]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_modern_musculus]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_caligulas_pride]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_iberian_protection]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_south_american_alliances]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_papacy_reborn]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_deus_vult]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_il_vento_aureo]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_catholic_action]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_time_for_war]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_holy_lands]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_catholic_dominion]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_foreign_affairs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_balkan_ambition]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_potential_allies_in_the_balkans]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_albanian_occupation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_albanian_oil]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_support_albanian_irredentism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_albanian_fascist_militia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_guarantee_austrian_independence]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_negotiate_italian_claims]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ratify_the_stresa_front]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_joint_military_programs]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italys_destiny]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_eastern_threat]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_pact_of_steel]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_german_military_cooperation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_sea_wolves_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_secret_weapons]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_treaty_with_germany]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_request_control_of_french_territories]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italy_first]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_befriend_japan]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italian_irredentism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_war_with_france]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_demand_ticino]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_war_with_the_uk]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_war_with_greece]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_befriend_greece]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_claims_on_turkey_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_befriend_turkey]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_corpo_di_truppe_volontarie]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_spanish_italian_alliance]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_demand_balearic_islands_bba]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_befriend_portugal]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_italian_liberation_war]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_fronte_militare_clandestino]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_corpo_volontari_della_liberta]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_carabinieri]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_gappisti]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_partisan_republics]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_kings_finest]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_grande_rivolta_rurale]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_liberation_or_death]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_independence_rds]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_italian_social_republic]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_guardia_nazionale_repubblicana]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_integrate_polizia_dell_africa_italiana]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_anti_partisan_measures]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_all_within_the_state]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_battaglioni_m]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reinforce_the_gustav_line]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_social_republic_prevails]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_independence_rsi]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_unite_the_opposition]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_liberate_gramsci]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_organize_strikes_in_the_north]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_southern_farmlands]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_defy_the_duce]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_appeal_to_the_bourgeoisie]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_seize_old_equipment]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_italian_republic]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_popular_front]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_garibaldi_legion]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_gruppi_di_difesa_della_donna]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_new_era_for_the_red_shirts]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_pugno_alzato]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_a_leader_steps_forward]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_path_to_progress]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_industrial_socialization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_institute_the_five_year_plan]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_ricostruzione_industriale]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_political_commissars]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_common_ground]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_appease_the_military]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_crush_the_mafia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_empower_the_carabinieri]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_army_modernization]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_union_in_the_party]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_follow_the_soviet_union]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_military_cooperation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_defense_against_capitalism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_combined_research_effort]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_special_brigades]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_defend_the_land]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_united_anarchist_confederations]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_fight_against_stalinism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_raise_the_peoples]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_il_sol_dell_avvenire]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italian_socialism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cooperate_with_the_mafia]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_mafia_abroad]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_empower_the_unions]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_production_lines]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_republics_leadership]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bring_back_exiled_intellectuals]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_social_stability]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_aid_for_the_spanish_republic]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_italia_libera]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_european_democracies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_peace_preservation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_scientific_cooperation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_secure_the_borders]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_bring_down_fascist_strongholds]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_reestablish_old_alliances]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_military_agreements]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_enemies_of_capitalism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_ethiopian_question]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_abolish_the_colonies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_cooperatives_for_intensive_exploitation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_condemn_colonialism]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_new_colonial_policies]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_negotiations_with_albania]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_enlist_the_bashkimi_kombetar]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_italian_confederation]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_planned_economy]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_the_fight_overseas]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_irregulars]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_liberate_the_workers_of_africa]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)
 
   focus[id = ITA_ascari]:
     +ai_will_do:
-      has_global_flag(sandbox_mode_enabled)
-      base(1.0)
+      modifier:
+        is_sandbox_mode_on()
+        base(1.0)

@@ -1,4 +1,6 @@
 CZE_historical_strategy_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)

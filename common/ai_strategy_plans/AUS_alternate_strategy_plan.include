@@ -1,44 +1,62 @@
 AUS_monarchist_puppet_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_monarchist_annex_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_neutrality_federative_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_communist_SOV_aligned_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_communist_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_democratic_federative_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_democratic_allied_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_democratic_alpine_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
 
 AUS_anti_anschluss_stress_plan:
   enable:
-    +NOT:
-      has_global_flag(sandbox_mode_enabled)
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
