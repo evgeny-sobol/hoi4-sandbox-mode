@@ -1,12 +1,12 @@
 enable_sandbox_mode:
   set_country_flag(sandbox_mode_enabled)
-  honor_stat <- 0
+  honor <- 0
   honor_gain_monthly_factor <- 0
-  tyranny_stat <- 0
+  tyranny <- 0
   tyranny_gain_monthly_factor <- 0
 
   if is_ai() or is_debug():
-    set_variable_to_random(): { var=honor_stat min=-100 max=101 integer=yes }
+    raw set_variable_to_random: { var = honor  min = -100  max = 101  integer = yes }
     random_list:
       25:
         rival_ideology <- token:democratic
@@ -38,39 +38,31 @@ shuffle_political_party_popularities:
       _pop <- party_popularity@communism
     elif var:rival_ideology == token:fascism:
       _pop <- party_popularity@fascism
-    # `_pop *= 0.75 * 100`, because `set_political_party` accepts numbers from 0 to 100
-    _pop *= 75
-    set_political_party(): { ideology=var:rival_ideology popularity=_pop }
+    # `_pop *= 0.50 * 100`, because `set_political_party` accepts numbers from 0 to 100
+    _pop *= 50
+    raw set_political_party: { ideology = var:rival_ideology  popularity = _pop }
 
     # Using popularity of political parties
     #   as weight factors when selecting national focuses
-    ideology_factors[].clear()
-    ideology_factors[].add(party_popularity@democratic)
-    ideology_factors[].add(party_popularity@neutrality)
-    ideology_factors[].add(party_popularity@communism)
-    ideology_factors[].add(party_popularity@fascism)
-    ideology_factors[].min(_pop, _)
-    for v, i in ideology_factors[]:
-      _factor <- v
-      _factor /= _pop
-      ideology_factors[i] <- _factor
+    update_ideology_factors()
 
     # Democratic government is less likely to be tyrannical
     #   than a fascist one; and vice versa. 
     if is_ai() or is_debug():
-      _democratic <- ideology_factors[0] * ideology_factors[0]
-      _neutrality <- ideology_factors[1] * ideology_factors[1]
-      _communism  <- ideology_factors[2] * ideology_factors[2]
-      _fascism    <- ideology_factors[3] * ideology_factors[3]
-      random_list:
-        _democratic:
-          set_variable_to_random(): { var=tyranny_stat min=-100 max=-24 integer=yes }
-        _neutrality:
-          set_variable_to_random(): { var=tyranny_stat min=-25 max=51 integer=yes }
-        _communism:
-          set_variable_to_random(): { var=tyranny_stat min=25 max=101 integer=yes }
-        _fascism:
-          set_variable_to_random(): { var=tyranny_stat min=25 max=101 integer=yes }
+      tyranny += party_popularity@fascism
+
+      raw set_variable_to_random: { var = _rnd  min = 0.25000  max = 0.75001 }
+      tyranny += _rnd * party_popularity@communism
+
+      raw set_variable_to_random: { var = _rnd  min = 0.00000  max = 0.50001 }
+      tyranny += _rnd * party_popularity@neutrality
+
+      raw set_variable_to_random: { var = _rnd  min =-1.25000  max =-0.74999 }
+      tyranny += _rnd * party_popularity@democratic
+
+      tyranny *= 100
+
+    update_tyranny_weights()
 
 update_country_leader_traits:
   if is_sandbox_mode_on():
@@ -88,13 +80,34 @@ update_country_leader_traits:
     elif has_country_leader_with_trait(LT_honor_righteous):
       remove_country_leader_trait(LT_honor_righteous)
 
-    if honor_stat < -75:
+    if honor < -75:
       add_country_leader_trait(LT_honor_treacherous)
-    elif honor_stat < -25:
+    elif honor < -25:
       add_country_leader_trait(LT_honor_dishonorable)
-    elif honor_stat < 25:
+    elif honor < 25:
       add_country_leader_trait(LT_honor_inglorious)
-    elif honor_stat < 75:
+    elif honor < 75:
       add_country_leader_trait(LT_honor_honorable)
     else:
       add_country_leader_trait(LT_honor_righteous)
+
+update_ideology_factors:
+  if is_sandbox_mode_on():
+    ideology_factors[].clear()
+    ideology_factors[].add(party_popularity@democratic)
+    ideology_factors[].add(party_popularity@neutrality)
+    ideology_factors[].add(party_popularity@communism)
+    ideology_factors[].add(party_popularity@fascism)
+
+    ideology_factors[].min(_min_pop, _)
+    for val, i in ideology_factors[]:
+      _factor <- val
+      _factor /= _min_pop
+      ideology_factors[i] <- _factor
+
+d_get_tyranny_factor:
+    _x <- tyranny / 100
+    set_variable:
+      var(tyranny_factor)
+      raw value: { value=5 pow=_x }
+    log("tyranny=[?tyranny] factor=[?tyranny_factor]")

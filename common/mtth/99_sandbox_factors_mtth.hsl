@@ -1,0 +1,52 @@
+####################
+# IDEOLOGY FACTORS #
+####################
+
+democracy_factor:
+  $ideology_factor(democratic)
+
+monarchy_factor:
+  $ideology_factor(neutrality)
+
+communism_factor:
+  $ideology_factor(communism)
+
+fascism_factor:
+  $ideology_factor(fascism)
+
+###################
+# TYRANNY FACTORS #
+###################
+
+# Peak at low tyranny (-100)
+low_tyranny_factor:
+  base(0)
+  modifier:
+    _low_tyranny_bonus <- clamp(tyranny * -1 / 100, 0, 1)
+    add(_low_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+# Peak at high tyranny (+100)
+high_tyranny_factor:
+  base(0)
+  modifier:
+    _high_tyranny_bonus <- clamp(tyranny / 100, 0, 1)
+    add(_high_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+# Peak in the center (0)
+medium_tyranny_factor:
+  base(0)
+  modifier:
+    _medium_tyranny_bonus <- clamp(1 - sqrt(tyranny ** 2) / 100, 0, 1)
+    add(_medium_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)

@@ -5,24 +5,14 @@ CTY_sandbox_strategy_plan_common:
   allowed:
     original_tag(CTY)
   enable:
-    has_global_flag(sandbox_mode_enabled)
-  #abort:
+    is_sandbox_mode_on(yes)
+  abort_when_not_enabled()
 
   #ai_strategy:
 
   #ai_national_focuses:
 
-  focus_factors:
-    # Change the weight of the following focuses
-    #   to balance them with the rest
-    # <...>
-
-    # Originally the following focuses had no `ai_will_do = {}`,
-    #   so we add them in national_focus/<country>.include
-    # <...>
-
-    # The following focuses remain unchanged
-    # <...>
+  #focus_factors:
 
   #research:
 
@@ -30,5 +20,4 @@ CTY_sandbox_strategy_plan_common:
 
   #traits:
 
-  weight:
-    factor(1.0)
+  weight::factor(1)

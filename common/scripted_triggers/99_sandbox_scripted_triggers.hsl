@@ -13,6 +13,7 @@ is_friend_of_PREV:
       is_ally_with(PREV)
       is_guaranteed_by(PREV)
       has_non_aggression_pact_with(PREV)
+    not has_war_with(PREV)
 
 is_honored_leader:
   custom_override_tooltip:
@@ -20,3 +21,11 @@ is_honored_leader:
     OR:
       has_country_leader_with_trait(LT_honor_honorable)
       has_country_leader_with_trait(LT_honor_righteous)
+
+is_rival_of_PREV:
+  custom_override_tooltip:
+    tooltip(LocKey_is_rival_of_PREV_tt)
+    OR:
+      THIS::has_war_with(PREV)
+      raw is_in_array: { array=PREV.rivals value=THIS }
+      raw is_in_array: { array=THIS.rivals value=PREV }

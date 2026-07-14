@@ -1,27 +1,19 @@
 on_actions:
   on_startup:
     effect:
-      if is_historical_focus_on(yes):
-        for watcher in every_country():
-          # So that these macros can always be used safely:
-          #   $democracy_factor(), $monarchy_factor(), $communism_factor(), $fascism_factor()
-          resize_array(): { array=ideology_factors value=1.0 size=4 }
-
-      elif is_historical_focus_on(no):
+      if is_historical_focus_on(no):
         for watcher in every_country():
           enable_sandbox_mode()
 
           if is_ai() or is_debug():
             for target in random_other_country().which(
-                is_major(yes) and has_government(var:watcher.rival_ideology)
-              ):
+                is_major(yes) and has_government(var:watcher.rival_ideology)):
               watcher.rivals[].add(target)
 
             for target in random_other_country().which(
                 is_major(no) and has_government(var:watcher.rival_ideology)
                 and is_friend_of_PREV(no)
-                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))
-              ):
+                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
               watcher.rivals[].add(target)
 
             for target in random_other_country().which(
@@ -47,17 +39,19 @@ on_actions:
 
   on_weekly:
     effect:
-      _watcher <- ROOT
       if is_sandbox_mode_on():
+        update_ideology_factors()
+        update_tyranny_weights()
+
         honor_gain_monthly_factor <- 0
         guaranting[].clear()
         na_pacts[].clear()
 
         for target in every_other_country():
-          if is_guaranteed_by(_watcher):
-            _watcher.guaranting[].add(target)
-          if has_non_aggression_pact_with(_watcher):
-            _watcher.na_pacts[].add(target)
+          if is_guaranteed_by(ROOT):
+            ROOT.guaranting[].add(target)
+          if has_non_aggression_pact_with(ROOT):
+            ROOT.na_pacts[].add(target)
 
         _a <- 0.20 * guaranting[].size()
         _b <- 0.05 * na_pacts[].size()
@@ -66,3 +60,14 @@ on_actions:
   on_ruling_party_change:
     effect:
       update_country_leader_traits()
+
+  on_weekly_SOV:
+    effect:
+      if is_sandbox_mode_on() and not (
+          has_completed_focus(SOV_the_path_of_marxism_leninism)
+          or has_completed_focus(SOV_our_slavic_commitments)
+          or has_completed_focus(SOV_panslavic_nationalism)
+          or has_completed_focus(SOV_the_rightful_heir_to_the_empire)):
+        rightful_heir_to_empire_targets[].clear()
+        for target in every_other_country().which(owns_any_state_of[2, 454, 797]):
+          ROOT.rightful_heir_to_empire_targets[].add(target)
