@@ -1,10 +1,48 @@
 is_sandbox_mode_on:
-  has_country_flag(sandbox_mode_enabled)
+  has_global_flag(sandbox_mode_enabled)
 
 can_PREV_get_wargoal_on_THIS:
   OR:
     is_friend_of_PREV(no)
     is_honored_leader(no)
+
+has_same_ideology_as_PREV:
+  custom_trigger_tooltip:
+    tooltip(has_same_ideology_tt)
+    OR:
+      AND:
+        has_government(democratic)
+        PREV::has_government(democratic)
+      AND:
+        has_government(neutrality)
+        PREV::has_government(neutrality)
+      AND:
+        has_government(communism)
+        PREV::has_government(communism)
+      AND:
+        has_government(fascism)
+        PREV::has_government(fascism)
+
+has_enemy_ideology_with_FROM:
+  OR:
+    AND:
+      has_government(communism)
+      FROM:
+        OR:
+          has_government(fascism)
+          has_government(democratic)
+    AND:
+      has_government(democratic)
+      FROM:
+        OR:
+          has_government(communism)
+          has_government(fascism)
+    AND:
+      has_government(fascism)
+      FROM:
+        OR:
+          has_government(democratic)
+          has_government(communism)
 
 is_friend_of_PREV:
   custom_override_tooltip:
@@ -13,19 +51,18 @@ is_friend_of_PREV:
       is_ally_with(PREV)
       is_guaranteed_by(PREV)
       has_non_aggression_pact_with(PREV)
-    not has_war_with(PREV)
 
 is_honored_leader:
   custom_override_tooltip:
     tooltip(LocKey_is_honored_leader_tt)
     OR:
-      has_country_leader_with_trait(LT_honor_honorable)
-      has_country_leader_with_trait(LT_honor_righteous)
+      has_country_leader_with_trait(honorable_leader)
+      has_country_leader_with_trait(righteous_leader)
 
 is_rival_of_PREV:
   custom_override_tooltip:
     tooltip(LocKey_is_rival_of_PREV_tt)
     OR:
       THIS::has_war_with(PREV)
-      raw is_in_array: { array=PREV.rivals value=THIS }
-      raw is_in_array: { array=THIS.rivals value=PREV }
+      THIS in PREV.rivals[]
+      PREV in THIS.rivals[]

@@ -2,72 +2,24 @@ on_actions:
   on_startup:
     effect:
       if is_historical_focus_on(no):
-        for watcher in every_country():
-          enable_sandbox_mode()
+        HAI::set_global_flag(sandbox_mode_enabled)
+        for every_country():
+          initialize_country_for_sandbox_mode()
 
-          if is_ai() or is_debug():
-            for target in random_other_country().which(
-                is_major(yes) and has_government(var:watcher.rival_ideology)):
-              watcher.rivals[].add(target)
-
-            for target in random_other_country().which(
-                is_major(no) and has_government(var:watcher.rival_ideology)
-                and is_friend_of_PREV(no)
-                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
-              watcher.rivals[].add(target)
-
-            for target in random_other_country().which(
-                is_major(no) and target not in watcher.rivals[]
-                and is_friend_of_PREV(no)
-                and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
-              watcher.rivals[].add(target)
-
-            if watcher.rivals[].size() < 3:
-              for target in random_other_country().which(
-                  is_major(no) and target not in watcher.rivals[]
-                  and is_friend_of_PREV(no)
-                  and (is_neighbor_of(watcher) or is_on_same_continent_as(watcher))):
-                watcher.rivals[].add(target)
-
-          update_country_leader_traits()
-          shuffle_political_party_popularities()
+  on_weekly:
+    effect:
+      if is_sandbox_mode_on():
+        update_country_leader_traits()
+        update_honor_gain_monthly_factor()
+        update_tyranny_gain_monthly_factor()
 
   on_monthly:
     effect:
       if is_sandbox_mode_on():
         $add_honor(honor_gain_monthly_factor)
-
-  on_weekly:
-    effect:
-      if is_sandbox_mode_on():
-        update_ideology_factors()
-        update_tyranny_weights()
-
-        honor_gain_monthly_factor <- 0
-        guaranting[].clear()
-        na_pacts[].clear()
-
-        for target in every_other_country():
-          if is_guaranteed_by(ROOT):
-            ROOT.guaranting[].add(target)
-          if has_non_aggression_pact_with(ROOT):
-            ROOT.na_pacts[].add(target)
-
-        _a <- 0.20 * guaranting[].size()
-        _b <- 0.05 * na_pacts[].size()
-        honor_gain_monthly_factor <- _a + _b
+        $add_tyranny(tyranny_gain_monthly_factor)
 
   on_ruling_party_change:
     effect:
-      update_country_leader_traits()
-
-  on_weekly_SOV:
-    effect:
-      if is_sandbox_mode_on() and not (
-          has_completed_focus(SOV_the_path_of_marxism_leninism)
-          or has_completed_focus(SOV_our_slavic_commitments)
-          or has_completed_focus(SOV_panslavic_nationalism)
-          or has_completed_focus(SOV_the_rightful_heir_to_the_empire)):
-        rightful_heir_to_empire_targets[].clear()
-        for target in every_other_country().which(owns_any_state_of[2, 454, 797]):
-          ROOT.rightful_heir_to_empire_targets[].add(target)
+      if is_sandbox_mode_on():
+        update_country_leader_traits()

@@ -1,0 +1,16 @@
+ideas:
+  materiel_manufacturer:
+    SOV_kolomna_manufacturer:
+      ai_will_do:
+        +modifier:
+          factor(0)
+          add(1)
+          is_sandbox_mode_on()
+
+  industrial_concern:
+    stalingrad_tractor_factory_improved:
+      ai_will_do:
+        +modifier:
+          factor(0)
+          add(1)
+          is_sandbox_mode_on()

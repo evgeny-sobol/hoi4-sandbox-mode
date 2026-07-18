@@ -1,5 +1,5 @@
-@HIGH_ATTENTION(3)
-@LOW_ATTENTION(0.33334)
+@HIGH_PRIORITY(3)
+@LOW_PRIORITY(0.33334)
 
 focus_tree[id = soviet_focus]:
 
@@ -8,7 +8,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
 
@@ -17,7 +17,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
 
@@ -26,7 +26,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
 
@@ -40,7 +40,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_2)
         is_sandbox_mode_on()
 
@@ -49,7 +49,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_3)
         is_sandbox_mode_on()
 
@@ -58,7 +58,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_4)
         is_sandbox_mode_on()
 
@@ -72,7 +72,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_3)
         is_sandbox_mode_on()
 
@@ -81,7 +81,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_4)
         is_sandbox_mode_on()
 
@@ -105,7 +105,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         SOV_fourth_five_year_plan_available()
         is_sandbox_mode_on()
 
@@ -114,7 +114,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_5)
         is_sandbox_mode_on()
 
@@ -123,7 +123,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         has_war(no)
         is_sandbox_mode_on()
 
@@ -132,7 +132,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         has_war(no)
         is_sandbox_mode_on()
 
@@ -151,8 +151,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        factor(0.5)
+        factor(@HIGH_PRIORITY)
         $compare(amount_research_slots, "<", 4)
         is_sandbox_mode_on()
 
@@ -161,8 +160,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        factor(0.5)
+        factor(@HIGH_PRIORITY)
         $compare(amount_research_slots, "<", 4)
         is_sandbox_mode_on()
 
@@ -171,8 +169,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        factor(0.5)
+        factor(@HIGH_PRIORITY)
         $compare(amount_research_slots, "<", 4)
         is_sandbox_mode_on()
       modifier:
@@ -185,8 +182,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        factor(0.5)
+        factor(@HIGH_PRIORITY)
         $compare(amount_research_slots, "<", 4)
         is_sandbox_mode_on()
       modifier:
@@ -199,7 +195,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         $compare(amount_research_slots, "<", 4)
         is_sandbox_mode_on()
 
@@ -427,7 +423,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         has_tech(basic_ship_hull_heavy)
         is_sandbox_mode_on()
 
@@ -437,7 +433,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         has_tech(basic_ship_hull_heavy)
         is_sandbox_mode_on()
 
@@ -489,7 +485,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         if has_dlc("No Step Back"):
           has_tech(basic_medium_tank_chassis)
         else:
@@ -537,7 +533,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         any_enemy_country::SOV_is_major_not_original_sov()
         is_sandbox_mode_on()
 
@@ -617,7 +613,7 @@ focus_tree[id = soviet_focus]:
         not has_completed_focus(SOV_beaten_but_not_defeated)
         is_sandbox_mode_on()
       modifier:
-        factor(@LOW_ATTENTION)
+        factor(@LOW_PRIORITY)
         has_completed_focus(SOV_the_path_of_marxism_leninism)
         is_sandbox_mode_on()
 
@@ -631,7 +627,7 @@ focus_tree[id = soviet_focus]:
         not has_completed_focus(SOV_beaten_but_not_defeated)
         is_sandbox_mode_on()
       modifier:
-        factor(@LOW_ATTENTION)
+        factor(@LOW_PRIORITY)
         has_completed_focus(SOV_beaten_but_not_defeated)
         is_sandbox_mode_on()
 
@@ -646,7 +642,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@LOW_ATTENTION)
+        factor(@LOW_PRIORITY)
         has_war_with_major()
         is_sandbox_mode_on()
 
@@ -655,7 +651,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
   focus[id = SOV_an_adaptable_army]:
@@ -668,7 +664,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
   #TODO
@@ -706,7 +702,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:high_tyranny_factor
+        _f = 1 + mtth:high_tyranny_factor
         factor(_f)
 
   focus[id = SOV_adjoined_battle_priests]:
@@ -714,7 +710,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:high_tyranny_factor
+        _f = 1 + mtth:high_tyranny_factor
         factor(_f)
 
   focus[id = SOV_swap_to_political_advisors]:
@@ -722,7 +718,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:low_tyranny_factor
+        _f = 1 + mtth:low_tyranny_factor
         factor(_f)
 
   focus[id = SOV_the_glory_of_the_red_army]:
@@ -730,7 +726,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
   focus[id = SOV_the_glory_of_the_red_army_alt]:
@@ -738,7 +734,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
   focus[id = SOV_the_path_of_marxism_leninism]:
@@ -746,7 +742,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:communism_factor
+        _f = 1 + 0.5 * (mtth:democracy_factor + mtth:communism_factor)
         factor(_f)
 
   focus[id = SOV_the_centre]:
@@ -754,104 +750,116 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:high_tyranny_factor
+        _f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
         factor(_f)
 
-  #TODO
   focus[id = SOV_socialism_in_one_country]:
     +ai_will_do:
       modifier:
         $basic_modifier()
 
-  #TODO
   focus[id = SOV_the_stalin_constitution]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        has_completed_focus(SOV_the_centre)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_the_zinovyevite_terrorist_center]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_secure_the_administration]:
     +ai_will_do:
       modifier:
         $basic_modifier()
 
-  #TODO
   focus[id = SOV_the_collectivization_process]:
     +ai_will_do:
       modifier:
         $basic_modifier()
 
-  #TODO
   focus[id = SOV_the_anti_soviet_trotskyist_center]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_the_workers_dictatorship]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        has_completed_focus(SOV_the_anti_soviet_trotskyist_center)
+        factor(@HIGH_PRIORITY)
+        raw has_country_flag: { flag=SOV_second_moscow_trial_flag days>105 }
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_organization_centralization_discipline]:
     +ai_will_do:
       modifier:
         $basic_modifier()
 
-  #TODO
   focus[id = SOV_war_economy]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(0.8)
+        has_war(no)
+        is_sandbox_mode_on()
+      modifier:
+        factor(@LOW_PRIORITY)
+        OR:
+          has_idea(tot_economic_mobilisation)
+          has_idea(war_economy)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_the_military_conspiracy]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_the_bloc_of_rights_and_trotskyites]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_behead_the_snake]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        factor(@HIGH_ATTENTION)
-        has_global_flag(AAT_trotsky_in_mexico)
+        factor(@HIGH_PRIORITY)
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_stalins_cult_of_personality]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_they_will_know_fear]:
     +ai_will_do:
       modifier:
         $basic_modifier()
+      modifier:
+        factor(@HIGH_PRIORITY)
+        is_sandbox_mode_on()
 
   #TODO
   focus[id = SOV_inheritor_of_the_mantle_of_lenin]:
@@ -918,7 +926,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:medium_tyranny_factor
+        _f = 1 + mtth:communism_factor
         factor(_f)
 
   #TODO
@@ -1088,7 +1096,7 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f <- 1 + mtth:low_tyranny_factor
+        _f = 1 + mtth:democracy_factor
         factor(_f)
 
   #TODO
@@ -1445,12 +1453,13 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
 
+  #TODO
   focus[id = SOV_policy_of_collective_security]:
     ai_will_do:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + mtth:democracy_factor
+        _f = 1 + mtth:democracy_factor
         factor(_f)
       +modifier:
         factor(0)
@@ -1481,12 +1490,13 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
 
+  #TODO
   focus[id = SOV_policy_of_individual_security]:
     ai_will_do:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + mtth:fascism_factor
+        _f = 1 + mtth:fascism_factor
         factor(_f)
       +modifier:
         factor(0)
@@ -1539,7 +1549,7 @@ focus_tree[id = soviet_focus]:
         has_civil_war()
         is_sandbox_mode_on()
       +modifier:
-        _f <- 1 + mtth:low_tyranny_factor
+        _f = 1 + mtth:low_tyranny_factor
         factor(_f)
 
   #TODO
@@ -1555,7 +1565,7 @@ focus_tree[id = soviet_focus]:
           $compare(date, "<", "1939.1.1")
         is_sandbox_mode_on()
       +modifier:
-        _f <- 1 + mtth:high_tyranny_factor
+        _f = 1 + mtth:high_tyranny_factor
         factor(_f)
 
   focus[id = SOV_secure_leningrad]:
@@ -1565,7 +1575,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + $opinion_factor(FIN)
+        _f = 1 + $opinion_factor(FIN)
         factor(_f)
         is_sandbox_mode_on()
       +modifier:
@@ -1573,7 +1583,6 @@ focus_tree[id = soviet_focus]:
         has_civil_war()
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_control_scandinavia]:
     ai_will_do:
       +modifier:
@@ -1621,7 +1630,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + $opinion_factor(MON)
+        _f = 1 + $opinion_factor(ROM)
         factor(_f)
         is_sandbox_mode_on()
       +modifier:
@@ -1736,10 +1745,9 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + mtth:monarchy_factor + mtth:fascism_factor
+        _f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
         factor(_f)
 
-  #TODO
   focus[id = SOV_unification_of_the_exiles]:
     ai_will_do:
       +modifier:
@@ -1930,7 +1938,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + mtth:fascism_factor
+        _f = 1 + mtth:fascism_factor
         factor(_f)
 
   #TODO
@@ -1944,7 +1952,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f <- 1 + mtth:monarchy_factor
+        _f = 1 + mtth:monarchy_factor
         factor(_f)
 
   #TODO

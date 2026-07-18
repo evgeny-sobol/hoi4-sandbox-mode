@@ -1,0 +1,12 @@
+opinion_modifiers:
+  treacherous_leader:
+    value(-20)
+
+  dishonorable_leader:
+    value(-10)
+
+  honorable_leader:
+    value(10)
+
+  righteous_leader:
+    value(20)
