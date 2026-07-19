@@ -1,8 +1,8 @@
 macro add_honor(_var_):
   hidden_effect:
     if not _var_ == 0:
-      prev_honor = honor
-      honor = clamp(honor + _var_, -100, 100)
+      &prev_honor = honor
+      &honor = clamp(honor + _var_, -100, 100)
       update_country_leader_traits()
   custom_effect_tooltip:
     localization_key(LocKey_honor_change_tt)
@@ -11,8 +11,8 @@ macro add_honor(_var_):
 macro add_tyranny(_var_):
   hidden_effect:
     if not _var_ == 0:
-      prev_tyranny = tyranny
-      tyranny = clamp(tyranny + _var_, -100, 100)
+      &prev_tyranny = tyranny
+      &tyranny = clamp(tyranny + _var_, -100, 100)
       update_country_leader_traits()
   custom_effect_tooltip:
     localization_key(LocKey_tyranny_change_tt)
@@ -38,29 +38,4 @@ macro ideology_factor(_ideology_):
     is_sandbox_mode_on(no)
 
 macro opinion_factor(_target_):
-  clamp(opinion@_target_ / 100 * -1, -1, 1)
-
-macro set_random_political_party_popularities(_A_, _B_, _C_, _D_):
-  pop_budget = 70
-  rand_pop = 30
-  set_political_party:
-    ideology(_A_)
-    popularity(rand_pop)
-
-  raw set_variable_to_random: { var=rand_pop min=23 max=27 integer=yes }
-  set_political_party:
-    ideology(_B_)
-    popularity(rand_pop)
-  pop_budget -= rand_pop
-
-  raw set_variable_to_random: { var=rand_pop min=21 max=24 integer=yes }
-  set_political_party:
-    ideology(_C_)
-    popularity(rand_pop)
-  pop_budget -= rand_pop
-
-  set_political_party:
-    ideology(_D_)
-    popularity(pop_budget)
-  rand_pop = null
-  pop_budget = null
+  clamp(opinion@_target_ / 100 * -1, -1.0, 1.0)

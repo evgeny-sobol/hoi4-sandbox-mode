@@ -6,7 +6,7 @@
   honorable_leader:    "Honorable"
   righteous_leader:    "Righteous"
 
-  LocKey_personality_tt:           "Dislikes §Y[?rivals^0.GetLeader]§! ([?rivals^0.GetFlag]§Y[?rivals^0.GetName]§!).\n  - [?THIS.GetNonIdeologyAdjective] citizens dislike [?rivals^1.GetFlag]§Y[?rivals^1.GetName]§!, [?rivals^2.GetFlag]§Y[?rivals^2.GetName]§!."
+  LocKey_personality_tt:           "Dislikes §Y[?rivals^0.GetLeader]§! ([?rivals^0.GetFlag]§Y[?rivals^0.GetName]§!). [?THIS.GetNonIdeologyAdjective] citizens dislike [?rivals^1.GetFlag]§Y[?rivals^1.GetName]§!, [?rivals^2.GetFlag]§Y[?rivals^2.GetName]§!."
   LocKey_honor_tt:                 "  - Tyranny: [?tyranny|.2-] ([?tyranny_gain_monthly_factor|.2=+] monthly)\n  - Honor: [?honor|.2+] ([?honor_gain_monthly_factor|.2=+] monthly)"
   LocKey_honor_change_tt:          "Honor $VALUE|C$."
   LocKey_tyranny_change_tt:        "Tyranny $VALUE|C$."

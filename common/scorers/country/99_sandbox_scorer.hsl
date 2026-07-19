@@ -39,6 +39,9 @@ minor_rivals_scorer:
         add(40)
         is_neighbor_of(FROM)
       modifier:
+        add(40)
+        is_on_same_continent_as(FROM)
+      modifier:
         factor(1.25)
         has_government(var:FROM.rival_ideology)
       modifier:
@@ -49,22 +52,29 @@ minor_rivals_scorer:
         not has_war_with(FROM)
         NOT:
           OR:
-            is_on_same_continent_as(FROM)
+            AND:
+              any_controlled_state->is_on_continent(europe)
+              FROM->any_controlled_state->is_on_continent(europe)
+            AND:
+              any_controlled_state->is_on_continent(africa)
+              FROM->any_controlled_state->is_on_continent(africa)
+            AND:
+              any_controlled_state->is_on_continent(middle_east)
+              FROM->any_controlled_state->is_on_continent(middle_east)
             AND:
               OR:
-                THIS.capital_scope::is_on_continent(north_america)
-                THIS.capital_scope::is_on_continent(south_america)
+                any_controlled_state->is_on_continent(north_america)
+                any_controlled_state->is_on_continent(south_america)
               OR:
-                FROM.capital_scope::is_on_continent(north_america)
-                FROM.capital_scope::is_on_continent(south_america)
+                FROM->any_controlled_state->is_on_continent(north_america)
+                FROM->any_controlled_state->is_on_continent(south_america)
             AND:
               OR:
-                THIS.capital_scope::is_on_continent(asia)
-                THIS.capital_scope::is_on_continent(australia)
+                any_controlled_state->is_on_continent(asia)
+                any_controlled_state->is_on_continent(australia)
               OR:
-                FROM.capital_scope::is_on_continent(asia)
-                FROM.capital_scope::is_on_continent(australia)
-            # $can_build_railway(THIS.capital, FROM.capital)
+                FROM->any_controlled_state->is_on_continent(asia)
+                FROM->any_controlled_state->is_on_continent(australia)
       modifier:
         factor(0)
         FROM == THIS

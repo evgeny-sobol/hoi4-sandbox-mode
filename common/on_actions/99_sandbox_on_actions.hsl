@@ -2,7 +2,7 @@ on_actions:
   on_startup:
     effect:
       if is_historical_focus_on(no):
-        HAI::set_global_flag(sandbox_mode_enabled)
+        HAI->set_global_flag(sandbox_mode_enabled)
         for every_country():
           initialize_country_for_sandbox_mode()
 

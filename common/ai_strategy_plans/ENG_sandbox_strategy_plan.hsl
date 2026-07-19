@@ -20,4 +20,5 @@ ENG_sandbox_strategy_plan_common:
 
   #traits:
 
-  weight::factor(1)
+  weight:
+    factor(1)

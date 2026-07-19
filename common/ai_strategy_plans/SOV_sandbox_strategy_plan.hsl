@@ -5,7 +5,8 @@ SOV_sandbox_strategy_plan_common:
     is_sandbox_mode_on(yes)
   abort_when_not_enabled()
 
-  weight::factor(1)
+  weight:
+    factor(1)
 
 SOV_sandbox_strategy_plan_the_centre:
   allowed:
@@ -15,7 +16,8 @@ SOV_sandbox_strategy_plan_the_centre:
     is_sandbox_mode_on(yes)
   abort_when_not_enabled()
 
-  weight::factor(1)
+  weight:
+    factor(1)
 
 SOV_sandbox_strategy_plan_the_left_opposition:
   allowed:
@@ -25,7 +27,8 @@ SOV_sandbox_strategy_plan_the_left_opposition:
     is_sandbox_mode_on(yes)
   abort_when_not_enabled()
 
-  weight::factor(1)
+  weight:
+    factor(1)
 
 SOV_sandbox_strategy_plan_the_right_opposition:
   allowed:
@@ -35,4 +38,5 @@ SOV_sandbox_strategy_plan_the_right_opposition:
     is_sandbox_mode_on(yes)
   abort_when_not_enabled()
 
-  weight::factor(1)
+  weight:
+    factor(1)

@@ -884,7 +884,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_intervention_in_greece]:
     available:
-      GRE::can_PREV_get_wargoal_on_THIS()
+      GRE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -903,10 +903,10 @@ focus_tree[id = french_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          BEL::is_friend_of_PREV(no)
-          LUX::is_friend_of_PREV(no)
-          HOL::is_friend_of_PREV(no)
-          GER::is_friend_of_PREV(no)
+          BEL->is_friend_of_PREV(no)
+          LUX->is_friend_of_PREV(no)
+          HOL->is_friend_of_PREV(no)
+          GER->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         factor(0)
@@ -929,7 +929,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_split_belgium]:
     available:
-      BEL::can_PREV_get_wargoal_on_THIS()
+      BEL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -938,7 +938,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_align_belgium]:
     available:
-      BEL::can_PREV_get_wargoal_on_THIS()
+      BEL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -954,7 +954,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_bring_home_quebec]:
     available:
-      CAN::can_PREV_get_wargoal_on_THIS()
+      CAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -1005,7 +1005,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_dismantle_the_democracies]:
     available:
-      GER::can_PREV_get_wargoal_on_THIS()
+      GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -1129,10 +1129,10 @@ focus_tree[id = french_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          BEL::is_friend_of_PREV(no)
-          LUX::is_friend_of_PREV(no)
-          HOL::is_friend_of_PREV(no)
-          ENG::is_friend_of_PREV(no)
+          BEL->is_friend_of_PREV(no)
+          LUX->is_friend_of_PREV(no)
+          HOL->is_friend_of_PREV(no)
+          ENG->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         factor(0)
@@ -1148,7 +1148,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_retribution_for_sedan]:
     available:
-      GER::can_PREV_get_wargoal_on_THIS()
+      GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)
@@ -1164,7 +1164,7 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_return_to_borodino]:
     available:
-      SOV::can_PREV_get_wargoal_on_THIS()
+      SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         factor(0)

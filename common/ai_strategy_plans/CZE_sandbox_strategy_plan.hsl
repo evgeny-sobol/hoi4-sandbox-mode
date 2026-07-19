@@ -21,7 +21,8 @@ CZE_sandbox_strategy_plan_common:
 
   #traits:
 
-  weight::factor(1)
+  weight:
+    factor(1)
 
 CZE_sandbox_strategy_plan_common_mu:
   #name("")
@@ -46,4 +47,5 @@ CZE_sandbox_strategy_plan_common_mu:
 
   #traits:
 
-  weight::factor(1)
+  weight:
+    factor(1)

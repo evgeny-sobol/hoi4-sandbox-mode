@@ -1,17 +1,17 @@
 initialize_country_for_sandbox_mode:
-  raw resize_array: { rivals = 3 }
+  &rivals[].resize(3)
   random_list:
     25:
-      rival_ideology = token:democratic
+      &rival_ideology = token:democratic
       add_ideas(anti_democratic_sentiments)
     25:
-      rival_ideology = token:neutrality
+      &rival_ideology = token:neutrality
       add_ideas(anti_monarchist_sentiments)
     25:
-      rival_ideology = token:communism
+      &rival_ideology = token:communism
       add_ideas(anti_communist_sentiments)
     25:
-      rival_ideology = token:fascism
+      &rival_ideology = token:fascism
       add_ideas(anti_fascist_sentiments)
   initialize_new_country_leader()
   shuffle_political_party_popularities()
@@ -23,144 +23,136 @@ initialize_new_country_leader():
   add_country_leader_trait(inglorious_leader)
 
   if has_government(democratic):
-    _min_tyranny = -100
-    _max_tyranny =  -49
+    min_tyranny = -100
+    max_tyranny =  -50
     if has_country_leader_ideology(liberalism) or has_country_leader_ideology(socialism):
-      _min_tyranny +=   0
-      _max_tyranny += -30
+      min_tyranny +=   0
+      max_tyranny += -30
     elif has_country_leader_ideology(conservatism) or has_country_leader_ideology(populism):
-      _min_tyranny +=  25
-      _max_tyranny +=  25
+      min_tyranny +=  25
+      max_tyranny +=  25
 
   elif has_government(neutrality):
-    _min_tyranny = -25
-    _max_tyranny =  26
+    min_tyranny = -25
+    max_tyranny =  25
     if has_country_leader_ideology(anarchism):
-      _min_tyranny += -50
-      _max_tyranny += -50
+      min_tyranny += -50
+      max_tyranny += -50
     elif has_country_leader_ideology(moderatism) or has_country_leader_ideology(centrism):
-      _min_tyranny += -25
-      _max_tyranny += -25
+      min_tyranny += -25
+      max_tyranny += -25
     elif has_country_leader_ideology(despotism) or has_country_leader_ideology(oligarchism):
-      _min_tyranny +=  25
-      _max_tyranny +=  25
+      min_tyranny +=  25
+      max_tyranny +=  25
     elif has_country_leader_ideology(japan_militarism_ideology):
-      _min_tyranny +=  75
-      _max_tyranny +=  75
+      min_tyranny +=  75
+      max_tyranny +=  75
 
   elif has_government(communism):
-    _min_tyranny =  50
-    _max_tyranny = 101
+    min_tyranny =  50
+    max_tyranny = 100
     if has_country_leader_ideology(anarchist_communism) or has_country_leader_ideology(buddhist_socialism):
-      _min_tyranny += -125
-      _max_tyranny += -125
+      min_tyranny += -125
+      max_tyranny += -125
     elif has_country_leader_ideology(marxism) or has_country_leader_ideology(leninism):
-      _min_tyranny +=  -50
-      _max_tyranny +=  -50
+      min_tyranny +=  -50
+      max_tyranny +=  -50
     elif has_country_leader_ideology(stalinism) or has_country_leader_ideology(anti_revisionism):
-      _min_tyranny +=   30
-      _max_tyranny +=    0
+      min_tyranny +=   30
+      max_tyranny +=    0
 
   elif has_government(fascism):
-    _min_tyranny =  80
-    _max_tyranny = 101
+    min_tyranny =  80
+    max_tyranny = 100
 
-  raw set_variable_to_random: { var=tyranny min=_min_tyranny max=_max_tyranny integer=yes }
-  tyranny = clamp(tyranny, -100, 100)
-  raw set_variable_to_random: { var=honor min=-100 max=101 integer=yes }
+  &tyranny = randi(min_tyranny, max_tyranny)
+  &tyranny = clamp(tyranny, -100, 100)
+  &honor = randi(-100, 100)
   update_country_leader_traits()
   select_major_rival()
 
 select_major_rival:
   if rivals[0] == 0:
-    candidate_weights[].clear()
-    get_sorted_scored_countries:
+    get_sorted_scored_countries_temp:
       scorer(major_rivals_scorer)
       array(candidates)
       scores(candidate_scores)
 
-    sum = 1
-    for val, _ in candidate_scores[]:
-      sum += val
-    raw set_variable_to_random: { var=dice min=0 max=sum integer=yes }
+    sum = 0
+    for v, _ in candidate_scores[]:
+      sum += v
+    dice = randi(0, sum)
 
-    raw resize_array: { candidate_weights = candidates^num }
-    for val, idx in candidate_scores[]:
-      break(_b)
+    candidate_weights[].resize(candidates[].size())
+    for v, idx in candidate_scores[]:
+      break(b)
       candidate_weights[idx] = sum
-      sum -= val
+      sum -= v
       if dice > candidate_weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
-        rivals[0] = find
-        _b = 1
-
-    candidates[].clear()
-    candidate_scores[].clear()
-    candidate_weights[].clear()
-    sum = null
-    dice = null
-    find_idx = null
-    find = null
+        &rivals[0] = find
+        b = 1
 
 select_minor_rival:
   if rivals[1] == 0 or rivals[2] == 0:
-    get_sorted_scored_countries:
+    get_sorted_scored_countries_temp:
       scorer(minor_rivals_scorer)
       array(candidates)
       scores(candidate_scores)
 
-    sum = 1
-    for val, _ in candidate_scores[]:
-      sum += val
-    raw set_variable_to_random: { var=dice min=0 max=sum integer=yes }
+    sum = 0
+    for v, _ in candidate_scores[]:
+      sum += v
+    dice = randi(0, sum)
 
-    raw resize_array: { candidate_weights = candidates^num }
-    for val, idx in candidate_scores[]:
-      break(_b)
+    candidate_weights[].resize(candidates[].size())
+    for v, idx in candidate_scores[]:
+      break(b)
       candidate_weights[idx] = sum
-      sum -= val
+      sum -= v
       if dice > candidate_weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
         if rivals[1] == 0:
-          rivals[1] = find
-          _b = 1
+          &rivals[1] = find
+          b = 1
         elif rivals[2] == 0 and not find == rivals[1]:
-          rivals[2] = find
-          _b = 1
-
-    candidates[].clear()
-    candidate_scores[].clear()
-    candidate_weights[].clear()
-    sum = null
-    dice = null
-    find_idx = null
-    find = null
+          &rivals[2] = find
+          b = 1
 
 shuffle_political_party_popularities:
-  # Ideology of government will have slightly more popularity
-  if has_government(democratic):
-    $set_random_political_party_popularities(democratic, neutrality, communism, fascism)
-  elif has_government(neutrality):
-    $set_random_political_party_popularities(neutrality, democratic, communism, fascism)
-  elif has_government(communism):
-    $set_random_political_party_popularities(communism, democratic, neutrality, fascism)
-  elif has_government(fascism):
-    $set_random_political_party_popularities(fascism, democratic, neutrality, communism)
+  for v, _ in global.ideology_groups[]:
+    copy[].add(v)
 
-  # Rival Ideology will have less popularity
+  parties[].add(current_party_ideology_group)
+  copy[].erase(current_party_ideology_group)
+  for i in range(3):
+    rand_ideology = copy[].rand()
+    parties[].add(rand_ideology)
+    copy[].erase(rand_ideology)
+
+  budget = 100
+  rand_min = 26
+  rand_max = 30
+  for party, idx in parties[]:
+    rand_pop = randi(rand_min, rand_max)
+    $set_political_party(var:party, rand_pop)
+    budget -= rand_pop
+    rand_min -= clamp(3 - idx, 0, 3)
+    rand_max -= clamp(4 - idx, 0, 4)
+
   match var:rival_ideology:
     case token:democratic:
-      _pop = party_popularity@democratic
+      pop = party_popularity@democratic
     case token:neutrality:
-      _pop = party_popularity@neutrality
+      pop = party_popularity@neutrality
     case token:communism:
-      _pop = party_popularity@communism
+      pop = party_popularity@communism
     case token:fascism:
-      _pop = party_popularity@fascism
-  _pop *= 0.5 * 100
-  raw set_political_party: { ideology=var:rival_ideology popularity=_pop }
+      pop = party_popularity@fascism
+  pop *= 0.66667 * 100
+  $set_political_party(var:rival_ideology, pop)
 
 update_country_leader_traits:
   if not honor == prev_honor:
@@ -186,41 +178,39 @@ update_country_leader_traits:
     else:
       add_country_leader_trait(righteous_leader)
 
-    for _target in every_other_country():
-      raw remove_opinion_modifier: { target=ROOT modifier=treacherous_leader }
-      raw remove_opinion_modifier: { target=ROOT modifier=dishonorable_leader }
-      raw remove_opinion_modifier: { target=ROOT modifier=honorable_leader }
-      raw remove_opinion_modifier: { target=ROOT modifier=righteous_leader }
+    for other in every_other_country():
+      $remove_opinion_modifier(ROOT, treacherous_leader)
+      $remove_opinion_modifier(ROOT, dishonorable_leader)
+      $remove_opinion_modifier(ROOT, honorable_leader)
+      $remove_opinion_modifier(ROOT, righteous_leader)
 
       if ROOT.honor < -75:
-        _target:
-          raw add_opinion_modifier: { target=ROOT modifier=treacherous_leader }
+        other:
+          $add_opinion_modifier(ROOT, treacherous_leader)
       elif ROOT.honor < -25:
-        _target:
-          raw add_opinion_modifier: { target=ROOT modifier=dishonorable_leader }
+        other:
+          $add_opinion_modifier(ROOT, dishonorable_leader)
       elif ROOT.honor < 25:
         pass
       elif ROOT.honor < 75:
-        _target:
-          raw add_opinion_modifier: { target=ROOT modifier=honorable_leader }
+        other:
+          $add_opinion_modifier(ROOT, honorable_leader)
       else:
-        _target:
-          raw add_opinion_modifier: { target=ROOT modifier=righteous_leader }
+        other:
+          $add_opinion_modifier(ROOT, righteous_leader)
 
 update_honor_gain_monthly_factor:
-  guaranting[].clear()
-  na_pacts[].clear()
-  for _target in every_other_country():
+  for other in every_other_country():
     if is_guaranteed_by(ROOT):
-      ROOT.guaranting[].add(_target)
+      ROOT.guaranting[].add(other)
     if has_non_aggression_pact_with(ROOT):
-      ROOT.na_pacts[].add(_target)
-  honor_gain_monthly_factor = 0.20 * guaranting[].size() + 0.05 * na_pacts[].size()
+      ROOT.na_pacts[].add(other)
+  &honor_gain_monthly_factor = 0.20 * guaranting[].size() + 0.05 * na_pacts[].size()
 
 update_tyranny_gain_monthly_factor:
   if has_offensive_war():
-    tyranny_gain_monthly_factor = -0.25
+    &tyranny_gain_monthly_factor = -0.25
   elif has_defensive_war():
-    tyranny_gain_monthly_factor = 0.25
+    &tyranny_gain_monthly_factor = 0.25
   else:
-    tyranny_gain_monthly_factor = 0
+    &tyranny_gain_monthly_factor = 0

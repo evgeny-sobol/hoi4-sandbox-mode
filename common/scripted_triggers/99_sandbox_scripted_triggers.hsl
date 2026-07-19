@@ -12,16 +12,16 @@ has_same_ideology_as_PREV:
     OR:
       AND:
         has_government(democratic)
-        PREV::has_government(democratic)
+        PREV->has_government(democratic)
       AND:
         has_government(neutrality)
-        PREV::has_government(neutrality)
+        PREV->has_government(neutrality)
       AND:
         has_government(communism)
-        PREV::has_government(communism)
+        PREV->has_government(communism)
       AND:
         has_government(fascism)
-        PREV::has_government(fascism)
+        PREV->has_government(fascism)
 
 has_enemy_ideology_with_FROM:
   OR:
@@ -63,6 +63,6 @@ is_rival_of_PREV:
   custom_override_tooltip:
     tooltip(LocKey_is_rival_of_PREV_tt)
     OR:
-      THIS::has_war_with(PREV)
+      has_war_with(PREV)
       THIS in PREV.rivals[]
       PREV in THIS.rivals[]

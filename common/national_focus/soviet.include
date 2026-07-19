@@ -534,7 +534,7 @@ focus_tree[id = soviet_focus]:
         $basic_modifier()
       +modifier:
         factor(@HIGH_PRIORITY)
-        any_enemy_country::SOV_is_major_not_original_sov()
+        any_enemy_country->SOV_is_major_not_original_sov()
         is_sandbox_mode_on()
 
   #TODO
@@ -702,24 +702,24 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + mtth:high_tyranny_factor
-        factor(_f)
+        f = 1 + mtth:high_tyranny_factor
+        factor(f)
 
   focus[id = SOV_adjoined_battle_priests]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + mtth:high_tyranny_factor
-        factor(_f)
+        f = 1 + mtth:high_tyranny_factor
+        factor(f)
 
   focus[id = SOV_swap_to_political_advisors]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + mtth:low_tyranny_factor
-        factor(_f)
+        f = 1 + mtth:low_tyranny_factor
+        factor(f)
 
   focus[id = SOV_the_glory_of_the_red_army]:
     +ai_will_do:
@@ -742,16 +742,16 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + 0.5 * (mtth:democracy_factor + mtth:communism_factor)
-        factor(_f)
+        f = 1 + 0.5 * (mtth:democracy_factor + mtth:communism_factor)
+        factor(f)
 
   focus[id = SOV_the_centre]:
     +ai_will_do:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
-        factor(_f)
+        f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
+        factor(f)
 
   focus[id = SOV_socialism_in_one_country]:
     +ai_will_do:
@@ -926,8 +926,8 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + mtth:communism_factor
-        factor(_f)
+        f = 1 + mtth:communism_factor
+        factor(f)
 
   #TODO
   focus[id = SOV_the_fourth_international]:
@@ -1096,8 +1096,8 @@ focus_tree[id = soviet_focus]:
       modifier:
         $basic_modifier()
       modifier:
-        _f = 1 + mtth:democracy_factor
-        factor(_f)
+        f = 1 + mtth:democracy_factor
+        factor(f)
 
   #TODO
   focus[id = SOV_the_need_for_policy_changes]:
@@ -1459,8 +1459,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + mtth:democracy_factor
-        factor(_f)
+        f = 1 + mtth:democracy_factor
+        factor(f)
       +modifier:
         factor(0)
         has_civil_war()
@@ -1496,8 +1496,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + mtth:fascism_factor
-        factor(_f)
+        f = 1 + mtth:fascism_factor
+        factor(f)
       +modifier:
         factor(0)
         has_civil_war()
@@ -1549,8 +1549,8 @@ focus_tree[id = soviet_focus]:
         has_civil_war()
         is_sandbox_mode_on()
       +modifier:
-        _f = 1 + mtth:low_tyranny_factor
-        factor(_f)
+        f = 1 + mtth:low_tyranny_factor
+        factor(f)
 
   #TODO
   focus[id = SOV_claims_in_baltic]:
@@ -1565,18 +1565,18 @@ focus_tree[id = soviet_focus]:
           $compare(date, "<", "1939.1.1")
         is_sandbox_mode_on()
       +modifier:
-        _f = 1 + mtth:high_tyranny_factor
-        factor(_f)
+        f = 1 + mtth:high_tyranny_factor
+        factor(f)
 
   focus[id = SOV_secure_leningrad]:
     available:
-      FIN::can_PREV_get_wargoal_on_THIS()
+      FIN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + $opinion_factor(FIN)
-        factor(_f)
+        f = 1 + $opinion_factor(FIN)
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         factor(0)
@@ -1621,7 +1621,7 @@ focus_tree[id = soviet_focus]:
 
   focus[id = SOV_claim_on_bessarabia]:
     available:
-      ROM::can_PREV_get_wargoal_on_THIS()
+      ROM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       modifier[0]:
         is_sandbox_mode_on(no)
@@ -1630,8 +1630,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + $opinion_factor(ROM)
-        factor(_f)
+        f = 1 + $opinion_factor(ROM)
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         factor(0)
@@ -1745,8 +1745,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
-        factor(_f)
+        f = 1 + 0.5 * (mtth:monarchy_factor + mtth:fascism_factor)
+        factor(f)
 
   focus[id = SOV_unification_of_the_exiles]:
     ai_will_do:
@@ -1938,8 +1938,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + mtth:fascism_factor
-        factor(_f)
+        f = 1 + mtth:fascism_factor
+        factor(f)
 
   #TODO
   focus[id = SOV_russian_corporate_state]:
@@ -1952,8 +1952,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $basic_modifier()
       +modifier:
-        _f = 1 + mtth:monarchy_factor
-        factor(_f)
+        f = 1 + mtth:monarchy_factor
+        factor(f)
 
   #TODO
   focus[id = SOV_capital_of_the_tsars]:
@@ -1985,10 +1985,10 @@ focus_tree[id = soviet_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          GER::is_friend_of_PREV(no)
-          GRE::is_friend_of_PREV(no)
-          NOR::is_friend_of_PREV(no)
-          DEN::is_friend_of_PREV(no)
+          GER->is_friend_of_PREV(no)
+          GRE->is_friend_of_PREV(no)
+          NOR->is_friend_of_PREV(no)
+          DEN->is_friend_of_PREV(no)
 
     will_lead_to_war_with(GER)
     will_lead_to_war_with(GRE)
@@ -2005,9 +2005,9 @@ focus_tree[id = soviet_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          var:rightful_heir_to_empire_targets[0]::is_friend_of_PREV(no)
-          var:rightful_heir_to_empire_targets[1]::is_friend_of_PREV(no)
-          var:rightful_heir_to_empire_targets[2]::is_friend_of_PREV(no)
+          var:rightful_heir_to_empire_targets[0]->is_friend_of_PREV(no)
+          var:rightful_heir_to_empire_targets[1]->is_friend_of_PREV(no)
+          var:rightful_heir_to_empire_targets[2]->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2021,7 +2021,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_vengeance_for_the_yoke]:
     available:
-      MON::can_PREV_get_wargoal_on_THIS()
+      MON->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2029,7 +2029,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_reclaim_uryankhay_krai]:
     available:
-      TAN::can_PREV_get_wargoal_on_THIS()
+      TAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2055,7 +2055,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_the_old_enemy]:
     available:
-      SWE::can_PREV_get_wargoal_on_THIS()
+      SWE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2063,7 +2063,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_secure_finland]:
     available:
-      FIN::can_PREV_get_wargoal_on_THIS()
+      FIN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2074,9 +2074,9 @@ focus_tree[id = soviet_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          EST::is_friend_of_PREV(no)
-          LIT::is_friend_of_PREV(no)
-          LAT::is_friend_of_PREV(no)
+          EST->is_friend_of_PREV(no)
+          LIT->is_friend_of_PREV(no)
+          LAT->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2090,7 +2090,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_the_fate_of_romania]:
     available:
-      ROM::can_PREV_get_wargoal_on_THIS()
+      ROM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2119,8 +2119,8 @@ focus_tree[id = soviet_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          CAN::is_friend_of_PREV(no)
-          USA::is_friend_of_PREV(no)
+          CAN->is_friend_of_PREV(no)
+          USA->is_friend_of_PREV(no)
 
     will_lead_to_war_with(CAN)
     will_lead_to_war_with(USA)
@@ -2135,8 +2135,8 @@ focus_tree[id = soviet_focus]:
       +OR:
         is_honored_leader(no)
         AND:
-          AFG::is_friend_of_PREV(no)
-          PER::is_friend_of_PREV(no)
+          AFG->is_friend_of_PREV(no)
+          PER->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2145,12 +2145,12 @@ focus_tree[id = soviet_focus]:
   focus[id = SOV_the_last_break_southward]:
     available:
       +OR:
-        IRQ::is_friend_of_PREV(no)
-        TUR::is_friend_of_PREV(no)
-        FRA::is_friend_of_PREV(no)
+        IRQ->is_friend_of_PREV(no)
+        TUR->is_friend_of_PREV(no)
+        FRA->is_friend_of_PREV(no)
         if country_exists(PAK):
-          PAK::is_friend_of_PREV(no)
-        RAJ::is_friend_of_PREV(no)
+          PAK->is_friend_of_PREV(no)
+        RAJ->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2188,7 +2188,7 @@ focus_tree[id = soviet_focus]:
   #TODO
   focus[id = SOV_the_berlin_moscow_axis]:
     available:
-      GER::is_rival_of_PREV(no)
+      GER->is_rival_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()
@@ -2197,8 +2197,8 @@ focus_tree[id = soviet_focus]:
   focus[id = SOV_japanese_overtures]:
     available:
       +JAP:
-        SOV::is_rival_of_PREV(no)
-        GER::is_rival_of_PREV(no)
+        SOV->is_rival_of_PREV(no)
+        GER->is_rival_of_PREV(no)
     ai_will_do:
       +modifier:
         $basic_modifier()

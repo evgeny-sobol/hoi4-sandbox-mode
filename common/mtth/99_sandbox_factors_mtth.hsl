@@ -22,8 +22,8 @@ fascism_factor:
 low_tyranny_factor:
   base(0)
   modifier:
-    _low_tyranny_bonus = clamp((tyranny * -1 - 34) / 66, 0, 1)
-    add(_low_tyranny_bonus)
+    low_tyranny_bonus = clamp((tyranny * -1 - 34) / 66, 0.0, 1.0)
+    add(low_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:
     factor(0)
@@ -33,8 +33,8 @@ low_tyranny_factor:
 high_tyranny_factor:
   base(0)
   modifier:
-    _high_tyranny_bonus = clamp((tyranny - 34) / 66, 0, 1)
-    add(_high_tyranny_bonus)
+    high_tyranny_bonus = clamp((tyranny - 34) / 66, 0.0, 1.0)
+    add(high_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:
     factor(0)
@@ -44,8 +44,8 @@ high_tyranny_factor:
 medium_tyranny_factor:
   base(0)
   modifier:
-    _medium_tyranny_bonus = clamp(1 - sqrt(tyranny ** 2) / 34, 0, 1)
-    add(_medium_tyranny_bonus)
+    medium_tyranny_bonus = clamp(1 - abs(tyranny) / 34, 0.0, 1.0)
+    add(medium_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:
     factor(0)
