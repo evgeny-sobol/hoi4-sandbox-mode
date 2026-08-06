@@ -1,6 +1,0 @@
-PHI_japanese_window_of_opportunity_in_philippines:
-  enable:
-    is_sandbox_mode_on(no)
-  abort:
-    OR:
-      is_sandbox_mode_on(yes)

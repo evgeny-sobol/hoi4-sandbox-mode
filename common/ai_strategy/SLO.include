@@ -1,5 +1,0 @@
-SLO_does_the_eastern_front:
-  enable:
-    is_sandbox_mode_on(no)
-  +abort:
-    is_sandbox_mode_on(yes)

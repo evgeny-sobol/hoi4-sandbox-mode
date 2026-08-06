@@ -1,5 +1,0 @@
-LIT_lets_not_be_hasty:
-  enable:
-    is_sandbox_mode_on(no)
-  +abort:
-    is_sandbox_mode_on(yes)
