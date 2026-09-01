@@ -1,47 +1,33 @@
-initialize_country_for_sandbox_mode:
+initialize_country_for_sandbox_mode():
   &rivals[].resize(3)
-  random_list:
-    25:
-      &rival_ideology = token:democratic
-      add_ideas(anti_democratic_sentiments)
-    25:
-      &rival_ideology = token:neutrality
-      add_ideas(anti_monarchist_sentiments)
-    25:
-      &rival_ideology = token:communism
-      add_ideas(anti_communist_sentiments)
-    25:
-      &rival_ideology = token:fascism
-      add_ideas(anti_fascist_sentiments)
   initialize_new_country_leader()
   shuffle_political_party_popularities()
   for i in range(2):
     select_minor_rival()
+
 
 initialize_new_country_leader():
   add_country_leader_trait(leader_personality)
   add_country_leader_trait(inglorious_leader)
 
   if has_government(democratic):
-    min_tyranny = -100
-    max_tyranny =  -50
-    if has_country_leader_ideology(liberalism) or has_country_leader_ideology(socialism):
+    min_tyranny, max_tyranny = -100, -50
+    if has_country_leader_ideology(liberalism | socialism):
       min_tyranny +=   0
       max_tyranny += -30
-    elif has_country_leader_ideology(conservatism) or has_country_leader_ideology(populism):
+    elif has_country_leader_ideology(conservatism | populism):
       min_tyranny +=  25
       max_tyranny +=  25
 
   elif has_government(neutrality):
-    min_tyranny = -25
-    max_tyranny =  25
+    min_tyranny, max_tyranny = -25, 25
     if has_country_leader_ideology(anarchism):
       min_tyranny += -50
       max_tyranny += -50
-    elif has_country_leader_ideology(moderatism) or has_country_leader_ideology(centrism):
+    elif has_country_leader_ideology(moderatism | centrism):
       min_tyranny += -25
       max_tyranny += -25
-    elif has_country_leader_ideology(despotism) or has_country_leader_ideology(oligarchism):
+    elif has_country_leader_ideology(despotism | oligarchism):
       min_tyranny +=  25
       max_tyranny +=  25
     elif has_country_leader_ideology(japan_militarism_ideology):
@@ -49,21 +35,19 @@ initialize_new_country_leader():
       max_tyranny +=  75
 
   elif has_government(communism):
-    min_tyranny =  50
-    max_tyranny = 100
-    if has_country_leader_ideology(anarchist_communism) or has_country_leader_ideology(buddhist_socialism):
+    min_tyranny, max_tyranny = 50, 100
+    if has_country_leader_ideology(anarchist_communism | buddhist_socialism):
       min_tyranny += -125
       max_tyranny += -125
-    elif has_country_leader_ideology(marxism) or has_country_leader_ideology(leninism):
+    elif has_country_leader_ideology(marxism | leninism):
       min_tyranny +=  -50
       max_tyranny +=  -50
-    elif has_country_leader_ideology(stalinism) or has_country_leader_ideology(anti_revisionism):
+    elif has_country_leader_ideology(stalinism | anti_revisionism):
       min_tyranny +=   30
       max_tyranny +=    0
 
   elif has_government(fascism):
-    min_tyranny =  80
-    max_tyranny = 100
+    min_tyranny, max_tyranny = 80, 100
 
   &tyranny = randi(min_tyranny, max_tyranny)
   &tyranny = clamp(tyranny, -100, 100)
@@ -71,91 +55,105 @@ initialize_new_country_leader():
   update_country_leader_traits()
   select_major_rival()
 
-select_major_rival:
-  if rivals[0] == 0:
-    get_sorted_scored_countries_temp:
-      scorer(major_rivals_scorer)
-      array(candidates)
-      scores(candidate_scores)
 
+select_major_rival():
+  if rivals[0] == 0:
+    get_sorted_scored_countries(major_rivals_scorer, candidates[], scores[])
     sum = 0
-    for v, _ in candidate_scores[]:
+    for v, _ in scores[]:
       sum += v
     dice = randi(0, sum)
 
-    candidate_weights[].resize(candidates[].size())
-    for v, idx in candidate_scores[]:
-      break(b)
-      candidate_weights[idx] = sum
+    weights[].resize(candidates[].size())
+    for v, idx in scores[]:
+      weights[idx] = sum
       sum -= v
-      if dice > candidate_weights[idx]:
+      if dice > weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
         &rivals[0] = find
-        b = 1
+        break
 
-select_minor_rival:
+
+select_minor_rival():
   if rivals[1] == 0 or rivals[2] == 0:
-    get_sorted_scored_countries_temp:
-      scorer(minor_rivals_scorer)
-      array(candidates)
-      scores(candidate_scores)
-
+    get_sorted_scored_countries(minor_rivals_scorer, candidates[], scores[])
     sum = 0
-    for v, _ in candidate_scores[]:
+    for v, _ in scores[]:
       sum += v
     dice = randi(0, sum)
 
-    candidate_weights[].resize(candidates[].size())
-    for v, idx in candidate_scores[]:
-      break(b)
-      candidate_weights[idx] = sum
+    weights[].resize(candidates[].size())
+    for v, idx in scores[]:
+      weights[idx] = sum
       sum -= v
-      if dice > candidate_weights[idx]:
+      if dice > weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
         if rivals[1] == 0:
           &rivals[1] = find
-          b = 1
-        elif rivals[2] == 0 and not find == rivals[1]:
+          break
+        elif rivals[2] == 0 and find != rivals[1]:
           &rivals[2] = find
-          b = 1
+          break
 
-shuffle_political_party_popularities:
+
+# Shuffles the order of political ideologies and assigns random popularities
+# that always sum to 100. The current ruling ideology is forced to be first
+# and is guaranteed to have strictly higher popularity than every other party.
+# The remaining three ideologies are randomly ordered using Fisher-Yates.
+# | Party        | Possible popularity |
+# | ------------ | ------------------- |
+# | Ruling party |               43-70 |
+# | Challenger 1 |               15-24 |
+# | Challenger 2 |               10-19 |
+# | Challenger 3 |                5-14 |
+shuffle_political_party_popularities():
+  # Clear working arrays (important!)
+  copy[].clear()
+  parties[].clear()
+
+  # Copy all ideology groups
   for v, _ in global.ideology_groups[]:
     copy[].add(v)
 
-  parties[].add(current_party_ideology_group)
+  # Remove the current ruling ideology - it will be placed first
   copy[].erase(current_party_ideology_group)
-  for i in range(3):
-    rand_ideology = copy[].rand()
-    parties[].add(rand_ideology)
-    copy[].erase(rand_ideology)
 
+  # Shuffle the remaining ideologies with Fisher-Yates
+  last = copy[].size() - 1
+  for i in range(last, 0, -1):
+    j = randi(0, i)
+    temp = copy[i]
+    copy[i] = copy[j]
+    copy[j] = temp
+
+  # Build the final list: current ideology + shuffled others
+  parties[].add(current_party_ideology_group)
+  for v, _ in copy[]:
+    parties[].add(v)
+
+  # Assign popularity to the three non-ruling parties.
+  # Ranges decrease and are capped so the ruling party always gets more.
   budget = 100
-  rand_min = 26
-  rand_max = 30
-  for party, idx in parties[]:
+  for i in range(3):
+    idx = i + 1
+    party = parties[idx]
+
+    rand_min = 15 - i * 5 # 15, 10, 5
+    rand_max = 24 - i * 5 # 24, 19, 14
     rand_pop = randi(rand_min, rand_max)
+
     $set_political_party(var:party, rand_pop)
     budget -= rand_pop
-    rand_min -= clamp(3 - idx, 0, 3)
-    rand_max -= clamp(4 - idx, 0, 4)
 
-  match var:rival_ideology:
-    case token:democratic:
-      pop = party_popularity@democratic
-    case token:neutrality:
-      pop = party_popularity@neutrality
-    case token:communism:
-      pop = party_popularity@communism
-    case token:fascism:
-      pop = party_popularity@fascism
-  pop *= 0.66667 * 100
-  $set_political_party(var:rival_ideology, pop)
+  # Remaining budget goes to the ruling party (always the largest)
+  party = parties[0]
+  $set_political_party(var:party, budget)
 
-update_country_leader_traits:
-  if not honor == prev_honor:
+
+update_country_leader_traits():
+  if honor != prev_honor:
     if has_country_leader_with_trait(treacherous_leader):
       remove_country_leader_trait(treacherous_leader)
     elif has_country_leader_with_trait(dishonorable_leader):
@@ -185,21 +183,18 @@ update_country_leader_traits:
       $remove_opinion_modifier(ROOT, righteous_leader)
 
       if ROOT.honor < -75:
-        other:
-          $add_opinion_modifier(ROOT, treacherous_leader)
+        other->$add_opinion_modifier(ROOT, treacherous_leader)
       elif ROOT.honor < -25:
-        other:
-          $add_opinion_modifier(ROOT, dishonorable_leader)
+        other->$add_opinion_modifier(ROOT, dishonorable_leader)
       elif ROOT.honor < 25:
         pass
       elif ROOT.honor < 75:
-        other:
-          $add_opinion_modifier(ROOT, honorable_leader)
+        other->$add_opinion_modifier(ROOT, honorable_leader)
       else:
-        other:
-          $add_opinion_modifier(ROOT, righteous_leader)
+        other->$add_opinion_modifier(ROOT, righteous_leader)
 
-update_honor_gain_monthly_factor:
+
+update_honor_gain_monthly_factor():
   for other in every_other_country():
     if is_guaranteed_by(ROOT):
       ROOT.guaranting[].add(other)
@@ -207,7 +202,8 @@ update_honor_gain_monthly_factor:
       ROOT.na_pacts[].add(other)
   &honor_gain_monthly_factor = 0.20 * guaranting[].size() + 0.05 * na_pacts[].size()
 
-update_tyranny_gain_monthly_factor:
+
+update_tyranny_gain_monthly_factor():
   if has_offensive_war():
     &tyranny_gain_monthly_factor = -0.25
   elif has_defensive_war():

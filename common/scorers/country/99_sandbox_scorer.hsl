@@ -50,31 +50,30 @@ minor_rivals_scorer:
       modifier:
         factor(0)
         not has_war_with(FROM)
-        NOT:
-          OR:
-            AND:
-              any_controlled_state->is_on_continent(europe)
-              FROM->any_controlled_state->is_on_continent(europe)
-            AND:
-              any_controlled_state->is_on_continent(africa)
-              FROM->any_controlled_state->is_on_continent(africa)
-            AND:
-              any_controlled_state->is_on_continent(middle_east)
-              FROM->any_controlled_state->is_on_continent(middle_east)
-            AND:
-              OR:
-                any_controlled_state->is_on_continent(north_america)
-                any_controlled_state->is_on_continent(south_america)
-              OR:
-                FROM->any_controlled_state->is_on_continent(north_america)
-                FROM->any_controlled_state->is_on_continent(south_america)
-            AND:
-              OR:
-                any_controlled_state->is_on_continent(asia)
-                any_controlled_state->is_on_continent(australia)
-              OR:
-                FROM->any_controlled_state->is_on_continent(asia)
-                FROM->any_controlled_state->is_on_continent(australia)
+        NOT->OR:
+          AND:
+            any_controlled_state->is_on_continent(europe)
+            FROM->any_controlled_state->is_on_continent(europe)
+          AND:
+            any_controlled_state->is_on_continent(africa)
+            FROM->any_controlled_state->is_on_continent(africa)
+          AND:
+            any_controlled_state->is_on_continent(middle_east)
+            FROM->any_controlled_state->is_on_continent(middle_east)
+          AND:
+            OR:
+              any_controlled_state->is_on_continent(north_america)
+              any_controlled_state->is_on_continent(south_america)
+            OR:
+              FROM->any_controlled_state->is_on_continent(north_america)
+              FROM->any_controlled_state->is_on_continent(south_america)
+          AND:
+            OR:
+              any_controlled_state->is_on_continent(asia)
+              any_controlled_state->is_on_continent(australia)
+            OR:
+              FROM->any_controlled_state->is_on_continent(asia)
+              FROM->any_controlled_state->is_on_continent(australia)
       modifier:
         factor(0)
         FROM == THIS

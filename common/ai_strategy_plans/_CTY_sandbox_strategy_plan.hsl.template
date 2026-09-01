@@ -7,10 +7,12 @@ CTY_sandbox_strategy_plan_common:
   enable:
     is_sandbox_mode_on(yes)
   abort_when_not_enabled()
+  weight:
+    factor(1)
 
   #ai_strategy:
 
-  #ai_national_focuses:
+  # raw ai_national_focuses: {}
 
   #focus_factors:
 
@@ -19,6 +21,3 @@ CTY_sandbox_strategy_plan_common:
   #ideas:
 
   #traits:
-
-  weight:
-    factor(1)

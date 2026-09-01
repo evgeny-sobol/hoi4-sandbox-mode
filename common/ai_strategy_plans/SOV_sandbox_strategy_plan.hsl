@@ -1,42 +1,50 @@
 SOV_sandbox_strategy_plan_common:
   allowed:
-    original_tag(SOV)
+    original_tag($SOV)
   enable:
-    is_sandbox_mode_on(yes)
+    is_sandbox_mode_on()
   abort_when_not_enabled()
-
   weight:
     factor(1)
+
+  raw ai_national_focuses: {
+    SOV_desperate_measures
+    SOV_lessons_of_war
+    SOV_the_glory_of_the_red_army
+    SOV_the_glory_of_the_red_army_alt
+  }
 
 SOV_sandbox_strategy_plan_the_centre:
   allowed:
-    original_tag(SOV)
+    original_tag($SOV)
   enable:
     has_completed_focus(SOV_the_centre)
-    is_sandbox_mode_on(yes)
+    is_sandbox_mode_on()
   abort_when_not_enabled()
-
   weight:
     factor(1)
 
-SOV_sandbox_strategy_plan_the_left_opposition:
+  raw ai_national_focuses: {
+    SOV_the_stalin_constitution
+    SOV_the_zinovyevite_terrorist_center
+    SOV_the_anti_soviet_trotskyist_center
+    SOV_the_military_conspiracy
+    SOV_behead_the_snake
+    SOV_the_bloc_of_rights_and_trotskyites
+    SOV_stalins_cult_of_personality
+  }
+
+SOV_sandbox_strategy_plan_zemsky_sobor:
   allowed:
-    original_tag(SOV)
+    original_tag($SOV)
   enable:
-    has_completed_focus(SOV_the_left_opposition)
-    is_sandbox_mode_on(yes)
+    has_completed_focus(SOV_beaten_but_not_defeated)
+    is_sandbox_mode_on()
   abort_when_not_enabled()
-
   weight:
     factor(1)
 
-SOV_sandbox_strategy_plan_the_right_opposition:
-  allowed:
-    original_tag(SOV)
-  enable:
-    has_completed_focus(SOV_the_right_opposition)
-    is_sandbox_mode_on(yes)
-  abort_when_not_enabled()
-
-  weight:
-    factor(1)
+  raw ai_national_focuses: {
+    SOV_consolidate_power
+    SOV_reconvene_the_zemsky_sobor
+  }

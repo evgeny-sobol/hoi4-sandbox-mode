@@ -1,6 +1,6 @@
 macro add_honor(_var_):
   hidden_effect:
-    if not _var_ == 0:
+    if _var_ != 0:
       &prev_honor = honor
       &honor = clamp(honor + _var_, -100, 100)
       update_country_leader_traits()
@@ -10,7 +10,7 @@ macro add_honor(_var_):
 
 macro add_tyranny(_var_):
   hidden_effect:
-    if not _var_ == 0:
+    if _var_ != 0:
       &prev_tyranny = tyranny
       &tyranny = clamp(tyranny + _var_, -100, 100)
       update_country_leader_traits()
@@ -18,10 +18,17 @@ macro add_tyranny(_var_):
     localization_key(LocKey_tyranny_change_tt)
     VALUE(_var_)
 
-macro basic_modifier():
-  factor(0)
-  add(40)
-  is_sandbox_mode_on()
+macro country_is_rival(_country_):
+  allowed:
+    always()
+  enable:
+    _country_ in rivals[]
+    is_sandbox_mode_on()
+  abort_when_not_enabled()
+  ai_strategy:
+    type(antagonize)
+    id(_country_)
+    value(-200)
 
 macro ideology_factor(_ideology_):
   base(0)
@@ -37,5 +44,59 @@ macro ideology_factor(_ideology_):
     factor(0)
     is_sandbox_mode_on(no)
 
-macro opinion_factor(_target_):
-  clamp(opinion@_target_ / 100 * -1, -1.0, 1.0)
+macro is_friend_of(_country_):
+  custom_override_tooltip:
+    tooltip(LocKey_is_friend_of_{_country_}_tt)
+    OR:
+      is_ally_with(_country_)
+      is_guaranteed_by(_country_)
+      has_non_aggression_pact_with(_country_)
+
+macro is_rival_of(_country_):
+  custom_override_tooltip:
+    tooltip(LocKey_is_rival_of_{_country_}_tt)
+    OR:
+      has_war_with(_country_)
+      THIS in _country_.rivals[]
+      _country_ in THIS.rivals[]
+
+macro ai_sandbox_modifier():
+  factor(0)
+  add(40)
+  is_sandbox_mode_on()
+
+#DEPRECATED
+macro basic_modifier():
+  $ai_sandbox_modifier()
+
+macro root_modifier():
+  factor(1.5)
+  is_sandbox_mode_on()
+
+macro crossroad_modifier(_number_of_choices_):
+  f = 1 / _number_of_choices_
+  factor(f)
+  is_sandbox_mode_on()
+
+macro opinion_factor(_tag_):
+  clamp(opinion@_tag_ / 100, -1.0, 1.0)
+
+macro ai_cooperation_modifier(_tag_):
+  cooperation = 1 + $opinion_factor(_tag_)
+  factor(cooperation)
+  is_sandbox_mode_on()
+
+macro ai_antagonism_modifier(_tag_):
+  antagonism = 1 - $opinion_factor(_tag_)
+  factor(antagonism)
+  is_sandbox_mode_on()
+
+# MIC means Military-Industrial Complex
+macro ai_mic_modifier():
+  mic = 1 + mtth:world_tension_factor
+  factor(mic)
+  is_sandbox_mode_on()
+
+macro ai_war_support_modifier():
+  factor(has_war_support)
+  is_sandbox_mode_on()

@@ -27,42 +27,33 @@ has_enemy_ideology_with_FROM:
   OR:
     AND:
       has_government(communism)
-      FROM:
-        OR:
-          has_government(fascism)
-          has_government(democratic)
+      FROM->OR:
+        has_government(fascism)
+        has_government(democratic)
     AND:
       has_government(democratic)
-      FROM:
-        OR:
-          has_government(communism)
-          has_government(fascism)
+      FROM->OR:
+        has_government(communism)
+        has_government(fascism)
     AND:
       has_government(fascism)
-      FROM:
-        OR:
-          has_government(democratic)
-          has_government(communism)
+      FROM->OR:
+        has_government(democratic)
+        has_government(communism)
 
 is_friend_of_PREV:
-  custom_override_tooltip:
-    tooltip(LocKey_is_friend_of_PREV_tt)
-    OR:
-      is_ally_with(PREV)
-      is_guaranteed_by(PREV)
-      has_non_aggression_pact_with(PREV)
+  $is_friend_of(PREV)
+
+is_friend_of_ROOT:
+  $is_friend_of(ROOT)
 
 is_honored_leader:
   custom_override_tooltip:
     tooltip(LocKey_is_honored_leader_tt)
-    OR:
-      has_country_leader_with_trait(honorable_leader)
-      has_country_leader_with_trait(righteous_leader)
+    has_country_leader_with_trait(honorable_leader | righteous_leader)
 
 is_rival_of_PREV:
-  custom_override_tooltip:
-    tooltip(LocKey_is_rival_of_PREV_tt)
-    OR:
-      has_war_with(PREV)
-      THIS in PREV.rivals[]
-      PREV in THIS.rivals[]
+  $is_rival_of(PREV)
+
+is_rival_of_ROOT:
+  $is_rival_of(ROOT)

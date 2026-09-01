@@ -1,10 +1,9 @@
-update_SOV_national_focuses:
-  for watcher in every_country().which(original_tag(SOV)):
+update_SOV_national_focuses():
+  for watcher in every_country().which(original_tag($SOV)):
 
-    # Helper for SOV_the_rightful_heir_to_the_empire `available` block
-    if not (has_completed_focus(SOV_the_path_of_marxism_leninism)
-        or has_completed_focus(SOV_panslavic_nationalism)
-        or has_completed_focus(SOV_the_rightful_heir_to_the_empire)):
+    # Helper for (focus) SOV_the_rightful_heir_to_the_empire `available` block
+    if not has_completed_focus(SOV_the_path_of_marxism_leninism |
+        SOV_panslavic_nationalism | SOV_the_rightful_heir_to_the_empire):
       &rightful_heir_to_empire_targets[].clear()
       for target in every_other_country().which(owns_any_state_of[2, 454, 797]):
         watcher.&rightful_heir_to_empire_targets[].add(target)

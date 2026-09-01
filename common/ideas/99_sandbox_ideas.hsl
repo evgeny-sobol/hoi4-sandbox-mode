@@ -1,10 +1,9 @@
 ideas:
   country:
-
     anti_democratic_sentiments:
       picture(neutrality_idea)
       allowed_civil_war:
-        always(yes)
+        always()
       #on_add:
       #do_effect:
       modifier:
@@ -16,7 +15,7 @@ ideas:
     anti_monarchist_sentiments:
       picture(neutrality_idea)
       allowed_civil_war:
-        always(yes)
+        always()
       modifier:
         neutrality_drift(-0.01)
         neutrality_acceptance(-10)
@@ -24,7 +23,7 @@ ideas:
     anti_communist_sentiments:
       picture(neutrality_idea)
       allowed_civil_war:
-        always(yes)
+        always()
       modifier:
         communism_drift(-0.01)
         communism_acceptance(-10)
@@ -32,7 +31,7 @@ ideas:
     anti_fascist_sentiments:
       picture(neutrality_idea)
       allowed_civil_war:
-        always(yes)
+        always()
       modifier:
         fascism_drift(-0.01)
         fascism_acceptance(-10)
