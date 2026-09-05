@@ -280,6 +280,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
 
   focus[id = DEN_seek_industrial_investments]:
     ai_will_do:
@@ -307,6 +309,8 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = DEN_adjust_industrial_prioritize]:
     ai_will_do:
@@ -333,6 +337,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
 
   focus[id = DEN_secure_the_norwegian_coast]:
     available:
@@ -344,6 +350,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($NOR)
 
   focus[id = DEN_reclaim_atlantic_islands]:
     available:
@@ -355,6 +363,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ICE)
+      +modifier:
+        $ai_betrayal_modifier_vs($ICE)
 
   focus[id = DEN_claim_sweden]:
     available:
@@ -366,6 +376,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   focus[id = DEN_safeguard_the_eastern_front]:
     available:
@@ -377,6 +389,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
 
   focus[id = DEN_declare_neutrality]:
     ai_will_do:
@@ -694,6 +708,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ICE)
+      modifier:
+        $ai_betrayal_modifier_vs($ICE)
 
   focus[id = DEN_develop_iceland]:
     +ai_will_do:
@@ -720,6 +736,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SWE)
+      modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   focus[id = DEN_swedish_steel_production]:
     +ai_will_do:
@@ -736,6 +754,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FIN)
+      modifier:
+        $ai_betrayal_modifier_vs($FIN)
 
   focus[id = DEN_reclaim_norway]:
     available:
@@ -747,6 +767,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($NOR)
+      modifier:
+        $ai_betrayal_modifier_vs($NOR)
 
   focus[id = DEN_train_mountain_infantry]:
     +ai_will_do:
@@ -769,6 +791,8 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
       modifier:
         $crossroad_modifier(2)
 
@@ -849,16 +873,15 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = DEN_dominium_maris_baltici]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $EST->is_friend_of_PREV(no)
-          $LAT->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
-          $POL->is_friend_of_PREV(no)
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $POL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -870,6 +893,13 @@ focus_tree[id = danish_focus]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) + $opinion_factor($LIT) + $opinion_factor($POL)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+          $POL->is_friend_of_PREV()
 
   focus[id = DEN_establish_the_danelaw]:
     available:
@@ -883,6 +913,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = DEN_sign_forsvarsforliget]:
     ai_will_do:

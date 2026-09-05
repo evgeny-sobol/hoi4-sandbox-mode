@@ -13,6 +13,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = AUS_release_imprisoned_leaders]:
     ai_will_do:
@@ -58,11 +60,8 @@ focus_tree[id = austria_focus_tree]:
 
   focus[id = AUS_intervention_in_spain]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SPD->is_friend_of_PREV(no)
-          $SPR->is_friend_of_PREV(no)
+      $can_get_wargoal_on($SPD)
+      $SPR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -72,10 +71,17 @@ focus_tree[id = austria_focus_tree]:
         antagonism = 1 - ($opinion_factor($SPD) + $opinion_factor($SPR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          and:
+            country_exists($SPD)
+            $SPD->is_friend_of_PREV()
+          $SPR->is_friend_of_PREV()
 
   focus[id = AUS_invite_spanish_exiles]:
     available:
-      $SPA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -89,6 +95,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPA)
       +modifier:
         $ai_mic_modifier()
 
@@ -110,7 +118,7 @@ focus_tree[id = austria_focus_tree]:
 
   focus[id = AUS_seek_soviet_support]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -120,6 +128,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = AUS_politicized_general_staff]:
     ai_will_do:
@@ -256,6 +266,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AUS_seize_galicia]:
     ai_will_do:
@@ -269,7 +281,11 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_low_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(3)
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = AUS_rebuild_democratic_systems]:
     ai_will_do:
@@ -280,15 +296,16 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-20)
 
   focus[id = AUS_seek_support_from_guarantors]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $USA->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -300,6 +317,12 @@ focus_tree[id = austria_focus_tree]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG) + $opinion_factor($USA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $USA->is_friend_of_PREV()
 
   focus[id = AUS_stabilize_the_political_climate]:
     ai_will_do:
@@ -313,7 +336,13 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = AUS_strengthen_the_cabinet]:
     ai_will_do:
@@ -358,6 +387,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = AUS_pardon_political_exiles]:
     ai_will_do:
@@ -428,6 +459,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = AUS_deal_with_the_german_threat]:
     available:
@@ -439,6 +472,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = AUS_end_european_fascism]:
     ai_will_do:
@@ -588,6 +623,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AUS_crusade_on_communism]:
     ai_will_do:
@@ -659,15 +696,14 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWI)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWI)
 
   focus[id = AUS_war_against_guarantors]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $USA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -677,6 +713,12 @@ focus_tree[id = austria_focus_tree]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($USA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $USA->is_friend_of_PREV()
 
   focus[id = AUS_renew_claims_in_italy]:
     available:
@@ -690,6 +732,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = AUS_extend_italian_claims]:
     ai_will_do:
@@ -708,6 +752,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = AUS_for_a_better_future]:
     ai_will_do:
@@ -726,6 +772,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = AUS_the_czechoslovakian_lands]:
     available:
@@ -737,6 +785,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_betrayal_modifier_vs($CZE)
 
   focus[id = AUS_reclaiming_yugoslavian_territories]:
     ai_will_do:
@@ -763,6 +813,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ROM)
+      +modifier:
+        $ai_betrayal_modifier_vs($ROM)
 
   focus[id = AUS_integrate_northwest]:
     ai_will_do:
@@ -809,12 +861,9 @@ focus_tree[id = austria_focus_tree]:
 
   focus[id = AUS_approach_democratic_guarantors]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $USA->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -824,6 +873,12 @@ focus_tree[id = austria_focus_tree]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG) + $opinion_factor($USA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $USA->is_friend_of_PREV()
 
   focus[id = AUS_reach_out_to_italy]:
     available:
@@ -835,6 +890,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = AUS_refine_vaterlandische_front]:
     ai_will_do:
@@ -872,7 +929,7 @@ focus_tree[id = austria_focus_tree]:
 
   focus[id = AUS_spanish_intervention]:
     available:
-      $SPA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -880,6 +937,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPA)
 
   focus[id = AUS_demand_part_of_spanish_winnings]:
     ai_will_do:
@@ -916,6 +975,10 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = AUS_consolidate_industries]:
     ai_will_do:
@@ -947,6 +1010,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = AUS_an_improved_german_state]:
     ai_will_do:
@@ -965,6 +1030,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HAI)
+      +modifier:
+        $ai_betrayal_modifier_vs($HAI)
 
   focus[id = AUS_seek_to_purchase_alaska]:
     ai_will_do:

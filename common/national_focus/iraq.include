@@ -386,6 +386,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = IRQ_protector_of_the_gulf]:
     ai_will_do:
@@ -425,11 +427,8 @@ focus_tree[id = iraq_focus]:
 
   focus[id = IRQ_demand_palestine]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAL->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $PAL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -439,6 +438,11 @@ focus_tree[id = iraq_focus]:
         antagonism = 1 - ($opinion_factor($PAL) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = IRQ_commander_of_the_faithful]:
     ai_will_do:
@@ -460,6 +464,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SYR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SYR)
 
   focus[id = IRQ_hashemite_arab_federation]:
     ai_will_do:
@@ -483,6 +489,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SAU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SAU)
 
   focus[id = IRQ_a_new_caliph]:
     ai_will_do:
@@ -493,20 +501,17 @@ focus_tree[id = iraq_focus]:
 
   focus[id = IRQ_unite_mashriq]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAL->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $ISR->is_friend_of_PREV(no)
-          $LEB->is_friend_of_PREV(no)
-          $SYR->is_friend_of_PREV(no)
-          $SAU->is_friend_of_PREV(no)
-          $OMA->is_friend_of_PREV(no)
-          $IMO->is_friend_of_PREV(no)
-          $YEM->is_friend_of_PREV(no)
-          $FSA->is_friend_of_PREV(no)
-          $KUW->is_friend_of_PREV(no)
+      $PAL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $ISR->can_PREV_get_wargoal_on_THIS()
+      $LEB->can_PREV_get_wargoal_on_THIS()
+      $SYR->can_PREV_get_wargoal_on_THIS()
+      $SAU->can_PREV_get_wargoal_on_THIS()
+      $OMA->can_PREV_get_wargoal_on_THIS()
+      $IMO->can_PREV_get_wargoal_on_THIS()
+      $YEM->can_PREV_get_wargoal_on_THIS()
+      $FSA->can_PREV_get_wargoal_on_THIS()
+      $KUW->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -516,19 +521,30 @@ focus_tree[id = iraq_focus]:
         antagonism = 1 - ($opinion_factor($PAL) + $opinion_factor($ENG) + $opinion_factor($ISR) + $opinion_factor($LEB) + $opinion_factor($SYR) + $opinion_factor($SAU) + $opinion_factor($OMA) + $opinion_factor($IMO) + $opinion_factor($YEM) + $opinion_factor($FSA) + $opinion_factor($KUW)) / 11
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $ISR->is_friend_of_PREV()
+          $LEB->is_friend_of_PREV()
+          $SYR->is_friend_of_PREV()
+          $SAU->is_friend_of_PREV()
+          $OMA->is_friend_of_PREV()
+          $IMO->is_friend_of_PREV()
+          $YEM->is_friend_of_PREV()
+          $FSA->is_friend_of_PREV()
+          $KUW->is_friend_of_PREV()
 
   focus[id = IRQ_unite_maghreb]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $EGY->is_friend_of_PREV(no)
-          $LBA->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $ALG->is_friend_of_PREV(no)
-          $TUN->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $EGY->can_PREV_get_wargoal_on_THIS()
+      $LBA->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ALG->can_PREV_get_wargoal_on_THIS()
+      $TUN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -538,16 +554,23 @@ focus_tree[id = iraq_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($EGY) + $opinion_factor($LBA) + $opinion_factor($ITA) + $opinion_factor($FRA) + $opinion_factor($ALG) + $opinion_factor($TUN)) / 7
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $EGY->is_friend_of_PREV()
+          $LBA->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $ALG->is_friend_of_PREV()
+          $TUN->is_friend_of_PREV()
 
   focus[id = IRQ_restore_al_andalus]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $RIF->is_friend_of_PREV(no)
-          $MOR->is_friend_of_PREV(no)
-          $SPR->is_friend_of_PREV(no)
-          $POR->is_friend_of_PREV(no)
+      $RIF->can_PREV_get_wargoal_on_THIS()
+      $MOR->can_PREV_get_wargoal_on_THIS()
+      $SPR->can_PREV_get_wargoal_on_THIS()
+      $POR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -557,6 +580,13 @@ focus_tree[id = iraq_focus]:
         antagonism = 1 - ($opinion_factor($RIF) + $opinion_factor($MOR) + $opinion_factor($SPR) + $opinion_factor($POR)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $RIF->is_friend_of_PREV()
+          $MOR->is_friend_of_PREV()
+          $SPR->is_friend_of_PREV()
+          $POR->is_friend_of_PREV()
 
   focus[id = IRQ_party_of_national_brotherhood]:
     ai_will_do:
@@ -627,6 +657,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SYR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SYR)
 
   focus[id = IRQ_status_of_lebanon]:
     available:
@@ -638,6 +670,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LEB)
+      +modifier:
+        $ai_betrayal_modifier_vs($LEB)
 
   focus[id = IRQ_align_afghanistan_fasc]:
     ai_will_do:
@@ -659,6 +693,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = IRQ_strengthen_the_golden_square]:
     ai_will_do:
@@ -685,6 +721,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SYR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SYR)
 
   focus[id = IRQ_rally_the_arab_world]:
     ai_will_do:
@@ -706,6 +744,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SAU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SAU)
 
   focus[id = IRQ_iran_ultimatum]:
     available:
@@ -717,6 +757,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = IRQ_liberate_levant]:
     ai_will_do:
@@ -864,6 +906,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = IRQ_kurdish_attack_iran]:
     available:
@@ -875,6 +919,8 @@ focus_tree[id = iraq_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = IRQ_kurdish_united]:
     ai_will_do:

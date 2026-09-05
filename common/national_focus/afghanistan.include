@@ -80,7 +80,7 @@ focus_tree[id = afghanistan_tree]:
 
   focus[id = AFG_renew_soviet_trade_agreement]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -94,6 +94,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = AFG_salang_pass]:
     ai_will_do:
@@ -512,11 +514,8 @@ focus_tree[id = afghanistan_tree]:
 
   focus[id = AFG_ally_the_brahui_khanate]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $RAJ->is_friend_of_PREV(no)
-          $KLT->is_friend_of_PREV(no)
+      $RAJ->can_PREV_get_wargoal_on_THIS()
+      $KLT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -526,6 +525,11 @@ focus_tree[id = afghanistan_tree]:
         antagonism = 1 - ($opinion_factor($RAJ) + $opinion_factor($KLT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $RAJ->is_friend_of_PREV()
+          $KLT->is_friend_of_PREV()
 
   focus[id = AFG_the_echoes_of_panipat]:
     available:
@@ -537,6 +541,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = AFG_the_amu_darya_plan]:
     ai_will_do:
@@ -553,31 +559,30 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AFG_return_to_delhi]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAK->is_friend_of_PREV(no)
-          $RAJ->is_friend_of_PREV(no)
-          $BAN->is_friend_of_PREV(no)
-          $KAS->is_friend_of_PREV(no)
-          $BLC->is_friend_of_PREV(no)
-          $SIN->is_friend_of_PREV(no)
-          $KLT->is_friend_of_PREV(no)
-          $RJP->is_friend_of_PREV(no)
-          $KHL->is_friend_of_PREV(no)
-          $CIP->is_friend_of_PREV(no)
-          $WIS->is_friend_of_PREV(no)
-          $SKK->is_friend_of_PREV(no)
-          $MPU->is_friend_of_PREV(no)
-          $BRM->is_friend_of_PREV(no)
-          $HYD->is_friend_of_PREV(no)
-          $KOL->is_friend_of_PREV(no)
-          $MYS->is_friend_of_PREV(no)
-          $RAS->is_friend_of_PREV(no)
-          $NWF->is_friend_of_PREV(no)
+      $PAK->can_PREV_get_wargoal_on_THIS()
+      $RAJ->can_PREV_get_wargoal_on_THIS()
+      $BAN->can_PREV_get_wargoal_on_THIS()
+      $KAS->can_PREV_get_wargoal_on_THIS()
+      $BLC->can_PREV_get_wargoal_on_THIS()
+      $SIN->can_PREV_get_wargoal_on_THIS()
+      $KLT->can_PREV_get_wargoal_on_THIS()
+      $RJP->can_PREV_get_wargoal_on_THIS()
+      $KHL->can_PREV_get_wargoal_on_THIS()
+      $CIP->can_PREV_get_wargoal_on_THIS()
+      $WIS->can_PREV_get_wargoal_on_THIS()
+      $SKK->can_PREV_get_wargoal_on_THIS()
+      $MPU->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $HYD->can_PREV_get_wargoal_on_THIS()
+      $KOL->can_PREV_get_wargoal_on_THIS()
+      $MYS->can_PREV_get_wargoal_on_THIS()
+      $RAS->can_PREV_get_wargoal_on_THIS()
+      $NWF->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -587,14 +592,33 @@ focus_tree[id = afghanistan_tree]:
         antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($RAJ) + $opinion_factor($BAN) + $opinion_factor($KAS) + $opinion_factor($BLC) + $opinion_factor($SIN) + $opinion_factor($KLT) + $opinion_factor($RJP) + $opinion_factor($KHL) + $opinion_factor($CIP) + $opinion_factor($WIS) + $opinion_factor($SKK) + $opinion_factor($MPU) + $opinion_factor($BRM) + $opinion_factor($HYD) + $opinion_factor($KOL) + $opinion_factor($MYS) + $opinion_factor($RAS) + $opinion_factor($NWF)) / 19
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAK->is_friend_of_PREV()
+          $RAJ->is_friend_of_PREV()
+          $BAN->is_friend_of_PREV()
+          $KAS->is_friend_of_PREV()
+          $BLC->is_friend_of_PREV()
+          $SIN->is_friend_of_PREV()
+          $KLT->is_friend_of_PREV()
+          $RJP->is_friend_of_PREV()
+          $KHL->is_friend_of_PREV()
+          $CIP->is_friend_of_PREV()
+          $WIS->is_friend_of_PREV()
+          $SKK->is_friend_of_PREV()
+          $MPU->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $HYD->is_friend_of_PREV()
+          $KOL->is_friend_of_PREV()
+          $MYS->is_friend_of_PREV()
+          $RAS->is_friend_of_PREV()
+          $NWF->is_friend_of_PREV()
 
   focus[id = AFG_reclaim_moghulistan]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SIK->is_friend_of_PREV(no)
-          $KHM->is_friend_of_PREV(no)
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -604,6 +628,11 @@ focus_tree[id = afghanistan_tree]:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($KHM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
 
   focus[id = AFG_ally_the_sikhs]:
     ai_will_do:
@@ -620,6 +649,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_reclaim_transoxiana]:
     available:
@@ -631,6 +662,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AFG_rebuild_the_silk_road]:
     ai_will_do:
@@ -691,43 +724,40 @@ focus_tree[id = afghanistan_tree]:
 
   focus[id = AFG_proclaim_a_new_caliphate]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAL->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $ISR->is_friend_of_PREV(no)
-          $LEB->is_friend_of_PREV(no)
-          $SYR->is_friend_of_PREV(no)
-          $SAU->is_friend_of_PREV(no)
-          $OMA->is_friend_of_PREV(no)
-          $IMO->is_friend_of_PREV(no)
-          $YEM->is_friend_of_PREV(no)
-          $FSA->is_friend_of_PREV(no)
-          $KUW->is_friend_of_PREV(no)
-          $EGY->is_friend_of_PREV(no)
-          $LBA->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $ALG->is_friend_of_PREV(no)
-          $TUN->is_friend_of_PREV(no)
-          $RIF->is_friend_of_PREV(no)
-          $MOR->is_friend_of_PREV(no)
-          $SPR->is_friend_of_PREV(no)
-          $POR->is_friend_of_PREV(no)
-          $INS->is_friend_of_PREV(no)
-          $MAL->is_friend_of_PREV(no)
-          $PAK->is_friend_of_PREV(no)
-          $BAN->is_friend_of_PREV(no)
-          $KSH->is_friend_of_PREV(no)
-          $SIK->is_friend_of_PREV(no)
-          $AZR->is_friend_of_PREV(no)
-          $PER->is_friend_of_PREV(no)
-          $ALB->is_friend_of_PREV(no)
-          $TAT->is_friend_of_PREV(no)
-          $CRI->is_friend_of_PREV(no)
-          $TUR->is_friend_of_PREV(no)
-          $IRQ->is_friend_of_PREV(no)
+      $PAL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $ISR->can_PREV_get_wargoal_on_THIS()
+      $LEB->can_PREV_get_wargoal_on_THIS()
+      $SYR->can_PREV_get_wargoal_on_THIS()
+      $SAU->can_PREV_get_wargoal_on_THIS()
+      $OMA->can_PREV_get_wargoal_on_THIS()
+      $IMO->can_PREV_get_wargoal_on_THIS()
+      $YEM->can_PREV_get_wargoal_on_THIS()
+      $FSA->can_PREV_get_wargoal_on_THIS()
+      $KUW->can_PREV_get_wargoal_on_THIS()
+      $EGY->can_PREV_get_wargoal_on_THIS()
+      $LBA->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ALG->can_PREV_get_wargoal_on_THIS()
+      $TUN->can_PREV_get_wargoal_on_THIS()
+      $RIF->can_PREV_get_wargoal_on_THIS()
+      $MOR->can_PREV_get_wargoal_on_THIS()
+      $SPR->can_PREV_get_wargoal_on_THIS()
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $PAK->can_PREV_get_wargoal_on_THIS()
+      $BAN->can_PREV_get_wargoal_on_THIS()
+      $KSH->can_PREV_get_wargoal_on_THIS()
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $AZR->can_PREV_get_wargoal_on_THIS()
+      $PER->can_PREV_get_wargoal_on_THIS()
+      $ALB->can_PREV_get_wargoal_on_THIS()
+      $TAT->can_PREV_get_wargoal_on_THIS()
+      $CRI->can_PREV_get_wargoal_on_THIS()
+      $TUR->can_PREV_get_wargoal_on_THIS()
+      $IRQ->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -736,6 +766,11 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         factor(AFG_proclaim_a_new_caliphate_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.AFG_proclaim_a_new_caliphate_targets[]
+          is_friend_of_ROOT()
 
   focus[id = AFG_return_of_the_emir]:
     ai_will_do:
@@ -746,6 +781,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-20)
 
   focus[id = AFG_education_for_women_and_girls]:
     ai_will_do:
@@ -800,7 +839,7 @@ focus_tree[id = afghanistan_tree]:
 
   focus[id = AFG_red_threat]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -808,6 +847,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = AFG_fortify_pakistan]:
     ai_will_do:
@@ -824,11 +865,19 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = AFG_work_with_gestapo]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = AFG_pashtun_empire]:
     ai_will_do:
@@ -864,6 +913,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_secure_baghdad]:
     available:
@@ -875,6 +926,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = AFG_savior_of_the_holy_lands]:
     ai_will_do:
@@ -1083,6 +1136,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PAK)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAK)
 
   focus[id = AFG_accelerate_integration]:
     ai_will_do:
@@ -1104,6 +1159,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_repeal_the_durand_line]:
     ai_will_do:
@@ -1159,6 +1216,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = AFG_reform_3]:
     ai_will_do:
@@ -1217,6 +1278,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIK)
+      +modifier:
+        $ai_betrayal_modifier_vs($SIK)
 
   focus[id = AFG_socialist_coup]:
     ai_will_do:
@@ -1252,6 +1315,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = AFG_support_soviets_in_asia]:
     ai_will_do:
@@ -1273,6 +1340,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_development_in_uzb]:
     ai_will_do:

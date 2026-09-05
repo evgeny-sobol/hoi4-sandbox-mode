@@ -17,11 +17,8 @@ focus_tree[id = yugoslavian_focus]:
 
   focus[id = YUG_reinforce_old_alliances]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -33,6 +30,11 @@ focus_tree[id = yugoslavian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
 
   focus[id = YUG_attract_allied_capital]:
     ai_will_do:
@@ -66,6 +68,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SLV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SLV)
 
   focus[id = YUG_united_autonomous_croatia]:
     available:
@@ -79,6 +83,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CRO)
+      +modifier:
+        $ai_betrayal_modifier_vs($CRO)
 
   focus[id = YUG_devolved_croatia]:
     available:
@@ -92,6 +98,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CRO)
+      +modifier:
+        $ai_betrayal_modifier_vs($CRO)
 
   focus[id = YUG_safeguard_bosnia]:
     available:
@@ -105,14 +113,13 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BOS)
+      +modifier:
+        $ai_betrayal_modifier_vs($BOS)
 
   focus[id = YUG_divide_bosnia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $HRZ->is_friend_of_PREV(no)
-          $BOS->is_friend_of_PREV(no)
+      $HRZ->can_PREV_get_wargoal_on_THIS()
+      $BOS->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -124,15 +131,17 @@ focus_tree[id = yugoslavian_focus]:
         antagonism = 1 - ($opinion_factor($HRZ) + $opinion_factor($BOS)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $HRZ->is_friend_of_PREV()
+          $BOS->is_friend_of_PREV()
 
   focus[id = YUG_dissolve_serbia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $MAC->is_friend_of_PREV(no)
-          $KOS->is_friend_of_PREV(no)
-          $MNT->is_friend_of_PREV(no)
+      $MAC->can_PREV_get_wargoal_on_THIS()
+      $KOS->can_PREV_get_wargoal_on_THIS()
+      $MNT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -142,6 +151,12 @@ focus_tree[id = yugoslavian_focus]:
         antagonism = 1 - ($opinion_factor($MAC) + $opinion_factor($KOS) + $opinion_factor($MNT)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAC->is_friend_of_PREV()
+          $KOS->is_friend_of_PREV()
+          $MNT->is_friend_of_PREV()
 
   focus[id = YUG_banat_for_support]:
     ai_will_do:
@@ -162,6 +177,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($TRA)
 
   focus[id = YUG_fortify_banat]:
     ai_will_do:
@@ -210,6 +227,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = YUG_concessions_for_macedonians]:
     ai_will_do:
@@ -246,6 +265,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_betrayal_modifier_vs($YUG)
 
   focus[id = YUG_zara_for_axis]:
     ai_will_do:
@@ -386,6 +407,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_betrayal_modifier_vs($YUG)
 
   focus[id = YUG_form_peasant_councils]:
     ai_will_do:

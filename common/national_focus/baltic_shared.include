@@ -238,6 +238,12 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   shared_focus[id = BALTIC_crush_forest_brothers]:
     ai_will_do:
@@ -275,12 +281,9 @@
 
   shared_focus[id = BALTIC_end_bourgeouis_dictatorships]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $LIT->is_friend_of_PREV(no)
-          $LAT->is_friend_of_PREV(no)
-          $EST->is_friend_of_PREV(no)
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $EST->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -290,6 +293,12 @@
         antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT) + $opinion_factor($EST)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LIT->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+          $EST->is_friend_of_PREV()
 
   shared_focus[id = BALTIC_focus_on_the_interior]:
     ai_will_do:
@@ -323,6 +332,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
 
   shared_focus[id = BALTIC_path_to_the_north_sea]:
     available:
@@ -334,6 +345,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
 
   shared_focus[id = BALTIC_end_swedish_neutrality]:
     available:
@@ -345,6 +358,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   shared_focus[id = BALTIC_free_the_workers_of_poland]:
     available:
@@ -356,3 +371,5 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)

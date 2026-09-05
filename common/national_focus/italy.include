@@ -822,12 +822,9 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_towards_a_greater_italy]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $YUG->is_friend_of_PREV(no)
-          $ALB->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $ALB->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -840,6 +837,12 @@ focus_tree[id = italian_focus]:
           $opinion_factor($ALB)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $YUG->is_friend_of_PREV()
+          $ALB->is_friend_of_PREV()
 
   focus[id = ITA_heroes_of_the_nation]:
     +ai_will_do:
@@ -857,11 +860,8 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_bend_the_bars]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -871,6 +871,11 @@ focus_tree[id = italian_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = ITA_subdue_the_sentinels]:
     available:
@@ -882,6 +887,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ITA_a_colonial_empire]:
     +ai_will_do:
@@ -944,6 +951,12 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = ITA_the_fate_of_mussolini]:
     +ai_will_do:
@@ -1338,6 +1351,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ITA_the_catholic_dominion]:
     +ai_will_do:
@@ -1351,12 +1366,9 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_balkan_ambition]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $YUG->is_friend_of_PREV(no)
-          $CRO->is_friend_of_PREV(no)
-          $MNT->is_friend_of_PREV(no)
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $CRO->can_PREV_get_wargoal_on_THIS()
+      $MNT->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1369,6 +1381,12 @@ focus_tree[id = italian_focus]:
           $opinion_factor($MNT)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $YUG->is_friend_of_PREV()
+          $CRO->is_friend_of_PREV()
+          $MNT->is_friend_of_PREV()
 
   focus[id = ITA_potential_allies_in_the_balkans]:
     +ai_will_do:
@@ -1392,6 +1410,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ALB)
+      modifier:
+        $ai_betrayal_modifier_vs($ALB)
 
   focus[id = ITA_albanian_oil]:
     +ai_will_do:
@@ -1442,23 +1462,20 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_italys_destiny]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BUL->is_friend_of_PREV(no)
-          $GRE->is_friend_of_PREV(no)
-          $YUG->is_friend_of_PREV(no)
-          $ALB->is_friend_of_PREV(no)
-          $ROM->is_friend_of_PREV(no)
-          $SLV->is_friend_of_PREV(no)
-          $BOS->is_friend_of_PREV(no)
-          $HRZ->is_friend_of_PREV(no)
-          $MAC->is_friend_of_PREV(no)
-          $SER->is_friend_of_PREV(no)
-          $CRO->is_friend_of_PREV(no)
-          $KOS->is_friend_of_PREV(no)
-          $MNT->is_friend_of_PREV(no)
-          $TRA->is_friend_of_PREV(no)
+      $BUL->can_PREV_get_wargoal_on_THIS()
+      $GRE->can_PREV_get_wargoal_on_THIS()
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $ALB->can_PREV_get_wargoal_on_THIS()
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $SLV->can_PREV_get_wargoal_on_THIS()
+      $BOS->can_PREV_get_wargoal_on_THIS()
+      $HRZ->can_PREV_get_wargoal_on_THIS()
+      $MAC->can_PREV_get_wargoal_on_THIS()
+      $SER->can_PREV_get_wargoal_on_THIS()
+      $CRO->can_PREV_get_wargoal_on_THIS()
+      $KOS->can_PREV_get_wargoal_on_THIS()
+      $MNT->can_PREV_get_wargoal_on_THIS()
+      $TRA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1472,6 +1489,23 @@ focus_tree[id = italian_focus]:
           $opinion_factor($KOS) + $opinion_factor($MNT) + $opinion_factor($TRA)) / 14
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BUL->is_friend_of_PREV()
+          $GRE->is_friend_of_PREV()
+          $YUG->is_friend_of_PREV()
+          $ALB->is_friend_of_PREV()
+          $ROM->is_friend_of_PREV()
+          $SLV->is_friend_of_PREV()
+          $BOS->is_friend_of_PREV()
+          $HRZ->is_friend_of_PREV()
+          $MAC->is_friend_of_PREV()
+          $SER->is_friend_of_PREV()
+          $CRO->is_friend_of_PREV()
+          $KOS->is_friend_of_PREV()
+          $MNT->is_friend_of_PREV()
+          $TRA->is_friend_of_PREV()
 
   focus[id = ITA_the_eastern_threat]:
     available:
@@ -1483,6 +1517,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ITA_pact_of_steel]:
     +ai_will_do:
@@ -1557,6 +1593,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = ITA_demand_ticino]:
     available:
@@ -1568,6 +1606,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SWI)
+      modifier:
+        $ai_betrayal_modifier_vs($SWI)
 
   focus[id = ITA_war_with_the_uk]:
     available:
@@ -1579,6 +1619,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ITA_war_with_greece]:
     available:
@@ -1592,6 +1634,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GRE)
+      modifier:
+        $ai_betrayal_modifier_vs($GRE)
 
   focus[id = ITA_befriend_greece]:
     +ai_will_do:
@@ -1614,6 +1658,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($TUR)
+      modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = ITA_befriend_turkey]:
     +ai_will_do:
@@ -1642,7 +1688,7 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_demand_balearic_islands_bba]:
     available:
-      $SPA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1652,6 +1698,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SPA)
+      modifier:
+        $ai_betrayal_modifier_vs($SPA)
 
   focus[id = ITA_befriend_portugal]:
     +ai_will_do:
@@ -1979,6 +2027,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ITA_raise_the_peoples]:
     +ai_will_do:
@@ -2105,6 +2155,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ITA_the_ethiopian_question]:
     +ai_will_do:
@@ -2145,6 +2197,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ALB)
+      modifier:
+        $ai_betrayal_modifier_vs($ALB)
 
   focus[id = ITA_enlist_the_bashkimi_kombetar]:
     +ai_will_do:
@@ -2173,14 +2227,11 @@ focus_tree[id = italian_focus]:
 
   focus[id = ITA_liberate_the_workers_of_africa]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $BEL->is_friend_of_PREV(no)
-          $POR->is_friend_of_PREV(no)
-          $SPA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -2191,6 +2242,16 @@ focus_tree[id = italian_focus]:
           $opinion_factor($BEL) + $opinion_factor($POR) + $opinion_factor($SPA)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $BEL->is_friend_of_PREV()
+          $POR->is_friend_of_PREV()
+          and:
+            country_exists($SPA)
+            $SPA->is_friend_of_PREV()
 
   focus[id = ITA_ascari]:
     +ai_will_do:

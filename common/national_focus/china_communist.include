@@ -79,11 +79,21 @@ focus_tree[id = china_communist_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-5)
 
   focus[id = PRC_purge_the_radicals]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = PRC_strengthen_the_left_wing_of_the_kmt]:
     ai_will_do:
@@ -193,11 +203,8 @@ focus_tree[id = china_communist_focus]:
 
   focus[id = PRC_exploit_the_weak_neighbours]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SHX->is_friend_of_PREV(no)
-          $XSM->is_friend_of_PREV(no)
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -207,6 +214,11 @@ focus_tree[id = china_communist_focus]:
         antagonism = 1 - ($opinion_factor($SHX) + $opinion_factor($XSM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SHX->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
 
   focus[id = PRC_infiltration]:
     ai_will_do:
@@ -229,6 +241,8 @@ focus_tree[id = china_communist_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
       +modifier:
         $crossroad_modifier(2)
 

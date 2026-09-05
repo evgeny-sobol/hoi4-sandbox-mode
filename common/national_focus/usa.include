@@ -123,7 +123,11 @@ focus_tree[id = usa_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_high_tyranny_tilt()
+      modifier:
         $ai_mic_modifier()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = USA_focus_on_europe]:
     ai_will_do:
@@ -280,11 +284,8 @@ focus_tree[id = usa_focus]:
 
   focus[id = USA_pacific_decolonisation]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:USA_pacific_decolonisation_targets[0]->is_friend_of_PREV(no)
-          var:USA_pacific_decolonisation_targets[1]->is_friend_of_PREV(no)
+      var:USA_pacific_decolonisation_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:USA_pacific_decolonisation_targets[1]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -293,6 +294,11 @@ focus_tree[id = usa_focus]:
       +modifier:
         factor(USA_pacific_decolonisation_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.USA_pacific_decolonisation_targets[]
+          is_friend_of_ROOT()
 
   #TODO
   focus[id = USA_old_age_pension_act]:
@@ -396,14 +402,11 @@ focus_tree[id = usa_focus]:
   #TODO
   focus[id = USA_end_monarchism]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $GER->is_friend_of_PREV(no)
-          $HUN->is_friend_of_PREV(no)
-          $JAP->is_friend_of_PREV(no)
-          $MAN->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
+      $MAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -416,6 +419,14 @@ focus_tree[id = usa_focus]:
           $opinion_factor($MAN)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
+          $MAN->is_friend_of_PREV()
 
   #TODO
   focus[id = USA_shatter_the_empires]:
@@ -515,6 +526,11 @@ focus_tree[id = usa_focus]:
       +modifier:
         factor(USA_seize_cuba_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.USA_seize_cuba_targets[]
+          is_friend_of_ROOT()
 
   focus[id = USA_eliminate_the_southern_threat]:
     available:
@@ -526,6 +542,8 @@ focus_tree[id = usa_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   #TODO
   focus[id = USA_manifest_destiny]:
@@ -543,6 +561,8 @@ focus_tree[id = usa_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($CAN)
 
   #TODO
   focus[id = USA_north_american_dominion]:
@@ -781,6 +801,8 @@ focus_tree[id = usa_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
 # █   █ ▄▀▀▄ █▀▀▄      █▀▀▄ █▀▀▀ █▀▀▄ ▄▀▀▄ █▀▀▄ ▀▀█▀▀ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
 # █ ▄ █ █▀▀█ █▀▀▄      █  █ █▀▀  █▀▀  █▀▀█ █▀▀▄   █   █ ▀ █ █▀▀  █ ▀▄█   █  

@@ -372,6 +372,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = AST_sever_ties_with_uk]:
     available:
@@ -383,6 +385,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_woo_usa]:
     available:
@@ -394,6 +398,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = AST_protect_the_dutch_colonies]:
     ai_will_do:
@@ -420,6 +426,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = AST_abandon_the_westminster_system]:
     ai_will_do:
@@ -459,6 +467,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_protect_the_south_west_pacific]:
     ai_will_do:
@@ -477,6 +487,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_our_own_empire]:
     available:
@@ -490,6 +502,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_japan_tech_sharing]:
     ai_will_do:
@@ -506,6 +520,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = AST_empower_the_workers]:
     ai_will_do:
@@ -533,6 +549,8 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_indirect_support]:
     ai_will_do:
@@ -582,3 +600,5 @@ focus_tree[id = australian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)

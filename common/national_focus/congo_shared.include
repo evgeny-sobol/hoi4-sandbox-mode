@@ -365,28 +365,25 @@
 
   shared_focus[id = CONGO_great_war_of_africa]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:CONGO_great_war_of_africa_targets[0]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[1]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[2]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[3]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[4]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[5]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[6]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[7]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[8]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[9]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[10]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[11]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[12]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[13]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[14]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[15]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[16]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[17]->is_friend_of_PREV(no)
-          var:CONGO_great_war_of_africa_targets[18]->is_friend_of_PREV(no)
+      var:CONGO_great_war_of_africa_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[8]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[9]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[10]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[11]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[12]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[13]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[14]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[15]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[16]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[17]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[18]->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -395,3 +392,8 @@
       modifier:
         factor(CONGO_great_war_of_africa_antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CONGO_great_war_of_africa_targets[]
+          is_friend_of_ROOT()

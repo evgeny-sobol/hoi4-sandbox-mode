@@ -37,6 +37,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ARG_cut_ties_with_britain]:
     ai_will_do:
@@ -168,7 +170,7 @@ focus_tree[id = argentine_focus_tree]:
 
   focus[id = ARG_support_the_spanish_coup]:
     available:
-      $SPA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -176,6 +178,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPA)
 
   focus[id = ARG_demand_spanish_compensation]:
     ai_will_do:
@@ -199,6 +203,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = ARG_encourage_italian_argentine_diplomacy]:
     available:
@@ -210,6 +216,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = ARG_guardia_nacional]:
     ai_will_do:
@@ -281,6 +289,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PAR)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAR)
 
   focus[id = ARG_paraguayan_ultimatum]:
     ai_will_do:
@@ -308,6 +318,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($URG)
+      +modifier:
+        $ai_betrayal_modifier_vs($URG)
 
   focus[id = ARG_reach_out_to_chile]:
     ai_will_do:
@@ -333,6 +345,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($BRA)
 
   focus[id = ARG_south_american_unity]:
     ai_will_do:
@@ -356,9 +370,15 @@ focus_tree[id = argentine_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = ARG_the_war_machine]:
     ai_will_do:
@@ -380,6 +400,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ARG_the_clean_election]:
     ai_will_do:
@@ -454,11 +476,8 @@ focus_tree[id = argentine_focus_tree]:
 
   focus[id = ARG_british_gaurantee]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $ARG->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $ARG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -474,14 +493,16 @@ focus_tree[id = argentine_focus_tree]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($ARG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $ARG->is_friend_of_PREV()
 
   focus[id = ARG_seek_american_support]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $USA->is_friend_of_PREV(no)
-          $ARG->is_friend_of_PREV(no)
+      $USA->can_PREV_get_wargoal_on_THIS()
+      $ARG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -497,6 +518,11 @@ focus_tree[id = argentine_focus_tree]:
         antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($ARG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $USA->is_friend_of_PREV()
+          $ARG->is_friend_of_PREV()
 
   focus[id = ARG_royal_airforce_influence]:
     ai_will_do:
@@ -648,6 +674,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ARG_extinguish_south_american_communism]:
     ai_will_do:
@@ -670,7 +698,7 @@ focus_tree[id = argentine_focus_tree]:
 
   focus[id = ARG_support_the_spanish_republicans]:
     available:
-      $SPD->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPD)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -678,6 +706,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPD)
 
   focus[id = ARG_legitimize_the_PCA]:
     ai_will_do:
@@ -728,7 +758,7 @@ focus_tree[id = argentine_focus_tree]:
 
   focus[id = ARG_align_with_the_soviets]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -742,6 +772,8 @@ focus_tree[id = argentine_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = ARG_soviet_industrial_model]:
     ai_will_do:

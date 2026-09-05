@@ -105,24 +105,21 @@ focus_tree[id = china_nationalist_warlord_focus]:
 
   focus[id = CHI_sea_anti_communism]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SIK->is_friend_of_PREV(no)
-          $TIB->is_friend_of_PREV(no)
-          $PRC->is_friend_of_PREV(no)
-          $YUN->is_friend_of_PREV(no)
-          $SHX->is_friend_of_PREV(no)
-          $HBC->is_friend_of_PREV(no)
-          $GXC->is_friend_of_PREV(no)
-          $XSM->is_friend_of_PREV(no)
-          $SND->is_friend_of_PREV(no)
-          $GDC->is_friend_of_PREV(no)
-          $SIC->is_friend_of_PREV(no)
-          $XIC->is_friend_of_PREV(no)
-          $NXM->is_friend_of_PREV(no)
-          $GSM->is_friend_of_PREV(no)
-          $KHM->is_friend_of_PREV(no)
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $TIB->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $YUN->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -132,14 +129,29 @@ focus_tree[id = china_nationalist_warlord_focus]:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($TIB) + $opinion_factor($PRC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($HBC) + $opinion_factor($GXC) + $opinion_factor($XSM) + $opinion_factor($SND) + $opinion_factor($GDC) + $opinion_factor($SIC) + $opinion_factor($XIC) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 15
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $TIB->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $YUN->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
 
   focus[id = CHI_sea_pick_a_fight_with_japan]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $MAN->is_friend_of_PREV(no)
-          $JAP->is_friend_of_PREV(no)
+      $MAN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -149,6 +161,11 @@ focus_tree[id = china_nationalist_warlord_focus]:
         antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($JAP)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
 
   focus[id = CHI_sea_subjugate_the_warlords]:
     ai_will_do:
@@ -215,6 +232,12 @@ focus_tree[id = china_nationalist_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = CHI_tsr_restoration_of_the_chinese_empire]:
     ai_will_do:
@@ -263,26 +286,23 @@ focus_tree[id = china_nationalist_warlord_focus]:
 
   focus[id = CHI_tsr_never_another_national_protection_war]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CHI->is_friend_of_PREV(no)
-          $PRC->is_friend_of_PREV(no)
-          $GXC->is_friend_of_PREV(no)
-          $YUN->is_friend_of_PREV(no)
-          $SHX->is_friend_of_PREV(no)
-          $XSM->is_friend_of_PREV(no)
-          $SIK->is_friend_of_PREV(no)
-          $GDC->is_friend_of_PREV(no)
-          $SND->is_friend_of_PREV(no)
-          $SIC->is_friend_of_PREV(no)
-          $NXM->is_friend_of_PREV(no)
-          $GSM->is_friend_of_PREV(no)
-          $XIC->is_friend_of_PREV(no)
-          $KHM->is_friend_of_PREV(no)
-          $KUM->is_friend_of_PREV(no)
-          $RNG->is_friend_of_PREV(no)
-          $HBC->is_friend_of_PREV(no)
+      $CHI->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $YUN->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
+      $RNG->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -292,6 +312,26 @@ focus_tree[id = china_nationalist_warlord_focus]:
         antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($PRC) + $opinion_factor($GXC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($XSM) + $opinion_factor($SIK) + $opinion_factor($GDC) + $opinion_factor($SND) + $opinion_factor($SIC) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($XIC) + $opinion_factor($KHM) + $opinion_factor($KUM) + $opinion_factor($RNG) + $opinion_factor($HBC)) / 17
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHI->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $YUN->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $SIK->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
+          $RNG->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
 
   focus[id = CHI_tsr_tianxia]:
     ai_will_do:

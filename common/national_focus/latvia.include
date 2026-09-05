@@ -180,11 +180,15 @@ focus_tree[id = latvia_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(3)
       +modifier:
         f = (mtth:fascism_factor) / (2 * mtth:fascism_factor + 2 * mtth:democracy_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = LAT_alignment_with_germany]:
     ai_will_do:
@@ -225,11 +229,8 @@ focus_tree[id = latvia_tree]:
 
   focus[id = LAT_lightning_strike]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $LIT->is_friend_of_PREV(no)
-          $EST->is_friend_of_PREV(no)
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $EST->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -241,6 +242,11 @@ focus_tree[id = latvia_tree]:
         antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($EST)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LIT->is_friend_of_PREV()
+          $EST->is_friend_of_PREV()
 
   focus[id = LAT_support_baltic_fascists]:
     ai_will_do:
@@ -255,11 +261,8 @@ focus_tree[id = latvia_tree]:
 
   focus[id = LAT_consecrate_the_brotherhood]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $EST->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -269,6 +272,11 @@ focus_tree[id = latvia_tree]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LIT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
 
   focus[id = LAT_dievs_keepers]:
     ai_will_do:
@@ -310,13 +318,10 @@ focus_tree[id = latvia_tree]:
 
   focus[id = LAT_avenge_the_ancestors]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $SWE->is_friend_of_PREV(no)
-          $DEN->is_friend_of_PREV(no)
-          $FIN->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+      $FIN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -326,6 +331,13 @@ focus_tree[id = latvia_tree]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $SWE->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+          $FIN->is_friend_of_PREV()
 
   focus[id = LAT_ready_the_resistance]:
     ai_will_do:

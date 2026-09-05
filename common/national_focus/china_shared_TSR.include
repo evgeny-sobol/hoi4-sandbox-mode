@@ -174,6 +174,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_betrayal_modifier_vs($TIB)
 
   shared_focus[id = CHI_sea_renounce_the_mcmahon_line]:
     ai_will_do:
@@ -192,6 +194,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MON)
+      +modifier:
+        $ai_betrayal_modifier_vs($MON)
 
   shared_focus[id = CHI_sea_annex_tuva]:
     ai_will_do:
@@ -211,18 +215,15 @@
 
   shared_focus[id = CHI_sea_guidance_and_support]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:CHI_sea_guidance_and_support_targets[0]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[1]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[2]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[3]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[4]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[5]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[6]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[7]->is_friend_of_PREV(no)
-          var:CHI_sea_guidance_and_support_targets[8]->is_friend_of_PREV(no)
+      var:CHI_sea_guidance_and_support_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_guidance_and_support_targets[8]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -231,6 +232,11 @@
       +modifier:
         factor(CHI_sea_guidance_and_support_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CHI_sea_guidance_and_support_targets[]
+          is_friend_of_ROOT()
 
   shared_focus[id = CHI_sea_commit_to_korean_independence]:
     ai_will_do:
@@ -258,18 +264,15 @@
 
   shared_focus[id = CHI_sea_overlordship_over_indochina]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:CHI_sea_overlordship_over_indochina_targets[0]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[1]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[2]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[3]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[4]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[5]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[6]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[7]->is_friend_of_PREV(no)
-          var:CHI_sea_overlordship_over_indochina_targets[8]->is_friend_of_PREV(no)
+      var:CHI_sea_overlordship_over_indochina_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:CHI_sea_overlordship_over_indochina_targets[8]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -278,6 +281,11 @@
       +modifier:
         factor(CHI_sea_overlordship_over_indochina_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CHI_sea_overlordship_over_indochina_targets[]
+          is_friend_of_ROOT()
 
   shared_focus[id = CHI_sea_dominate_japan]:
     ai_will_do:

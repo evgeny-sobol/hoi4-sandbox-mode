@@ -11,6 +11,8 @@ focus_tree[id = new_zealander_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NZL)
+      +modifier:
+        $ai_betrayal_modifier_vs($NZL)
 
   focus[id = NZL_form_the_rnzn]:
     ai_will_do:
@@ -327,11 +329,8 @@ focus_tree[id = new_zealander_focus]:
 
   focus[id = NZL_strengthen_the_commonwealth]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $NZL->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -343,6 +342,11 @@ focus_tree[id = new_zealander_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($NZL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
 
   focus[id = NZL_statute_of_westminster]:
     ai_will_do:
@@ -383,6 +387,8 @@ focus_tree[id = new_zealander_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NZL)
+      +modifier:
+        $ai_betrayal_modifier_vs($NZL)
 
   focus[id = NZL_join_comintern]:
     ai_will_do:
@@ -424,6 +430,8 @@ focus_tree[id = new_zealander_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = NZL_technology_sharing_with_japan]:
     ai_will_do:

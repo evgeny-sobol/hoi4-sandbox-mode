@@ -34,33 +34,33 @@ fascism_factor:
 # ▀▀█▀▀ ▀▄ ▄▀ █▀▀▄ ▄▀▀▄ █▄  █ █▄  █ ▀▄ ▄▀      █▀▀▀ ▄▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▄ ▄▀▀▀
 #   █     █   █▀▀▄ █▀▀█ █ ▀▄█ █ ▀▄█   █        █▀▀  █▀▀█ █  ▄   █   █   █ █▀▀▄  ▀▀▄
 #   ▀     ▀   ▀  ▀ ▀  ▀ ▀   ▀ ▀   ▀   ▀        ▀    ▀  ▀  ▀▀    ▀    ▀▀▀  ▀  ▀ ▀▀▀ 
-# Peak at low tyranny (-100), zero at -34 and above
+# Peak at low tyranny (≤ −75), zero at −25 and above
 low_tyranny_factor:
   base(0)
   modifier:
-    low_tyranny_bonus = clamp((tyranny * -1 - 34) / 66, 0.0, 1.0)
+    low_tyranny_bonus = clamp((-25 - tyranny) / 50, 0.0, 1.0)
     add(low_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:
     factor(0)
     is_sandbox_mode_on(no)
 
-# Peak at high tyranny (+100), zero at 34 and below
+# Peak at high tyranny (≥ 75), zero at 25 and below
 high_tyranny_factor:
   base(0)
   modifier:
-    high_tyranny_bonus = clamp((tyranny - 34) / 66, 0.0, 1.0)
+    high_tyranny_bonus = clamp((tyranny - 25) / 50, 0.0, 1.0)
     add(high_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:
     factor(0)
     is_sandbox_mode_on(no)
 
-# Peak in the center (0), zero at ±34
+# Peak inside [−25, 25], zero at ±75
 medium_tyranny_factor:
   base(0)
   modifier:
-    medium_tyranny_bonus = clamp(1 - abs(tyranny) / 34, 0.0, 1.0)
+    medium_tyranny_bonus = clamp(1 - (abs(tyranny) - 25) / 50, 0.0, 1.0)
     add(medium_tyranny_bonus)
     is_sandbox_mode_on()
   modifier:

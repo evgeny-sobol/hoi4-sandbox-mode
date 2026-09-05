@@ -544,11 +544,8 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_persian_german_trade]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PER->is_friend_of_PREV(no)
-          $GER->is_friend_of_PREV(no)
+      $PER->can_PREV_get_wargoal_on_THIS()
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -558,6 +555,11 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($PER) + $opinion_factor($GER)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PER->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
 
   focus[id = PER_increase_military_funding]:
     ai_will_do:
@@ -606,11 +608,8 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_preemptive_strike]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $IRQ->is_friend_of_PREV(no)
-          $SOU->is_friend_of_PREV(no)
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -620,6 +619,13 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($IRQ) + $opinion_factor($SOU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $IRQ->is_friend_of_PREV()
+          and:
+            country_exists($SOU)
+            $SOU->is_friend_of_PREV()
 
   focus[id = PER_establish_northern_buffer_states]:
     ai_will_do:
@@ -773,7 +779,7 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_retake_north_iran]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -781,6 +787,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = PER_azadi]:
     ai_will_do:
@@ -888,6 +896,10 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = PER_absolute_monarchy]:
     ai_will_do:
@@ -909,6 +921,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = PER_limit_foreign_influence]:
     ai_will_do:
@@ -962,6 +976,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = PER_rebuild_persepolis]:
     ai_will_do:
@@ -1071,6 +1087,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)
 
   focus[id = PER_invasion_of_india]:
     available:
@@ -1082,6 +1100,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = PER_glory_of_cyrus]:
     ai_will_do:
@@ -1103,6 +1123,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = PER_reintegrate_anatolia]:
     ai_will_do:
@@ -1119,6 +1141,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_betrayal_modifier_vs($GRE)
 
   focus[id = PER_absorb_byzantines]:
     ai_will_do:
@@ -1140,14 +1164,13 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = PER_demand_west_asia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SYR->is_friend_of_PREV(no)
-          $LEB->is_friend_of_PREV(no)
+      $SYR->can_PREV_get_wargoal_on_THIS()
+      $LEB->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1157,16 +1180,18 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($SYR) + $opinion_factor($LEB)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SYR->is_friend_of_PREV()
+          $LEB->is_friend_of_PREV()
 
   focus[id = PER_march_to_nile]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $JOR->is_friend_of_PREV(no)
-          $PAL->is_friend_of_PREV(no)
-          $EGY->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $JOR->can_PREV_get_wargoal_on_THIS()
+      $PAL->can_PREV_get_wargoal_on_THIS()
+      $EGY->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1176,6 +1201,13 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($JOR) + $opinion_factor($PAL) + $opinion_factor($EGY) + $opinion_factor($ENG)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $JOR->is_friend_of_PREV()
+          $PAL->is_friend_of_PREV()
+          $EGY->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = PER_the_memphis_initiative]:
     ai_will_do:
@@ -1242,6 +1274,10 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = PER_strengthen_iranian_parliament]:
     ai_will_do:
@@ -1262,6 +1298,10 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = PER_continue_westernization]:
     ai_will_do:
@@ -1367,6 +1407,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = PER_secure_afghanistan]:
     available:
@@ -1378,6 +1420,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)
 
   focus[id = PER_post_war_spoils]:
     ai_will_do:
@@ -1410,7 +1454,7 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_soviet_alignment]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1418,6 +1462,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = PER_industrial_aid]:
     ai_will_do:
@@ -1433,11 +1479,8 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_appease_the_seperatists]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $KUR->is_friend_of_PREV(no)
-          $AZR->is_friend_of_PREV(no)
+      $KUR->can_PREV_get_wargoal_on_THIS()
+      $AZR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1447,6 +1490,11 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($KUR) + $opinion_factor($AZR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $KUR->is_friend_of_PREV()
+          $AZR->is_friend_of_PREV()
 
   focus[id = PER_communist_education_reform]:
     ai_will_do:
@@ -1548,6 +1596,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)
 
   focus[id = PER_communist_liberate_pashtuns]:
     ai_will_do:
@@ -1574,6 +1624,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = PER_communist_gulf_hegemony]:
     ai_will_do:
@@ -1584,6 +1636,10 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = PER_communist_industrialization]:
     ai_will_do:
@@ -1712,7 +1768,7 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_intervene_in_central_asia]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1720,6 +1776,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = PER_proclaim_greater_iran]:
     ai_will_do:
@@ -1728,11 +1786,8 @@ focus_tree[id = persian_focus_tree]:
 
   focus[id = PER_eastern_expansion]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAK->is_friend_of_PREV(no)
-          $RAJ->is_friend_of_PREV(no)
+      $PAK->can_PREV_get_wargoal_on_THIS()
+      $RAJ->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1742,6 +1797,11 @@ focus_tree[id = persian_focus_tree]:
         antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($RAJ)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAK->is_friend_of_PREV()
+          $RAJ->is_friend_of_PREV()
 
   focus[id = PER_curtail_pan_arabism]:
     ai_will_do:
@@ -1758,6 +1818,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = PER_fascist_attack_turkey]:
     available:
@@ -1769,6 +1831,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = PER_intervention_in_iraq]:
     available:
@@ -1780,6 +1844,8 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = PER_crush_saudi_arabia]:
     ai_will_do:
@@ -1796,3 +1862,5 @@ focus_tree[id = persian_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)

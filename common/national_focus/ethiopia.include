@@ -510,6 +510,10 @@ focus_tree[id = ethiopia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = ETH_the_heroes_of_ethiopia]:
     ai_will_do:
@@ -878,6 +882,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($AFA)
+      modifier:
+        $ai_betrayal_modifier_vs($AFA)
 
   focus[id = ETH_demand_DJI]:
     +ai_will_do:
@@ -910,7 +916,7 @@ focus_tree[id = ethiopia_tree]:
 
   focus[id = ETH_support_spain]:
     available:
-      $SPC->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPC)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -918,6 +924,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SPC)
+      modifier:
+        $ai_betrayal_modifier_vs($SPC)
 
   focus[id = ETH_the_rif]:
     +ai_will_do:
@@ -942,6 +950,8 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = ETH_mass_transit]:
     +ai_will_do:
@@ -1012,6 +1022,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ETH)
+      modifier:
+        $ai_betrayal_modifier_vs($ETH)
 
   focus[id = ETH_seek_new_trading_partners]:
     available:
@@ -1025,6 +1037,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ETH)
+      modifier:
+        $ai_betrayal_modifier_vs($ETH)
 
   focus[id = ETH_our_own_path]:
     available:
@@ -1036,15 +1050,14 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ETH)
+      modifier:
+        $ai_betrayal_modifier_vs($ETH)
 
   focus[id = ETH_freedom_at_gunpoint]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1054,14 +1067,17 @@ focus_tree[id = ethiopia_tree]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($ITA) + $opinion_factor($FRA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
 
   focus[id = ETH_boots_on_the_shore]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SAU->is_friend_of_PREV(no)
-          $YEM->is_friend_of_PREV(no)
+      $SAU->can_PREV_get_wargoal_on_THIS()
+      $YEM->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1071,6 +1087,11 @@ focus_tree[id = ethiopia_tree]:
         antagonism = 1 - ($opinion_factor($SAU) + $opinion_factor($YEM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SAU->is_friend_of_PREV()
+          $YEM->is_friend_of_PREV()
 
   focus[id = ETH_request_soviet_hulls]:
     +ai_will_do:

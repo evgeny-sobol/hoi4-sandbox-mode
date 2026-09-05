@@ -104,6 +104,8 @@ focus_tree[id = china_warlord_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = CHI_the_yanan_incident]:
     ai_will_do:
@@ -156,6 +158,10 @@ focus_tree[id = china_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = CHI_provoke_border_clashes]:
     ai_will_do:

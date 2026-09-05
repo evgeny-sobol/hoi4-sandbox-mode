@@ -1,0 +1,231 @@
+
+# Common blocks
+
+## `ai_will_do`
+
+### Basic modifiers
+
+**Each** national focus:
+```
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+```
+
+Each **root** in national focuses tree:
+```
+      +modifier:
+        $root_modifier()
+```
+
+**Mutually exclusive** focuses that:
+- are actually available at the same time (`N` is that concurrent count, not the size of the `mutually_exclusive` list)
+- are not already partitioned by disjoint party-popularity weights
+- are not already partitioned by Tyranny factors (a "repression vs. reform" fork)
+- are not already gated by a party-popularity `available` check of `> 0.5`
+- are not already gated by conflicting `has_government` checks (different ruling ideologies cannot appear at once)
+```
+      +modifier:
+        $crossroad_modifier(N)
+```
+
+### Party-popularity modifiers
+
+Weight a focus by `mtth:democracy_factor`, `mtth:monarchy_factor`, `mtth:communism_factor`, and/or `mtth:fascism_factor` when the AI's choice is a **political path**: the options stand for different ruling ideologies or party constituencies.
+
+Do **not** use these factors for doctrine, MIC, or pure diplomacy forks.
+
+If `available` already requires a party above 50% (`democratic > 0.5`, `neutrality > 0.5`, `communism > 0.5`, or `fascism > 0.5`), skip both `$crossroad_modifier` and the party-popularity factor: the game has already filtered the choice.
+
+The same applies when exclusive options require different ruling ideologies (`has_government`): they are never concurrent, so `$crossroad_modifier` is unnecessary, and a party-popularity factor for that same ideology adds nothing.
+
+**Unconstitutional** government-change focuses ("seize power", "ban the party", "suspend elections", coups) get `$ai_high_tyranny_tilt()` from "Domestic-politics modifiers" so despots prefer the coup and liberals wait for the ballot. The intended Authoritarian bypass of the popularity gate (`gdd/tyranny.md`, "Gating focuses by band") is **deferred**: the popularity checks live in vanilla `available` blocks, and an include can only append conditions to an existing block, not wrap a vanilla condition in an `OR`. Do not try to emulate it with `+available:`; wait for a replace capability in the compiler.
+
+Assign each option the parties that support it.
+
+**Disjoint** party sets (no party supports more than one option): drop `$crossroad_modifier`. Use the sum of the supporting factors (they already add up across the set):
+
+```
+      +modifier:
+        f = mtth:democracy_factor + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+```
+
+```
+      +modifier:
+        f = mtth:monarchy_factor + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+```
+
+**Overlapping** party sets (the same party supports more than one option): keep `$crossroad_modifier(N)`. Put supporting parties in the numerator; in the denominator count each party once per option that claims it. Multiply by `N` so the shares remain the relative weights after `1/N`:
+
+```
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:communism_factor) /
+          (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+```
+
+A focus that only **tilts** toward a party, without partitioning a fork, uses a boost instead of a share:
+
+```
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+```
+
+### Diplomacy modifiers
+
+**Cooperation** with *single* country (for focuses leading to alliances):
+```
+      +modifier:
+        $ai_cooperation_modifier($TAG)
+```
+
+**Cooperation** with *multiple* countries:
+```
+      +modifier:
+        cooperation = 1 + ($opinion_factor($TAG1) + $opinion_factor($TAG2)) / 2
+        factor(cooperation)
+        is_sandbox_mode_on()
+```
+
+Focuses that lead to war against a **friend** (ally, guarantor, or non-aggression-pact partner; `$is_friend_of()`) are **betrayal focuses**. Never gate them with `is_honored_leader(no)` directly: it ignores the Honor tiers. Two macros in `macros.hml` carry the AI side (`gdd/honor.md`, "AI weighting"); the factor is `clamp((25 - honor) / 125, 0, 1)`, so a Treacherous AI betrays at full weight and an Inglorious AI near 25 almost never does. A focus whose targets are not friends is unaffected because the trigger fails and the modifier does not apply:
+
+```
+macro ai_betrayal_modifier():
+  betrayal = clamp((25 - honor) / 125, 0, 1)
+  factor(betrayal)
+  is_sandbox_mode_on()
+
+macro ai_betrayal_modifier_vs(_tag_):
+  $ai_betrayal_modifier()
+  _tag_->is_friend_of_PREV()
+```
+
+The Honor penalty itself is never written in the focus block. Vanilla focuses remove pacts with their own `diplomatic_relation`, which the include cannot replace; the −50 is charged by `on_declare_war` through the weekly snapshot and the 6-month dropped-obligation window (`gdd/honor.md`, "Honor losses"). Only sandbox-authored focuses that remove a pact use `$break_non_aggression_pact_with($TAG)`, which applies `$add_honor(-50)` directly. Wars on guaranteed countries and faction exits are likewise charged by on_actions.
+
+**Antagonism** with *single* country (for focus leading to wars). `can_PREV_get_wargoal_on_THIS` is Honor-tiered (see `gdd/honor.md`): a NAP requires Inglorious or worse, a guarantee Dishonorable or worse, a faction ally Treacherous; a non-friend is always allowed.
+```
+    available:
+      $TAG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TAG)
+      +modifier:
+        $ai_betrayal_modifier_vs($TAG)
+```
+Use `+available:` if the vanilla focus has no `available` block.
+
+**Antagonism** with *multiple* countries:
+```
+    available:
+      $TAG1->can_PREV_get_wargoal_on_THIS()
+      $TAG2->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($TAG1) + $opinion_factor($TAG2)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $TAG1->is_friend_of_PREV()
+          $TAG2->is_friend_of_PREV()
+```
+Use `+available:` if the vanilla focus has no `available` block.
+
+**Antagonism** with *owners of listed states* (the countries are not fixed tags). Weekly `update_<TAG>_national_focuses()` stores **one owner per state** (the same country may appear more than once, so the focus tooltip names every state owner). The AI factor averages unique other-country owners only. Then the focus uses those slots like `SOV_the_rightful_heir_to_the_empire` / `GER_demand_slovenia`:
+
+```
+    available:
+      var:focus_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:focus_targets[1]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(focus_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.focus_targets[]
+          is_friend_of_ROOT()
+```
+
+If there is only one possible owner, a single `var:focus_targets[0]->can_PREV_get_wargoal_on_THIS()` is enough. Use `+available:` if the vanilla focus has no `available` block.
+
+**Antagonism** with a *tag alias*. Some tags used by vanilla focus trees are not countries but aliases from `common/country_tag_aliases/tag_aliases.txt` (`SPA`, `SPB`, `SPC`, `SPD`, `VIC`, `SOU`, `SOB`, `SOS`, `SOT`, `SOP`, `BUF`, `BUZ`, `FGR`, `FNO`, `MOT`, `RDS`, `RSI`, `SB1`–`SB4`). An alias resolves to a country only while its trigger holds (e.g. `SOS` is the Stalinist half of a Soviet civil war); otherwise it is `None`, and entering it as a scope (`$SOS->…`) logs `Invalid Scope` in `error.log` every time the block is evaluated. Ordinary tags are safe even when the country does not exist on the map. For aliases, never enter the scope unguarded:
+```
+    available:
+      $can_get_wargoal_on($ALIAS)         # OR: NOT country_exists / ALIAS->can_PREV_get_wargoal_on_THIS
+    ai_will_do:
+      +modifier:
+        $ai_betrayal_modifier_vs($ALIAS)  # already checks country_exists before the scope
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $TAG1->is_friend_of_PREV()
+          and:
+            country_exists($ALIAS)
+            $ALIAS->is_friend_of_PREV()
+```
+Value forms (`$opinion_factor($ALIAS)`, `has_war_with = ALIAS`) do not enter the scope and need no guard. Trigger blocks evaluate in order and stop at the first failing (`and`) or passing (`or`) trigger, so `country_exists` must come **before** the scope.
+
+### Domestic-politics modifiers (Tyranny)
+
+Repressive and liberal focuses are tagged with `$add_tyranny(±X)` in `completion_reward` according to the classification in `gdd/tyranny.md` ("Changes from national focuses"); the gates and weights below are the focus-side counterpart. The mtth factors `low_tyranny_factor`, `medium_tyranny_factor`, and `high_tyranny_factor` peak in the Libertarian / Moderate / Despotic bands and reach zero one band away.
+
+**Gate**: purge and secret-police focuses (the `+20` class) are unavailable to Liberal-or-lower leaders (`gdd/tyranny.md`, "Gating focuses by band"):
+
+```
+    available:
+      +is_liberal_leader(no)
+```
+
+The Authoritarian bypass for unconstitutional government-change focuses is deferred (see "Party-popularity modifiers"); such focuses get only the tilt below.
+
+**Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Partition shares like disjoint party sets and drop `$crossroad_modifier`. Between −25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open for it:
+
+```
+      +modifier:
+        $ai_high_tyranny_fork()
+```
+
+```
+      +modifier:
+        $ai_low_tyranny_fork()
+```
+
+With a third, middle-of-the-road option give it `$ai_medium_tyranny_fork()` (bare `mtth:medium_tyranny_factor`; some factor is then always non-zero, so the `0.5 +` variants are not needed and the outer options use the bare factors).
+
+A liberal focus whose exclusive sibling is an **ideological** choice (`GER_reestablish_free_elections` vs `GER_revive_the_kaiserreich`, `PER_free_elections` vs `PER_islamic_restoration`) is not a Tyranny fork: keep the party-popularity partition and use a tilt.
+
+**Tilt**: a single repressive focus without a fork, or an unconstitutional government-change focus:
+
+```
+      +modifier:
+        $ai_high_tyranny_tilt()
+```
+
+A single liberal focus uses `$ai_low_tyranny_tilt()`. The macros are `1 + mtth:high_tyranny_factor` / `1 + mtth:low_tyranny_factor`.
+
+Do **not** combine Tyranny factors with party-popularity factors on the same fork unless the options differ in both ideology and repressiveness; in that case multiply the two shares.
+
+### Military-industrial complex modifiers
+
+```
+      +modifier:
+        $ai_mic_modifier()
+```

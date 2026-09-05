@@ -59,6 +59,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SAF_joint_air_training_scheme]:
     ai_will_do:
@@ -136,6 +138,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SAF)
+      +modifier:
+        $ai_betrayal_modifier_vs($SAF)
 
   focus[id = SAF_support_the_german_coup]:
     ai_will_do:
@@ -152,6 +156,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SAF_commemorate_the_battle_of_blood_river]:
     ai_will_do:
@@ -212,6 +218,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SAF)
+      +modifier:
+        $ai_betrayal_modifier_vs($SAF)
 
   focus[id = SAF_Union_of_the_African_People]:
     ai_will_do:
@@ -228,6 +236,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POR)
+      +modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = SAF_liberate_belgian]:
     available:
@@ -239,6 +249,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
 
   focus[id = SAF_liberate_british]:
     available:
@@ -250,6 +262,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SAF_join_comintern]:
     ai_will_do:

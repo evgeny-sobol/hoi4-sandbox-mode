@@ -77,7 +77,7 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_aid_the_carlist_struggle]:
     available:
-      $SPB->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPB)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -85,6 +85,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPB)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPB)
 
   focus[id = wuw_HUN_invite_otto_to_the_throne]:
     ai_will_do:
@@ -135,6 +137,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AUS)
+      +modifier:
+        $ai_betrayal_modifier_vs($AUS)
 
   focus[id = wuw_HUN_protect_czechoslovakia]:
     available:
@@ -146,6 +150,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_betrayal_modifier_vs($CZE)
 
   focus[id = wuw_HUN_seek_an_alliance_with_the_kaiser]:
     ai_will_do:
@@ -190,6 +196,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ALB)
+      +modifier:
+        $ai_betrayal_modifier_vs($ALB)
 
   focus[id = wuw_HUN_habsburg_ascension_in_spain]:
     available:
@@ -201,6 +209,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
 
   focus[id = wuw_HUN_a_habsburg_poland]:
     available:
@@ -212,6 +222,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = wuw_HUN_press_maximilians_and_the_iturbides_claims]:
     available:
@@ -223,6 +235,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = wuw_HUN_reenlist_the_sich_riflemen]:
     ai_will_do:
@@ -241,11 +255,8 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_reclaim_transylvania]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ROM->is_friend_of_PREV(no)
-          $TRA->is_friend_of_PREV(no)
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $TRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -255,17 +266,19 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ROM->is_friend_of_PREV()
+          $TRA->is_friend_of_PREV()
 
   focus[id = wuw_HUN_reintigrate_slovakia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_reintigrate_slovakia_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_reintigrate_slovakia_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_reintigrate_slovakia_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_reintigrate_slovakia_targets[3]->is_friend_of_PREV(no)
-          var:wuw_HUN_reintigrate_slovakia_targets[4]->is_friend_of_PREV(no)
+      var:wuw_HUN_reintigrate_slovakia_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reintigrate_slovakia_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reintigrate_slovakia_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reintigrate_slovakia_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reintigrate_slovakia_targets[4]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -274,15 +287,17 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_reintigrate_slovakia_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_reintigrate_slovakia_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_restore_the_duchy_of_teschen]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $POL->is_friend_of_PREV(no)
-          $SIL->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $POL->can_PREV_get_wargoal_on_THIS()
+      $SIL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -292,6 +307,12 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($POL) + $opinion_factor($SIL)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $POL->is_friend_of_PREV()
+          $SIL->is_friend_of_PREV()
 
   focus[id = wuw_HUN_a_hungarian_galicia]:
     ai_will_do:
@@ -300,11 +321,8 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_the_triple_kingdom]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_the_triple_kingdom_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_the_triple_kingdom_targets[1]->is_friend_of_PREV(no)
+      var:wuw_HUN_the_triple_kingdom_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_the_triple_kingdom_targets[1]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -313,15 +331,17 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_the_triple_kingdom_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_the_triple_kingdom_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_restore_the_lombardo_venetian_kingdom]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[2]->is_friend_of_PREV(no)
+      var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[2]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -330,6 +350,11 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_restore_the_lombardo_venetian_kingdom_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_reverse_the_risorgimento]:
     ai_will_do:
@@ -430,6 +455,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   focus[id = wuw_HUN_increase_economic_cooperation]:
     available:
@@ -441,6 +468,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = wuw_HUN_elect_a_fascist_king]:
     ai_will_do:
@@ -519,13 +548,10 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_undoing_the_yugoslav_mistake]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[3]->is_friend_of_PREV(no)
+      var:wuw_HUN_undoing_the_yugoslav_mistake_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_undoing_the_yugoslav_mistake_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_undoing_the_yugoslav_mistake_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_undoing_the_yugoslav_mistake_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -534,16 +560,18 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_undoing_the_yugoslav_mistake_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_undoing_the_yugoslav_mistake_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_reclaim_the_slovak_possessions]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_reclaim_the_slovak_possessions_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_slovak_possessions_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_slovak_possessions_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_slovak_possessions_targets[3]->is_friend_of_PREV(no)
+      var:wuw_HUN_reclaim_the_slovak_possessions_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_slovak_possessions_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_slovak_possessions_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_slovak_possessions_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -552,16 +580,18 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_reclaim_the_slovak_possessions_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_reclaim_the_slovak_possessions_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_revenge_for_1919]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_revenge_for_1919_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_1919_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_1919_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_1919_targets[3]->is_friend_of_PREV(no)
+      var:wuw_HUN_revenge_for_1919_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_1919_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_1919_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_1919_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -570,32 +600,34 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_revenge_for_1919_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_revenge_for_1919_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_on_a_high_horse]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ROM->is_friend_of_PREV(no)
-          $YUG->is_friend_of_PREV(no)
-          $AUS->is_friend_of_PREV(no)
-          $SLO->is_friend_of_PREV(no)
-          $CZE->is_friend_of_PREV(no)
-          $POL->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
-          $UKR->is_friend_of_PREV(no)
-          $MOL->is_friend_of_PREV(no)
-          $CRO->is_friend_of_PREV(no)
-          $SER->is_friend_of_PREV(no)
-          $ISR->is_friend_of_PREV(no)
-          $PAL->is_friend_of_PREV(no)
-          $EGY->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $TUR->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $GRE->is_friend_of_PREV(no)
-          $JOR->is_friend_of_PREV(no)
-          $SUD->is_friend_of_PREV(no)
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $AUS->can_PREV_get_wargoal_on_THIS()
+      $SLO->can_PREV_get_wargoal_on_THIS()
+      $CZE->can_PREV_get_wargoal_on_THIS()
+      $POL->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $UKR->can_PREV_get_wargoal_on_THIS()
+      $MOL->can_PREV_get_wargoal_on_THIS()
+      $CRO->can_PREV_get_wargoal_on_THIS()
+      $SER->can_PREV_get_wargoal_on_THIS()
+      $ISR->can_PREV_get_wargoal_on_THIS()
+      $PAL->can_PREV_get_wargoal_on_THIS()
+      $EGY->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $TUR->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $GRE->can_PREV_get_wargoal_on_THIS()
+      $JOR->can_PREV_get_wargoal_on_THIS()
+      $SUD->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -605,6 +637,29 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($AUS) + $opinion_factor($SLO) + $opinion_factor($CZE) + $opinion_factor($POL) + $opinion_factor($SOV) + $opinion_factor($UKR) + $opinion_factor($MOL) + $opinion_factor($CRO) + $opinion_factor($SER) + $opinion_factor($ISR) + $opinion_factor($PAL) + $opinion_factor($EGY) + $opinion_factor($ENG) + $opinion_factor($TUR) + $opinion_factor($FRA) + $opinion_factor($GRE) + $opinion_factor($JOR) + $opinion_factor($SUD)) / 20
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ROM->is_friend_of_PREV()
+          $YUG->is_friend_of_PREV()
+          $AUS->is_friend_of_PREV()
+          $SLO->is_friend_of_PREV()
+          $CZE->is_friend_of_PREV()
+          $POL->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+          $UKR->is_friend_of_PREV()
+          $MOL->is_friend_of_PREV()
+          $CRO->is_friend_of_PREV()
+          $SER->is_friend_of_PREV()
+          $ISR->is_friend_of_PREV()
+          $PAL->is_friend_of_PREV()
+          $EGY->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $TUR->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $GRE->is_friend_of_PREV()
+          $JOR->is_friend_of_PREV()
+          $SUD->is_friend_of_PREV()
 
   focus[id = wuw_HUN_a_bulwark_against_communism]:
     available:
@@ -616,16 +671,15 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = wuw_HUN_a_responsible_government]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CZE->is_friend_of_PREV(no)
-          $ROM->is_friend_of_PREV(no)
-          $YUG->is_friend_of_PREV(no)
-          $HUN->is_friend_of_PREV(no)
+      $CZE->can_PREV_get_wargoal_on_THIS()
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -635,6 +689,13 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($HUN)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CZE->is_friend_of_PREV()
+          $ROM->is_friend_of_PREV()
+          $YUG->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
 
   focus[id = wuw_HUN_guarantee_religious_liberties]:
     ai_will_do:
@@ -716,6 +777,12 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = wuw_HUN_spur_on_the_trianon_trauma]:
     ai_will_do:
@@ -807,6 +874,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = wuw_HUN_promote_hungarianism]:
     ai_will_do:
@@ -823,6 +892,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = wuw_HUN_our_ancestral_lands]:
     ai_will_do:
@@ -836,11 +907,8 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_demand_croatian_reintigration]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $YUG->is_friend_of_PREV(no)
-          $CRO->is_friend_of_PREV(no)
+      $YUG->can_PREV_get_wargoal_on_THIS()
+      $CRO->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -850,14 +918,16 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($YUG) + $opinion_factor($CRO)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $YUG->is_friend_of_PREV()
+          $CRO->is_friend_of_PREV()
 
   focus[id = wuw_HUN_demand_southern_slovakia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CZE->is_friend_of_PREV(no)
-          $SLO->is_friend_of_PREV(no)
+      $CZE->can_PREV_get_wargoal_on_THIS()
+      $SLO->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -867,15 +937,17 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CZE->is_friend_of_PREV()
+          $SLO->is_friend_of_PREV()
 
   focus[id = wuw_HUN_demand_carpathian_ruthenia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CZE->is_friend_of_PREV(no)
-          $SLO->is_friend_of_PREV(no)
-          $UKR->is_friend_of_PREV(no)
+      $CZE->can_PREV_get_wargoal_on_THIS()
+      $SLO->can_PREV_get_wargoal_on_THIS()
+      $UKR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -885,14 +957,17 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO) + $opinion_factor($UKR)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CZE->is_friend_of_PREV()
+          $SLO->is_friend_of_PREV()
+          $UKR->is_friend_of_PREV()
 
   focus[id = wuw_HUN_demand_transylvania]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ROM->is_friend_of_PREV(no)
-          $TRA->is_friend_of_PREV(no)
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $TRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -902,6 +977,11 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ROM->is_friend_of_PREV()
+          $TRA->is_friend_of_PREV()
 
   focus[id = wuw_HUN_demand_the_vojvodina]:
     available:
@@ -914,6 +994,11 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_demand_the_vojvodina_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_demand_the_vojvodina_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_demand_burgenland]:
     available:
@@ -925,6 +1010,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AUS)
+      +modifier:
+        $ai_betrayal_modifier_vs($AUS)
 
   focus[id = wuw_HUN_claim_overlordship_over_slovakia]:
     available:
@@ -938,14 +1025,13 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SLO)
+      +modifier:
+        $ai_betrayal_modifier_vs($SLO)
 
   focus[id = wuw_HUN_demand_the_return_of_slovakia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SLO->is_friend_of_PREV(no)
-          $CZE->is_friend_of_PREV(no)
+      $SLO->can_PREV_get_wargoal_on_THIS()
+      $CZE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -957,6 +1043,11 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($SLO) + $opinion_factor($CZE)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SLO->is_friend_of_PREV()
+          $CZE->is_friend_of_PREV()
 
   focus[id = wuw_HUN_proclaim_greater_hungary]:
     ai_will_do:
@@ -975,11 +1066,8 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_renew_the_rome_protocols]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $AUS->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
+      $AUS->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -995,6 +1083,11 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($ITA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $AUS->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
 
   focus[id = wuw_HUN_invite_german_investors]:
     ai_will_do:
@@ -1149,20 +1242,17 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_reclaim_the_pannonian_steppe]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[3]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[4]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[5]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[6]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[7]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[8]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[9]->is_friend_of_PREV(no)
-          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[10]->is_friend_of_PREV(no)
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[8]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[9]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_reclaim_the_pannonian_steppe_targets[10]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1171,6 +1261,11 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_reclaim_the_pannonian_steppe_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_reclaim_the_pannonian_steppe_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_revive_the_tribal_consolidation]:
     ai_will_do:
@@ -1181,6 +1276,10 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = wuw_HUN_bringing_down_the_giants]:
     ai_will_do:
@@ -1216,6 +1315,10 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = wuw_HUN_kadars_hussars]:
     ai_will_do:
@@ -1274,13 +1377,10 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_the_second_northern_campaign]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_the_second_northern_campaign_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_the_second_northern_campaign_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_the_second_northern_campaign_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_the_second_northern_campaign_targets[3]->is_friend_of_PREV(no)
+      var:wuw_HUN_the_second_northern_campaign_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_the_second_northern_campaign_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_the_second_northern_campaign_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_the_second_northern_campaign_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1289,16 +1389,18 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_the_second_northern_campaign_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_the_second_northern_campaign_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_revenge_for_the_romanian_humiliations]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[1]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[2]->is_friend_of_PREV(no)
-          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[3]->is_friend_of_PREV(no)
+      var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1307,14 +1409,16 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_revenge_for_the_romanian_humiliations_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_revenge_for_the_romanian_humiliations_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_march_south]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:wuw_HUN_march_south_targets[0]->is_friend_of_PREV(no)
-          var:wuw_HUN_march_south_targets[1]->is_friend_of_PREV(no)
+      var:wuw_HUN_march_south_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:wuw_HUN_march_south_targets[1]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1323,6 +1427,11 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(wuw_HUN_march_south_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.wuw_HUN_march_south_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_a_revolutionary_greater_hungary]:
     ai_will_do:
@@ -1336,52 +1445,49 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = HUN_balkan_ambitions]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:HUN_balkan_ambitions_targets[0]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[1]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[2]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[3]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[4]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[5]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[6]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[7]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[8]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[9]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[10]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[11]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[12]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[13]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[14]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[15]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[16]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[17]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[18]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[19]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[20]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[21]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[22]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[23]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[24]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[25]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[26]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[27]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[28]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[29]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[30]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[31]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[32]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[33]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[34]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[35]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[36]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[37]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[38]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[39]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[40]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[41]->is_friend_of_PREV(no)
-          var:HUN_balkan_ambitions_targets[42]->is_friend_of_PREV(no)
+      var:HUN_balkan_ambitions_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[8]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[9]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[10]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[11]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[12]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[13]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[14]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[15]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[16]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[17]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[18]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[19]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[20]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[21]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[22]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[23]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[24]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[25]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[26]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[27]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[28]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[29]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[30]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[31]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[32]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[33]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[34]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[35]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[36]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[37]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[38]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[39]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[40]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[41]->can_PREV_get_wargoal_on_THIS()
+      var:HUN_balkan_ambitions_targets[42]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1390,14 +1496,16 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         factor(HUN_balkan_ambitions_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.HUN_balkan_ambitions_targets[]
+          is_friend_of_ROOT()
 
   focus[id = wuw_HUN_denounce_marxism_leninism]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SOV->is_friend_of_PREV(no)
-          $SOU->is_friend_of_PREV(no)
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1407,6 +1515,13 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($SOU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOV->is_friend_of_PREV()
+          and:
+            country_exists($SOU)
+            $SOU->is_friend_of_PREV()
 
   focus[id = wuw_HUN_avoid_interventionalist_destablilization]:
     ai_will_do:
@@ -1440,11 +1555,8 @@ focus_tree[id = wuw_hungarian_focus]:
 
   focus[id = wuw_HUN_reintigrate_the_imperial_railroads]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $AUS->is_friend_of_PREV(no)
-          $CZE->is_friend_of_PREV(no)
+      $AUS->can_PREV_get_wargoal_on_THIS()
+      $CZE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1454,6 +1566,11 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($CZE)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $AUS->is_friend_of_PREV()
+          $CZE->is_friend_of_PREV()
 
   focus[id = wuw_HUN_promote_increased_urbanization]:
     ai_will_do:
@@ -1490,6 +1607,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
 
   focus[id = wuw_HUN_undercover_air_maneuvers]:
     ai_will_do:

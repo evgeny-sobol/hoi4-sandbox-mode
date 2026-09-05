@@ -65,6 +65,10 @@ focus_tree[id = brazil_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = BRA_departamento_de_ordem_politica_e_social]:
     ai_will_do:
@@ -403,12 +407,9 @@ focus_tree[id = brazil_tree]:
 
   focus[id = BRA_guyana_crisis]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $HOL->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -418,6 +419,12 @@ focus_tree[id = brazil_tree]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($HOL)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
 
   focus[id = BRA_defense_of_the_fatherland]:
     ai_will_do:
@@ -434,6 +441,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($URG)
+      +modifier:
+        $ai_betrayal_modifier_vs($URG)
 
   focus[id = BRA_rome_accords]:
     ai_will_do:
@@ -470,6 +479,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BOL)
 
   focus[id = BRA_paraguay_intervention]:
     available:
@@ -481,6 +492,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PAR)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAR)
 
   focus[id = BRA_provoke_argentina]:
     available:
@@ -492,6 +505,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ARG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ARG)
 
   focus[id = BRA_attack_chile]:
     available:
@@ -503,17 +518,16 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHL)
+      +modifier:
+        $ai_betrayal_modifier_vs($CHL)
 
   focus[id = BRA_panama_push]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ECU->is_friend_of_PREV(no)
-          $VEN->is_friend_of_PREV(no)
-          $PRU->is_friend_of_PREV(no)
-          $PAN->is_friend_of_PREV(no)
-          $COL->is_friend_of_PREV(no)
+      $ECU->can_PREV_get_wargoal_on_THIS()
+      $VEN->can_PREV_get_wargoal_on_THIS()
+      $PRU->can_PREV_get_wargoal_on_THIS()
+      $PAN->can_PREV_get_wargoal_on_THIS()
+      $COL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -523,6 +537,14 @@ focus_tree[id = brazil_tree]:
         antagonism = 1 - ($opinion_factor($ECU) + $opinion_factor($VEN) + $opinion_factor($PRU) + $opinion_factor($PAN) + $opinion_factor($COL)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ECU->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
+          $PRU->is_friend_of_PREV()
+          $PAN->is_friend_of_PREV()
+          $COL->is_friend_of_PREV()
 
   focus[id = BRA_form_mercosul]:
     ai_will_do:
@@ -557,7 +579,11 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = BRA_court_the_military]:
     ai_will_do:
@@ -598,6 +624,8 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = BRA_posts_for_generals]:
     ai_will_do:
@@ -764,7 +792,7 @@ focus_tree[id = brazil_tree]:
 
   focus[id = BRA_soviet_economic_aid]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -772,6 +800,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = BRA_international_brigades]:
     ai_will_do:
@@ -890,6 +920,10 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = BRA_undermine_democracy]:
     ai_will_do:
@@ -936,6 +970,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = BRA_penal_battalions]:
     ai_will_do:
@@ -962,6 +998,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($URG)
+      +modifier:
+        $ai_betrayal_modifier_vs($URG)
 
   focus[id = BRA_spirit_of_acre_war]:
     available:
@@ -973,6 +1011,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BOL)
 
   focus[id = BRA_demand_portugese_territory]:
     available:
@@ -986,6 +1026,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POR)
+      +modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = BRA_demand_portugese_submission]:
     available:
@@ -999,6 +1041,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POR)
+      +modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = BRA_restoration_of_honor]:
     ai_will_do:

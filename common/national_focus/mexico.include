@@ -145,6 +145,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = MEX_focus_purchase_belize]:
     ai_will_do:
@@ -163,6 +165,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = MEX_focus_northern_steel_plants]:
     ai_will_do:
@@ -181,6 +185,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = MEX_focus_new_world_order]:
     available:
@@ -192,6 +198,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = MEX_focus_oppose_yanqui_imperialism]:
     ai_will_do:
@@ -210,6 +218,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = MEX_focus_interior_defence_plan]:
     ai_will_do:
@@ -233,6 +243,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_aztec_eagles]:
     available:
@@ -244,6 +256,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_international_peacekeepers]:
     ai_will_do:
@@ -254,6 +268,12 @@ focus_tree[id = mexico_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = MEX_focus_institutional_revolution]:
     ai_will_do:
@@ -485,7 +505,7 @@ focus_tree[id = mexico_focus_tree]:
 
   focus[id = MEX_focus_falangist_veterans]:
     available:
-      $SPA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -493,10 +513,12 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPA)
 
   focus[id = MEX_focus_support_spains_loyalists]:
     available:
-      $SPD->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPD)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -504,6 +526,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPD)
 
   focus[id = MEX_focus_hispanic_alliance]:
     ai_will_do:
@@ -520,6 +544,10 @@ focus_tree[id = mexico_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = MEX_focus_invite_brazil]:
     ai_will_do:
@@ -554,6 +582,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = MEX_focus_liberate_the_antilles]:
     ai_will_do:
@@ -572,12 +602,9 @@ focus_tree[id = mexico_focus_tree]:
 
   focus[id = MEX_focus_march_southwards]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GUA->is_friend_of_PREV(no)
-          $HON->is_friend_of_PREV(no)
-          $ELS->is_friend_of_PREV(no)
+      $GUA->can_PREV_get_wargoal_on_THIS()
+      $HON->can_PREV_get_wargoal_on_THIS()
+      $ELS->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -587,15 +614,18 @@ focus_tree[id = mexico_focus_tree]:
         antagonism = 1 - ($opinion_factor($GUA) + $opinion_factor($HON) + $opinion_factor($ELS)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GUA->is_friend_of_PREV()
+          $HON->is_friend_of_PREV()
+          $ELS->is_friend_of_PREV()
 
   focus[id = MEX_focus_unify_centroamerica]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $NIC->is_friend_of_PREV(no)
-          $COS->is_friend_of_PREV(no)
-          $PAN->is_friend_of_PREV(no)
+      $NIC->can_PREV_get_wargoal_on_THIS()
+      $COS->can_PREV_get_wargoal_on_THIS()
+      $PAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -605,22 +635,25 @@ focus_tree[id = mexico_focus_tree]:
         antagonism = 1 - ($opinion_factor($NIC) + $opinion_factor($COS) + $opinion_factor($PAN)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NIC->is_friend_of_PREV()
+          $COS->is_friend_of_PREV()
+          $PAN->is_friend_of_PREV()
 
   focus[id = MEX_focus_liberate_the_caribbean]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CUB->is_friend_of_PREV(no)
-          $DOM->is_friend_of_PREV(no)
-          $HAI->is_friend_of_PREV(no)
-          $BAH->is_friend_of_PREV(no)
-          $BAS->is_friend_of_PREV(no)
-          $JAM->is_friend_of_PREV(no)
-          $PUE->is_friend_of_PREV(no)
-          $CRC->is_friend_of_PREV(no)
-          $TRI->is_friend_of_PREV(no)
-          $GDL->is_friend_of_PREV(no)
+      $CUB->can_PREV_get_wargoal_on_THIS()
+      $DOM->can_PREV_get_wargoal_on_THIS()
+      $HAI->can_PREV_get_wargoal_on_THIS()
+      $BAH->can_PREV_get_wargoal_on_THIS()
+      $BAS->can_PREV_get_wargoal_on_THIS()
+      $JAM->can_PREV_get_wargoal_on_THIS()
+      $PUE->can_PREV_get_wargoal_on_THIS()
+      $CRC->can_PREV_get_wargoal_on_THIS()
+      $TRI->can_PREV_get_wargoal_on_THIS()
+      $GDL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -630,6 +663,19 @@ focus_tree[id = mexico_focus_tree]:
         antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI) + $opinion_factor($BAH) + $opinion_factor($BAS) + $opinion_factor($JAM) + $opinion_factor($PUE) + $opinion_factor($CRC) + $opinion_factor($TRI) + $opinion_factor($GDL)) / 10
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CUB->is_friend_of_PREV()
+          $DOM->is_friend_of_PREV()
+          $HAI->is_friend_of_PREV()
+          $BAH->is_friend_of_PREV()
+          $BAS->is_friend_of_PREV()
+          $JAM->is_friend_of_PREV()
+          $PUE->is_friend_of_PREV()
+          $CRC->is_friend_of_PREV()
+          $TRI->is_friend_of_PREV()
+          $GDL->is_friend_of_PREV()
 
   focus[id = MEX_focus_integrate_the_caribbean]:
     ai_will_do:
@@ -638,12 +684,9 @@ focus_tree[id = mexico_focus_tree]:
 
   focus[id = MEX_focus_push_past_the_darien_gap]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $COL->is_friend_of_PREV(no)
-          $ECU->is_friend_of_PREV(no)
-          $VEN->is_friend_of_PREV(no)
+      $COL->can_PREV_get_wargoal_on_THIS()
+      $ECU->can_PREV_get_wargoal_on_THIS()
+      $VEN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -653,18 +696,21 @@ focus_tree[id = mexico_focus_tree]:
         antagonism = 1 - ($opinion_factor($COL) + $opinion_factor($ECU) + $opinion_factor($VEN)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $COL->is_friend_of_PREV()
+          $ECU->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
 
   focus[id = MEX_focus_andean_offensive]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ARG->is_friend_of_PREV(no)
-          $CHL->is_friend_of_PREV(no)
-          $URG->is_friend_of_PREV(no)
-          $PAR->is_friend_of_PREV(no)
-          $BOL->is_friend_of_PREV(no)
-          $PRU->is_friend_of_PREV(no)
+      $ARG->can_PREV_get_wargoal_on_THIS()
+      $CHL->can_PREV_get_wargoal_on_THIS()
+      $URG->can_PREV_get_wargoal_on_THIS()
+      $PAR->can_PREV_get_wargoal_on_THIS()
+      $BOL->can_PREV_get_wargoal_on_THIS()
+      $PRU->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -674,11 +720,22 @@ focus_tree[id = mexico_focus_tree]:
         antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL) + $opinion_factor($URG) + $opinion_factor($PAR) + $opinion_factor($BOL) + $opinion_factor($PRU)) / 6
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ARG->is_friend_of_PREV()
+          $CHL->is_friend_of_PREV()
+          $URG->is_friend_of_PREV()
+          $PAR->is_friend_of_PREV()
+          $BOL->is_friend_of_PREV()
+          $PRU->is_friend_of_PREV()
 
   focus[id = MEX_focus_seize_the_panama_canal]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = MEX_focus_integrate_the_south]:
     ai_will_do:
@@ -700,6 +757,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_redeem_aztlan]:
     available:
@@ -711,6 +770,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_military_budget_review]:
     ai_will_do:

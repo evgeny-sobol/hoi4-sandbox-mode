@@ -18,6 +18,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHI)
+      +modifier:
+        $ai_betrayal_modifier_vs($CHI)
 
   focus[id = CHI_sea_anti_opposition_campaigns]:
     ai_will_do:
@@ -74,6 +76,10 @@ focus_tree[id = china_warlord_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = CHI_sea_battle_for_china]:
     ai_will_do:
@@ -109,6 +115,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_betrayal_modifier_vs($PRC)
 
   focus[id = CHI_sea_land_redistribution]:
     ai_will_do:
@@ -145,6 +153,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = CHI_sea_unified_army_structure]:
     ai_will_do:
@@ -202,6 +212,10 @@ focus_tree[id = china_warlord_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = CHI_sea_provoke_border_clashes]:
     ai_will_do:
@@ -385,6 +399,12 @@ focus_tree[id = china_warlord_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = SIK_three_year_plan_for_reconstruction]:
     ai_will_do:
@@ -406,6 +426,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KHM)
+      +modifier:
+        $ai_betrayal_modifier_vs($KHM)
 
   focus[id = SIK_a_united_sinkiang_clique]:
     ai_will_do:
@@ -492,6 +514,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIK)
+      +modifier:
+        $ai_betrayal_modifier_vs($SIK)
 
   focus[id = KHM_call_for_aid]:
     ai_will_do:
@@ -516,6 +540,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIK)
+      +modifier:
+        $ai_betrayal_modifier_vs($SIK)
 
   focus[id = KHM_utilize_family_contacts]:
     ai_will_do:
@@ -539,6 +565,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KUM)
+      +modifier:
+        $ai_betrayal_modifier_vs($KUM)
 
   focus[id = KHM_kumul_rebellion_avenged]:
     available:
@@ -552,6 +580,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KUM)
+      +modifier:
+        $ai_betrayal_modifier_vs($KUM)
 
   focus[id = KHM_our_position_remains]:
     ai_will_do:
@@ -683,6 +713,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KHM)
+      +modifier:
+        $ai_betrayal_modifier_vs($KHM)
 
   focus[id = KHM_expand_the_madrasas]:
     ai_will_do:
@@ -735,6 +767,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KHM)
+      +modifier:
+        $ai_betrayal_modifier_vs($KHM)
 
   focus[id = KUM_restore_yettishar]:
     ai_will_do:
@@ -768,6 +802,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_betrayal_modifier_vs($TIB)
 
   focus[id = SIC_the_armies_of_yang_sen]:
     ai_will_do:
@@ -823,6 +859,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_betrayal_modifier_vs($PRC)
 
   focus[id = XIC_send_a_representative_to_sheng_shicai]:
     available:
@@ -834,6 +872,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIK)
+      +modifier:
+        $ai_betrayal_modifier_vs($SIK)
 
   focus[id = XIC_non_agression_pact_with_the_cpc]:
     ai_will_do:
@@ -877,6 +917,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_betrayal_modifier_vs($PRC)
 
   focus[id = XIC_request_relocation_to_northeastern_command]:
     ai_will_do:
@@ -965,3 +1007,5 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BRM)
+      +modifier:
+        $ai_betrayal_modifier_vs($BRM)

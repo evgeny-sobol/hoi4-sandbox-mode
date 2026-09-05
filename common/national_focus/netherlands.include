@@ -36,6 +36,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($VEN)
+      modifier:
+        $ai_betrayal_modifier_vs($VEN)
 
   focus[id = HOL_the_crown_jewel_colony]:
     +ai_will_do:
@@ -84,6 +86,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($INS)
+      modifier:
+        $ai_betrayal_modifier_vs($INS)
 
   focus[id = HOL_a_western_capital]:
     +ai_will_do:
@@ -164,6 +168,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($VEN)
+      modifier:
+        $ai_betrayal_modifier_vs($VEN)
 
   focus[id = HOL_continue_the_war_in_batavia_taog]:
     available:
@@ -175,6 +181,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($INS)
+      +modifier:
+        $ai_betrayal_modifier_vs($INS)
 
   focus[id = HOL_a_western_capital_taog]:
     +ai_will_do:
@@ -336,6 +344,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($HOL)
 
   focus[id = HOL_further_reinforce_the_ports]:
     +ai_will_do:
@@ -359,6 +369,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($HOL)
+      modifier:
+        $ai_betrayal_modifier_vs($HOL)
 
   focus[id = HOL_fortress_holland]:
     +ai_will_do:
@@ -525,11 +537,8 @@ focus_tree[id = netherlands_focus]:
 
   focus[id = HOL_cave_to_the_germans]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $HOL->is_friend_of_PREV(no)
-          $INS->is_friend_of_PREV(no)
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -541,15 +550,17 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($INS)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $HOL->is_friend_of_PREV()
+          $INS->is_friend_of_PREV()
 
   focus[id = HOL_maintain_trade_neutrality]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $HOL->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -561,14 +572,17 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($HOL) + $opinion_factor($ENG)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = HOL_cave_to_the_british]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $HOL->is_friend_of_PREV(no)
-          $INS->is_friend_of_PREV(no)
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -580,6 +594,11 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($INS)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $HOL->is_friend_of_PREV()
+          $INS->is_friend_of_PREV()
 
   focus[id = HOL_volk_en_vaderland]:
     ai_will_do:
@@ -624,6 +643,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($HOL)
+      modifier:
+        $ai_betrayal_modifier_vs($HOL)
 
   focus[id = HOL_placate_the_japanese]:
     +ai_will_do:
@@ -660,14 +681,16 @@ focus_tree[id = netherlands_focus]:
       modifier:
         factor(HOL_taking_back_french_flanders_antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.HOL_taking_back_french_flanders_targets[]
+          is_friend_of_ROOT()
 
   focus[id = HOL_the_united_netherlands]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BEL->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -677,15 +700,17 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($BEL) + $opinion_factor($LUX)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
 
   focus[id = HOL_taking_back_our_old_colonies]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $SAF->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SAF->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -695,6 +720,12 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG) + $opinion_factor($SAF)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SAF->is_friend_of_PREV()
 
   focus[id = HOL_imperial_ambitions]:
     available:
@@ -706,6 +737,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($USA)
+      modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = HOL_legacy_of_the_de_zeven_provincien_mutiny]:
     ai_will_do:
@@ -724,6 +757,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($INS)
+      +modifier:
+        $ai_betrayal_modifier_vs($INS)
 
   focus[id = HOL_red_is_the_new_orange]:
     ai_will_do:
@@ -756,6 +791,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = HOL_join_the_french]:
     ai_will_do:
@@ -793,11 +830,8 @@ focus_tree[id = netherlands_focus]:
 
   focus[id = HOL_bring_socialism_south]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BEL->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -807,6 +841,11 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($BEL) + $opinion_factor($LUX)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
 
   focus[id = HOL_enemies_on_all_fronts]:
     ai_will_do:
@@ -820,12 +859,9 @@ focus_tree[id = netherlands_focus]:
 
   focus[id = HOL_pre_empt_western_intervention]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
-          $USA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -835,6 +871,12 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($USA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $USA->is_friend_of_PREV()
 
   focus[id = HOL_oranje_boven]:
     ai_will_do:
@@ -898,6 +940,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($HOL)
 
   focus[id = HOL_unity_through_democracy]:
     ai_will_do:
@@ -974,6 +1018,8 @@ focus_tree[id = netherlands_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($HOL)
 
   focus[id = HOL_form_the_benelux]:
     +ai_will_do:
@@ -1002,11 +1048,8 @@ focus_tree[id = netherlands_focus]:
 
   focus[id = HOL_the_best_defense]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1016,3 +1059,8 @@ focus_tree[id = netherlands_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()

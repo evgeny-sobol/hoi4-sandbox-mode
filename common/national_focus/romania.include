@@ -18,6 +18,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ROM_form_peasant_militias]:
     ai_will_do:
@@ -59,6 +61,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = ROM_join_axis]:
     ai_will_do:
@@ -80,6 +84,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ROM_renew_the_romanian_polish_alliance]:
     ai_will_do:
@@ -98,11 +104,8 @@ focus_tree[id = romanian_focus]:
 
   focus[id = ROM_military_modernization]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -112,6 +115,11 @@ focus_tree[id = romanian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
 
   focus[id = ROM_join_allies]:
     ai_will_do:
@@ -184,12 +192,9 @@ focus_tree[id = romanian_focus]:
 
   focus[id = ROM_balkans_dominance]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ROM->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
-          $HUN->is_friend_of_PREV(no)
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -203,6 +208,12 @@ focus_tree[id = romanian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($BUL) + $opinion_factor($HUN)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ROM->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
 
   focus[id = ROM_puppet_bulgaria]:
     available:
@@ -214,6 +225,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BUL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = ROM_align_hungary]:
     available:
@@ -225,6 +238,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = ROM_secure_greece]:
     available:
@@ -236,6 +251,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_betrayal_modifier_vs($GRE)
 
   focus[id = ROM_divide_yugoslavia]:
     available:
@@ -247,6 +264,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_betrayal_modifier_vs($YUG)
 
   focus[id = ROM_split_czechoslovakia]:
     available:
@@ -258,6 +277,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_betrayal_modifier_vs($CZE)
 
   focus[id = ROM_secure_the_bosporus]:
     available:
@@ -269,6 +290,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = ROM_institute_royal_dictatorship]:
     ai_will_do:
@@ -327,13 +350,10 @@ focus_tree[id = romanian_focus]:
 
   focus[id = ROM_appoint_soviet_friendly_government]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SOV->is_friend_of_PREV(no)
-          $ROM->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
-          $HUN->is_friend_of_PREV(no)
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -343,6 +363,13 @@ focus_tree[id = romanian_focus]:
         antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($ROM) + $opinion_factor($BUL) + $opinion_factor($HUN)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOV->is_friend_of_PREV()
+          $ROM->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
 
   focus[id = ROM_securitate]:
     ai_will_do:
@@ -351,13 +378,10 @@ focus_tree[id = romanian_focus]:
 
   focus[id = ROM_appoint_german_friendly_government]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ROM->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
-          $HUN->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -367,6 +391,13 @@ focus_tree[id = romanian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ROM) + $opinion_factor($BUL) + $opinion_factor($HUN)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ROM->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
 
   focus[id = ROM_iron_guard]:
     ai_will_do:
@@ -397,6 +428,8 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ROM)
+      +modifier:
+        $ai_betrayal_modifier_vs($ROM)
 
   focus[id = ROM_appoint_allied_friendly_government]:
     available:
@@ -408,11 +441,17 @@ focus_tree[id = romanian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ROM_constitutional_guarantees]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = ROM_handle_the_king]:
     ai_will_do:

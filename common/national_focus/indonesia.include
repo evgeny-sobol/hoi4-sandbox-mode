@@ -281,6 +281,8 @@ focus_tree[id = indonesia_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ATJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($ATJ)
 
   focus[id = INS_dissolve_national_party]:
     ai_will_do:
@@ -395,11 +397,8 @@ focus_tree[id = indonesia_focus]:
 
   focus[id = INS_destroy_pacific_colonialism]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $MAL->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -409,6 +408,11 @@ focus_tree[id = indonesia_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($MAL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
 
   focus[id = INS_rapid_mobilization]:
     +ai_will_do:
@@ -479,7 +483,13 @@ focus_tree[id = indonesia_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = INS_federation_of_aslia]:
     ai_will_do:
@@ -677,6 +687,8 @@ focus_tree[id = indonesia_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($INS)
+      +modifier:
+        $ai_betrayal_modifier_vs($INS)
 
   focus[id = INS_prioritize_sugar_economy]:
     +ai_will_do:

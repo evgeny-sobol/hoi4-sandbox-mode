@@ -128,6 +128,8 @@ focus_tree[id = paraguay_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BOL)
+      modifier:
+        $ai_betrayal_modifier_vs($BOL)
 
   focus[id = PAR_put_estigarribia_on_a_pedestal]:
     +ai_will_do:
@@ -138,6 +140,12 @@ focus_tree[id = paraguay_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = PAR_soliders_for_prisoners]:
     ai_will_do:
@@ -161,6 +169,8 @@ focus_tree[id = paraguay_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BOL)
+      modifier:
+        $ai_betrayal_modifier_vs($BOL)
 
   focus[id = PAR_get_rid_of_obsolete_guns]:
     +ai_will_do:
@@ -188,6 +198,12 @@ focus_tree[id = paraguay_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = PAR_get_rid_of_colonel_peredes]:
     +ai_will_do:
@@ -253,6 +269,8 @@ focus_tree[id = paraguay_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = PAR_align_with_the_guion_rojo]:
     +ai_will_do:
@@ -273,6 +291,10 @@ focus_tree[id = paraguay_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = PAR_union_nacional_revolucionaria]:
     +ai_will_do:
@@ -306,11 +328,8 @@ focus_tree[id = paraguay_focus]:
 
   focus[id = PAR_access_the_sea]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CHL->is_friend_of_PREV(no)
-          $PRU->is_friend_of_PREV(no)
+      $CHL->can_PREV_get_wargoal_on_THIS()
+      $PRU->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -320,3 +339,8 @@ focus_tree[id = paraguay_focus]:
         antagonism = 1 - ($opinion_factor($CHL) + $opinion_factor($PRU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHL->is_friend_of_PREV()
+          $PRU->is_friend_of_PREV()

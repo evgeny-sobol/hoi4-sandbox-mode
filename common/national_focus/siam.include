@@ -45,6 +45,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-20)
 
   focus[id = SIA_sideline_disloyal_officers]:
     ai_will_do:
@@ -209,20 +213,29 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
+  # Tyranny fork "repression vs. reform": shares replace the crossroad modifier.
   focus[id = SIA_an_absolute_monarchy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
+        $ai_high_tyranny_fork()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SIA_a_constitutional_monarchy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
+        $ai_low_tyranny_fork()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = SIA_to_lay_the_bait]:
     ai_will_do:
@@ -239,7 +252,13 @@ focus_tree[id = siam_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = SIA_military_oversight_bureau]:
     ai_will_do:
@@ -341,6 +360,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = SIA_the_siamese_armada]:
     ai_will_do:
@@ -383,6 +404,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SIA_death_to_the_nationalists]:
     ai_will_do:
@@ -480,6 +503,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SIA_department_of_publicity]:
     ai_will_do:
@@ -500,6 +527,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SIA_sala_chaloem_thai_movie_theater]:
     ai_will_do:
@@ -513,12 +544,9 @@ focus_tree[id = siam_focus]:
 
   focus[id = SIA_retake_lost_british_states]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $BRM->is_friend_of_PREV(no)
-          $MAL->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -528,14 +556,17 @@ focus_tree[id = siam_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($BRM) + $opinion_factor($MAL)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
 
   focus[id = SIA_recover_indochina]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $VIC->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($VIC)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -545,6 +576,13 @@ focus_tree[id = siam_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($VIC)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          and:
+            country_exists($VIC)
+            $VIC->is_friend_of_PREV()
 
   focus[id = SIA_demand_the_return_of_lost_territory]:
     available:
@@ -556,6 +594,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SIA_the_greater_thai_empire]:
     ai_will_do:
@@ -984,6 +1024,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHI)
+      +modifier:
+        $ai_betrayal_modifier_vs($CHI)
 
   focus[id = SIA_securing_the_rubber_islands]:
     available:
@@ -995,6 +1037,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAL)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAL)
 
   focus[id = SIA_breaking_the_burmese_line]:
     ai_will_do:

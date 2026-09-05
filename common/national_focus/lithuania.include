@@ -28,6 +28,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_victory_in_trust]:
     ai_will_do:
@@ -74,6 +76,12 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = LIT_anti_communist_militia]:
     available:
@@ -85,6 +93,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_betrayal_modifier_vs($LIT)
 
   focus[id = LIT_arrest_nazis_in_memel]:
     available:
@@ -96,6 +106,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_betrayal_modifier_vs($LIT)
 
   focus[id = LIT_reminder_of_true_enemy]:
     ai_will_do:
@@ -121,11 +133,8 @@ focus_tree[id = lithuania_tree]:
 
   focus[id = LIT_appease_soviets]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SOU->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
+      $can_get_wargoal_on($SOU)
+      $LIT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -137,14 +146,18 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($SOU) + $opinion_factor($LIT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          and:
+            country_exists($SOU)
+            $SOU->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
 
   focus[id = LIT_appease_nazis]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -156,6 +169,11 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($LIT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
 
   focus[id = LIT_offer_military_basing]:
     ai_will_do:
@@ -234,11 +252,8 @@ focus_tree[id = lithuania_tree]:
 
   focus[id = LIT_claim_livonia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $LAT->is_friend_of_PREV(no)
-          $EST->is_friend_of_PREV(no)
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $EST->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -248,6 +263,11 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($LAT) + $opinion_factor($EST)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAT->is_friend_of_PREV()
+          $EST->is_friend_of_PREV()
 
   focus[id = LIT_claim_lithuania_minor]:
     ai_will_do:
@@ -278,6 +298,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_request_polish_occupation]:
     ai_will_do:
@@ -296,6 +318,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_restore_greater_lithuania]:
     ai_will_do:
@@ -374,6 +398,12 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = LIT_merge_the_military_and_civilian_governments]:
     ai_will_do:
@@ -396,11 +426,8 @@ focus_tree[id = lithuania_tree]:
 
   focus[id = LIT_enforce_military_rule]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $EST->is_friend_of_PREV(no)
-          $LAT->is_friend_of_PREV(no)
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -412,6 +439,11 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
 
   focus[id = LIT_beyond_the_baltic]:
     ai_will_do:
@@ -521,6 +553,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_POL_union]:
     available:
@@ -532,6 +566,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_expand_lithuanian_shipyards]:
     ai_will_do:
@@ -565,11 +601,8 @@ focus_tree[id = lithuania_tree]:
 
   focus[id = LIT_claim_livonia_monarchy]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $EST->is_friend_of_PREV(no)
-          $LAT->is_friend_of_PREV(no)
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -579,6 +612,11 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
 
   focus[id = LIT_claim_prussia]:
     ai_will_do:
@@ -595,6 +633,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = LIT_greater_commonwealth]:
     ai_will_do:

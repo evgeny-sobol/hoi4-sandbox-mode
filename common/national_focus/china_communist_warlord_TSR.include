@@ -198,6 +198,8 @@ focus_tree[id = china_communist_warlord_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
         $crossroad_modifier(2)
 
   focus[id = PRC_sea_abolish_the_land_rent]:

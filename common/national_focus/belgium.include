@@ -204,11 +204,8 @@ focus_tree[id = belgium_focus]:
 
   focus[id = BEL_dyle_plan]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -218,6 +215,11 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = BEL_government_resigns]:
     +ai_will_do:
@@ -333,6 +335,8 @@ focus_tree[id = belgium_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($LUX)
+      modifier:
+        $ai_betrayal_modifier_vs($LUX)
 
   focus[id = BEL_invite_german_tank_organization]:
     +ai_will_do:
@@ -356,11 +360,8 @@ focus_tree[id = belgium_focus]:
 
   focus[id = BEL_the_french_horse_and_the_red_rider]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $FRA->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -370,6 +371,11 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($LUX)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
 
   focus[id = BEL_nationalize_the_banks]:
     +ai_will_do:
@@ -420,11 +426,8 @@ focus_tree[id = belgium_focus]:
 
   focus[id = BEL_flanders_ascendant]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $LUX->is_friend_of_PREV(no)
-          $HOL->is_friend_of_PREV(no)
+      $LUX->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -434,6 +437,11 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($LUX) + $opinion_factor($HOL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LUX->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
 
   focus[id = BEL_dietsland]:
     +ai_will_do:
@@ -471,6 +479,8 @@ focus_tree[id = belgium_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = BEL_strength_and_brotherhood]:
     +ai_will_do:
@@ -489,6 +499,8 @@ focus_tree[id = belgium_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = BEL_belgica]:
     +ai_will_do:
@@ -612,11 +624,8 @@ focus_tree[id = belgium_focus]:
 
   focus[id = BEL_aid_for_spain]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SPD->is_friend_of_PREV(no)
-          $SPR->is_friend_of_PREV(no)
+      $can_get_wargoal_on($SPD)
+      $SPR->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -626,6 +635,13 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($SPD) + $opinion_factor($SPR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          and:
+            country_exists($SPD)
+            $SPD->is_friend_of_PREV()
+          $SPR->is_friend_of_PREV()
 
   focus[id = BEL_the_grand_place]:
     +ai_will_do:

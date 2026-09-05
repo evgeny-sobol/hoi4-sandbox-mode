@@ -70,6 +70,12 @@ focus_tree[id = swiss_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = SWI_promote_guisan]:
     ai_will_do:
@@ -221,6 +227,8 @@ focus_tree[id = swiss_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = SWI_withdraw_from_the_league_of_nations]:
     ai_will_do:
@@ -231,11 +239,19 @@ focus_tree[id = swiss_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SWI_tighten_press_censorship]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SWI_seek_trade_agreement_with_germany]:
     ai_will_do:
@@ -251,6 +267,10 @@ focus_tree[id = swiss_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SWI_buero_ha]:
     ai_will_do:
@@ -382,6 +402,8 @@ focus_tree[id = swiss_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWI)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWI)
 
   focus[id = SWI_alpine_aspirations]:
     ai_will_do:
@@ -506,6 +528,8 @@ focus_tree[id = swiss_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AUS)
+      +modifier:
+        $ai_betrayal_modifier_vs($AUS)
 
   focus[id = SWI_demand_italian_alps]:
     ai_will_do:
@@ -537,6 +561,8 @@ focus_tree[id = swiss_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = SWI_liberate_italy]:
     available:
@@ -548,6 +574,8 @@ focus_tree[id = swiss_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = SWI_take_over_france]:
     available:
@@ -559,6 +587,8 @@ focus_tree[id = swiss_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SWI_the_new_eidgenossenschaft]:
     ai_will_do:

@@ -1,12 +1,9 @@
   joint_focus[id = MA_develop_inter_province_ties]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $XSM->is_friend_of_PREV(no)
-          $NXM->is_friend_of_PREV(no)
-          $GSM->is_friend_of_PREV(no)
-          $KHM->is_friend_of_PREV(no)
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -18,6 +15,13 @@
         antagonism = 1 - ($opinion_factor($XSM) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $XSM->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
 
   joint_focus[id = MA_unified_training_program]:
     ai_will_do:

@@ -175,6 +175,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
 
   focus[id = MAN_tsr_national_cooperation_government]:
     ai_will_do:
@@ -225,6 +227,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
 
   focus[id = MAN_tsr_request_control_of_the_railways]:
     ai_will_do:
@@ -309,6 +313,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($OVERLORD)
+      +modifier:
+        $ai_betrayal_modifier_vs($OVERLORD)
 
   focus[id = MAN_tsr_depose_puyi]:
     ai_will_do:
@@ -329,6 +335,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
 
   focus[id = MAN_tsr_beiyang_university]:
     ai_will_do:
@@ -360,6 +368,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = MAN_tsr_an_industrial_power]:
     ai_will_do:
@@ -378,6 +388,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
 
   focus[id = MAN_tsr_ally_the_soviet_republic]:
     ai_will_do:
@@ -404,6 +416,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_betrayal_modifier_vs($TIB)
 
   focus[id = MAN_tsr_soviet_aid]:
     ai_will_do:
@@ -419,6 +433,12 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = MAN_tsr_reform_the_civil_service]:
     ai_will_do:
@@ -427,11 +447,8 @@ focus_tree[id = manchukuo_focus_tsr]:
 
   focus[id = MAN_tsr_independence_war]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $JAP->is_friend_of_PREV(no)
-          $OVERLORD->is_friend_of_PREV(no)
+      $JAP->can_PREV_get_wargoal_on_THIS()
+      $OVERLORD->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -441,6 +458,11 @@ focus_tree[id = manchukuo_focus_tsr]:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($OVERLORD)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $JAP->is_friend_of_PREV()
+          $OVERLORD->is_friend_of_PREV()
 
   focus[id = MAN_tsr_imperial_divinity]:
     ai_will_do:

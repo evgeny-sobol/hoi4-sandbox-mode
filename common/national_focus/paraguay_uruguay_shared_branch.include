@@ -1,10 +1,7 @@
   shared_focus[id = GUAY_rekindle_old_gripes]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BRA->is_friend_of_PREV(no)
-          $ARG->is_friend_of_PREV(no)
+      $BRA->can_PREV_get_wargoal_on_THIS()
+      $ARG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -16,6 +13,11 @@
         antagonism = 1 - ($opinion_factor($BRA) + $opinion_factor($ARG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BRA->is_friend_of_PREV()
+          $ARG->is_friend_of_PREV()
 
   shared_focus[id = GUAY_laissez_faire]:
     ai_will_do:
@@ -101,11 +103,15 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   shared_focus[id = GUAY_coup_detat]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   shared_focus[id = GUAY_appease_the_generals]:
     ai_will_do:
@@ -116,6 +122,10 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   shared_focus[id = GUAY_adopt_minority_languages]:
     ai_will_do:

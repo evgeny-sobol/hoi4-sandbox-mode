@@ -112,11 +112,8 @@ focus_tree[id = china_nationalist_focus]:
 
   focus[id = CHI_pick_a_fight_with_japan]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $MAN->is_friend_of_PREV(no)
-          $JAP->is_friend_of_PREV(no)
+      $MAN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -126,19 +123,21 @@ focus_tree[id = china_nationalist_focus]:
         antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($JAP)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
 
   focus[id = CHI_anti_communism]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SIK->is_friend_of_PREV(no)
-          $TIB->is_friend_of_PREV(no)
-          $PRC->is_friend_of_PREV(no)
-          $YUN->is_friend_of_PREV(no)
-          $SHX->is_friend_of_PREV(no)
-          $GXC->is_friend_of_PREV(no)
-          $XSM->is_friend_of_PREV(no)
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $TIB->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $YUN->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -148,6 +147,16 @@ focus_tree[id = china_nationalist_focus]:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($TIB) + $opinion_factor($PRC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($GXC) + $opinion_factor($XSM)) / 7
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $TIB->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $YUN->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
 
   focus[id = CHI_subjugate_the_warlords]:
     ai_will_do:

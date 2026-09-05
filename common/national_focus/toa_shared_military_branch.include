@@ -14,6 +14,10 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   shared_focus[id = SMB_logistics_department]:
     ai_will_do:

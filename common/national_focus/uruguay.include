@@ -186,6 +186,10 @@ focus_tree[id = uruguay_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-20)
 
   focus[id = URG_the_good_coup]:
     +ai_will_do:

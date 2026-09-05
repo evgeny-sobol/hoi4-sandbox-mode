@@ -239,11 +239,8 @@ focus_tree[id = spanish_focus]:
 
   focus[id = SPA_unite_iberia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $POR->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -253,16 +250,18 @@ focus_tree[id = spanish_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = SPA_absorb_the_portuguese_empire]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BRA->is_friend_of_PREV(no)
-          $MZB->is_friend_of_PREV(no)
-          $ANG->is_friend_of_PREV(no)
-          $GNB->is_friend_of_PREV(no)
+      $BRA->can_PREV_get_wargoal_on_THIS()
+      $MZB->can_PREV_get_wargoal_on_THIS()
+      $ANG->can_PREV_get_wargoal_on_THIS()
+      $GNB->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -272,6 +271,13 @@ focus_tree[id = spanish_focus]:
         antagonism = 1 - ($opinion_factor($BRA) + $opinion_factor($MZB) + $opinion_factor($ANG) + $opinion_factor($GNB)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BRA->is_friend_of_PREV()
+          $MZB->is_friend_of_PREV()
+          $ANG->is_friend_of_PREV()
+          $GNB->is_friend_of_PREV()
 
   focus[id = SPA_claim_the_aragonese_possessions]:
     available:
@@ -283,6 +289,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ITA)
+      modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = SPA_reclaim_spanish_africa]:
     available:
@@ -294,6 +302,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SPA_reassert_american_dominance]:
     +ai_will_do:
@@ -302,17 +312,14 @@ focus_tree[id = spanish_focus]:
 
   focus[id = SPA_retake_the_americas]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ARG->is_friend_of_PREV(no)
-          $CHL->is_friend_of_PREV(no)
-          $PRU->is_friend_of_PREV(no)
-          $VEN->is_friend_of_PREV(no)
-          $COL->is_friend_of_PREV(no)
-          $BOL->is_friend_of_PREV(no)
-          $MEX->is_friend_of_PREV(no)
-          $USA->is_friend_of_PREV(no)
+      $ARG->can_PREV_get_wargoal_on_THIS()
+      $CHL->can_PREV_get_wargoal_on_THIS()
+      $PRU->can_PREV_get_wargoal_on_THIS()
+      $VEN->can_PREV_get_wargoal_on_THIS()
+      $COL->can_PREV_get_wargoal_on_THIS()
+      $BOL->can_PREV_get_wargoal_on_THIS()
+      $MEX->can_PREV_get_wargoal_on_THIS()
+      $USA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -322,6 +329,17 @@ focus_tree[id = spanish_focus]:
         antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL) + $opinion_factor($PRU) + $opinion_factor($VEN) + $opinion_factor($COL) + $opinion_factor($BOL) + $opinion_factor($MEX) + $opinion_factor($USA)) / 8
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ARG->is_friend_of_PREV()
+          $CHL->is_friend_of_PREV()
+          $PRU->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
+          $COL->is_friend_of_PREV()
+          $BOL->is_friend_of_PREV()
+          $MEX->is_friend_of_PREV()
+          $USA->is_friend_of_PREV()
 
   focus[id = SPA_embrace_pan_hispanism]:
     ai_will_do:
@@ -666,26 +684,25 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SPA_claim_west_africa]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:SPA_claim_west_africa_targets[0]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[1]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[2]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[3]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[4]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[5]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[6]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[7]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[8]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[9]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[10]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[11]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[12]->is_friend_of_PREV(no)
-          var:SPA_claim_west_africa_targets[13]->is_friend_of_PREV(no)
+      var:SPA_claim_west_africa_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[8]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[9]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[10]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[11]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[12]->can_PREV_get_wargoal_on_THIS()
+      var:SPA_claim_west_africa_targets[13]->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -694,6 +711,11 @@ focus_tree[id = spanish_focus]:
       modifier:
         factor(SPA_claim_west_africa_antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.SPA_claim_west_africa_targets[]
+          is_friend_of_ROOT()
 
   focus[id = SPA_supremacy_of_the_communion]:
     +ai_will_do:
@@ -832,6 +854,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SPA_claim_the_french_throne]:
     available:
@@ -843,15 +867,14 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SPA_retake_the_spanish_netherlands]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $HOL->is_friend_of_PREV(no)
-          $BEL->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -861,6 +884,12 @@ focus_tree[id = spanish_focus]:
         antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($BEL) + $opinion_factor($LUX)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $HOL->is_friend_of_PREV()
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
 
   focus[id = SPA_restore_the_iberian_union]:
     +ai_will_do:
@@ -869,12 +898,9 @@ focus_tree[id = spanish_focus]:
 
   focus[id = SPA_the_war_of_vengeance]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $USA->is_friend_of_PREV(no)
-          $PHI->is_friend_of_PREV(no)
-          $CUB->is_friend_of_PREV(no)
+      $USA->can_PREV_get_wargoal_on_THIS()
+      $PHI->can_PREV_get_wargoal_on_THIS()
+      $CUB->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -884,6 +910,12 @@ focus_tree[id = spanish_focus]:
         antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($PHI) + $opinion_factor($CUB)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $USA->is_friend_of_PREV()
+          $PHI->is_friend_of_PREV()
+          $CUB->is_friend_of_PREV()
 
   focus[id = SPA_found_the_academia_vazquez_de_mella]:
     +ai_will_do:
@@ -971,6 +1003,8 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = SPR_foreign_arms_purchases]:
     +ai_will_do:
@@ -1002,6 +1036,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = SPR_regional_defense_council_of_iberia]:
     +ai_will_do:
@@ -1120,7 +1156,13 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_high_tyranny_tilt()
+      modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = SPR_demand_ministerial_positions]:
     +ai_will_do:
@@ -1329,6 +1371,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($MEX)
+      modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = SPR_red_bulwark_in_the_west]:
     +ai_will_do:
@@ -1355,6 +1399,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = SPR_support_french_communists]:
     available:
@@ -1366,6 +1412,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = SPR_avenge_foreign_interference]:
     +ai_will_do:
@@ -1496,6 +1544,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = SPR_those_who_would_not_help_us]:
     +ai_will_do:

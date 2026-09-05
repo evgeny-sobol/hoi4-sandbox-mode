@@ -13,12 +13,9 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_attract_foreign_capitals]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -30,6 +27,12 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
 
   focus[id = BUL_invigorate_national_industry]:
     +ai_will_do:
@@ -64,6 +67,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_increase_industry_investments]:
     +ai_will_do:
@@ -145,12 +150,9 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_foreign_aircraft_designers]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -162,6 +164,12 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
 
   focus[id = BUL_kaproni_bulgarski]:
     +ai_will_do:
@@ -180,13 +188,10 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_contract_foreign_companies]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -196,6 +201,13 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
 
   focus[id = BUL_rebuild_the_army]:
     +ai_will_do:
@@ -231,12 +243,9 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_a_black_sea_fleet]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -246,6 +255,12 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
 
   focus[id = BUL_improve_coastal_defenses]:
     +ai_will_do:
@@ -354,6 +369,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_overthrow_the_tsar]:
     +ai_will_do:
@@ -392,7 +409,7 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_soviet_bulgarian_treaty_of_mutual_assistance]:
     available:
-      $SOU->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SOU)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -400,6 +417,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOU)
+      modifier:
+        $ai_betrayal_modifier_vs($SOU)
 
   focus[id = BUL_follow_the_stalinist_doctrine]:
     +ai_will_do:
@@ -432,6 +451,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_carry_the_revolution_abroad]:
     available:
@@ -443,6 +464,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_liberation_of_the_proletariat]:
     +ai_will_do:
@@ -475,6 +498,12 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = BUL_collectivization_of_the_countryside]:
     +ai_will_do:
@@ -501,6 +530,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($YUG)
+      modifier:
+        $ai_betrayal_modifier_vs($YUG)
 
   focus[id = BUL_balkan_federation_of_socialist_republics]:
     +ai_will_do:
@@ -533,6 +564,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = BUL_balkan_research_cooperation]:
     +ai_will_do:
@@ -610,6 +643,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GRE)
+      modifier:
+        $ai_betrayal_modifier_vs($GRE)
 
   focus[id = BUL_a_balkan_confederation]:
     +ai_will_do:
@@ -624,11 +659,8 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_approach_the_united_kingdom]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -638,6 +670,11 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($BUL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
 
   focus[id = BUL_join_the_allies]:
     +ai_will_do:
@@ -708,6 +745,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_support_macedonian_organizations]:
     available:
@@ -721,6 +760,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_dissolve_the_military_union]:
     +ai_will_do:
@@ -828,11 +869,8 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_amend_old_grudges]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $FRA->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -842,6 +880,11 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
 
   focus[id = BUL_form_a_regency_council]:
     +ai_will_do:
@@ -865,6 +908,10 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = BUL_toppling_giants]:
     +ai_will_do:
@@ -920,6 +967,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_allow_far_right_organizations]:
     +ai_will_do:
@@ -948,11 +997,8 @@ focus_tree[id = bulgarian_focus]:
 
   focus[id = BUL_approach_germany]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -962,14 +1008,16 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($BUL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
 
   focus[id = BUL_cooperation_with_italy]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ITA->is_friend_of_PREV(no)
-          $BUL->is_friend_of_PREV(no)
+      $ITA->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -979,6 +1027,11 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ITA) + $opinion_factor($BUL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ITA->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
 
   focus[id = BUL_join_the_tripartite_pact]:
     +ai_will_do:
@@ -1029,6 +1082,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ROM)
+      modifier:
+        $ai_betrayal_modifier_vs($ROM)
 
   focus[id = BUL_the_eastern_front]:
     +ai_will_do:
@@ -1045,3 +1100,5 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($TUR)
+      modifier:
+        $ai_betrayal_modifier_vs($TUR)

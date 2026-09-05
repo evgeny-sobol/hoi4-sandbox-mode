@@ -81,6 +81,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   focus[id = SWE_allow_landsverk_to_operate]:
     available:
@@ -94,6 +96,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
 
   focus[id = SWE_as_the_barometer_falls]:
     ai_will_do:
@@ -389,11 +393,8 @@ focus_tree[id = sweden_focus]:
 
   focus[id = SWE_strike_the_capitalist_beast_down]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -403,6 +404,11 @@ focus_tree[id = sweden_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($SOV)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
 
   focus[id = SWE_socialist_reforms]:
     ai_will_do:
@@ -488,14 +494,11 @@ focus_tree[id = sweden_focus]:
 
   focus[id = SWE_the_nordic_defense_council]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $NOR->is_friend_of_PREV(no)
-          $SWE->is_friend_of_PREV(no)
-          $DEN->is_friend_of_PREV(no)
-          $FIN->is_friend_of_PREV(no)
-          $ICE->is_friend_of_PREV(no)
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+      $FIN->can_PREV_get_wargoal_on_THIS()
+      $ICE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -511,6 +514,14 @@ focus_tree[id = sweden_focus]:
         antagonism = 1 - ($opinion_factor($NOR) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN) + $opinion_factor($ICE)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NOR->is_friend_of_PREV()
+          $SWE->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+          $FIN->is_friend_of_PREV()
+          $ICE->is_friend_of_PREV()
 
   focus[id = SWE_central_nordic_army_command]:
     ai_will_do:
@@ -686,6 +697,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
 
   focus[id = SWE_operation_save_norway]:
     available:
@@ -697,6 +710,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($NOR)
 
   focus[id = SWE_secret_mobilization]:
     ai_will_do:
@@ -851,6 +866,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FIN)
+      modifier:
+        $ai_betrayal_modifier_vs($FIN)
 
   focus[id = SWE_uranium_project]:
     +ai_will_do:
@@ -920,12 +937,9 @@ focus_tree[id = sweden_focus]:
 
   focus[id = SWE_scramble_for_the_baltic]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $LAT->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
-          $EST->is_friend_of_PREV(no)
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $EST->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -935,6 +949,12 @@ focus_tree[id = sweden_focus]:
         antagonism = 1 - ($opinion_factor($LAT) + $opinion_factor($LIT) + $opinion_factor($EST)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAT->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+          $EST->is_friend_of_PREV()
 
   focus[id = SWE_join_the_anti_soviet_pact]:
     available:
@@ -946,6 +966,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = SWE_demand_atlantic_resource_rights]:
     +ai_will_do:
@@ -957,7 +979,11 @@ focus_tree[id = sweden_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_high_tyranny_tilt()
+      modifier:
         $crossroad_modifier(2)
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = SWE_united_kingdoms_of_sweden_and_norway]:
     +ai_will_do:
@@ -991,6 +1017,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = SWE_reclaiming_the_rus]:
     +ai_will_do:

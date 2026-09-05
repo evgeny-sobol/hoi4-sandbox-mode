@@ -136,14 +136,11 @@ focus_tree[id = finnish_focus]:
 
   focus[id = FIN_united_under_the_north_star]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SWE->is_friend_of_PREV(no)
-          $NOR->is_friend_of_PREV(no)
-          $DEN->is_friend_of_PREV(no)
-          $ICE->is_friend_of_PREV(no)
-          $SMI->is_friend_of_PREV(no)
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+      $ICE->can_PREV_get_wargoal_on_THIS()
+      $SMI->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -159,6 +156,14 @@ focus_tree[id = finnish_focus]:
         antagonism = 1 - ($opinion_factor($SWE) + $opinion_factor($NOR) + $opinion_factor($DEN) + $opinion_factor($ICE) + $opinion_factor($SMI)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SWE->is_friend_of_PREV()
+          $NOR->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+          $ICE->is_friend_of_PREV()
+          $SMI->is_friend_of_PREV()
 
   focus[id = FIN_approach_major_democracies]:
     ai_will_do:
@@ -191,6 +196,8 @@ focus_tree[id = finnish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = FIN_keepers_of_the_baltic_countries]:
     +ai_will_do:
@@ -199,14 +206,11 @@ focus_tree[id = finnish_focus]:
 
   focus[id = FIN_red_finland]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SWE->is_friend_of_PREV(no)
-          $NOR->is_friend_of_PREV(no)
-          $DEN->is_friend_of_PREV(no)
-          $ICE->is_friend_of_PREV(no)
-          $SOV->is_friend_of_PREV(no)
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+      $ICE->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -216,16 +220,21 @@ focus_tree[id = finnish_focus]:
         antagonism = 1 - ($opinion_factor($SWE) + $opinion_factor($NOR) + $opinion_factor($DEN) + $opinion_factor($ICE) + $opinion_factor($SOV)) / 5
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SWE->is_friend_of_PREV()
+          $NOR->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+          $ICE->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
 
   focus[id = FIN_finnish_influence_in_the_baltic]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $EST->is_friend_of_PREV(no)
-          $LAT->is_friend_of_PREV(no)
-          $LIT->is_friend_of_PREV(no)
-          $POL->is_friend_of_PREV(no)
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $POL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -235,6 +244,13 @@ focus_tree[id = finnish_focus]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) + $opinion_factor($LIT) + $opinion_factor($POL)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+          $POL->is_friend_of_PREV()
 
   focus[id = FIN_preserve_sapmi]:
     +ai_will_do:
@@ -261,6 +277,8 @@ focus_tree[id = finnish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = FIN_socialist_welfare]:
     +ai_will_do:
@@ -282,6 +300,8 @@ focus_tree[id = finnish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = FIN_proclaim_greater_finland]:
     +ai_will_do:

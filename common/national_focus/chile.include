@@ -75,6 +75,10 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = CHL_request_foreign_support]:
     ai_will_do:
@@ -380,13 +384,10 @@ focus_tree[id = chilean_focus_tree]:
 
   focus[id = CHL_taking_back_patagonia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:CHL_taking_back_patagonia_targets[0]->is_friend_of_PREV(no)
-          var:CHL_taking_back_patagonia_targets[1]->is_friend_of_PREV(no)
-          var:CHL_taking_back_patagonia_targets[2]->is_friend_of_PREV(no)
-          var:CHL_taking_back_patagonia_targets[3]->is_friend_of_PREV(no)
+      var:CHL_taking_back_patagonia_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_taking_back_patagonia_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_taking_back_patagonia_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_taking_back_patagonia_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -395,6 +396,11 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         factor(CHL_taking_back_patagonia_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CHL_taking_back_patagonia_targets[]
+          is_friend_of_ROOT()
 
   focus[id = CHL_satellite_kingdoms]:
     ai_will_do:
@@ -403,12 +409,9 @@ focus_tree[id = chilean_focus_tree]:
 
   focus[id = CHL_secure_the_brazilian_border]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAR->is_friend_of_PREV(no)
-          $BOL->is_friend_of_PREV(no)
-          $URG->is_friend_of_PREV(no)
+      $PAR->can_PREV_get_wargoal_on_THIS()
+      $BOL->can_PREV_get_wargoal_on_THIS()
+      $URG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -418,14 +421,17 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($PAR) + $opinion_factor($BOL) + $opinion_factor($URG)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAR->is_friend_of_PREV()
+          $BOL->is_friend_of_PREV()
+          $URG->is_friend_of_PREV()
 
   focus[id = CHL_a_new_empire_of_brazil]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BRA->is_friend_of_PREV(no)
-          $POR->is_friend_of_PREV(no)
+      $BRA->can_PREV_get_wargoal_on_THIS()
+      $POR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -435,14 +441,16 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($BRA) + $opinion_factor($POR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BRA->is_friend_of_PREV()
+          $POR->is_friend_of_PREV()
 
   focus[id = CHL_ruler_of_the_inca]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PRU->is_friend_of_PREV(no)
-          $ECU->is_friend_of_PREV(no)
+      $PRU->can_PREV_get_wargoal_on_THIS()
+      $ECU->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -452,6 +460,11 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($PRU) + $opinion_factor($ECU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PRU->is_friend_of_PREV()
+          $ECU->is_friend_of_PREV()
 
   focus[id = CHL_a_french_alliance]:
     ai_will_do:
@@ -480,6 +493,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = CHL_joint_invasion_of_mexico]:
     available:
@@ -491,6 +506,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = CHL_claim_the_mexican_throne]:
     available:
@@ -502,6 +519,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
 
   focus[id = CHL_the_straight_line]:
     ai_will_do:
@@ -578,7 +597,7 @@ focus_tree[id = chilean_focus_tree]:
 
   focus[id = CHL_volunteers_to_the_republicans]:
     available:
-      $SPD->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPD)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -586,6 +605,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPD)
       +modifier:
         $ai_mic_modifier()
 
@@ -681,6 +702,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = CHL_return_to_the_parliamentary_era]:
     ai_will_do:
@@ -870,6 +893,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRU)
+      +modifier:
+        $ai_betrayal_modifier_vs($PRU)
 
   focus[id = CHL_demand_the_fireland]:
     available:
@@ -881,6 +906,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ARG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ARG)
 
   focus[id = CHL_escalate_the_laguna_del_desierto_issue]:
     available:
@@ -893,22 +920,25 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($ARG)
       +modifier:
+        $ai_betrayal_modifier_vs($ARG)
+      +modifier:
         $ai_mic_modifier()
 
   focus[id = CHL_demand_demilitarization_of_patagonia]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = CHL_enter_patagonia]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          var:CHL_enter_patagonia_targets[0]->is_friend_of_PREV(no)
-          var:CHL_enter_patagonia_targets[1]->is_friend_of_PREV(no)
-          var:CHL_enter_patagonia_targets[2]->is_friend_of_PREV(no)
-          var:CHL_enter_patagonia_targets[3]->is_friend_of_PREV(no)
+      var:CHL_enter_patagonia_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_enter_patagonia_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_enter_patagonia_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CHL_enter_patagonia_targets[3]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -917,6 +947,11 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         factor(CHL_enter_patagonia_antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CHL_enter_patagonia_targets[]
+          is_friend_of_ROOT()
 
   focus[id = CHL_controlled_education]:
     ai_will_do:
@@ -1013,15 +1048,14 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = CHL_demand_the_guayanas]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GYA->is_friend_of_PREV(no)
-          $SUR->is_friend_of_PREV(no)
-          $CAY->is_friend_of_PREV(no)
+      $GYA->can_PREV_get_wargoal_on_THIS()
+      $SUR->can_PREV_get_wargoal_on_THIS()
+      $CAY->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1031,22 +1065,25 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($GYA) + $opinion_factor($SUR) + $opinion_factor($CAY)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GYA->is_friend_of_PREV()
+          $SUR->is_friend_of_PREV()
+          $CAY->is_friend_of_PREV()
 
   focus[id = CHL_liberate_the_caribbean]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $CUB->is_friend_of_PREV(no)
-          $DOM->is_friend_of_PREV(no)
-          $HAI->is_friend_of_PREV(no)
-          $BAH->is_friend_of_PREV(no)
-          $BAS->is_friend_of_PREV(no)
-          $JAM->is_friend_of_PREV(no)
-          $PUE->is_friend_of_PREV(no)
-          $CRC->is_friend_of_PREV(no)
-          $TRI->is_friend_of_PREV(no)
-          $GDL->is_friend_of_PREV(no)
+      $CUB->can_PREV_get_wargoal_on_THIS()
+      $DOM->can_PREV_get_wargoal_on_THIS()
+      $HAI->can_PREV_get_wargoal_on_THIS()
+      $BAH->can_PREV_get_wargoal_on_THIS()
+      $BAS->can_PREV_get_wargoal_on_THIS()
+      $JAM->can_PREV_get_wargoal_on_THIS()
+      $PUE->can_PREV_get_wargoal_on_THIS()
+      $CRC->can_PREV_get_wargoal_on_THIS()
+      $TRI->can_PREV_get_wargoal_on_THIS()
+      $GDL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1056,6 +1093,19 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI) + $opinion_factor($BAH) + $opinion_factor($BAS) + $opinion_factor($JAM) + $opinion_factor($PUE) + $opinion_factor($CRC) + $opinion_factor($TRI) + $opinion_factor($GDL)) / 10
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CUB->is_friend_of_PREV()
+          $DOM->is_friend_of_PREV()
+          $HAI->is_friend_of_PREV()
+          $BAH->is_friend_of_PREV()
+          $BAS->is_friend_of_PREV()
+          $JAM->is_friend_of_PREV()
+          $PUE->is_friend_of_PREV()
+          $CRC->is_friend_of_PREV()
+          $TRI->is_friend_of_PREV()
+          $GDL->is_friend_of_PREV()
 
   focus[id = CHL_press_our_demands]:
     ai_will_do:
@@ -1252,15 +1302,14 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ARG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ARG)
 
   focus[id = CHL_protect_the_easter_island]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $JAP->is_friend_of_PREV(no)
-          $NZL->is_friend_of_PREV(no)
-          $AST->is_friend_of_PREV(no)
+      $JAP->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+      $AST->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1270,6 +1319,12 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($NZL) + $opinion_factor($AST)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $JAP->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+          $AST->is_friend_of_PREV()
       +modifier:
         $ai_mic_modifier()
 
@@ -1346,6 +1401,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHL)
+      +modifier:
+        $ai_betrayal_modifier_vs($CHL)
 
   focus[id = CHL_international_loans]:
     ai_will_do:

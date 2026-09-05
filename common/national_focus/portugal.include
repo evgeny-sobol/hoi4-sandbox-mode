@@ -24,12 +24,9 @@ focus_tree[id = portuguese_focus]:
 
   focus[id = POR_limited_self_rule]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ANG->is_friend_of_PREV(no)
-          $MZB->is_friend_of_PREV(no)
-          $POR->is_friend_of_PREV(no)
+      $ANG->can_PREV_get_wargoal_on_THIS()
+      $MZB->can_PREV_get_wargoal_on_THIS()
+      $POR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -41,6 +38,12 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($ANG) + $opinion_factor($MZB) + $opinion_factor($POR)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ANG->is_friend_of_PREV()
+          $MZB->is_friend_of_PREV()
+          $POR->is_friend_of_PREV()
 
   focus[id = POR_haven_of_neutrality_macau]:
     +ai_will_do:
@@ -358,6 +361,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_join_the_comintern]:
     +ai_will_do:
@@ -385,6 +390,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_betrayal_modifier_vs($FRA)
 
   focus[id = POR_anti_fascism]:
     +ai_will_do:
@@ -393,11 +400,8 @@ focus_tree[id = portuguese_focus]:
 
   focus[id = POR_support_the_spanish_republic]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $POR->is_friend_of_PREV(no)
-          $SPD->is_friend_of_PREV(no)
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPD)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -409,6 +413,13 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPD)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          and:
+            country_exists($SPD)
+            $SPD->is_friend_of_PREV()
 
   focus[id = POR_workers_of_iberia_unite]:
     +ai_will_do:
@@ -438,6 +449,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_latin_american_communism]:
     available:
@@ -449,6 +462,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_our_comrades_overseas]:
     +ai_will_do:
@@ -494,6 +509,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_british_investment_in_mines]:
     +ai_will_do:
@@ -520,6 +537,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_join_the_allies]:
     +ai_will_do:
@@ -541,6 +560,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = POR_iberian_summit]:
     +ai_will_do:
@@ -560,11 +581,8 @@ focus_tree[id = portuguese_focus]:
 
   focus[id = POR_support_the_spanish_nationalists]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $POR->is_friend_of_PREV(no)
-          $SPA->is_friend_of_PREV(no)
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -576,6 +594,13 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          and:
+            country_exists($SPA)
+            $SPA->is_friend_of_PREV()
 
   focus[id = POR_portuguese_legion]:
     +ai_will_do:
@@ -638,6 +663,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_proudly_alone]:
     +ai_will_do:
@@ -660,6 +687,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = POR_national_syndicalism]:
     +ai_will_do:
@@ -678,6 +707,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_camisas_azuis]:
     +ai_will_do:
@@ -726,14 +757,13 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = POR_refuse_the_naval_blockade]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $POR->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -743,6 +773,11 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = POR_mapa_cor_de_rosa]:
     +ai_will_do:
@@ -766,6 +801,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BRA)
+      modifier:
+        $ai_betrayal_modifier_vs($BRA)
 
   focus[id = POR_a_royal_wedding]:
     +ai_will_do:
@@ -781,11 +818,8 @@ focus_tree[id = portuguese_focus]:
 
   focus[id = POR_support_a_spanish_monarchy_in_the_war]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $POR->is_friend_of_PREV(no)
-          $SPB->is_friend_of_PREV(no)
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($SPB)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -795,6 +829,13 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPB)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          and:
+            country_exists($SPB)
+            $SPB->is_friend_of_PREV()
 
   focus[id = POR_assist_the_requetes]:
     +ai_will_do:
@@ -858,12 +899,9 @@ focus_tree[id = portuguese_focus]:
 
   focus[id = POR_latin_america]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAR->is_friend_of_PREV(no)
-          $URG->is_friend_of_PREV(no)
-          $ARG->is_friend_of_PREV(no)
+      $PAR->can_PREV_get_wargoal_on_THIS()
+      $URG->can_PREV_get_wargoal_on_THIS()
+      $ARG->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -873,6 +911,12 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($PAR) + $opinion_factor($URG) + $opinion_factor($ARG)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAR->is_friend_of_PREV()
+          $URG->is_friend_of_PREV()
+          $ARG->is_friend_of_PREV()
 
   focus[id = POR_the_communist_threat]:
     +ai_will_do:

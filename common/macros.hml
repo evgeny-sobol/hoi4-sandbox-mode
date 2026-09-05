@@ -112,3 +112,60 @@ macro add_state_owner_to_targets(targets_, state_id_):
 macro add_country_to_targets(targets_, _tag_):
   _tag_:
     PREV.&targets_[].add(THIS)
+
+# Removes a non-aggression pact and applies the Honor −50 betrayal cost.
+macro break_non_aggression_pact_with(_tag_):
+  diplomatic_relation:
+    country(_tag_)
+    relation(non_aggression_pact)
+    active(no)
+  $add_honor(-50)
+  &na_pacts[].erase(_tag_)
+  &prev_na_pacts[].erase(_tag_)
+
+# Scale betrayal focuses: Treacherous (honor −100) → 1, Inglorious at 24 → ~0.
+# Extra triggers in the same modifier (friend checks) AND with this body.
+macro ai_betrayal_modifier():
+  betrayal = clamp((25 - honor) / 125, 0, 1)
+  factor(betrayal)
+  is_sandbox_mode_on()
+
+# `country_exists` first: _tag_ may be a tag alias (SPA, SOU, VIC...) that
+# resolves to None until its country appears; entering such a scope logs
+# "Invalid Scope" in error.log.
+macro ai_betrayal_modifier_vs(_tag_):
+  $ai_betrayal_modifier()
+  country_exists(_tag_)
+  _tag_->is_friend_of_PREV()
+
+# Alias-safe form of `_tag_->can_PREV_get_wargoal_on_THIS()`. A country that
+# does not exist (or an alias that does not resolve) cannot be a friend, so
+# the focus is not blocked by it.
+macro can_get_wargoal_on(_tag_):
+  OR:
+    not country_exists(_tag_)
+    _tag_->can_PREV_get_wargoal_on_THIS()
+
+macro ai_high_tyranny_tilt():
+  f = 1 + mtth:high_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_low_tyranny_tilt():
+  f = 1 + mtth:low_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_high_tyranny_fork():
+  f = 0.5 + mtth:high_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_low_tyranny_fork():
+  f = 0.5 + mtth:low_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_medium_tyranny_fork():
+  factor(mtth:medium_tyranny_factor)
+  is_sandbox_mode_on()

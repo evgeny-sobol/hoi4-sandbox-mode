@@ -56,6 +56,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = RAJ_reform_the_agricultural_system]:
     ai_will_do:
@@ -141,6 +143,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BRM)
+      +modifier:
+        $ai_betrayal_modifier_vs($BRM)
 
   focus[id = RAJ_secular_rule]:
     ai_will_do:
@@ -171,14 +175,13 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)
 
   focus[id = RAJ_through_the_wakhan_corridor]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SIK->is_friend_of_PREV(no)
-          $KHM->is_friend_of_PREV(no)
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -188,6 +191,11 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($KHM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
 
   focus[id = RAJ_the_silk_road]:
     ai_will_do:
@@ -219,15 +227,14 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = RAJ_across_the_himalayas]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $TIB->is_friend_of_PREV(no)
-          $BHU->is_friend_of_PREV(no)
-          $NEP->is_friend_of_PREV(no)
+      $TIB->can_PREV_get_wargoal_on_THIS()
+      $BHU->can_PREV_get_wargoal_on_THIS()
+      $NEP->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -237,6 +244,12 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($TIB) + $opinion_factor($BHU) + $opinion_factor($NEP)) / 3
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $TIB->is_friend_of_PREV()
+          $BHU->is_friend_of_PREV()
+          $NEP->is_friend_of_PREV()
 
   focus[id = RAJ_conquerors_of_persia]:
     available:
@@ -248,6 +261,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = RAJ_conquerors_of_iraq]:
     available:
@@ -259,6 +274,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = RAJ_conquerors_of_turkey]:
     available:
@@ -270,14 +287,13 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
 
   focus[id = RAJ_the_true_mongols]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $MON->is_friend_of_PREV(no)
-          $KUM->is_friend_of_PREV(no)
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -287,6 +303,11 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($MON) + $opinion_factor($KUM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MON->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
 
   focus[id = RAJ_restore_the_timurid_empire]:
     ai_will_do:
@@ -308,6 +329,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = RAJ_appoint_a_c_suite]:
     ai_will_do:
@@ -445,13 +468,10 @@ focus_tree[id = indian_focus_goe]:
 
   focus[id = RAJ_open_up_new_markets]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BHU->is_friend_of_PREV(no)
-          $NEP->is_friend_of_PREV(no)
-          $PER->is_friend_of_PREV(no)
-          $TIB->is_friend_of_PREV(no)
+      $BHU->can_PREV_get_wargoal_on_THIS()
+      $NEP->can_PREV_get_wargoal_on_THIS()
+      $PER->can_PREV_get_wargoal_on_THIS()
+      $TIB->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -461,6 +481,13 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($BHU) + $opinion_factor($NEP) + $opinion_factor($PER) + $opinion_factor($TIB)) / 4
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BHU->is_friend_of_PREV()
+          $NEP->is_friend_of_PREV()
+          $PER->is_friend_of_PREV()
+          $TIB->is_friend_of_PREV()
 
   focus[id = RAJ_acquire_new_resources]:
     ai_will_do:
@@ -534,11 +561,8 @@ focus_tree[id = indian_focus_goe]:
 
   focus[id = RAJ_just_good_business]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $INS->is_friend_of_PREV(no)
-          $SIA->is_friend_of_PREV(no)
+      $INS->can_PREV_get_wargoal_on_THIS()
+      $SIA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -548,6 +572,11 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($INS) + $opinion_factor($SIA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $INS->is_friend_of_PREV()
+          $SIA->is_friend_of_PREV()
 
   focus[id = RAJ_crush_the_anathema]:
     ai_will_do:
@@ -556,15 +585,12 @@ focus_tree[id = indian_focus_goe]:
 
   focus[id = RAJ_nothing_personal]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $ENG->is_friend_of_PREV(no)
-          $AST->is_friend_of_PREV(no)
-          $BRM->is_friend_of_PREV(no)
-          $SAF->is_friend_of_PREV(no)
-          $NZL->is_friend_of_PREV(no)
-          $CAN->is_friend_of_PREV(no)
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $SAF->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+      $CAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -574,6 +600,15 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($AST) + $opinion_factor($BRM) + $opinion_factor($SAF) + $opinion_factor($NZL) + $opinion_factor($CAN)) / 6
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $AST->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $SAF->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+          $CAN->is_friend_of_PREV()
 
   focus[id = RAJ_creative_accounting]:
     ai_will_do:
@@ -756,6 +791,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_low_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(-10)
 
   focus[id = RAJ_all_india_kisan_sabha]:
     ai_will_do:
@@ -842,11 +881,8 @@ focus_tree[id = indian_focus_goe]:
 
   focus[id = RAJ_royal_indian_navy_mutiny]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $RAJ->is_friend_of_PREV(no)
-          $PAK->is_friend_of_PREV(no)
+      $RAJ->can_PREV_get_wargoal_on_THIS()
+      $PAK->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -856,6 +892,11 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($RAJ) + $opinion_factor($PAK)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $RAJ->is_friend_of_PREV()
+          $PAK->is_friend_of_PREV()
 
   focus[id = RAJ_founding_of_the_peoples_republic]:
     ai_will_do:
@@ -866,6 +907,12 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
 
   focus[id = RAJ_agrarian_socialism]:
     ai_will_do:
@@ -1103,6 +1150,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = RAJ_rani_of_jhansi_regiment]:
     ai_will_do:
@@ -1185,6 +1234,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BHU)
+      +modifier:
+        $ai_betrayal_modifier_vs($BHU)
 
   focus[id = RAJ_coal_fire_and_steel]:
     ai_will_do:
@@ -1237,6 +1288,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BRM)
+      +modifier:
+        $ai_betrayal_modifier_vs($BRM)
 
   focus[id = RAJ_the_sun_sets]:
     available:
@@ -1248,11 +1301,17 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAL)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAL)
 
   focus[id = RAJ_cult_of_personality]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = RAJ_seek_financial_aid_from_the_ussr]:
     ai_will_do:
@@ -1269,6 +1328,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = RAJ_appoint_german_friendly_government]:
     available:
@@ -1280,6 +1341,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = RAJ_the_second_gorkha_war]:
     ai_will_do:
@@ -1788,6 +1851,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($PER)
+      modifier:
+        $ai_betrayal_modifier_vs($PER)
 
   focus[id = RAJ_mobilization_of_the_indian_army]:
     +ai_will_do:
@@ -2413,11 +2478,8 @@ focus_tree[id = indian_focus_goe]:
 
   focus[id = RAJ_deathblow_to_imperial_remnants]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $PAK->is_friend_of_PREV(no)
-          $BRM->is_friend_of_PREV(no)
+      $PAK->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -2427,6 +2489,11 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($BRM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAK->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
 
   focus[id = RAJ_stopping_the_japanese_threat_into_central_asia]:
     available:
@@ -2438,6 +2505,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = RAJ_nationalize_british_owned_factories]:
     ai_will_do:

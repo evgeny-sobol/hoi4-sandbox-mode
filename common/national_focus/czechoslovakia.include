@@ -221,6 +221,8 @@ focus_tree[id = czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_betrayal_modifier_vs($CZE)
 
   focus[id = CZE_german_ally]:
     ai_will_do:
@@ -252,6 +254,8 @@ focus_tree[id = czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_betrayal_modifier_vs($CZE)
 
   focus[id = CZE_german_puppet]:
     ai_will_do:
@@ -270,6 +274,8 @@ focus_tree[id = czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = CZE_deliver_sudetenland]:
     ai_will_do:
@@ -351,6 +357,8 @@ focus_tree[id = czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_betrayal_modifier_vs($HUN)
 
   focus[id = CZE_deal_with_bulgaria]:
     available:
@@ -362,6 +370,8 @@ focus_tree[id = czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BUL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BUL)
 
   focus[id = CZE_rapprochement_with_hungary]:
     ai_will_do:

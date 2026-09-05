@@ -110,6 +110,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($AST)
+      modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_pleading_britain]:
     +ai_will_do:
@@ -171,11 +173,8 @@ focus_tree[id = australia_taog_focus]:
 
   focus[id = AST_under_the_rule_of_canberra]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $MAL->is_friend_of_PREV(no)
-          $BRM->is_friend_of_PREV(no)
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -185,6 +184,11 @@ focus_tree[id = australia_taog_focus]:
         antagonism = 1 - ($opinion_factor($MAL) + $opinion_factor($BRM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAL->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
 
   focus[id = AST_taking_the_helm]:
     +ai_will_do:
@@ -319,6 +323,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($NZL)
+      modifier:
+        $ai_betrayal_modifier_vs($NZL)
 
   focus[id = AST_australia_first]:
     +ai_will_do:
@@ -478,6 +484,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($AST)
+      modifier:
+        $ai_betrayal_modifier_vs($AST)
 
   focus[id = AST_hand_in_glove]:
     +ai_will_do:
@@ -491,7 +499,7 @@ focus_tree[id = australia_taog_focus]:
 
   focus[id = AST_undeniably_ours]:
     available:
-      $VIC->can_PREV_get_wargoal_on_THIS()
+      $can_get_wargoal_on($VIC)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -499,6 +507,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($VIC)
+      modifier:
+        $ai_betrayal_modifier_vs($VIC)
 
   focus[id = AST_nauru_pact]:
     +ai_will_do:
@@ -518,11 +528,8 @@ focus_tree[id = australia_taog_focus]:
 
   focus[id = AST_the_winner_takes_it_all]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SOL->is_friend_of_PREV(no)
-          $NZL->is_friend_of_PREV(no)
+      $SOL->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -538,6 +545,11 @@ focus_tree[id = australia_taog_focus]:
         antagonism = 1 - ($opinion_factor($SOL) + $opinion_factor($NZL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOL->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
 
   focus[id = AST_resist_western_intruders]:
     +ai_will_do:
@@ -559,6 +571,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($INS)
+      modifier:
+        $ai_betrayal_modifier_vs($INS)
 
   focus[id = AST_soothing_australian_fears]:
     available:
@@ -570,6 +584,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_betrayal_modifier_vs($JAP)
 
   focus[id = AST_dividing_the_pacific]:
     +ai_will_do:
@@ -591,6 +607,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($USA)
+      modifier:
+        $ai_betrayal_modifier_vs($USA)
 
   focus[id = AST_against_war_and_fascism]:
     +ai_will_do:
@@ -603,11 +621,8 @@ focus_tree[id = australia_taog_focus]:
 
   focus[id = AST_world_peace]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $SPD->is_friend_of_PREV(no)
-          $SPR->is_friend_of_PREV(no)
+      $can_get_wargoal_on($SPD)
+      $SPR->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -617,6 +632,13 @@ focus_tree[id = australia_taog_focus]:
         antagonism = 1 - ($opinion_factor($SPD) + $opinion_factor($SPR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          and:
+            country_exists($SPD)
+            $SPD->is_friend_of_PREV()
+          $SPR->is_friend_of_PREV()
 
   focus[id = AST_workers_defence_corps_sparks_anew]:
     +ai_will_do:
@@ -728,6 +750,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = AST_free_the_colonies]:
     +ai_will_do:
@@ -744,6 +768,8 @@ focus_tree[id = australia_taog_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($PRC)
+      modifier:
+        $ai_betrayal_modifier_vs($PRC)
 
   focus[id = AST_westward_battles]:
     +ai_will_do:

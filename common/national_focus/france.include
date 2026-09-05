@@ -444,11 +444,8 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_pre_empt_the_fascist_attack]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -458,6 +455,11 @@ focus_tree[id = french_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ITA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
 
   focus[id = FRA_league_of_french_bolshevist_volunteers]:
     ai_will_do:
@@ -484,6 +486,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = FRA_carry_the_revolution_west]:
     available:
@@ -495,6 +499,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
 
   focus[id = FRA_carry_the_revolution_east]:
     available:
@@ -506,6 +512,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = FRA_carry_the_revolution_south]:
     available:
@@ -517,6 +525,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
 
   focus[id = FRA_egalite_liberte_solidarite]:
     ai_will_do:
@@ -762,6 +772,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_betrayal_modifier_vs($GRE)
 
   focus[id = FRA_the_congress_of_paris]:
     ai_will_do:
@@ -770,13 +782,10 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_the_natural_borders_of_france]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BEL->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
-          $HOL->is_friend_of_PREV(no)
-          $GER->is_friend_of_PREV(no)
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -787,6 +796,13 @@ focus_tree[id = french_focus]:
           $opinion_factor($LUX) + $opinion_factor($HOL) + $opinion_factor($GER))
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
 
   focus[id = FRA_expand_to_the_suez]:
     available:
@@ -798,6 +814,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
 
   focus[id = FRA_dominate_the_middle_east]:
     ai_will_do:
@@ -823,6 +841,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
 
   focus[id = FRA_align_belgium]:
     available:
@@ -838,6 +858,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
 
   focus[id = FRA_grow_the_empire]:
     ai_will_do:
@@ -854,6 +876,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($CAN)
 
 # █▄ ▄█ ▄▀▀▀▄ █▄  █ ▄▀▀▄ █▀▀▄ ▄▀▀▄ █  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 # █ ▀ █ █   █ █ ▀▄█ █▀▀█ █▀▀▄ █  ▄ █▀▀█ █  ▀▀▄   █    ▀▀▄
@@ -906,11 +930,8 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_no_further_humiliations]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $GER->is_friend_of_PREV(no)
-          $ITA->is_friend_of_PREV(no)
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -920,6 +941,11 @@ focus_tree[id = french_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ITA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
 
   focus[id = FRA_slum_clearing]:
     ai_will_do:
@@ -941,6 +967,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
 
   focus[id = FRA_unite_the_crowns]:
     ai_will_do:
@@ -960,13 +988,10 @@ focus_tree[id = french_focus]:
 
   focus[id = FRA_avenge_waterloo]:
     available:
-      +or:
-        is_honored_leader(no)
-        and:
-          $BEL->is_friend_of_PREV(no)
-          $LUX->is_friend_of_PREV(no)
-          $HOL->is_friend_of_PREV(no)
-          $ENG->is_friend_of_PREV(no)
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -977,6 +1002,13 @@ focus_tree[id = french_focus]:
           $opinion_factor($LUX) + $opinion_factor($HOL) + $opinion_factor($ENG))
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
 
   focus[id = FRA_reorganize_the_dutch]:
     ai_will_do:
@@ -993,6 +1025,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   focus[id = FRA_disunite_germany]:
     ai_will_do:
@@ -1009,6 +1043,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
 
   focus[id = FRA_je_suis_la_deluge]:
     ai_will_do:
@@ -1230,6 +1266,8 @@ focus_tree[id = french_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
   focus[id = FRA_the_blum_viollette_proposal]:
     ai_will_do:
@@ -1360,8 +1398,14 @@ focus_tree[id = french_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
 
-  #TODO
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
   focus[id = FRA_right_wing_rhetoric]:
     ai_will_do:
       +modifier:
@@ -1402,6 +1446,8 @@ focus_tree[id = french_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
 
   #TODO
   focus[id = FRA_join_germany]:

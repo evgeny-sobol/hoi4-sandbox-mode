@@ -30,3 +30,35 @@ leader_traits:
     opinion_gain_monthly_factor(0.15)
     trade_opinion_factor(0.30)
     license_purchase_cost(-0.30)
+
+  libertarian_leader:
+    random(no)
+    research_speed_factor(0.05)
+    trade_opinion_factor(0.10)
+    drift_defence_factor(-0.25)
+    political_power_factor(-0.10)
+    foreign_subversive_activites(0.25)
+
+  liberal_leader:
+    random(no)
+    research_speed_factor(0.02)
+    trade_opinion_factor(0.05)
+    drift_defence_factor(-0.10)
+
+  moderate_leader:
+    random(no)
+
+  authoritarian_leader:
+    random(no)
+    drift_defence_factor(0.10)
+    political_power_factor(0.05)
+    research_speed_factor(-0.02)
+    trade_opinion_factor(-0.05)
+
+  despotic_leader:
+    random(no)
+    drift_defence_factor(0.25)
+    political_power_factor(0.10)
+    research_speed_factor(-0.05)
+    trade_opinion_factor(-0.10)
+    resistance_growth(0.10)

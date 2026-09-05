@@ -281,6 +281,10 @@ focus_tree[id = iceland_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
 
   focus[id = ICE_international_relations]:
     +ai_will_do:

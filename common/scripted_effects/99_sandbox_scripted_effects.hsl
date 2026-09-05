@@ -1,4 +1,5 @@
 initialize_country_for_sandbox_mode():
+  set_country_flag(sandbox_initialized)
   &rivals[].resize(3)
   initialize_new_country_leader()
   shuffle_political_party_popularities()
@@ -9,7 +10,21 @@ initialize_country_for_sandbox_mode():
 initialize_new_country_leader():
   add_country_leader_trait(leader_personality)
   add_country_leader_trait(inglorious_leader)
+  add_country_leader_trait(moderate_leader)
 
+  set_tyranny_range_from_government()
+  &tyranny = randi(min_tyranny, max_tyranny)
+  &tyranny = clamp(tyranny, -100, 100)
+  &prev_tyranny = 999
+  &honor = randi(-100, 100)
+  &prev_honor = 999
+  update_country_leader_traits()
+  select_major_rival()
+
+
+# Midpoint of the government/ideology initialisation range. Recomputed on
+# every ruling-party change so drift follows the new ideology.
+set_tyranny_range_from_government():
   if has_government(democratic):
     min_tyranny, max_tyranny = -100, -50
     if has_country_leader_ideology(liberalism | socialism):
@@ -49,11 +64,7 @@ initialize_new_country_leader():
   elif has_government(fascism):
     min_tyranny, max_tyranny = 80, 100
 
-  &tyranny = randi(min_tyranny, max_tyranny)
-  &tyranny = clamp(tyranny, -100, 100)
-  &honor = randi(-100, 100)
-  update_country_leader_traits()
-  select_major_rival()
+  &tyranny_home = (min_tyranny + max_tyranny) / 2
 
 
 select_major_rival():
@@ -193,20 +204,254 @@ update_country_leader_traits():
       else:
         other->$add_opinion_modifier(ROOT, righteous_leader)
 
+  if tyranny != prev_tyranny:
+    if has_country_leader_with_trait(libertarian_leader):
+      remove_country_leader_trait(libertarian_leader)
+    elif has_country_leader_with_trait(liberal_leader):
+      remove_country_leader_trait(liberal_leader)
+    elif has_country_leader_with_trait(moderate_leader):
+      remove_country_leader_trait(moderate_leader)
+    elif has_country_leader_with_trait(authoritarian_leader):
+      remove_country_leader_trait(authoritarian_leader)
+    elif has_country_leader_with_trait(despotic_leader):
+      remove_country_leader_trait(despotic_leader)
+
+    if tyranny < -75:
+      add_country_leader_trait(libertarian_leader)
+    elif tyranny < -25:
+      add_country_leader_trait(liberal_leader)
+    elif tyranny < 25:
+      add_country_leader_trait(moderate_leader)
+    elif tyranny < 75:
+      add_country_leader_trait(authoritarian_leader)
+    else:
+      add_country_leader_trait(despotic_leader)
+
+
+# Persistent snapshots: last week in prev_* , this week rebuilt in guaranting / na_pacts.
+# A withdrawn guarantee is charged −10 at once (only we can withdraw it). A
+# cancelled pact is not charged here: either side may have cancelled it and
+# the game does not say which. Both are remembered in dropped_* (with the
+# month of the drop) so that a war declared within the window is still
+# charged as a betrayal by apply_honor_on_declare_war().
+apply_honor_for_dropped_obligations():
+  for v, _ in &prev_guaranting[]:
+    if v not in &guaranting[] and v != 0:
+      var:v:
+        if exists() and not has_capitulated() and not is_subject_of(ROOT) and not is_in_faction_with(ROOT) and not ROOT->has_war_with(THIS):
+          ROOT->$add_honor(-10)
+          ROOT.&dropped_guarantees[].add(THIS)
+          ROOT.&dropped_guarantees_month[].add(ROOT.months_elapsed)
+  for v, _ in &prev_na_pacts[]:
+    if v not in &na_pacts[] and v != 0:
+      var:v:
+        if exists() and not has_capitulated() and not is_subject_of(ROOT) and not is_in_faction_with(ROOT) and not ROOT->has_war_with(THIS):
+          ROOT.&dropped_pacts[].add(THIS)
+          ROOT.&dropped_pacts_month[].add(ROOT.months_elapsed)
+
+
+# Forget drops older than the betrayal window (6 months). Runs monthly.
+expire_dropped_obligations():
+  keep[].clear()
+  keep_month[].clear()
+  for v, idx in &dropped_pacts[]:
+    m = dropped_pacts_month[idx]
+    age = months_elapsed - m
+    if age < 6:
+      keep[].add(v)
+      keep_month[].add(m)
+  &dropped_pacts[].clear()
+  &dropped_pacts_month[].clear()
+  for v, _ in keep[]:
+    &dropped_pacts[].add(v)
+  for v, _ in keep_month[]:
+    &dropped_pacts_month[].add(v)
+
+  keep[].clear()
+  keep_month[].clear()
+  for v, idx in &dropped_guarantees[]:
+    m = dropped_guarantees_month[idx]
+    age = months_elapsed - m
+    if age < 6:
+      keep[].add(v)
+      keep_month[].add(m)
+  &dropped_guarantees[].clear()
+  &dropped_guarantees_month[].clear()
+  for v, _ in keep[]:
+    &dropped_guarantees[].add(v)
+  for v, _ in keep_month[]:
+    &dropped_guarantees_month[].add(v)
+
+
+forget_dropped_pact_with_FROM():
+  for v, idx in &dropped_pacts[]:
+    if v == FROM:
+      &dropped_pacts[].remove_at(idx)
+      &dropped_pacts_month[].remove_at(idx)
+      break
+
+
+forget_dropped_guarantee_of_FROM():
+  for v, idx in &dropped_guarantees[]:
+    if v == FROM:
+      &dropped_guarantees[].remove_at(idx)
+      &dropped_guarantees_month[].remove_at(idx)
+      break
+
 
 update_honor_gain_monthly_factor():
+  &guaranting[].clear()
+  &na_pacts[].clear()
+  allies = 0
   for other in every_other_country():
     if is_guaranteed_by(ROOT):
-      ROOT.guaranting[].add(other)
+      ROOT.&guaranting[].add(other)
     if has_non_aggression_pact_with(ROOT):
-      ROOT.na_pacts[].add(other)
-  &honor_gain_monthly_factor = 0.20 * guaranting[].size() + 0.05 * na_pacts[].size()
+      ROOT.&na_pacts[].add(other)
+    if is_in_faction_with(ROOT):
+      allies += 1
+
+  apply_honor_for_dropped_obligations()
+
+  &prev_guaranting[].clear()
+  for v, _ in &guaranting[]:
+    ROOT.&prev_guaranting[].add(v)
+  &prev_na_pacts[].clear()
+  for v, _ in &na_pacts[]:
+    ROOT.&prev_na_pacts[].add(v)
+
+  obligation = 0.20 * &guaranting[].size() + 0.05 * &na_pacts[].size() + 0.05 * allies
+  obligation = clamp(obligation, 0, 1.0)
+  if honor > 0.25:
+    drift = -0.25
+  elif honor < -0.25:
+    drift = 0.25
+  else:
+    drift = 0
+  &honor_gain_monthly_factor = obligation + drift
+
+
+# ROOT = attacker, FROM = target. The strictest broken promise wins; a promise
+# dropped within the last 6 months counts as still standing (minus the −10
+# already paid for a withdrawn guarantee). Otherwise, declaring on the
+# aggressor of a country we guarantee is honouring that guarantee (+15, once
+# per war, shared with on_join_allies through honor_answered_call).
+apply_honor_on_declare_war():
+  if FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
+    $add_honor(-50)
+    &na_pacts[].erase(FROM)
+    &prev_na_pacts[].erase(FROM)
+  elif FROM in &dropped_pacts[]:
+    $add_honor(-50)
+    forget_dropped_pact_with_FROM()
+  elif FROM in &guaranting[] or FROM in &prev_guaranting[]:
+    $add_honor(-40)
+    &guaranting[].erase(FROM)
+    &prev_guaranting[].erase(FROM)
+  elif FROM in &dropped_guarantees[]:
+    $add_honor(-30)
+    forget_dropped_guarantee_of_FROM()
+  else:
+    clr_country_flag(honor_guarantee_granted)
+    for v, _ in &guaranting[]:
+      if v != 0:
+        var:v:
+          if not ROOT->has_country_flag(honor_guarantee_granted) and has_defensive_war() and has_war_with(FROM):
+            if THIS not in ROOT.honor_answered_call[]:
+              ROOT.&honor_answered_call[].add(THIS)
+              ROOT->$add_honor(15)
+              ROOT->set_country_flag(honor_guarantee_granted)
+    clr_country_flag(honor_guarantee_granted)
+
+
+apply_honor_for_unmet_obligations():
+  &prev_unmet_guarantees[].clear()
+  for v, _ in &unmet_guarantees[]:
+    ROOT.&prev_unmet_guarantees[].add(v)
+  &prev_unmet_allies[].clear()
+  for v, _ in &unmet_allies[]:
+    ROOT.&prev_unmet_allies[].add(v)
+
+  &unmet_guarantees[].clear()
+  &unmet_allies[].clear()
+  # Subjects cannot declare war on their own; their overlord's wars are not
+  # their broken promises.
+  if not is_subject():
+    for other in every_other_country():
+      if other->is_guaranteed_by(ROOT) and other->has_defensive_war():
+        for x in every_other_country():
+          if other->has_war_with(x) and not ROOT->has_war_with(x) and not ROOT->is_in_faction_with(x):
+            if not x->is_subject_of(ROOT) and other not in ROOT.&unmet_guarantees[]:
+              ROOT.&unmet_guarantees[].add(other)
+      if other->is_in_faction_with(ROOT) and other->has_war():
+        for x in every_other_country():
+          if other->has_war_with(x) and not ROOT->has_war_with(x) and not ROOT->is_in_faction_with(x):
+            if not x->is_subject_of(ROOT) and other not in ROOT.&unmet_allies[]:
+              ROOT.&unmet_allies[].add(other)
+
+  n_g = 0
+  for v, _ in &unmet_guarantees[]:
+    if v in &prev_unmet_guarantees[]:
+      n_g += 1
+  n_a = 0
+  for v, _ in &unmet_allies[]:
+    if v in &prev_unmet_allies[]:
+      n_a += 1
+  # Macro arguments must be plain values, not expressions.
+  if n_g > 0:
+    guarantee_penalty = -5 * n_g
+    $add_honor(guarantee_penalty)
+  if n_a > 0:
+    ally_penalty = -3 * n_a
+    $add_honor(ally_penalty)
+
+
+inherit_honor_on_ruling_party_change():
+  old = honor
+  offset = randi(0, 100)
+  offset -= 50
+  &prev_honor = 999
+  &honor = clamp(0.5 * old + offset, -100, 100)
+  inherit_tyranny_on_ruling_party_change()
+  update_country_leader_traits()
+
+
+inherit_tyranny_on_ruling_party_change():
+  set_tyranny_range_from_government()
+  old = tyranny
+  span = max_tyranny - min_tyranny
+  roll = randi(0, span)
+  roll += min_tyranny
+  half_old = 0.5 * old
+  half_new = 0.5 * roll
+  &prev_tyranny = 999
+  &tyranny = clamp(half_old + half_new, -100, 100)
+
+
+reset_honor_for_new_ruler():
+  &prev_honor = 999
+  &honor = randi(-100, 100)
+  reset_tyranny_for_new_ruler()
+  update_country_leader_traits()
+
+
+reset_tyranny_for_new_ruler():
+  set_tyranny_range_from_government()
+  &prev_tyranny = 999
+  &tyranny = randi(min_tyranny, max_tyranny)
+  &tyranny = clamp(tyranny, -100, 100)
 
 
 update_tyranny_gain_monthly_factor():
-  if has_offensive_war():
-    &tyranny_gain_monthly_factor = -0.25
-  elif has_defensive_war():
-    &tyranny_gain_monthly_factor = 0.25
-  else:
-    &tyranny_gain_monthly_factor = 0
+  war_rate = 0
+  if has_war():
+    war_rate = 0.25
+    for s in every_owned_state():
+      if is_core_of(ROOT) and not is_controlled_by(ROOT):
+        war_rate = 0.50
+        break
+  stability_rate = 0
+  if $compare(has_stability, "<", 0.25):
+    stability_rate = 0.25
+  drift = clamp(tyranny_home - tyranny, -0.25, 0.25)
+  &tyranny_gain_monthly_factor = war_rate + stability_rate + drift
