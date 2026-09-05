@@ -1,0 +1,10 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $NOR->update_NOR_national_focuses()
+
+  on_weekly_NOR:
+    effect:
+      if is_sandbox_mode_on():
+        update_NOR_national_focuses()

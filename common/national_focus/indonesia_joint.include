@@ -1,0 +1,549 @@
+  joint_focus[id = INSHOL_dutch_east_indies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_reform_knil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_military_equipment_contracts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_manado_military_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_infantry_training_in_borneo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_modernize_knil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_rangers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_mountaineers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_elevate_elite_infantry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_knil_engineers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_produce_own_goods]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_license_dutch_weapon_blueprints]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_java_factories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_bangka_production_lines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_overallwagen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_fund_ml_knil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_artillerie_inrichtingen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_ai_pyrotechnische]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_bio_pharma]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_develop_fighters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_develop_bombers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_bandung_aircraft_facility]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_netherlands_indies_air_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_hawk_75a7]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = INSHOL_increase_funding_for_tix]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_foundations_of_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_east_indies_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_marines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_domestic_ship_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_destroyers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_cruisers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_submarines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_outsourced_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_divert_civilian_to_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_emergency_dockyard_construction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_establish_vk_knil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_eastern_conscription]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_recall_gerardus_johannes_berenschot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_transfer_of_henri_winkelman]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_emergency_naval_purchases]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_east_indies_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_expand_shell]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_reduce_land_ownership_taxes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_investments_in_civ_railways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_rubber_taxation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_work_with_oil_barons]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_indonesian_cheap_labor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_east_indies_fokker_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_padang_port]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_coffee_plantations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_subsidize_bauxite]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_agricultural_subsidies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_import_sugar]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_import_lumber]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_industrialized_colony]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_economic_integration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = INSHOL_sideline_the_volksraad]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_prioritize_dutch_profits]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_development_loans_netherlands]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_emergency_powers_gov_general]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_request_economic_dev_subsidy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_loyalty_to_crown]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_naval_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_hybrid_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_request_naval_control]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_naval_secondchance]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_netherlands_indonesia_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = INSHOL_begin_negotiations_soetardjo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_urge_gov_veto]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_education_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_autonomous_dominion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_republic_of_indonesia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = INSHOL_request_east_timor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_nationalist_coallition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_volksraad_compromises]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = INSHOL_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_establish_the_princely_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_nationalize_dutch_companies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_encourage_further_investment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_princely_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_reasserting_control]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  joint_focus[id = INSHOL_request_british_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_franco_dutch_accord]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = INSHOL_london_batavia_accord]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = INSHOL_undermine_the_militias]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = INSHOL_flag_will_fly_again]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = INSHOL_indian_divisions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_australian_divisions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_mass_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_increase_esclation_placeholder]:
+    available:
+      $HOL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($HOL)
+
+  joint_focus[id = INSHOL_comite_rijkseenheid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_seek_foreign_help]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_renville_agreement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = INSHOL_no_compromise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = INSHOL_linggadjati_agreement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = INSHOL_end_to_bloodshed]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)

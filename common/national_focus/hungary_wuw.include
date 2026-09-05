@@ -1,0 +1,1860 @@
+focus_tree[id = wuw_hungarian_focus]:
+  focus[id = wuw_HUN_end_the_regency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor + mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_continue_the_regency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:communism_factor + mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_end_the_white_terror]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor + mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:communism_factor + mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_crack_down_on_radicals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_subvert_gombos_troops]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reach_out_to_candidates]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reinstate_the_pragmatic_sanction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor + mtth:democracy_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_abide_by_the_little_ententes_stipulations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:monarchy_factor + mtth:democracy_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_aid_the_carlist_struggle]:
+    available:
+      $SPB->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPB)
+
+  focus[id = wuw_HUN_invite_otto_to_the_throne]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_the_old_habsburg_king]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_attempt_economic_independence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_secure_army_loyalty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_the_lands_of_the_crown_of_saint_stephen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_demand_austrian_restoration]:
+    available:
+      $AUS->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AUS)
+
+  focus[id = wuw_HUN_protect_czechoslovakia]:
+    available:
+      $CZE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CZE)
+
+  focus[id = wuw_HUN_seek_an_alliance_with_the_kaiser]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_a_grand_habsburg_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_the_old_grand_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_wiedist_restoration]:
+    available:
+      $ALB->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ALB)
+
+  focus[id = wuw_HUN_habsburg_ascension_in_spain]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPR)
+
+  focus[id = wuw_HUN_a_habsburg_poland]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+
+  focus[id = wuw_HUN_press_maximilians_and_the_iturbides_claims]:
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+
+  focus[id = wuw_HUN_reenlist_the_sich_riflemen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_kingdom_of_ukraine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_restore_the_georgian_monarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reclaim_transylvania]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ROM->is_friend_of_PREV(no)
+          $TRA->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_reintigrate_slovakia]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_reintigrate_slovakia_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_reintigrate_slovakia_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_reintigrate_slovakia_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_reintigrate_slovakia_targets[3]->is_friend_of_PREV(no)
+          var:wuw_HUN_reintigrate_slovakia_targets[4]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_reintigrate_slovakia_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_restore_the_duchy_of_teschen]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $GER->is_friend_of_PREV(no)
+          $POL->is_friend_of_PREV(no)
+          $SIL->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($POL) + $opinion_factor($SIL)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_a_hungarian_galicia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_triple_kingdom]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_the_triple_kingdom_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_the_triple_kingdom_targets[1]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_the_triple_kingdom_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_restore_the_lombardo_venetian_kingdom]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[2]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_restore_the_lombardo_venetian_kingdom_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_reverse_the_risorgimento]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reclaim_the_holy_city]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_holy_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_integrate_bohemian_and_austrian_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_multi_ethnic_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_renovato_imperii]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_bastion_of_catholicism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_enact_agrarian_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_honor_the_great_war_veterans]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_royal_hussars]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_purchase_burgenland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_legacy_of_the_isonzo_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_revenge_for_the_brusilov_offensive]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_legacy_of_arpad_andrew_and_matthias]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_establishing_a_new_dynasty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_elect_a_democratic_king]:
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SWE)
+
+  focus[id = wuw_HUN_increase_economic_cooperation]:
+    available:
+      $HUN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($HUN)
+
+  focus[id = wuw_HUN_elect_a_fascist_king]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (3 * mtth:monarchy_factor + mtth:democracy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_volksbund_der_deutschen_in_ungarn]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_cancel_the_german_trade_deal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_establishing_a_royal_guard]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_dissolve_the_volksbund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_magyar_cserkeszszovetseg]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_mobile_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_an_airforce_to_be_reckoned_with]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_royalist_education_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_anglo_hungarian_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_unifying_heritage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_stage_an_uprising_in_leitha]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_declaration_of_intentions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_undoing_the_yugoslav_mistake]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_undoing_the_yugoslav_mistake_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_undoing_the_yugoslav_mistake_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_reclaim_the_slovak_possessions]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_reclaim_the_slovak_possessions_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_slovak_possessions_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_slovak_possessions_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_slovak_possessions_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_reclaim_the_slovak_possessions_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_revenge_for_1919]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_revenge_for_1919_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_1919_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_1919_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_1919_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_revenge_for_1919_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_on_a_high_horse]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ROM->is_friend_of_PREV(no)
+          $YUG->is_friend_of_PREV(no)
+          $AUS->is_friend_of_PREV(no)
+          $SLO->is_friend_of_PREV(no)
+          $CZE->is_friend_of_PREV(no)
+          $POL->is_friend_of_PREV(no)
+          $SOV->is_friend_of_PREV(no)
+          $UKR->is_friend_of_PREV(no)
+          $MOL->is_friend_of_PREV(no)
+          $CRO->is_friend_of_PREV(no)
+          $SER->is_friend_of_PREV(no)
+          $ISR->is_friend_of_PREV(no)
+          $PAL->is_friend_of_PREV(no)
+          $EGY->is_friend_of_PREV(no)
+          $ENG->is_friend_of_PREV(no)
+          $TUR->is_friend_of_PREV(no)
+          $FRA->is_friend_of_PREV(no)
+          $GRE->is_friend_of_PREV(no)
+          $JOR->is_friend_of_PREV(no)
+          $SUD->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($AUS) + $opinion_factor($SLO) + $opinion_factor($CZE) + $opinion_factor($POL) + $opinion_factor($SOV) + $opinion_factor($UKR) + $opinion_factor($MOL) + $opinion_factor($CRO) + $opinion_factor($SER) + $opinion_factor($ISR) + $opinion_factor($PAL) + $opinion_factor($EGY) + $opinion_factor($ENG) + $opinion_factor($TUR) + $opinion_factor($FRA) + $opinion_factor($GRE) + $opinion_factor($JOR) + $opinion_factor($SUD)) / 20
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_a_bulwark_against_communism]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+
+  focus[id = wuw_HUN_a_responsible_government]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $CZE->is_friend_of_PREV(no)
+          $ROM->is_friend_of_PREV(no)
+          $YUG->is_friend_of_PREV(no)
+          $HUN->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($HUN)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_guarantee_religious_liberties]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_balkan_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_joint_oil_exploitation_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_hold_territorial_referendums]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_strengthen_horthys_reign]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_undermine_the_admiral]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_reestablish_the_rongyos_garda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_strenghten_the_order_of_vitez]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_pass_statute_xix]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_restrict_voting_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_absolute_rule_of_the_national_unity_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_outlaw_the_party_of_national_will]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_spur_on_the_trianon_trauma]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_renounce_the_treaty_of_trianon]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_hungarian_life_and_renewal_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_act_of_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_integrate_the_volksbund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_empower_the_greenshirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_march_on_budapest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_government_of_national_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_turul_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_carrying_on_arpads_legacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_institute_corporatism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_roman_catholic_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_incorporate_the_hungarian_life_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_heirs_of_the_huns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_sway_the_count]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_wherever_the_cross_points]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_war_on_atheism]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+
+  focus[id = wuw_HUN_promote_hungarianism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_strengthen_the_turani_vadaszok]:
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TUR)
+
+  focus[id = wuw_HUN_our_ancestral_lands]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reaffirm_territorial_claims]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_demand_croatian_reintigration]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $YUG->is_friend_of_PREV(no)
+          $CRO->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($YUG) + $opinion_factor($CRO)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_southern_slovakia]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $CZE->is_friend_of_PREV(no)
+          $SLO->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_carpathian_ruthenia]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $CZE->is_friend_of_PREV(no)
+          $SLO->is_friend_of_PREV(no)
+          $UKR->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO) + $opinion_factor($UKR)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_transylvania]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ROM->is_friend_of_PREV(no)
+          $TRA->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_the_vojvodina]:
+    available:
+      var:wuw_HUN_demand_the_vojvodina_targets[0]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_demand_the_vojvodina_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_burgenland]:
+    available:
+      $AUS->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AUS)
+
+  focus[id = wuw_HUN_claim_overlordship_over_slovakia]:
+    available:
+      $SLO->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SLO)
+
+  focus[id = wuw_HUN_demand_the_return_of_slovakia]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $SLO->is_friend_of_PREV(no)
+          $CZE->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SLO) + $opinion_factor($CZE)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_proclaim_greater_hungary]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_seek_german_contracts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_license_fiat_tankettes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_renew_the_rome_protocols]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $AUS->is_friend_of_PREV(no)
+          $ITA->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($ITA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_invite_german_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_joint_aluminum_mining_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_protect_austria]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_an_alliance_with_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_parade_istvan_bethlens_platform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_salami_slicing_tactics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_politicize_the_levente_associations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_undermine_the_volksbund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reviving_the_spirit_of_1848]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_officialize_the_rakosi_battalion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_elections_in_the_revolutionary_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_join_the_comintern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_restore_the_socialist_federative_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_establish_the_second_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:communism_factor + mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_reverse_the_brain_drain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_spirit_of_the_aster_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_uplift_the_dragon_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_promote_entrepreneurship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_danubian_federation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_approach_the_diasporas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_demand_szekely_autonomy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_ward_against_extremism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reclaim_the_pannonian_steppe]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[3]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[4]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[5]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[6]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[7]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[8]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[9]->is_friend_of_PREV(no)
+          var:wuw_HUN_reclaim_the_pannonian_steppe_targets[10]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_reclaim_the_pannonian_steppe_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_revive_the_tribal_consolidation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_cult_of_arpad]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_bringing_down_the_giants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_restore_the_hungarian_red_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_goulash_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_state_protection_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_joint_hungarian_soviet_research_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_soviet_hungarian_war_indsutry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_a_cult_of_personality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_kadars_hussars]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_soviet_hungarian_military_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_central_military_planning_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_intervene_in_czechoslovakia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_pressure_romania]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_bulwark_against_the_west]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reinstate_the_lenin_boys]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_instate_a_socialist_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_nationalize_key_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_invest_in_universal_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_promote_revanchist_sentiment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_second_northern_campaign]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_the_second_northern_campaign_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_the_second_northern_campaign_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_the_second_northern_campaign_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_the_second_northern_campaign_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_the_second_northern_campaign_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_revenge_for_the_romanian_humiliations]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[1]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[2]->is_friend_of_PREV(no)
+          var:wuw_HUN_revenge_for_the_romanian_humiliations_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_revenge_for_the_romanian_humiliations_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_march_south]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:wuw_HUN_march_south_targets[0]->is_friend_of_PREV(no)
+          var:wuw_HUN_march_south_targets[1]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(wuw_HUN_march_south_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_a_revolutionary_greater_hungary]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HUN_hero_of_the_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HUN_balkan_ambitions]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:HUN_balkan_ambitions_targets[0]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[1]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[2]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[3]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[4]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[5]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[6]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[7]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[8]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[9]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[10]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[11]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[12]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[13]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[14]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[15]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[16]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[17]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[18]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[19]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[20]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[21]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[22]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[23]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[24]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[25]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[26]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[27]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[28]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[29]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[30]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[31]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[32]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[33]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[34]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[35]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[36]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[37]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[38]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[39]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[40]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[41]->is_friend_of_PREV(no)
+          var:HUN_balkan_ambitions_targets[42]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(HUN_balkan_ambitions_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_denounce_marxism_leninism]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $SOV->is_friend_of_PREV(no)
+          $SOU->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($SOU)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_avoid_interventionalist_destablilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_economic_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_secret_rearmament]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = wuw_HUN_forcefully_revitalize_the_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reintigrate_the_imperial_railroads]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $AUS->is_friend_of_PREV(no)
+          $CZE->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($CZE)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = wuw_HUN_promote_increased_urbanization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_expand_the_ganz_muvek]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_devalue_the_pengo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_announce_the_gyor_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_enlarge_the_ganz_danubius_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_support_for_our_finnish_brothers]:
+    available:
+      $FIN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FIN)
+
+  focus[id = wuw_HUN_undercover_air_maneuvers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_hold_war_games]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_negotiate_the_restrictions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_reinstate_the_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_sailing_the_danube]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_make_the_magyar_legiero_known]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_initiate_army_maneuvers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_invest_in_ludovica_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_expand_the_diosgyor_machinery_factory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_manred_weiss_steel_and_metal_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_expand_the_hungarian_academy_of_sciences]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_expand_the_lignite_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_tap_newfound_oil_deposits]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_hungarian_autarky]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_invite_foreign_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_hungarian_tradition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_magyar_allamvasutak]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_expand_the_aluminum_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_budapest_university_of_technology_and_economics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_matyasfold_fighter_factory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_expand_on_the_weiss_wm_16]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_develop_the_weiss_wm_21_solyom]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_weiss_manfred_wm_23_ezust_nyil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_establish_the_mavag_aircraft_factory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_mavag_heja]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_repulo_muszaki_intezet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_develop_laszlo_vargas_design]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_joint_air_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_the_arado_ar_96]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_extensive_licensing_programs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_allied_manufacturing_programs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_danuvia_submachine_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_form_the_gyorshadtest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_establish_the_mavag_army_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_doctrinal_studies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_award_military_promotions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_magyar_kiralyi_csendorseg]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_legacy_of_the_black_legion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_light_infantry_divisions_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_szent_laszlo_infantry_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_quantity_over_quality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_expand_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = wuw_HUN_the_botond]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_turan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_assault_gun_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_toldi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_invest_in_the_special_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_construct_the_arpad_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_transylvanian_mountaineers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_expand_the_arpad_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_construct_the_szeretfalva_deda_railway_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_the_szekel_command]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_renew_the_shipping_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_embrace_navy_traditions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_a_reformed_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_invest_in_destroyer_models]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_cruiser_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_wolfs_of_the_sea]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_bringing_the_air_battle_to_the_seas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_capital_ship_efforts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = wuw_HUN_a_new_pride_of_the_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = wuw_HUN_degauss_ship_hulls]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

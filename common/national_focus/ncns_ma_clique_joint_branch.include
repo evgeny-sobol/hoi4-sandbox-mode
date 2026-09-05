@@ -1,0 +1,44 @@
+  joint_focus[id = MA_develop_inter_province_ties]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $XSM->is_friend_of_PREV(no)
+          $NXM->is_friend_of_PREV(no)
+          $GSM->is_friend_of_PREV(no)
+          $KHM->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($XSM) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  joint_focus[id = MA_unified_training_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = MA_strenghten_regional_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = MA_promises_of_mutual_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        cooperation = 1 + ($opinion_factor($XSM) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 4
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  joint_focus[id = MA_formalize_the_ma_clique_collective]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

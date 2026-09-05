@@ -1,0 +1,443 @@
+  shared_focus[id = SMB_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = SMB_military_facilities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_department_of_propaganda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_logistics_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_support_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_department_of_military_intelligence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_motorized]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_tank_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_domestic_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_tierra_del_fuego_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_atacama_training]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_a_land_of_mountains]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_mechanized_troops]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_army_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_regular_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_foreign_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_foreign_advisors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_army_professionalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_conscription]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_experimental_weapons_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_nuclear_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_special_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_special_forces_option_1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_special_forces_option_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_special_forces_option_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_special_forces_option_3_continuation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_special_forces_option_2_continuation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_special_forces_option_1_continuation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_mountain_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_air_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = SMB_air_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_construct_air_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_domestic_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_license_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_purchase_aircraft]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_establish_aircraft_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_flying_fortress]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_tactical_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_nimble_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = SMB_strategic_bombing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  shared_focus[id = SMB_army_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  shared_focus[id = SMB_winning_the_air_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  shared_focus[id = SMB_naval_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+
+  shared_focus[id = SMB_air_modifier_boost_1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_air_modifier_boost_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_air_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_aircraft_carriers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_joint_operative_command]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_war_planning_office]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_women_in_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = SMB_naval_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_construct_naval_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_naval_foreign_advisors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_purchase_destroyers_and_subs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_reescalate_the_naval_arms_race]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_blue_water_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_coastal_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_purchase_cruisers_and_dreadnoughts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_minelaying]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_escort_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_raiding_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_degaussing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_naval_invasion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_cruiser_subs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_midget_subs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_expand_repair_yards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_carrier_conversion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_enlarge_naval_facilities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_merchant_marine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = SMB_fortification_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_jungle_warfare_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_jungle_pioneers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = SMB_brown_water_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

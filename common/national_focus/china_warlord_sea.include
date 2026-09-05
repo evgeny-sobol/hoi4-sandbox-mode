@@ -1,0 +1,967 @@
+focus_tree[id = china_warlord_sea_focus]:
+  focus[id = CHI_sea_secure_internal_politics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_sea_cooperation_with_the_nationalists]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CHI)
+
+  focus[id = CHI_sea_anti_opposition_campaigns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_technological_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_new_model_province]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_root_out_corruption]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_embrace_the_illicit_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_land_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_reform_the_administration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_join_the_republican_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_gain_warlord_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_propaganda_campaigns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_battle_for_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_rally_the_warlords]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_a_new_expedition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_power_struggle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_cooperation_with_the_communists]:
+    available:
+      $PRC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PRC)
+
+  focus[id = CHI_sea_land_redistribution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_ideological_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_land_value_tax]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_judiciary_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_communist_administrators]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_join_the_chinese_soviet]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+
+  focus[id = CHI_sea_unified_army_structure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_the_yanan_incident]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = CHI_sea_institute_cross_border_raids]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_public_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_labor_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_rural_militias]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_war_taxes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_seek_japanese_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_personal_leadership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_cult_of_personality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_provoke_border_clashes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_defensive_posture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_rapid_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_proclaim_rival_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_develop_capital]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_sea_further_industrial_investment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_develop_capital_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_small_arms_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_heavy_weapons_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_long_term_economic_planning]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_industrial_research_projects]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_expand_public_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_fund_research_projects]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_rely_on_our_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_modern_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_strenghten_warlord_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_sea_uplift_the_cavalry_regiments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_uplift_the_mountain_brigades]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = CHI_sea_consolidate_our_rule]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_fortification_efforts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_infantry_efforts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_brigade_specialization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_crackdown_on_looting]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_cooperate_with_the_ussr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SIK_office_of_sinkiang_border_commissioner]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_six_great_policies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_establish_the_xinjiangneft]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_invest_in_the_dushanzi_oil_fields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_military_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_a_soviet_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_utilize_asperovs_contacts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_cooperate_with_the_nkvd]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_three_year_plan_for_reconstruction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_a_new_xinjiang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_march_into_khotan]:
+    available:
+      $KHM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KHM)
+
+  focus[id = SIK_a_united_sinkiang_clique]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIK_pursue_further_soviet_integration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = SIK_soviet_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = SIK_ensure_a_clean_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_protector_of_the_kyrgiz]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_transformation_of_nature]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_a_new_nationality_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_settle_dzungarian_tribes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_king_of_sinkiang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIK_rejoin_the_central_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIK_reestablish_the_guominjun]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIK_reaffirm_soviet_connections]:
+    available:
+      $SIK->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SIK)
+
+  focus[id = KHM_call_for_aid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = KHM_strike_the_governor]:
+    available:
+      $SIK->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SIK)
+
+  focus[id = KHM_utilize_family_contacts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_push_them_back]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_the_sinkiang_ma_clique]:
+    available:
+      $KUM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KUM)
+
+  focus[id = KHM_kumul_rebellion_avenged]:
+    available:
+      $KUM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KUM)
+
+  focus[id = KHM_our_position_remains]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = XSM_the_military_governor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = XSM_a_hui_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_sway_the_people]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_sweep_out_communists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_send_ma_lin_on_hajj]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = XSM_the_civilian_governor_remains]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = XSM_ma_qis_natural_successor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_recruit_salar_officers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_solidifying_control]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_rebuild_the_ninghai_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_undermine_kmt_rule]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = XSM_sideline_family_conflicts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = KHM_establish_the_kashgar_clique]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_shizangs_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_take_control_of_zakat_and_waqf]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_implement_jizyah]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_promote_jadidism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_revive_the_basmachi_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_rally_the_faithful]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_indian_expeditionary_forces_plan]:
+    available:
+      $KHM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KHM)
+
+  focus[id = KHM_expand_the_madrasas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_promote_anti_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KHM_raise_additional_dungan_regiments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_strengthening_our_position]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XSM_demand_submission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = XSM_strike_at_the_detractors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = XSM_a_united_ma_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = KUM_victory_in_tihwa]:
+    available:
+      $KHM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KHM)
+
+  focus[id = KUM_restore_yettishar]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_the_sichuan_clique]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SIC_the_domain_of_liu_wenhui]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_develop_xikang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_push_back_the_tibetans]:
+    available:
+      $TIB->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TIB)
+
+  focus[id = SIC_the_armies_of_yang_sen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_anti_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_drive_out_the_japanese]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_the_governor_of_sichuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_develop_chongqing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_armor_efforts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIC_sichuan_still_stands]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_northwest_bandit_suppression_headquarters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = XIC_discussions_in_luochuan]:
+    available:
+      $PRC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PRC)
+
+  focus[id = XIC_send_a_representative_to_sheng_shicai]:
+    available:
+      $SIK->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SIK)
+
+  focus[id = XIC_non_agression_pact_with_the_cpc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_the_fushi_conference]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_anti_japanese_national_salvation_agreement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_withdraw_forces_from_yanan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_form_the_anti_japanese_comrades_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_invite_chiang_for_troop_inspections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_sixth_encirclement_campaign]:
+    available:
+      $PRC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PRC)
+
+  focus[id = XIC_request_relocation_to_northeastern_command]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_invite_zuolin_loyalsits]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_reestablish_the_zhili_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_recruit_mancurian_bandits]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_restore_the_glory_of_the_fengtian_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_reclaim_the_lost_birthright]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_restore_the_homeland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = XIC_revive_the_beiyang_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_rally_around_long_yun]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = YUN_expand_local_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_strive_for_self_sufficiency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_a_land_of_mountains]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_political_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_eduational_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_the_democratic_fortress]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUN_strengthen_burmic_ties]:
+    available:
+      $BRM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BRM)

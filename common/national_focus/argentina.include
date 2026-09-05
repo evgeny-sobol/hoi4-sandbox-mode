@@ -1,0 +1,966 @@
+focus_tree[id = argentine_focus_tree]:
+  focus[id = ARG_roberto_maria_ortiz]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_defense_and_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_work_with_the_nationalists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_crack_down_on_corruption]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_british_cooperation]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+
+  focus[id = ARG_cut_ties_with_britain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_the_castillo_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_import_substitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_emphasis_on_public_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_towards_a_greater_argentina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_universidad_de_buenos_aires]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_consolidating_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_maintain_the_status_quo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_march_to_la_casa_rosada]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_intervenciones_federales]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_balancing_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_subdue_dissension]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_the_american_push]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_juan_peron_elected]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_peronism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_maintain_neutrality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_support_radical_nationalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_corporatism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_reestablish_ligas_patrioticas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_fascist_researchers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_hitler_1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = ARG_hitler_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_hitler_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_hitler_4]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_support_the_spanish_coup]:
+    available:
+      $SPA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPA)
+
+  focus[id = ARG_demand_spanish_compensation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_invite_spanish_nationalists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ARG_encourage_german_investments]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+
+  focus[id = ARG_encourage_italian_argentine_diplomacy]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+
+  focus[id = ARG_guardia_nacional]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_union_nacional_fascista]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_rapid_militirization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_argentine_nationalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_war_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_argentina_first]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_our_own_path]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_dominate_the_south]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_preparations_for_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_conquer_paraguay]:
+    available:
+      $PAR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PAR)
+
+  focus[id = ARG_paraguayan_ultimatum]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_revive_the_colonial_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_conquer_uruguay]:
+    available:
+      $URG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($URG)
+
+  focus[id = ARG_reach_out_to_chile]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_chilean_ultimatum]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_the_old_enemy]:
+    available:
+      $BRA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BRA)
+
+  focus[id = ARG_south_american_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_integrate_operation_bolivar]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_release_hellmuth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_anti_american_propaganda]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+
+  focus[id = ARG_the_war_machine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_secure_the_borders]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_argentine_island_sovereignty]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+
+  focus[id = ARG_the_clean_election]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_in_memory_of_yrigoyen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_anti_corruption_policies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_promote_urbanization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_a_true_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_secure_the_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_argentina_for_all]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_reinforce_the_education_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_university_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_regulated_national_salaries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_social_welfare_fund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_internal_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_alvears_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_british_gaurantee]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ENG->is_friend_of_PREV(no)
+          $ARG->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($ARG)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_seek_american_support]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $USA->is_friend_of_PREV(no)
+          $ARG->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($ARG)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_royal_airforce_influence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ARG_royal_navy_influence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ARG_reinforced_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_us_army_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_american_defense_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_joint_military_exercises]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ARG_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_bastion_of_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_align_with_the_monroe_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_south_american_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_bolstering_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_the_second_argentine_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_envoy_to_london]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_study_the_battle_of_the_river_plate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_islas_del_atlantico_sur]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_improving_the_islands]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_firmes_volamos]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_extinguish_south_american_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_american_allyship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_us_marine_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_counter_intelligence_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_end_operation_bolivar]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_encourage_the_red_scare]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+
+  focus[id = ARG_extinguish_south_american_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_a_call_to_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = ARG_invite_ghioldi_back_to_argentina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_support_the_spanish_republicans]:
+    available:
+      $SPD->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPD)
+
+  focus[id = ARG_legitimize_the_PCA]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_reach_out_to_the_soviet_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_unite_the_workers_of_argentina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_viva_la_revolucion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_forge_our_own_future]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_women_in_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_support_the_farmers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_socialist_volunteers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_the_buenos_aires_conference]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_align_with_the_soviets]:
+    available:
+      $SOU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOU)
+
+  focus[id = ARG_soviet_industrial_model]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_committee_of_state_security]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_russian_manufacturers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_centralize_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_workers_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_reform_our_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_empower_the_fjc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_state_atheism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_liberation_theology]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_socialist_researchers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_conquer_south_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_integrate_the_motherland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_unify_south_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ARG_a_red_south_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_improve_patagonia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_establish_the_free_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_no_gods_no_masters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_banco_central_de_la_republica_argentina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = ARG_reach_out_to_the_great_powers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_industrial_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_production_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_economic_tax_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_economic_reactivation_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_immigration_wave]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_develop_civilian_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_the_argentinian_metropole]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_invest_in_the_roads]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_invest_in_the_railways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_expand_steel_extraction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_expand_aluminum_extraction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_yacimientos_petroliferos_fiscales]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_rapid_urbanization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_agricultural_improvements]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_military_production_lines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_capitalize_the_beef_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_revisit_the_roca_runciman_treaty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_a_new_trading_partner]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ARG_develop_the_electricity_sector]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_invest_in_construction_guilds]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ARG_technical_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

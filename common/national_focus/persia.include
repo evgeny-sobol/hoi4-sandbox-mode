@@ -1,0 +1,1798 @@
+focus_tree[id = persian_focus_tree]:
+  focus[id = PER_modernizing_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = PER_adult_literacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_national_museum]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_university_of_isfahan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_shiraz_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_educational_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_trans_iranian_railway]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_tabriz_masshad]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_tehran_emam]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_tehran_abbas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_trains_from_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_trains_from_britain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_feat_of_engineering]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_white_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_national_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_price_stabilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_abolish_feudalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_women_vote]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_food_for_all]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_rapid_industrialization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_tehran_power_plant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_develop_cities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_metropolitan_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_develop_oil_fields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_form_oil_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_oil_baron]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_profit_from_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_a_modern_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_restructure_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_expand_imperial_guard]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_military_facilities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_czech_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_german_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_future_of_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_reverse_engineer_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_establish_tehran_armor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_tehran_armor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_train_tank_commanders]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_foreign_retraining]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_bolster_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_establish_motor_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_motorize_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_swedish_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_increase_heavy_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_our_own_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_develop_qorkhaneh]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_desert_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_every_man_serves]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_military_excellency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_special_units]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_form_savak]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_fund_state_intelligence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_transfer_officers_to_intelligence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_special_forces_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_recruit_bakhtiari]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_unique_unit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_import_rocketry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_cyrus_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_negotiate_with_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_establish_nuclear_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_establish_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_pilot_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_raf_planes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_luftwaffe_planes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_establish_air_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_own_plane_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_strategic_bombing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_legacy_of_gilani]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_construct_air_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_anti_air_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_anti_air_research]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_air_superiority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_battlefield_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_perfect_iranian_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_establish_the_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_officers_to_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_persian_gulf_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_construct_naval_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_coastal_defense_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_bolster_the_caspian]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_purchase_foreign_ships]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_found_iranian_shipyards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_dockyards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_merchant_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_expert_raiders]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_the_pahlavi_imperium]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:monarchy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_stand_with_giants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_forced_secularization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_increase_education_funding]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_open_abadan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_trial_fifty_three]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_persian_german_trade]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $PER->is_friend_of_PREV(no)
+          $GER->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PER) + $opinion_factor($GER)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_increase_military_funding]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_royal_visit_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_military_high_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_wether_the_storm]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_question_of_resources]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_prepare_for_worst]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_plant_resistance_cells]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_preemptive_strike]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $IRQ->is_friend_of_PREV(no)
+          $SOU->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($IRQ) + $opinion_factor($SOU)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_establish_northern_buffer_states]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_stand_our_ground]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_bolster_civilian_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_upscale_military_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_preparatory_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_we_will_survive]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_we_survived]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_fight_for_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = PER_force_them_back]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_dig_and_defend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_push_to_deserts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_push_to_mountains]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_capital_protect]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_secure_coastline]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_demand_war_reparations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_force_white_peace]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_swear_fealty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_push_negotiations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_rebuilding_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_declare_loyalty_to_britain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_reinstate_qajars]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_invite_british_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_request_british_equipment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_our_place_in_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_retake_north_iran]:
+    available:
+      $SOU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOU)
+
+  focus[id = PER_azadi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_reinforce_iranian_identity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_rally_bakhtiari_and_qashqai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_iran_for_iranians]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_consolidate_british_territory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_legacy_of_greatness]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_assassinate_reza_shah]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_root_out_conspiracies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_his_fathers_footsteps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_third_persian_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_choose_a_shahbanu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_embrace_opulence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_emperor_for_people]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_fund_imperial_excellency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_uphold_civil_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_absolute_monarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_first_iranian_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_take_regional_tour]:
+    available:
+      $PER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PER)
+
+  focus[id = PER_limit_foreign_influence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_embrace_industrial_powers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_subserviant_to_noone]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_modernize_iran_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_last_thousand_years]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_shahanshah]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_rally_ancient_history]:
+    available:
+      $PER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PER)
+
+  focus[id = PER_rebuild_persepolis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_imperial_funded_universities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_assessing_the_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_the_unification_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_clamp_kurdish_dissidence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_clamp_azerbaijani_dissidence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_state_atheism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_venerate_islam]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_revive_old_ways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_imperial_expansionism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_tehran_moscow_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_establish_special_unit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_demand_iraqi_territory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_demand_afghan_territory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_war_plan_darius]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_foothold_in_indus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_usurp_afghanistan]:
+    available:
+      $AFG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AFG)
+
+  focus[id = PER_invasion_of_india]:
+    available:
+      $RAJ->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($RAJ)
+
+  focus[id = PER_glory_of_cyrus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_war_plan_xerxes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_reclaim_turkish_peninsula]:
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TUR)
+
+  focus[id = PER_reintegrate_anatolia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_clash_of_titans]:
+    available:
+      $GRE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GRE)
+
+  focus[id = PER_absorb_byzantines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_war_plan_cambyses]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_path_through_iraq]:
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($IRQ)
+
+  focus[id = PER_demand_west_asia]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $SYR->is_friend_of_PREV(no)
+          $LEB->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SYR) + $opinion_factor($LEB)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_march_to_nile]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $JOR->is_friend_of_PREV(no)
+          $PAL->is_friend_of_PREV(no)
+          $EGY->is_friend_of_PREV(no)
+          $ENG->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($JOR) + $opinion_factor($PAL) + $opinion_factor($EGY) + $opinion_factor($ENG)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_the_memphis_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_stand_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_align_with_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_spoils_of_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_donate_oil_fields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_middle_east_protectorate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_rally_the_reformers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_stage_mass_protests]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_propagate_political_literature]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_rally_behind_mosaddegh]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_embrace_national_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_constitutional_monarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_strengthen_iranian_parliament]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_force_abdication]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_promise_clergy_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_free_elections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_continue_westernization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_islamic_restoration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_ally_bazaari]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_royal_college_funding]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_entice_foreign_investment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_secularize_the_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_increase_faculty_staffing_budget]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_invest_in_univerity_facilities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_expand_oil_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_islamic_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_nationalize_oil_fields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_islamic_solidarity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_increase_oil_sales]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_request_membership_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_secure_iraq]:
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($IRQ)
+
+  focus[id = PER_secure_afghanistan]:
+    available:
+      $AFG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AFG)
+
+  focus[id = PER_post_war_spoils]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_united_progressive_parties]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_reach_to_seperatists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_strengthen_the_tudeh]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_iranian_socialist_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_soviet_alignment]:
+    available:
+      $SOU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOU)
+
+  focus[id = PER_industrial_aid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_elevate_the_iran_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = PER_appease_the_seperatists]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $KUR->is_friend_of_PREV(no)
+          $AZR->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($KUR) + $opinion_factor($AZR)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_communist_education_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_the_new_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_oil_and_rubber_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_workers_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_the_peoples_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_communist_air_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_basic_plane_design]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_communist_naval_bomber_design]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_challenge_the_royal_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_the_peoples_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_communist_shore_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_naval_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_submarine_design]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = PER_iranian_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_iranian_industrialization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_international_solidarity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_afghanistan_intervention]:
+    available:
+      $AFG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AFG)
+
+  focus[id = PER_communist_liberate_pashtuns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_destabilize_iraq]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_revolution_in_the_gulf]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_hormuz_crisis]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+
+  focus[id = PER_communist_gulf_hegemony]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_propaganda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_communist_industrialization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_reject_foreign_dominance]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_iranian_revolutionary_vanguard]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_one_for_all_all_for_one]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_land_reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_soviet_iranian_oil_collaboration]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_comintern_research_collaboration]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_iranian_nuclear_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_iranian_culture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = PER_form_sumka]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_ally_the_bazaari]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_brown_shirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_march_on_saadabad]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_roll_back_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_finding_a_shah]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_fascist_secularism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_form_savama]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_fascist_reach_out_to_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_iran_first]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_fascist_reach_out_to_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = PER_pan_iranianism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_intervene_in_central_asia]:
+    available:
+      $SOU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOU)
+
+  focus[id = PER_proclaim_greater_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_eastern_expansion]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $PAK->is_friend_of_PREV(no)
+          $RAJ->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($RAJ)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = PER_curtail_pan_arabism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_there_can_be_only_one]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+
+  focus[id = PER_fascist_attack_turkey]:
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TUR)
+
+  focus[id = PER_intervention_in_iraq]:
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($IRQ)
+
+  focus[id = PER_crush_saudi_arabia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = PER_fascist_attack_afghanistan]:
+    available:
+      $AFG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AFG)

@@ -1,0 +1,25 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $SPR->update_SPR_national_focuses()
+
+  on_weekly_SPR:
+    effect:
+      if is_sandbox_mode_on():
+        update_SPR_national_focuses()
+
+  on_weekly_SPA:
+    effect:
+      if is_sandbox_mode_on():
+        update_SPR_national_focuses()
+
+  on_weekly_SPB:
+    effect:
+      if is_sandbox_mode_on():
+        update_SPR_national_focuses()
+
+  on_weekly_SPC:
+    effect:
+      if is_sandbox_mode_on():
+        update_SPR_national_focuses()

@@ -108,3 +108,7 @@ macro add_state_owner_to_targets(targets_, state_id_):
   state_id_:
     owner:
       PREV.PREV.&targets_[].add(THIS)
+
+macro add_country_to_targets(targets_, _tag_):
+  _tag_:
+    PREV.&targets_[].add(THIS)

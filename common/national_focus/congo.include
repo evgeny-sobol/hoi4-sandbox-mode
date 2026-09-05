@@ -1,0 +1,935 @@
+focus_tree[id = congo_focus]:
+  focus[id = COG_congolese_bussinessowners]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = COG_desgregate_the_universites]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = COG_shatter_the_roof]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_establish_the_anc]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = COG_marine_nationale]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = COG_expand_shipping_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_south_atlantic_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COG_brown_water_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_coastal_defence_fleet]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_supply_line_disruption_tactics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_command_post_matadi]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_command_post_albertville]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_command_post_goma]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_force_arienne_congolaise]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = COG_procure_foriegn_equipment]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_aeronautical_research_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_scouting_the_terrain]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_expand_production_facilities]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_forces_terrestres]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = COG_from_a_gendarmerie_to_a_fighting_force]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_academie_militaire_de_kananga]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_standardize_military_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_societe_africaine_dexplosifs_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_triga_i_project]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_military_service_for_citizenship]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_guerilla_tactics_drills]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_french_as_martial_language]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_adopt_lingala_and_swahili_as_martial_languages]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_31e_brigade_parachutiste]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_peacekeeping_forces]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_governor_general_pierre_ryckmans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = COG_establish_new_sabena_air_routes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_invest_in_urban_centers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_uplift_the_apostolic_vicar_of_leopoldville]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_promote_marcel_maquet_to_provincial_commisioner]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_cooperate_with_the_comite_special_du_katanga]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_lecho_du_katanga]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_strengthen_the_banque_du_congo_belge]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_contract_the_empain_group]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_invest_in_geomines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_central_bank_of_congo_ruanda_urundi]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_attempt_to_centralize_the_state]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_allow_local_autonomy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_closer_cooperation_with_eugene_jungers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_found_the_congolese_national_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_national_committee_for_liberation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_formally_recognize_the_kimbanguist_church]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_found_the_parti_solidaire_africain]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_progressive_congolese_students]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_alliance_de_bakongo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_manifeste_convience_africaine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_intore_lion_dancers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_improve_colonial_lawmaking]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_endorse_force_publique_mutinies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_encourage_unionism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_make_contact_with_irving_brown]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_invite_the_general_labour_federation_of_belgium]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_union_nationale_des_travailleurs_du_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_simba_movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_approach_the_disfavored_mwami]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_attempt_to_sway_moise_thsombe]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_secure_soviet_aid]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_secure_german_aid]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_approach_the_barotse_litunga]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_slander_the_colonial_authorities]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_strike_while_the_rion_is_hot]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_congo_and_the_war_in_europe]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = COG_emergency_powers_for_pierre_ryckmans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_an_independent_colonial_cabinet]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_acquire_american_investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_enter_the_sterling_area]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_make_use_of_the_british_proposal]:
+    available:
+      $COG->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($COG)
+
+  focus[id = COG_prepare_for_offensive_action]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = COG_utilize_sabena_for_military_purposes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_raf_and_saaf_cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = COG_safeguard_cabinda]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_kasa_vubus_first_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = COG_declaration_of_congolese_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_lion_roars]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = COG_national_insitute_of_agronomic_study]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_ten_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_expanded_peasantry_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_improve_the_civil_administration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_mend_the_linguistic_divides]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_women_in_the_military]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_proclaim_the_peoples_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_arme_populaire_de_liberation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_nationalization_of_foreign_industrial_assets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_form_the_gecamines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_societe_nationale_chemins_du_congo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_cooperate_with_the_congolese_churches]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_strict_anti_clericalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_invite_kwame_to_the_capital]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_liberation_by_force]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ENG->is_friend_of_PREV(no)
+          $POR->is_friend_of_PREV(no)
+          $FRA->is_friend_of_PREV(no)
+          $SPR->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($POR) + $opinion_factor($FRA) + $opinion_factor($SPR)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = COG_hold_the_pan_african_congress]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_establish_the_west_african_national_secretariat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_socialist_education_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_foster_a_personality_cult]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_join_the_comitern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_african_research_and_development_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_organization_of_african_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_mutual_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_central_african_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_executive_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_african_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_assemble_a_regency_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = COG_royal_university_of_higher_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_kingdom_of_kongo_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_nyim_of_kuba_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_ma_loango_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_mwami_of_burundi_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_umwami_of_rwanda_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_pro_german_mwami_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_uniao_dos_povos_do_norte_de_angola]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:COG_uniao_dos_povos_do_norte_de_angola_targets[0]->is_friend_of_PREV(no)
+          var:COG_uniao_dos_povos_do_norte_de_angola_targets[1]->is_friend_of_PREV(no)
+          var:COG_uniao_dos_povos_do_norte_de_angola_targets[2]->is_friend_of_PREV(no)
+          var:COG_uniao_dos_povos_do_norte_de_angola_targets[3]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(COG_uniao_dos_povos_do_norte_de_angola_antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = COG_bundu_dia_kongo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_devout_catholic_kingdom]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_reestablish_the_royal_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_bakongo_military_might]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_invest_in_the_textile_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_traditional_masks_and_armor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_children_of_woot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_spirit_of_loko_yima]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_a_society_of_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_a_multiethnic_conglomeration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_reclaim_loango]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_kings_divine_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_appoint_a_royal_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_occupy_cabinda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_reestablish_the_bouvandji]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_invest_in_rubber_plantations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_friendship_with_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_attempt_to_ally_the_portuguese]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_reclaim_bujumbura]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_the_embodiment_of_god]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_claim_the_great_lakes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_new_empire_of_kitara]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_south_to_lake_malawi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_reclaim_kigali]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_centralize_military_structure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_an_expansionist_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_great_military_chiefs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_great_cattle_chiefs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_expand_banana_plantations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_tutsi_warrior_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_unify_east_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_a_german_protectorate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_invite_german_kasierist_exiles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = COG_colonial_administration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_prussia_of_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_german_west_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_german_east_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COG_german_south_west_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

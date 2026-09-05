@@ -1,0 +1,326 @@
+focus_tree[id = generic_focus]:
+  focus[id = army_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = equipment_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = motorization_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = doctrine_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = equipment_effort_2]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = mechanization_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = doctrine_effort_2]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = equipment_effort_3]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = armor_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = special_forces]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = aviation_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = fighter_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = bomber_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = aviation_effort_2]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CAS_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = rocket_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NAV_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = naval_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = flexible_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = large_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = submarine_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = cruiser_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = destroyer_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = capital_ships_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = industrial_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = construction_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = production_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = construction_effort_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = production_effort_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = infrastructure_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = production_effort_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = infrastructure_effort_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = construction_effort_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = nuclear_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = extra_tech_slot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = extra_tech_slot_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = secret_weapons]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = political_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = collectivist_ethos]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor + mtth:fascism_factor + mtth:monarchy_factor) / (mtth:communism_factor + mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = nationalism_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = internationalism_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:communism_factor + mtth:monarchy_factor) / (mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = liberty_ethos]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:communism_factor + mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:democracy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = militarism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = political_correctness]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = neutrality_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = interventionism_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = military_youth]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = deterrence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = volunteer_corps]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = paramilitarism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = indoctrination_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = foreign_expeditions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = why_we_fight]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = political_commissars]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ideological_fanaticism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = technology_sharing]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()

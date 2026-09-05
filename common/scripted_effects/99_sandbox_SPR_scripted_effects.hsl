@@ -1,0 +1,33 @@
+update_SPR_national_focuses():
+  for watcher in every_country().which(original_tag($SPR) or original_tag($SPA) or original_tag($SPB) or original_tag($SPC)):
+
+    if not has_completed_focus(SPA_claim_west_africa):
+      &SPA_claim_west_africa_targets[].clear()
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 557)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 272)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 780)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 556)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 779)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 778)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 781)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 777)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 776)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 773)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 774)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 660)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 539)
+      $add_state_owner_to_targets(SPA_claim_west_africa_targets, 772)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in SPA_claim_west_africa_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &SPA_claim_west_africa_antagonism = 1 - sum_f / n
+      else:
+        &SPA_claim_west_africa_antagonism = 1

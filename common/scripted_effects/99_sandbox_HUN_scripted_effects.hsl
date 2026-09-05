@@ -1,0 +1,329 @@
+update_HUN_national_focuses():
+  for watcher in every_country().which(original_tag($HUN)):
+
+    if not has_completed_focus(HUN_take_austria_by_force):
+      &HUN_take_austria_by_force_targets[].clear()
+      $add_state_owner_to_targets(HUN_take_austria_by_force_targets, 4)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in HUN_take_austria_by_force_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &HUN_take_austria_by_force_antagonism = 1 - sum_f / n
+      else:
+        &HUN_take_austria_by_force_antagonism = 1
+
+    if not has_completed_focus(HUN_demand_the_vojvodina):
+      &HUN_demand_the_vojvodina_targets[].clear()
+      $add_state_owner_to_targets(HUN_demand_the_vojvodina_targets, 45)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in HUN_demand_the_vojvodina_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &HUN_demand_the_vojvodina_antagonism = 1 - sum_f / n
+      else:
+        &HUN_demand_the_vojvodina_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_reintigrate_slovakia):
+      &wuw_HUN_reintigrate_slovakia_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_reintigrate_slovakia_targets, 664)
+      $add_state_owner_to_targets(wuw_HUN_reintigrate_slovakia_targets, 70)
+      $add_state_owner_to_targets(wuw_HUN_reintigrate_slovakia_targets, 71)
+      $add_state_owner_to_targets(wuw_HUN_reintigrate_slovakia_targets, 73)
+      $add_state_owner_to_targets(wuw_HUN_reintigrate_slovakia_targets, 72)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_reintigrate_slovakia_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_reintigrate_slovakia_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_reintigrate_slovakia_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_the_triple_kingdom):
+      &wuw_HUN_the_triple_kingdom_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_the_triple_kingdom_targets, 109)
+      $add_state_owner_to_targets(wuw_HUN_the_triple_kingdom_targets, 103)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_the_triple_kingdom_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_the_triple_kingdom_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_the_triple_kingdom_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_restore_the_lombardo_venetian_kingdom):
+      &wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_restore_the_lombardo_venetian_kingdom_targets, 160)
+      $add_state_owner_to_targets(wuw_HUN_restore_the_lombardo_venetian_kingdom_targets, 850)
+      $add_state_owner_to_targets(wuw_HUN_restore_the_lombardo_venetian_kingdom_targets, 159)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_restore_the_lombardo_venetian_kingdom_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_restore_the_lombardo_venetian_kingdom_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_restore_the_lombardo_venetian_kingdom_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_undoing_the_yugoslav_mistake):
+      &wuw_HUN_undoing_the_yugoslav_mistake_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_undoing_the_yugoslav_mistake_targets, 109)
+      $add_state_owner_to_targets(wuw_HUN_undoing_the_yugoslav_mistake_targets, 103)
+      $add_state_owner_to_targets(wuw_HUN_undoing_the_yugoslav_mistake_targets, 45)
+      $add_state_owner_to_targets(wuw_HUN_undoing_the_yugoslav_mistake_targets, 764)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_undoing_the_yugoslav_mistake_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_undoing_the_yugoslav_mistake_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_undoing_the_yugoslav_mistake_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_reclaim_the_slovak_possessions):
+      &wuw_HUN_reclaim_the_slovak_possessions_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_slovak_possessions_targets, 664)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_slovak_possessions_targets, 70)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_slovak_possessions_targets, 71)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_slovak_possessions_targets, 73)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_reclaim_the_slovak_possessions_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_reclaim_the_slovak_possessions_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_reclaim_the_slovak_possessions_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_revenge_for_1919):
+      &wuw_HUN_revenge_for_1919_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_1919_targets, 82)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_1919_targets, 83)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_1919_targets, 84)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_1919_targets, 76)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_revenge_for_1919_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_revenge_for_1919_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_revenge_for_1919_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_demand_the_vojvodina):
+      &wuw_HUN_demand_the_vojvodina_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_demand_the_vojvodina_targets, 45)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_demand_the_vojvodina_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_demand_the_vojvodina_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_demand_the_vojvodina_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_reclaim_the_pannonian_steppe):
+      &wuw_HUN_reclaim_the_pannonian_steppe_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 73)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 664)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 71)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 70)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 76)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 84)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 83)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 82)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 764)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 45)
+      $add_state_owner_to_targets(wuw_HUN_reclaim_the_pannonian_steppe_targets, 975)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_reclaim_the_pannonian_steppe_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_reclaim_the_pannonian_steppe_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_reclaim_the_pannonian_steppe_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_the_second_northern_campaign):
+      &wuw_HUN_the_second_northern_campaign_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_the_second_northern_campaign_targets, 73)
+      $add_state_owner_to_targets(wuw_HUN_the_second_northern_campaign_targets, 664)
+      $add_state_owner_to_targets(wuw_HUN_the_second_northern_campaign_targets, 71)
+      $add_state_owner_to_targets(wuw_HUN_the_second_northern_campaign_targets, 70)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_the_second_northern_campaign_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_the_second_northern_campaign_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_the_second_northern_campaign_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_revenge_for_the_romanian_humiliations):
+      &wuw_HUN_revenge_for_the_romanian_humiliations_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_the_romanian_humiliations_targets, 76)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_the_romanian_humiliations_targets, 84)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_the_romanian_humiliations_targets, 83)
+      $add_state_owner_to_targets(wuw_HUN_revenge_for_the_romanian_humiliations_targets, 82)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_revenge_for_the_romanian_humiliations_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_revenge_for_the_romanian_humiliations_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_revenge_for_the_romanian_humiliations_antagonism = 1
+
+    if not has_completed_focus(wuw_HUN_march_south):
+      &wuw_HUN_march_south_targets[].clear()
+      $add_state_owner_to_targets(wuw_HUN_march_south_targets, 764)
+      $add_state_owner_to_targets(wuw_HUN_march_south_targets, 45)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in wuw_HUN_march_south_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &wuw_HUN_march_south_antagonism = 1 - sum_f / n
+      else:
+        &wuw_HUN_march_south_antagonism = 1
+
+    if not has_completed_focus(HUN_balkan_ambitions):
+      &HUN_balkan_ambitions_targets[].clear()
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 109)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 103)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 104)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 804)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 105)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 107)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 108)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 802)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 803)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 106)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 970)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 934)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 44)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 805)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 48)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 212)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 801)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 211)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 81)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 46)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 77)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 971)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 79)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 78)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 766)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 80)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 163)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 764)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 45)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 82)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 84)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 76)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 83)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 974)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 973)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 154)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 43)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 155)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 184)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 731)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 185)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 47)
+      $add_state_owner_to_targets(HUN_balkan_ambitions_targets, 186)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in HUN_balkan_ambitions_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &HUN_balkan_ambitions_antagonism = 1 - sum_f / n
+      else:
+        &HUN_balkan_ambitions_antagonism = 1

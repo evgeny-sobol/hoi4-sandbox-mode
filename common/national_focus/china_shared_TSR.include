@@ -1,0 +1,434 @@
+  shared_focus[id = CHI_sea_invite_foreign_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = CHI_sea_mission_to_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_give_falkenhausen_citizenship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_chinese_general_staff]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_wargaming_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_closer_ties_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_purchase_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_chinese_panzers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_tank_plant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_experimental_mechanised_unit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_combined_arms_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_hire_soviet_designer]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_joint_tank_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_mission_to_the_soviet_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_rapprochement_with_soviet_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_invite_soviet_advisers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_the_soviet_volunteer_group]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_reach_out_to_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_small_arms_expertise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_elite_mountaineers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_heavy_weapons]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_guarantee_the_hanoi_route]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_construction_battalions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_french_military_mission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_french_drill]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_modern_logistics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_renegotiate_the_unequal_treaties]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_one_china_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_ncns_request_handover_of_coastal_cities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_integrate_tibet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_conquer_tibet]:
+    available:
+      $TIB->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TIB)
+
+  shared_focus[id = CHI_sea_renounce_the_mcmahon_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_demand_mongolia]:
+    available:
+      $MON->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MON)
+
+  shared_focus[id = CHI_sea_annex_tuva]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_anti_imperialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_guidance_and_support]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:CHI_sea_guidance_and_support_targets[0]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[1]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[2]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[3]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[4]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[5]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[6]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[7]->is_friend_of_PREV(no)
+          var:CHI_sea_guidance_and_support_targets[8]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(CHI_sea_guidance_and_support_antagonism)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_commit_to_korean_independence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_indian_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_influence_mongolia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_imperial_legacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_overlordship_over_indochina]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:CHI_sea_overlordship_over_indochina_targets[0]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[1]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[2]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[3]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[4]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[5]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[6]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[7]->is_friend_of_PREV(no)
+          var:CHI_sea_overlordship_over_indochina_targets[8]->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(CHI_sea_overlordship_over_indochina_antagonism)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_dominate_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_secure_the_peninsula]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_push_into_manchuria]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_dominate_siam]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_british_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_burma_road]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_ledo_road]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_fighter_purchases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_camco]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_local_fighter_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_local_bomber_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_the_hump]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_chinese_expeditionary_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_the_chu_x_po]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_mission_to_the_us]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:monarchy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  shared_focus[id = CHI_sea_hire_chennault]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_invite_the_flying_tigers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_sino_american_cooperative_organization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_light_cruiser_project]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_heavy_cruiser_project]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_naval_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_carrier_air_wing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_investment_into_shipbuilding]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_order_destroyers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_train_marines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_collaboration_with_the_japanese]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = CHI_sea_modern_submarines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CHI_sea_coastal_patrol_planes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

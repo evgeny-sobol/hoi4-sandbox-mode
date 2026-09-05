@@ -1,0 +1,10 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $HUN->update_HUN_national_focuses()
+
+  on_weekly_HUN:
+    effect:
+      if is_sandbox_mode_on():
+        update_HUN_national_focuses()

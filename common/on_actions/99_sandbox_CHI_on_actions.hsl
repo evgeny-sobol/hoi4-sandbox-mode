@@ -1,0 +1,45 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $CHI->update_CHI_national_focuses()
+
+  on_weekly_CHI:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_PRC:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_MAN:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_YUN:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_GXC:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_SHX:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_XSM:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()
+
+  on_weekly_SIK:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHI_national_focuses()

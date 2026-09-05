@@ -1,0 +1,358 @@
+  shared_focus[id = BALTIC_rejoin_the_railways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = BALTIC_axis_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_german_war_economics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_autobahn]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_eastwall]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_balticwall]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_german_tank_licences]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_german_baltic_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_request_german_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_renew_allied_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_ford_motors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_crossley_motors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_british_designers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_british_aircraft]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_allied_shipments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_baltic_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_attract_workers_to_capital]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_rebuild_forts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_arm_the_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_unchain_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_technology_sharing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_defence_of_our_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_modernize_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_domestic_motors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_school_of_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_original_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_arms_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_natural_resources]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_trade_with_neighbors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = BALTIC_invest_in_baltic_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = BALTIC_restore_workers_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = BALTIC_seek_support_of_soviets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  shared_focus[id = BALTIC_soviet_equipment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_soviet_volunteer_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_soviet_military_staff]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_communist_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = BALTIC_forment_disloyalty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_concessions_for_catholics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_secure_military_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_overthrow_the_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_sieze_the_means_of_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_revolutionary_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_direct_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_squash_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_purge_of_our_own]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_crush_forest_brothers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_red_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_align_paramilitarists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_influence_neighbours]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = BALTIC_arm_baltic_reds]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_belarus_ssr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = BALTIC_end_bourgeouis_dictatorships]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $LIT->is_friend_of_PREV(no)
+          $LAT->is_friend_of_PREV(no)
+          $EST->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT) + $opinion_factor($EST)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  shared_focus[id = BALTIC_focus_on_the_interior]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  shared_focus[id = BALTIC_focus_on_the_interior_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_united_baltic_ssr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_western_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = BALTIC_finnish_invasion]:
+    available:
+      $FIN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FIN)
+
+  shared_focus[id = BALTIC_path_to_the_north_sea]:
+    available:
+      $DEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($DEN)
+
+  shared_focus[id = BALTIC_end_swedish_neutrality]:
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SWE)
+
+  shared_focus[id = BALTIC_free_the_workers_of_poland]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)

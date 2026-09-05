@@ -1,0 +1,386 @@
+focus_tree[id = latvia_tree]:
+  focus[id = LAT_suspend_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = LAT_appease_democrats]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_renew_kviesis_term]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_martial_prime_minister]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_establish_chambers_of_professions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_restore_saeima]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_what_is_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_renew_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_what_is_capitalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_integrate_farmers_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_nationalised_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_merge_presidential_titles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_improve_military_life]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_military_diarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_military_dictatorship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_beyond_the_baltic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_formalize_baltic_entente]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_look_north]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_threat_on_our_border]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_empower_paramilitarists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_the_sun_shines_equally]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_banish_clemens]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_aizsargi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_womens_aizsargi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_latvia_for_latvians]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_lift_ban_on_perkonkrusts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_fanatic_recruitment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_military_industrial_complex]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_the_old_ways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_anti_german_propaganda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:fascism_factor) / (2 * mtth:fascism_factor + 2 * mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_alignment_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor + mtth:fascism_factor) / (2 * mtth:fascism_factor + 2 * mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_the_thunder_strikes_alone]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:fascism_factor + 2 * mtth:democracy_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_supply_forest_brothers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_multicultural_latvia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_free_the_ugonskrusts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_lightning_strike]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $LIT->is_friend_of_PREV(no)
+          $EST->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($EST)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_support_baltic_fascists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_consecrate_the_brotherhood]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $EST->is_friend_of_PREV(no)
+          $LIT->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LIT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_dievs_keepers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_state_paganism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_wrath_of_the_old_gods]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_ostland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_united_baltic_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_reorganize_forest_brothers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_avenge_the_ancestors]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $GER->is_friend_of_PREV(no)
+          $SWE->is_friend_of_PREV(no)
+          $DEN->is_friend_of_PREV(no)
+          $FIN->is_friend_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+
+  focus[id = LAT_ready_the_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_prepare_underground_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_prepare_covert_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_cave_to_enemy_pressure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_baltic_economic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_baltic_defence_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_pan_baltic_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_propose_baltic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LAT_baltic_stronger_together]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = LAT_baltic_unification]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
