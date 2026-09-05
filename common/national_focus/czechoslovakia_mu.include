@@ -943,10 +943,14 @@ focus_tree[id = mu_czech_focus]:
         is_honored_leader(no)
         and:
           $SPR->is_friend_of_PREV(no)
-          $SPD->is_friend_of_PREV(no)
-          $SPA->is_friend_of_PREV(no)
-          $SPB->is_friend_of_PREV(no)
-          $SPC->is_friend_of_PREV(no)
+          if country_exists($SPD):
+            $SPD->is_friend_of_PREV(no)
+          if country_exists($SPA):
+            $SPA->is_friend_of_PREV(no)
+          if country_exists($SPB):
+            $SPB->is_friend_of_PREV(no)
+          if country_exists($SPC):
+            $SPC->is_friend_of_PREV(no)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
