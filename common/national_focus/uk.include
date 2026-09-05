@@ -46,8 +46,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $root_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = mtth:democracy_factor
         factor(f)
         is_sandbox_mode_on()
@@ -58,8 +56,6 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor
         factor(f)
@@ -94,8 +90,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = mtth:monarchy_factor /
           (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
@@ -106,8 +100,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = mtth:fascism_factor /
           (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
@@ -117,8 +109,6 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = mtth:communism_factor /
           (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
@@ -448,6 +438,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($JAP)
 
   focus[id = ENG_war_with_japan]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -630,6 +622,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($ITA)
 
   focus[id = ENG_war_with_italy]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -726,6 +720,15 @@ focus_tree[id = british_focus]:
 
   #TODO
   focus[id = ENG_secure_the_oil_imports]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $IRQ->is_friend_of_PREV(no)
+          $PER->is_friend_of_PREV(no)
+          $HOL->is_friend_of_PREV(no)
+          $VEN->is_friend_of_PREV(no)
+          $CRC->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -781,6 +784,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($SOV)
 
   focus[id = ENG_war_with_ussr]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -790,6 +795,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($SOV)
 
   focus[id = uk_iraq_focus]:
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -799,6 +806,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($IRQ)
 
   focus[id = uk_iran_focus]:
+    available:
+      $PER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -808,6 +817,13 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($PER)
 
   focus[id = uk_scandinavian_focus]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $SWE->is_friend_of_PREV(no)
+          $NOR->is_friend_of_PREV(no)
+          $DEN->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -820,6 +836,8 @@ focus_tree[id = british_focus]:
         is_sandbox_mode_on()
 
   focus[id = ENG_swedish_intervention]:
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -829,6 +847,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($SWE)
 
   focus[id = ENG_norwegian_intervention]:
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -838,6 +858,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($NOR)
 
   focus[id = ENG_danish_intervention]:
+    available:
+      $DEN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -852,6 +874,12 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_benelux_intervention]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $BEL->is_friend_of_PREV(no)
+          $HOL->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -863,6 +891,8 @@ focus_tree[id = british_focus]:
         is_sandbox_mode_on()
 
   focus[id = ENG_belgium_security]:
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -872,6 +902,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($BEL)
 
   focus[id = ENG_dutch_security]:
+    available:
+      $HOL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -900,6 +932,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($GER)
 
   focus[id = ENG_war_with_germany]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -942,6 +976,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($GER)
 
   focus[id = ENG_take_out_the_regia_marina]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -951,6 +987,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($ITA)
 
   focus[id = ENG_pre_empt_the_ideological_threat]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -960,6 +998,13 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($SOV)
 
   focus[id = ENG_expose_the_belly_of_the_bear]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $SOV->is_friend_of_PREV(no)
+          $AFG->is_friend_of_PREV(no)
+          $PER->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -990,6 +1035,8 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_reclaim_the_jewel_in_the_crown]:
+    available:
+      $RAJ->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -999,6 +1046,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($RAJ)
 
   focus[id = ENG_reclaim_burma]:
+    available:
+      $BRM->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1008,13 +1057,27 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($BRM)
 
   focus[id = ENG_consolidate_the_british_isles]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          var:ENG_consolidate_the_british_isles_targets[0]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[1]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[2]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[3]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[4]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[5]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[6]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[7]->is_friend_of_PREV(no)
+          var:ENG_consolidate_the_british_isles_targets[8]->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
-        $ai_antagonism_modifier($IRE)
+        factor(ENG_consolidate_the_british_isles_antagonism)
+        is_sandbox_mode_on()
 
   focus[id = ENG_appeal_to_imperial_loyalists]:
     ai_will_do:
@@ -1022,6 +1085,14 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_bring_the_dominions_back_into_the_fold]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $CAN->is_friend_of_PREV(no)
+          $SAF->is_friend_of_PREV(no)
+          $AST->is_friend_of_PREV(no)
+          $NZL->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1035,6 +1106,8 @@ focus_tree[id = british_focus]:
         is_sandbox_mode_on()
 
   focus[id = ENG_unite_the_anglosphere]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1049,6 +1122,8 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_pre_empt_the_strategic_threat]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1087,6 +1162,8 @@ focus_tree[id = british_focus]:
         $ai_cooperation_modifier($SPR)
 
   focus[id = ENG_pre_empt_spanish_alignment]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1098,6 +1175,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($SPR)
 
   focus[id = ENG_prevent_a_continental_hegemony]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1125,6 +1204,8 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_the_british_communist_alternative]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1159,6 +1240,8 @@ focus_tree[id = british_focus]:
         $crossroad_modifier(2)
 
   focus[id = ENG_soviet_cooperation]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1172,6 +1255,8 @@ focus_tree[id = british_focus]:
         $ai_antagonism_modifier($GER)
 
   focus[id = ENG_the_one_true_revolution]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1188,6 +1273,8 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_liberate_the_home_of_marx]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1229,6 +1316,8 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ENG_crush_the_dream]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()

@@ -100,3 +100,11 @@ macro ai_mic_modifier():
 macro ai_war_support_modifier():
   factor(has_war_support)
   is_sandbox_mode_on()
+
+# One slot per state (duplicates kept for focus tooltips).
+# Nested `state = { owner = { } }` is not an HSL loop, so `watcher` still
+# resolves to THIS (the owner). The focus country is PREV.PREV.
+macro add_state_owner_to_targets(targets_, state_id_):
+  state_id_:
+    owner:
+      PREV.PREV.&targets_[].add(THIS)

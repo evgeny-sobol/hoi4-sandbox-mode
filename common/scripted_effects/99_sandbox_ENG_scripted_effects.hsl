@@ -1,0 +1,29 @@
+update_ENG_national_focuses():
+  for watcher in every_country().which(original_tag($ENG)):
+
+    # Helper for (focus) ENG_consolidate_the_british_isles `available` / AI
+    if not has_completed_focus(ENG_consolidate_the_british_isles):
+      &ENG_consolidate_the_british_isles_targets[].clear()
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 113)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 134)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 135)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 119)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 122)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 133)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 121)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 136)
+      $add_state_owner_to_targets(ENG_consolidate_the_british_isles_targets, 120)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in ENG_consolidate_the_british_isles_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &ENG_consolidate_the_british_isles_antagonism = 1 - sum_f / n
+      else:
+        &ENG_consolidate_the_british_isles_antagonism = 1

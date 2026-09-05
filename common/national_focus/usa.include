@@ -37,25 +37,11 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-      modifier:
-        f = 2 * mtth:democracy_factor /
-          (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
-        factor(f)
-        is_sandbox_mode_on()
 
   focus[id = USA_neutrality_act]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-      +modifier:
-        f = 2 * mtth:democracy_factor /
-          (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
-        factor(f)
-        is_sandbox_mode_on()
 
   focus[id = USA_suspend_the_presecution]:
     ai_will_do:
@@ -297,16 +283,15 @@ focus_tree[id = usa_focus]:
       +or:
         is_honored_leader(no)
         and:
-          $INS->is_friend_of_PREV(no)
-          $AST->is_friend_of_PREV(no)
+          var:USA_pacific_decolonisation_targets[0]->is_friend_of_PREV(no)
+          var:USA_pacific_decolonisation_targets[1]->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
-        antagonism = 1 - ($opinion_factor($INS) + $opinion_factor($AST)) / 2
-        factor(antagonism)
+        factor(USA_pacific_decolonisation_antagonism)
         is_sandbox_mode_on()
 
   #TODO
@@ -410,6 +395,15 @@ focus_tree[id = usa_focus]:
 
   #TODO
   focus[id = USA_end_monarchism]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $ENG->is_friend_of_PREV(no)
+          $GER->is_friend_of_PREV(no)
+          $HUN->is_friend_of_PREV(no)
+          $JAP->is_friend_of_PREV(no)
+          $MAN->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -512,16 +506,19 @@ focus_tree[id = usa_focus]:
 
   focus[id = USA_seize_cuba]:
     available:
-      $CUB->can_PREV_get_wargoal_on_THIS()
+      var:USA_seize_cuba_targets[0]->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
-        $ai_antagonism_modifier($CUB)
+        factor(USA_seize_cuba_antagonism)
+        is_sandbox_mode_on()
 
   focus[id = USA_eliminate_the_southern_threat]:
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -537,6 +534,8 @@ focus_tree[id = usa_focus]:
         $ai_sandbox_modifier()
 
   focus[id = USA_the_canadian_corridor]:
+    available:
+      $CAN->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -771,6 +770,8 @@ focus_tree[id = usa_focus]:
 
   #TODO
   focus[id = USA_defense_of_the_pacific]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()

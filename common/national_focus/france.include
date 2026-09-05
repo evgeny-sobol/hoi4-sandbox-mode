@@ -68,8 +68,6 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = mtth:fascism_factor / (mtth:monarchy_factor + mtth:fascism_factor)
         factor(f)
         is_sandbox_mode_on()
@@ -78,8 +76,6 @@ focus_tree[id = french_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = mtth:monarchy_factor / (mtth:monarchy_factor + mtth:fascism_factor)
         factor(f)
@@ -447,6 +443,12 @@ focus_tree[id = french_focus]:
         is_sandbox_mode_on()
 
   focus[id = FRA_pre_empt_the_fascist_attack]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $GER->is_friend_of_PREV(no)
+          $ITA->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -473,6 +475,8 @@ focus_tree[id = french_focus]:
         $ai_sandbox_modifier()
 
   focus[id = FRA_carry_the_revolution_north]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -482,6 +486,8 @@ focus_tree[id = french_focus]:
         $ai_antagonism_modifier($ENG)
 
   focus[id = FRA_carry_the_revolution_west]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -491,6 +497,8 @@ focus_tree[id = french_focus]:
         $ai_antagonism_modifier($SPR)
 
   focus[id = FRA_carry_the_revolution_east]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -500,6 +508,8 @@ focus_tree[id = french_focus]:
         $ai_antagonism_modifier($GER)
 
   focus[id = FRA_carry_the_revolution_south]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -779,6 +789,8 @@ focus_tree[id = french_focus]:
         is_sandbox_mode_on()
 
   focus[id = FRA_expand_to_the_suez]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -893,6 +905,12 @@ focus_tree[id = french_focus]:
         $ai_sandbox_modifier()
 
   focus[id = FRA_no_further_humiliations]:
+    available:
+      +or:
+        is_honored_leader(no)
+        and:
+          $GER->is_friend_of_PREV(no)
+          $ITA->is_friend_of_PREV(no)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -914,6 +932,8 @@ focus_tree[id = french_focus]:
         $ai_sandbox_modifier()
 
   focus[id = FRA_secure_the_crown_of_spain]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
