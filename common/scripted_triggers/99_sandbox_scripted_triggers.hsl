@@ -88,6 +88,14 @@ is_liberal_leader:
     tooltip(LocKey_is_liberal_leader_tt)
     has_country_leader_with_trait(liberal_leader | libertarian_leader)
 
+# True when THIS is an existing country with a ruling country leader.
+# add/remove_country_leader_trait error if THIS has no leader (civil-war
+# spawn, government change, or a tag that exists without a character yet).
+has_ruling_country_leader:
+  exists()
+  any_character:
+    is_country_leader()
+
 is_rival_of_PREV:
   $is_rival_of(PREV)
 
