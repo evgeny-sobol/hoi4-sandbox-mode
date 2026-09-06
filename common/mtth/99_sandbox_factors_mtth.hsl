@@ -4,13 +4,17 @@
 world_tension_factor:
   base(-0.75)
   modifier:
-    value = 0.75 * threat
-    add(value)
+    # `threat` is global-scoped; a bare name is read as a country var and stays 0.
+    wt_bonus = 0.75 * global.threat
+    add(wt_bonus)
     has_government(democratic | neutrality)
+    not has_country_leader_ideology(japan_militarism_ideology)
     is_sandbox_mode_on()
   modifier:
     add(0.75)
-    has_government(communism | fascism)
+    or:
+      has_government(communism | fascism)
+      has_country_leader_ideology(japan_militarism_ideology)
     is_sandbox_mode_on()
   modifier:
     factor(0)
