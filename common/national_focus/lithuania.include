@@ -232,8 +232,6 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -330,8 +328,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
@@ -450,8 +446,6 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = 1 + mtth:democracy_factor
         factor(f)
         is_sandbox_mode_on()
@@ -511,8 +505,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = 1 + mtth:monarchy_factor
         factor(f)

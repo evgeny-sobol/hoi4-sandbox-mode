@@ -441,8 +441,6 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -451,8 +449,6 @@ focus_tree[id = china_warlord_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
         factor(f)
@@ -652,8 +648,6 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:communism_factor
         factor(f)

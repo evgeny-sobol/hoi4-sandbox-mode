@@ -23,8 +23,6 @@ focus_tree[id = ethiopia_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -33,8 +31,6 @@ focus_tree[id = ethiopia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
@@ -182,8 +178,6 @@ focus_tree[id = ethiopia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
@@ -772,8 +766,6 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -782,8 +774,6 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
@@ -804,8 +794,6 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -814,8 +802,6 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
@@ -993,8 +979,6 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -1012,8 +996,6 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         f = 1 + mtth:communism_factor
         factor(f)

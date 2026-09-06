@@ -518,8 +518,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -529,8 +527,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -539,8 +535,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
@@ -555,8 +549,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
@@ -701,8 +693,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -711,8 +701,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -768,8 +756,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -778,8 +764,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -805,8 +789,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -815,8 +797,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -867,8 +847,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -877,8 +855,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -904,8 +880,6 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -914,8 +888,6 @@ focus_tree[id = congo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:fascism_factor + 2 * mtth:monarchy_factor) * 2
         factor(f)

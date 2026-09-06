@@ -253,8 +253,6 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -288,8 +286,6 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
@@ -373,8 +369,6 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:fascism_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
@@ -846,8 +840,6 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:communism_factor
         factor(f)

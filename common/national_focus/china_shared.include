@@ -94,8 +94,6 @@
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -197,8 +195,6 @@
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -288,8 +284,6 @@
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -343,8 +337,6 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:monarchy_factor
         factor(f)

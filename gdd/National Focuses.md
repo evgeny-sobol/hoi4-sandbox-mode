@@ -20,7 +20,8 @@ Each **root** in national focuses tree:
 
 **Mutually exclusive** focuses that:
 - are actually available at the same time (`N` is that concurrent count, not the size of the `mutually_exclusive` list)
-- are not already partitioned by disjoint party-popularity weights
+- are **optional** (doctrine, MIC, "improve fighters vs bombers") rather than a political or story beat
+- are not already partitioned by party-popularity weights
 - are not already partitioned by Tyranny factors (a "repression vs. reform" fork)
 - are not already gated by a party-popularity `available` check of `> 0.5`
 - are not already gated by conflicting `has_government` checks (different ruling ideologies cannot appear at once)
@@ -28,6 +29,8 @@ Each **root** in national focuses tree:
       +modifier:
         $crossroad_modifier(N)
 ```
+
+`$crossroad_modifier(N)` is `1/N`. That is correct for optional forks: the pair should not outbid a singleton industrial focus. Political and story forks must **not** use it. A share that sums to 1 across the exclusive set (or `1/N` on top of such a share) makes each option on average half as attractive as any singleton, so the AI lingers on industry and diplomacy while the political beat waits.
 
 ### Party-popularity modifiers
 
@@ -43,27 +46,27 @@ The same applies when exclusive options require different ruling ideologies (`ha
 
 Assign each option the parties that support it.
 
-**Disjoint** party sets (no party supports more than one option): drop `$crossroad_modifier`. Use the sum of the supporting factors (they already add up across the set):
+Scale the shares so the exclusive set sums to `N` (each option averages the weight of a singleton). Drop `$crossroad_modifier`.
+
+**Disjoint** party sets (no party supports more than one option): sum of supporting factors, times `N`:
 
 ```
       +modifier:
-        f = mtth:democracy_factor + mtth:communism_factor
+        f = (mtth:democracy_factor + mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
 ```
 
 ```
       +modifier:
-        f = mtth:monarchy_factor + mtth:fascism_factor
+        f = (mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
 ```
 
-**Overlapping** party sets (the same party supports more than one option): keep `$crossroad_modifier(N)`. Put supporting parties in the numerator; in the denominator count each party once per option that claims it. Multiply by `N` so the shares remain the relative weights after `1/N`:
+**Overlapping** party sets (the same party supports more than one option): supporting parties in the numerator; in the denominator count each party once per option that claims it; multiply by `N`:
 
 ```
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = (mtth:democracy_factor + mtth:communism_factor) /
           (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
@@ -71,7 +74,7 @@ Assign each option the parties that support it.
         is_sandbox_mode_on()
 ```
 
-A focus that only **tilts** toward a party, without partitioning a fork, uses a boost instead of a share:
+A focus that only **tilts** toward a party, without partitioning a fork, uses a boost instead of a share. Do not add `$crossroad_modifier` on the same exclusive set: `1 + factor` already sits at singleton weight or above.
 
 ```
       +modifier:
@@ -196,7 +199,7 @@ Repressive and liberal focuses are tagged with `$add_tyranny(±X)` in `completio
 
 The Authoritarian bypass for unconstitutional government-change focuses is deferred (see "Party-popularity modifiers"); such focuses get only the tilt below.
 
-**Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Partition shares like disjoint party sets and drop `$crossroad_modifier`. Between −25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open for it:
+**Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Drop `$crossroad_modifier`. Do **not** multiply by `N` the way party-popularity shares do: between −25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open (Despotic 1.5 : 0.5, Moderate 0.5 : 0.5).
 
 ```
       +modifier:

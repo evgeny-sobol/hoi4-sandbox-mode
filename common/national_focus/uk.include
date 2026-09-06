@@ -9,8 +9,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $root_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:monarchy_factor + mtth:fascism_factor - mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -25,8 +23,6 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:communism_factor - mtth:monarchy_factor - mtth:fascism_factor
         factor(f)
@@ -46,7 +42,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $root_modifier()
       +modifier:
-        f = mtth:democracy_factor
+        f = mtth:democracy_factor * 2
         factor(f)
         is_sandbox_mode_on()
 
@@ -57,7 +53,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $root_modifier()
       +modifier:
-        f = mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor
+        f = (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
 
@@ -91,7 +87,7 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
       +modifier:
         f = mtth:monarchy_factor /
-          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
 
@@ -101,7 +97,7 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
       +modifier:
         f = mtth:fascism_factor /
-          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
 
@@ -111,7 +107,7 @@ focus_tree[id = british_focus]:
         $ai_sandbox_modifier()
       +modifier:
         f = mtth:communism_factor /
-          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
 
@@ -516,7 +512,7 @@ focus_tree[id = british_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        f = mtth:democracy_factor + mtth:communism_factor
+        f = (mtth:democracy_factor + mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
 
@@ -525,7 +521,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        f = mtth:monarchy_factor + mtth:fascism_factor
+        f = (mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
 
@@ -1359,8 +1355,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:democracy_factor - mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -1369,8 +1363,6 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:fascism_factor - mtth:democracy_factor
         factor(f)

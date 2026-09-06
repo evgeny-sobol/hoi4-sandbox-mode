@@ -470,8 +470,6 @@ focus_tree[id = belgium_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -558,8 +556,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         f = 1 + mtth:communism_factor
         factor(f)

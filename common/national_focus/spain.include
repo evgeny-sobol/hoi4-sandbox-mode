@@ -411,8 +411,6 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()

@@ -11,8 +11,6 @@ focus_tree[id = china_communist_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -68,8 +66,6 @@ focus_tree[id = china_communist_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 3
         factor(f)

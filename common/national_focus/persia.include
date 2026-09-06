@@ -505,8 +505,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $root_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:monarchy_factor
         factor(f)
         is_sandbox_mode_on()
@@ -515,8 +513,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -590,8 +586,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -636,8 +630,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -822,8 +814,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -833,8 +823,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -843,8 +831,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -870,8 +856,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -880,8 +864,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -929,8 +911,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -939,8 +919,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor) / (2 * mtth:monarchy_factor) * 2
         factor(f)
@@ -1014,8 +992,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -1025,8 +1001,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -1035,8 +1009,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
         factor(f)
@@ -1308,8 +1280,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -1318,8 +1288,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:democracy_factor) / (2 * mtth:democracy_factor) * 2
         factor(f)
@@ -1370,8 +1338,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -1385,8 +1351,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:democracy_factor) / (2 * mtth:democracy_factor + mtth:monarchy_factor) * 2
         factor(f)
@@ -1733,8 +1697,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -1744,8 +1706,6 @@ focus_tree[id = persian_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -1754,8 +1714,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         f = (mtth:fascism_factor) / (3 * mtth:fascism_factor) * 3
         factor(f)

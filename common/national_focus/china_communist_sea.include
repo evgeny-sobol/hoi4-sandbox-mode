@@ -426,8 +426,6 @@ focus_tree[id = china_communist_focus_sea]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
@@ -649,8 +647,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
@@ -874,30 +870,22 @@ focus_tree[id = china_communist_focus_sea]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
-        f = mtth:communism_factor
+        f = mtth:communism_factor * 3
         factor(f)
         is_sandbox_mode_on()
-
   focus[id = PRC_the_chinese_century]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
 
   focus[id = PRC_asian_democratic_union]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
-        f = mtth:democracy_factor
+        f = mtth:democracy_factor * 3
         factor(f)
         is_sandbox_mode_on()
-
   focus[id = PRC_usurp_control_over_yanan]:
     available:
       $XIC->can_PREV_get_wargoal_on_THIS()
