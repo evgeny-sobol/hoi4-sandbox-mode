@@ -713,30 +713,18 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_force_white_peace]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_swear_fealty]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_push_negotiations]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_rebuilding_iran]:
     ai_will_do:
       +modifier:
@@ -746,9 +734,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_reinstate_qajars]:
     ai_will_do:
       +modifier:
@@ -786,9 +771,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_reinforce_iranian_identity]:
     ai_will_do:
       +modifier:
@@ -1217,9 +1199,6 @@ focus_tree[id = persian_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_stage_mass_protests]:
     ai_will_do:
       +modifier:
@@ -1234,9 +1213,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PER_embrace_national_front]:
     ai_will_do:
       +modifier:
@@ -1396,9 +1372,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PER_reach_to_seperatists]:
     ai_will_do:
       +modifier:
@@ -1408,9 +1381,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_iranian_socialist_revolution]:
     ai_will_do:
       +modifier:
@@ -1438,9 +1408,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PER_appease_the_seperatists]:
     available:
       $KUR->can_PREV_get_wargoal_on_THIS()
@@ -1649,9 +1616,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PER_form_sumka]:
     ai_will_do:
       +modifier:

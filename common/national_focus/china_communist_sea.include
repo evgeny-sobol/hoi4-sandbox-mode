@@ -51,9 +51,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_rally_the_peasants]:
     ai_will_do:
       +modifier:
@@ -73,9 +70,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_on_guerilla_warfare]:
     ai_will_do:
       +modifier:
@@ -269,9 +263,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_seek_support_from_ussr]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
@@ -418,9 +409,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_part_of_the_comintern]:
     ai_will_do:
       +modifier:
@@ -454,9 +442,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_bring_war_to_neighboring_warlords]:
     available:
       $SHX->can_PREV_get_wargoal_on_THIS()
@@ -546,9 +531,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_promote_womens_suffrage]:
     ai_will_do:
       +modifier:
@@ -558,9 +540,6 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_a_new_central_committee]:
     ai_will_do:
       +modifier:
@@ -740,8 +719,6 @@ focus_tree[id = china_communist_focus_sea]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($PRC) + $opinion_factor($GXC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($XSM) + $opinion_factor($SIK) + $opinion_factor($GDC) + $opinion_factor($SND) + $opinion_factor($SIC) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($XIC) + $opinion_factor($KHM) + $opinion_factor($KUM) + $opinion_factor($RNG) + $opinion_factor($HBC)) / 17
@@ -772,16 +749,10 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PRC_peaceful_reunification]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PRC_the_peoples_republic]:
     ai_will_do:
       +modifier:
@@ -855,16 +826,10 @@ focus_tree[id = china_communist_focus_sea]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_reform_the_republic]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = PRC_avenge_the_century_of_humiliation]:
     ai_will_do:
       +modifier:

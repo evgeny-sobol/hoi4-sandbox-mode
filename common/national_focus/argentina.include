@@ -5,23 +5,14 @@ focus_tree[id = argentine_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_defense_and_democracy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_work_with_the_nationalists]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_crack_down_on_corruption]:
     ai_will_do:
       +modifier:
@@ -74,16 +65,10 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_maintain_the_status_quo]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_march_to_la_casa_rosada]:
     ai_will_do:
       +modifier:
@@ -123,9 +108,6 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_support_radical_nationalism]:
     ai_will_do:
       +modifier:
@@ -248,9 +230,6 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_join_the_axis]:
     ai_will_do:
       +modifier:
@@ -407,9 +386,6 @@ focus_tree[id = argentine_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_in_memory_of_yrigoyen]:
     ai_will_do:
       +modifier:
@@ -464,9 +440,6 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_alvears_democracy]:
     ai_will_do:
       +modifier:
@@ -579,9 +552,6 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_align_with_the_monroe_doctrine]:
     ai_will_do:
       +modifier:
@@ -676,9 +646,6 @@ focus_tree[id = argentine_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ARG_invite_ghioldi_back_to_argentina]:
     ai_will_do:
       +modifier:
@@ -721,9 +688,6 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_women_in_industry]:
     ai_will_do:
       +modifier:
@@ -800,16 +764,10 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_liberation_theology]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ARG_socialist_researchers]:
     ai_will_do:
       +modifier:

@@ -5,16 +5,10 @@ focus_tree[id = finnish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = FIN_towards_a_red_government]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_the_second_finnish_civil_war]:
     +ai_will_do:
       modifier:
@@ -46,16 +40,10 @@ focus_tree[id = finnish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_antagonize_the_soviets]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_finno_soviet_pact]:
     +ai_will_do:
       modifier:
@@ -95,9 +83,6 @@ focus_tree[id = finnish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_pragmatic_socialism]:
     +ai_will_do:
       modifier:
@@ -357,9 +342,6 @@ focus_tree[id = finnish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = FIN_the_finnish_throne]:
     +ai_will_do:
       modifier:
@@ -370,17 +352,12 @@ focus_tree[id = finnish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_mic_modifier()
 
   focus[id = FIN_dreams_of_expansionism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = FIN_reach_out_to_scandinavia]:
     +ai_will_do:
       modifier:
@@ -531,23 +508,14 @@ focus_tree[id = finnish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = FIN_discredit_the_democratic_system]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_prepare_a_military_coup]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = FIN_a_fascist_regime]:
     +ai_will_do:
       modifier:

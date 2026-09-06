@@ -988,37 +988,22 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = JAP_abe_isoo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = JAP_tokugawa_iesato_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = JAP_ichiro_hatoyama_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = JAP_mitsumasa_yonai_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = JAP_uplift_labor_unions]:
     ai_will_do:
       +modifier:
@@ -1338,16 +1323,10 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_empower_the_emperor]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_the_art_of_warfare]:
     ai_will_do:
       +modifier:
@@ -1367,23 +1346,14 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = JAP_the_enemy_of_our_enemy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = JAP_return_to_sakoku_ron]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = JAP_societal_bushido]:
     ai_will_do:
       +modifier:
@@ -2032,16 +2002,10 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_the_harakiri_debate]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_reiterate_the_three_principles_of_hirota]:
     ai_will_do:
       +modifier:
@@ -2178,23 +2142,14 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = JAP_yamamotos_premiership]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = JAP_the_crysanthemum_throne]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = JAP_national_defense_brotherhood]:
     ai_will_do:
       +modifier:
@@ -3090,15 +3045,10 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_rekindle_the_old_alliance]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($ENG)
 
@@ -3174,16 +3124,10 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_showa_restoration]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = JAP_prepare_for_war_with_the_soviet_union]:
     ai_will_do:
       +modifier:
@@ -3314,9 +3258,6 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = JAP_the_koiso_cabinet]:
     ai_will_do:
       +modifier:

@@ -217,9 +217,6 @@ focus_tree[id = polish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_polish_militarism]:
     ai_will_do:
       +modifier:
@@ -284,9 +281,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_common_organization_of_society]:
     ai_will_do:
       +modifier:
@@ -329,9 +323,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_ozon]:
     ai_will_do:
       +modifier:
@@ -345,9 +336,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = POL_baltic_ultimatums]:
     available:
       $LAT->can_PREV_get_wargoal_on_THIS()
@@ -403,8 +391,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -549,8 +535,6 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
@@ -576,9 +560,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_lithuanian_alliance]:
     ai_will_do:
       +modifier:
@@ -590,8 +571,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -605,18 +584,12 @@ focus_tree[id = polish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_organize_the_peasants_strike]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_woo_morges_staff]:
     ai_will_do:
       +modifier:
@@ -626,16 +599,10 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_arm_peasant_militia]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_state_national_council]:
     ai_will_do:
       +modifier:
@@ -744,9 +711,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_anti_imperialism]:
     ai_will_do:
       +modifier:
@@ -954,9 +918,6 @@ focus_tree[id = polish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_fulfil_fifth_of_november]:
     ai_will_do:
       +modifier:
@@ -966,9 +927,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_restore_the_diet_of_galicia]:
     ai_will_do:
       +modifier:
@@ -1069,9 +1027,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_reclaim_west_slavia]:
     available:
       var:POL_reclaim_west_slavia_targets[0]->can_PREV_get_wargoal_on_THIS()
@@ -1113,16 +1068,10 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_cossack_king]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_restore_bermontians]:
     ai_will_do:
       +modifier:
@@ -1183,9 +1132,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = POL_demand_pomerania]:
     ai_will_do:
       +modifier:
@@ -1208,9 +1154,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_invite_exiled_nobility]:
     ai_will_do:
       +modifier:
@@ -1233,8 +1176,6 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
@@ -1250,9 +1191,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = POL_restoration_of_the_royal_sejm]:
     ai_will_do:
       +modifier:
@@ -1448,8 +1386,6 @@ focus_tree[id = polish_focus]:
         $ai_high_tyranny_tilt()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(5)
     completion_reward:
       $add_tyranny(10)
 
@@ -1545,8 +1481,6 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
@@ -1557,16 +1491,10 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_assurance_of_loyalty]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_declare_independence]:
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
@@ -1574,8 +1502,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -1742,9 +1668,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_paramilitarism]:
     ai_will_do:
       +modifier:
@@ -1754,9 +1677,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_military_youth]:
     ai_will_do:
       +modifier:
@@ -1779,9 +1699,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_political_commissars]:
     ai_will_do:
       +modifier:
@@ -1804,9 +1721,6 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_intervention_focus]:
     ai_will_do:
       +modifier:
@@ -2025,18 +1939,12 @@ focus_tree[id = polish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_clamp_down_on_danzig]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = POL_attract_poles_to_gdynia]:
     ai_will_do:
       +modifier:

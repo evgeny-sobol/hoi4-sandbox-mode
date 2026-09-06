@@ -627,17 +627,12 @@ focus_tree[id = swiss_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_mic_modifier()
 
   focus[id = SWI_neutral_entente]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWI_plains_warfare]:
     ai_will_do:
       +modifier:

@@ -543,8 +543,6 @@ focus_tree[id = netherlands_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($INS)) / 2
@@ -565,8 +563,6 @@ focus_tree[id = netherlands_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($HOL) + $opinion_factor($ENG)) / 3
@@ -586,8 +582,6 @@ focus_tree[id = netherlands_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -742,9 +736,6 @@ focus_tree[id = netherlands_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = HOL_decolonization]:
     available:
       $INS->can_PREV_get_wargoal_on_THIS()
@@ -878,9 +869,6 @@ focus_tree[id = netherlands_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = HOL_symbol_of_resistance]:
     ai_will_do:
       +modifier:
@@ -1006,8 +994,6 @@ focus_tree[id = netherlands_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:

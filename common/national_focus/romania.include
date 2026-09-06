@@ -343,9 +343,6 @@ focus_tree[id = romanian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ROM_appoint_soviet_friendly_government]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()

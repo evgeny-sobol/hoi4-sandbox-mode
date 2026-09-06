@@ -5,9 +5,6 @@ focus_tree[id = spanish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPA_hand_over_the_ceda_campaign_chest]:
     +ai_will_do:
       modifier:
@@ -32,25 +29,16 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPA_con_paquito]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPR_the_popular_front]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPR_secure_the_guardia_de_asalto]:
     +ai_will_do:
       modifier:
@@ -89,9 +77,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPA_bolster_offensive_infrastructure]:
     +ai_will_do:
       modifier:
@@ -483,9 +468,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPA_save_the_alcazar]:
     +ai_will_do:
       modifier:
@@ -719,9 +701,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPA_prepare_the_carlist_insurrection]:
     +ai_will_do:
       modifier:
@@ -939,9 +918,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPR_appropriate_the_means_of_production]:
     +ai_will_do:
       modifier:
@@ -1131,9 +1107,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPR_strengthen_the_euzko_gudarostea]:
     +ai_will_do:
       modifier:
@@ -1155,8 +1128,6 @@ focus_tree[id = spanish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
-      modifier:
-        $crossroad_modifier(2)
     completion_reward:
       $add_tyranny(20)
     available:
@@ -1171,9 +1142,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPR_subvert_the_stalinists]:
     +ai_will_do:
       modifier:
@@ -1457,9 +1425,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SPR_new_leadership]:
     +ai_will_do:
       modifier:
@@ -1514,9 +1479,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPR_fortify_the_central_government]:
     +ai_will_do:
       modifier:
@@ -1583,9 +1545,6 @@ focus_tree[id = spanish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = SPR_communists_in_the_government]:
     +ai_will_do:
       modifier:

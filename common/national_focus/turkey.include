@@ -145,9 +145,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_the_second_five_year_plan]:
     ai_will_do:
       +modifier:
@@ -187,17 +184,12 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_kemalism_and_the_modern_movement]:
     +available:
       $TUR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -244,9 +236,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_intervene_in_the_spanish_civil_war]:
     ai_will_do:
       +modifier:
@@ -298,8 +287,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -370,8 +357,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -475,8 +460,6 @@ focus_tree[id = turkish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
@@ -545,8 +528,6 @@ focus_tree[id = turkish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
@@ -559,8 +540,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -616,8 +595,6 @@ focus_tree[id = turkish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
@@ -666,9 +643,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = TUR_controlling_the_skies_of_europe]:
     ai_will_do:
       +modifier:
@@ -785,16 +759,10 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = TUR_join_the_axis]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = TUR_invite_bulgaria]:
     ai_will_do:
       +modifier:
@@ -804,17 +772,12 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_carve_up_greece]:
     available:
       $GRE->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -846,17 +809,12 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_cleanse_iberia_of_bolshevism]:
     available:
       $SPR->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -935,17 +893,12 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = TUR_secure_the_iraqi_oil]:
     available:
       $IRQ->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -1039,8 +992,6 @@ focus_tree[id = turkish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(5)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
@@ -1051,9 +1002,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(5)
-
   focus[id = TUR_the_international_of_proletarian_freethinkers]:
     ai_will_do:
       +modifier:

@@ -5,9 +5,6 @@ focus_tree[id = china_nationalist_warlord_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_sea_three_principles_of_the_people]:
     ai_will_do:
       +modifier:
@@ -213,9 +210,6 @@ focus_tree[id = china_nationalist_warlord_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_tsr_legacy_of_the_hongxian_emperor]:
     ai_will_do:
       +modifier:
@@ -396,9 +390,6 @@ focus_tree[id = china_nationalist_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_tsr_deepen_our_collaboration]:
     ai_will_do:
       +modifier:
@@ -408,9 +399,6 @@ focus_tree[id = china_nationalist_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_tsr_our_place_in_the_sphere]:
     ai_will_do:
       +modifier:

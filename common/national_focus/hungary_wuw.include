@@ -485,16 +485,10 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_an_airforce_to_be_reckoned_with]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_royalist_education_initiative]:
     ai_will_do:
       +modifier:
@@ -708,16 +702,10 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_undermine_the_admiral]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_reestablish_the_rongyos_garda]:
     ai_will_do:
       +modifier:
@@ -1485,18 +1473,12 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_economic_intervention]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_secret_rearmament]:
     ai_will_do:
       +modifier:
@@ -1632,9 +1614,6 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_expand_the_lignite_industry]:
     ai_will_do:
       +modifier:
@@ -1656,9 +1635,6 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = wuw_HUN_hungarian_tradition]:
     ai_will_do:
       +modifier:

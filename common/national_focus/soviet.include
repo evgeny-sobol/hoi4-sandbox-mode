@@ -34,23 +34,14 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SOV_the_left_opposition]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = SOV_the_right_opposition]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       ▀▀▄
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀
@@ -996,9 +987,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_brilliant_genius]:
     +ai_will_do:
@@ -1010,9 +998,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_ban_excessive_hero_worship]:
     +ai_will_do:
@@ -1030,17 +1015,11 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_architect_of_communism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_father_of_nations]:
     +ai_will_do:
@@ -1939,9 +1918,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_committee_in_exile]:
     +ai_will_do:
@@ -1991,9 +1967,6 @@ focus_tree[id = soviet_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
-      modifier:
-        $crossroad_modifier(2)
-
     completion_reward:
       $add_tyranny(20)
     available:
@@ -2059,9 +2032,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_autonomous_soviet_republics]:
     +ai_will_do:
@@ -2121,9 +2091,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_concessions_to_foreign_powers]:
     +ai_will_do:
@@ -2180,9 +2147,6 @@ focus_tree[id = soviet_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
-      modifier:
-        $crossroad_modifier(2)
-
     completion_reward:
       $add_tyranny(20)
     available:
@@ -2246,9 +2210,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   #TODO
   focus[id = SOV_victory_over_devastation]:
     +ai_will_do:
@@ -2330,9 +2291,6 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   #TODO
   focus[id = SOV_align_the_zinovyevites]:
     +ai_will_do:
@@ -2350,17 +2308,11 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   #TODO
   focus[id = SOV_strengthen_the_trade_unions]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   #TODO
   focus[id = SOV_the_peoples_revolution]:
     +ai_will_do:
@@ -2430,8 +2382,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         factor(rightful_heir_to_empire_antagonism)
@@ -2498,8 +2448,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         cooperation = 1 + ($opinion_factor($CZE) + $opinion_factor($POL) +
           $opinion_factor($YUG) +
           $opinion_factor($BUL)) / 4
@@ -2562,9 +2510,6 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   #TODO
   focus[id = SOV_the_fate_of_romania]:
     available:

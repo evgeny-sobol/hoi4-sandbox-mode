@@ -331,9 +331,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_nation_in_arms]:
     +ai_will_do:
       modifier:
@@ -402,8 +399,6 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(4)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPD)) / 2
@@ -421,9 +416,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_the_iberian_socialist_union]:
     +ai_will_do:
       modifier:
@@ -468,9 +460,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_they_need_our_help]:
     +ai_will_do:
       modifier:
@@ -497,8 +486,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(4)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -570,9 +557,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_support_the_spanish_nationalists]:
     available:
       $POR->can_PREV_get_wargoal_on_THIS()
@@ -580,8 +564,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(4)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -622,9 +604,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_the_capital_of_espionage]:
     +ai_will_do:
       modifier:
@@ -644,9 +623,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_national_gold_reserves]:
     available:
       $POR->can_PREV_get_wargoal_on_THIS()
@@ -686,9 +662,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = POR_ditadura_militar]:
     available:
       $POR->can_PREV_get_wargoal_on_THIS()
@@ -784,8 +757,6 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BRA)
@@ -796,9 +767,6 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(4)
-
   focus[id = POR_the_return_of_duarte]:
     +ai_will_do:
       modifier:

@@ -5,9 +5,6 @@ focus_tree[id = estonia_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = EST_ismaaliit]:
     ai_will_do:
       +modifier:
@@ -47,9 +44,6 @@ focus_tree[id = estonia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = EST_look_north]:
     ai_will_do:
       +modifier:
@@ -108,18 +102,12 @@ focus_tree[id = estonia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = EST_rally_the_nation]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = EST_march_on_talinn]:
     ai_will_do:
       +modifier:
@@ -348,9 +336,6 @@ focus_tree[id = estonia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = EST_hold_saaremaa]:
     ai_will_do:
       +modifier:
@@ -360,9 +345,6 @@ focus_tree[id = estonia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = EST_fight_against_communism]:
     ai_will_do:
       +modifier:
@@ -417,12 +399,7 @@ focus_tree[id = estonia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = EST_baltic_unification]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)

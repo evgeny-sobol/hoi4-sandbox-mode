@@ -552,9 +552,6 @@ focus_tree[id = german_focus]:
         is_sandbox_mode_on()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_the_four_year_plan]:
     +ai_will_do:
       modifier:
@@ -574,9 +571,6 @@ focus_tree[id = german_focus]:
         is_sandbox_mode_on()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_currency_reforms]:
     +ai_will_do:
       modifier:
@@ -1186,8 +1180,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($POR) +
@@ -1205,9 +1197,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_our_place_in_the_sun_ww]:
     available:
       $RAJ->can_PREV_get_wargoal_on_THIS()
@@ -1232,8 +1221,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1328,8 +1315,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         antagonism = 1 - ($opinion_factor($BEL) + $opinion_factor($HOL)) / 2
@@ -1349,8 +1334,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         antagonism = 1 - ($opinion_factor($BEL) + $opinion_factor($LUX)) / 2
@@ -1368,8 +1351,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1404,22 +1385,14 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_restore_the_brest_litovsk_borders]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_safeguard_poland]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($POL)
 
@@ -1427,8 +1400,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($POL)
 
@@ -1436,8 +1407,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       modifier:
         cooperation = 1 + ($opinion_factor($LIT) + $opinion_factor($EST) +
           $opinion_factor($LAT)) / 3
@@ -1448,8 +1417,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       modifier:
         cooperation = 1 + ($opinion_factor($EST) + $opinion_factor($LAT) +
           $opinion_factor($LIT)) / 3
@@ -1621,17 +1588,12 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_cooperation_modifier($AUS)
 
   focus[id = GER_the_austrian_question]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_rekindle_imperial_sentiment_ww]:
     +ai_will_do:
       modifier:
@@ -1653,8 +1615,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         factor(GER_carve_up_czechoslovakia_antagonism)
@@ -1669,9 +1629,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_the_first_berlin_award]:
     +ai_will_do:
       modifier:
@@ -1698,17 +1655,12 @@ focus_tree[id = german_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_high_tyranny_tilt()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_conquer_italy]:
     available:
       $ITA->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1720,9 +1672,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_sway_the_balkans]:
     +ai_will_do:
       modifier:
@@ -1757,8 +1706,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($TUR)
@@ -1769,8 +1716,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($TUR)
 
@@ -2207,23 +2152,14 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_plenipotentiary_of_armaments]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_plenipotentiary_of_the_four_year_plan]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = GER_wunderwaffe]:
     +ai_will_do:
       modifier:
@@ -2245,8 +2181,6 @@ focus_tree[id = german_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
-      modifier:
-        $crossroad_modifier(2)
     completion_reward:
       $add_tyranny(20)
     available:
@@ -2256,9 +2190,6 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_absorb_the_abwehr]:
     +ai_will_do:
       modifier:
@@ -2302,16 +2233,10 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_party_chancellor_bormann]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_optimize_reich_labour_service]:
     +ai_will_do:
       modifier:
@@ -2336,16 +2261,10 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_loyalty_to_the_fuhrer]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_bribe_senior_officers]:
     +ai_will_do:
       modifier:
@@ -2384,16 +2303,10 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_reorganize_the_wehrmacht]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_war_preparations]:
     +ai_will_do:
       modifier:
@@ -2418,8 +2331,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($CZE)
 
@@ -2468,8 +2379,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2539,8 +2448,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) +
@@ -2562,9 +2469,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_danzig_for_slovakia]:
     ai_will_do:
       +modifier:
@@ -2694,9 +2598,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_around_maginot]:
     available:
       $BEL->can_PREV_get_wargoal_on_THIS()
@@ -2706,8 +2607,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2732,8 +2631,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($DEN) + $opinion_factor($NOR)) / 2
@@ -2749,15 +2646,10 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_form_rome_berlin_axis]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($ITA)
 
@@ -2767,8 +2659,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2781,8 +2671,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_cooperation_modifier($SPA)
 
   focus[id = GER_operation_felix]:
@@ -2792,8 +2680,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2813,8 +2699,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_cooperation_modifier($POR)
 
   focus[id = GER_operation_isabella]:
@@ -2823,8 +2707,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2966,16 +2848,12 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_cooperation_modifier($SOV)
 
   focus[id = GER_anti_soviet_pact]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($JAP)
 
@@ -2993,17 +2871,12 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = GER_war_with_the_ussr]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -3066,16 +2939,12 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_cooperation_modifier($CHI)
 
   focus[id = GER_befriend_japan]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($JAP)
 

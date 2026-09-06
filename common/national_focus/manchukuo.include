@@ -50,9 +50,6 @@ focus_tree[id = manchukuo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = MAN_hoankyoku]:
     ai_will_do:
       +modifier:
@@ -147,8 +144,6 @@ focus_tree[id = manchukuo_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:

@@ -8,8 +8,6 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $root_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
@@ -30,9 +28,6 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = AUS_rally_the_people]:
     ai_will_do:
       +modifier:
@@ -119,8 +114,6 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
@@ -141,9 +134,6 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_the_peoples_army]:
     ai_will_do:
       +modifier:
@@ -224,16 +214,10 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_meticulous_preparations]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_demand_liberation_of_workers]:
     ai_will_do:
       +modifier:
@@ -274,8 +258,6 @@ focus_tree[id = austria_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_low_tyranny_tilt()
-      +modifier:
-        $crossroad_modifier(3)
     completion_reward:
       $add_tyranny(-10)
 
@@ -302,8 +284,6 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG) + $opinion_factor($USA)) / 3
@@ -320,17 +300,12 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_outlaw_the_radicals]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_high_tyranny_tilt()
-      +modifier:
-        $crossroad_modifier(2)
     completion_reward:
       $add_tyranny(20)
     available:
@@ -522,16 +497,10 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = AUS_legacy_of_the_empire]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = AUS_repeal_the_habsburgergesetz]:
     ai_will_do:
       +modifier:
@@ -551,16 +520,10 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_legitimistische_studentenverbindung]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_sturmscharen_support]:
     ai_will_do:
       +modifier:
@@ -828,9 +791,6 @@ focus_tree[id = austria_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_clamp_down_on_dnsap]:
     ai_will_do:
       +modifier:
@@ -1302,9 +1262,6 @@ focus_tree[id = austria_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AUS_bring_generals_out_of_retirement]:
     ai_will_do:
       +modifier:

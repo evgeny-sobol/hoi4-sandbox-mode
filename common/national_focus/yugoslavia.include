@@ -5,16 +5,10 @@ focus_tree[id = yugoslavian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_friendship_treaty_with_italy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_reinforce_old_alliances]:
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
@@ -22,8 +16,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -63,8 +55,6 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SLV)
@@ -77,8 +67,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -93,8 +81,6 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CRO)
@@ -107,8 +93,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -123,8 +107,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -162,17 +144,12 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = YUG_autonomous_transylvania]:
     available:
       $TRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -184,45 +161,28 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = YUG_evolution]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_crush_the_ustasa]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_establish_the_banovina_of_croatia]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_ban_slovene_nationalist_parties]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_slovenia_for_support]:
     available:
       $ITA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -234,16 +194,10 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_surrender_macedonia]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_invite_german_military_mission]:
     ai_will_do:
       +modifier:
@@ -308,9 +262,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_coronation]:
     ai_will_do:
       +modifier:
@@ -339,9 +290,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_fortress_yugoslavia]:
     ai_will_do:
       +modifier:
@@ -351,9 +299,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_defence_army_of_yugoslavia]:
     ai_will_do:
       +modifier:
@@ -368,9 +313,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_guarantee_religious_liberties]:
     ai_will_do:
       +modifier:
@@ -428,9 +370,6 @@ focus_tree[id = yugoslavian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = YUG_form_the_federal_republic]:
     ai_will_do:
       +modifier:

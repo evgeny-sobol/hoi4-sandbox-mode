@@ -335,8 +335,6 @@ focus_tree[id = new_zealander_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($NZL)) / 2
@@ -352,9 +350,6 @@ focus_tree[id = new_zealander_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = NZL_2nzef]:
     ai_will_do:
       +modifier:
@@ -374,9 +369,6 @@ focus_tree[id = new_zealander_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = NZL_empower_the_working_class]:
     available:
       $NZL->can_PREV_get_wargoal_on_THIS()
@@ -404,9 +396,6 @@ focus_tree[id = new_zealander_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = NZL_befriend_japan]:
     ai_will_do:
       +modifier:
@@ -423,8 +412,6 @@ focus_tree[id = new_zealander_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
@@ -440,9 +427,6 @@ focus_tree[id = new_zealander_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = NZL_independent_new_zealand]:
     ai_will_do:
       +modifier:

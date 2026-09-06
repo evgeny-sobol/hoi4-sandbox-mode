@@ -5,18 +5,12 @@ focus_tree[id = paraguay_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = PAR_reach_out_to_european_contacts]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = PAR_rebuild_humaita]:
     +ai_will_do:
       modifier:
@@ -164,8 +158,6 @@ focus_tree[id = paraguay_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BOL)
@@ -181,9 +173,6 @@ focus_tree[id = paraguay_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = PAR_the_permanent_leader]:
     ai_will_do:
       +modifier:

@@ -15,16 +15,10 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_martial_prime_minister]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_establish_chambers_of_professions]:
     ai_will_do:
       +modifier:
@@ -64,9 +58,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_improve_military_life]:
     ai_will_do:
       +modifier:
@@ -104,9 +95,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_look_north]:
     ai_will_do:
       +modifier:
@@ -126,9 +114,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_banish_clemens]:
     ai_will_do:
       +modifier:
@@ -148,9 +133,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_lift_ban_on_perkonkrusts]:
     ai_will_do:
       +modifier:
@@ -224,8 +206,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -329,9 +309,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_prepare_underground_resistance]:
     ai_will_do:
       +modifier:
@@ -346,9 +323,6 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_baltic_economic_union]:
     ai_will_do:
       +modifier:
@@ -373,12 +347,7 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LAT_baltic_unification]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)

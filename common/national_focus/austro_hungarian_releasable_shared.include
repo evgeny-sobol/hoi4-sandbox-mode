@@ -257,16 +257,10 @@ focus_tree[id = austro_hungarian_releasable_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ah_interventionism_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ah_military_youth]:
     ai_will_do:
       +modifier:

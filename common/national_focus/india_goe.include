@@ -14,23 +14,14 @@ focus_tree[id = indian_focus_goe]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_look_to_the_past]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_look_to_the_future]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_lobby_parliment]:
     ai_will_do:
       +modifier:
@@ -675,9 +666,6 @@ focus_tree[id = indian_focus_goe]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_princely_states_policy]:
     ai_will_do:
       +modifier:
@@ -702,16 +690,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_league_against_gandhism]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_uplifting_the_people_of_india]:
     ai_will_do:
       +modifier:
@@ -840,9 +822,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_promote_violence_against_the_british]:
     ai_will_do:
       +modifier:
@@ -852,23 +831,14 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_two_nation_theory_dlc]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_red_in_the_shadows]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_rally_the_indian_left]:
     ai_will_do:
       +modifier:
@@ -918,9 +888,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_land_of_the_tillers]:
     ai_will_do:
       +modifier:
@@ -1005,9 +972,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_focus_on_the_countryside]:
     ai_will_do:
       +modifier:
@@ -1212,16 +1176,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_netaji]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_the_second_duar_war]:
     available:
       $BHU->can_PREV_get_wargoal_on_THIS()
@@ -1263,16 +1221,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_authoritarianship]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_demand_return_of_imperialist_colonies]:
     ai_will_do:
       +modifier:
@@ -1430,16 +1382,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_haripura_session_of_the_indian_national_congress]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_power_sharing_agreement]:
     ai_will_do:
       +modifier:
@@ -1464,16 +1410,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_eastern_pakistan]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_inclusive_nationalism]:
     ai_will_do:
       +modifier:
@@ -1512,16 +1452,10 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_sideline_the_conflict]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_kingmaker]:
     ai_will_do:
       +modifier:
@@ -1531,9 +1465,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_destroyer_of_worlds]:
     ai_will_do:
       +modifier:
@@ -1637,9 +1568,6 @@ focus_tree[id = indian_focus_goe]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_the_government_of_india_act]:
     +ai_will_do:
       modifier:
@@ -1675,30 +1603,18 @@ focus_tree[id = indian_focus_goe]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_the_indian_parliament]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_court_the_princes]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_the_integrity_of_india_act]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_princely_state_donations_GOE]:
     +ai_will_do:
       modifier:
@@ -1725,9 +1641,6 @@ focus_tree[id = indian_focus_goe]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_raise_import_duties]:
     +ai_will_do:
       modifier:
@@ -1757,9 +1670,6 @@ focus_tree[id = indian_focus_goe]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_crown_commodities]:
     +ai_will_do:
       modifier:
@@ -1831,16 +1741,10 @@ focus_tree[id = indian_focus_goe]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_consult_with_congress_leaders]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = RAJ_preemptive_invasion_of_iran]:
     available:
       $PER->can_PREV_get_wargoal_on_THIS()
@@ -1976,23 +1880,14 @@ focus_tree[id = indian_focus_goe]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_model_after_usa]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_model_after_soviet]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = RAJ_automating_the_army]:
     +ai_will_do:
       modifier:

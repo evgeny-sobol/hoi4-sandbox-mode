@@ -5,9 +5,6 @@ focus_tree[id = indonesia_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_infiltrate_the_army]:
     ai_will_do:
       +modifier:
@@ -313,9 +310,6 @@ focus_tree[id = indonesia_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = INS_mixed_economy_system]:
     +ai_will_do:
       modifier:
@@ -335,9 +329,6 @@ focus_tree[id = indonesia_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = INS_concessions_to_communists]:
     +ai_will_do:
       modifier:
@@ -357,9 +348,6 @@ focus_tree[id = indonesia_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = INS_hatta_focus_2]:
     +ai_will_do:
       modifier:
@@ -423,16 +411,10 @@ focus_tree[id = indonesia_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_integrate_sarekat_islam]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_guided_economy]:
     +ai_will_do:
       modifier:
@@ -484,8 +466,6 @@ focus_tree[id = indonesia_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_high_tyranny_tilt()
-      +modifier:
-        $crossroad_modifier(2)
     completion_reward:
       $add_tyranny(20)
     available:
@@ -615,8 +595,6 @@ focus_tree[id = indonesia_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_mic_modifier()
 
   focus[id = INS_fate_of_de_javasche_bank]:
@@ -633,16 +611,10 @@ focus_tree[id = indonesia_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_all_in_on_rubber]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_tin_mining]:
     +ai_will_do:
       modifier:
@@ -662,9 +634,6 @@ focus_tree[id = indonesia_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_increased_trade_with_japan]:
     ai_will_do:
       +modifier:
@@ -704,9 +673,6 @@ focus_tree[id = indonesia_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_subsidize_local_business]:
     ai_will_do:
       +modifier:
@@ -796,9 +762,6 @@ focus_tree[id = indonesia_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_east_indies_exile_government]:
     +ai_will_do:
       modifier:
@@ -840,9 +803,6 @@ focus_tree[id = indonesia_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = INS_embrace_co_prosp_sphere]:
     +ai_will_do:
       modifier:

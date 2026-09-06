@@ -34,9 +34,6 @@ focus_tree[id = china_communist_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = PRC_rectification_campaign]:
     ai_will_do:
       +modifier:

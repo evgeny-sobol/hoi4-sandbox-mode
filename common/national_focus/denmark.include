@@ -5,9 +5,6 @@ focus_tree[id = danish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_devalue_the_krone]:
     ai_will_do:
       +modifier:
@@ -49,9 +46,6 @@ focus_tree[id = danish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_build_a_modern_dannevirke]:
     ai_will_do:
       +modifier:
@@ -158,16 +152,10 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_sanction_sabotages]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_form_the_danish_freedom_council]:
     ai_will_do:
       +modifier:
@@ -275,8 +263,6 @@ focus_tree[id = danish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
@@ -292,9 +278,6 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_seek_military_investments]:
     ai_will_do:
       +modifier:
@@ -403,16 +386,10 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_policy_of_disarmament]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_import_machinery_and_material]:
     ai_will_do:
       +modifier:
@@ -467,9 +444,6 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = DEN_social_stability]:
     ai_will_do:
       +modifier:
@@ -510,16 +484,10 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_side_with_industry]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_five_year_plan]:
     ai_will_do:
       +modifier:
@@ -533,16 +501,10 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = DEN_start_the_rearmament]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_national_unity]:
     ai_will_do:
       +modifier:
@@ -569,9 +531,6 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = DEN_seek_protection]:
     ai_will_do:
       +modifier:
@@ -603,9 +562,6 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_military_cooperation_program]:
     ai_will_do:
       +modifier:
@@ -627,9 +583,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_conservatives_support]:
     +ai_will_do:
       modifier:
@@ -661,9 +614,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_konge_og_faedreland]:
     +ai_will_do:
       modifier:
@@ -693,9 +643,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_reintegrate_iceland]:
     available:
       $ICE->can_PREV_get_wargoal_on_THIS()
@@ -782,18 +729,12 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_seize_power]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = DEN_denmark_first]:
     +ai_will_do:
       modifier:
@@ -864,8 +805,6 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
@@ -881,8 +820,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -903,8 +840,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_war_support_modifier()
       modifier:

@@ -106,18 +106,12 @@ focus_tree[id = iraq_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_anglo_iraqi_oil_expansion]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_form_opec]:
     ai_will_do:
       +modifier:
@@ -228,16 +222,10 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_purchase_alternative_aricraft]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_bomber_training]:
     ai_will_do:
       +modifier:
@@ -315,9 +303,6 @@ focus_tree[id = iraq_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_rally_behind_the_hashemite_dynasty]:
     ai_will_do:
       +modifier:
@@ -351,9 +336,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_eliminate_the_golden_square]:
     ai_will_do:
       +modifier:
@@ -373,9 +355,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = IRQ_arab_league_economic_cooperation]:
     available:
       $IRQ->can_PREV_get_wargoal_on_THIS()
@@ -471,9 +450,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_expand_membership]:
     ai_will_do:
       +modifier:
@@ -496,9 +472,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_unite_mashriq]:
     available:
       $PAL->can_PREV_get_wargoal_on_THIS()
@@ -614,9 +587,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_curtail_arabism]:
     ai_will_do:
       +modifier:
@@ -810,9 +780,6 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = IRQ_refuge_for_the_grand_mufti]:
     ai_will_do:
       +modifier:
@@ -824,9 +791,6 @@ focus_tree[id = iraq_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = IRQ_kurdish_democratic]:
     ai_will_do:
       +modifier:

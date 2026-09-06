@@ -5,9 +5,6 @@ focus_tree[id = china_nationalist_sea_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHI_accelerate_the_tutelage]:
     ai_will_do:
       +modifier:
@@ -246,16 +243,10 @@ focus_tree[id = china_nationalist_sea_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHI_prepare_for_a_change_in_leadership]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_avoid_another_crisis]:
     ai_will_do:
       +modifier:
@@ -343,16 +334,10 @@ focus_tree[id = china_nationalist_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_a_functioning_bureaucracy_first]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_extend_jurisdiction_to_the_provinces]:
     ai_will_do:
       +modifier:
@@ -432,9 +417,6 @@ focus_tree[id = china_nationalist_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_one_nation_undivided]:
     ai_will_do:
       +modifier:
@@ -478,16 +460,10 @@ focus_tree[id = china_nationalist_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_legitimise_du]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_inspect_the_troops]:
     ai_will_do:
       +modifier:
@@ -514,16 +490,10 @@ focus_tree[id = china_nationalist_sea_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_prosecute_cronyism]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHI_crack_down_on_illicit_goods]:
     ai_will_do:
       +modifier:
@@ -812,9 +782,6 @@ focus_tree[id = china_nationalist_sea_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHI_china_reborn]:
     ai_will_do:
       +modifier:

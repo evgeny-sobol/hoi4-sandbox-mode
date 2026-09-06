@@ -5,27 +5,18 @@ focus_tree[id = chilean_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHL_endorse_the_constitution]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHL_denounce_the_anarchy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CHL_cooperation_with_the_falange]:
     ai_will_do:
       +modifier:
@@ -118,9 +109,6 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_strengthen_the_carabinieros]:
     ai_will_do:
       +modifier:
@@ -557,16 +545,10 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_unified_in_spirit]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_suppress_the_nacistas]:
     ai_will_do:
       +modifier:
@@ -620,9 +602,6 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_align_the_police]:
     ai_will_do:
       +modifier:
@@ -634,9 +613,6 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_strengthen_instituto_nacional]:
     ai_will_do:
       +modifier:
@@ -677,8 +653,6 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(3)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
@@ -698,16 +672,10 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_kickstart_the_arsenal_of_democracy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CHL_align_the_marxists]:
     ai_will_do:
       +modifier:

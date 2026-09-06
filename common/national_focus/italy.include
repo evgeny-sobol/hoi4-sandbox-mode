@@ -733,30 +733,18 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_to_live_as_a_lion]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_la_battaglia_del_grano]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_la_battaglia_per_la_terra]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_la_battaglia_per_le_nascite]:
     +ai_will_do:
       modifier:
@@ -844,16 +832,10 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_capo_supremo]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_bend_the_bars]:
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
@@ -959,9 +941,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_blackshirt_loyalty]:
     +ai_will_do:
       modifier:
@@ -971,9 +950,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_spreading_the_eagles_wings]:
     +ai_will_do:
       modifier:
@@ -1419,8 +1395,6 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_cooperation_modifier($AUS)
 
   focus[id = ITA_negotiate_italian_claims]:
@@ -1511,8 +1485,6 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(3)
-      modifier:
         $ai_cooperation_modifier($GER)
 
   focus[id = ITA_german_military_cooperation]:
@@ -1550,8 +1522,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
       modifier:
         $ai_cooperation_modifier($BUL)
 
@@ -1915,9 +1885,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = ITA_common_ground]:
     +ai_will_do:
       modifier:
@@ -1927,9 +1894,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = ITA_crush_the_mafia]:
     +ai_will_do:
       modifier:
@@ -1941,9 +1905,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = ITA_army_modernization]:
     +ai_will_do:
       modifier:
@@ -2077,9 +2038,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_european_democracies]:
     +ai_will_do:
       modifier:
@@ -2109,8 +2067,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
@@ -2147,9 +2103,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_cooperatives_for_intensive_exploitation]:
     +ai_will_do:
       modifier:
@@ -2164,9 +2117,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ITA_negotiations_with_albania]:
     available:
       $ALB->can_PREV_get_wargoal_on_THIS()

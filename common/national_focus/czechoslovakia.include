@@ -113,9 +113,6 @@ focus_tree[id = czech_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CZE_czech_socialism]:
     ai_will_do:
       +modifier:
@@ -150,9 +147,6 @@ focus_tree[id = czech_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CZE_beacon_of_liberty]:
     ai_will_do:
       +modifier:
@@ -177,9 +171,6 @@ focus_tree[id = czech_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = CZE_czech_fascism]:
     ai_will_do:
       +modifier:

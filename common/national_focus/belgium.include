@@ -232,9 +232,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_investigate_bribery_charges]:
     +ai_will_do:
       modifier:
@@ -249,9 +246,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_plan_de_man]:
     +ai_will_do:
       modifier:
@@ -271,16 +265,10 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_tripartite_government]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_the_council_of_europe]:
     +ai_will_do:
       modifier:
@@ -295,16 +283,10 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_support_the_rexists]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_dissolve_political_parties]:
     +ai_will_do:
       modifier:
@@ -416,9 +398,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_revitalize_nederlands]:
     +ai_will_do:
       modifier:
@@ -484,9 +463,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_demand_further_gallic_concessions]:
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
@@ -509,9 +485,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_kings_abdication]:
     +ai_will_do:
       modifier:
@@ -600,9 +573,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_problem_of_language]:
     +ai_will_do:
       modifier:
@@ -683,9 +653,6 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_european_community]:
     +ai_will_do:
       modifier:
@@ -702,16 +669,10 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_prisoner_king]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BEL_government_in_exile]:
     +ai_will_do:
       modifier:
@@ -736,23 +697,14 @@ focus_tree[id = belgium_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_charles_count_of_flanders]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_leopolds_return]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = BEL_secretaries_general]:
     +ai_will_do:
       modifier:

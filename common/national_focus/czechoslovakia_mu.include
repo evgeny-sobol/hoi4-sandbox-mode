@@ -5,25 +5,16 @@ focus_tree[id = mu_czech_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CZE_coalition_building]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CZE_petition_the_nobles]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = CZE_align_nationalist_parties]:
     +ai_will_do:
       modifier:
@@ -183,9 +174,6 @@ focus_tree[id = mu_czech_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = CZE_revive_the_december_bloc]:
     +ai_will_do:
       modifier:

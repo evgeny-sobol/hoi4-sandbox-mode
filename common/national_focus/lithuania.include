@@ -23,8 +23,6 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
@@ -50,9 +48,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LIT_strength_in_unity]:
     ai_will_do:
       +modifier:
@@ -62,16 +57,10 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_indivisible_power_of_the_state]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_purge_popular_resistance]:
     ai_will_do:
       +modifier:
@@ -118,9 +107,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_underground_production_centers]:
     ai_will_do:
       +modifier:
@@ -138,8 +124,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -161,8 +145,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -189,9 +171,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LIT_lithuanian_activist_front]:
     ai_will_do:
       +modifier:
@@ -240,9 +219,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LIT_proclaim_greater_lithuania]:
     ai_will_do:
       +modifier:
@@ -281,17 +257,12 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_invade_poland]:
     available:
       $POL->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -303,9 +274,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_restore_order]:
     available:
       $POL->can_PREV_get_wargoal_on_THIS()
@@ -377,9 +345,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_the_nationalist_council]:
     ai_will_do:
       +modifier:
@@ -405,16 +370,10 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_a_priestly_prime_minister]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_peasants_reform]:
     ai_will_do:
       +modifier:
@@ -427,8 +386,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -459,9 +416,6 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = LIT_look_north]:
     ai_will_do:
       +modifier:
@@ -491,16 +445,10 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LIT_baltic_unification]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = LIT_a_king_for_our_people]:
     ai_will_do:
       +modifier:

@@ -416,23 +416,14 @@ focus_tree[id = ethiopia_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = ETH_boarding_the_train]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_the_emperor_stays]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_addressing_the_league_of_nations]:
     ai_will_do:
       +modifier:
@@ -632,30 +623,18 @@ focus_tree[id = ethiopia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = ETH_pan-africanism]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = ETH_the_one_true_heir_of_solomon]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = ETH_jah]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = ETH_the_lion_and_the_sun]:
     ai_will_do:
       +modifier:
@@ -743,9 +722,6 @@ focus_tree[id = ethiopia_tree]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = ETH_defending_our_homes]:
     +ai_will_do:
       modifier:
@@ -890,16 +866,10 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_local_committees]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_support_spain]:
     available:
       $can_get_wargoal_on($SPC)
@@ -1111,9 +1081,6 @@ focus_tree[id = ethiopia_tree]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(3)
-
   focus[id = ETH_sway_the_warlords]:
     +ai_will_do:
       modifier:
@@ -1153,16 +1120,10 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_assertiveness]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = ETH_exploit_french_weakness]:
     +ai_will_do:
       modifier:

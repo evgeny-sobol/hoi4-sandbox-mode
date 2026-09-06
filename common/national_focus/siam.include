@@ -95,15 +95,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_military_academies_indoctrination]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
 
@@ -141,16 +136,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_facilitate_prajadhipoks_move_to_japan]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_the_kings_gambit]:
     ai_will_do:
       +modifier:
@@ -180,9 +169,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SIA_the_sacred_hierarchy]:
     ai_will_do:
       +modifier:
@@ -192,9 +178,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SIA_order_discipline_and_unity]:
     ai_will_do:
       +modifier:
@@ -206,9 +189,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SIA_constitutional_virtue]:
     ai_will_do:
       +modifier:
@@ -253,8 +233,6 @@ focus_tree[id = siam_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_high_tyranny_tilt()
-      +modifier:
-        $crossroad_modifier(2)
     completion_reward:
       $add_tyranny(20)
     available:
@@ -264,8 +242,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
 
@@ -377,9 +353,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_a_land_war_in_asia]:
     +ai_will_do:
       modifier:
@@ -389,17 +362,12 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_asian_democratic_compact]:
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -411,9 +379,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_the_peoples_war_in_asia]:
     +ai_will_do:
       modifier:
@@ -886,16 +851,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_artillery_reigns_supreme]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_prepare_northern_infrastructure_for_war]:
     ai_will_do:
       +modifier:
@@ -934,16 +893,10 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_conventional_tank_construction]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_reverse_engineer_allied_tanks]:
     ai_will_do:
       +modifier:
@@ -970,15 +923,10 @@ focus_tree[id = siam_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_seri_thai]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
 
@@ -1018,8 +966,6 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -1070,9 +1016,6 @@ focus_tree[id = siam_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SIA_ask_for_the_release_of_american_commodities]:
     ai_will_do:
       +modifier:

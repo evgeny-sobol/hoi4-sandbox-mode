@@ -41,9 +41,6 @@ focus_tree[id = south_african_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SAF_csir]:
     ai_will_do:
       +modifier:
@@ -98,16 +95,10 @@ focus_tree[id = south_african_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SAF_support_the_afrikaner_broederbond]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SAF_support_ossewabrandwag]:
     ai_will_do:
       +modifier:
@@ -183,9 +174,6 @@ focus_tree[id = south_african_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SAF_support_spain]:
     ai_will_do:
       +modifier:
@@ -212,8 +200,6 @@ focus_tree[id = south_african_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -269,9 +255,6 @@ focus_tree[id = south_african_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SAF_support_the_world_revolution]:
     ai_will_do:
       +modifier:

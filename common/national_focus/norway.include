@@ -5,27 +5,18 @@ focus_tree[id = norwegian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(4)
-
   focus[id = NOR_vote_of_no_confidence]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = NOR_continue_nygaardsvold_government]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = NOR_weathering_the_storm_to_come]:
     ai_will_do:
       +modifier:
@@ -35,16 +26,10 @@ focus_tree[id = norwegian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_prosecute_the_nkp]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_the_seeds_of_the_revolution]:
     +ai_will_do:
       modifier:
@@ -483,23 +468,14 @@ focus_tree[id = norwegian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(4)
-
   focus[id = NOR_lurk_in_the_shadows]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_the_chamberlains_overture]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_ask_for_foreign_support]:
     +ai_will_do:
       modifier:
@@ -644,16 +620,12 @@ focus_tree[id = norwegian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_mic_modifier()
 
   focus[id = NOR_bring_back_quisling]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         $ai_mic_modifier()
 
@@ -999,9 +971,6 @@ focus_tree[id = norwegian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_revamp_hydroelectric_capacity]:
     +ai_will_do:
       modifier:
@@ -1011,9 +980,6 @@ focus_tree[id = norwegian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = NOR_aluminum_production]:
     +ai_will_do:
       modifier:

@@ -236,16 +236,10 @@ focus_tree[id = congo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_allow_local_autonomy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_closer_cooperation_with_eugene_jungers]:
     +ai_will_do:
       modifier:
@@ -257,18 +251,12 @@ focus_tree[id = congo_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_national_committee_for_liberation]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_formally_recognize_the_kimbanguist_church]:
     +ai_will_do:
       modifier:
@@ -333,16 +321,10 @@ focus_tree[id = congo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_approach_the_disfavored_mwami]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_attempt_to_sway_moise_thsombe]:
     +ai_will_do:
       modifier:
@@ -407,8 +389,6 @@ focus_tree[id = congo_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($COG)
@@ -419,9 +399,6 @@ focus_tree[id = congo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = COG_utilize_sabena_for_military_purposes]:
     +ai_will_do:
       modifier:

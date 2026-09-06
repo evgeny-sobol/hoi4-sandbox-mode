@@ -20,8 +20,6 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV)) / 3
@@ -38,9 +36,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_expand_sofia_university]:
     +ai_will_do:
       modifier:
@@ -347,16 +342,10 @@ focus_tree[id = bulgarian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_appoint_communist_ministers]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_the_spanish_struggle]:
     available:
       $BUL->can_PREV_get_wargoal_on_THIS()
@@ -575,16 +564,10 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_legalize_the_agrarian_party]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_form_a_popular_bloc]:
     +ai_will_do:
       modifier:
@@ -599,9 +582,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_legislative_elections]:
     +ai_will_do:
       modifier:
@@ -720,17 +700,12 @@ focus_tree[id = bulgarian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_condemn_macedonian_organizations]:
     available:
       $BUL->can_PREV_get_wargoal_on_THIS()
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -745,8 +720,6 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $crossroad_modifier(2)
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
@@ -757,37 +730,22 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_cooperate_with_the_zveno]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_the_tsars_regime]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_restrained_paramilitary_organizations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_ban_far_right_organizations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_restore_the_tarnovo_constitution]:
     +ai_will_do:
       modifier:
@@ -822,9 +780,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_bulgarian_irredentism]:
     +ai_will_do:
       modifier:
@@ -854,9 +809,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_amend_old_grudges]:
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
@@ -880,9 +832,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_the_fate_of_the_balkans]:
     +ai_will_do:
       modifier:
@@ -925,9 +874,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_the_path_towards_a_greater_bulgaria]:
     +ai_will_do:
       modifier:
@@ -937,9 +883,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $crossroad_modifier(2)
-
   focus[id = BUL_military_dictatorship]:
     +ai_will_do:
       modifier:

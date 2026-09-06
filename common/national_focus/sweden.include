@@ -11,8 +11,6 @@ focus_tree[id = sweden_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_mic_modifier()
 
   focus[id = SWE_urbanization]:
@@ -34,16 +32,10 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_defense_above_all]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_government_weapons_contract]:
     ai_will_do:
       +modifier:
@@ -124,16 +116,10 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_privately_managed_holidays]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_radiojanst]:
     ai_will_do:
       +modifier:
@@ -143,9 +129,6 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_education_reform]:
     ai_will_do:
       +modifier:
@@ -155,16 +138,10 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_continue_the_second_industrial_revolution]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_align_more_closely_with_the_landsorganisationen]:
     ai_will_do:
       +modifier:
@@ -371,16 +348,10 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SWE_the_aland_question]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SWE_coalition_war_cabinet]:
     ai_will_do:
       +modifier:
@@ -489,9 +460,6 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(3)
-
   focus[id = SWE_the_nordic_defense_council]:
     available:
       $NOR->can_PREV_get_wargoal_on_THIS()
@@ -525,9 +493,6 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_nordic_defense_fleet]:
     ai_will_do:
       +modifier:
@@ -562,9 +527,6 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_nordic_protection_complex]:
     ai_will_do:
       +modifier:
@@ -727,23 +689,14 @@ focus_tree[id = sweden_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_undermine_the_fascists]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_revoke_anti_militia_laws]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = SWE_appeal_for_support]:
     ai_will_do:
       +modifier:

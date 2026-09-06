@@ -75,9 +75,6 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_renew_soviet_trade_agreement]:
     available:
       $can_get_wargoal_on($SOU)
@@ -335,16 +332,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_remember_the_khost_rebellion]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_secure_army_support]:
     ai_will_do:
       +modifier:
@@ -416,16 +407,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_extend_a_hand_to_tokyo]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_expand_the_madrasas]:
     ai_will_do:
       +modifier:
@@ -997,9 +982,6 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_expand_the_kings_powerbase]:
     ai_will_do:
       +modifier:
@@ -1097,16 +1079,10 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_afghan_pakistan_cold_War]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = AFG_graveyard_of_empires]:
     ai_will_do:
       +modifier:

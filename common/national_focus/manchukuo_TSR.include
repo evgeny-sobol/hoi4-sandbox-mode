@@ -50,9 +50,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = MAN_tsr_hoankyoku]:
     ai_will_do:
       +modifier:
@@ -162,9 +159,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = MAN_tsr_vassalize_mengukuo]:
     available:
       $MEN->can_PREV_get_wargoal_on_THIS()
@@ -192,9 +186,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
-
   focus[id = MAN_tsr_embrace_state_shintoism]:
     ai_will_do:
       +modifier:
@@ -221,8 +212,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -330,8 +319,6 @@ focus_tree[id = manchukuo_focus_tsr]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
@@ -382,8 +369,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
