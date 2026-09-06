@@ -1517,29 +1517,24 @@ focus_tree[id = french_focus]:
 # █  █ ▄▀▀▄ ▄▀▀▀      █▄  █ ▄▀▀▀▄ ▀▀█▀▀      █    ▄▀▀▄      █▀▀▄ █▀▀▀ ▄▀▀▀ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▄ █▄  █ ▄▀▀▄ █▀▀▀
 # █▀▀█ █▀▀█  ▀▀▄      █ ▀▄█ █   █   █        █    █▀▀█      █▀▀▄ █▀▀   ▀▀▄ █  ▀▀▄   █   █▀▀█ █ ▀▄█ █  ▄ █▀▀
 # ▀  ▀ ▀  ▀ ▀▀▀       ▀   ▀  ▀▀▀    ▀        ▀▀▀▀ ▀  ▀      ▀  ▀ ▀▀▀▀ ▀▀▀  ▀ ▀▀▀    ▀   ▀  ▀ ▀   ▀  ▀▀  ▀▀▀▀
-  #TODO
   focus[id = FRA_leftist_rhetoric]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = FRA_national_mobilization]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = FRA_join_comintern]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = FRA_humanite_unie]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = FRA_ban_communism]:
     ai_will_do:
       +modifier:
@@ -1557,18 +1552,15 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = FRA_army_of_aggression]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = FRA_france_first]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = FRA_woo_italy]:
     available:
       $not_rival_of_PREV($ITA)
@@ -1582,7 +1574,6 @@ focus_tree[id = french_focus]:
         $ITA in rivals[]
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = FRA_dismantle_the_democracies]:
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
@@ -1598,7 +1589,6 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
-  #TODO
   focus[id = FRA_join_germany]:
     available:
       $not_rival_of_PREV($GER)

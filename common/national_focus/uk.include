@@ -714,7 +714,6 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = ENG_secure_the_oil_imports]:
     available:
       $IRQ->can_PREV_get_wargoal_on_THIS()

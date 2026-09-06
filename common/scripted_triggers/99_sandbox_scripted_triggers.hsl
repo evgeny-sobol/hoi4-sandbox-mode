@@ -1,6 +1,18 @@
 is_sandbox_mode_on:
   has_global_flag(sandbox_mode_enabled)
 
+is_sandbox_census_country:
+  OR:
+    tag(GER)
+    tag(SOV)
+    tag(ENG)
+    tag(USA)
+    tag(FRA)
+    tag(ITA)
+    tag(JAP)
+    tag(FIN)
+    tag(HUN)
+
 # THIS = target, PREV = would-be attacker. Required Honor band depends on
 # the relation: NAP → Inglorious or worse, guarantee → Dishonorable or worse,
 # faction → Treacherous. Non-friends are always allowed.

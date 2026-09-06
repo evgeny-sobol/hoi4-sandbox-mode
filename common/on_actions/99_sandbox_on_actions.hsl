@@ -34,6 +34,7 @@ on_actions:
         review_rivals()
         update_rivalry_monthly()
         fill_rival_vacancies()
+        sandbox_log_census()
 
   on_ruling_party_change:
     effect:
@@ -58,7 +59,7 @@ on_actions:
   on_new_term_election:
     effect:
       if is_sandbox_mode_on():
-        $add_tyranny(-5)
+        $add_tyranny(-5, tyranny_election)
 
   # ROOT = attacker, FROM = target
   on_declare_war:
@@ -76,7 +77,8 @@ on_actions:
           &honor_justify_pulses += 1
           if honor_justify_pulses >= 30:
             &honor_justify_pulses = 0
-            $add_honor(-2)
+            sandbox_log_other = FROM
+            $add_honor(-2, honor_justify_friend)
 
   # ROOT = leaving country, FROM = faction leader
   on_leave_faction:
@@ -88,11 +90,15 @@ on_actions:
           pass
         elif has_country_flag(expelled_by_leader):
           clr_country_flag(expelled_by_leader)
-          FROM->$add_honor(-15)
+          FROM:
+            sandbox_log_other = ROOT
+            $add_honor(-15, honor_expel_member)
         elif FROM->has_war():
-          $add_honor(-30)
+          sandbox_log_other = FROM
+          $add_honor(-30, honor_leave_faction_war)
         else:
-          $add_honor(-10)
+          sandbox_log_other = FROM
+          $add_honor(-10, honor_leave_faction_peace)
 
   # ROOT = joining country, FROM = caller / country whose war was joined
   on_join_allies:
@@ -101,9 +107,11 @@ on_actions:
         if FROM not in &honor_answered_call[]:
           &honor_answered_call[].add(FROM)
           if FROM->is_guaranteed_by(ROOT):
-            $add_honor(15)
+            sandbox_log_other = FROM
+            $add_honor(15, honor_join_allies_guarantee)
           else:
-            $add_honor(10)
+            sandbox_log_other = FROM
+            $add_honor(10, honor_join_allies_call)
         review_rivals()
         FROM->review_rivals()
 
@@ -138,10 +146,14 @@ on_actions:
     effect:
       if is_sandbox_mode_on():
         set_country_flag(sandbox_honor_skip_leave_faction)
-        FROM->$add_honor(5)
+        FROM:
+          sandbox_log_other = ROOT
+          $add_honor(5, honor_release)
 
   # ROOT = liberated nation, FROM = liberator
   on_liberate:
     effect:
       if is_sandbox_mode_on():
-        FROM->$add_honor(5)
+        FROM:
+          sandbox_log_other = ROOT
+          $add_honor(5, honor_liberate)

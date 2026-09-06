@@ -190,21 +190,21 @@ All Honor changes go through `$add_honor()` so that the trait, the opinion modif
 
 ## Acceptance checklist
 
-- A leader at Honor 20 with a pact partner completes a betrayal focus against it: Honor becomes −30, trait becomes Dishonorable, all other countries get the −10 opinion modifier, and the focus tooltip showed "Honor −50".
-- The same leader betrays a second pact: Honor −80, Treacherous.
-- A vanilla focus removes a pact; the AI justifies for 3 months and then declares war: no penalty at removal, −50 at the declaration (window), nothing more afterwards. If it declares after 7 months instead, nothing is charged.
-- A guarantee is withdrawn: −10 the same week; war on that country 2 months later adds −30 (total −40). Two guarantees withdrawn in one week: −20.
-- Justifying a wargoal on a pact partner for 90 days costs −6 (three batches of 30 daily pulses), not −180.
-- A rebel tag spawned by a civil war has Honor/Tyranny traits by the end of its first week; the coup victim's values are untouched.
-- A subject whose overlord fights a war the subject has not joined loses nothing for "ignoring" it.
-- A country at Honor 0 with no obligations and no events stays at 0 indefinitely.
-- A country at Honor 60 with no obligations declines to 30 after 10 years (0.25 × 120 months).
-- A country at Honor 0 guaranteeing two minors and in a pact with one more gains `0.20·2 + 0.05 − 0.25 = +0.20` per month and reaches Honorable (25) after ~10.5 years; with four guarantees it reaches it in ~3.5 years.
-- Passive gain never exceeds +1.00 before drift, regardless of how many allies/guarantees exist.
-- A guarantor that ignores a guaranteed country's defensive war loses 5 per month starting from the second month, and stops losing the moment it declares on the aggressor, gaining +15 once.
-- After a peaceful ruling-party change, Honor equals half the old value plus a random offset in [−50, 50], clamped.
-- A leader at Honor −30 can take a "break pact" and "attack guaranteed" focus but not a "leave faction to attack ally" focus; at −80 all three are available.
-- The monthly factor shown in `LocKey_honor_tt` does not grow week over week when the diplomatic situation is unchanged (regression test for the array-clear bug).
+- [ ] A leader at Honor 20 with a pact partner completes a betrayal focus against it: Honor becomes −30, trait becomes Dishonorable, all other countries get the −10 opinion modifier, and the focus tooltip showed "Honor −50".
+- [ ] The same leader betrays a second pact: Honor −80, Treacherous.
+- [ ] A vanilla focus removes a pact; the AI justifies for 3 months and then declares war: no penalty at removal, −50 at the declaration (window), nothing more afterwards. If it declares after 7 months instead, nothing is charged.
+- [ ] A guarantee is withdrawn: −10 the same week; war on that country 2 months later adds −30 (total −40). Two guarantees withdrawn in one week: −20.
+- [ ] Justifying a wargoal on a pact partner for 90 days costs −6 (three batches of 30 daily pulses), not −180.
+- [x] A rebel tag spawned by a civil war has Honor/Tyranny traits by the end of its first week; the coup victim's values are untouched.
+- [x] A subject whose overlord fights a war the subject has not joined loses nothing for "ignoring" it.
+- [ ] A country at Honor 0 with no obligations and no events stays at 0 indefinitely.
+- [ ] A country at Honor 60 with no obligations declines to 30 after 10 years (0.25 × 120 months).
+- [ ] A country at Honor 0 guaranteeing two minors and in a pact with one more gains `0.20·2 + 0.05 − 0.25 = +0.20` per month and reaches Honorable (25) after ~10.5 years; with four guarantees it reaches it in ~3.5 years.
+- [x] Passive gain never exceeds +1.00 before drift, regardless of how many allies/guarantees exist.
+- [ ] A guarantor that ignores a guaranteed country's defensive war loses 5 per month starting from the second month, and stops losing the moment it declares on the aggressor, gaining +15 once.
+- [x] After a peaceful ruling-party change, Honor equals half the old value plus a random offset in [−50, 50], clamped.
+- [ ] A leader at Honor −30 can take a "break pact" and "attack guaranteed" focus but not a "leave faction to attack ally" focus; at −80 all three are available.
+- [x] The monthly factor shown in `LocKey_honor_tt` does not grow week over week when the diplomatic situation is unchanged (regression test for the array-clear bug).
 
 ## Out of scope for this iteration
 

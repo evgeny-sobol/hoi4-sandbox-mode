@@ -157,19 +157,19 @@ All Tyranny changes go through `$add_tyranny()` so that traits and tooltips stay
 
 ## Acceptance checklist
 
-- A liberal democracy starts in `[-100, -80]`, `tyranny_home = -90`, trait Libertarian; other countries see no opinion change (opinion is out of scope for this iteration).
-- A fascist state at 90, at peace, stable: monthly factor 0.00.
-- A democracy at −90 (its home value, so drift is 0) enters a war: factor `+0.25`; after an enemy occupies a core state the factor is `+0.50`. Once it has climbed to −70 with cores still occupied, drift kicks in and the factor is `+0.50 − 0.25 = +0.25`.
-- A country at −70 with `tyranny_home = -90`, no war, stability 60%: factor `−0.25`, reaches −90 in 80 months and then stays flat.
-- Completing a +20 focus shows "Tyranny +20" in the focus tooltip, moves the value by exactly 20 (clamped), and swaps the trait if a band boundary is crossed.
-- Stability drops below 25% in peacetime: factor gains `+0.25`; it disappears the week stability recovers to 25% or more.
-- A democracy holds an election: −5 applied once, tooltip visible in the election event chain if one is shown.
-- Peaceful party change from democracy (−80) to fascism: new value is `0.5 · (−80) + 0.5 · randi(80, 100)`, i.e. in `[0, 10]`, trait Moderate, `tyranny_home = 90`, then climbs at 0.25 per month toward 90.
-- A fascist rebel tag created by a coup or civil war has, by the end of its first week, a value in `[80, 100]` and the Despotic trait; the country it split from keeps its own values.
-- (Deferred with the Authoritarian gate) A leader at 30 can take a "seize power" focus with ruling party at 35% popularity; a leader at 20 cannot until popularity exceeds 50%.
-- A leader at −30 cannot take a purge focus; at −20 the focus is available.
-- In the `SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy` fork a Despotic AI weighs the options 1.5 : 0.5, a Libertarian AI 0.5 : 1.5, a Moderate AI 0.5 : 0.5; no `$crossroad_modifier` is applied on top.
-- With the aligned breakpoints, `high_tyranny_factor` is 0 at 25, 0.5 at 50, 1 at 75; `low_tyranny_factor` mirrors it; `medium_tyranny_factor` is 1 at 0, 0.5 at ±50, 0 at ±75.
+- [x] A liberal democracy starts in `[-100, -80]`, `tyranny_home = -90`, trait Libertarian; other countries see no opinion change (opinion is out of scope for this iteration).
+- [x] A fascist state at 90, at peace, stable: monthly factor 0.00.
+- [ ] A democracy at −90 (its home value, so drift is 0) enters a war: factor `+0.25`; after an enemy occupies a core state the factor is `+0.50`. Once it has climbed to −70 with cores still occupied, drift kicks in and the factor is `+0.50 − 0.25 = +0.25`.
+- [ ] A country at −70 with `tyranny_home = -90`, no war, stability 60%: factor `−0.25`, reaches −90 in 80 months and then stays flat.
+- [x] Completing a +20 focus shows "Tyranny +20" in the focus tooltip, moves the value by exactly 20 (clamped), and swaps the trait if a band boundary is crossed.
+- [x] Stability drops below 25% in peacetime: factor gains `+0.25`; it disappears the week stability recovers to 25% or more.
+- [x] A democracy holds an election: −5 applied once, tooltip visible in the election event chain if one is shown.
+- [x] Peaceful party change from democracy (−80) to fascism: new value is `0.5 · (−80) + 0.5 · randi(80, 100)`, i.e. in `[0, 10]`, trait Moderate, `tyranny_home = 90`, then climbs at 0.25 per month toward 90.
+- [x] A fascist rebel tag created by a coup or civil war has, by the end of its first week, a value in `[80, 100]` and the Despotic trait; the country it split from keeps its own values.
+- [ ] (Deferred with the Authoritarian gate) A leader at 30 can take a "seize power" focus with ruling party at 35% popularity; a leader at 20 cannot until popularity exceeds 50%.
+- [ ] A leader at −30 cannot take a purge focus; at −20 the focus is available.
+- [ ] In the `SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy` fork a Despotic AI weighs the options 1.5 : 0.5, a Libertarian AI 0.5 : 1.5, a Moderate AI 0.5 : 0.5; no `$crossroad_modifier` is applied on top.
+- [ ] With the aligned breakpoints, `high_tyranny_factor` is 0 at 25, 0.5 at 50, 1 at 75; `low_tyranny_factor` mirrors it; `medium_tyranny_factor` is 1 at 0, 0.5 at ±50, 0 at ±75.
 
 ## Second iteration (not blocking)
 

@@ -197,18 +197,18 @@ Verify in game (not yet run after the implementation; `error.log` and the toolti
 
 ## Acceptance checklist
 
-- A new Soviet ruler gets a new personal rival within the same day; the two national rivals are unchanged.
-- Romania is Hungary's national rival at `rivalry` 50; Romania joins Hungary's faction: the slot is cleared, Hungary's −20 opinion modifier toward Romania disappears, and Romania cannot be selected again for 24 months.
-- The Soviet Union owns Finnish cores: Finland's `rivalry` toward it rises by ≥2 per month and reaches Feud within ~13 months; the Soviet AI (if it lists Finland) gets `conquer`.
-- A country with a rival it shares no cores, wars, or ideology conflict with: `rivalry` falls from 50 to 0 in ~50 months, the slot empties, and is refilled after ~6 months on average.
-- Y declares war on Z without being Z's rival: Y occupies a free national slot of Z with `rivalry` 75 the same day, Z gains +10 war support.
-- Z capitulates to Y: Y's `rivalry` toward Z drops by 50; Z's toward Y rises by 25.
-- A pact partner is also a rival at `rivalry` 40: declaring war costs the usual −50 Honor; monthly growth is reduced by 1.
-- `USA_us_ussr_economic_cooperation` is unavailable while SOV is in USA's `rivals[]` or USA in SOV's, and its AI weight is 0.
-- With a rival at Feud, the antagonism focus against it weighs three times its non-rival weight; a focus against several countries of which one is at Feud weighs the same.
-- `USA_hemisphere_defense` stays available and keeps a non-zero AI weight while Mexico is a US national rival; `USA_liberty_for_the_philippines` is unavailable while the Philippines are.
-- A rival at war with one, two, or five of our friends gains exactly +1 per month from that term.
-- No `Invalid Scope` lines in `error.log` from rival effects when a rival slot holds a country that has ceased to exist mid-month.
+- [ ] A new Soviet ruler gets a new personal rival within the same day; the two national rivals are unchanged.
+- [ ] Romania is Hungary's national rival at `rivalry` 50; Romania joins Hungary's faction: the slot is cleared, Hungary's −20 opinion modifier toward Romania disappears, and Romania cannot be selected again for 24 months.
+- [ ] The Soviet Union owns Finnish cores: Finland's `rivalry` toward it rises by ≥2 per month and reaches Feud within ~13 months; the Soviet AI (if it lists Finland) gets `conquer`.
+- [ ] A country with a rival it shares no cores, wars, or ideology conflict with: `rivalry` falls from 50 to 0 in ~50 months, the slot empties, and is refilled after ~6 months on average.
+- [x] Y declares war on Z without being Z's rival: Y occupies a free national slot of Z with `rivalry` 75 the same day, Z gains +10 war support.
+- [x] Z capitulates to Y: Y's `rivalry` toward Z drops by 50; Z's toward Y rises by 25.
+- [ ] A pact partner is also a rival at `rivalry` 40: declaring war costs the usual −50 Honor; monthly growth is reduced by 1.
+- [ ] `USA_us_ussr_economic_cooperation` is unavailable while SOV is in USA's `rivals[]` or USA in SOV's, and its AI weight is 0.
+- [ ] With a rival at Feud, the antagonism focus against it weighs three times its non-rival weight; a focus against several countries of which one is at Feud weighs the same.
+- [ ] `USA_hemisphere_defense` stays available and keeps a non-zero AI weight while Mexico is a US national rival; `USA_liberty_for_the_philippines` is unavailable while the Philippines are.
+- [ ] A rival at war with one, two, or five of our friends gains exactly +1 per month from that term.
+- [x] No `Invalid Scope` lines in `error.log` from rival effects when a rival slot holds a country that has ceased to exist mid-month.
 
 ## Out of scope for this iteration
 

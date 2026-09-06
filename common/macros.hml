@@ -1,18 +1,47 @@
-macro add_honor(_var_):
+# game.log line for GDD checklists. Grep `#sandbox`. Callers set
+# sandbox_log_old / _new / _delta, and optionally sandbox_log_other (tag)
+# and sandbox_log_slot (rivals 0–2, else −1). Monthly drift (|d| < 2) is
+# not logged from $add_honor / $add_tyranny.
+macro sandbox_log(_event_):
+  if is_sandbox_mode_on():
+    if sandbox_log_other != 0:
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] other=[?sandbox_log_other.GetTag] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    else:
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+  sandbox_log_other = 0
+  sandbox_log_slot = -1
+
+macro add_honor(_var_, _event_ = honor_change):
   hidden_effect:
     if _var_ != 0:
+      sandbox_log_old = honor
       &prev_honor = honor
       &honor = clamp(honor + _var_, -100, 100)
+      sandbox_log_new = honor
+      sandbox_log_delta = _var_
+      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+        $sandbox_log(_event_)
+      else:
+        sandbox_log_other = 0
+        sandbox_log_slot = -1
       update_country_leader_traits()
   custom_effect_tooltip:
     localization_key(LocKey_honor_change_tt)
     VALUE(_var_)
 
-macro add_tyranny(_var_):
+macro add_tyranny(_var_, _event_ = tyranny_focus):
   hidden_effect:
     if _var_ != 0:
+      sandbox_log_old = tyranny
       &prev_tyranny = tyranny
       &tyranny = clamp(tyranny + _var_, -100, 100)
+      sandbox_log_new = tyranny
+      sandbox_log_delta = _var_
+      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+        $sandbox_log(_event_)
+      else:
+        sandbox_log_other = 0
+        sandbox_log_slot = -1
       update_country_leader_traits()
   custom_effect_tooltip:
     localization_key(LocKey_tyranny_change_tt)
@@ -114,6 +143,13 @@ macro ai_sandbox_modifier():
   add(40)
   is_sandbox_mode_on()
 
+# Same-block set. A lone `factor(0)` in another modifier zeroes the whole
+# ai_will_do, including later `add` — aiview stays at 0.
+macro ai_sandbox_set(_n_):
+  factor(0)
+  add(_n_)
+  is_sandbox_mode_on()
+
 #DEPRECATED
 macro basic_modifier():
   $ai_sandbox_modifier()
@@ -168,7 +204,8 @@ macro break_non_aggression_pact_with(_tag_):
     country(_tag_)
     relation(non_aggression_pact)
     active(no)
-  $add_honor(-50)
+  sandbox_log_other = _tag_
+  $add_honor(-50, honor_break_pact_focus)
   &na_pacts[].erase(_tag_)
   &prev_na_pacts[].erase(_tag_)
 
@@ -227,9 +264,41 @@ macro add_rivalry(_slot_, _var_):
     cur_rivalry = rivalry[_slot_]
     new_rivalry = clamp(cur_rivalry + _var_, 0, 100)
     &rivalry[_slot_] = new_rivalry
+    sandbox_log_delta = _var_
+    # Skip monthly ±1/±2; log discrete +15/+25/−50 and similar.
+    if sandbox_log_delta >= 10 or sandbox_log_delta <= -10:
+      sandbox_log_old = cur_rivalry
+      sandbox_log_new = new_rivalry
+      sandbox_log_slot = _slot_
+      sandbox_log_other = rivals[_slot_]
+      $sandbox_log(rivals_intensity)
     if rivalry[_slot_] == 0:
       rival_slot = _slot_
+      sandbox_clear_kind = 4
       clear_rival()
+    elif sandbox_log_delta < 10 and sandbox_log_delta > -10:
+      # Monthly ±1/±2: log only band crossings (Cold 25 / Feud 75).
+      if cur_rivalry < 75 and new_rivalry >= 75:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_feud)
+      elif cur_rivalry >= 25 and new_rivalry < 25:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_cold)
+      elif cur_rivalry < 25 and new_rivalry >= 25:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_rival_band)
 
 # Highest rivalry among slots holding _tag_ (0 if none). ai_will_do trigger
 # context: temps + if, no scripted effect.

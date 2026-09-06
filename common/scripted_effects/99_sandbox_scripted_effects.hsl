@@ -22,6 +22,23 @@ initialize_new_country_leader():
   &prev_tyranny = 999
   &honor = randi(-100, 100)
   &prev_honor = 999
+  sandbox_parent = 0
+  for cty in every_other_country():
+    if PREV->original_tag(THIS):
+      PREV:
+        sandbox_parent = PREV
+      break
+  sandbox_log_slot = -1
+  sandbox_log_other = sandbox_parent
+  sandbox_log_old = 0
+  sandbox_log_new = honor
+  sandbox_log_delta = honor
+  $sandbox_log(honor_init)
+  sandbox_log_other = sandbox_parent
+  sandbox_log_old = 0
+  sandbox_log_new = tyranny
+  sandbox_log_delta = tyranny_home
+  $sandbox_log(tyranny_init)
   update_country_leader_traits()
   select_major_rival()
 
@@ -219,6 +236,7 @@ update_country_leader_traits():
     if not has_country_leader_with_trait(libertarian_leader | liberal_leader | moderate_leader | authoritarian_leader | despotic_leader):
       &prev_tyranny = 999
     if honor != prev_honor:
+      old_h = prev_honor
       remove_honor_leader_traits()
       if honor < -75:
         add_country_leader_trait(treacherous_leader)
@@ -230,6 +248,7 @@ update_country_leader_traits():
         add_country_leader_trait(honorable_leader)
       else:
         add_country_leader_trait(righteous_leader)
+      sandbox_log_honor_band_if_changed()
       &prev_honor = honor
 
       for other in every_other_country():
@@ -250,6 +269,7 @@ update_country_leader_traits():
           other->$add_opinion_modifier(ROOT, righteous_leader)
 
     if tyranny != prev_tyranny:
+      old_t = prev_tyranny
       remove_tyranny_leader_traits()
       if tyranny < -75:
         add_country_leader_trait(libertarian_leader)
@@ -261,7 +281,97 @@ update_country_leader_traits():
         add_country_leader_trait(authoritarian_leader)
       else:
         add_country_leader_trait(despotic_leader)
+      sandbox_log_tyranny_band_if_changed()
       &prev_tyranny = tyranny
+
+
+# Temps: old_h (previous honor, 999 = first assign). Logs only when the
+# Honor band actually changes, including 0.25 drift that $add_honor skips.
+sandbox_log_honor_band_if_changed():
+  old_honor_band = -1
+  if old_h == 999:
+    old_honor_band = -1
+  elif old_h < -75:
+    old_honor_band = 0
+  elif old_h < -25:
+    old_honor_band = 1
+  elif old_h < 25:
+    old_honor_band = 2
+  elif old_h < 75:
+    old_honor_band = 3
+  else:
+    old_honor_band = 4
+  new_honor_band = 2
+  if honor < -75:
+    new_honor_band = 0
+  elif honor < -25:
+    new_honor_band = 1
+  elif honor < 25:
+    new_honor_band = 2
+  elif honor < 75:
+    new_honor_band = 3
+  else:
+    new_honor_band = 4
+  if old_honor_band != new_honor_band:
+    sandbox_log_old = old_h
+    sandbox_log_new = honor
+    sandbox_log_delta = honor - old_h
+    sandbox_log_slot = -1
+    sandbox_log_other = 0
+    if new_honor_band == 0:
+      $sandbox_log(honor_band_treacherous)
+    elif new_honor_band == 1:
+      $sandbox_log(honor_band_dishonorable)
+    elif new_honor_band == 2:
+      $sandbox_log(honor_band_inglorious)
+    elif new_honor_band == 3:
+      $sandbox_log(honor_band_honorable)
+    else:
+      $sandbox_log(honor_band_righteous)
+
+
+# Temps: old_t (previous tyranny, 999 = first assign).
+sandbox_log_tyranny_band_if_changed():
+  old_tyranny_band = -1
+  if old_t == 999:
+    old_tyranny_band = -1
+  elif old_t < -75:
+    old_tyranny_band = 0
+  elif old_t < -25:
+    old_tyranny_band = 1
+  elif old_t < 25:
+    old_tyranny_band = 2
+  elif old_t < 75:
+    old_tyranny_band = 3
+  else:
+    old_tyranny_band = 4
+  new_tyranny_band = 2
+  if tyranny < -75:
+    new_tyranny_band = 0
+  elif tyranny < -25:
+    new_tyranny_band = 1
+  elif tyranny < 25:
+    new_tyranny_band = 2
+  elif tyranny < 75:
+    new_tyranny_band = 3
+  else:
+    new_tyranny_band = 4
+  if old_tyranny_band != new_tyranny_band:
+    sandbox_log_old = old_t
+    sandbox_log_new = tyranny
+    sandbox_log_delta = tyranny - old_t
+    sandbox_log_slot = -1
+    sandbox_log_other = 0
+    if new_tyranny_band == 0:
+      $sandbox_log(tyranny_band_libertarian)
+    elif new_tyranny_band == 1:
+      $sandbox_log(tyranny_band_liberal)
+    elif new_tyranny_band == 2:
+      $sandbox_log(tyranny_band_moderate)
+    elif new_tyranny_band == 3:
+      $sandbox_log(tyranny_band_authoritarian)
+    else:
+      $sandbox_log(tyranny_band_despotic)
 
 
 # Persistent snapshots: last week in prev_* , this week rebuilt in guaranting / na_pacts.
@@ -275,13 +385,22 @@ apply_honor_for_dropped_obligations():
     if v not in &guaranting[] and v != 0:
       var:v:
         if exists() and not has_capitulated() and not is_subject_of(ROOT) and not is_in_faction_with(ROOT) and not ROOT->has_war_with(THIS):
-          ROOT->$add_honor(-10)
+          ROOT:
+            sandbox_log_other = PREV
+            $add_honor(-10, honor_withdraw_guarantee)
           ROOT.&dropped_guarantees[].add(THIS)
           ROOT.&dropped_guarantees_month[].add(ROOT.months_elapsed)
   for v, _ in &prev_na_pacts[]:
     if v not in &na_pacts[] and v != 0:
       var:v:
         if exists() and not has_capitulated() and not is_subject_of(ROOT) and not is_in_faction_with(ROOT) and not ROOT->has_war_with(THIS):
+          ROOT:
+            sandbox_log_old = honor
+            sandbox_log_new = honor
+            sandbox_log_delta = 0
+            sandbox_log_other = PREV
+            sandbox_log_slot = -1
+            $sandbox_log(honor_pact_dropped)
           ROOT.&dropped_pacts[].add(THIS)
           ROOT.&dropped_pacts_month[].add(ROOT.months_elapsed)
 
@@ -296,6 +415,13 @@ expire_dropped_obligations():
     if age < 6:
       keep[].add(v)
       keep_month[].add(m)
+    else:
+      sandbox_log_other = v
+      sandbox_log_old = honor
+      sandbox_log_new = honor
+      sandbox_log_delta = age
+      sandbox_log_slot = -1
+      $sandbox_log(honor_window_expire)
   &dropped_pacts[].clear()
   &dropped_pacts_month[].clear()
   for v, _ in keep[]:
@@ -311,6 +437,13 @@ expire_dropped_obligations():
     if age < 6:
       keep[].add(v)
       keep_month[].add(m)
+    else:
+      sandbox_log_other = v
+      sandbox_log_old = honor
+      sandbox_log_new = honor
+      sandbox_log_delta = age
+      sandbox_log_slot = -1
+      $sandbox_log(honor_window_expire)
   &dropped_guarantees[].clear()
   &dropped_guarantees_month[].clear()
   for v, _ in keep[]:
@@ -358,6 +491,7 @@ update_honor_gain_monthly_factor():
 
   obligation = 0.20 * &guaranting[].size() + 0.05 * &na_pacts[].size() + 0.05 * allies
   obligation = clamp(obligation, 0, 1.0)
+  &honor_obligation_gain = obligation
   if honor > 0.25:
     drift = -0.25
   elif honor < -0.25:
@@ -365,6 +499,15 @@ update_honor_gain_monthly_factor():
   else:
     drift = 0
   &honor_gain_monthly_factor = obligation + drift
+  if is_sandbox_census_country():
+    if honor_gain_monthly_factor != prev_honor_gain_monthly_factor:
+      sandbox_log_old = prev_honor_gain_monthly_factor
+      sandbox_log_new = honor_gain_monthly_factor
+      sandbox_log_delta = honor_gain_monthly_factor - prev_honor_gain_monthly_factor
+      sandbox_log_slot = -1
+      sandbox_log_other = 0
+      $sandbox_log(honor_factor_change)
+    &prev_honor_gain_monthly_factor = honor_gain_monthly_factor
 
 
 # ROOT = attacker, FROM = target. The strictest broken promise wins; a promise
@@ -373,19 +516,44 @@ update_honor_gain_monthly_factor():
 # aggressor of a country we guarantee is honouring that guarantee (+15, once
 # per war, shared with on_join_allies through honor_answered_call).
 apply_honor_on_declare_war():
+  sandbox_log_other = FROM
   if FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
-    $add_honor(-50)
+    $add_honor(-50, honor_war_break_pact)
     &na_pacts[].erase(FROM)
     &prev_na_pacts[].erase(FROM)
   elif FROM in &dropped_pacts[]:
-    $add_honor(-50)
+    window_age = 0
+    for v, idx in &dropped_pacts[]:
+      if v == FROM:
+        window_age = months_elapsed - dropped_pacts_month[idx]
+        break
+    sandbox_log_other = FROM
+    sandbox_log_old = honor
+    sandbox_log_new = honor
+    sandbox_log_delta = window_age
+    sandbox_log_slot = -1
+    $sandbox_log(honor_window_hit)
+    sandbox_log_other = FROM
+    $add_honor(-50, honor_war_break_pact_window)
     forget_dropped_pact_with_FROM()
   elif FROM in &guaranting[] or FROM in &prev_guaranting[]:
-    $add_honor(-40)
+    $add_honor(-40, honor_war_attack_guaranteed)
     &guaranting[].erase(FROM)
     &prev_guaranting[].erase(FROM)
   elif FROM in &dropped_guarantees[]:
-    $add_honor(-30)
+    window_age = 0
+    for v, idx in &dropped_guarantees[]:
+      if v == FROM:
+        window_age = months_elapsed - dropped_guarantees_month[idx]
+        break
+    sandbox_log_other = FROM
+    sandbox_log_old = honor
+    sandbox_log_new = honor
+    sandbox_log_delta = window_age
+    sandbox_log_slot = -1
+    $sandbox_log(honor_window_hit)
+    sandbox_log_other = FROM
+    $add_honor(-30, honor_war_attack_dropped_guarantee)
     forget_dropped_guarantee_of_FROM()
   else:
     clr_country_flag(honor_guarantee_granted)
@@ -395,7 +563,9 @@ apply_honor_on_declare_war():
           if not ROOT->has_country_flag(honor_guarantee_granted) and has_defensive_war() and has_war_with(FROM):
             if THIS not in ROOT.honor_answered_call[]:
               ROOT.&honor_answered_call[].add(THIS)
-              ROOT->$add_honor(15)
+              ROOT:
+                sandbox_log_other = PREV
+                $add_honor(15, honor_honor_guarantee)
               ROOT->set_country_flag(honor_guarantee_granted)
     clr_country_flag(honor_guarantee_granted)
 
@@ -412,6 +582,16 @@ apply_honor_for_unmet_obligations():
   &unmet_allies[].clear()
   # Subjects cannot declare war on their own; their overlord's wars are not
   # their broken promises.
+  if is_subject():
+    OVERLORD:
+      if has_war():
+        PREV:
+          sandbox_log_other = PREV
+          sandbox_log_old = honor
+          sandbox_log_new = honor
+          sandbox_log_delta = 0
+          sandbox_log_slot = -1
+          $sandbox_log(honor_ignore_skip_subject)
   if not is_subject():
     for other in every_other_country():
       if other->is_guaranteed_by(ROOT) and other->has_defensive_war():
@@ -436,10 +616,10 @@ apply_honor_for_unmet_obligations():
   # Macro arguments must be plain values, not expressions.
   if n_g > 0:
     guarantee_penalty = -5 * n_g
-    $add_honor(guarantee_penalty)
+    $add_honor(guarantee_penalty, honor_ignore_guarantee)
   if n_a > 0:
     ally_penalty = -3 * n_a
-    $add_honor(ally_penalty)
+    $add_honor(ally_penalty, honor_ignore_call)
 
 
 inherit_honor_on_ruling_party_change():
@@ -448,6 +628,12 @@ inherit_honor_on_ruling_party_change():
   offset -= 50
   &prev_honor = 999
   &honor = clamp(0.5 * old + offset, -100, 100)
+  sandbox_log_old = old
+  sandbox_log_new = honor
+  sandbox_log_delta = honor - old
+  sandbox_log_slot = -1
+  sandbox_log_other = 0
+  $sandbox_log(honor_ruling_party)
   inherit_tyranny_on_ruling_party_change()
   update_country_leader_traits()
   reroll_leader_rival()
@@ -463,11 +649,23 @@ inherit_tyranny_on_ruling_party_change():
   half_new = 0.5 * roll
   &prev_tyranny = 999
   &tyranny = clamp(half_old + half_new, -100, 100)
+  sandbox_log_old = old
+  sandbox_log_new = tyranny
+  sandbox_log_delta = tyranny - old
+  sandbox_log_slot = -1
+  sandbox_log_other = 0
+  $sandbox_log(tyranny_ruling_party)
 
 
 reset_honor_for_new_ruler():
+  sandbox_log_old = honor
   &prev_honor = 999
   &honor = randi(-100, 100)
+  sandbox_log_new = honor
+  sandbox_log_delta = honor - sandbox_log_old
+  sandbox_log_slot = -1
+  sandbox_log_other = 0
+  $sandbox_log(honor_civil_war)
   reset_tyranny_for_new_ruler()
   update_country_leader_traits()
   reroll_leader_rival()
@@ -475,9 +673,15 @@ reset_honor_for_new_ruler():
 
 reset_tyranny_for_new_ruler():
   set_tyranny_range_from_government()
+  sandbox_log_old = tyranny
   &prev_tyranny = 999
   &tyranny = randi(min_tyranny, max_tyranny)
   &tyranny = clamp(tyranny, -100, 100)
+  sandbox_log_new = tyranny
+  sandbox_log_delta = tyranny - sandbox_log_old
+  sandbox_log_slot = -1
+  sandbox_log_other = 0
+  $sandbox_log(tyranny_civil_war)
 
 
 update_tyranny_gain_monthly_factor():
@@ -492,11 +696,28 @@ update_tyranny_gain_monthly_factor():
   if $compare(has_stability, "<", 0.25):
     stability_rate = 0.25
   drift = clamp(tyranny_home - tyranny, -0.25, 0.25)
+  &tyranny_war_rate = war_rate
+  &tyranny_stability_rate = stability_rate
   &tyranny_gain_monthly_factor = war_rate + stability_rate + drift
+  if is_sandbox_census_country():
+    if tyranny_gain_monthly_factor != prev_tyranny_gain_monthly_factor:
+      sandbox_log_old = prev_tyranny_gain_monthly_factor
+      sandbox_log_new = tyranny_gain_monthly_factor
+      sandbox_log_delta = tyranny_gain_monthly_factor - prev_tyranny_gain_monthly_factor
+      sandbox_log_slot = -1
+      sandbox_log_other = 0
+      $sandbox_log(tyranny_factor_change)
+    &prev_tyranny_gain_monthly_factor = tyranny_gain_monthly_factor
 
 
 # Temps: rival_slot (0-2), rival_tag, rival_intensity (50 or 75).
 set_rival():
+  sandbox_log_old = 0
+  sandbox_log_new = rival_intensity
+  sandbox_log_delta = rival_intensity
+  sandbox_log_slot = rival_slot
+  sandbox_log_other = rival_tag
+  $sandbox_log(rivals_set)
   &rivals[rival_slot] = rival_tag
   &rivalry[rival_slot] = rival_intensity
   # add/remove_opinion_modifier reject `target = var:x` (Malformed token):
@@ -516,6 +737,28 @@ set_rival():
 clear_rival():
   if rivals[rival_slot] != 0:
     old_rival = rivals[rival_slot]
+    sandbox_log_old = rivalry[rival_slot]
+    sandbox_log_new = 0
+    sandbox_log_delta = 0 - sandbox_log_old
+    sandbox_log_slot = rival_slot
+    sandbox_log_other = old_rival
+    if has_country_flag(sandbox_clear_rival_no_cooldown):
+      $sandbox_log(rivals_clear_reroll)
+    elif sandbox_clear_kind == 1:
+      $sandbox_log(rivals_clear_gone)
+    elif sandbox_clear_kind == 2:
+      $sandbox_log(rivals_clear_faction)
+    elif sandbox_clear_kind == 3:
+      $sandbox_log(rivals_clear_subject)
+    elif sandbox_clear_kind == 4:
+      $sandbox_log(rivals_clear_detente)
+    elif sandbox_clear_kind == 6:
+      $sandbox_log(rivals_clear_annex)
+    elif sandbox_clear_kind == 7:
+      $sandbox_log(rivals_clear_replace)
+    else:
+      $sandbox_log(rivals_clear)
+    sandbox_clear_kind = 0
     if country_exists(var:old_rival):
       var:old_rival:
         PREV:
@@ -568,6 +811,7 @@ become_event_rival():
       lowest_val = rivalry[2]
     if lowest_val < 25:
       rival_slot = lowest_slot
+      sandbox_clear_kind = 7
       clear_rival()
       rival_slot = lowest_slot
       rival_intensity = 75
@@ -579,17 +823,22 @@ review_rivals():
     if rivals[i] != 0:
       rival_tag = rivals[i]
       should_clear = 0
+      sandbox_clear_kind = 0
       if not country_exists(var:rival_tag):
         should_clear = 1
+        sandbox_clear_kind = 1
       elif is_in_faction_with(var:rival_tag):
         should_clear = 1
+        sandbox_clear_kind = 2
       elif is_subject_of(var:rival_tag):
         should_clear = 1
+        sandbox_clear_kind = 3
       else:
         var:rival_tag:
           if is_subject_of(PREV):
             PREV:
               should_clear = 1
+              sandbox_clear_kind = 3
       if should_clear == 1:
         rival_slot = i
         clear_rival()
@@ -664,6 +913,13 @@ expire_former_rivals():
     if age < 24:
       keep[].add(v)
       keep_month[].add(m)
+    else:
+      sandbox_log_other = v
+      sandbox_log_old = 0
+      sandbox_log_new = 0
+      sandbox_log_delta = age
+      sandbox_log_slot = -1
+      $sandbox_log(rivals_cooldown_expire)
   &former_rivals[].clear()
   &former_rivals_month[].clear()
   for v, _ in keep[]:
@@ -686,6 +942,12 @@ apply_rivalry_on_declare_war():
       max_r = rivalry[2]
   if max_r >= 50:
     add_war_support(0.05)
+    sandbox_log_old = 0
+    sandbox_log_new = 0.05
+    sandbox_log_delta = 0.05
+    sandbox_log_slot = -1
+    sandbox_log_other = FROM
+    $sandbox_log(rivals_war_support_declare)
 
   FROM:
     was_rival = 0
@@ -698,6 +960,12 @@ apply_rivalry_on_declare_war():
       add_rivalry_vs()
     if ROOT in rivals[]:
       add_war_support(0.10)
+      sandbox_log_old = 0
+      sandbox_log_new = 0.10
+      sandbox_log_delta = 0.10
+      sandbox_log_slot = -1
+      sandbox_log_other = ROOT
+      $sandbox_log(rivals_war_support_attacked)
 
   for other in every_other_country():
     if not tag(FROM):
@@ -731,10 +999,19 @@ clear_annexed_from_rivals():
     if FROM in rivals[]:
       if rivals[0] == FROM:
         rival_slot = 0
+        sandbox_clear_kind = 6
         clear_rival()
       if rivals[1] == FROM:
         rival_slot = 1
+        sandbox_clear_kind = 6
         clear_rival()
       if rivals[2] == FROM:
         rival_slot = 2
+        sandbox_clear_kind = 6
         clear_rival()
+
+
+# GER/SOV/ENG/USA/FRA/ITA/JAP/FIN/HUN once per month after drift/rivals.
+sandbox_log_census():
+  if is_sandbox_census_country():
+    log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")

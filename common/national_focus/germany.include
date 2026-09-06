@@ -537,39 +537,48 @@ focus_tree[id = german_focus]:
   focus[id = GER_prioritize_economic_growth]:
     +ai_will_do:
       modifier:
-        factor(0)
-        is_sandbox_mode_on()
-      modifier:
-        add(40)
+        $ai_sandbox_set(40)
         or:
           has_completed_focus(GER_re_establish_free_elections_ww)
           has_completed_focus(GER_return_of_the_kaiser)
           has_completed_focus(GER_return_of_the_kaiser_ww)
-        is_sandbox_mode_on()
       modifier:
-        add(13.33)
+        $ai_sandbox_set(13.33)
         or:
           has_completed_focus(GER_start_the_proletarian_revolution)
+      modifier:
+        factor(0)
+        NOT:
+          or:
+            has_completed_focus(GER_re_establish_free_elections_ww)
+            has_completed_focus(GER_return_of_the_kaiser)
+            has_completed_focus(GER_return_of_the_kaiser_ww)
+            has_completed_focus(GER_start_the_proletarian_revolution)
         is_sandbox_mode_on()
       modifier:
         $root_modifier()
   focus[id = GER_the_four_year_plan]:
     +ai_will_do:
       modifier:
-        factor(0)
-        is_sandbox_mode_on()
-      modifier:
-        add(40)
+        $ai_sandbox_set(40)
         or:
           has_completed_focus(GER_remilitarize_the_rhineland)
           has_completed_focus(GER_start_the_proletarian_revolution)
           has_completed_focus(GER_military_dictatorship)
-        is_sandbox_mode_on()
       modifier:
-        add(13.33)
+        $ai_sandbox_set(13.33)
         or:
           has_completed_focus(GER_return_of_the_kaiser)
           has_completed_focus(GER_return_of_the_kaiser_ww)
+      modifier:
+        factor(0)
+        NOT:
+          or:
+            has_completed_focus(GER_remilitarize_the_rhineland)
+            has_completed_focus(GER_start_the_proletarian_revolution)
+            has_completed_focus(GER_military_dictatorship)
+            has_completed_focus(GER_return_of_the_kaiser)
+            has_completed_focus(GER_return_of_the_kaiser_ww)
         is_sandbox_mode_on()
       modifier:
         $root_modifier()

@@ -492,6 +492,12 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         factor(0)
+        NOT:
+          or:
+            has_completed_focus(SOV_reinforce_western_naval_bases)
+            has_completed_focus(SOV_reinforce_northern_naval_bases)
+            has_completed_focus(SOV_reinforce_southern_naval_bases)
+            has_completed_focus(SOV_reinforce_eastern_naval_bases)
         is_sandbox_mode_on()
       modifier:
         add(10)
@@ -655,7 +661,6 @@ focus_tree[id = soviet_focus]:
         add(0)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_4)
         is_sandbox_mode_on()
-      #TODO: Addition weight for every owned state in Asia with 3+ arms_factory
       modifier:
         $ai_mic_modifier()
 
@@ -982,57 +987,47 @@ focus_tree[id = soviet_focus]:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_inheritor_of_the_mantle_of_lenin]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_brilliant_genius]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_faithful_servant_of_lenin]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_ban_excessive_hero_worship]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_leader_of_the_party_and_the_people]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_great_commander]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_architect_of_communism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_father_of_nations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_freedom_of_debate_unity_of_action]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_construction_of_communism]:
     +ai_will_do:
       modifier:
@@ -1313,7 +1308,6 @@ focus_tree[id = soviet_focus]:
           $GER->is_friend_of_PREV()
           $ITA->is_friend_of_PREV()
 
-  #TODO
   focus[id = SOV_anti_capitalist_policies]:
     ai_will_do:
       +modifier:
@@ -1493,7 +1487,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
-  #TODO
   focus[id = SOV_demand_balkan_submission]:
     ai_will_do:
       +modifier:
@@ -1501,7 +1494,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_seek_balkan_cooperation]:
     ai_will_do:
       +modifier:
@@ -1808,6 +1800,20 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         factor(0)
+        NOT:
+          or:
+            has_completed_focus(SOV_womens_fascist_movement)
+            has_completed_focus(SOV_the_true_tsars)
+            has_completed_focus(SOV_national_unification)
+            has_completed_focus(SOV_embrace_the_black_hundreds)
+            has_completed_focus(SOV_covert_operations)
+            has_completed_focus(SOV_muster_the_old_guard)
+            has_completed_focus(SOV_fascist_youth_union)
+            has_completed_focus(SOV_approach_semyonov)
+            has_completed_focus(SOV_organize_wreckers)
+            has_completed_focus(SOV_tolkachi)
+            has_completed_focus(SOV_south_manchuria_railway)
+            has_completed_focus(SOV_the_eyes_fear)
         is_sandbox_mode_on()
       +modifier:
         add(4)
@@ -1977,84 +1983,70 @@ focus_tree[id = soviet_focus]:
 # █▀▀▀ █   █ █▀▀▀ █▀▀▄ ▀▄ ▄▀ ▀▀█▀▀ █  █ █ █▄  █ ▄▀▀▀       █▀▀▀ █    ▄▀▀▀ █▀▀▀
 # █▀▀   █ █  █▀▀  █▀▀▄   █     █   █▀▀█ █ █ ▀▄█ █  ▀█      █▀▀  █     ▀▀▄ █▀▀ 
 # ▀▀▀▀   ▀   ▀▀▀▀ ▀  ▀   ▀     ▀   ▀  ▀ ▀ ▀   ▀  ▀▀▀       ▀▀▀▀ ▀▀▀▀ ▀▀▀  ▀▀▀▀
-  #TODO
   focus[id = SOV_barrier_troops]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_fourth_international]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_bring_old_trotskyists_back]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_organize_the_wreckers]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_integrate_smirnovs_bloc]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_left_eliminate_right]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_committee_in_exile]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_approach_tukhachevsky]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_approach_primakov]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_funds_for_the_cause]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_left_opposition_coup]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_vanguard_of_the_true_revolution]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_long_live_the_workers_government]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_left_purges]:
     +ai_will_do:
       modifier:
@@ -2073,7 +2065,6 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_reigniting_the_revolutionary_spirit]:
     +ai_will_do:
       modifier:
@@ -2081,19 +2072,16 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_the_permanent_revolution]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_depoliticize_the_military]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_system_decentralization]:
     +ai_will_do:
       modifier:
@@ -2109,83 +2097,69 @@ focus_tree[id = soviet_focus]:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_a_global_class_struggle]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_all_power_to_the_soviets]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_regional_development]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_autonomous_soviet_republics]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_international_union_of_soviet_republics]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_onslaught_on_colonialism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_carry_revolution_east]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_end_of_the_imperialist_era]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_need_for_policy_changes]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_reverse_the_collectivization_process]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_organize_uprisings_in_the_country]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_dissent_in_the_party]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_eliminate_the_left]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_concessions_to_foreign_powers]:
     +ai_will_do:
       modifier:
@@ -2193,7 +2167,6 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_covert_support_for_spanish_poum]:
     +ai_will_do:
       modifier:
@@ -2201,31 +2174,26 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_undermine_stalins_authority]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_clandestine_cells]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_plan_for_the_coup]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_socialist_bulwark]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_coup_detat]:
     +ai_will_do:
       modifier:
@@ -2233,7 +2201,6 @@ focus_tree[id = soviet_focus]:
       modifier:
         $ai_high_tyranny_tilt()
 
-  #TODO
 
   focus[id = SOV_right_purges]:
     +ai_will_do:
@@ -2251,96 +2218,80 @@ focus_tree[id = soviet_focus]:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_curtailment_of_the_collective_farms]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_administrative_reforms]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_a_new_theory_of_revolution]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_back_to_the_nep]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_planned_economy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_paced_industrialization]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_trade_union_as_labor_organizer]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_incorporate_local_organizations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_for_the_common_good]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_victory_over_devastation]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_socialist_humanism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_international_revolutionary_marxist_centre]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_a_sustainable_economy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_enemies_of_the_people]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_proclaim_soviet_hegemony]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_military_support]:
     +ai_will_do:
       modifier:
@@ -2348,7 +2299,6 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_divert_attention_towards_military]:
     +ai_will_do:
       modifier:
@@ -2356,19 +2306,16 @@ focus_tree[id = soviet_focus]:
       modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_gain_support_from_party_members]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_sway_the_railway_workers]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_infiltrate_the_nkvd]:
     +ai_will_do:
       modifier:
@@ -2385,71 +2332,59 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_align_the_zinovyevites]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_liberate_ryutin]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_return_democracy_to_the_party]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_strengthen_the_trade_unions]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_the_peoples_revolution]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_supreme_soviet]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_russian_corporate_state]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_capital_of_the_tsars]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_church_candidates]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_reinstitute_the_mestnichestvo]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_iron_wall_of_russian_resolve]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_my_brothers_keeper]:
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
@@ -2466,7 +2401,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_rightful_heir_to_the_empire]:
     available:
       var:rightful_heir_to_empire_targets[0]->can_PREV_get_wargoal_on_THIS()
@@ -2486,13 +2420,11 @@ focus_tree[id = soviet_focus]:
           THIS in ROOT.rightful_heir_to_empire_targets[]
           is_friend_of_ROOT()
 
-  #TODO
   focus[id = SOV_the_third_rome]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_vengeance_for_the_yoke]:
     available:
       $MON->can_PREV_get_wargoal_on_THIS()
@@ -2508,7 +2440,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($MON)
 
-  #TODO
   focus[id = SOV_reclaim_uryankhay_krai]:
     available:
       $TAN->can_PREV_get_wargoal_on_THIS()
@@ -2524,13 +2455,11 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($TAN)
 
-  #TODO
   focus[id = SOV_westward_bound]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_triple_entente]:
     available:
       $not_rival_of_PREV($ENG)
@@ -2549,7 +2478,6 @@ focus_tree[id = soviet_focus]:
         factor(cooperation)
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_our_slavic_commitments]:
     ai_will_do:
       +modifier:
@@ -2561,7 +2489,6 @@ focus_tree[id = soviet_focus]:
         factor(cooperation)
         is_sandbox_mode_on()
 
-  #TODO
   focus[id = SOV_the_old_enemy]:
     available:
       $SWE->can_PREV_get_wargoal_on_THIS()
@@ -2577,7 +2504,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
-  #TODO
   focus[id = SOV_secure_finland]:
     available:
       $FIN->can_PREV_get_wargoal_on_THIS()
@@ -2593,7 +2519,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($FIN)
 
-  #TODO
   focus[id = SOV_secure_the_baltics]:
     available:
       $EST->can_PREV_get_wargoal_on_THIS()
@@ -2624,12 +2549,10 @@ focus_tree[id = soviet_focus]:
           $LIT->is_friend_of_PREV()
           $LAT->is_friend_of_PREV()
 
-  #TODO
   focus[id = SOV_panslavic_nationalism]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-  #TODO
   focus[id = SOV_the_fate_of_romania]:
     available:
       $ROM->can_PREV_get_wargoal_on_THIS()
@@ -2645,19 +2568,16 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
-  #TODO
   focus[id = SOV_pacify_the_rim]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_eastern_expansion]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_intervention_in_the_americas]:
     ai_will_do:
       +modifier:
@@ -2665,7 +2585,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_restore_the_old_eastern_empire]:
     available:
       $CAN->can_PREV_get_wargoal_on_THIS()
@@ -2691,7 +2610,6 @@ focus_tree[id = soviet_focus]:
           $CAN->is_friend_of_PREV()
           $USA->is_friend_of_PREV()
 
-  #TODO
   focus[id = SOV_into_central_asia]:
     available:
       $AFG->can_PREV_get_wargoal_on_THIS()
@@ -2715,7 +2633,6 @@ focus_tree[id = soviet_focus]:
           $AFG->is_friend_of_PREV()
           $PER->is_friend_of_PREV()
 
-  #TODO
   focus[id = SOV_the_last_break_southward]:
     available:
       +or:
@@ -2756,19 +2673,16 @@ focus_tree[id = soviet_focus]:
           $RAJ->is_friend_of_PREV()
           $PAK->is_friend_of_PREV()
 
-  #TODO
   focus[id = SOV_rebuild_the_far_eastern_fleet]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_modernize_the_far_eastern_fleet]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_memories_of_1905]:
     ai_will_do:
       +modifier:
@@ -2776,7 +2690,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $crossroad_modifier(2)
 
-  #TODO
   focus[id = SOV_the_lonely_island]:
     +available:
       $JAP->can_PREV_get_wargoal_on_THIS()
@@ -2792,13 +2705,11 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
-  #TODO
   focus[id = SOV_an_empire_in_the_pacific]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_the_berlin_moscow_axis]:
     available:
       $GER->is_rival_of_PREV(no)
@@ -2806,7 +2717,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  #TODO
   focus[id = SOV_japanese_overtures]:
     available:
       +JAP:

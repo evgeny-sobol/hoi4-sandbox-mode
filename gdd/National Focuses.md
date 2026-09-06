@@ -31,7 +31,7 @@ Each **root** in national focuses tree:
         $crossroad_modifier(N)
 ```
 
-`$crossroad_modifier(N)` is `1/N`. That is correct for optional forks: the pair should not outbid a singleton industrial focus. Political and story forks must **not** use it. A share that sums to 1 across the exclusive set (or `1/N` on top of such a share) makes each option on average half as attractive as any singleton, so the AI lingers on industry and diplomacy while the political beat waits. Vanilla `search_filters` is the detector when the fork has no party-popularity weights: if any concurrent exclusive option is tagged `FOCUS_FILTER_POLITICAL` or `FOCUS_FILTER_POLITICAL_CHARACTER`, treat the whole group as a story beat and drop `$crossroad_modifier`.
+`$ai_sandbox_modifier()` is `factor(0)` **and** `add(40)` in the **same** `modifier` block. Do not split them across modifiers: the engine multiplies every `factor` into the final weight, so a standalone `factor(0)` leaves the focus at 0 in aiview even after a later `add(40)` fires. To gate a root on a completed political focus, put `factor(0)` + `add(N)` in one modifier with that `has_completed_focus` trigger, and a separate `factor(0)` only in the complementary `NOT` case.
 
 ### Party-popularity modifiers
 
