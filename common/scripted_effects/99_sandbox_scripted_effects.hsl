@@ -192,6 +192,15 @@ remove_tyranny_leader_traits():
 
 
 update_country_leader_traits():
+  # Traits live on the character. A new ruler (election, civil-war spawn,
+  # promote_leader) does not inherit them, and copied `sandbox_initialized`
+  # skips initialize_new_country_leader for rebel tags.
+  if not has_country_leader_with_trait(leader_personality):
+    add_country_leader_trait(leader_personality)
+  if not has_country_leader_with_trait(treacherous_leader | dishonorable_leader | inglorious_leader | honorable_leader | righteous_leader):
+    &prev_honor = 999
+  if not has_country_leader_with_trait(libertarian_leader | liberal_leader | moderate_leader | authoritarian_leader | despotic_leader):
+    &prev_tyranny = 999
   if honor != prev_honor:
     remove_honor_leader_traits()
     if honor < -75:

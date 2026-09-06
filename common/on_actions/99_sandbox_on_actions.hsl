@@ -36,6 +36,13 @@ on_actions:
       if is_sandbox_mode_on():
         inherit_honor_on_ruling_party_change()
 
+  # Civil-war splits and ideology swaps often install a new character without
+  # initialize_new_country_leader (the initialized flag copies with the tag).
+  on_government_change:
+    effect:
+      if is_sandbox_mode_on():
+        update_country_leader_traits()
+
   # ROOT = winner. The rebel tag itself is initialised by the weekly guard above;
   # on_coup_succeeded is not used because its ROOT is the country the coup was
   # staged against, not the new regime.
