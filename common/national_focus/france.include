@@ -9,8 +9,6 @@ focus_tree[id = french_focus]:
       +modifier:
         $root_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:democracy_factor + mtth:communism_factor) /
           (2 * mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
@@ -22,8 +20,6 @@ focus_tree[id = french_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $root_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor + mtth:fascism_factor) /
           (2 * mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor)

@@ -1205,8 +1205,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:communism_factor + mtth:democracy_factor) /
           (2 * mtth:communism_factor + mtth:democracy_factor + mtth:fascism_factor)
         factor(f)
@@ -1220,8 +1218,6 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:communism_factor + mtth:fascism_factor) /
           (2 * mtth:communism_factor + mtth:democracy_factor + mtth:fascism_factor)
@@ -1840,8 +1836,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $crossroad_modifier(2)
-      +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) /
           (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor)
         factor(f)
@@ -1851,8 +1845,6 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $crossroad_modifier(2)
       +modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) /
           (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor)
