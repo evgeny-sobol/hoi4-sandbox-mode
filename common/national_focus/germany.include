@@ -544,6 +544,7 @@ focus_tree[id = german_focus]:
         or:
           has_completed_focus(GER_re_establish_free_elections_ww)
           has_completed_focus(GER_return_of_the_kaiser)
+          has_completed_focus(GER_return_of_the_kaiser_ww)
         is_sandbox_mode_on()
       modifier:
         add(13.33)
@@ -568,6 +569,7 @@ focus_tree[id = german_focus]:
         add(13.33)
         or:
           has_completed_focus(GER_return_of_the_kaiser)
+          has_completed_focus(GER_return_of_the_kaiser_ww)
         is_sandbox_mode_on()
       modifier:
         $root_modifier()
