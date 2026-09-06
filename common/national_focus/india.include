@@ -17,6 +17,8 @@ focus_tree[id = indian_focus]:
       +modifier:
         $ai_antagonism_modifier($ENG)
       +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = RAJ_indian_national_congress]:
@@ -29,6 +31,8 @@ focus_tree[id = indian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
       +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -48,11 +52,17 @@ focus_tree[id = indian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = RAJ_indian_peoples_army]:
+    available:
+      $not_rival_of_PREV($RAJ)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($RAJ)
+      +modifier:
+        factor(0)
+        $RAJ in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = RAJ_research_city_excursions]:
     ai_will_do:
@@ -80,11 +90,17 @@ focus_tree[id = indian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = RAJ_indian_national_army]:
+    available:
+      $not_rival_of_PREV($RAJ)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($RAJ)
+      +modifier:
+        factor(0)
+        $RAJ in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = RAJ_battaglione_azad_hindoustan]:
     ai_will_do:

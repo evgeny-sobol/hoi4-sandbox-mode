@@ -14,6 +14,13 @@
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BRA)
+        $rivalry_vs_into($ARG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $BRA->is_friend_of_PREV()

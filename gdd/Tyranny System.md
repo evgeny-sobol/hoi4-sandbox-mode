@@ -5,8 +5,9 @@ Tyranny is a per-regime measure of how concentrated and repressive the ruler's p
 Tyranny is a trade-off, not a good/bad scale. High Tyranny buys control (party drift defence, political power, a firm grip during war) at the price of openness (research, trade, resistance in occupied land). Low Tyranny is the mirror image: open and productive, but easy to destabilise from outside.
 
 Tyranny is **not**:
-- Honor (keeping promises to other countries; see `gdd/honor.md`). The two are orthogonal: a liberal democracy can be treacherous, a despot can be a man of his word.
+- Honor (keeping promises to other countries; see `gdd/Honor System.md`). The two are orthogonal: a liberal democracy can be treacherous, a despot can be a man of his word.
 - Ideology. Ideology sets where Tyranny naturally settles, but every government can be pushed far from its home value.
+- Rivalry (whom we want to fight; see `gdd/Rivals System.md`). The only link runs the other way: an Authoritarian or Despotic ruler's personal rivalry (`rivals[0]`) grows +1 per month faster, a Libertarian or Liberal ruler's −1 slower.
 
 Sandbox-only: every rule below runs under `is_sandbox_mode_on()`.
 
@@ -111,7 +112,7 @@ Tyranny is a property of the regime more than of the person, so inertia is stron
 
 - Peaceful ruling-party change (`on_ruling_party_change`): `tyranny = 0.5 * tyranny + 0.5 * randi(min, max)` using the new government's row of the table; `tyranny_home` is recomputed. Institutions persist, ideology changes direction.
 - Civil-war victory (`on_civil_war_end`, ROOT = winner): full `randi(min, max)` for the new government. The old apparatus is gone.
-- Rebel tags and coup regimes are new countries: they are initialised lazily by the weekly `sandbox_initialized` guard (see `gdd/honor.md`, "Leader change") and roll like a startup country. `on_coup_succeeded` is not used because its ROOT is the country the coup was staged against.
+- Rebel tags and coup regimes are new countries: they are initialised lazily by the weekly `sandbox_initialized` guard (see `gdd/Honor System.md`, "Leader change") and roll like a startup country. `on_coup_succeeded` is not used because its ROOT is the country the coup was staged against.
 
 Then `update_country_leader_traits()` runs as today.
 
@@ -127,7 +128,7 @@ Implementation: scripted triggers `is_authoritarian_leader` / `is_liberal_leader
 
 ## AI weighting
 
-The existing mtth factors in `common/mtth/99_sandbox_factors_mtth.hsl` are used with the patterns of `gdd/national_focus.md`:
+The existing mtth factors in `common/mtth/99_sandbox_factors_mtth.hsl` are used with the patterns of `gdd/National Focuses.md`:
 
 - Fork "repression vs. reform" (both options mutually exclusive **with each other**): partition shares with `$ai_high_tyranny_fork()` / `$ai_low_tyranny_fork()` (`0.5 + factor`, so a Moderate AI keeps a weight) and drop `$crossroad_modifier`; a middle option takes `$ai_medium_tyranny_fork()`. Only genuine Tyranny forks qualify; a liberal focus whose exclusive sibling is an *ideological* choice (e.g. `GER_reestablish_free_elections` vs `GER_revive_the_kaiserreich`) keeps the tilt and the party-popularity partition. Identified so far: `SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`.
 - A single repressive focus without a fork: `$ai_high_tyranny_tilt()` (`1 + mtth:high_tyranny_factor`); a single liberal focus: `$ai_low_tyranny_tilt()`.

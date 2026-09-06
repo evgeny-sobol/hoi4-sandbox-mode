@@ -168,6 +168,8 @@
       +modifier:
         $ai_antagonism_modifier($TIB)
       +modifier:
+        $ai_rivalry_modifier($TIB)
+      +modifier:
         $ai_betrayal_modifier_vs($TIB)
 
   shared_focus[id = CHI_renounce_the_mcmahon_line]:
@@ -187,6 +189,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MON)
+      +modifier:
+        $ai_rivalry_modifier($MON)
       +modifier:
         $ai_betrayal_modifier_vs($MON)
 
@@ -212,6 +216,14 @@
       +modifier:
         antagonism = 1 - ($opinion_factor($VIN) + $opinion_factor($CAM) + $opinion_factor($LAO)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($VIN)
+        $rivalry_vs_into($CAM)
+        $rivalry_vs_into($LAO)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()

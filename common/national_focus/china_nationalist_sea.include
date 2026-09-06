@@ -144,6 +144,17 @@ focus_tree[id = china_nationalist_sea_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($TIB)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        $rivalry_vs_into($MEN)
+        $rivalry_vs_into($MAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $PRC->is_friend_of_PREV()
@@ -268,6 +279,8 @@ focus_tree[id = china_nationalist_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($JAP)
       +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = CHI_utilize_german_contacts]:
@@ -375,6 +388,8 @@ focus_tree[id = china_nationalist_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_rivalry_modifier($PRC)
       +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
@@ -663,6 +678,26 @@ focus_tree[id = china_nationalist_sea_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($YUN)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($RNG)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $GXC->is_friend_of_PREV()
@@ -715,6 +750,8 @@ focus_tree[id = china_nationalist_sea_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($TIB, $MON)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $TIB->is_friend_of_PREV()
@@ -755,6 +792,8 @@ focus_tree[id = china_nationalist_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($KOR)
       +modifier:
+        $ai_rivalry_modifier($KOR)
+      +modifier:
         $ai_betrayal_modifier_vs($KOR)
 
   focus[id = CHI_reclaim_the_north]:
@@ -770,6 +809,8 @@ focus_tree[id = china_nationalist_sea_focus]:
         antagonism = 1 - ($opinion_factor($TAN) + $opinion_factor($SOV)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($TAN, $SOV)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -850,6 +891,14 @@ focus_tree[id = china_nationalist_sea_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($SHX) + $opinion_factor($HBC) + $opinion_factor($SND)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($HBC)
+        $rivalry_vs_into($SND)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -948,6 +997,28 @@ focus_tree[id = china_nationalist_sea_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($YUN)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($RNG)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $CHI->is_friend_of_PREV()
@@ -979,6 +1050,8 @@ focus_tree[id = china_nationalist_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($JAP)
       +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = CHI_put_an_end_to_PRC]:
@@ -991,6 +1064,8 @@ focus_tree[id = china_nationalist_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_rivalry_modifier($PRC)
       +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
@@ -1053,6 +1128,14 @@ focus_tree[id = china_nationalist_sea_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($MON) + $opinion_factor($TIB) + $opinion_factor($TAN)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TIB)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()

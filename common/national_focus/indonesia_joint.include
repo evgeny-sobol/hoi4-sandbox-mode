@@ -512,6 +512,8 @@
       +modifier:
         $ai_antagonism_modifier($HOL)
       +modifier:
+        $ai_rivalry_modifier($HOL)
+      +modifier:
         $ai_betrayal_modifier_vs($HOL)
 
   joint_focus[id = INSHOL_comite_rijkseenheid]:

@@ -27,6 +27,8 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_victory_in_trust]:
@@ -83,6 +85,8 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_antagonism_modifier($LIT)
       +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = LIT_arrest_nazis_in_memel]:
@@ -95,6 +99,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
@@ -131,6 +137,8 @@ focus_tree[id = lithuania_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($SOU, $LIT)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           and:
@@ -151,6 +159,8 @@ focus_tree[id = lithuania_tree]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($LIT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $LIT)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -238,6 +248,8 @@ focus_tree[id = lithuania_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($LAT, $EST)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LAT->is_friend_of_PREV()
@@ -268,6 +280,8 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_request_polish_occupation]:
@@ -284,6 +298,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
       +modifier:
         $ai_betrayal_modifier_vs($POL)
 
@@ -393,6 +409,8 @@ focus_tree[id = lithuania_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $EST->is_friend_of_PREV()
@@ -494,6 +512,8 @@ focus_tree[id = lithuania_tree]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = LIT_POL_union]:
@@ -506,6 +526,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
       +modifier:
         $ai_betrayal_modifier_vs($POL)
 
@@ -553,6 +575,8 @@ focus_tree[id = lithuania_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $EST->is_friend_of_PREV()
@@ -573,6 +597,8 @@ focus_tree[id = lithuania_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 

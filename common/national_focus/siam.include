@@ -337,6 +337,8 @@ focus_tree[id = siam_focus]:
       +modifier:
         $ai_antagonism_modifier($JAP)
       +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = SIA_the_siamese_armada]:
@@ -372,6 +374,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -522,6 +526,14 @@ focus_tree[id = siam_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($MAL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -542,6 +554,8 @@ focus_tree[id = siam_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($FRA, $VIC)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -559,6 +573,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -971,6 +987,8 @@ focus_tree[id = siam_focus]:
       +modifier:
         $ai_antagonism_modifier($CHI)
       +modifier:
+        $ai_rivalry_modifier($CHI)
+      +modifier:
         $ai_betrayal_modifier_vs($CHI)
 
   focus[id = SIA_securing_the_rubber_islands]:
@@ -983,6 +1001,8 @@ focus_tree[id = siam_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAL)
+      +modifier:
+        $ai_rivalry_modifier($MAL)
       +modifier:
         $ai_betrayal_modifier_vs($MAL)
 

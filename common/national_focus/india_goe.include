@@ -48,6 +48,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($RAJ)
       +modifier:
+        $ai_rivalry_modifier($RAJ)
+      +modifier:
         $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = RAJ_reform_the_agricultural_system]:
@@ -135,6 +137,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($BRM)
       +modifier:
+        $ai_rivalry_modifier($BRM)
+      +modifier:
         $ai_betrayal_modifier_vs($BRM)
 
   focus[id = RAJ_secular_rule]:
@@ -167,6 +171,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($AFG)
       +modifier:
+        $ai_rivalry_modifier($AFG)
+      +modifier:
         $ai_betrayal_modifier_vs($AFG)
 
   focus[id = RAJ_through_the_wakhan_corridor]:
@@ -182,6 +188,8 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($KHM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($SIK, $KHM)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -219,6 +227,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($ENG)
       +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = RAJ_across_the_himalayas]:
@@ -234,6 +244,14 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         antagonism = 1 - ($opinion_factor($TIB) + $opinion_factor($BHU) + $opinion_factor($NEP)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($TIB)
+        $rivalry_vs_into($BHU)
+        $rivalry_vs_into($NEP)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -253,6 +271,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($PER)
       +modifier:
+        $ai_rivalry_modifier($PER)
+      +modifier:
         $ai_betrayal_modifier_vs($PER)
 
   focus[id = RAJ_conquerors_of_iraq]:
@@ -266,6 +286,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($IRQ)
       +modifier:
+        $ai_rivalry_modifier($IRQ)
+      +modifier:
         $ai_betrayal_modifier_vs($IRQ)
 
   focus[id = RAJ_conquerors_of_turkey]:
@@ -278,6 +300,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
       +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
@@ -294,6 +318,8 @@ focus_tree[id = indian_focus_goe]:
         antagonism = 1 - ($opinion_factor($MON) + $opinion_factor($KUM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MON, $KUM)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -320,6 +346,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_rivalry_modifier($RAJ)
       +modifier:
         $ai_betrayal_modifier_vs($RAJ)
 
@@ -473,6 +501,15 @@ focus_tree[id = indian_focus_goe]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BHU)
+        $rivalry_vs_into($NEP)
+        $rivalry_vs_into($PER)
+        $rivalry_vs_into($TIB)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $BHU->is_friend_of_PREV()
@@ -564,6 +601,8 @@ focus_tree[id = indian_focus_goe]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($INS, $SIA)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $INS->is_friend_of_PREV()
@@ -590,6 +629,17 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($AST) + $opinion_factor($BRM) + $opinion_factor($SAF) + $opinion_factor($NZL) + $opinion_factor($CAN)) / 6
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($SAF)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($CAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -863,6 +913,8 @@ focus_tree[id = indian_focus_goe]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($RAJ, $PAK)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $RAJ->is_friend_of_PREV()
@@ -1115,6 +1167,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($RAJ)
       +modifier:
+        $ai_rivalry_modifier($RAJ)
+      +modifier:
         $ai_betrayal_modifier_vs($RAJ)
 
   focus[id = RAJ_rani_of_jhansi_regiment]:
@@ -1193,6 +1247,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($BHU)
       +modifier:
+        $ai_rivalry_modifier($BHU)
+      +modifier:
         $ai_betrayal_modifier_vs($BHU)
 
   focus[id = RAJ_coal_fire_and_steel]:
@@ -1241,6 +1297,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($BRM)
       +modifier:
+        $ai_rivalry_modifier($BRM)
+      +modifier:
         $ai_betrayal_modifier_vs($BRM)
 
   focus[id = RAJ_the_sun_sets]:
@@ -1253,6 +1311,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAL)
+      +modifier:
+        $ai_rivalry_modifier($MAL)
       +modifier:
         $ai_betrayal_modifier_vs($MAL)
 
@@ -1281,6 +1341,8 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = RAJ_appoint_german_friendly_government]:
@@ -1293,6 +1355,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -1755,6 +1819,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($PER)
+      modifier:
+        $ai_rivalry_modifier($PER)
       modifier:
         $ai_betrayal_modifier_vs($PER)
 
@@ -2385,6 +2451,8 @@ focus_tree[id = indian_focus_goe]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($PAK, $BRM)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $PAK->is_friend_of_PREV()
@@ -2400,6 +2468,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
       +modifier:
         $ai_betrayal_modifier_vs($JAP)
 

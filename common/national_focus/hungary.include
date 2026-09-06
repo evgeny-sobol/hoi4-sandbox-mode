@@ -101,6 +101,8 @@ focus_tree[id = hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($SWE)
       +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   focus[id = HUN_responsible_government]:
@@ -117,6 +119,15 @@ focus_tree[id = hungarian_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($HUN)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CZE)
+        $rivalry_vs_into($ROM)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($HUN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -195,17 +206,25 @@ focus_tree[id = hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($AUS, $ITA)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $AUS->is_friend_of_PREV()
           $ITA->is_friend_of_PREV()
 
   focus[id = HUN_protect_austria]:
+    available:
+      $not_rival_of_PREV($AUS)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($AUS)
+      +modifier:
+        factor(0)
+        $AUS in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = HUN_alliance_with_italy]:
     ai_will_do:
@@ -222,6 +241,8 @@ focus_tree[id = hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -251,6 +272,8 @@ focus_tree[id = hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($ROM)
       +modifier:
+        $ai_rivalry_modifier($ROM)
+      +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = HUN_demand_southern_slovakia]:
@@ -266,6 +289,14 @@ focus_tree[id = hungarian_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO) + $opinion_factor($POL)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CZE)
+        $rivalry_vs_into($SLO)
+        $rivalry_vs_into($POL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -301,6 +332,8 @@ focus_tree[id = hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SLO)
+      +modifier:
+        $ai_rivalry_modifier($SLO)
       +modifier:
         $ai_betrayal_modifier_vs($SLO)
 
@@ -368,6 +401,8 @@ focus_tree[id = hungarian_focus]:
         antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($CZE)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($AUS, $CZE)
       +modifier:
         $ai_betrayal_modifier()
         or:

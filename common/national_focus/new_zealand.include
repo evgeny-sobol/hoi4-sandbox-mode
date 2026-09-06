@@ -12,6 +12,8 @@ focus_tree[id = new_zealander_focus]:
       +modifier:
         $ai_antagonism_modifier($NZL)
       +modifier:
+        $ai_rivalry_modifier($NZL)
+      +modifier:
         $ai_betrayal_modifier_vs($NZL)
 
   focus[id = NZL_form_the_rnzn]:
@@ -341,6 +343,8 @@ focus_tree[id = new_zealander_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($ENG, $NZL)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -380,6 +384,8 @@ focus_tree[id = new_zealander_focus]:
       +modifier:
         $ai_antagonism_modifier($NZL)
       +modifier:
+        $ai_rivalry_modifier($NZL)
+      +modifier:
         $ai_betrayal_modifier_vs($NZL)
 
   focus[id = NZL_join_comintern]:
@@ -415,6 +421,8 @@ focus_tree[id = new_zealander_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AST)
+      +modifier:
+        $ai_rivalry_modifier($AST)
       +modifier:
         $ai_betrayal_modifier_vs($AST)
 

@@ -393,6 +393,8 @@ focus_tree[id = congo_focus]:
       modifier:
         $ai_antagonism_modifier($COG)
       modifier:
+        $ai_rivalry_modifier($COG)
+      modifier:
         $ai_betrayal_modifier_vs($COG)
 
   focus[id = COG_prepare_for_offensive_action]:
@@ -535,6 +537,15 @@ focus_tree[id = congo_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($POR) + $opinion_factor($FRA) + $opinion_factor($SPR)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($POR)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($SPR)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()

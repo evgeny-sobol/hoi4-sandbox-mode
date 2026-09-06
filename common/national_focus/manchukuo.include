@@ -126,6 +126,8 @@ focus_tree[id = manchukuo_focus]:
       +modifier:
         $ai_antagonism_modifier($MEN)
       +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
         $ai_betrayal_modifier_vs($MEN)
 
   focus[id = MAN_national_cooperation_government]:
@@ -148,6 +150,8 @@ focus_tree[id = manchukuo_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
       +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
@@ -229,6 +233,8 @@ focus_tree[id = manchukuo_focus]:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($OVERLORD)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($JAP, $OVERLORD)
       +modifier:
         $ai_betrayal_modifier()
         or:

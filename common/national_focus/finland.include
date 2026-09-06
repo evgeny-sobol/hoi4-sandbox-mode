@@ -138,6 +138,16 @@ focus_tree[id = finnish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($NOR)
+        $rivalry_vs_into($DEN)
+        $rivalry_vs_into($ICE)
+        $rivalry_vs_into($SMI)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SWE->is_friend_of_PREV()
@@ -176,6 +186,8 @@ focus_tree[id = finnish_focus]:
       modifier:
         $ai_antagonism_modifier($ENG)
       modifier:
+        $ai_rivalry_modifier($ENG)
+      modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = FIN_keepers_of_the_baltic_countries]:
@@ -200,6 +212,16 @@ focus_tree[id = finnish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($NOR)
+        $rivalry_vs_into($DEN)
+        $rivalry_vs_into($ICE)
+        $rivalry_vs_into($SOV)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $SWE->is_friend_of_PREV()
@@ -222,6 +244,15 @@ focus_tree[id = finnish_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) + $opinion_factor($LIT) + $opinion_factor($POL)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($EST)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($POL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -257,6 +288,8 @@ focus_tree[id = finnish_focus]:
       modifier:
         $ai_antagonism_modifier($GER)
       modifier:
+        $ai_rivalry_modifier($GER)
+      modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = FIN_socialist_welfare]:
@@ -279,6 +312,8 @@ focus_tree[id = finnish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 

@@ -2,829 +2,2479 @@
 # █ ▀ █ █▀▀█ ▄  █ █   █ █▀▀▄      █  ▄ █   █ █  █ █ ▀▄█   █   █▀▀▄ █ █▀▀   ▀▀▄
 # ▀   ▀ ▀  ▀  ▀▀   ▀▀▀  ▀  ▀       ▀▀   ▀▀▀   ▀▀  ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀▀ ▀▀▀ 
 ENG_is_rival:
-  $country_is_rival($ENG)
+  $rival_base($ENG)
+
+ENG_is_rival_contain:
+  $rival_contain($ENG)
+
+ENG_is_rival_feud:
+  $rival_feud($ENG)
 
 FRA_is_rival:
-  $country_is_rival($FRA)
+  $rival_base($FRA)
+
+FRA_is_rival_contain:
+  $rival_contain($FRA)
+
+FRA_is_rival_feud:
+  $rival_feud($FRA)
 
 GER_is_rival:
-  $country_is_rival($GER)
+  $rival_base($GER)
+
+GER_is_rival_contain:
+  $rival_contain($GER)
+
+GER_is_rival_feud:
+  $rival_feud($GER)
 
 ITA_is_rival:
-  $country_is_rival($ITA)
+  $rival_base($ITA)
+
+ITA_is_rival_contain:
+  $rival_contain($ITA)
+
+ITA_is_rival_feud:
+  $rival_feud($ITA)
 
 JAP_is_rival:
-  $country_is_rival($JAP)
+  $rival_base($JAP)
+
+JAP_is_rival_contain:
+  $rival_contain($JAP)
+
+JAP_is_rival_feud:
+  $rival_feud($JAP)
 
 SOV_is_rival:
-  $country_is_rival($SOV)
+  $rival_base($SOV)
+
+SOV_is_rival_contain:
+  $rival_contain($SOV)
+
+SOV_is_rival_feud:
+  $rival_feud($SOV)
 
 USA_is_rival:
-  $country_is_rival($USA)
+  $rival_base($USA)
+
+USA_is_rival_contain:
+  $rival_contain($USA)
+
+USA_is_rival_feud:
+  $rival_feud($USA)
 
 # █▄ ▄█ █ █▄  █ ▄▀▀▀▄ █▀▀▄      ▄▀▀▄ ▄▀▀▀▄ █  █ █▄  █ ▀▀█▀▀ █▀▀▄ █ █▀▀▀ ▄▀▀▀
 # █ ▀ █ █ █ ▀▄█ █   █ █▀▀▄      █  ▄ █   █ █  █ █ ▀▄█   █   █▀▀▄ █ █▀▀   ▀▀▄
 # ▀   ▀ ▀ ▀   ▀  ▀▀▀  ▀  ▀       ▀▀   ▀▀▀   ▀▀  ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀▀ ▀▀▀ 
 ABK_is_rival:
-  $country_is_rival($ABK)
+  $rival_base($ABK)
+
+ABK_is_rival_contain:
+  $rival_contain($ABK)
+
+ABK_is_rival_feud:
+  $rival_feud($ABK)
 
 ADU_is_rival:
-  $country_is_rival($ADU)
+  $rival_base($ADU)
+
+ADU_is_rival_contain:
+  $rival_contain($ADU)
+
+ADU_is_rival_feud:
+  $rival_feud($ADU)
 
 AFA_is_rival:
-  $country_is_rival($AFA)
+  $rival_base($AFA)
+
+AFA_is_rival_contain:
+  $rival_contain($AFA)
+
+AFA_is_rival_feud:
+  $rival_feud($AFA)
 
 AFG_is_rival:
-  $country_is_rival($AFG)
+  $rival_base($AFG)
+
+AFG_is_rival_contain:
+  $rival_contain($AFG)
+
+AFG_is_rival_feud:
+  $rival_feud($AFG)
 
 ALB_is_rival:
-  $country_is_rival($ALB)
+  $rival_base($ALB)
+
+ALB_is_rival_contain:
+  $rival_contain($ALB)
+
+ALB_is_rival_feud:
+  $rival_feud($ALB)
 
 ALG_is_rival:
-  $country_is_rival($ALG)
+  $rival_base($ALG)
+
+ALG_is_rival_contain:
+  $rival_contain($ALG)
+
+ALG_is_rival_feud:
+  $rival_feud($ALG)
 
 ALT_is_rival:
-  $country_is_rival($ALT)
+  $rival_base($ALT)
+
+ALT_is_rival_contain:
+  $rival_contain($ALT)
+
+ALT_is_rival_feud:
+  $rival_feud($ALT)
 
 ANG_is_rival:
-  $country_is_rival($ANG)
+  $rival_base($ANG)
+
+ANG_is_rival_contain:
+  $rival_contain($ANG)
+
+ANG_is_rival_feud:
+  $rival_feud($ANG)
 
 AOI_is_rival:
-  $country_is_rival($AOI)
+  $rival_base($AOI)
+
+AOI_is_rival_contain:
+  $rival_contain($AOI)
+
+AOI_is_rival_feud:
+  $rival_feud($AOI)
 
 ARG_is_rival:
-  $country_is_rival($ARG)
+  $rival_base($ARG)
+
+ARG_is_rival_contain:
+  $rival_contain($ARG)
+
+ARG_is_rival_feud:
+  $rival_feud($ARG)
 
 ARM_is_rival:
-  $country_is_rival($ARM)
+  $rival_base($ARM)
+
+ARM_is_rival_contain:
+  $rival_contain($ARM)
+
+ARM_is_rival_feud:
+  $rival_feud($ARM)
 
 AST_is_rival:
-  $country_is_rival($AST)
+  $rival_base($AST)
+
+AST_is_rival_contain:
+  $rival_contain($AST)
+
+AST_is_rival_feud:
+  $rival_feud($AST)
 
 AUS_is_rival:
-  $country_is_rival($AUS)
+  $rival_base($AUS)
+
+AUS_is_rival_contain:
+  $rival_contain($AUS)
+
+AUS_is_rival_feud:
+  $rival_feud($AUS)
 
 AZR_is_rival:
-  $country_is_rival($AZR)
+  $rival_base($AZR)
+
+AZR_is_rival_contain:
+  $rival_contain($AZR)
+
+AZR_is_rival_feud:
+  $rival_feud($AZR)
 
 BAH_is_rival:
-  $country_is_rival($BAH)
+  $rival_base($BAH)
+
+BAH_is_rival_contain:
+  $rival_contain($BAH)
+
+BAH_is_rival_feud:
+  $rival_feud($BAH)
 
 BAN_is_rival:
-  $country_is_rival($BAN)
+  $rival_base($BAN)
+
+BAN_is_rival_contain:
+  $rival_contain($BAN)
+
+BAN_is_rival_feud:
+  $rival_feud($BAN)
 
 BAR_is_rival:
-  $country_is_rival($BAR)
+  $rival_base($BAR)
+
+BAR_is_rival_contain:
+  $rival_contain($BAR)
+
+BAR_is_rival_feud:
+  $rival_feud($BAR)
 
 BAS_is_rival:
-  $country_is_rival($BAS)
+  $rival_base($BAS)
+
+BAS_is_rival_contain:
+  $rival_contain($BAS)
+
+BAS_is_rival_feud:
+  $rival_feud($BAS)
 
 BAY_is_rival:
-  $country_is_rival($BAY)
+  $rival_base($BAY)
+
+BAY_is_rival_contain:
+  $rival_contain($BAY)
+
+BAY_is_rival_feud:
+  $rival_feud($BAY)
 
 BEG_is_rival:
-  $country_is_rival($BEG)
+  $rival_base($BEG)
+
+BEG_is_rival_contain:
+  $rival_contain($BEG)
+
+BEG_is_rival_feud:
+  $rival_feud($BEG)
 
 BEL_is_rival:
-  $country_is_rival($BEL)
+  $rival_base($BEL)
+
+BEL_is_rival_contain:
+  $rival_contain($BEL)
+
+BEL_is_rival_feud:
+  $rival_feud($BEL)
 
 BHU_is_rival:
-  $country_is_rival($BHU)
+  $rival_base($BHU)
+
+BHU_is_rival_contain:
+  $rival_contain($BHU)
+
+BHU_is_rival_feud:
+  $rival_feud($BHU)
 
 BIA_is_rival:
-  $country_is_rival($BIA)
+  $rival_base($BIA)
+
+BIA_is_rival_contain:
+  $rival_contain($BIA)
+
+BIA_is_rival_feud:
+  $rival_feud($BIA)
 
 BLR_is_rival:
-  $country_is_rival($BLR)
+  $rival_base($BLR)
+
+BLR_is_rival_contain:
+  $rival_contain($BLR)
+
+BLR_is_rival_feud:
+  $rival_feud($BLR)
 
 BLZ_is_rival:
-  $country_is_rival($BLZ)
+  $rival_base($BLZ)
+
+BLZ_is_rival_contain:
+  $rival_contain($BLZ)
+
+BLZ_is_rival_feud:
+  $rival_feud($BLZ)
 
 BOL_is_rival:
-  $country_is_rival($BOL)
+  $rival_base($BOL)
+
+BOL_is_rival_contain:
+  $rival_contain($BOL)
+
+BOL_is_rival_feud:
+  $rival_feud($BOL)
 
 BOS_is_rival:
-  $country_is_rival($BOS)
+  $rival_base($BOS)
+
+BOS_is_rival_contain:
+  $rival_contain($BOS)
+
+BOS_is_rival_feud:
+  $rival_feud($BOS)
 
 BOT_is_rival:
-  $country_is_rival($BOT)
+  $rival_base($BOT)
+
+BOT_is_rival_contain:
+  $rival_contain($BOT)
+
+BOT_is_rival_feud:
+  $rival_feud($BOT)
 
 BRA_is_rival:
-  $country_is_rival($BRA)
+  $rival_base($BRA)
+
+BRA_is_rival_contain:
+  $rival_contain($BRA)
+
+BRA_is_rival_feud:
+  $rival_feud($BRA)
 
 BRD_is_rival:
-  $country_is_rival($BRD)
+  $rival_base($BRD)
+
+BRD_is_rival_contain:
+  $rival_contain($BRD)
+
+BRD_is_rival_feud:
+  $rival_feud($BRD)
 
 BRI_is_rival:
-  $country_is_rival($BRI)
+  $rival_base($BRI)
+
+BRI_is_rival_contain:
+  $rival_contain($BRI)
+
+BRI_is_rival_feud:
+  $rival_feud($BRI)
 
 BRM_is_rival:
-  $country_is_rival($BRM)
+  $rival_base($BRM)
+
+BRM_is_rival_contain:
+  $rival_contain($BRM)
+
+BRM_is_rival_feud:
+  $rival_feud($BRM)
 
 BSK_is_rival:
-  $country_is_rival($BSK)
+  $rival_base($BSK)
+
+BSK_is_rival_contain:
+  $rival_contain($BSK)
+
+BSK_is_rival_feud:
+  $rival_feud($BSK)
 
 BUK_is_rival:
-  $country_is_rival($BUK)
+  $rival_base($BUK)
+
+BUK_is_rival_contain:
+  $rival_contain($BUK)
+
+BUK_is_rival_feud:
+  $rival_feud($BUK)
 
 BUL_is_rival:
-  $country_is_rival($BUL)
+  $rival_base($BUL)
+
+BUL_is_rival_contain:
+  $rival_contain($BUL)
+
+BUL_is_rival_feud:
+  $rival_feud($BUL)
 
 BYA_is_rival:
-  $country_is_rival($BYA)
+  $rival_base($BYA)
+
+BYA_is_rival_contain:
+  $rival_contain($BYA)
+
+BYA_is_rival_feud:
+  $rival_feud($BYA)
 
 CAM_is_rival:
-  $country_is_rival($CAM)
+  $rival_base($CAM)
+
+CAM_is_rival_contain:
+  $rival_contain($CAM)
+
+CAM_is_rival_feud:
+  $rival_feud($CAM)
 
 CAN_is_rival:
-  $country_is_rival($CAN)
+  $rival_base($CAN)
+
+CAN_is_rival_contain:
+  $rival_contain($CAN)
+
+CAN_is_rival_feud:
+  $rival_feud($CAN)
 
 CAR_is_rival:
-  $country_is_rival($CAR)
+  $rival_base($CAR)
+
+CAR_is_rival_contain:
+  $rival_contain($CAR)
+
+CAR_is_rival_feud:
+  $rival_feud($CAR)
 
 CAT_is_rival:
-  $country_is_rival($CAT)
+  $rival_base($CAT)
+
+CAT_is_rival_contain:
+  $rival_contain($CAT)
+
+CAT_is_rival_feud:
+  $rival_feud($CAT)
 
 CAY_is_rival:
-  $country_is_rival($CAY)
+  $rival_base($CAY)
+
+CAY_is_rival_contain:
+  $rival_contain($CAY)
+
+CAY_is_rival_feud:
+  $rival_feud($CAY)
 
 CBV_is_rival:
-  $country_is_rival($CBV)
+  $rival_base($CBV)
+
+CBV_is_rival_contain:
+  $rival_contain($CBV)
+
+CBV_is_rival_feud:
+  $rival_feud($CBV)
 
 CHA_is_rival:
-  $country_is_rival($CHA)
+  $rival_base($CHA)
+
+CHA_is_rival_contain:
+  $rival_contain($CHA)
+
+CHA_is_rival_feud:
+  $rival_feud($CHA)
 
 CHI_is_rival:
-  $country_is_rival($CHI)
+  $rival_base($CHI)
+
+CHI_is_rival_contain:
+  $rival_contain($CHI)
+
+CHI_is_rival_feud:
+  $rival_feud($CHI)
 
 CHL_is_rival:
-  $country_is_rival($CHL)
+  $rival_base($CHL)
+
+CHL_is_rival_contain:
+  $rival_contain($CHL)
+
+CHL_is_rival_feud:
+  $rival_feud($CHL)
 
 CHU_is_rival:
-  $country_is_rival($CHU)
+  $rival_base($CHU)
+
+CHU_is_rival_contain:
+  $rival_contain($CHU)
+
+CHU_is_rival_feud:
+  $rival_feud($CHU)
 
 CIN_is_rival:
-  $country_is_rival($CIN)
+  $rival_base($CIN)
+
+CIN_is_rival_contain:
+  $rival_contain($CIN)
+
+CIN_is_rival_feud:
+  $rival_feud($CIN)
 
 CKK_is_rival:
-  $country_is_rival($CKK)
+  $rival_base($CKK)
+
+CKK_is_rival_contain:
+  $rival_contain($CKK)
+
+CKK_is_rival_feud:
+  $rival_feud($CKK)
 
 CMR_is_rival:
-  $country_is_rival($CMR)
+  $rival_base($CMR)
+
+CMR_is_rival_contain:
+  $rival_contain($CMR)
+
+CMR_is_rival_feud:
+  $rival_feud($CMR)
 
 COG_is_rival:
-  $country_is_rival($COG)
+  $rival_base($COG)
+
+COG_is_rival_contain:
+  $rival_contain($COG)
+
+COG_is_rival_feud:
+  $rival_feud($COG)
 
 COL_is_rival:
-  $country_is_rival($COL)
+  $rival_base($COL)
+
+COL_is_rival_contain:
+  $rival_contain($COL)
+
+COL_is_rival_feud:
+  $rival_feud($COL)
 
 COR_is_rival:
-  $country_is_rival($COR)
+  $rival_base($COR)
+
+COR_is_rival_contain:
+  $rival_contain($COR)
+
+COR_is_rival_feud:
+  $rival_feud($COR)
 
 COS_is_rival:
-  $country_is_rival($COS)
+  $rival_base($COS)
+
+COS_is_rival_contain:
+  $rival_contain($COS)
+
+COS_is_rival_feud:
+  $rival_feud($COS)
 
 CRC_is_rival:
-  $country_is_rival($CRC)
+  $rival_base($CRC)
+
+CRC_is_rival_contain:
+  $rival_contain($CRC)
+
+CRC_is_rival_feud:
+  $rival_feud($CRC)
 
 CRI_is_rival:
-  $country_is_rival($CRI)
+  $rival_base($CRI)
+
+CRI_is_rival_contain:
+  $rival_contain($CRI)
+
+CRI_is_rival_feud:
+  $rival_feud($CRI)
 
 CRO_is_rival:
-  $country_is_rival($CRO)
+  $rival_base($CRO)
+
+CRO_is_rival_contain:
+  $rival_contain($CRO)
+
+CRO_is_rival_feud:
+  $rival_feud($CRO)
 
 CSA_is_rival:
-  $country_is_rival($CSA)
+  $rival_base($CSA)
+
+CSA_is_rival_contain:
+  $rival_contain($CSA)
+
+CSA_is_rival_feud:
+  $rival_feud($CSA)
 
 CUB_is_rival:
-  $country_is_rival($CUB)
+  $rival_base($CUB)
+
+CUB_is_rival_contain:
+  $rival_contain($CUB)
+
+CUB_is_rival_feud:
+  $rival_feud($CUB)
 
 CYP_is_rival:
-  $country_is_rival($CYP)
+  $rival_base($CYP)
+
+CYP_is_rival_contain:
+  $rival_contain($CYP)
+
+CYP_is_rival_feud:
+  $rival_feud($CYP)
 
 CZE_is_rival:
-  $country_is_rival($CZE)
+  $rival_base($CZE)
+
+CZE_is_rival_contain:
+  $rival_contain($CZE)
+
+CZE_is_rival_feud:
+  $rival_feud($CZE)
 
 DAG_is_rival:
-  $country_is_rival($DAG)
+  $rival_base($DAG)
+
+DAG_is_rival_contain:
+  $rival_contain($DAG)
+
+DAG_is_rival_feud:
+  $rival_feud($DAG)
 
 DAH_is_rival:
-  $country_is_rival($DAH)
+  $rival_base($DAH)
+
+DAH_is_rival_contain:
+  $rival_contain($DAH)
+
+DAH_is_rival_feud:
+  $rival_feud($DAH)
 
 DDR_is_rival:
-  $country_is_rival($DDR)
+  $rival_base($DDR)
+
+DDR_is_rival_contain:
+  $rival_contain($DDR)
+
+DDR_is_rival_feud:
+  $rival_feud($DDR)
 
 DEN_is_rival:
-  $country_is_rival($DEN)
+  $rival_base($DEN)
+
+DEN_is_rival_contain:
+  $rival_contain($DEN)
+
+DEN_is_rival_feud:
+  $rival_feud($DEN)
 
 DJI_is_rival:
-  $country_is_rival($DJI)
+  $rival_base($DJI)
+
+DJI_is_rival_contain:
+  $rival_contain($DJI)
+
+DJI_is_rival_feud:
+  $rival_feud($DJI)
 
 DNZ_is_rival:
-  $country_is_rival($DNZ)
+  $rival_base($DNZ)
+
+DNZ_is_rival_contain:
+  $rival_contain($DNZ)
+
+DNZ_is_rival_feud:
+  $rival_feud($DNZ)
 
 DOM_is_rival:
-  $country_is_rival($DOM)
+  $rival_base($DOM)
+
+DOM_is_rival_contain:
+  $rival_contain($DOM)
+
+DOM_is_rival_feud:
+  $rival_feud($DOM)
 
 DON_is_rival:
-  $country_is_rival($DON)
+  $rival_base($DON)
+
+DON_is_rival_contain:
+  $rival_contain($DON)
+
+DON_is_rival_feud:
+  $rival_feud($DON)
 
 ECU_is_rival:
-  $country_is_rival($ECU)
+  $rival_base($ECU)
+
+ECU_is_rival_contain:
+  $rival_contain($ECU)
+
+ECU_is_rival_feud:
+  $rival_feud($ECU)
 
 EGY_is_rival:
-  $country_is_rival($EGY)
+  $rival_base($EGY)
+
+EGY_is_rival_contain:
+  $rival_contain($EGY)
+
+EGY_is_rival_feud:
+  $rival_feud($EGY)
 
 ELS_is_rival:
-  $country_is_rival($ELS)
+  $rival_base($ELS)
+
+ELS_is_rival_contain:
+  $rival_contain($ELS)
+
+ELS_is_rival_feud:
+  $rival_feud($ELS)
 
 EQG_is_rival:
-  $country_is_rival($EQG)
+  $rival_base($EQG)
+
+EQG_is_rival_contain:
+  $rival_contain($EQG)
+
+EQG_is_rival_feud:
+  $rival_feud($EQG)
 
 ERI_is_rival:
-  $country_is_rival($ERI)
+  $rival_base($ERI)
+
+ERI_is_rival_contain:
+  $rival_contain($ERI)
+
+ERI_is_rival_feud:
+  $rival_feud($ERI)
 
 EST_is_rival:
-  $country_is_rival($EST)
+  $rival_base($EST)
+
+EST_is_rival_contain:
+  $rival_contain($EST)
+
+EST_is_rival_feud:
+  $rival_feud($EST)
 
 ETH_is_rival:
-  $country_is_rival($ETH)
+  $rival_base($ETH)
+
+ETH_is_rival_contain:
+  $rival_contain($ETH)
+
+ETH_is_rival_feud:
+  $rival_feud($ETH)
 
 EVE_is_rival:
-  $country_is_rival($EVE)
+  $rival_base($EVE)
+
+EVE_is_rival_contain:
+  $rival_contain($EVE)
+
+EVE_is_rival_feud:
+  $rival_feud($EVE)
 
 FER_is_rival:
-  $country_is_rival($FER)
+  $rival_base($FER)
+
+FER_is_rival_contain:
+  $rival_contain($FER)
+
+FER_is_rival_feud:
+  $rival_feud($FER)
 
 FIJ_is_rival:
-  $country_is_rival($FIJ)
+  $rival_base($FIJ)
+
+FIJ_is_rival_contain:
+  $rival_contain($FIJ)
+
+FIJ_is_rival_feud:
+  $rival_feud($FIJ)
 
 FIN_is_rival:
-  $country_is_rival($FIN)
+  $rival_base($FIN)
+
+FIN_is_rival_contain:
+  $rival_contain($FIN)
+
+FIN_is_rival_feud:
+  $rival_feud($FIN)
 
 FSM_is_rival:
-  $country_is_rival($FSM)
+  $rival_base($FSM)
+
+FSM_is_rival_contain:
+  $rival_contain($FSM)
+
+FSM_is_rival_feud:
+  $rival_feud($FSM)
 
 GAB_is_rival:
-  $country_is_rival($GAB)
+  $rival_base($GAB)
+
+GAB_is_rival_contain:
+  $rival_contain($GAB)
+
+GAB_is_rival_feud:
+  $rival_feud($GAB)
 
 GAM_is_rival:
-  $country_is_rival($GAM)
+  $rival_base($GAM)
+
+GAM_is_rival_contain:
+  $rival_contain($GAM)
+
+GAM_is_rival_feud:
+  $rival_feud($GAM)
 
 GBA_is_rival:
-  $country_is_rival($GBA)
+  $rival_base($GBA)
+
+GBA_is_rival_contain:
+  $rival_contain($GBA)
+
+GBA_is_rival_feud:
+  $rival_feud($GBA)
 
 GDL_is_rival:
-  $country_is_rival($GDL)
+  $rival_base($GDL)
+
+GDL_is_rival_contain:
+  $rival_contain($GDL)
+
+GDL_is_rival_feud:
+  $rival_feud($GDL)
 
 GEO_is_rival:
-  $country_is_rival($GEO)
+  $rival_base($GEO)
+
+GEO_is_rival_contain:
+  $rival_contain($GEO)
+
+GEO_is_rival_feud:
+  $rival_feud($GEO)
 
 GHA_is_rival:
-  $country_is_rival($GHA)
+  $rival_base($GHA)
+
+GHA_is_rival_contain:
+  $rival_contain($GHA)
+
+GHA_is_rival_feud:
+  $rival_feud($GHA)
 
 GLC_is_rival:
-  $country_is_rival($GLC)
+  $rival_base($GLC)
+
+GLC_is_rival_contain:
+  $rival_contain($GLC)
+
+GLC_is_rival_feud:
+  $rival_feud($GLC)
 
 GNA_is_rival:
-  $country_is_rival($GNA)
+  $rival_base($GNA)
+
+GNA_is_rival_contain:
+  $rival_contain($GNA)
+
+GNA_is_rival_feud:
+  $rival_feud($GNA)
 
 GNB_is_rival:
-  $country_is_rival($GNB)
+  $rival_base($GNB)
+
+GNB_is_rival_contain:
+  $rival_contain($GNB)
+
+GNB_is_rival_feud:
+  $rival_feud($GNB)
 
 GRE_is_rival:
-  $country_is_rival($GRE)
+  $rival_base($GRE)
+
+GRE_is_rival_contain:
+  $rival_contain($GRE)
+
+GRE_is_rival_feud:
+  $rival_feud($GRE)
 
 GRN_is_rival:
-  $country_is_rival($GRN)
+  $rival_base($GRN)
+
+GRN_is_rival_contain:
+  $rival_contain($GRN)
+
+GRN_is_rival_feud:
+  $rival_feud($GRN)
 
 GUA_is_rival:
-  $country_is_rival($GUA)
+  $rival_base($GUA)
+
+GUA_is_rival_contain:
+  $rival_contain($GUA)
+
+GUA_is_rival_feud:
+  $rival_feud($GUA)
 
 GUM_is_rival:
-  $country_is_rival($GUM)
+  $rival_base($GUM)
+
+GUM_is_rival_contain:
+  $rival_contain($GUM)
+
+GUM_is_rival_feud:
+  $rival_feud($GUM)
 
 GXC_is_rival:
-  $country_is_rival($GXC)
+  $rival_base($GXC)
+
+GXC_is_rival_contain:
+  $rival_contain($GXC)
+
+GXC_is_rival_feud:
+  $rival_feud($GXC)
 
 GYA_is_rival:
-  $country_is_rival($GYA)
+  $rival_base($GYA)
+
+GYA_is_rival_contain:
+  $rival_contain($GYA)
+
+GYA_is_rival_feud:
+  $rival_feud($GYA)
 
 HAI_is_rival:
-  $country_is_rival($HAI)
+  $rival_base($HAI)
+
+HAI_is_rival_contain:
+  $rival_contain($HAI)
+
+HAI_is_rival_feud:
+  $rival_feud($HAI)
 
 HAN_is_rival:
-  $country_is_rival($HAN)
+  $rival_base($HAN)
+
+HAN_is_rival_contain:
+  $rival_contain($HAN)
+
+HAN_is_rival_feud:
+  $rival_feud($HAN)
 
 HAR_is_rival:
-  $country_is_rival($HAR)
+  $rival_base($HAR)
+
+HAR_is_rival_contain:
+  $rival_contain($HAR)
+
+HAR_is_rival_feud:
+  $rival_feud($HAR)
 
 HAW_is_rival:
-  $country_is_rival($HAW)
+  $rival_base($HAW)
+
+HAW_is_rival_contain:
+  $rival_contain($HAW)
+
+HAW_is_rival_feud:
+  $rival_feud($HAW)
 
 HES_is_rival:
-  $country_is_rival($HES)
+  $rival_base($HES)
+
+HES_is_rival_contain:
+  $rival_contain($HES)
+
+HES_is_rival_feud:
+  $rival_feud($HES)
 
 HOL_is_rival:
-  $country_is_rival($HOL)
+  $rival_base($HOL)
+
+HOL_is_rival_contain:
+  $rival_contain($HOL)
+
+HOL_is_rival_feud:
+  $rival_feud($HOL)
 
 HON_is_rival:
-  $country_is_rival($HON)
+  $rival_base($HON)
+
+HON_is_rival_contain:
+  $rival_contain($HON)
+
+HON_is_rival_feud:
+  $rival_feud($HON)
 
 HRZ_is_rival:
-  $country_is_rival($HRZ)
+  $rival_base($HRZ)
+
+HRZ_is_rival_contain:
+  $rival_contain($HRZ)
+
+HRZ_is_rival_feud:
+  $rival_feud($HRZ)
 
 HUN_is_rival:
-  $country_is_rival($HUN)
+  $rival_base($HUN)
+
+HUN_is_rival_contain:
+  $rival_contain($HUN)
+
+HUN_is_rival_feud:
+  $rival_feud($HUN)
 
 ICE_is_rival:
-  $country_is_rival($ICE)
+  $rival_base($ICE)
+
+ICE_is_rival_contain:
+  $rival_contain($ICE)
+
+ICE_is_rival_feud:
+  $rival_feud($ICE)
 
 INS_is_rival:
-  $country_is_rival($INS)
+  $rival_base($INS)
+
+INS_is_rival_contain:
+  $rival_contain($INS)
+
+INS_is_rival_feud:
+  $rival_feud($INS)
 
 IRE_is_rival:
-  $country_is_rival($IRE)
+  $rival_base($IRE)
+
+IRE_is_rival_contain:
+  $rival_contain($IRE)
+
+IRE_is_rival_feud:
+  $rival_feud($IRE)
 
 IRQ_is_rival:
-  $country_is_rival($IRQ)
+  $rival_base($IRQ)
+
+IRQ_is_rival_contain:
+  $rival_contain($IRQ)
+
+IRQ_is_rival_feud:
+  $rival_feud($IRQ)
 
 ISR_is_rival:
-  $country_is_rival($ISR)
+  $rival_base($ISR)
+
+ISR_is_rival_contain:
+  $rival_contain($ISR)
+
+ISR_is_rival_feud:
+  $rival_feud($ISR)
 
 IVO_is_rival:
-  $country_is_rival($IVO)
+  $rival_base($IVO)
+
+IVO_is_rival_contain:
+  $rival_contain($IVO)
+
+IVO_is_rival_feud:
+  $rival_feud($IVO)
 
 JAM_is_rival:
-  $country_is_rival($JAM)
+  $rival_base($JAM)
+
+JAM_is_rival_contain:
+  $rival_contain($JAM)
+
+JAM_is_rival_feud:
+  $rival_feud($JAM)
 
 JAN_is_rival:
-  $country_is_rival($JAN)
+  $rival_base($JAN)
+
+JAN_is_rival_contain:
+  $rival_contain($JAN)
+
+JAN_is_rival_feud:
+  $rival_feud($JAN)
 
 JOR_is_rival:
-  $country_is_rival($JOR)
+  $rival_base($JOR)
+
+JOR_is_rival_contain:
+  $rival_contain($JOR)
+
+JOR_is_rival_feud:
+  $rival_feud($JOR)
 
 KAL_is_rival:
-  $country_is_rival($KAL)
+  $rival_base($KAL)
+
+KAL_is_rival_contain:
+  $rival_contain($KAL)
+
+KAL_is_rival_feud:
+  $rival_feud($KAL)
 
 KAR_is_rival:
-  $country_is_rival($KAR)
+  $rival_base($KAR)
+
+KAR_is_rival_contain:
+  $rival_contain($KAR)
+
+KAR_is_rival_feud:
+  $rival_feud($KAR)
 
 KAT_is_rival:
-  $country_is_rival($KAT)
+  $rival_base($KAT)
+
+KAT_is_rival_contain:
+  $rival_contain($KAT)
+
+KAT_is_rival_feud:
+  $rival_feud($KAT)
 
 KAZ_is_rival:
-  $country_is_rival($KAZ)
+  $rival_base($KAZ)
+
+KAZ_is_rival_contain:
+  $rival_contain($KAZ)
+
+KAZ_is_rival_feud:
+  $rival_feud($KAZ)
 
 KBK_is_rival:
-  $country_is_rival($KBK)
+  $rival_base($KBK)
+
+KBK_is_rival_contain:
+  $rival_contain($KBK)
+
+KBK_is_rival_feud:
+  $rival_feud($KBK)
 
 KEN_is_rival:
-  $country_is_rival($KEN)
+  $rival_base($KEN)
+
+KEN_is_rival_contain:
+  $rival_contain($KEN)
+
+KEN_is_rival_feud:
+  $rival_feud($KEN)
 
 KHA_is_rival:
-  $country_is_rival($KHA)
+  $rival_base($KHA)
+
+KHA_is_rival_contain:
+  $rival_contain($KHA)
+
+KHA_is_rival_feud:
+  $rival_feud($KHA)
 
 KHI_is_rival:
-  $country_is_rival($KHI)
+  $rival_base($KHI)
+
+KHI_is_rival_contain:
+  $rival_contain($KHI)
+
+KHI_is_rival_feud:
+  $rival_feud($KHI)
 
 KKP_is_rival:
-  $country_is_rival($KKP)
+  $rival_base($KKP)
+
+KKP_is_rival_contain:
+  $rival_contain($KKP)
+
+KKP_is_rival_feud:
+  $rival_feud($KKP)
 
 KOM_is_rival:
-  $country_is_rival($KOM)
+  $rival_base($KOM)
+
+KOM_is_rival_contain:
+  $rival_contain($KOM)
+
+KOM_is_rival_feud:
+  $rival_feud($KOM)
 
 KOR_is_rival:
-  $country_is_rival($KOR)
+  $rival_base($KOR)
+
+KOR_is_rival_contain:
+  $rival_contain($KOR)
+
+KOR_is_rival_feud:
+  $rival_feud($KOR)
 
 KOS_is_rival:
-  $country_is_rival($KOS)
+  $rival_base($KOS)
+
+KOS_is_rival_contain:
+  $rival_contain($KOS)
+
+KOS_is_rival_feud:
+  $rival_feud($KOS)
 
 KSH_is_rival:
-  $country_is_rival($KSH)
+  $rival_base($KSH)
+
+KSH_is_rival_contain:
+  $rival_contain($KSH)
+
+KSH_is_rival_feud:
+  $rival_feud($KSH)
 
 KUB_is_rival:
-  $country_is_rival($KUB)
+  $rival_base($KUB)
+
+KUB_is_rival_contain:
+  $rival_contain($KUB)
+
+KUB_is_rival_feud:
+  $rival_feud($KUB)
 
 KUR_is_rival:
-  $country_is_rival($KUR)
+  $rival_base($KUR)
+
+KUR_is_rival_contain:
+  $rival_contain($KUR)
+
+KUR_is_rival_feud:
+  $rival_feud($KUR)
 
 KUW_is_rival:
-  $country_is_rival($KUW)
+  $rival_base($KUW)
+
+KUW_is_rival_contain:
+  $rival_contain($KUW)
+
+KUW_is_rival_feud:
+  $rival_feud($KUW)
 
 KYR_is_rival:
-  $country_is_rival($KYR)
+  $rival_base($KYR)
+
+KYR_is_rival_contain:
+  $rival_contain($KYR)
+
+KYR_is_rival_feud:
+  $rival_feud($KYR)
 
 LAO_is_rival:
-  $country_is_rival($LAO)
+  $rival_base($LAO)
+
+LAO_is_rival_contain:
+  $rival_contain($LAO)
+
+LAO_is_rival_feud:
+  $rival_feud($LAO)
 
 LAT_is_rival:
-  $country_is_rival($LAT)
+  $rival_base($LAT)
+
+LAT_is_rival_contain:
+  $rival_contain($LAT)
+
+LAT_is_rival_feud:
+  $rival_feud($LAT)
 
 LBA_is_rival:
-  $country_is_rival($LBA)
+  $rival_base($LBA)
+
+LBA_is_rival_contain:
+  $rival_contain($LBA)
+
+LBA_is_rival_feud:
+  $rival_feud($LBA)
 
 LBV_is_rival:
-  $country_is_rival($LBV)
+  $rival_base($LBV)
+
+LBV_is_rival_contain:
+  $rival_contain($LBV)
+
+LBV_is_rival_feud:
+  $rival_feud($LBV)
 
 LEB_is_rival:
-  $country_is_rival($LEB)
+  $rival_base($LEB)
+
+LEB_is_rival_contain:
+  $rival_contain($LEB)
+
+LEB_is_rival_feud:
+  $rival_feud($LEB)
 
 LIB_is_rival:
-  $country_is_rival($LIB)
+  $rival_base($LIB)
+
+LIB_is_rival_contain:
+  $rival_contain($LIB)
+
+LIB_is_rival_feud:
+  $rival_feud($LIB)
 
 LIT_is_rival:
-  $country_is_rival($LIT)
+  $rival_base($LIT)
+
+LIT_is_rival_contain:
+  $rival_contain($LIT)
+
+LIT_is_rival_feud:
+  $rival_feud($LIT)
 
 LUX_is_rival:
-  $country_is_rival($LUX)
+  $rival_base($LUX)
+
+LUX_is_rival_contain:
+  $rival_contain($LUX)
+
+LUX_is_rival_feud:
+  $rival_feud($LUX)
 
 MAC_is_rival:
-  $country_is_rival($MAC)
+  $rival_base($MAC)
+
+MAC_is_rival_contain:
+  $rival_contain($MAC)
+
+MAC_is_rival_feud:
+  $rival_feud($MAC)
 
 MAD_is_rival:
-  $country_is_rival($MAD)
+  $rival_base($MAD)
+
+MAD_is_rival_contain:
+  $rival_contain($MAD)
+
+MAD_is_rival_feud:
+  $rival_feud($MAD)
 
 MAL_is_rival:
-  $country_is_rival($MAL)
+  $rival_base($MAL)
+
+MAL_is_rival_contain:
+  $rival_contain($MAL)
+
+MAL_is_rival_feud:
+  $rival_feud($MAL)
 
 MAN_is_rival:
-  $country_is_rival($MAN)
+  $rival_base($MAN)
+
+MAN_is_rival_contain:
+  $rival_contain($MAN)
+
+MAN_is_rival_feud:
+  $rival_feud($MAN)
 
 MEK_is_rival:
-  $country_is_rival($MEK)
+  $rival_base($MEK)
+
+MEK_is_rival_contain:
+  $rival_contain($MEK)
+
+MEK_is_rival_feud:
+  $rival_feud($MEK)
 
 MEL_is_rival:
-  $country_is_rival($MEL)
+  $rival_base($MEL)
+
+MEL_is_rival_contain:
+  $rival_contain($MEL)
+
+MEL_is_rival_feud:
+  $rival_feud($MEL)
 
 MEN_is_rival:
-  $country_is_rival($MEN)
+  $rival_base($MEN)
+
+MEN_is_rival_contain:
+  $rival_contain($MEN)
+
+MEN_is_rival_feud:
+  $rival_feud($MEN)
 
 MEX_is_rival:
-  $country_is_rival($MEX)
+  $rival_base($MEX)
+
+MEX_is_rival_contain:
+  $rival_contain($MEX)
+
+MEX_is_rival_feud:
+  $rival_feud($MEX)
 
 MLD_is_rival:
-  $country_is_rival($MLD)
+  $rival_base($MLD)
+
+MLD_is_rival_contain:
+  $rival_contain($MLD)
+
+MLD_is_rival_feud:
+  $rival_feud($MLD)
 
 MLI_is_rival:
-  $country_is_rival($MLI)
+  $rival_base($MLI)
+
+MLI_is_rival_contain:
+  $rival_contain($MLI)
+
+MLI_is_rival_feud:
+  $rival_feud($MLI)
 
 MLT_is_rival:
-  $country_is_rival($MLT)
+  $rival_base($MLT)
+
+MLT_is_rival_contain:
+  $rival_contain($MLT)
+
+MLT_is_rival_feud:
+  $rival_feud($MLT)
 
 MLW_is_rival:
-  $country_is_rival($MLW)
+  $rival_base($MLW)
+
+MLW_is_rival_contain:
+  $rival_contain($MLW)
+
+MLW_is_rival_feud:
+  $rival_feud($MLW)
 
 MNT_is_rival:
-  $country_is_rival($MNT)
+  $rival_base($MNT)
+
+MNT_is_rival_contain:
+  $rival_contain($MNT)
+
+MNT_is_rival_feud:
+  $rival_feud($MNT)
 
 MOL_is_rival:
-  $country_is_rival($MOL)
+  $rival_base($MOL)
+
+MOL_is_rival_contain:
+  $rival_contain($MOL)
+
+MOL_is_rival_feud:
+  $rival_feud($MOL)
 
 MON_is_rival:
-  $country_is_rival($MON)
+  $rival_base($MON)
+
+MON_is_rival_contain:
+  $rival_contain($MON)
+
+MON_is_rival_feud:
+  $rival_feud($MON)
 
 MOR_is_rival:
-  $country_is_rival($MOR)
+  $rival_base($MOR)
+
+MOR_is_rival_contain:
+  $rival_contain($MOR)
+
+MOR_is_rival_feud:
+  $rival_feud($MOR)
 
 MRT_is_rival:
-  $country_is_rival($MRT)
+  $rival_base($MRT)
+
+MRT_is_rival_contain:
+  $rival_contain($MRT)
+
+MRT_is_rival_feud:
+  $rival_feud($MRT)
 
 MZB_is_rival:
-  $country_is_rival($MZB)
+  $rival_base($MZB)
+
+MZB_is_rival_contain:
+  $rival_contain($MZB)
+
+MZB_is_rival_feud:
+  $rival_feud($MZB)
 
 NAV_is_rival:
-  $country_is_rival($NAV)
+  $rival_base($NAV)
+
+NAV_is_rival_contain:
+  $rival_contain($NAV)
+
+NAV_is_rival_feud:
+  $rival_feud($NAV)
 
 NEN_is_rival:
-  $country_is_rival($NEN)
+  $rival_base($NEN)
+
+NEN_is_rival_contain:
+  $rival_contain($NEN)
+
+NEN_is_rival_feud:
+  $rival_feud($NEN)
 
 NEP_is_rival:
-  $country_is_rival($NEP)
+  $rival_base($NEP)
+
+NEP_is_rival_contain:
+  $rival_contain($NEP)
+
+NEP_is_rival_feud:
+  $rival_feud($NEP)
 
 NGA_is_rival:
-  $country_is_rival($NGA)
+  $rival_base($NGA)
+
+NGA_is_rival_contain:
+  $rival_contain($NGA)
+
+NGA_is_rival_feud:
+  $rival_feud($NGA)
 
 NGR_is_rival:
-  $country_is_rival($NGR)
+  $rival_base($NGR)
+
+NGR_is_rival_contain:
+  $rival_contain($NGR)
+
+NGR_is_rival_feud:
+  $rival_feud($NGR)
 
 NIC_is_rival:
-  $country_is_rival($NIC)
+  $rival_base($NIC)
+
+NIC_is_rival_contain:
+  $rival_contain($NIC)
+
+NIC_is_rival_feud:
+  $rival_feud($NIC)
 
 NIR_is_rival:
-  $country_is_rival($NIR)
+  $rival_base($NIR)
+
+NIR_is_rival_contain:
+  $rival_contain($NIR)
+
+NIR_is_rival_feud:
+  $rival_feud($NIR)
 
 NMB_is_rival:
-  $country_is_rival($NMB)
+  $rival_base($NMB)
+
+NMB_is_rival_contain:
+  $rival_contain($NMB)
+
+NMB_is_rival_feud:
+  $rival_feud($NMB)
 
 NOA_is_rival:
-  $country_is_rival($NOA)
+  $rival_base($NOA)
+
+NOA_is_rival_contain:
+  $rival_contain($NOA)
+
+NOA_is_rival_feud:
+  $rival_feud($NOA)
 
 NOR_is_rival:
-  $country_is_rival($NOR)
+  $rival_base($NOR)
+
+NOR_is_rival_contain:
+  $rival_contain($NOR)
+
+NOR_is_rival_feud:
+  $rival_feud($NOR)
 
 NZL_is_rival:
-  $country_is_rival($NZL)
+  $rival_base($NZL)
+
+NZL_is_rival_contain:
+  $rival_contain($NZL)
+
+NZL_is_rival_feud:
+  $rival_feud($NZL)
 
 OCC_is_rival:
-  $country_is_rival($OCC)
+  $rival_base($OCC)
+
+OCC_is_rival_contain:
+  $rival_contain($OCC)
+
+OCC_is_rival_feud:
+  $rival_feud($OCC)
 
 OMA_is_rival:
-  $country_is_rival($OMA)
+  $rival_base($OMA)
+
+OMA_is_rival_contain:
+  $rival_contain($OMA)
+
+OMA_is_rival_feud:
+  $rival_feud($OMA)
 
 ORO_is_rival:
-  $country_is_rival($ORO)
+  $rival_base($ORO)
+
+ORO_is_rival_contain:
+  $rival_contain($ORO)
+
+ORO_is_rival_feud:
+  $rival_feud($ORO)
 
 OVO_is_rival:
-  $country_is_rival($OVO)
+  $rival_base($OVO)
+
+OVO_is_rival_contain:
+  $rival_contain($OVO)
+
+OVO_is_rival_feud:
+  $rival_feud($OVO)
 
 PAK_is_rival:
-  $country_is_rival($PAK)
+  $rival_base($PAK)
+
+PAK_is_rival_contain:
+  $rival_contain($PAK)
+
+PAK_is_rival_feud:
+  $rival_feud($PAK)
 
 PAL_is_rival:
-  $country_is_rival($PAL)
+  $rival_base($PAL)
+
+PAL_is_rival_contain:
+  $rival_contain($PAL)
+
+PAL_is_rival_feud:
+  $rival_feud($PAL)
 
 PAN_is_rival:
-  $country_is_rival($PAN)
+  $rival_base($PAN)
+
+PAN_is_rival_contain:
+  $rival_contain($PAN)
+
+PAN_is_rival_feud:
+  $rival_feud($PAN)
 
 PAP_is_rival:
-  $country_is_rival($PAP)
+  $rival_base($PAP)
+
+PAP_is_rival_contain:
+  $rival_contain($PAP)
+
+PAP_is_rival_feud:
+  $rival_feud($PAP)
 
 PAR_is_rival:
-  $country_is_rival($PAR)
+  $rival_base($PAR)
+
+PAR_is_rival_contain:
+  $rival_contain($PAR)
+
+PAR_is_rival_feud:
+  $rival_feud($PAR)
 
 PER_is_rival:
-  $country_is_rival($PER)
+  $rival_base($PER)
+
+PER_is_rival_contain:
+  $rival_contain($PER)
+
+PER_is_rival_feud:
+  $rival_feud($PER)
 
 PHI_is_rival:
-  $country_is_rival($PHI)
+  $rival_base($PHI)
+
+PHI_is_rival_contain:
+  $rival_contain($PHI)
+
+PHI_is_rival_feud:
+  $rival_feud($PHI)
 
 PNG_is_rival:
-  $country_is_rival($PNG)
+  $rival_base($PNG)
+
+PNG_is_rival_contain:
+  $rival_contain($PNG)
+
+PNG_is_rival_feud:
+  $rival_feud($PNG)
 
 POL_is_rival:
-  $country_is_rival($POL)
+  $rival_base($POL)
+
+POL_is_rival_contain:
+  $rival_contain($POL)
+
+POL_is_rival_feud:
+  $rival_feud($POL)
 
 POR_is_rival:
-  $country_is_rival($POR)
+  $rival_base($POR)
+
+POR_is_rival_contain:
+  $rival_contain($POR)
+
+POR_is_rival_feud:
+  $rival_feud($POR)
 
 PRC_is_rival:
-  $country_is_rival($PRC)
+  $rival_base($PRC)
+
+PRC_is_rival_contain:
+  $rival_contain($PRC)
+
+PRC_is_rival_feud:
+  $rival_feud($PRC)
 
 PRE_is_rival:
-  $country_is_rival($PRE)
+  $rival_base($PRE)
+
+PRE_is_rival_contain:
+  $rival_contain($PRE)
+
+PRE_is_rival_feud:
+  $rival_feud($PRE)
 
 PRU_is_rival:
-  $country_is_rival($PRU)
+  $rival_base($PRU)
+
+PRU_is_rival_contain:
+  $rival_contain($PRU)
+
+PRU_is_rival_feud:
+  $rival_feud($PRU)
 
 PUE_is_rival:
-  $country_is_rival($PUE)
+  $rival_base($PUE)
+
+PUE_is_rival_contain:
+  $rival_contain($PUE)
+
+PUE_is_rival_feud:
+  $rival_feud($PUE)
 
 QAT_is_rival:
-  $country_is_rival($QAT)
+  $rival_base($QAT)
+
+QAT_is_rival_contain:
+  $rival_contain($QAT)
+
+QAT_is_rival_feud:
+  $rival_feud($QAT)
 
 QEM_is_rival:
-  $country_is_rival($QEM)
+  $rival_base($QEM)
+
+QEM_is_rival_contain:
+  $rival_contain($QEM)
+
+QEM_is_rival_feud:
+  $rival_feud($QEM)
 
 QUE_is_rival:
-  $country_is_rival($QUE)
+  $rival_base($QUE)
+
+QUE_is_rival_contain:
+  $rival_contain($QUE)
+
+QUE_is_rival_feud:
+  $rival_feud($QUE)
 
 RAJ_is_rival:
-  $country_is_rival($RAJ)
+  $rival_base($RAJ)
+
+RAJ_is_rival_contain:
+  $rival_contain($RAJ)
+
+RAJ_is_rival_feud:
+  $rival_feud($RAJ)
 
 RAP_is_rival:
-  $country_is_rival($RAP)
+  $rival_base($RAP)
+
+RAP_is_rival_contain:
+  $rival_contain($RAP)
+
+RAP_is_rival_feud:
+  $rival_feud($RAP)
 
 RCG_is_rival:
-  $country_is_rival($RCG)
+  $rival_base($RCG)
+
+RCG_is_rival_contain:
+  $rival_contain($RCG)
+
+RCG_is_rival_feud:
+  $rival_feud($RCG)
 
 RHI_is_rival:
-  $country_is_rival($RHI)
+  $rival_base($RHI)
+
+RHI_is_rival_contain:
+  $rival_contain($RHI)
+
+RHI_is_rival_feud:
+  $rival_feud($RHI)
 
 RIF_is_rival:
-  $country_is_rival($RIF)
+  $rival_base($RIF)
+
+RIF_is_rival_contain:
+  $rival_contain($RIF)
+
+RIF_is_rival_feud:
+  $rival_feud($RIF)
 
 RIG_is_rival:
-  $country_is_rival($RIG)
+  $rival_base($RIG)
+
+RIG_is_rival_contain:
+  $rival_contain($RIG)
+
+RIG_is_rival_feud:
+  $rival_feud($RIG)
 
 ROM_is_rival:
-  $country_is_rival($ROM)
+  $rival_base($ROM)
+
+ROM_is_rival_contain:
+  $rival_contain($ROM)
+
+ROM_is_rival_feud:
+  $rival_feud($ROM)
 
 RWA_is_rival:
-  $country_is_rival($RWA)
+  $rival_base($RWA)
+
+RWA_is_rival_contain:
+  $rival_contain($RWA)
+
+RWA_is_rival_feud:
+  $rival_feud($RWA)
 
 SAF_is_rival:
-  $country_is_rival($SAF)
+  $rival_base($SAF)
+
+SAF_is_rival_contain:
+  $rival_contain($SAF)
+
+SAF_is_rival_feud:
+  $rival_feud($SAF)
 
 SAM_is_rival:
-  $country_is_rival($SAM)
+  $rival_base($SAM)
+
+SAM_is_rival_contain:
+  $rival_contain($SAM)
+
+SAM_is_rival_feud:
+  $rival_feud($SAM)
 
 SAU_is_rival:
-  $country_is_rival($SAU)
+  $rival_base($SAU)
+
+SAU_is_rival_contain:
+  $rival_contain($SAU)
+
+SAU_is_rival_feud:
+  $rival_feud($SAU)
 
 SAX_is_rival:
-  $country_is_rival($SAX)
+  $rival_base($SAX)
+
+SAX_is_rival_contain:
+  $rival_contain($SAX)
+
+SAX_is_rival_feud:
+  $rival_feud($SAX)
 
 SCO_is_rival:
-  $country_is_rival($SCO)
+  $rival_base($SCO)
+
+SCO_is_rival_contain:
+  $rival_contain($SCO)
+
+SCO_is_rival_feud:
+  $rival_feud($SCO)
 
 SEN_is_rival:
-  $country_is_rival($SEN)
+  $rival_base($SEN)
+
+SEN_is_rival_contain:
+  $rival_contain($SEN)
+
+SEN_is_rival_feud:
+  $rival_feud($SEN)
 
 SER_is_rival:
-  $country_is_rival($SER)
+  $rival_base($SER)
+
+SER_is_rival_contain:
+  $rival_contain($SER)
+
+SER_is_rival_feud:
+  $rival_feud($SER)
 
 SHL_is_rival:
-  $country_is_rival($SHL)
+  $rival_base($SHL)
+
+SHL_is_rival_contain:
+  $rival_contain($SHL)
+
+SHL_is_rival_feud:
+  $rival_feud($SHL)
 
 SHX_is_rival:
-  $country_is_rival($SHX)
+  $rival_base($SHX)
+
+SHX_is_rival_contain:
+  $rival_contain($SHX)
+
+SHX_is_rival_feud:
+  $rival_feud($SHX)
 
 SIA_is_rival:
-  $country_is_rival($SIA)
+  $rival_base($SIA)
+
+SIA_is_rival_contain:
+  $rival_contain($SIA)
+
+SIA_is_rival_feud:
+  $rival_feud($SIA)
 
 SID_is_rival:
-  $country_is_rival($SID)
+  $rival_base($SID)
+
+SID_is_rival_contain:
+  $rival_contain($SID)
+
+SID_is_rival_feud:
+  $rival_feud($SID)
 
 SIE_is_rival:
-  $country_is_rival($SIE)
+  $rival_base($SIE)
+
+SIE_is_rival_contain:
+  $rival_contain($SIE)
+
+SIE_is_rival_feud:
+  $rival_feud($SIE)
 
 SIK_is_rival:
-  $country_is_rival($SIK)
+  $rival_base($SIK)
+
+SIK_is_rival_contain:
+  $rival_contain($SIK)
+
+SIK_is_rival_feud:
+  $rival_feud($SIK)
 
 SIL_is_rival:
-  $country_is_rival($SIL)
+  $rival_base($SIL)
+
+SIL_is_rival_contain:
+  $rival_contain($SIL)
+
+SIL_is_rival_feud:
+  $rival_feud($SIL)
 
 SLO_is_rival:
-  $country_is_rival($SLO)
+  $rival_base($SLO)
+
+SLO_is_rival_contain:
+  $rival_contain($SLO)
+
+SLO_is_rival_feud:
+  $rival_feud($SLO)
 
 SLV_is_rival:
-  $country_is_rival($SLV)
+  $rival_base($SLV)
+
+SLV_is_rival_contain:
+  $rival_contain($SLV)
+
+SLV_is_rival_feud:
+  $rival_feud($SLV)
 
 SMI_is_rival:
-  $country_is_rival($SMI)
+  $rival_base($SMI)
+
+SMI_is_rival_contain:
+  $rival_contain($SMI)
+
+SMI_is_rival_feud:
+  $rival_feud($SMI)
 
 SOK_is_rival:
-  $country_is_rival($SOK)
+  $rival_base($SOK)
+
+SOK_is_rival_contain:
+  $rival_contain($SOK)
+
+SOK_is_rival_feud:
+  $rival_feud($SOK)
 
 SOL_is_rival:
-  $country_is_rival($SOL)
+  $rival_base($SOL)
+
+SOL_is_rival_contain:
+  $rival_contain($SOL)
+
+SOL_is_rival_feud:
+  $rival_feud($SOL)
 
 SOM_is_rival:
-  $country_is_rival($SOM)
+  $rival_base($SOM)
+
+SOM_is_rival_contain:
+  $rival_contain($SOM)
+
+SOM_is_rival_feud:
+  $rival_feud($SOM)
 
 SPM_is_rival:
-  $country_is_rival($SPM)
+  $rival_base($SPM)
+
+SPM_is_rival_contain:
+  $rival_contain($SPM)
+
+SPM_is_rival_feud:
+  $rival_feud($SPM)
 
 SPR_is_rival:
-  $country_is_rival($SPR)
+  $rival_base($SPR)
+
+SPR_is_rival_contain:
+  $rival_contain($SPR)
+
+SPR_is_rival_feud:
+  $rival_feud($SPR)
 
 SRL_is_rival:
-  $country_is_rival($SRL)
+  $rival_base($SRL)
+
+SRL_is_rival_contain:
+  $rival_contain($SRL)
+
+SRL_is_rival_feud:
+  $rival_feud($SRL)
 
 SUD_is_rival:
-  $country_is_rival($SUD)
+  $rival_base($SUD)
+
+SUD_is_rival_contain:
+  $rival_contain($SUD)
+
+SUD_is_rival_feud:
+  $rival_feud($SUD)
 
 SUR_is_rival:
-  $country_is_rival($SUR)
+  $rival_base($SUR)
+
+SUR_is_rival_contain:
+  $rival_contain($SUR)
+
+SUR_is_rival_feud:
+  $rival_feud($SUR)
 
 SWE_is_rival:
-  $country_is_rival($SWE)
+  $rival_base($SWE)
+
+SWE_is_rival_contain:
+  $rival_contain($SWE)
+
+SWE_is_rival_feud:
+  $rival_feud($SWE)
 
 SWI_is_rival:
-  $country_is_rival($SWI)
+  $rival_base($SWI)
+
+SWI_is_rival_contain:
+  $rival_contain($SWI)
+
+SWI_is_rival_feud:
+  $rival_feud($SWI)
 
 SYR_is_rival:
-  $country_is_rival($SYR)
+  $rival_base($SYR)
+
+SYR_is_rival_contain:
+  $rival_contain($SYR)
+
+SYR_is_rival_feud:
+  $rival_feud($SYR)
 
 TAH_is_rival:
-  $country_is_rival($TAH)
+  $rival_base($TAH)
+
+TAH_is_rival_contain:
+  $rival_contain($TAH)
+
+TAH_is_rival_feud:
+  $rival_feud($TAH)
 
 TAJ_is_rival:
-  $country_is_rival($TAJ)
+  $rival_base($TAJ)
+
+TAJ_is_rival_contain:
+  $rival_contain($TAJ)
+
+TAJ_is_rival_feud:
+  $rival_feud($TAJ)
 
 TAN_is_rival:
-  $country_is_rival($TAN)
+  $rival_base($TAN)
+
+TAN_is_rival_contain:
+  $rival_contain($TAN)
+
+TAN_is_rival_feud:
+  $rival_feud($TAN)
 
 TAT_is_rival:
-  $country_is_rival($TAT)
+  $rival_base($TAT)
+
+TAT_is_rival_contain:
+  $rival_contain($TAT)
+
+TAT_is_rival_feud:
+  $rival_feud($TAT)
 
 TAY_is_rival:
-  $country_is_rival($TAY)
+  $rival_base($TAY)
+
+TAY_is_rival_contain:
+  $rival_contain($TAY)
+
+TAY_is_rival_feud:
+  $rival_feud($TAY)
 
 THU_is_rival:
-  $country_is_rival($THU)
+  $rival_base($THU)
+
+THU_is_rival_contain:
+  $rival_contain($THU)
+
+THU_is_rival_feud:
+  $rival_feud($THU)
 
 TIB_is_rival:
-  $country_is_rival($TIB)
+  $rival_base($TIB)
+
+TIB_is_rival_contain:
+  $rival_contain($TIB)
+
+TIB_is_rival_feud:
+  $rival_feud($TIB)
 
 TIG_is_rival:
-  $country_is_rival($TIG)
+  $rival_base($TIG)
+
+TIG_is_rival_contain:
+  $rival_contain($TIG)
+
+TIG_is_rival_feud:
+  $rival_feud($TIG)
 
 TMS_is_rival:
-  $country_is_rival($TMS)
+  $rival_base($TMS)
+
+TMS_is_rival_contain:
+  $rival_contain($TMS)
+
+TMS_is_rival_feud:
+  $rival_feud($TMS)
 
 TOG_is_rival:
-  $country_is_rival($TOG)
+  $rival_base($TOG)
+
+TOG_is_rival_contain:
+  $rival_contain($TOG)
+
+TOG_is_rival_feud:
+  $rival_feud($TOG)
 
 TOS_is_rival:
-  $country_is_rival($TOS)
+  $rival_base($TOS)
+
+TOS_is_rival_contain:
+  $rival_contain($TOS)
+
+TOS_is_rival_feud:
+  $rival_feud($TOS)
 
 TRA_is_rival:
-  $country_is_rival($TRA)
+  $rival_base($TRA)
+
+TRA_is_rival_contain:
+  $rival_contain($TRA)
+
+TRA_is_rival_feud:
+  $rival_feud($TRA)
 
 TRI_is_rival:
-  $country_is_rival($TRI)
+  $rival_base($TRI)
+
+TRI_is_rival_contain:
+  $rival_contain($TRI)
+
+TRI_is_rival_feud:
+  $rival_feud($TRI)
 
 TTS_is_rival:
-  $country_is_rival($TTS)
+  $rival_base($TTS)
+
+TTS_is_rival_contain:
+  $rival_contain($TTS)
+
+TTS_is_rival_feud:
+  $rival_feud($TTS)
 
 TUN_is_rival:
-  $country_is_rival($TUN)
+  $rival_base($TUN)
+
+TUN_is_rival_contain:
+  $rival_contain($TUN)
+
+TUN_is_rival_feud:
+  $rival_feud($TUN)
 
 TUR_is_rival:
-  $country_is_rival($TUR)
+  $rival_base($TUR)
+
+TUR_is_rival_contain:
+  $rival_contain($TUR)
+
+TUR_is_rival_feud:
+  $rival_feud($TUR)
 
 TZN_is_rival:
-  $country_is_rival($TZN)
+  $rival_base($TZN)
+
+TZN_is_rival_contain:
+  $rival_contain($TZN)
+
+TZN_is_rival_feud:
+  $rival_feud($TZN)
 
 UAE_is_rival:
-  $country_is_rival($UAE)
+  $rival_base($UAE)
+
+UAE_is_rival_contain:
+  $rival_contain($UAE)
+
+UAE_is_rival_feud:
+  $rival_feud($UAE)
 
 UBD_is_rival:
-  $country_is_rival($UBD)
+  $rival_base($UBD)
+
+UBD_is_rival_contain:
+  $rival_contain($UBD)
+
+UBD_is_rival_feud:
+  $rival_feud($UBD)
 
 UDM_is_rival:
-  $country_is_rival($UDM)
+  $rival_base($UDM)
+
+UDM_is_rival_contain:
+  $rival_contain($UDM)
+
+UDM_is_rival_feud:
+  $rival_feud($UDM)
 
 UGA_is_rival:
-  $country_is_rival($UGA)
+  $rival_base($UGA)
+
+UGA_is_rival_contain:
+  $rival_contain($UGA)
+
+UGA_is_rival_feud:
+  $rival_feud($UGA)
 
 UKR_is_rival:
-  $country_is_rival($UKR)
+  $rival_base($UKR)
+
+UKR_is_rival_contain:
+  $rival_contain($UKR)
+
+UKR_is_rival_feud:
+  $rival_feud($UKR)
 
 URG_is_rival:
-  $country_is_rival($URG)
+  $rival_base($URG)
+
+URG_is_rival_contain:
+  $rival_contain($URG)
+
+URG_is_rival_feud:
+  $rival_feud($URG)
 
 USB_is_rival:
-  $country_is_rival($USB)
+  $rival_base($USB)
+
+USB_is_rival_contain:
+  $rival_contain($USB)
+
+USB_is_rival_feud:
+  $rival_feud($USB)
 
 UZB_is_rival:
-  $country_is_rival($UZB)
+  $rival_base($UZB)
+
+UZB_is_rival_contain:
+  $rival_contain($UZB)
+
+UZB_is_rival_feud:
+  $rival_feud($UZB)
 
 VEN_is_rival:
-  $country_is_rival($VEN)
+  $rival_base($VEN)
+
+VEN_is_rival_contain:
+  $rival_contain($VEN)
+
+VEN_is_rival_feud:
+  $rival_feud($VEN)
 
 VGE_is_rival:
-  $country_is_rival($VGE)
+  $rival_base($VGE)
+
+VGE_is_rival_contain:
+  $rival_contain($VGE)
+
+VGE_is_rival_feud:
+  $rival_feud($VGE)
 
 VIN_is_rival:
-  $country_is_rival($VIN)
+  $rival_base($VIN)
+
+VIN_is_rival_contain:
+  $rival_contain($VIN)
+
+VIN_is_rival_feud:
+  $rival_feud($VIN)
 
 VLA_is_rival:
-  $country_is_rival($VLA)
+  $rival_base($VLA)
+
+VLA_is_rival_contain:
+  $rival_contain($VLA)
+
+VLA_is_rival_feud:
+  $rival_feud($VLA)
 
 VOL_is_rival:
-  $country_is_rival($VOL)
+  $rival_base($VOL)
+
+VOL_is_rival_contain:
+  $rival_contain($VOL)
+
+VOL_is_rival_feud:
+  $rival_feud($VOL)
 
 WES_is_rival:
-  $country_is_rival($WES)
+  $rival_base($WES)
+
+WES_is_rival_contain:
+  $rival_contain($WES)
+
+WES_is_rival_feud:
+  $rival_feud($WES)
 
 WGR_is_rival:
-  $country_is_rival($WGR)
+  $rival_base($WGR)
+
+WGR_is_rival_contain:
+  $rival_contain($WGR)
+
+WGR_is_rival_feud:
+  $rival_feud($WGR)
 
 WLA_is_rival:
-  $country_is_rival($WLA)
+  $rival_base($WLA)
+
+WLA_is_rival_contain:
+  $rival_contain($WLA)
+
+WLA_is_rival_feud:
+  $rival_feud($WLA)
 
 WLS_is_rival:
-  $country_is_rival($WLS)
+  $rival_base($WLS)
+
+WLS_is_rival_contain:
+  $rival_contain($WLS)
+
+WLS_is_rival_feud:
+  $rival_feud($WLS)
 
 WUR_is_rival:
-  $country_is_rival($WUR)
+  $rival_base($WUR)
+
+WUR_is_rival_contain:
+  $rival_contain($WUR)
+
+WUR_is_rival_feud:
+  $rival_feud($WUR)
 
 XSM_is_rival:
-  $country_is_rival($XSM)
+  $rival_base($XSM)
+
+XSM_is_rival_contain:
+  $rival_contain($XSM)
+
+XSM_is_rival_feud:
+  $rival_feud($XSM)
 
 YAK_is_rival:
-  $country_is_rival($YAK)
+  $rival_base($YAK)
+
+YAK_is_rival_contain:
+  $rival_contain($YAK)
+
+YAK_is_rival_feud:
+  $rival_feud($YAK)
 
 YAM_is_rival:
-  $country_is_rival($YAM)
+  $rival_base($YAM)
+
+YAM_is_rival_contain:
+  $rival_contain($YAM)
+
+YAM_is_rival_feud:
+  $rival_feud($YAM)
 
 YEM_is_rival:
-  $country_is_rival($YEM)
+  $rival_base($YEM)
+
+YEM_is_rival_contain:
+  $rival_contain($YEM)
+
+YEM_is_rival_feud:
+  $rival_feud($YEM)
 
 YUC_is_rival:
-  $country_is_rival($YUC)
+  $rival_base($YUC)
+
+YUC_is_rival_contain:
+  $rival_contain($YUC)
+
+YUC_is_rival_feud:
+  $rival_feud($YUC)
 
 YUG_is_rival:
-  $country_is_rival($YUG)
+  $rival_base($YUG)
+
+YUG_is_rival_contain:
+  $rival_contain($YUG)
+
+YUG_is_rival_feud:
+  $rival_feud($YUG)
 
 YUN_is_rival:
-  $country_is_rival($YUN)
+  $rival_base($YUN)
+
+YUN_is_rival_contain:
+  $rival_contain($YUN)
+
+YUN_is_rival_feud:
+  $rival_feud($YUN)
 
 ZAM_is_rival:
-  $country_is_rival($ZAM)
+  $rival_base($ZAM)
+
+ZAM_is_rival_contain:
+  $rival_contain($ZAM)
+
+ZAM_is_rival_feud:
+  $rival_feud($ZAM)
 
 ZIM_is_rival:
-  $country_is_rival($ZIM)
+  $rival_base($ZIM)
+
+ZIM_is_rival_contain:
+  $rival_contain($ZIM)
+
+ZIM_is_rival_feud:
+  $rival_feud($ZIM)

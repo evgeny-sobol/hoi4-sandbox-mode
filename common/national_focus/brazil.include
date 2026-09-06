@@ -393,6 +393,14 @@ focus_tree[id = brazil_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($HOL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -414,6 +422,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($URG)
+      +modifier:
+        $ai_rivalry_modifier($URG)
       +modifier:
         $ai_betrayal_modifier_vs($URG)
 
@@ -453,6 +463,8 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_antagonism_modifier($BOL)
       +modifier:
+        $ai_rivalry_modifier($BOL)
+      +modifier:
         $ai_betrayal_modifier_vs($BOL)
 
   focus[id = BRA_paraguay_intervention]:
@@ -465,6 +477,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PAR)
+      +modifier:
+        $ai_rivalry_modifier($PAR)
       +modifier:
         $ai_betrayal_modifier_vs($PAR)
 
@@ -479,6 +493,8 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_antagonism_modifier($ARG)
       +modifier:
+        $ai_rivalry_modifier($ARG)
+      +modifier:
         $ai_betrayal_modifier_vs($ARG)
 
   focus[id = BRA_attack_chile]:
@@ -491,6 +507,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHL)
+      +modifier:
+        $ai_rivalry_modifier($CHL)
       +modifier:
         $ai_betrayal_modifier_vs($CHL)
 
@@ -509,6 +527,16 @@ focus_tree[id = brazil_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ECU) + $opinion_factor($VEN) + $opinion_factor($PRU) + $opinion_factor($PAN) + $opinion_factor($COL)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ECU)
+        $rivalry_vs_into($VEN)
+        $rivalry_vs_into($PRU)
+        $rivalry_vs_into($PAN)
+        $rivalry_vs_into($COL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -739,6 +767,8 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_antagonism_modifier($SOU)
       +modifier:
+        $ai_rivalry_modifier($SOU)
+      +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = BRA_international_brigades]:
@@ -898,6 +928,8 @@ focus_tree[id = brazil_tree]:
       modifier:
         $ai_antagonism_modifier($FRA)
       modifier:
+        $ai_rivalry_modifier($FRA)
+      modifier:
         $ai_betrayal_modifier_vs($FRA)
 
   focus[id = BRA_penal_battalions]:
@@ -926,6 +958,8 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_antagonism_modifier($URG)
       +modifier:
+        $ai_rivalry_modifier($URG)
+      +modifier:
         $ai_betrayal_modifier_vs($URG)
 
   focus[id = BRA_spirit_of_acre_war]:
@@ -938,6 +972,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BOL)
+      +modifier:
+        $ai_rivalry_modifier($BOL)
       +modifier:
         $ai_betrayal_modifier_vs($BOL)
 
@@ -954,6 +990,8 @@ focus_tree[id = brazil_tree]:
       +modifier:
         $ai_antagonism_modifier($POR)
       +modifier:
+        $ai_rivalry_modifier($POR)
+      +modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = BRA_demand_portugese_submission]:
@@ -968,6 +1006,8 @@ focus_tree[id = brazil_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POR)
+      +modifier:
+        $ai_rivalry_modifier($POR)
       +modifier:
         $ai_betrayal_modifier_vs($POR)
 

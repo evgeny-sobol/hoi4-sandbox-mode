@@ -18,8 +18,31 @@ major_rivals_scorer:
         factor(1_000)
         has_war_with(FROM)
       modifier:
+        factor(2)
+        OR:
+          any_owned_state->is_core_of(FROM)
+          FROM->any_owned_state->is_core_of(THIS)
+      modifier:
+        factor(2)
+        FROM in rivals[]
+      modifier:
+        factor(0.25)
+        is_friend_of_FROM()
+      modifier:
         factor(0)
         FROM == THIS
+      modifier:
+        factor(0)
+        is_in_faction_with(FROM)
+      modifier:
+        factor(0)
+        is_subject_of(FROM)
+      modifier:
+        factor(0)
+        FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        THIS in FROM.former_rivals[]
 
 minor_rivals_scorer:
   targets:
@@ -31,22 +54,27 @@ minor_rivals_scorer:
       base(40)
       modifier:
         add(40)
-        is_puppet_of(FROM)
-      modifier:
-        add(40)
-        is_subject_of(FROM)
-      modifier:
-        add(40)
         is_neighbor_of(FROM)
       modifier:
         add(40)
         is_on_same_continent_as(FROM)
       modifier:
         factor(1.25)
-        has_government(var:FROM.rival_ideology)
+        has_enemy_ideology_with_FROM()
       modifier:
         factor(1_000)
         has_defensive_war_with(FROM)
+      modifier:
+        factor(2)
+        OR:
+          any_owned_state->is_core_of(FROM)
+          FROM->any_owned_state->is_core_of(THIS)
+      modifier:
+        factor(2)
+        FROM in rivals[]
+      modifier:
+        factor(0.25)
+        is_friend_of_FROM()
       modifier:
         factor(0)
         not has_war_with(FROM)
@@ -77,3 +105,15 @@ minor_rivals_scorer:
       modifier:
         factor(0)
         FROM == THIS
+      modifier:
+        factor(0)
+        is_in_faction_with(FROM)
+      modifier:
+        factor(0)
+        is_subject_of(FROM)
+      modifier:
+        factor(0)
+        FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        THIS in FROM.former_rivals[]

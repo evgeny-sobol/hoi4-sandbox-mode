@@ -37,6 +37,14 @@ focus_tree[id = portuguese_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ANG)
+        $rivalry_vs_into($MZB)
+        $rivalry_vs_into($POR)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ANG->is_friend_of_PREV()
@@ -357,6 +365,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_join_the_comintern]:
@@ -384,6 +394,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($FRA)
       modifier:
+        $ai_rivalry_modifier($FRA)
+      modifier:
         $ai_betrayal_modifier_vs($FRA)
 
   focus[id = POR_anti_fascism]:
@@ -404,6 +416,8 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPD)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($POR, $SPD)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -436,6 +450,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_latin_american_communism]:
@@ -448,6 +464,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
 
@@ -491,6 +509,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_british_investment_in_mines]:
@@ -519,6 +539,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_join_the_allies]:
@@ -541,6 +563,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_rivalry_modifier($GER)
       modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -570,6 +594,8 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($POR, $SPA)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -634,6 +660,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = POR_proudly_alone]:
@@ -656,6 +684,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($JAP)
       modifier:
+        $ai_rivalry_modifier($JAP)
+      modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = POR_national_syndicalism]:
@@ -672,6 +702,8 @@ focus_tree[id = portuguese_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
 
@@ -719,6 +751,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($JAP)
       modifier:
+        $ai_rivalry_modifier($JAP)
+      modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = POR_refuse_the_naval_blockade]:
@@ -734,6 +768,8 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($POR, $ENG)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -761,6 +797,8 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_antagonism_modifier($BRA)
       modifier:
+        $ai_rivalry_modifier($BRA)
+      modifier:
         $ai_betrayal_modifier_vs($BRA)
 
   focus[id = POR_a_royal_wedding]:
@@ -785,6 +823,8 @@ focus_tree[id = portuguese_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($SPB)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($POR, $SPB)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -864,6 +904,14 @@ focus_tree[id = portuguese_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($PAR) + $opinion_factor($URG) + $opinion_factor($ARG)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PAR)
+        $rivalry_vs_into($URG)
+        $rivalry_vs_into($ARG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()

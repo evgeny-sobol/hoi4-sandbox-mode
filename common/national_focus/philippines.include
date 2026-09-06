@@ -40,6 +40,8 @@ focus_tree[id = philippines_focus]:
       modifier:
         $ai_antagonism_modifier($PHI)
       modifier:
+        $ai_rivalry_modifier($PHI)
+      modifier:
         $ai_betrayal_modifier_vs($PHI)
 
   focus[id = PHI_quezon_city]:
@@ -75,6 +77,8 @@ focus_tree[id = philippines_focus]:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($PHI)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($JAP, $PHI)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -241,6 +245,8 @@ focus_tree[id = philippines_focus]:
       modifier:
         $ai_antagonism_modifier($PHI)
       modifier:
+        $ai_rivalry_modifier($PHI)
+      modifier:
         $ai_betrayal_modifier_vs($PHI)
 
   focus[id = PHI_encourage_chinese_immigration]:
@@ -255,6 +261,8 @@ focus_tree[id = philippines_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($PHI)
+      modifier:
+        $ai_rivalry_modifier($PHI)
       modifier:
         $ai_betrayal_modifier_vs($PHI)
 
@@ -273,6 +281,8 @@ focus_tree[id = philippines_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PHI)
+      +modifier:
+        $ai_rivalry_modifier($PHI)
       +modifier:
         $ai_betrayal_modifier_vs($PHI)
 
@@ -469,6 +479,8 @@ focus_tree[id = philippines_focus]:
       +modifier:
         $ai_antagonism_modifier($JAP)
       +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = PHI_sea_of_cobalt]:
@@ -487,6 +499,8 @@ focus_tree[id = philippines_focus]:
       +modifier:
         $ai_antagonism_modifier($ENG)
       +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = PHI_traitors_back_home]:
@@ -499,6 +513,8 @@ focus_tree[id = philippines_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($USA)
+      modifier:
+        $ai_rivalry_modifier($USA)
       modifier:
         $ai_betrayal_modifier_vs($USA)
 
@@ -704,6 +720,8 @@ focus_tree[id = philippines_focus]:
       +modifier:
         $ai_antagonism_modifier($PLU)
       +modifier:
+        $ai_rivalry_modifier($PLU)
+      +modifier:
         $ai_betrayal_modifier_vs($PLU)
 
   focus[id = PHI_malayo_polynesia]:
@@ -729,6 +747,8 @@ focus_tree[id = philippines_focus]:
         antagonism = 1 - ($opinion_factor($FOR) + $opinion_factor($JAP)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($FOR, $JAP)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -758,6 +778,8 @@ focus_tree[id = philippines_focus]:
       modifier:
         $ai_antagonism_modifier($PHI)
       modifier:
+        $ai_rivalry_modifier($PHI)
+      modifier:
         $ai_betrayal_modifier_vs($PHI)
 
   focus[id = PHI_return_of_the_exiles]:
@@ -775,6 +797,8 @@ focus_tree[id = philippines_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($PRC)
+      modifier:
+        $ai_rivalry_modifier($PRC)
       modifier:
         $ai_betrayal_modifier_vs($PRC)
 

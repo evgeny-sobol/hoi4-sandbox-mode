@@ -10,3 +10,9 @@ opinion_modifiers:
 
   righteous_leader:
     value(20)
+
+  national_rival:
+    value(-20)
+
+  leaders_rival:
+    value(-10)

@@ -140,6 +140,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($ENG)
       +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = MEX_focus_purchase_belize]:
@@ -159,6 +161,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
       +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
@@ -180,6 +184,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($MEX)
       +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
   focus[id = MEX_focus_new_world_order]:
@@ -192,6 +198,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -212,6 +220,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -238,6 +248,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($USA)
       +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
         $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_aztec_eagles]:
@@ -250,6 +262,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
       +modifier:
         $ai_betrayal_modifier_vs($USA)
 
@@ -493,6 +507,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($SPA)
       +modifier:
+        $ai_rivalry_modifier($SPA)
+      +modifier:
         $ai_betrayal_modifier_vs($SPA)
 
   focus[id = MEX_focus_support_spains_loyalists]:
@@ -505,6 +521,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_rivalry_modifier($SPD)
       +modifier:
         $ai_betrayal_modifier_vs($SPD)
 
@@ -555,6 +573,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = MEX_focus_liberate_the_antilles]:
@@ -587,6 +607,14 @@ focus_tree[id = mexico_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GUA)
+        $rivalry_vs_into($HON)
+        $rivalry_vs_into($ELS)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $GUA->is_friend_of_PREV()
@@ -606,6 +634,14 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($NIC) + $opinion_factor($COS) + $opinion_factor($PAN)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($NIC)
+        $rivalry_vs_into($COS)
+        $rivalry_vs_into($PAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -634,6 +670,21 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI) + $opinion_factor($BAH) + $opinion_factor($BAS) + $opinion_factor($JAM) + $opinion_factor($PUE) + $opinion_factor($CRC) + $opinion_factor($TRI) + $opinion_factor($GDL)) / 10
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CUB)
+        $rivalry_vs_into($DOM)
+        $rivalry_vs_into($HAI)
+        $rivalry_vs_into($BAH)
+        $rivalry_vs_into($BAS)
+        $rivalry_vs_into($JAM)
+        $rivalry_vs_into($PUE)
+        $rivalry_vs_into($CRC)
+        $rivalry_vs_into($TRI)
+        $rivalry_vs_into($GDL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -669,6 +720,14 @@ focus_tree[id = mexico_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($COL)
+        $rivalry_vs_into($ECU)
+        $rivalry_vs_into($VEN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $COL->is_friend_of_PREV()
@@ -691,6 +750,17 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL) + $opinion_factor($URG) + $opinion_factor($PAR) + $opinion_factor($BOL) + $opinion_factor($PRU)) / 6
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ARG)
+        $rivalry_vs_into($CHL)
+        $rivalry_vs_into($URG)
+        $rivalry_vs_into($PAR)
+        $rivalry_vs_into($BOL)
+        $rivalry_vs_into($PRU)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -730,6 +800,8 @@ focus_tree[id = mexico_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($USA)
       +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
         $ai_betrayal_modifier_vs($USA)
 
   focus[id = MEX_focus_redeem_aztlan]:
@@ -742,6 +814,8 @@ focus_tree[id = mexico_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
       +modifier:
         $ai_betrayal_modifier_vs($USA)
 

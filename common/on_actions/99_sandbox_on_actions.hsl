@@ -24,12 +24,16 @@ on_actions:
       if is_sandbox_mode_on():
         &months_elapsed += 1
         expire_dropped_obligations()
+        expire_former_rivals()
         apply_honor_for_unmet_obligations()
         # "Once per war": forget answered calls once we are at peace.
         if not has_war():
           &honor_answered_call[].clear()
         $add_honor(honor_gain_monthly_factor)
         $add_tyranny(tyranny_gain_monthly_factor)
+        review_rivals()
+        update_rivalry_monthly()
+        fill_rival_vacancies()
 
   on_ruling_party_change:
     effect:
@@ -61,6 +65,7 @@ on_actions:
     effect:
       if is_sandbox_mode_on():
         apply_honor_on_declare_war()
+        apply_rivalry_on_declare_war()
 
   # ROOT = justifier, FROM = target. The pulse is DAILY in vanilla, so the
   # −2 of the GDD is charged once per 30 pulses against a friend.
@@ -99,6 +104,34 @@ on_actions:
             $add_honor(15)
           else:
             $add_honor(10)
+        review_rivals()
+        FROM->review_rivals()
+
+  # FROM is faction leader. Does not fire on add_to_faction.
+  on_join_faction:
+    effect:
+      if is_sandbox_mode_on():
+        review_rivals()
+        FROM->review_rivals()
+
+  # ROOT = nation being puppeted, FROM = overlord
+  on_puppet:
+    effect:
+      if is_sandbox_mode_on():
+        review_rivals()
+        FROM->review_rivals()
+
+  # ROOT is winner, FROM gets annexed
+  on_annex:
+    effect:
+      if is_sandbox_mode_on():
+        clear_annexed_from_rivals()
+
+  # ROOT is capitulated country, FROM is winner
+  on_capitulation:
+    effect:
+      if is_sandbox_mode_on():
+        apply_rivalry_on_capitulation()
 
   # ROOT = released nation, FROM = releaser
   on_release_as_free:

@@ -18,7 +18,7 @@ macro add_tyranny(_var_):
     localization_key(LocKey_tyranny_change_tt)
     VALUE(_var_)
 
-macro country_is_rival(_country_):
+macro rival_base(_country_):
   allowed:
     always()
   enable:
@@ -28,17 +28,66 @@ macro country_is_rival(_country_):
   ai_strategy:
     type(antagonize)
     id(_country_)
+    value(200)
+  ai_strategy:
+    type(alliance)
+    id(_country_)
     value(-200)
+  ai_strategy:
+    type(befriend)
+    id(_country_)
+    value(-200)
+
+macro rival_contain(_country_):
+  allowed:
+    always()
+  enable:
+    is_sandbox_mode_on()
+    OR:
+      AND:
+        rivals[0] == _country_
+        rivalry[0] >= 25
+      AND:
+        rivals[1] == _country_
+        rivalry[1] >= 25
+      AND:
+        rivals[2] == _country_
+        rivalry[2] >= 25
+  abort_when_not_enabled()
+  ai_strategy:
+    type(contain)
+    id(_country_)
+    value(100)
+
+macro rival_feud(_country_):
+  allowed:
+    always()
+  enable:
+    is_sandbox_mode_on()
+    OR:
+      AND:
+        rivals[0] == _country_
+        rivalry[0] >= 75
+      AND:
+        rivals[1] == _country_
+        rivalry[1] >= 75
+      AND:
+        rivals[2] == _country_
+        rivalry[2] >= 75
+  abort_when_not_enabled()
+  ai_strategy:
+    type(conquer)
+    id(_country_)
+    value(100)
+  ai_strategy:
+    type(prepare_for_war)
+    id(_country_)
+    value(100)
 
 macro ideology_factor(_ideology_):
   base(0)
   modifier:
     add(party_popularity@_ideology_)
-    is_sandbox_mode_on()
-  modifier:
-    # Temporarily disable "rival ideology" mechanic
-    add(0)
-    var:rival_ideology == token:_ideology_
     is_sandbox_mode_on()
   modifier:
     factor(0)
@@ -169,3 +218,50 @@ macro ai_low_tyranny_fork():
 macro ai_medium_tyranny_fork():
   factor(mtth:medium_tyranny_factor)
   is_sandbox_mode_on()
+
+# Clamp and détente. The only writer of rivalry[i] besides set_rival/clear_rival.
+macro add_rivalry(_slot_, _var_):
+  if _var_ != 0:
+    # Read the element into a temp first: array indices inside math
+    # expressions are not trusted by the game's expression parser.
+    cur_rivalry = rivalry[_slot_]
+    new_rivalry = clamp(cur_rivalry + _var_, 0, 100)
+    &rivalry[_slot_] = new_rivalry
+    if rivalry[_slot_] == 0:
+      rival_slot = _slot_
+      clear_rival()
+
+# Highest rivalry among slots holding _tag_ (0 if none). ai_will_do trigger
+# context: temps + if, no scripted effect.
+macro rivalry_vs_into(_tag_):
+  if rivals[0] == _tag_:
+    if rivalry[0] > rivalry_vs:
+      rivalry_vs = rivalry[0]
+  if rivals[1] == _tag_:
+    if rivalry[1] > rivalry_vs:
+      rivalry_vs = rivalry[1]
+  if rivals[2] == _tag_:
+    if rivalry[2] > rivalry_vs:
+      rivalry_vs = rivalry[2]
+
+macro ai_rivalry_modifier(_tag_):
+  rivalry_vs = 0
+  $rivalry_vs_into(_tag_)
+  f = 1 + rivalry_vs / 50
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_rivalry_modifier_max(_tag1_, _tag2_):
+  rivalry_vs = 0
+  $rivalry_vs_into(_tag1_)
+  $rivalry_vs_into(_tag2_)
+  f = 1 + rivalry_vs / 50
+  factor(f)
+  is_sandbox_mode_on()
+
+# Cooperation available-gate. country_exists first so tag aliases do not
+# log Invalid Scope.
+macro not_rival_of_PREV(_tag_):
+  OR:
+    not country_exists(_tag_)
+    _tag_->is_rival_of_PREV(no)

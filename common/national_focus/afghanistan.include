@@ -90,6 +90,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($SOU)
       +modifier:
+        $ai_rivalry_modifier($SOU)
+      +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = AFG_salang_pass]:
@@ -228,11 +230,17 @@ focus_tree[id = afghanistan_tree]:
         $ai_sandbox_modifier()
 
   focus[id = AFG_officialize_the_turkish_afghan_defense_treaty]:
+    available:
+      $not_rival_of_PREV($TUR)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($TUR)
+      +modifier:
+        factor(0)
+        $TUR in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = AFG_establish_naval_bases]:
     ai_will_do:
@@ -501,6 +509,8 @@ focus_tree[id = afghanistan_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($RAJ, $KLT)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $RAJ->is_friend_of_PREV()
@@ -516,6 +526,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_rivalry_modifier($RAJ)
       +modifier:
         $ai_betrayal_modifier_vs($RAJ)
 
@@ -534,6 +546,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -566,6 +580,30 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($RAJ) + $opinion_factor($BAN) + $opinion_factor($KAS) + $opinion_factor($BLC) + $opinion_factor($SIN) + $opinion_factor($KLT) + $opinion_factor($RJP) + $opinion_factor($KHL) + $opinion_factor($CIP) + $opinion_factor($WIS) + $opinion_factor($SKK) + $opinion_factor($MPU) + $opinion_factor($BRM) + $opinion_factor($HYD) + $opinion_factor($KOL) + $opinion_factor($MYS) + $opinion_factor($RAS) + $opinion_factor($NWF)) / 19
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PAK)
+        $rivalry_vs_into($RAJ)
+        $rivalry_vs_into($BAN)
+        $rivalry_vs_into($KAS)
+        $rivalry_vs_into($BLC)
+        $rivalry_vs_into($SIN)
+        $rivalry_vs_into($KLT)
+        $rivalry_vs_into($RJP)
+        $rivalry_vs_into($KHL)
+        $rivalry_vs_into($CIP)
+        $rivalry_vs_into($WIS)
+        $rivalry_vs_into($SKK)
+        $rivalry_vs_into($MPU)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($HYD)
+        $rivalry_vs_into($KOL)
+        $rivalry_vs_into($MYS)
+        $rivalry_vs_into($RAS)
+        $rivalry_vs_into($NWF)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -604,6 +642,8 @@ focus_tree[id = afghanistan_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($SIK, $KHM)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SIK->is_friend_of_PREV()
@@ -625,6 +665,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($PER)
       +modifier:
+        $ai_rivalry_modifier($PER)
+      +modifier:
         $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_reclaim_transoxiana]:
@@ -637,6 +679,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -789,9 +833,18 @@ focus_tree[id = afghanistan_tree]:
         $ai_mic_modifier()
 
   focus[id = AFG_agreement_with_germany]:
+    available:
+      $not_rival_of_PREV($AFG)
+      $not_rival_of_PREV($GER)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        factor(0)
+        or:
+          $AFG in rivals[]
+          $GER in rivals[]
+        is_sandbox_mode_on()
       +modifier:
         cooperation = 1 + ($opinion_factor($AFG) + $opinion_factor($GER)) / 2
         factor(cooperation)
@@ -823,6 +876,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($SOU)
       +modifier:
+        $ai_rivalry_modifier($SOU)
+      +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = AFG_fortify_pakistan]:
@@ -840,6 +895,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_rivalry_modifier($RAJ)
       +modifier:
         $ai_betrayal_modifier_vs($RAJ)
 
@@ -889,6 +946,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($PER)
       +modifier:
+        $ai_rivalry_modifier($PER)
+      +modifier:
         $ai_betrayal_modifier_vs($PER)
 
   focus[id = AFG_secure_baghdad]:
@@ -901,6 +960,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_rivalry_modifier($IRQ)
       +modifier:
         $ai_betrayal_modifier_vs($IRQ)
 
@@ -1099,6 +1160,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($PAK)
       +modifier:
+        $ai_rivalry_modifier($PAK)
+      +modifier:
         $ai_betrayal_modifier_vs($PAK)
 
   focus[id = AFG_accelerate_integration]:
@@ -1121,6 +1184,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_rivalry_modifier($PER)
       +modifier:
         $ai_betrayal_modifier_vs($PER)
 
@@ -1241,6 +1306,8 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_antagonism_modifier($SIK)
       +modifier:
+        $ai_rivalry_modifier($SIK)
+      +modifier:
         $ai_betrayal_modifier_vs($SIK)
 
   focus[id = AFG_socialist_coup]:
@@ -1302,6 +1369,8 @@ focus_tree[id = afghanistan_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_rivalry_modifier($PER)
       +modifier:
         $ai_betrayal_modifier_vs($PER)
 

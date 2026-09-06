@@ -350,6 +350,8 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($LAT, $EST)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LAT->is_friend_of_PREV()
@@ -376,6 +378,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($CZE)
       +modifier:
+        $ai_rivalry_modifier($CZE)
+      +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
   focus[id = POL_sea_to_sea]:
@@ -398,6 +402,14 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LIT->is_friend_of_PREV()
@@ -414,6 +426,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
@@ -541,6 +555,8 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($ENG, $FRA)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -575,6 +591,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
@@ -653,6 +671,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = POL_polish_peoples_republic]:
@@ -690,6 +710,8 @@ focus_tree[id = polish_focus]:
         antagonism = 1 - ($opinion_factor($SOU) + $opinion_factor($POL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($SOU, $POL)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -755,6 +777,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($ROM)
       +modifier:
+        $ai_rivalry_modifier($ROM)
+      +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = POL_preserve_bougoise_democracy]:
@@ -779,6 +803,14 @@ focus_tree[id = polish_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT) + $opinion_factor($EST)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -812,6 +844,14 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LIT->is_friend_of_PREV()
@@ -834,6 +874,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = POL_social_commonwealth]:
@@ -849,6 +891,14 @@ focus_tree[id = polish_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT) + $opinion_factor($EST)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -979,6 +1029,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($CZE)
       +modifier:
+        $ai_rivalry_modifier($CZE)
+      +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
   focus[id = POL_unite_west_slavia]:
@@ -991,6 +1043,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
@@ -1088,6 +1142,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($LIT)
       +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = POL_demand_slovakia_pavel]:
@@ -1108,6 +1164,8 @@ focus_tree[id = polish_focus]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1148,6 +1206,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($SOU)
       +modifier:
+        $ai_rivalry_modifier($SOU)
+      +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = POL_romanov]:
@@ -1179,6 +1239,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -1222,6 +1284,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($LIT)
       +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = POL_LIT_union]:
@@ -1234,6 +1298,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
@@ -1281,6 +1347,8 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $EST->is_friend_of_PREV()
@@ -1301,6 +1369,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -1325,6 +1395,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($ROM)
       +modifier:
+        $ai_rivalry_modifier($ROM)
+      +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = POL_merge_internal_governments]:
@@ -1338,6 +1410,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($ROM)
       +modifier:
+        $ai_rivalry_modifier($ROM)
+      +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = POL_pro_allied_government]:
@@ -1350,6 +1424,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
       +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -1444,6 +1520,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($LIT)
       +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = POL_german_training]:
@@ -1485,6 +1563,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = POL_reach_out_to_underground_state]:
@@ -1508,6 +1588,8 @@ focus_tree[id = polish_focus]:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($POL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $POL)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1568,6 +1650,14 @@ focus_tree[id = polish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($EST)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($LIT)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $EST->is_friend_of_PREV()
@@ -1594,6 +1684,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($LIT)
       +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = POL_the_national_commonwealth]:
@@ -1606,6 +1698,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
 
@@ -1626,6 +1720,14 @@ focus_tree[id = polish_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT) + $opinion_factor($EST)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1693,6 +1795,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($GER)
       +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = POL_go_left]:
@@ -1715,6 +1819,8 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_antagonism_modifier($SOU)
       +modifier:
+        $ai_rivalry_modifier($SOU)
+      +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = POL_liberalism_focus]:
@@ -1736,6 +1842,8 @@ focus_tree[id = polish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
       +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -1764,6 +1872,8 @@ focus_tree[id = polish_focus]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
       +modifier:
         $ai_betrayal_modifier()
         or:

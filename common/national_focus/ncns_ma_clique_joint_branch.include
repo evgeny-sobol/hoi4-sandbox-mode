@@ -16,6 +16,15 @@
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($KHM)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $XSM->is_friend_of_PREV()

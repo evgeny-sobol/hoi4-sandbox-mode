@@ -400,6 +400,14 @@ focus_tree[id = chilean_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PAR)
+        $rivalry_vs_into($BOL)
+        $rivalry_vs_into($URG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $PAR->is_friend_of_PREV()
@@ -420,6 +428,8 @@ focus_tree[id = chilean_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($BRA, $POR)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $BRA->is_friend_of_PREV()
@@ -438,6 +448,8 @@ focus_tree[id = chilean_focus_tree]:
         antagonism = 1 - ($opinion_factor($PRU) + $opinion_factor($ECU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($PRU, $ECU)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -468,6 +480,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($FRA)
       +modifier:
+        $ai_rivalry_modifier($FRA)
+      +modifier:
         $ai_betrayal_modifier_vs($FRA)
 
   focus[id = CHL_joint_invasion_of_mexico]:
@@ -481,6 +495,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($MEX)
       +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
   focus[id = CHL_claim_the_mexican_throne]:
@@ -493,6 +509,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
       +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
@@ -569,6 +587,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_rivalry_modifier($SPD)
       +modifier:
         $ai_betrayal_modifier_vs($SPD)
       +modifier:
@@ -656,6 +676,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
       +modifier:
         $ai_betrayal_modifier_vs($USA)
 
@@ -828,6 +850,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($PRU)
       +modifier:
+        $ai_rivalry_modifier($PRU)
+      +modifier:
         $ai_betrayal_modifier_vs($PRU)
 
   focus[id = CHL_demand_the_fireland]:
@@ -841,6 +865,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($ARG)
       +modifier:
+        $ai_rivalry_modifier($ARG)
+      +modifier:
         $ai_betrayal_modifier_vs($ARG)
 
   focus[id = CHL_escalate_the_laguna_del_desierto_issue]:
@@ -853,6 +879,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ARG)
+      +modifier:
+        $ai_rivalry_modifier($ARG)
       +modifier:
         $ai_betrayal_modifier_vs($ARG)
       +modifier:
@@ -977,6 +1005,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($USA)
       +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
         $ai_betrayal_modifier_vs($USA)
 
   focus[id = CHL_demand_the_guayanas]:
@@ -992,6 +1022,14 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($GYA) + $opinion_factor($SUR) + $opinion_factor($CAY)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GYA)
+        $rivalry_vs_into($SUR)
+        $rivalry_vs_into($CAY)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1020,6 +1058,21 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI) + $opinion_factor($BAH) + $opinion_factor($BAS) + $opinion_factor($JAM) + $opinion_factor($PUE) + $opinion_factor($CRC) + $opinion_factor($TRI) + $opinion_factor($GDL)) / 10
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CUB)
+        $rivalry_vs_into($DOM)
+        $rivalry_vs_into($HAI)
+        $rivalry_vs_into($BAH)
+        $rivalry_vs_into($BAS)
+        $rivalry_vs_into($JAM)
+        $rivalry_vs_into($PUE)
+        $rivalry_vs_into($CRC)
+        $rivalry_vs_into($TRI)
+        $rivalry_vs_into($GDL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1221,6 +1274,8 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($ARG)
       +modifier:
+        $ai_rivalry_modifier($ARG)
+      +modifier:
         $ai_betrayal_modifier_vs($ARG)
 
   focus[id = CHL_protect_the_easter_island]:
@@ -1236,6 +1291,14 @@ focus_tree[id = chilean_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($NZL) + $opinion_factor($AST)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($JAP)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($AST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1319,6 +1382,8 @@ focus_tree[id = chilean_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CHL)
+      +modifier:
+        $ai_rivalry_modifier($CHL)
       +modifier:
         $ai_betrayal_modifier_vs($CHL)
 

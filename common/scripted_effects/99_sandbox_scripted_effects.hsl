@@ -1,6 +1,7 @@
 initialize_country_for_sandbox_mode():
   set_country_flag(sandbox_initialized)
   &rivals[].resize(3)
+  &rivalry[].resize(3)
   initialize_new_country_leader()
   shuffle_political_party_popularities()
   for i in range(2):
@@ -85,7 +86,11 @@ select_major_rival():
       if dice > weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
-        &rivals[0] = find
+        if find != 0:
+          rival_slot = 0
+          rival_tag = find
+          rival_intensity = 50
+          set_rival()
         break
 
 
@@ -104,12 +109,19 @@ select_minor_rival():
       if dice > weights[idx]:
         find_idx = idx - 1
         find = candidates[find_idx]
-        if rivals[1] == 0:
-          &rivals[1] = find
-          break
-        elif rivals[2] == 0 and find != rivals[1]:
-          &rivals[2] = find
-          break
+        if find != 0:
+          if rivals[1] == 0:
+            rival_slot = 1
+            rival_tag = find
+            rival_intensity = 50
+            set_rival()
+            break
+          elif rivals[2] == 0 and find != rivals[1]:
+            rival_slot = 2
+            rival_tag = find
+            rival_intensity = 50
+            set_rival()
+            break
 
 
 # Shuffles the order of political ideologies and assigns random popularities
@@ -438,6 +450,7 @@ inherit_honor_on_ruling_party_change():
   &honor = clamp(0.5 * old + offset, -100, 100)
   inherit_tyranny_on_ruling_party_change()
   update_country_leader_traits()
+  reroll_leader_rival()
 
 
 inherit_tyranny_on_ruling_party_change():
@@ -457,6 +470,7 @@ reset_honor_for_new_ruler():
   &honor = randi(-100, 100)
   reset_tyranny_for_new_ruler()
   update_country_leader_traits()
+  reroll_leader_rival()
 
 
 reset_tyranny_for_new_ruler():
@@ -479,3 +493,248 @@ update_tyranny_gain_monthly_factor():
     stability_rate = 0.25
   drift = clamp(tyranny_home - tyranny, -0.25, 0.25)
   &tyranny_gain_monthly_factor = war_rate + stability_rate + drift
+
+
+# Temps: rival_slot (0-2), rival_tag, rival_intensity (50 or 75).
+set_rival():
+  &rivals[rival_slot] = rival_tag
+  &rivalry[rival_slot] = rival_intensity
+  # add/remove_opinion_modifier reject `target = var:x` (Malformed token):
+  # enter the rival's scope and address it as PREV from our own.
+  if country_exists(var:rival_tag):
+    var:rival_tag:
+      PREV:
+        if rival_slot == 0:
+          $add_opinion_modifier(PREV, leaders_rival)
+        else:
+          $add_opinion_modifier(PREV, national_rival)
+  rival_intensity = 50
+
+
+# Temp: rival_slot. Optional flag sandbox_clear_rival_no_cooldown skips
+# former_rivals[] (ruler-change re-roll of slot 0).
+clear_rival():
+  if rivals[rival_slot] != 0:
+    old_rival = rivals[rival_slot]
+    if country_exists(var:old_rival):
+      var:old_rival:
+        PREV:
+          if rival_slot == 0:
+            $remove_opinion_modifier(PREV, leaders_rival)
+          else:
+            $remove_opinion_modifier(PREV, national_rival)
+    if not has_country_flag(sandbox_clear_rival_no_cooldown):
+      &former_rivals[].add(old_rival)
+      &former_rivals_month[].add(months_elapsed)
+    &rivals[rival_slot] = 0
+    &rivalry[rival_slot] = 0
+
+
+reroll_leader_rival():
+  set_country_flag(sandbox_clear_rival_no_cooldown)
+  rival_slot = 0
+  clear_rival()
+  clr_country_flag(sandbox_clear_rival_no_cooldown)
+  select_major_rival()
+
+
+# Temps: rival_tag, rivalry_delta. Applies to every slot holding the tag.
+add_rivalry_vs():
+  if rivals[0] == rival_tag:
+    $add_rivalry(0, rivalry_delta)
+  if rivals[1] == rival_tag:
+    $add_rivalry(1, rivalry_delta)
+  if rivals[2] == rival_tag:
+    $add_rivalry(2, rivalry_delta)
+
+
+# Temp: rival_tag (the country that declared war on us). National slots only.
+become_event_rival():
+  if rival_tag in rivals[]:
+    pass
+  elif rivals[1] == 0:
+    rival_slot = 1
+    rival_intensity = 75
+    set_rival()
+  elif rivals[2] == 0:
+    rival_slot = 2
+    rival_intensity = 75
+    set_rival()
+  else:
+    lowest_slot = 1
+    lowest_val = rivalry[1]
+    if rivalry[2] < lowest_val:
+      lowest_slot = 2
+      lowest_val = rivalry[2]
+    if lowest_val < 25:
+      rival_slot = lowest_slot
+      clear_rival()
+      rival_slot = lowest_slot
+      rival_intensity = 75
+      set_rival()
+
+
+review_rivals():
+  for i in range(3):
+    if rivals[i] != 0:
+      rival_tag = rivals[i]
+      should_clear = 0
+      if not country_exists(var:rival_tag):
+        should_clear = 1
+      elif is_in_faction_with(var:rival_tag):
+        should_clear = 1
+      elif is_subject_of(var:rival_tag):
+        should_clear = 1
+      else:
+        var:rival_tag:
+          if is_subject_of(PREV):
+            PREV:
+              should_clear = 1
+      if should_clear == 1:
+        rival_slot = i
+        clear_rival()
+
+
+update_rivalry_monthly():
+  for i in range(3):
+    if rivals[i] != 0:
+      rival_tag = rivals[i]
+      if country_exists(var:rival_tag):
+        delta = 0
+        has_plus = 0
+        if has_war_with(var:rival_tag):
+          delta += 2
+          has_plus = 1
+        if any_owned_state->is_core_of(var:rival_tag):
+          delta += 2
+          has_plus = 1
+        var:rival_tag:
+          if any_owned_state->is_core_of(PREV):
+            PREV:
+              delta += 2
+              has_plus = 1
+          if has_enemy_ideology_with_PREV():
+            PREV:
+              delta += 1
+              has_plus = 1
+          elif has_government(PREV):
+            PREV:
+              delta -= 1
+          if has_non_aggression_pact_with(PREV):
+            PREV:
+              delta -= 1
+          # +1 once if the rival fights any friend of ours. ROOT is the country
+          # (called from on_monthly only); avoids reading temps across scopes.
+          if any_enemy_country->is_friend_of_ROOT():
+            ROOT:
+              delta += 1
+              has_plus = 1
+        if i == 0:
+          if is_authoritarian_leader():
+            delta += 1
+            has_plus = 1
+          elif is_liberal_leader():
+            delta -= 1
+        if has_plus == 0:
+          delta -= 1
+        $add_rivalry(i, delta)
+
+
+fill_rival_vacancies():
+  if rivals[0] == 0:
+    roll = randi(1, 6)
+    if roll == 1:
+      select_major_rival()
+  if rivals[1] == 0:
+    roll = randi(1, 6)
+    if roll == 1:
+      select_minor_rival()
+  if rivals[2] == 0:
+    roll = randi(1, 6)
+    if roll == 1:
+      select_minor_rival()
+
+
+expire_former_rivals():
+  keep[].clear()
+  keep_month[].clear()
+  for v, idx in &former_rivals[]:
+    m = former_rivals_month[idx]
+    age = months_elapsed - m
+    if age < 24:
+      keep[].add(v)
+      keep_month[].add(m)
+  &former_rivals[].clear()
+  &former_rivals_month[].clear()
+  for v, _ in keep[]:
+    &former_rivals[].add(v)
+  for v, _ in keep_month[]:
+    &former_rivals_month[].add(v)
+
+
+# ROOT = attacker, FROM = target.
+apply_rivalry_on_declare_war():
+  max_r = 0
+  if rivals[0] == FROM:
+    if rivalry[0] > max_r:
+      max_r = rivalry[0]
+  if rivals[1] == FROM:
+    if rivalry[1] > max_r:
+      max_r = rivalry[1]
+  if rivals[2] == FROM:
+    if rivalry[2] > max_r:
+      max_r = rivalry[2]
+  if max_r >= 50:
+    add_war_support(0.05)
+
+  FROM:
+    was_rival = 0
+    if ROOT in rivals[]:
+      was_rival = 1
+    rival_tag = ROOT
+    become_event_rival()
+    if was_rival == 1:
+      rivalry_delta = 25
+      add_rivalry_vs()
+    if ROOT in rivals[]:
+      add_war_support(0.10)
+
+  for other in every_other_country():
+    if not tag(FROM):
+      if is_friend_of_FROM():
+        if ROOT in rivals[]:
+          rival_tag = ROOT
+          rivalry_delta = 15
+          add_rivalry_vs()
+
+
+# ROOT = capitulating country, FROM = winner.
+apply_rivalry_on_capitulation():
+  FROM:
+    rival_tag = ROOT
+    rivalry_delta = -50
+    add_rivalry_vs()
+  was_rival = 0
+  if FROM in rivals[]:
+    was_rival = 1
+  if was_rival == 1:
+    rival_tag = FROM
+    rivalry_delta = 25
+    add_rivalry_vs()
+  else:
+    rival_tag = FROM
+    become_event_rival()
+
+
+clear_annexed_from_rivals():
+  for cty in every_country():
+    if FROM in rivals[]:
+      if rivals[0] == FROM:
+        rival_slot = 0
+        clear_rival()
+      if rivals[1] == FROM:
+        rival_slot = 1
+        clear_rival()
+      if rivals[2] == FROM:
+        rival_slot = 2
+        clear_rival()

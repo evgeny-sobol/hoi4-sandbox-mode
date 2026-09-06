@@ -123,6 +123,8 @@ focus_tree[id = paraguay_focus]:
       modifier:
         $ai_antagonism_modifier($BOL)
       modifier:
+        $ai_rivalry_modifier($BOL)
+      modifier:
         $ai_betrayal_modifier_vs($BOL)
 
   focus[id = PAR_put_estigarribia_on_a_pedestal]:
@@ -161,6 +163,8 @@ focus_tree[id = paraguay_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BOL)
+      modifier:
+        $ai_rivalry_modifier($BOL)
       modifier:
         $ai_betrayal_modifier_vs($BOL)
 
@@ -326,6 +330,8 @@ focus_tree[id = paraguay_focus]:
         antagonism = 1 - ($opinion_factor($CHL) + $opinion_factor($PRU)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($CHL, $PRU)
       modifier:
         $ai_betrayal_modifier()
         or:

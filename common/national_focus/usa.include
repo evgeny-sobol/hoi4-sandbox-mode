@@ -272,11 +272,17 @@ focus_tree[id = usa_focus]:
 
   #TODO
   focus[id = USA_liberty_for_the_philippines]:
+    available:
+      $not_rival_of_PREV($PHI)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($PHI)
+      +modifier:
+        factor(0)
+        $PHI in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = USA_pacific_decolonisation]:
     available:
@@ -416,6 +422,16 @@ focus_tree[id = usa_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($HUN)
+        $rivalry_vs_into($JAP)
+        $rivalry_vs_into($MAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -539,6 +555,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_antagonism_modifier($MEX)
       +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
   #TODO
@@ -557,6 +575,8 @@ focus_tree[id = usa_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_rivalry_modifier($CAN)
       +modifier:
         $ai_betrayal_modifier_vs($CAN)
 
@@ -797,6 +817,8 @@ focus_tree[id = usa_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_rivalry_modifier($JAP)
       modifier:
         $ai_betrayal_modifier_vs($JAP)
 

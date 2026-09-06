@@ -57,6 +57,8 @@ focus_tree[id = south_african_focus]:
       +modifier:
         $ai_antagonism_modifier($ENG)
       +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SAF_joint_air_training_scheme]:
@@ -130,6 +132,8 @@ focus_tree[id = south_african_focus]:
       +modifier:
         $ai_antagonism_modifier($SAF)
       +modifier:
+        $ai_rivalry_modifier($SAF)
+      +modifier:
         $ai_betrayal_modifier_vs($SAF)
 
   focus[id = SAF_support_the_german_coup]:
@@ -147,6 +151,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
       +modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -205,6 +211,8 @@ focus_tree[id = south_african_focus]:
       +modifier:
         $ai_antagonism_modifier($SAF)
       +modifier:
+        $ai_rivalry_modifier($SAF)
+      +modifier:
         $ai_betrayal_modifier_vs($SAF)
 
   focus[id = SAF_Union_of_the_African_People]:
@@ -223,6 +231,8 @@ focus_tree[id = south_african_focus]:
       +modifier:
         $ai_antagonism_modifier($POR)
       +modifier:
+        $ai_rivalry_modifier($POR)
+      +modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = SAF_liberate_belgian]:
@@ -236,6 +246,8 @@ focus_tree[id = south_african_focus]:
       +modifier:
         $ai_antagonism_modifier($BEL)
       +modifier:
+        $ai_rivalry_modifier($BEL)
+      +modifier:
         $ai_betrayal_modifier_vs($BEL)
 
   focus[id = SAF_liberate_british]:
@@ -248,6 +260,8 @@ focus_tree[id = south_african_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
       +modifier:
         $ai_betrayal_modifier_vs($ENG)
 

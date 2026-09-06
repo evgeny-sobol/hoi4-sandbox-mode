@@ -23,6 +23,8 @@ focus_tree[id = yugoslavian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($ENG, $FRA)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -59,6 +61,8 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_antagonism_modifier($SLV)
       +modifier:
+        $ai_rivalry_modifier($SLV)
+      +modifier:
         $ai_betrayal_modifier_vs($SLV)
 
   focus[id = YUG_united_autonomous_croatia]:
@@ -71,6 +75,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CRO)
+      +modifier:
+        $ai_rivalry_modifier($CRO)
       +modifier:
         $ai_betrayal_modifier_vs($CRO)
 
@@ -85,6 +91,8 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_antagonism_modifier($CRO)
       +modifier:
+        $ai_rivalry_modifier($CRO)
+      +modifier:
         $ai_betrayal_modifier_vs($CRO)
 
   focus[id = YUG_safeguard_bosnia]:
@@ -97,6 +105,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BOS)
+      +modifier:
+        $ai_rivalry_modifier($BOS)
       +modifier:
         $ai_betrayal_modifier_vs($BOS)
 
@@ -113,6 +123,8 @@ focus_tree[id = yugoslavian_focus]:
         antagonism = 1 - ($opinion_factor($HRZ) + $opinion_factor($BOS)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($HRZ, $BOS)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -132,6 +144,14 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($MAC) + $opinion_factor($KOS) + $opinion_factor($MNT)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($MAC)
+        $rivalry_vs_into($KOS)
+        $rivalry_vs_into($MNT)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -154,6 +174,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TRA)
+      +modifier:
+        $ai_rivalry_modifier($TRA)
       +modifier:
         $ai_betrayal_modifier_vs($TRA)
 
@@ -188,6 +210,8 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_antagonism_modifier($ITA)
       +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
         $ai_betrayal_modifier_vs($ITA)
 
   focus[id = YUG_concessions_for_macedonians]:
@@ -217,6 +241,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_rivalry_modifier($YUG)
       +modifier:
         $ai_betrayal_modifier_vs($YUG)
 
@@ -339,6 +365,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_rivalry_modifier($YUG)
       +modifier:
         $ai_betrayal_modifier_vs($YUG)
 

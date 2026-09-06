@@ -822,6 +822,14 @@ focus_tree[id = italian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($ALB)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -850,6 +858,8 @@ focus_tree[id = italian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($FRA, $ENG)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -865,6 +875,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_rivalry_modifier($ENG)
       modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -1009,6 +1021,8 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_seek_british_military_cooperation]:
+    available:
+      $not_rival_of_PREV($ENG)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1016,15 +1030,27 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($ENG)
+      modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_anglo_italian_pact]:
+    available:
+      $not_rival_of_PREV($ENG)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($ENG)
+      modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_invite_france_to_military_partnership]:
+    available:
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1032,18 +1058,37 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($FRA)
+      modifier:
+        factor(0)
+        $FRA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_franco_italian_pact]:
+    available:
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($FRA)
+      modifier:
+        factor(0)
+        $FRA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_proclaim_the_italian_empire]:
+    available:
+      $not_rival_of_PREV($ENG)
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $ENG in rivals[]
+          $FRA in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
@@ -1256,9 +1301,18 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_iberian_protection]:
+    available:
+      $not_rival_of_PREV($POR)
+      $not_rival_of_PREV($SPR)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $POR in rivals[]
+          $SPR in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($POR) + $opinion_factor($SPR)) / 2
         factor(cooperation)
@@ -1314,6 +1368,8 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($ENG)
       modifier:
+        $ai_rivalry_modifier($ENG)
+      modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = ITA_the_catholic_dominion]:
@@ -1342,6 +1398,14 @@ focus_tree[id = italian_focus]:
         antagonism = 1 - ($opinion_factor($YUG) + $opinion_factor($CRO) +
           $opinion_factor($MNT)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($CRO)
+        $rivalry_vs_into($MNT)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -1373,6 +1437,8 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($ALB)
       modifier:
+        $ai_rivalry_modifier($ALB)
+      modifier:
         $ai_betrayal_modifier_vs($ALB)
 
   focus[id = ITA_albanian_oil]:
@@ -1391,11 +1457,17 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_guarantee_austrian_independence]:
+    available:
+      $not_rival_of_PREV($AUS)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($AUS)
+      modifier:
+        factor(0)
+        $AUS in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_negotiate_italian_claims]:
     +ai_will_do:
@@ -1403,18 +1475,36 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_ratify_the_stresa_front]:
+    available:
+      $not_rival_of_PREV($ENG)
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $ENG in rivals[]
+          $FRA in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
         is_sandbox_mode_on()
 
   focus[id = ITA_joint_military_programs]:
+    available:
+      $not_rival_of_PREV($ENG)
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $ENG in rivals[]
+          $FRA in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
@@ -1450,6 +1540,25 @@ focus_tree[id = italian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BUL)
+        $rivalry_vs_into($GRE)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($ALB)
+        $rivalry_vs_into($ROM)
+        $rivalry_vs_into($SLV)
+        $rivalry_vs_into($BOS)
+        $rivalry_vs_into($HRZ)
+        $rivalry_vs_into($MAC)
+        $rivalry_vs_into($SER)
+        $rivalry_vs_into($CRO)
+        $rivalry_vs_into($KOS)
+        $rivalry_vs_into($MNT)
+        $rivalry_vs_into($TRA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $BUL->is_friend_of_PREV()
@@ -1478,21 +1587,35 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($SOV)
       modifier:
+        $ai_rivalry_modifier($SOV)
+      modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = ITA_pact_of_steel]:
+    available:
+      $not_rival_of_PREV($GER)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($GER)
+      modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_german_military_cooperation]:
+    available:
+      $not_rival_of_PREV($GER)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($GER)
+      modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_sea_wolves_bba]:
     +ai_will_do:
@@ -1505,11 +1628,17 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_treaty_with_germany]:
+    available:
+      $not_rival_of_PREV($GER)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($GER)
+      modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_request_control_of_french_territories]:
     +ai_will_do:
@@ -1519,18 +1648,30 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
 
   focus[id = ITA_italy_first]:
+    available:
+      $not_rival_of_PREV($BUL)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($BUL)
+      modifier:
+        factor(0)
+        $BUL in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_befriend_japan]:
+    available:
+      $not_rival_of_PREV($JAP)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($JAP)
+      modifier:
+        factor(0)
+        $JAP in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_italian_irredentism]:
     +ai_will_do:
@@ -1550,6 +1691,8 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($FRA)
       modifier:
+        $ai_rivalry_modifier($FRA)
+      modifier:
         $ai_betrayal_modifier_vs($FRA)
 
   focus[id = ITA_demand_ticino]:
@@ -1563,6 +1706,8 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($SWI)
       modifier:
+        $ai_rivalry_modifier($SWI)
+      modifier:
         $ai_betrayal_modifier_vs($SWI)
 
   focus[id = ITA_war_with_the_uk]:
@@ -1575,6 +1720,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_rivalry_modifier($ENG)
       modifier:
         $ai_betrayal_modifier_vs($ENG)
 
@@ -1591,9 +1738,13 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($GRE)
       modifier:
+        $ai_rivalry_modifier($GRE)
+      modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = ITA_befriend_greece]:
+    available:
+      $not_rival_of_PREV($GRE)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1601,6 +1752,10 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($GRE)
+      modifier:
+        factor(0)
+        $GRE in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_claims_on_turkey_bba]:
     available:
@@ -1615,9 +1770,13 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($TUR)
       modifier:
+        $ai_rivalry_modifier($TUR)
+      modifier:
         $ai_betrayal_modifier_vs($TUR)
 
   focus[id = ITA_befriend_turkey]:
+    available:
+      $not_rival_of_PREV($TUR)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1625,15 +1784,27 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($TUR)
+      modifier:
+        factor(0)
+        $TUR in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_corpo_di_truppe_volontarie]:
+    available:
+      $not_rival_of_PREV($SPA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($SPA)
+      modifier:
+        factor(0)
+        $SPA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_spanish_italian_alliance]:
+    available:
+      $not_rival_of_PREV($SPA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1641,6 +1812,10 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($SPA)
+      modifier:
+        factor(0)
+        $SPA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_demand_balearic_islands_bba]:
     available:
@@ -1655,14 +1830,22 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_antagonism_modifier($SPA)
       modifier:
+        $ai_rivalry_modifier($SPA)
+      modifier:
         $ai_betrayal_modifier_vs($SPA)
 
   focus[id = ITA_befriend_portugal]:
+    available:
+      $not_rival_of_PREV($POR)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($POR)
+      modifier:
+        factor(0)
+        $POR in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_the_italian_liberation_war]:
     +ai_will_do:
@@ -1916,6 +2099,8 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_follow_the_soviet_union]:
+    available:
+      $not_rival_of_PREV($SOV)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
@@ -1923,13 +2108,23 @@ focus_tree[id = italian_focus]:
         $crossroad_modifier(2)
       modifier:
         $ai_cooperation_modifier($SOV)
+      modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_military_cooperation]:
+    available:
+      $not_rival_of_PREV($SOV)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($SOV)
+      modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_defense_against_capitalism]:
     +ai_will_do:
@@ -1968,6 +2163,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -2028,11 +2225,17 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_aid_for_the_spanish_republic]:
+    available:
+      $not_rival_of_PREV($SPD)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($SPD)
+      modifier:
+        factor(0)
+        $SPD in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = ITA_italia_libera]:
     +ai_will_do:
@@ -2064,18 +2267,36 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = ITA_reestablish_old_alliances]:
+    available:
+      $not_rival_of_PREV($ENG)
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $ENG in rivals[]
+          $FRA in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
         is_sandbox_mode_on()
 
   focus[id = ITA_military_agreements]:
+    available:
+      $not_rival_of_PREV($ENG)
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        or:
+          $ENG in rivals[]
+          $FRA in rivals[]
+        is_sandbox_mode_on()
       modifier:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
@@ -2091,6 +2312,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -2127,6 +2350,8 @@ focus_tree[id = italian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ALB)
+      modifier:
+        $ai_rivalry_modifier($ALB)
       modifier:
         $ai_betrayal_modifier_vs($ALB)
 
@@ -2171,6 +2396,16 @@ focus_tree[id = italian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) +
           $opinion_factor($BEL) + $opinion_factor($POR) + $opinion_factor($SPA)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($BEL)
+        $rivalry_vs_into($POR)
+        $rivalry_vs_into($SPA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()

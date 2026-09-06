@@ -170,6 +170,8 @@ focus_tree[id = manchukuo_focus_tsr]:
       +modifier:
         $ai_antagonism_modifier($MEN)
       +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
         $ai_betrayal_modifier_vs($MEN)
 
   focus[id = MAN_tsr_national_cooperation_government]:
@@ -216,6 +218,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
       +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
@@ -303,6 +307,8 @@ focus_tree[id = manchukuo_focus_tsr]:
       +modifier:
         $ai_antagonism_modifier($OVERLORD)
       +modifier:
+        $ai_rivalry_modifier($OVERLORD)
+      +modifier:
         $ai_betrayal_modifier_vs($OVERLORD)
 
   focus[id = MAN_tsr_depose_puyi]:
@@ -322,6 +328,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
       +modifier:
         $ai_betrayal_modifier_vs($MEN)
 
@@ -356,6 +364,8 @@ focus_tree[id = manchukuo_focus_tsr]:
       +modifier:
         $ai_antagonism_modifier($JAP)
       +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
         $ai_betrayal_modifier_vs($JAP)
 
   focus[id = MAN_tsr_an_industrial_power]:
@@ -373,6 +383,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
       +modifier:
         $ai_betrayal_modifier_vs($MEN)
 
@@ -401,6 +413,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_rivalry_modifier($TIB)
       +modifier:
         $ai_betrayal_modifier_vs($TIB)
 
@@ -443,6 +457,8 @@ focus_tree[id = manchukuo_focus_tsr]:
         antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($OVERLORD)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($JAP, $OVERLORD)
       +modifier:
         $ai_betrayal_modifier()
         or:

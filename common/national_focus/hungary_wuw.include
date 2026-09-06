@@ -76,6 +76,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($SPB)
       +modifier:
+        $ai_rivalry_modifier($SPB)
+      +modifier:
         $ai_betrayal_modifier_vs($SPB)
 
   focus[id = wuw_HUN_invite_otto_to_the_throne]:
@@ -124,6 +126,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($AUS)
       +modifier:
+        $ai_rivalry_modifier($AUS)
+      +modifier:
         $ai_betrayal_modifier_vs($AUS)
 
   focus[id = wuw_HUN_protect_czechoslovakia]:
@@ -136,6 +140,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
@@ -177,6 +183,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($ALB)
       +modifier:
+        $ai_rivalry_modifier($ALB)
+      +modifier:
         $ai_betrayal_modifier_vs($ALB)
 
   focus[id = wuw_HUN_habsburg_ascension_in_spain]:
@@ -189,6 +197,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_rivalry_modifier($SPR)
       +modifier:
         $ai_betrayal_modifier_vs($SPR)
 
@@ -203,6 +213,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($POL)
       +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
         $ai_betrayal_modifier_vs($POL)
 
   focus[id = wuw_HUN_press_maximilians_and_the_iturbides_claims]:
@@ -215,6 +227,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
       +modifier:
         $ai_betrayal_modifier_vs($MEX)
 
@@ -246,6 +260,8 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($ROM, $TRA)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -286,6 +302,14 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($POL) + $opinion_factor($SIL)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($POL)
+        $rivalry_vs_into($SIL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -432,6 +456,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($SWE)
       +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   focus[id = wuw_HUN_increase_economic_cooperation]:
@@ -444,6 +470,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HUN)
+      +modifier:
+        $ai_rivalry_modifier($HUN)
       +modifier:
         $ai_betrayal_modifier_vs($HUN)
 
@@ -606,6 +634,31 @@ focus_tree[id = wuw_hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ROM)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($AUS)
+        $rivalry_vs_into($SLO)
+        $rivalry_vs_into($CZE)
+        $rivalry_vs_into($POL)
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($UKR)
+        $rivalry_vs_into($MOL)
+        $rivalry_vs_into($CRO)
+        $rivalry_vs_into($SER)
+        $rivalry_vs_into($ISR)
+        $rivalry_vs_into($PAL)
+        $rivalry_vs_into($EGY)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($TUR)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($GRE)
+        $rivalry_vs_into($JOR)
+        $rivalry_vs_into($SUD)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ROM->is_friend_of_PREV()
@@ -640,6 +693,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = wuw_HUN_a_responsible_government]:
@@ -656,6 +711,15 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($ROM) + $opinion_factor($YUG) + $opinion_factor($HUN)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CZE)
+        $rivalry_vs_into($ROM)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($HUN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -833,6 +897,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = wuw_HUN_promote_hungarianism]:
@@ -850,6 +916,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
       +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
@@ -877,6 +945,8 @@ focus_tree[id = wuw_hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($YUG, $CRO)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $YUG->is_friend_of_PREV()
@@ -895,6 +965,8 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($CZE) + $opinion_factor($SLO)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($CZE, $SLO)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -916,6 +988,14 @@ focus_tree[id = wuw_hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CZE)
+        $rivalry_vs_into($SLO)
+        $rivalry_vs_into($UKR)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $CZE->is_friend_of_PREV()
@@ -935,6 +1015,8 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($TRA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($ROM, $TRA)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -969,6 +1051,8 @@ focus_tree[id = wuw_hungarian_focus]:
       +modifier:
         $ai_antagonism_modifier($AUS)
       +modifier:
+        $ai_rivalry_modifier($AUS)
+      +modifier:
         $ai_betrayal_modifier_vs($AUS)
 
   focus[id = wuw_HUN_claim_overlordship_over_slovakia]:
@@ -983,6 +1067,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SLO)
+      +modifier:
+        $ai_rivalry_modifier($SLO)
       +modifier:
         $ai_betrayal_modifier_vs($SLO)
 
@@ -1001,6 +1087,8 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($SLO) + $opinion_factor($CZE)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($SLO, $CZE)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1039,6 +1127,8 @@ focus_tree[id = wuw_hungarian_focus]:
         antagonism = 1 - ($opinion_factor($AUS) + $opinion_factor($ITA)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($AUS, $ITA)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1460,6 +1550,8 @@ focus_tree[id = wuw_hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($SOV, $SOU)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SOV->is_friend_of_PREV()
@@ -1505,6 +1597,8 @@ focus_tree[id = wuw_hungarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($AUS, $CZE)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $AUS->is_friend_of_PREV()
@@ -1545,6 +1639,8 @@ focus_tree[id = wuw_hungarian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_rivalry_modifier($FIN)
       +modifier:
         $ai_betrayal_modifier_vs($FIN)
 

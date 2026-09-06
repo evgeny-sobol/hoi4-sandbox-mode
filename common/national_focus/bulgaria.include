@@ -26,6 +26,14 @@ focus_tree[id = bulgarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $GER->is_friend_of_PREV()
@@ -60,6 +68,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
       modifier:
         $ai_betrayal_modifier_vs($BUL)
 
@@ -158,6 +168,14 @@ focus_tree[id = bulgarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $GER->is_friend_of_PREV()
@@ -193,6 +211,15 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -247,6 +274,14 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -357,6 +392,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($BUL)
       modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
         $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_overthrow_the_tsar]:
@@ -405,6 +442,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($SOU)
       modifier:
+        $ai_rivalry_modifier($SOU)
+      modifier:
         $ai_betrayal_modifier_vs($SOU)
 
   focus[id = BUL_follow_the_stalinist_doctrine]:
@@ -437,6 +476,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($BUL)
       modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
         $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_carry_the_revolution_abroad]:
@@ -449,6 +490,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
       modifier:
         $ai_betrayal_modifier_vs($BUL)
 
@@ -516,6 +559,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($YUG)
       modifier:
+        $ai_rivalry_modifier($YUG)
+      modifier:
         $ai_betrayal_modifier_vs($YUG)
 
   focus[id = BUL_balkan_federation_of_socialist_republics]:
@@ -547,6 +592,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -618,6 +665,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($GRE)
       modifier:
+        $ai_rivalry_modifier($GRE)
+      modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = BUL_a_balkan_confederation]:
@@ -642,6 +691,8 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($BUL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($ENG, $BUL)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -711,6 +762,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($BUL)
       modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
         $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_support_macedonian_organizations]:
@@ -723,6 +776,8 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
       modifier:
         $ai_betrayal_modifier_vs($BUL)
 
@@ -823,6 +878,8 @@ focus_tree[id = bulgarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($ENG, $FRA)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -899,6 +956,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($BUL)
       modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
         $ai_betrayal_modifier_vs($BUL)
 
   focus[id = BUL_allow_far_right_organizations]:
@@ -940,6 +999,8 @@ focus_tree[id = bulgarian_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($GER, $BUL)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $GER->is_friend_of_PREV()
@@ -958,6 +1019,8 @@ focus_tree[id = bulgarian_focus]:
         antagonism = 1 - ($opinion_factor($ITA) + $opinion_factor($BUL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($ITA, $BUL)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -1010,6 +1073,8 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_antagonism_modifier($ROM)
       modifier:
+        $ai_rivalry_modifier($ROM)
+      modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = BUL_the_eastern_front]:
@@ -1027,5 +1092,7 @@ focus_tree[id = bulgarian_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($TUR)
+      modifier:
+        $ai_rivalry_modifier($TUR)
       modifier:
         $ai_betrayal_modifier_vs($TUR)

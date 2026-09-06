@@ -99,6 +99,8 @@ focus_tree[id = china_warlord_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = CHI_the_yanan_incident]:

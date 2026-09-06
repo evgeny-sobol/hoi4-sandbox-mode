@@ -55,11 +55,32 @@ has_enemy_ideology_with_FROM:
         has_government(democratic)
         has_government(communism)
 
+has_enemy_ideology_with_PREV:
+  OR:
+    AND:
+      has_government(communism)
+      PREV->OR:
+        has_government(fascism)
+        has_government(democratic)
+    AND:
+      has_government(democratic)
+      PREV->OR:
+        has_government(communism)
+        has_government(fascism)
+    AND:
+      has_government(fascism)
+      PREV->OR:
+        has_government(democratic)
+        has_government(communism)
+
 is_friend_of_PREV:
   $is_friend_of(PREV)
 
 is_friend_of_ROOT:
   $is_friend_of(ROOT)
+
+is_friend_of_FROM:
+  $is_friend_of(FROM)
 
 is_honored_leader:
   custom_override_tooltip:

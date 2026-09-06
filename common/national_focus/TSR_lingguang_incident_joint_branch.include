@@ -21,6 +21,8 @@
       +modifier:
         $ai_antagonism_modifier($CHI)
       +modifier:
+        $ai_rivalry_modifier($CHI)
+      +modifier:
         $ai_betrayal_modifier_vs($CHI)
 
   joint_focus[id = GXC_the_scorched_earth_speech]:

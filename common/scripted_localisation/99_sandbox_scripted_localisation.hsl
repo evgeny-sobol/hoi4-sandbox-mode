@@ -1,0 +1,91 @@
+defined_text:
+  name(GetSandboxRivalBand0)
+  text:
+    trigger:
+      rivals[0] != 0
+      rivalry[0] < 25
+    localization_key(LocKey_rivalry_band_cold)
+  text:
+    trigger:
+      rivals[0] != 0
+      rivalry[0] >= 25
+      rivalry[0] < 75
+    localization_key(LocKey_rivalry_band_rival)
+  text:
+    trigger:
+      rivals[0] != 0
+      rivalry[0] >= 75
+    localization_key(LocKey_rivalry_band_feud)
+  text:
+    localization_key(LocKey_empty)
+
+defined_text:
+  name(GetSandboxRivalBand1)
+  text:
+    trigger:
+      rivals[1] != 0
+      rivalry[1] < 25
+    localization_key(LocKey_rivalry_band_cold)
+  text:
+    trigger:
+      rivals[1] != 0
+      rivalry[1] >= 25
+      rivalry[1] < 75
+    localization_key(LocKey_rivalry_band_rival)
+  text:
+    trigger:
+      rivals[1] != 0
+      rivalry[1] >= 75
+    localization_key(LocKey_rivalry_band_feud)
+  text:
+    localization_key(LocKey_empty)
+
+defined_text:
+  name(GetSandboxRivalBand2)
+  text:
+    trigger:
+      rivals[2] != 0
+      rivalry[2] < 25
+    localization_key(LocKey_rivalry_band_cold)
+  text:
+    trigger:
+      rivals[2] != 0
+      rivalry[2] >= 25
+      rivalry[2] < 75
+    localization_key(LocKey_rivalry_band_rival)
+  text:
+    trigger:
+      rivals[2] != 0
+      rivalry[2] >= 75
+    localization_key(LocKey_rivalry_band_feud)
+  text:
+    localization_key(LocKey_empty)
+
+defined_text:
+  name(GetSandboxLeaderRivalText)
+  text:
+    trigger:
+      rivals[0] != 0
+    localization_key(LocKey_leader_rival_tt)
+  text:
+    localization_key(LocKey_empty)
+
+defined_text:
+  name(GetSandboxNationalRivalsText)
+  text:
+    trigger:
+      rivals[1] != 0
+      rivals[2] != 0
+    localization_key(LocKey_national_rivals_both_tt)
+  text:
+    trigger:
+      rivals[1] != 0
+      rivals[2] == 0
+    localization_key(LocKey_national_rivals_1_tt)
+  text:
+    trigger:
+      rivals[1] == 0
+      rivals[2] != 0
+    localization_key(LocKey_national_rivals_2_tt)
+  text:
+    localization_key(LocKey_empty)

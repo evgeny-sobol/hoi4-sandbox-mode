@@ -19,6 +19,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($CHI)
       +modifier:
+        $ai_rivalry_modifier($CHI)
+      +modifier:
         $ai_betrayal_modifier_vs($CHI)
 
   focus[id = CHI_sea_anti_opposition_campaigns]:
@@ -110,6 +112,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($PRC)
       +modifier:
+        $ai_rivalry_modifier($PRC)
+      +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
   focus[id = CHI_sea_land_redistribution]:
@@ -147,6 +151,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -421,6 +427,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($KHM)
       +modifier:
+        $ai_rivalry_modifier($KHM)
+      +modifier:
         $ai_betrayal_modifier_vs($KHM)
 
   focus[id = SIK_a_united_sinkiang_clique]:
@@ -505,6 +513,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($SIK)
       +modifier:
+        $ai_rivalry_modifier($SIK)
+      +modifier:
         $ai_betrayal_modifier_vs($SIK)
 
   focus[id = KHM_call_for_aid]:
@@ -531,6 +541,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($SIK)
       +modifier:
+        $ai_rivalry_modifier($SIK)
+      +modifier:
         $ai_betrayal_modifier_vs($SIK)
 
   focus[id = KHM_utilize_family_contacts]:
@@ -556,6 +568,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($KUM)
       +modifier:
+        $ai_rivalry_modifier($KUM)
+      +modifier:
         $ai_betrayal_modifier_vs($KUM)
 
   focus[id = KHM_kumul_rebellion_avenged]:
@@ -570,6 +584,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($KUM)
+      +modifier:
+        $ai_rivalry_modifier($KUM)
       +modifier:
         $ai_betrayal_modifier_vs($KUM)
 
@@ -702,6 +718,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($KHM)
       +modifier:
+        $ai_rivalry_modifier($KHM)
+      +modifier:
         $ai_betrayal_modifier_vs($KHM)
 
   focus[id = KHM_expand_the_madrasas]:
@@ -756,6 +774,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($KHM)
       +modifier:
+        $ai_rivalry_modifier($KHM)
+      +modifier:
         $ai_betrayal_modifier_vs($KHM)
 
   focus[id = KUM_restore_yettishar]:
@@ -790,6 +810,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_rivalry_modifier($TIB)
       +modifier:
         $ai_betrayal_modifier_vs($TIB)
 
@@ -846,6 +868,8 @@ focus_tree[id = china_warlord_sea_focus]:
       +modifier:
         $ai_antagonism_modifier($PRC)
       +modifier:
+        $ai_rivalry_modifier($PRC)
+      +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
   focus[id = XIC_send_a_representative_to_sheng_shicai]:
@@ -858,6 +882,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIK)
+      +modifier:
+        $ai_rivalry_modifier($SIK)
       +modifier:
         $ai_betrayal_modifier_vs($SIK)
 
@@ -901,6 +927,8 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_rivalry_modifier($PRC)
       +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
@@ -991,5 +1019,7 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BRM)
+      +modifier:
+        $ai_rivalry_modifier($BRM)
       +modifier:
         $ai_betrayal_modifier_vs($BRM)

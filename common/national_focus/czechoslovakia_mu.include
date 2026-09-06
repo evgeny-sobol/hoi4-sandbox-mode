@@ -108,6 +108,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($GER)
       +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = CZE_demand_katowice]:
@@ -127,6 +129,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POL)
+      modifier:
+        $ai_rivalry_modifier($POL)
       modifier:
         $ai_betrayal_modifier_vs($POL)
 
@@ -148,6 +152,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($SAX)
       +modifier:
+        $ai_rivalry_modifier($SAX)
+      +modifier:
         $ai_betrayal_modifier_vs($SAX)
 
   focus[id = CZE_deepen_ties_with_puppet_kingdoms]:
@@ -167,6 +173,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_rivalry_modifier($GER)
       modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -261,6 +269,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_sandbox_modifier()
 
   focus[id = CZE_assist_austria]:
+    available:
+      $not_rival_of_PREV($AUS)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -268,6 +278,10 @@ focus_tree[id = mu_czech_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($AUS)
+      +modifier:
+        factor(0)
+        $AUS in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = CZE_eliminate_austrian_defeatists]:
     available:
@@ -281,6 +295,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AUS)
+      +modifier:
+        $ai_rivalry_modifier($AUS)
       +modifier:
         $ai_betrayal_modifier_vs($AUS)
 
@@ -326,6 +342,8 @@ focus_tree[id = mu_czech_focus]:
       modifier:
         $ai_antagonism_modifier($LIT)
       modifier:
+        $ai_rivalry_modifier($LIT)
+      modifier:
         $ai_betrayal_modifier_vs($LIT)
 
   focus[id = CZE_facilitate_a_strong_hungary]:
@@ -341,6 +359,8 @@ focus_tree[id = mu_czech_focus]:
         antagonism = 1 - ($opinion_factor($HUN) + $opinion_factor($CRO)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($HUN, $CRO)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -358,6 +378,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($YUG)
       +modifier:
+        $ai_rivalry_modifier($YUG)
+      +modifier:
         $ai_betrayal_modifier_vs($YUG)
 
   focus[id = CZE_subjegate_romania]:
@@ -370,6 +392,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ROM)
+      modifier:
+        $ai_rivalry_modifier($ROM)
       modifier:
         $ai_betrayal_modifier_vs($ROM)
 
@@ -521,6 +545,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($SLO)
       +modifier:
+        $ai_rivalry_modifier($SLO)
+      +modifier:
         $ai_betrayal_modifier_vs($SLO)
 
   focus[id = CZE_topple_the_king]:
@@ -547,6 +573,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RUT)
+      +modifier:
+        $ai_rivalry_modifier($RUT)
       +modifier:
         $ai_betrayal_modifier_vs($RUT)
 
@@ -621,6 +649,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($CZE)
       +modifier:
+        $ai_rivalry_modifier($CZE)
+      +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
   focus[id = CZE_grow_the_anglo_czechoslovak_prague_credit_bank]:
@@ -642,6 +672,8 @@ focus_tree[id = mu_czech_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($ENG, $FRA)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -660,6 +692,8 @@ focus_tree[id = mu_czech_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($FRA, $ENG)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -682,6 +716,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = CZE_destroy_the_fascist_threats]:
@@ -694,6 +730,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -909,6 +947,8 @@ focus_tree[id = mu_czech_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($RUT, $SLO)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $RUT->is_friend_of_PREV()
@@ -945,6 +985,8 @@ focus_tree[id = mu_czech_focus]:
       modifier:
         $ai_antagonism_modifier($ROM)
       modifier:
+        $ai_rivalry_modifier($ROM)
+      modifier:
         $ai_betrayal_modifier_vs($ROM)
 
   focus[id = CZE_revive_the_czechoslovak_legion_dynamic]:
@@ -966,6 +1008,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -989,6 +1033,16 @@ focus_tree[id = mu_czech_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($SPR) + $opinion_factor($SPD) + $opinion_factor($SPA) + $opinion_factor($SPB) + $opinion_factor($SPC)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SPR)
+        $rivalry_vs_into($SPD)
+        $rivalry_vs_into($SPA)
+        $rivalry_vs_into($SPB)
+        $rivalry_vs_into($SPC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -1058,11 +1112,17 @@ focus_tree[id = mu_czech_focus]:
         $ai_sandbox_modifier()
 
   focus[id = CZE_seek_french_leadership]:
+    available:
+      $not_rival_of_PREV($FRA)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($FRA)
+      modifier:
+        factor(0)
+        $FRA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = CZE_ally_romania]:
     +ai_will_do:
@@ -1093,6 +1153,8 @@ focus_tree[id = mu_czech_focus]:
       +modifier:
         $ai_antagonism_modifier($HUN)
       +modifier:
+        $ai_rivalry_modifier($HUN)
+      +modifier:
         $ai_betrayal_modifier_vs($HUN)
 
   focus[id = CZE_ally_austria]:
@@ -1108,11 +1170,17 @@ focus_tree[id = mu_czech_focus]:
         $ai_sandbox_modifier()
 
   focus[id = CZE_mutual_protection_agreement_with_switzerland]:
+    available:
+      $not_rival_of_PREV($SWI)
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
         $ai_cooperation_modifier($SWI)
+      modifier:
+        factor(0)
+        $SWI in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = CZE_ally_yugoslavia]:
     +ai_will_do:
@@ -1188,6 +1256,8 @@ focus_tree[id = mu_czech_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POL)
+      modifier:
+        $ai_rivalry_modifier($POL)
       modifier:
         $ai_betrayal_modifier_vs($POL)
 

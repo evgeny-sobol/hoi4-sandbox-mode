@@ -208,6 +208,8 @@ focus_tree[id = china_communist_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($SHX, $XSM)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SHX->is_friend_of_PREV()

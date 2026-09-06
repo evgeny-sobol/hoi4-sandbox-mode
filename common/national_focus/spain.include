@@ -236,6 +236,8 @@ focus_tree[id = spanish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($POR, $ENG)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $POR->is_friend_of_PREV()
@@ -257,6 +259,15 @@ focus_tree[id = spanish_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BRA)
+        $rivalry_vs_into($MZB)
+        $rivalry_vs_into($ANG)
+        $rivalry_vs_into($GNB)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $BRA->is_friend_of_PREV()
@@ -275,6 +286,8 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_antagonism_modifier($ITA)
       modifier:
+        $ai_rivalry_modifier($ITA)
+      modifier:
         $ai_betrayal_modifier_vs($ITA)
 
   focus[id = SPA_reclaim_spanish_africa]:
@@ -287,6 +300,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_rivalry_modifier($FRA)
       modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -313,6 +328,19 @@ focus_tree[id = spanish_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL) + $opinion_factor($PRU) + $opinion_factor($VEN) + $opinion_factor($COL) + $opinion_factor($BOL) + $opinion_factor($MEX) + $opinion_factor($USA)) / 8
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ARG)
+        $rivalry_vs_into($CHL)
+        $rivalry_vs_into($PRU)
+        $rivalry_vs_into($VEN)
+        $rivalry_vs_into($COL)
+        $rivalry_vs_into($BOL)
+        $rivalry_vs_into($MEX)
+        $rivalry_vs_into($USA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -665,6 +693,8 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_antagonism_modifier($ENG)
       modifier:
+        $ai_rivalry_modifier($ENG)
+      modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SPA_claim_west_africa]:
@@ -832,6 +862,8 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_antagonism_modifier($ENG)
       modifier:
+        $ai_rivalry_modifier($ENG)
+      modifier:
         $ai_betrayal_modifier_vs($ENG)
 
   focus[id = SPA_claim_the_french_throne]:
@@ -844,6 +876,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_rivalry_modifier($FRA)
       modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -860,6 +894,14 @@ focus_tree[id = spanish_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($BEL) + $opinion_factor($LUX)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($BEL)
+        $rivalry_vs_into($LUX)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -886,6 +928,14 @@ focus_tree[id = spanish_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($PHI) + $opinion_factor($CUB)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($USA)
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($CUB)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -1010,6 +1060,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
+      modifier:
+        $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
 
@@ -1338,6 +1390,8 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_antagonism_modifier($MEX)
       modifier:
+        $ai_rivalry_modifier($MEX)
+      modifier:
         $ai_betrayal_modifier_vs($MEX)
 
   focus[id = SPR_red_bulwark_in_the_west]:
@@ -1366,6 +1420,8 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_antagonism_modifier($POR)
       modifier:
+        $ai_rivalry_modifier($POR)
+      modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = SPR_support_french_communists]:
@@ -1378,6 +1434,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_rivalry_modifier($FRA)
       modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -1504,6 +1562,8 @@ focus_tree[id = spanish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 

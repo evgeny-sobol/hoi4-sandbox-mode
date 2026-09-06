@@ -213,6 +213,8 @@ focus_tree[id = latvia_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($LIT, $EST)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LIT->is_friend_of_PREV()
@@ -240,6 +242,8 @@ focus_tree[id = latvia_tree]:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LIT)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($EST, $LIT)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -296,6 +300,15 @@ focus_tree[id = latvia_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($DEN)
+        $rivalry_vs_into($FIN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()

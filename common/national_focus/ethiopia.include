@@ -845,6 +845,8 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_antagonism_modifier($AFA)
       modifier:
+        $ai_rivalry_modifier($AFA)
+      modifier:
         $ai_betrayal_modifier_vs($AFA)
 
   focus[id = ETH_demand_DJI]:
@@ -880,6 +882,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SPC)
+      modifier:
+        $ai_rivalry_modifier($SPC)
       modifier:
         $ai_betrayal_modifier_vs($SPC)
 
@@ -975,6 +979,8 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_antagonism_modifier($ETH)
       modifier:
+        $ai_rivalry_modifier($ETH)
+      modifier:
         $ai_betrayal_modifier_vs($ETH)
 
   focus[id = ETH_seek_new_trading_partners]:
@@ -990,6 +996,8 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         $ai_antagonism_modifier($ETH)
       modifier:
+        $ai_rivalry_modifier($ETH)
+      modifier:
         $ai_betrayal_modifier_vs($ETH)
 
   focus[id = ETH_our_own_path]:
@@ -1002,6 +1010,8 @@ focus_tree[id = ethiopia_tree]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ETH)
+      modifier:
+        $ai_rivalry_modifier($ETH)
       modifier:
         $ai_betrayal_modifier_vs($ETH)
 
@@ -1018,6 +1028,14 @@ focus_tree[id = ethiopia_tree]:
       modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($ITA) + $opinion_factor($FRA)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($ITA)
+        $rivalry_vs_into($FRA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -1039,6 +1057,8 @@ focus_tree[id = ethiopia_tree]:
         antagonism = 1 - ($opinion_factor($SAU) + $opinion_factor($YEM)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($SAU, $YEM)
       modifier:
         $ai_betrayal_modifier()
         or:

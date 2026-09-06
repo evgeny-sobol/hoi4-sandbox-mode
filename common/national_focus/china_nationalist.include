@@ -124,6 +124,8 @@ focus_tree[id = china_nationalist_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($MAN, $JAP)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $MAN->is_friend_of_PREV()
@@ -146,6 +148,18 @@ focus_tree[id = china_nationalist_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($TIB) + $opinion_factor($PRC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($GXC) + $opinion_factor($XSM)) / 7
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($TIB)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($YUN)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($XSM)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()

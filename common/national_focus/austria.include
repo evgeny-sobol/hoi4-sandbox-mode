@@ -12,6 +12,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($GER)
       +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = AUS_release_imprisoned_leaders]:
@@ -67,6 +69,8 @@ focus_tree[id = austria_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($SPD, $SPR)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           and:
@@ -88,6 +92,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_rivalry_modifier($SPA)
       +modifier:
         $ai_betrayal_modifier_vs($SPA)
       +modifier:
@@ -117,6 +123,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOU)
+      +modifier:
+        $ai_rivalry_modifier($SOU)
       +modifier:
         $ai_betrayal_modifier_vs($SOU)
 
@@ -243,6 +251,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AUS_seize_galicia]:
@@ -288,6 +298,14 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($ENG) + $opinion_factor($USA)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($USA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -352,6 +370,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
       +modifier:
         $ai_betrayal_modifier_vs($ITA)
 
@@ -425,6 +445,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($HUN)
       +modifier:
+        $ai_rivalry_modifier($HUN)
+      +modifier:
         $ai_betrayal_modifier_vs($HUN)
 
   focus[id = AUS_deal_with_the_german_threat]:
@@ -437,6 +459,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
       +modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -575,6 +599,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = AUS_crusade_on_communism]:
@@ -642,6 +668,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($SWI)
       +modifier:
+        $ai_rivalry_modifier($SWI)
+      +modifier:
         $ai_betrayal_modifier_vs($SWI)
 
   focus[id = AUS_war_against_guarantors]:
@@ -657,6 +685,14 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($USA)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($USA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -678,6 +714,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($ITA)
       +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
         $ai_betrayal_modifier_vs($ITA)
 
   focus[id = AUS_extend_italian_claims]:
@@ -697,6 +735,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
       +modifier:
         $ai_betrayal_modifier_vs($ITA)
 
@@ -718,6 +758,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($HUN)
       +modifier:
+        $ai_rivalry_modifier($HUN)
+      +modifier:
         $ai_betrayal_modifier_vs($HUN)
 
   focus[id = AUS_the_czechoslovakian_lands]:
@@ -730,6 +772,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
+      +modifier:
+        $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
 
@@ -758,6 +802,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ROM)
+      +modifier:
+        $ai_rivalry_modifier($ROM)
       +modifier:
         $ai_betrayal_modifier_vs($ROM)
 
@@ -816,6 +862,14 @@ focus_tree[id = austria_focus_tree]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($USA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -832,6 +886,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
       +modifier:
         $ai_betrayal_modifier_vs($ITA)
 
@@ -879,6 +935,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_rivalry_modifier($SPA)
       +modifier:
         $ai_betrayal_modifier_vs($SPA)
 
@@ -953,6 +1011,8 @@ focus_tree[id = austria_focus_tree]:
       +modifier:
         $ai_antagonism_modifier($GER)
       +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = AUS_an_improved_german_state]:
@@ -972,6 +1032,8 @@ focus_tree[id = austria_focus_tree]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($HAI)
+      +modifier:
+        $ai_rivalry_modifier($HAI)
       +modifier:
         $ai_betrayal_modifier_vs($HAI)
 

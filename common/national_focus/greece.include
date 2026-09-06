@@ -12,6 +12,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($GRE)
       +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = GRE_compromise_with_the_monarchists]:
@@ -38,6 +40,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
@@ -77,6 +81,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($TUR)
       +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
   focus[id = GRE_the_gordian_knot]:
@@ -90,6 +96,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($TUR)
       +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
   focus[id = GRE_horror_and_fear]:
@@ -102,6 +110,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
       +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
@@ -150,6 +160,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($GRE)
       +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = GRE_agricultural_communes]:
@@ -193,6 +205,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($GRE)
       +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = GRE_tow_the_stalinist_line]:
@@ -209,6 +223,8 @@ focus_tree[id = greek_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($TUR, $GRE)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $TUR->is_friend_of_PREV()
@@ -224,6 +240,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BUL)
+      +modifier:
+        $ai_rivalry_modifier($BUL)
       +modifier:
         $ai_betrayal_modifier_vs($BUL)
 
@@ -243,6 +261,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($TUR)
       +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
   focus[id = GRE_attack_the_fascists]:
@@ -260,6 +280,16 @@ focus_tree[id = greek_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($ITA) + $opinion_factor($GER) + $opinion_factor($HUN) + $opinion_factor($YUG) + $opinion_factor($ROM)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ITA)
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($HUN)
+        $rivalry_vs_into($YUG)
+        $rivalry_vs_into($ROM)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -309,6 +339,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
@@ -364,6 +396,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($TUR)
       +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
   focus[id = GRE_the_greater_enosis]:
@@ -381,6 +415,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($BUL)
+      +modifier:
+        $ai_rivalry_modifier($BUL)
       +modifier:
         $ai_betrayal_modifier_vs($BUL)
 
@@ -425,6 +461,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($GRE)
       +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = GRE_the_modern_movement]:
@@ -453,6 +491,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($BUL)
       +modifier:
+        $ai_rivalry_modifier($BUL)
+      +modifier:
         $ai_betrayal_modifier_vs($BUL)
 
   focus[id = GRE_greece_and_turkey_in_the_axis]:
@@ -469,6 +509,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
       +modifier:
         $ai_betrayal_modifier_vs($TUR)
 
@@ -524,6 +566,8 @@ focus_tree[id = greek_focus]:
       +modifier:
         $ai_antagonism_modifier($GRE)
       +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
   focus[id = GRE_paying_back_our_debts_in_bulk]:
@@ -556,6 +600,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
 
@@ -616,6 +662,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CYP)
+      +modifier:
+        $ai_rivalry_modifier($CYP)
       +modifier:
         $ai_betrayal_modifier_vs($CYP)
 
@@ -727,6 +775,8 @@ focus_tree[id = greek_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
 

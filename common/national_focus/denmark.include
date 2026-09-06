@@ -267,6 +267,8 @@ focus_tree[id = danish_focus]:
       +modifier:
         $ai_antagonism_modifier($DEN)
       +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
         $ai_betrayal_modifier_vs($DEN)
 
   focus[id = DEN_seek_industrial_investments]:
@@ -321,6 +323,8 @@ focus_tree[id = danish_focus]:
       +modifier:
         $ai_antagonism_modifier($DEN)
       +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
         $ai_betrayal_modifier_vs($DEN)
 
   focus[id = DEN_secure_the_norwegian_coast]:
@@ -333,6 +337,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_rivalry_modifier($NOR)
       +modifier:
         $ai_betrayal_modifier_vs($NOR)
 
@@ -347,6 +353,8 @@ focus_tree[id = danish_focus]:
       +modifier:
         $ai_antagonism_modifier($ICE)
       +modifier:
+        $ai_rivalry_modifier($ICE)
+      +modifier:
         $ai_betrayal_modifier_vs($ICE)
 
   focus[id = DEN_claim_sweden]:
@@ -360,6 +368,8 @@ focus_tree[id = danish_focus]:
       +modifier:
         $ai_antagonism_modifier($SWE)
       +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   focus[id = DEN_safeguard_the_eastern_front]:
@@ -372,6 +382,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_rivalry_modifier($FIN)
       +modifier:
         $ai_betrayal_modifier_vs($FIN)
 
@@ -552,11 +564,17 @@ focus_tree[id = danish_focus]:
         $ai_sandbox_modifier()
 
   focus[id = DEN_territory_for_protection]:
+    available:
+      $not_rival_of_PREV($DEN)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($DEN)
+      +modifier:
+        factor(0)
+        $DEN in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = DEN_strength_in_numbers]:
     ai_will_do:
@@ -654,6 +672,8 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_antagonism_modifier($ICE)
       modifier:
+        $ai_rivalry_modifier($ICE)
+      modifier:
         $ai_betrayal_modifier_vs($ICE)
 
   focus[id = DEN_develop_iceland]:
@@ -682,6 +702,8 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_antagonism_modifier($SWE)
       modifier:
+        $ai_rivalry_modifier($SWE)
+      modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   focus[id = DEN_swedish_steel_production]:
@@ -700,6 +722,8 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_antagonism_modifier($FIN)
       modifier:
+        $ai_rivalry_modifier($FIN)
+      modifier:
         $ai_betrayal_modifier_vs($FIN)
 
   focus[id = DEN_reclaim_norway]:
@@ -712,6 +736,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($NOR)
+      modifier:
+        $ai_rivalry_modifier($NOR)
       modifier:
         $ai_betrayal_modifier_vs($NOR)
 
@@ -809,6 +835,8 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_antagonism_modifier($GER)
       modifier:
+        $ai_rivalry_modifier($GER)
+      modifier:
         $ai_betrayal_modifier_vs($GER)
 
   focus[id = DEN_dominium_maris_baltici]:
@@ -825,6 +853,15 @@ focus_tree[id = danish_focus]:
       modifier:
         antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) + $opinion_factor($LIT) + $opinion_factor($POL)) / 4
         factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($EST)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($POL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       modifier:
         $ai_betrayal_modifier()
@@ -844,6 +881,8 @@ focus_tree[id = danish_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($ENG)
+      modifier:
+        $ai_rivalry_modifier($ENG)
       modifier:
         $ai_betrayal_modifier_vs($ENG)
 

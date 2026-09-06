@@ -5,6 +5,7 @@ Honor is a per-ruler reputation for keeping one's word (*pacta sunt servanda*). 
 Honor is **not**:
 - Tyranny (domestic freedom vs. repression). Nukes, purges, conscription, annexations do not touch Honor.
 - Opinion (how much a given country likes us). Honor feeds opinion through leader traits, never the other way around.
+- Rivalry (whom we want to fight; see `gdd/Rivals System.md`). A rival under a pact or guarantee is protected by Honor like anyone else; rivalry never lowers the cost of a betrayal.
 
 Sandbox-only: every rule below runs under `is_sandbox_mode_on()`.
 
@@ -32,7 +33,7 @@ Initial value for a fresh sandbox leader: `randi(-100, 100)` (existing, `initial
 
 A country is a **friend** of ours if `$is_friend_of()` holds: we are allied (same faction), guaranteed by them, or share a non-aggression pact. This is the existing macro in `common/macros.hml`.
 
-A **betrayal focus** is any national focus that breaks a promise to a friend (removes a pact, leaves a faction, or grants a wargoal on a friend). These are the focuses currently gated by `is_honored_leader(no)` / `can_PREV_get_wargoal_on_THIS()` (see `gdd/national_focus.md`, "Antagonism").
+A **betrayal focus** is any national focus that breaks a promise to a friend (removes a pact, leaves a faction, or grants a wargoal on a friend). These are the focuses currently gated by `is_honored_leader(no)` / `can_PREV_get_wargoal_on_THIS()` (see `gdd/National Focuses.md`, "Antagonism").
 
 ## Honor losses (discrete events)
 
@@ -152,11 +153,11 @@ Replace the single `is_honored_leader(no)` gate with tiers, so each band has its
 - **Dishonorable or worse** (`honor < -25`): may additionally attack a country it guarantees.
 - **Treacherous** (`honor < -75`): may additionally leave a faction in order to attack a former ally.
 
-Implementation: `can_PREV_get_wargoal_on_THIS` in `common/scripted_triggers/99_sandbox_scripted_triggers.hsl` becomes tier-aware: the required band depends on which relation the target has with us (pact → Inglorious, guarantee → Dishonorable, faction → Treacherous). Add scripted triggers `is_dishonorable_leader` / `is_treacherous_leader` with tooltips analogous to `is_honored_leader`. The "Antagonism" patterns in `gdd/national_focus.md` (single target, multiple targets, state owners) must be updated to the tiered trigger when this ships.
+Implementation: `can_PREV_get_wargoal_on_THIS` in `common/scripted_triggers/99_sandbox_scripted_triggers.hsl` becomes tier-aware: the required band depends on which relation the target has with us (pact → Inglorious, guarantee → Dishonorable, faction → Treacherous). Add scripted triggers `is_dishonorable_leader` / `is_treacherous_leader` with tooltips analogous to `is_honored_leader`. The "Antagonism" patterns in `gdd/National Focuses.md` (single target, multiple targets, state owners) must be updated to the tiered trigger when this ships.
 
 ## AI weighting
 
-Every betrayal focus gets a betrayal factor next to the existing antagonism modifier: `clamp((25 - honor) / 125, 0, 1)`, applied only while at least one target is a friend. It is packaged as `$ai_betrayal_modifier()` (bare factor, caller supplies the friend trigger) and `$ai_betrayal_modifier_vs($TAG)` (single fixed target) in `macros.hml`; the exact focus-side patterns for single, multiple, and state-owner targets are in `gdd/national_focus.md`, "Antagonism".
+Every betrayal focus gets a betrayal factor next to the existing antagonism modifier: `clamp((25 - honor) / 125, 0, 1)`, applied only while at least one target is a friend. It is packaged as `$ai_betrayal_modifier()` (bare factor, caller supplies the friend trigger) and `$ai_betrayal_modifier_vs($TAG)` (single fixed target) in `macros.hml`; the exact focus-side patterns for single, multiple, and state-owner targets are in `gdd/National Focuses.md`, "Antagonism".
 
 A Treacherous AI (honor −100) betrays at full weight; an Inglorious AI at 24 almost never does. Combined with the tiered gate this keeps betrayals rare but not impossible for middling leaders.
 

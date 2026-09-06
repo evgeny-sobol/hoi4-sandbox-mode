@@ -292,6 +292,14 @@
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $LIT->is_friend_of_PREV()
@@ -331,6 +339,8 @@
       +modifier:
         $ai_antagonism_modifier($FIN)
       +modifier:
+        $ai_rivalry_modifier($FIN)
+      +modifier:
         $ai_betrayal_modifier_vs($FIN)
 
   shared_focus[id = BALTIC_path_to_the_north_sea]:
@@ -343,6 +353,8 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_rivalry_modifier($DEN)
       +modifier:
         $ai_betrayal_modifier_vs($DEN)
 
@@ -357,6 +369,8 @@
       +modifier:
         $ai_antagonism_modifier($SWE)
       +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   shared_focus[id = BALTIC_free_the_workers_of_poland]:
@@ -369,5 +383,7 @@
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
       +modifier:
         $ai_betrayal_modifier_vs($POL)

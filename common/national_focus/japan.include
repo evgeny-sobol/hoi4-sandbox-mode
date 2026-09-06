@@ -426,6 +426,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($MAN)
       +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
   focus[id = JAP_reclaim_lost_territories]:
@@ -442,6 +444,14 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($FOR) + $opinion_factor($PLU) +
           $opinion_factor($KOR)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($FOR)
+        $rivalry_vs_into($PLU)
+        $rivalry_vs_into($KOR)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -486,6 +496,24 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $CHI->is_friend_of_PREV()
@@ -523,18 +551,30 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
 
   focus[id = JAP_wrestle_mongolia_from_the_soviets]:
+    available:
+      $not_rival_of_PREV($MON)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($MON)
+      +modifier:
+        factor(0)
+        $MON in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_wrestle_tuva_from_the_soviets]:
+    available:
+      $not_rival_of_PREV($TAN)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($TAN)
+      +modifier:
+        factor(0)
+        $TAN in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_spread_revolutionary_flames_to_south_asia]:
     ai_will_do:
@@ -573,6 +613,17 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $PHI->is_friend_of_PREV()
@@ -596,6 +647,8 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($AST, $NZL)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $AST->is_friend_of_PREV()
@@ -611,6 +664,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
@@ -647,6 +702,21 @@ focus_tree[id = japan_wtt_focus]:
           $opinion_factor($CHM) +
           $opinion_factor($SIA)) / 10
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($VIN)
+        $rivalry_vs_into($CAM)
+        $rivalry_vs_into($LAO)
+        $rivalry_vs_into($CHM)
+        $rivalry_vs_into($SIA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -716,6 +786,8 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($FOR, $PLU)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $FOR->is_friend_of_PREV()
@@ -732,6 +804,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($KOR)
       +modifier:
+        $ai_rivalry_modifier($KOR)
+      +modifier:
         $ai_betrayal_modifier_vs($KOR)
 
   focus[id = JAP_protect_the_manchurians]:
@@ -744,6 +818,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
       +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
@@ -783,6 +859,24 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $CHI->is_friend_of_PREV()
@@ -817,6 +911,16 @@ focus_tree[id = japan_wtt_focus]:
           $opinion_factor($KUM) +
           $opinion_factor($BYA)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($MEN)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($BYA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -873,6 +977,29 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($VIN)
+        $rivalry_vs_into($CAM)
+        $rivalry_vs_into($LAO)
+        $rivalry_vs_into($CHM)
+        $rivalry_vs_into($SIA)
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($SAR)
+        $rivalry_vs_into($SAB)
+        $rivalry_vs_into($BRN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $ENG->is_friend_of_PREV()
@@ -905,6 +1032,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = JAP_go_after_the_capitalists]:
@@ -920,6 +1049,8 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($USA, $ENG)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1072,6 +1203,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($SOV)
       +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
         $ai_betrayal_modifier_vs($SOV)
 
   focus[id = JAP_closer_ties_with_the_usa]:
@@ -1080,11 +1213,17 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
 
   focus[id = JAP_ally_the_philippines]:
+    available:
+      $not_rival_of_PREV($PHI)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($PHI)
+      +modifier:
+        factor(0)
+        $PHI in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_create_greater_east_asian_treaty_organization]:
     ai_will_do:
@@ -1094,6 +1233,8 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
 
   focus[id = JAP_sea_rekindle_the_old_alliance]:
+    available:
+      $not_rival_of_PREV($ENG)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1101,6 +1242,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($ENG)
+      +modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_form_greater_east_asian_customs_union]:
     ai_will_do:
@@ -1137,6 +1282,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
       +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
@@ -1422,6 +1569,15 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SIK->is_friend_of_PREV()
@@ -1545,6 +1701,14 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $SOV->is_friend_of_PREV()
@@ -1567,6 +1731,14 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($MON) +
           $opinion_factor($TAN)) / 3
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1599,6 +1771,8 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($FRA, $VIN)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -1626,6 +1800,8 @@ focus_tree[id = japan_wtt_focus]:
           is_friend_of_ROOT()
 
   focus[id = JAP_sea_pressure_siam]:
+    available:
+      $not_rival_of_PREV($SIA)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1633,6 +1809,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($SIA)
+      +modifier:
+        factor(0)
+        $SIA in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_occupy_siam]:
     available:
@@ -1646,6 +1826,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SIA)
+      +modifier:
+        $ai_rivalry_modifier($SIA)
       +modifier:
         $ai_betrayal_modifier_vs($SIA)
 
@@ -1683,6 +1865,23 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($SAR)
+        $rivalry_vs_into($SAB)
+        $rivalry_vs_into($BRN)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($WPG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $PHI->is_friend_of_PREV()
@@ -1711,6 +1910,8 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($TML)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($POR, $TML)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1748,6 +1949,14 @@ focus_tree[id = japan_wtt_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($PNG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $AST->is_friend_of_PREV()
@@ -1767,6 +1976,8 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($AST) + $opinion_factor($NZL)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($AST, $NZL)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -1794,6 +2005,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($MEN)
       +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
         $ai_betrayal_modifier_vs($MEN)
 
   focus[id = JAP_reorganize_the_united_autonomous_government]:
@@ -1812,6 +2025,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($SHX)
       +modifier:
+        $ai_rivalry_modifier($SHX)
+      +modifier:
         $ai_betrayal_modifier_vs($SHX)
 
   focus[id = JAP_mengjiang_united_autonomous_government]:
@@ -1829,6 +2044,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($MON)
+      +modifier:
+        $ai_rivalry_modifier($MON)
       +modifier:
         $ai_betrayal_modifier_vs($MON)
 
@@ -1855,6 +2072,16 @@ focus_tree[id = japan_wtt_focus]:
           $opinion_factor($SND) +
           $opinion_factor($XIC)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($HBC)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XIC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -1891,6 +2118,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($POR)
       +modifier:
+        $ai_rivalry_modifier($POR)
+      +modifier:
         $ai_betrayal_modifier_vs($POR)
 
   focus[id = JAP_develop_the_chinese_resources]:
@@ -1909,6 +2138,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
 
   focus[id = JAP_ally_the_dragon_king]:
+    available:
+      $not_rival_of_PREV($BHU)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1916,6 +2147,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($BHU)
+      +modifier:
+        factor(0)
+        $BHU in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_claim_the_raven_crown]:
     available:
@@ -1930,9 +2165,13 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($BHU)
       +modifier:
+        $ai_rivalry_modifier($BHU)
+      +modifier:
         $ai_betrayal_modifier_vs($BHU)
 
   focus[id = JAP_ally_the_gorkhas]:
+    available:
+      $not_rival_of_PREV($NEP)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1940,6 +2179,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($NEP)
+      +modifier:
+        factor(0)
+        $NEP in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_claim_the_scripech]:
     available:
@@ -1954,9 +2197,13 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($NEP)
       +modifier:
+        $ai_rivalry_modifier($NEP)
+      +modifier:
         $ai_betrayal_modifier_vs($NEP)
 
   focus[id = JAP_ally_afghanistan]:
+    available:
+      $not_rival_of_PREV($AFG)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -1964,6 +2211,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($AFG)
+      +modifier:
+        factor(0)
+        $AFG in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_best_the_graveyard]:
     available:
@@ -1977,6 +2228,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_rivalry_modifier($AFG)
       +modifier:
         $ai_betrayal_modifier_vs($AFG)
 
@@ -2021,6 +2274,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_rivalry_modifier($PRC)
       +modifier:
         $ai_betrayal_modifier_vs($PRC)
 
@@ -2095,9 +2350,18 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
 
   focus[id = JAP_sea_tripartite_pact]:
+    available:
+      $not_rival_of_PREV($ITA)
+      $not_rival_of_PREV($GER)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        factor(0)
+        or:
+          $ITA in rivals[]
+          $GER in rivals[]
+        is_sandbox_mode_on()
       +modifier:
         cooperation = 1 + ($opinion_factor($ITA) + $opinion_factor($GER)) / 2
         factor(cooperation)
@@ -2951,9 +3215,13 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($MAN)
       +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
   focus[id = JAP_join_comintern]:
+    available:
+      $not_rival_of_PREV($SOV)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
@@ -2961,6 +3229,10 @@ focus_tree[id = japan_wtt_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_red_brigades]:
     ai_will_do:
@@ -3046,11 +3318,17 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
   focus[id = JAP_rekindle_the_old_alliance]:
+    available:
+      $not_rival_of_PREV($ENG)
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_cooperation_modifier($ENG)
+      +modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
 
   focus[id = JAP_pacific_guardian]:
     ai_will_do:
@@ -3078,6 +3356,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_antagonism_modifier($MAN)
       +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
         $ai_betrayal_modifier_vs($MAN)
 
   focus[id = JAP_liberate_manchuria]:
@@ -3093,6 +3373,8 @@ focus_tree[id = japan_wtt_focus]:
         antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($SOV)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MAN, $SOV)
       +modifier:
         $ai_betrayal_modifier()
         or:
@@ -3168,6 +3450,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 

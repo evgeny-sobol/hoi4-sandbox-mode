@@ -287,6 +287,8 @@ focus_tree[id = canadian_focus]:
       +modifier:
         $ai_antagonism_modifier($CAN)
       +modifier:
+        $ai_rivalry_modifier($CAN)
+      +modifier:
         $ai_betrayal_modifier_vs($CAN)
 
   focus[id = CAN_permanent_joint_defense_board]:
@@ -301,6 +303,8 @@ focus_tree[id = canadian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
       +modifier:
         $ai_betrayal_modifier_vs($USA)
 
@@ -383,6 +387,8 @@ focus_tree[id = canadian_focus]:
       +modifier:
         $ai_antagonism_modifier($USA)
       +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
         $ai_betrayal_modifier_vs($USA)
 
   focus[id = CAN_demand_labrador_and_newfoundland]:
@@ -454,6 +460,8 @@ focus_tree[id = canadian_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
 

@@ -216,6 +216,8 @@ focus_tree[id = belgium_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($FRA, $ENG)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $FRA->is_friend_of_PREV()
@@ -318,6 +320,8 @@ focus_tree[id = belgium_focus]:
       modifier:
         $ai_antagonism_modifier($LUX)
       modifier:
+        $ai_rivalry_modifier($LUX)
+      modifier:
         $ai_betrayal_modifier_vs($LUX)
 
   focus[id = BEL_invite_german_tank_organization]:
@@ -353,6 +357,8 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($LUX)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($FRA, $LUX)
       modifier:
         $ai_betrayal_modifier()
         or:
@@ -417,6 +423,8 @@ focus_tree[id = belgium_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        $ai_rivalry_modifier_max($LUX, $HOL)
+      modifier:
         $ai_betrayal_modifier()
         or:
           $LUX->is_friend_of_PREV()
@@ -457,6 +465,8 @@ focus_tree[id = belgium_focus]:
       modifier:
         $ai_antagonism_modifier($FRA)
       modifier:
+        $ai_rivalry_modifier($FRA)
+      modifier:
         $ai_betrayal_modifier_vs($FRA)
 
   focus[id = BEL_strength_and_brotherhood]:
@@ -473,6 +483,8 @@ focus_tree[id = belgium_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($FRA)
+      modifier:
+        $ai_rivalry_modifier($FRA)
       modifier:
         $ai_betrayal_modifier_vs($FRA)
 
@@ -601,6 +613,8 @@ focus_tree[id = belgium_focus]:
         antagonism = 1 - ($opinion_factor($SPD) + $opinion_factor($SPR)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($SPD, $SPR)
       modifier:
         $ai_betrayal_modifier()
         or:

@@ -74,6 +74,8 @@ focus_tree[id = sweden_focus]:
       +modifier:
         $ai_antagonism_modifier($SWE)
       +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
   focus[id = SWE_allow_landsverk_to_operate]:
@@ -88,6 +90,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_rivalry_modifier($SWE)
       +modifier:
         $ai_betrayal_modifier_vs($SWE)
 
@@ -376,6 +380,8 @@ focus_tree[id = sweden_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       +modifier:
+        $ai_rivalry_modifier_max($GER, $SOV)
+      +modifier:
         $ai_betrayal_modifier()
         or:
           $GER->is_friend_of_PREV()
@@ -479,6 +485,16 @@ focus_tree[id = sweden_focus]:
       +modifier:
         antagonism = 1 - ($opinion_factor($NOR) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN) + $opinion_factor($ICE)) / 5
         factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($NOR)
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($DEN)
+        $rivalry_vs_into($FIN)
+        $rivalry_vs_into($ICE)
+        f = 1 + rivalry_vs / 50
+        factor(f)
         is_sandbox_mode_on()
       +modifier:
         $ai_betrayal_modifier()
@@ -658,6 +674,8 @@ focus_tree[id = sweden_focus]:
       +modifier:
         $ai_antagonism_modifier($DEN)
       +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
         $ai_betrayal_modifier_vs($DEN)
 
   focus[id = SWE_operation_save_norway]:
@@ -670,6 +688,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_rivalry_modifier($NOR)
       +modifier:
         $ai_betrayal_modifier_vs($NOR)
 
@@ -806,6 +826,8 @@ focus_tree[id = sweden_focus]:
       modifier:
         $ai_antagonism_modifier($FIN)
       modifier:
+        $ai_rivalry_modifier($FIN)
+      modifier:
         $ai_betrayal_modifier_vs($FIN)
 
   focus[id = SWE_uranium_project]:
@@ -885,6 +907,14 @@ focus_tree[id = sweden_focus]:
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($LIT)
+        $rivalry_vs_into($EST)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
         $ai_betrayal_modifier()
         or:
           $LAT->is_friend_of_PREV()
@@ -901,6 +931,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($GER)
+      modifier:
+        $ai_rivalry_modifier($GER)
       modifier:
         $ai_betrayal_modifier_vs($GER)
 
@@ -952,6 +984,8 @@ focus_tree[id = sweden_focus]:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
       modifier:
         $ai_betrayal_modifier_vs($SOV)
 
