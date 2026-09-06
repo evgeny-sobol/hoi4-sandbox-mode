@@ -1,0 +1,544 @@
+focus_tree[id = manchukuo_focus_tsr]:
+  focus[id = MAN_tsr_pacify_the_countryside]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = MAN_tsr_army_modernization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_mukden_military_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_invite_japanese_settlers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_collective_farms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_law_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_research_and_education_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_trade_delegation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_expand_the_textile_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_obedience]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MAN_tsr_hoankyoku]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_expand_the_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_first_five_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_trading_illicit_goods]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_invite_japanese_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_expand_the_railways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_expand_showa_steel_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_develop_aluminum_sources]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_strengthen_ties_with_nissan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_mangyo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_social_research_unit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_second_five_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_national_defense_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_mukden_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_mamc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_alliance_with_the_kwantung_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_request_dalian]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_further_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_strengthen_the_manchukuo_imperial_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_expand_xingan_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_the_question_of_leadership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_chinese_leadership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MAN_tsr_vassalize_mengukuo]:
+    available:
+      $MEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
+
+  focus[id = MAN_tsr_national_cooperation_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_the_two_emperors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_empire_of_manchukuo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MAN_tsr_embrace_state_shintoism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_work_with_the_kempeitai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_promote_manchu_identity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_claim_outer_manchuria]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_assertiveness]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = MAN_tsr_request_control_of_the_railways]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_staff_the_court_with_manchus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_expand_the_imperial_guards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_local_arms_procurement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_bolster_nationalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_five_equal_peoples]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_white_russian_advisers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_empower_the_legislative_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_five_people_armies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_question_the_emperors_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_bandit_recruitment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_ally_bandit_leaders]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_persuade_the_IMPRP]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_a_new_dawn_over_manchuria]:
+    available:
+      $OVERLORD->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($OVERLORD)
+      +modifier:
+        $ai_rivalry_modifier($OVERLORD)
+      +modifier:
+        $ai_betrayal_modifier_vs($OVERLORD)
+
+  focus[id = MAN_tsr_depose_puyi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = MAN_tsr_the_new_beiyang_government]:
+    available:
+      $MEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
+
+  focus[id = MAN_tsr_beiyang_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_reform_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_the_southern_expedition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_proclaim_the_republic_of_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_finish_off_the_japanese_threat]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+
+  focus[id = MAN_tsr_an_industrial_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_zhao_shangzhis_coup]:
+    available:
+      $MEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
+
+  focus[id = MAN_tsr_ally_the_soviet_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_research_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_the_long_march_south]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_proclaim_the_peoples_republic]:
+    available:
+      $TIB->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TIB)
+      +modifier:
+        $ai_rivalry_modifier($TIB)
+      +modifier:
+        $ai_betrayal_modifier_vs($TIB)
+
+  focus[id = MAN_tsr_soviet_aid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_request_our_lost_territories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_purge_the_general_affairs_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = MAN_tsr_reform_the_civil_service]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_independence_war]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+      $OVERLORD->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($JAP) + $opinion_factor($OVERLORD)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($JAP, $OVERLORD)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $JAP->is_friend_of_PREV()
+          $OVERLORD->is_friend_of_PREV()
+
+  focus[id = MAN_tsr_imperial_divinity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = MAN_tsr_reclaim_our_lost_possessions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_a_new_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = MAN_tsr_division_of_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_reestablish_the_qing_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_raise_the_yong_ying]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_reclaim_the_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_imperial_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_assert_our_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_offer_vassalization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MAN_tsr_move_capitals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_reestablish_the_gansu_braves]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_a_new_self_strengthening_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MAN_tsr_claim_the_mandate_of_heaven]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

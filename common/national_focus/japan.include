@@ -1,0 +1,3575 @@
+focus_tree[id = japan_wtt_focus]:
+#      TABLE OF CONTENTS
+#I.    Crossroad 1
+#II.   Military Purge
+#III.  Communists
+#IV.   Democrats
+#V.    Monarchists
+#VI.   Monarchists or Fascists
+#VII.  Fascists
+#VIII. Economy
+#IX.   Military
+#X.    Hasn't "No Compromise, No Surrender"
+#XI.   Everything else
+
+#I. ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀█
+#   █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       █
+#    ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀        ▀
+  focus[id = JAP_okadas_military_purge_speech]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:democracy_factor + mtth:communism_factor) /
+          (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = JAP_revere_the_emperor_destroy_the_traitors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = mtth:monarchy_factor /
+          (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_sea_purge_the_kodoha_faction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:monarchy_factor + mtth:fascism_factor) /
+          (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+#II. █▄ ▄█ █ █    █ ▀▀█▀▀ ▄▀▀▄ █▀▀▄ ▀▄ ▄▀      █▀▀▄ █  █ █▀▀▄ ▄▀▀▀  █▀▀▀
+#    █ ▀ █ █ █    █   █   █▀▀█ █▀▀▄   █        █▀▀  █  █ █▀▀▄ █  ▀█ █▀▀
+#    ▀   ▀ ▀ ▀▀▀▀ ▀   ▀   ▀  ▀ ▀  ▀   ▀        ▀     ▀▀  ▀  ▀  ▀▀▀  ▀▀▀▀
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = JAP_seek_yakuza_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_expand_the_metropolitan_police]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_secretly_rebuild_the_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_anti_militarist_speeches_in_the_diet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_sway_disillusioned_young_officers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_organize_the_student_movements]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_raise_support_within_the_proletarian_class]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_organize_underground_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_mountain_village_operation_units]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_return_of_the_manchukuo_exiles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:communism_factor / (mtth:democracy_factor + mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_organize_the_fifth_column]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_build_an_anti_army_coalition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_ensure_cross_party_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_gather_royal_pacifists_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_limit_military_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_sway_the_navy_moderates]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_bribe_generals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_appoint_new_generals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_implement_army_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_a_new_take_on_state_shintoism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_crush_the_spirit_of_gekokujo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_divert_military_funds]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:democracy_factor / (mtth:democracy_factor + mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_revoke_the_peace_preservation_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#III. ▄▀▀▄ ▄▀▀▀▄ █▄ ▄█ █▄ ▄█ █  █ █▄  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+#     █  ▄ █   █ █ ▀ █ █ ▀ █ █  █ █ ▀▄█ █  ▀▀▄   █    ▀▀▄
+#      ▀▀   ▀▀▀  ▀   ▀ ▀   ▀  ▀▀  ▀   ▀ ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = JAP_a_red_sun_rises_for_a_new_era]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_lecture_group_ascendant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_labor_farmer_faction_ascendant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_fate_of_the_imperial_family]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_hold_a_peoples_tribunal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_social_and_cultural_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_overhaul_the_education_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_redistribute_land_and_wealth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_nationalize_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_functionalist_housing_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ganbarou]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_ie_system_and_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_modern_ashigaru]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_learn_from_the_nkvd]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = JAP_fukumotoism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_further_urban_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_first_five_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_pioneer_organizations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_cooperate_with_anarchists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_war_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_uno_school_of_economics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_national_cooperatives]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_further_rural_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_adopt_syndicalist_ideas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_incorporate_buddhist_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_uplift_ainu_revolution_theory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_kikues_new_model]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_women_in_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_raise_the_red_flag_high]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_socialism_in_one_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_extensive_army_maneuvers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_extensive_navy_maneuvers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_conquer_the_army_remnants]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = JAP_reclaim_lost_territories]:
+    available:
+      $FOR->can_PREV_get_wargoal_on_THIS()
+      $PLU->can_PREV_get_wargoal_on_THIS()
+      $KOR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($FOR) + $opinion_factor($PLU) +
+          $opinion_factor($KOR)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($FOR)
+        $rivalry_vs_into($PLU)
+        $rivalry_vs_into($KOR)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FOR->is_friend_of_PREV()
+          $PLU->is_friend_of_PREV()
+          $KOR->is_friend_of_PREV()
+
+  focus[id = JAP_put_an_end_to_chinese_feudalism]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($SHX) +
+          $opinion_factor($SND) +
+          $opinion_factor($XSM) +
+          $opinion_factor($GXC) +
+          $opinion_factor($GDC) +
+          $opinion_factor($XIC) +
+          $opinion_factor($SIC) +
+          $opinion_factor($KUM) +
+          $opinion_factor($GSM) +
+          $opinion_factor($NXM) +
+          $opinion_factor($KHM) +
+          $opinion_factor($HBC)) / 13
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHI->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+
+  focus[id = JAP_the_long_march_to_victory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_mobilize_the_proletariat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_pacific_union_of_soviet_socialist_republics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_to_rival_the_comintern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_wrestle_mongolia_from_the_soviets]:
+    available:
+      $not_rival_of_PREV($MON)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($MON)
+      +modifier:
+        factor(0)
+        $MON in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_wrestle_tuva_from_the_soviets]:
+    available:
+      $not_rival_of_PREV($TAN)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($TAN)
+      +modifier:
+        factor(0)
+        $TAN in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_spread_revolutionary_flames_to_south_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_spread_revolutionary_flames_to_west_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_trans_pacific_influence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_south_pacific_soviet]:
+    available:
+      $PHI->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $SNG->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PHI) + $opinion_factor($ENG) +
+          $opinion_factor($MAL) +
+          $opinion_factor($SNG) +
+          $opinion_factor($INS) +
+          $opinion_factor($HOL)) / 6
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PHI->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
+          $SNG->is_friend_of_PREV()
+          $INS->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+
+  focus[id = JAP_the_oceanian_soviet]:
+    available:
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($AST) + $opinion_factor($NZL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($AST, $NZL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $AST->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+
+  focus[id = JAP_strike_down_the_great_pretender]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = JAP_a_red_dawn_over_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_indochinese_soviet]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $SNG->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $VIN->can_PREV_get_wargoal_on_THIS()
+      $CAM->can_PREV_get_wargoal_on_THIS()
+      $LAO->can_PREV_get_wargoal_on_THIS()
+      $CHM->can_PREV_get_wargoal_on_THIS()
+      $SIA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) +
+          $opinion_factor($MAL) +
+          $opinion_factor($SNG) +
+          $opinion_factor($BRM) +
+          $opinion_factor($VIN) +
+          $opinion_factor($CAM) +
+          $opinion_factor($LAO) +
+          $opinion_factor($CHM) +
+          $opinion_factor($SIA)) / 10
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($VIN)
+        $rivalry_vs_into($CAM)
+        $rivalry_vs_into($LAO)
+        $rivalry_vs_into($CHM)
+        $rivalry_vs_into($SIA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
+          $SNG->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $VIN->is_friend_of_PREV()
+          $CAM->is_friend_of_PREV()
+          $LAO->is_friend_of_PREV()
+          $CHM->is_friend_of_PREV()
+          $SIA->is_friend_of_PREV()
+
+  focus[id = JAP_transformation_of_nature]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_guide_the_lesser_states]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_pan_asian_revolutionary_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_minitry_of_pan_asian_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_common_currency_for_all_of_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_educate_the_peasants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_development_for_the_undeveloped]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_pan_asian_diet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_demand_submission_from_breawakay_states]:
+    available:
+      $FOR->can_PREV_get_wargoal_on_THIS()
+      $PLU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($FOR) + $opinion_factor($PLU)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($FOR, $PLU)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FOR->is_friend_of_PREV()
+          $PLU->is_friend_of_PREV()
+
+  focus[id = JAP_ignite_the_korean_peninsula]:
+    available:
+      $KOR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($KOR)
+      +modifier:
+        $ai_rivalry_modifier($KOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($KOR)
+
+  focus[id = JAP_protect_the_manchurians]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = JAP_guide_the_chinese]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($SHX) +
+          $opinion_factor($SND) +
+          $opinion_factor($XSM) +
+          $opinion_factor($GXC) +
+          $opinion_factor($GDC) +
+          $opinion_factor($XIC) +
+          $opinion_factor($SIC) +
+          $opinion_factor($KUM) +
+          $opinion_factor($GSM) +
+          $opinion_factor($NXM) +
+          $opinion_factor($KHM) +
+          $opinion_factor($HBC)) / 13
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHI->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+
+  focus[id = JAP_guide_the_mongols]:
+    available:
+      $MEN->can_PREV_get_wargoal_on_THIS()
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $TAN->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
+      $BYA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($MEN) + $opinion_factor($MON) +
+          $opinion_factor($TAN) +
+          $opinion_factor($KUM) +
+          $opinion_factor($BYA)) / 5
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($MEN)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($BYA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MEN->is_friend_of_PREV()
+          $MON->is_friend_of_PREV()
+          $TAN->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
+          $BYA->is_friend_of_PREV()
+
+  focus[id = JAP_spread_the_revolutuon_south]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $SNG->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $VIN->can_PREV_get_wargoal_on_THIS()
+      $CAM->can_PREV_get_wargoal_on_THIS()
+      $LAO->can_PREV_get_wargoal_on_THIS()
+      $CHM->can_PREV_get_wargoal_on_THIS()
+      $SIA->can_PREV_get_wargoal_on_THIS()
+      $PHI->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+      $SAR->can_PREV_get_wargoal_on_THIS()
+      $SAB->can_PREV_get_wargoal_on_THIS()
+      $BRN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) +
+          $opinion_factor($MAL) +
+          $opinion_factor($SNG) +
+          $opinion_factor($BRM) +
+          $opinion_factor($VIN) +
+          $opinion_factor($CAM) +
+          $opinion_factor($LAO) +
+          $opinion_factor($CHM) +
+          $opinion_factor($SIA) +
+          $opinion_factor($PHI) +
+          $opinion_factor($INS) +
+          $opinion_factor($HOL) +
+          $opinion_factor($AST) +
+          $opinion_factor($NZL) +
+          $opinion_factor($SAR) +
+          $opinion_factor($SAB) +
+          $opinion_factor($BRN)) / 18
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($VIN)
+        $rivalry_vs_into($CAM)
+        $rivalry_vs_into($LAO)
+        $rivalry_vs_into($CHM)
+        $rivalry_vs_into($SIA)
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($SAR)
+        $rivalry_vs_into($SAB)
+        $rivalry_vs_into($BRN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
+          $SNG->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $VIN->is_friend_of_PREV()
+          $CAM->is_friend_of_PREV()
+          $LAO->is_friend_of_PREV()
+          $CHM->is_friend_of_PREV()
+          $SIA->is_friend_of_PREV()
+          $PHI->is_friend_of_PREV()
+          $INS->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $AST->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+          $SAR->is_friend_of_PREV()
+          $SAB->is_friend_of_PREV()
+          $BRN->is_friend_of_PREV()
+
+  focus[id = JAP_free_asians_from_soviet_opression]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = JAP_go_after_the_capitalists]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($USA) + $opinion_factor($ENG)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($USA, $ENG)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $USA->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+
+  focus[id = JAP_a_free_asia_pacific]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_courage_to_defend_the_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#IV. █▀▀▄ █▀▀▀ █▄ ▄█ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀
+#    █  █ █▀▀  █ ▀ █ █   █ █  ▄ █▀▀▄ █▀▀█   █    ▀▀▄
+#    ▀▀▀  ▀▀▀▀ ▀   ▀  ▀▀▀   ▀▀  ▀  ▀ ▀  ▀   ▀   ▀▀▀
+  focus[id = JAP_organize_a_general_election]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_rikken_minseito_victory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_rikken_seiyukai_victory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_promote_meritocracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_experimental_housing_solutions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_embrace_amakudari]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_agricultural_protectionism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_minshu_shugi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_minpon_shugi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_machida_chuuji_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_abe_isoo_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_tokugawa_iesato_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_ichiro_hatoyama_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_mitsumasa_yonai_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_uplift_labor_unions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_draft_the_showa_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_ldp]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_limit_the_emperors_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ensure_civil_liberties]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_crush_the_internal_factions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_democratic_war_with_china]:
+    available:
+      var:JAP_democratic_war_with_china_targets[0]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(JAP_democratic_war_with_china_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.JAP_democratic_war_with_china_targets[]
+          is_friend_of_ROOT()
+
+  focus[id = JAP_free_colonized_asian_countries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_fund_resistance_groups_in_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strike_the_soviets]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = JAP_closer_ties_with_the_usa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ally_the_philippines]:
+    available:
+      $not_rival_of_PREV($PHI)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($PHI)
+      +modifier:
+        factor(0)
+        $PHI in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_create_greater_east_asian_treaty_organization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = JAP_sea_rekindle_the_old_alliance]:
+    available:
+      $not_rival_of_PREV($ENG)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($ENG)
+      +modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_form_greater_east_asian_customs_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_greater_east_asian_currency_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_an_integrated_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_guardian_of_the_pacific]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_greater_east_asian_federation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_democratic_war_with_manchukuo]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = JAP_democratic_womens_suffrage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_launch_the_income_doubling_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_reform_the_education_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_democratic_women_in_the_workforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_taiheyo_belt]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_shinkansen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_pursue_international_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_democratic_research_slot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_offshore_coal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_invest_in_foreign_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_seek_foreign_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_democratic_nationalize_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = JAP_split_uo_zaibatsu_monopolies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = JAP_democratic_work_with_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = JAP_democratic_foreign_exchange_allocation_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_lifetime_employment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_modernize_agriculture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_civilian_nuclear_reactor_investments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#V. █▄ ▄█ ▄▀▀▀▄ █▄  █ ▄▀▀▄ █▀▀▄ ▄▀▀▄ █  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+#   █ ▀ █ █   █ █ ▀▄█ █▀▀█ █▀▀▄ █  ▄ █▀▀█ █  ▀▀▄   █    ▀▀▄
+#   ▀   ▀  ▀▀▀  ▀   ▀ ▀  ▀ ▀  ▀  ▀▀  ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = JAP_authorize_aid_to_ethiopia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_the_gunbatsu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_grand_army_purge]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_remove_the_weeds_from_the_crop]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_the_showa_restoration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ally_the_league_of_blood]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_contact_the_masterless_samurai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_contact_former_sakurakai_members]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_integrate_the_kenkokutai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ikki_kitas_state_socialist_ideals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_oppose_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_revitalize_rural_areas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_nationalize_western_corporations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_give_it_your_all_for_the_emperor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_an_ode_to_showa_restoration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_embrace_kokutai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_empower_the_shogun]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_empower_the_emperor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_the_art_of_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_imperial_colors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_worthy_succssor_of_meiji]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_utilize_our_polish_friendship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_the_enemy_of_our_enemy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_return_to_sakoku_ron]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_societal_bushido]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_politicize_the_education_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_spirit_of_the_imperial_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_propagandize_the_nihon_shoki]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_yamato_spirit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_children_of_the_sun]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_footsteps_of_jimmu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_jeweled_spear_has_struck]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_hakko_ichiu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_great_spiritual_evil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strike_down_the_enemy_of_the_people]:
+    available:
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $TAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($PRC) +
+          $opinion_factor($MON) +
+          $opinion_factor($TAN)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $MON->is_friend_of_PREV()
+          $TAN->is_friend_of_PREV()
+
+  focus[id = JAP_prepare_for_the_final_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_indoctrination_in_the_military_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_supremacy_of_will]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_tennoheika_banzai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_truly_righteous_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_supremacy_of_the_kempeitai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sonnou_joui]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_subdue_the_kwantung_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_hasten_the_integration_of_taiwan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_integrate_the_government_general]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_align_the_concordia_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_integrate_the_great_empire_of_manchuria]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#VI. █▄ ▄█ ▄▀▀▀▄ █▄  █ ▄▀▀▄ █▀▀▄ ▄▀▀▄ █  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀      ▄▀▀▀▄ █▀▀▄      █▀▀▀ ▄▀▀▄ ▄▀▀▀ ▄▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+#    █ ▀ █ █   █ █ ▀▄█ █▀▀█ █▀▀▄ █  ▄ █▀▀█ █  ▀▀▄   █    ▀▀▄      █   █ █▀▀▄      █▀▀  █▀▀█  ▀▀▄ █  ▄ █  ▀▀▄   █    ▀▀▄
+#    ▀   ▀  ▀▀▀  ▀   ▀ ▀  ▀ ▀  ▀  ▀▀  ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀        ▀▀▀  ▀  ▀      ▀    ▀  ▀ ▀▀▀   ▀▀  ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = JAP_hokushin_ron]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strenghten_manchukuo_imperial_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strenghten_manchukuo_imperial_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ensure_temporary_peace_with_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_mongol_volunteer_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_utilize_ainu_expertise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_kantokuen]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_a_green_persimmon]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $TAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($MON) +
+          $opinion_factor($TAN)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOV->is_friend_of_PREV()
+          $MON->is_friend_of_PREV()
+          $TAN->is_friend_of_PREV()
+
+  focus[id = JAP_the_persimmon_has_ripened]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $TAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SOV) + $opinion_factor($MON) +
+          $opinion_factor($TAN)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($MON)
+        $rivalry_vs_into($TAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOV->is_friend_of_PREV()
+          $MON->is_friend_of_PREV()
+          $TAN->is_friend_of_PREV()
+
+  focus[id = JAP_sea_establish_the_northern_resource_area]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_nanshin_ron]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_demand_tonkinese_bases]:
+    available:
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $VIN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($FRA) + $opinion_factor($VIN)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($FRA, $VIN)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $FRA->is_friend_of_PREV()
+          $VIN->is_friend_of_PREV()
+
+  focus[id = JAP_occupy_indochina]:
+    available:
+      var:JAP_occupy_indochina_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:JAP_occupy_indochina_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:JAP_occupy_indochina_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:JAP_occupy_indochina_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:JAP_occupy_indochina_targets[4]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(JAP_occupy_indochina_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.JAP_occupy_indochina_targets[]
+          is_friend_of_ROOT()
+
+  focus[id = JAP_sea_pressure_siam]:
+    available:
+      $not_rival_of_PREV($SIA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SIA)
+      +modifier:
+        factor(0)
+        $SIA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_occupy_siam]:
+    available:
+      $SIA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SIA)
+      +modifier:
+        $ai_rivalry_modifier($SIA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SIA)
+
+  focus[id = JAP_strike_the_southern_road]:
+    available:
+      $PHI->can_PREV_get_wargoal_on_THIS()
+      $MAL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+      $SNG->can_PREV_get_wargoal_on_THIS()
+      $INS->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $SAR->can_PREV_get_wargoal_on_THIS()
+      $SAB->can_PREV_get_wargoal_on_THIS()
+      $BRN->can_PREV_get_wargoal_on_THIS()
+      $BRM->can_PREV_get_wargoal_on_THIS()
+      $WPG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PHI) + $opinion_factor($MAL) +
+          $opinion_factor($ENG) +
+          $opinion_factor($FRA) +
+          $opinion_factor($SNG) +
+          $opinion_factor($INS) +
+          $opinion_factor($HOL) +
+          $opinion_factor($SAR) +
+          $opinion_factor($SAB) +
+          $opinion_factor($BRN) +
+          $opinion_factor($BRM) +
+          $opinion_factor($WPG)) / 12
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PHI)
+        $rivalry_vs_into($MAL)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($SNG)
+        $rivalry_vs_into($INS)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($SAR)
+        $rivalry_vs_into($SAB)
+        $rivalry_vs_into($BRN)
+        $rivalry_vs_into($BRM)
+        $rivalry_vs_into($WPG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PHI->is_friend_of_PREV()
+          $MAL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $SNG->is_friend_of_PREV()
+          $INS->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $SAR->is_friend_of_PREV()
+          $SAB->is_friend_of_PREV()
+          $BRN->is_friend_of_PREV()
+          $BRM->is_friend_of_PREV()
+          $WPG->is_friend_of_PREV()
+
+  focus[id = JAP_occupy_east_timor]:
+    available:
+      $POR->can_PREV_get_wargoal_on_THIS()
+      $TML->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($POR) + $opinion_factor($TML)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($POR, $TML)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $POR->is_friend_of_PREV()
+          $TML->is_friend_of_PREV()
+
+  focus[id = JAP_sea_exploit_southern_resource_area]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_unsinkable_aircraft_carriers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_isolate_oceania]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_battle_for_australia]:
+    available:
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+      $PNG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($AST) + $opinion_factor($NZL) +
+          $opinion_factor($PNG)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($NZL)
+        $rivalry_vs_into($PNG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $AST->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+          $PNG->is_friend_of_PREV()
+
+  focus[id = JAP_operation_take_australia]:
+    available:
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($AST) + $opinion_factor($NZL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($AST, $NZL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $AST->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+
+  focus[id = JAP_soviet_japanese_neutrality_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_revisit_the_thirteen_demands]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_mongol_military_government]:
+    available:
+      $MEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEN)
+      +modifier:
+        $ai_rivalry_modifier($MEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEN)
+
+  focus[id = JAP_reorganize_the_united_autonomous_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_launch_the_suiyuan_campaign]:
+    available:
+      $SHX->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SHX)
+      +modifier:
+        $ai_rivalry_modifier($SHX)
+      +modifier:
+        $ai_betrayal_modifier_vs($SHX)
+
+  focus[id = JAP_mengjiang_united_autonomous_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_mongol_autonomous_state]:
+    available:
+      $MON->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MON)
+      +modifier:
+        $ai_rivalry_modifier($MON)
+      +modifier:
+        $ai_betrayal_modifier_vs($MON)
+
+  focus[id = JAP_invest_in_senbu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_reinforce_the_beijing_garrison]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($SHX) +
+          $opinion_factor($HBC) +
+          $opinion_factor($SND) +
+          $opinion_factor($XIC)) / 5
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($HBC)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($XIC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHI->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+
+  focus[id = JAP_strategic_offensives]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_intensify_anti_guerilla_operations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_reorganized_national_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_occupy_macau]:
+    available:
+      $POR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POR)
+      +modifier:
+        $ai_rivalry_modifier($POR)
+      +modifier:
+        $ai_betrayal_modifier_vs($POR)
+
+  focus[id = JAP_develop_the_chinese_resources]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_jikyoku_iinkai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_an_expedition_to_tibet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ally_the_dragon_king]:
+    available:
+      $not_rival_of_PREV($BHU)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($BHU)
+      +modifier:
+        factor(0)
+        $BHU in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_claim_the_raven_crown]:
+    available:
+      $BHU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BHU)
+      +modifier:
+        $ai_rivalry_modifier($BHU)
+      +modifier:
+        $ai_betrayal_modifier_vs($BHU)
+
+  focus[id = JAP_ally_the_gorkhas]:
+    available:
+      $not_rival_of_PREV($NEP)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($NEP)
+      +modifier:
+        factor(0)
+        $NEP in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_claim_the_scripech]:
+    available:
+      $NEP->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NEP)
+      +modifier:
+        $ai_rivalry_modifier($NEP)
+      +modifier:
+        $ai_betrayal_modifier_vs($NEP)
+
+  focus[id = JAP_ally_afghanistan]:
+    available:
+      $not_rival_of_PREV($AFG)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($AFG)
+      +modifier:
+        factor(0)
+        $AFG in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_best_the_graveyard]:
+    available:
+      $AFG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($AFG)
+      +modifier:
+        $ai_rivalry_modifier($AFG)
+      +modifier:
+        $ai_betrayal_modifier_vs($AFG)
+
+#VII. █▀▀▀ ▄▀▀▄ ▄▀▀▀ ▄▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+#     █▀▀  █▀▀█  ▀▀▄ █  ▄ █  ▀▀▄   █    ▀▀▄
+#     ▀    ▀  ▀ ▀▀▀   ▀▀  ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = JAP_imperial_headquarters_liasion_conference]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_east_asian_cooperative_society]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_promulgate_the_military_ministers_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_reprimand_hamada_kunimatsu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_the_harakiri_debate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_reiterate_the_three_principles_of_hirota]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_formalize_japan_china_manchukuo_alliance]:
+    available:
+      $PRC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PRC)
+      +modifier:
+        $ai_rivalry_modifier($PRC)
+      +modifier:
+        $ai_betrayal_modifier_vs($PRC)
+
+  focus[id = JAP_konoes_first_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_new_order_in_east_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_national_spiritual_mobliization_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_expand_the_showa_research_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_guide_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_great_japan_industrial_patriotic_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_cabinet_intelligence_bureau]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_found_the_great_japan_press_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_empower_the_thought_police]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_crackdown_on_foreign_agents]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_state_general_mobilization_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_issue_the_ten_commandments_for_marriage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_enact_religious_organizations_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_new_order_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_tripartite_pact]:
+    available:
+      $not_rival_of_PREV($ITA)
+      $not_rival_of_PREV($GER)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        factor(0)
+        or:
+          $ITA in rivals[]
+          $GER in rivals[]
+        is_sandbox_mode_on()
+      +modifier:
+        cooperation = 1 + ($opinion_factor($ITA) + $opinion_factor($GER)) / 2
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_sea_mil_tech_coop_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_imperial_rule_assistance_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_yokusan_sonendan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_national_defense_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_formalize_the_tonarigumi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_integrate_the_great_japan_youth_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ichioku_isshin]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_tojos_premiership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_yamamotos_premiership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_the_crysanthemum_throne]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_national_defense_brotherhood]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_supreme_council_for_direction_of_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_found_the_boeitai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_advance_one_hundred_million_fireballs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_joshi_teishin_tai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_metal_collection_order]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_dai_nippon_fujinkai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_fund_propaganda_films]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
+
+  focus[id = JAP_the_eternal_kingdom]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_found_the_air_defense_surveilance_corps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_issue_the_senjinkun_military_code]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_issue_the_shinmin_no_michi_manifesto]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_greater_east_asian_co_properity_sphere]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_expand_japan_manchukuo_economic_bloc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_develop_the_yen_bloc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_east_asia_development_board]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ministry_of_greater_east_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_flying_geese]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_greater_east_asia_railroad]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_promote_pan_asianism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#VIII. █▀▀▀ ▄▀▀▄ ▄▀▀▀▄ █▄  █ ▄▀▀▀▄ █▄ ▄█ ▀▄ ▄▀
+#      █▀▀  █  ▄ █   █ █ ▀▄█ █   █ █ ▀ █   █
+#      ▀▀▀▀  ▀▀   ▀▀▀  ▀   ▀  ▀▀▀  ▀   ▀   ▀
+  focus[id = JAP_ministry_of_commerce_and_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = JAP_ministry_of_colonial_affairs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_manchuria_five_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_eastern_road_and_steel_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_manchuria_airplane_manufacturing_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_sea_promote_japanese_settlement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_construct_the_sui_ho_dam]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_shuilikeng_power_plant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_develop_the_south_seas_mandate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_improve_agricultural_output]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_increase_crop_yields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_upgrade_the_oriental_development_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_build_up_korean_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_increase_agricultural_export]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_hydroelectric_dams_in_korea]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_prepare_for_peninsular_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_the_japanese_korean_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_continue_takahashi_korekiyos_policies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = JAP_increase_armament_spending]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = JAP_approach_mitsui]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_approach_mitsubishi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_approach_sumitomo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_approach_yasuda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_fund_the_riken_institute]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_build_the_nishotaki_and_miyanaka_dams]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_synthetic_fuel_joint_venture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_nippon_hassoden]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_new_industrial_city_development_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_housing_corporation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_ship_management_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_five_great_cities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_central_agricultural_association]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_danganressha]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_resource_security]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#IX. █▄ ▄█ █ █    █ ▀▀█▀▀ ▄▀▀▄ █▀▀▄ ▀▄ ▄▀
+#    █ ▀ █ █ █    █   █   █▀▀█ █▀▀▄   █
+#    ▀   ▀ ▀ ▀▀▀▀ ▀   ▀   ▀  ▀ ▀  ▀   ▀
+  focus[id = JAP_the_imperial_defense_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_expand_kawagoe_army_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_reform_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_rely_on_supremacy_of_the_will]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_rethink_armor_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_foreign_tank_modernization_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_domestic_tank_modernization_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_the_ultimate_tank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_prepare_the_northern_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_enact_the_national_conscription_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_instill_the_spirit_of_bushido]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_mountaineers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_army_weapons_administration_headquarters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_jungle_adaptation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_divert_naval_guns_to_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_pivot_towards_defensive_measures]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_strenghten_the_supply_lines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_ni_go_nuclear_project]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_adopt_new_assault_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_develop_lethal_infantry_equipment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_develop_sophisticated_artillery_equipment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_expand_the_irago_proving_ground]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_establish_showa_aircraft_idnsutry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_develop_new_fighters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_modern_bombers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_7075_aluminium_alloy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_escort_efficiency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_improve_the_type_91_aerial_torpedo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_sturdy_aircraft]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_long_operational_range]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_adopt_new_air_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_project_z_bomber_project]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_unify_the_air_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_the_divine_wind]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_improved_radio_communications]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_jet_prototypes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_rockets_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_combined_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_expand_hiratsuka_navy_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_expand_navy_technical_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_prepare_the_southern_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_focus_on_aircraft_carriers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_balanced_naval_approach]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_battleship_initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_yokosuka_naval_air_technical_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_establish_the_mine_warfare_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_akizuki_class_destroyers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_bigger_better_yamato]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_form_the_kido_butai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_sea_heavier_naval_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_naval_armaments_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_radio_guided_missiles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_assure_superior_naval_quality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_seek_strength_in_numbers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_nationalize_suzuka_naval_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_secure_the_sea_lanes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_fix_flawed_naval_designs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_nationalize_fujinagata_shipyards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_f_go_nuclear_project]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_combined_nuclear_research_efforts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = JAP_end_the_interservice_rivalry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+#X. █  █ ▄▀▀▄ ▄▀▀▀      █▄  █ ▄▀▀▀▄ ▀▀█▀▀      █▄  █ ▄▀▀▀▄      ▄▀▀▄ ▄▀▀▀▄ █▄ ▄█ █▀▀▄ █▀▀▄ ▄▀▀▀▄ █▄ ▄█ █ ▄▀▀▀ █▀▀▀      █▄  █ ▄▀▀▀▄      ▄▀▀▀ █  █ █▀▀▄ █▀▀▄ █▀▀▀ █▄  █ █▀▀▄ █▀▀▀ █▀▀▄
+#   █▀▀█ █▀▀█  ▀▀▄      █ ▀▄█ █   █   █        █ ▀▄█ █   █      █  ▄ █   █ █ ▀ █ █▀▀  █▀▀▄ █   █ █ ▀ █ █  ▀▀▄ █▀▀       █ ▀▄█ █   █       ▀▀▄ █  █ █▀▀▄ █▀▀▄ █▀▀  █ ▀▄█ █  █ █▀▀  █▀▀▄
+#   ▀  ▀ ▀  ▀ ▀▀▀       ▀   ▀  ▀▀▀    ▀        ▀   ▀  ▀▀▀        ▀▀   ▀▀▀  ▀   ▀ ▀    ▀  ▀  ▀▀▀  ▀   ▀ ▀ ▀▀▀  ▀▀▀▀      ▀   ▀  ▀▀▀       ▀▀▀   ▀▀  ▀  ▀ ▀  ▀ ▀▀▀▀ ▀   ▀ ▀▀▀  ▀▀▀▀ ▀  ▀
+  focus[id = JAP_the_unthinkable_option]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = mtth:communism_factor * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_approach_the_young_officers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_exchange_the_exiles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_open_up_the_universities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_cast_the_die]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_fate_of_the_imperial_family]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_rebuild_the_civil_service]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_reeducation_campaign]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_finish_the_fight]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = JAP_join_comintern]:
+    available:
+      $not_rival_of_PREV($SOV)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_red_brigades]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_communist_volunteers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_asian_communist_solidarity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = JAP_nationalize_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_people_owned_mines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_public_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_tokyo_aluminum_plant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strengthen_civilian_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = mtth:democracy_factor * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_ally_with_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_research_spending]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_pre_emptive_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_purge_the_militarists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = JAP_the_showa_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_west_pacific_treaty_organization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_rekindle_the_old_alliance]:
+    available:
+      $not_rival_of_PREV($ENG)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ENG)
+      +modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = JAP_pacific_guardian]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_anti_communist_bulwark]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_anti_communist_volunteers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_korean_question]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MAN)
+      +modifier:
+        $ai_rivalry_modifier($MAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($MAN)
+
+  focus[id = JAP_liberate_manchuria]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($SOV)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MAN, $SOV)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAN->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+
+  focus[id = JAP_ultimate_deterrence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_full_sovereignty_for_the_philippines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_support_the_kodoha_faction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:monarchy_factor + mtth:fascism_factor) * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = JAP_modern_shogunate]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_showa_restoration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_prepare_for_war_with_the_soviet_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_join_the_london_naval_treaty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_build_up_the_manchurian_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_non_aggression_pact_with_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_create_a_manchurian_imperial_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_technological_exchange]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_preemptive_war]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = JAP_german_rocketry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_challenge_the_zaibatsus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_national_mobilization_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_national_research_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_imperial_arsenals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_establish_the_northern_resource_area]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_national_defense_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_spiritual_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_warrior_spirit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_strengthen_the_divine_wind]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+#XI. █▀▀▀ █   █ █▀▀▀ █▀▀▄ ▀▄ ▄▀ ▀▀█▀▀ █  █ █ █▄  █ ▄▀▀▀       █▀▀▀ █    ▄▀▀▀ █▀▀▀
+#    █▀▀   █ █  █▀▀  █▀▀▄   █     █   █▀▀█ █ █ ▀▄█ █  ▀█      █▀▀  █     ▀▀▄ █▀▀ 
+#    ▀▀▀▀   ▀   ▀▀▀▀ ▀  ▀   ▀     ▀   ▀  ▀ ▀ ▀   ▀  ▀▀▀       ▀▀▀▀ ▀▀▀▀ ▀▀▀  ▀▀▀▀
+  focus[id = JAP_yatagarasus_guidance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_embodying_empress_jinguu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_to_reach_princess_kaguya]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_form_the_central_economic_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_to_rival_zheng_yi_sao]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_amaterasus_aramitama]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_solidify_tohokai_rule]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = JAP_the_koiso_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = JAP_the_war_has_not_necessarily_developed_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_japans_longest_day]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_surrender_broadcast]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_the_spirit_of_the_ikko_ikki]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = JAP_achieving_joubukkokudo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

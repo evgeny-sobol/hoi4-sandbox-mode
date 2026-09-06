@@ -1,0 +1,329 @@
+  shared_focus[id = NORDIC_form_joint_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  joint_focus[id = NORDIC_northern_command]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_political_cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_economic_union]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_shared_intelligence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_first_joint_institution]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_procurement_fund]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_second_institution]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_nordic_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_joint_military_exercises]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_unified_recruitment]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_mechanized_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_infantry_first]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_nordic_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_naval_exercises]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_naval_officer_academy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_defend_the_danish_belt]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_control_the_northern_sea]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_baltic_sea_dominance]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_naval_research_institute]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_submarine_cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(5)
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_mountaineers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(5)
+
+  joint_focus[id = NORDIC_amphibious_forces]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(5)
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_nordic_airforce]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_air_exercises]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = NORDIC_air_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_naval_aircraft]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_bomber_command]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_fighter_command]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_ground_operations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(5)
+
+  joint_focus[id = NORDIC_carrier_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(5)
+
+  joint_focus[id = NORDIC_nordic_research]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_materiel_design]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_nordic_construction_developments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_nordic_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_civilian_contributions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_fill_the_infrastructure_gaps]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_develop_resources]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_naval_construction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_railway_expansion]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_nordic_electronics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_research_investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_nuclear_research]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_nuclear_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_nordic_rocketry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_jet_engines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_nordic_military_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_standarized_parts]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = NORDIC_military_industry_hub]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_ad_hoc_military_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  joint_focus[id = NORDIC_equipment_conversion_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  joint_focus[id = NORDIC_machine_tools_research]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)

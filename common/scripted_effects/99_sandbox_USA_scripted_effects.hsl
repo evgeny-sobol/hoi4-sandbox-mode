@@ -1,0 +1,43 @@
+update_USA_national_focuses():
+  for watcher in every_country().which(original_tag($USA)):
+
+    # Helper for (focus) USA_seize_cuba `available` / AI
+    if not has_completed_focus(USA_seize_cuba):
+      &USA_seize_cuba_targets[].clear()
+      $add_state_owner_to_targets(USA_seize_cuba_targets, 315)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in USA_seize_cuba_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &USA_seize_cuba_antagonism = 1 - sum_f / n
+      else:
+        &USA_seize_cuba_antagonism = 1
+
+    # Helper for (focus) USA_pacific_decolonisation `available` / AI
+    if not has_completed_focus(USA_pacific_decolonisation):
+      &USA_pacific_decolonisation_targets[].clear()
+      for target in every_other_country().which(original_tag($INS)):
+        if is_subject():
+          watcher.&USA_pacific_decolonisation_targets[].add(target)
+      $add_state_owner_to_targets(USA_pacific_decolonisation_targets, 523)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in USA_pacific_decolonisation_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &USA_pacific_decolonisation_antagonism = 1 - sum_f / n
+      else:
+        &USA_pacific_decolonisation_antagonism = 1

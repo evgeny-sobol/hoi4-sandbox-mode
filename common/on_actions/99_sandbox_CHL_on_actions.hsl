@@ -1,0 +1,10 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $CHL->update_CHL_national_focuses()
+
+  on_weekly_CHL:
+    effect:
+      if is_sandbox_mode_on():
+        update_CHL_national_focuses()

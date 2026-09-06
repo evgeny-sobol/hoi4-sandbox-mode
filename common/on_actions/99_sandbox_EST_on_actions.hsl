@@ -1,0 +1,10 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $EST->update_EST_national_focuses()
+
+  on_weekly_EST:
+    effect:
+      if is_sandbox_mode_on():
+        update_EST_national_focuses()

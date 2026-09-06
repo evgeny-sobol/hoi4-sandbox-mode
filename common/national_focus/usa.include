@@ -1,0 +1,1051 @@
+focus_tree[id = usa_focus]:
+# ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀█
+# █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       █
+#  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀        ▀
+  focus[id = USA_continue_the_new_deal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = 2 * (mtth:democracy_factor + mtth:communism_factor) /
+          (2 * mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = USA_reestablish_the_gold_standard]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = 2 * (mtth:democracy_factor + mtth:fascism_factor) /
+          (2 * mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
+        factor(f)
+        is_sandbox_mode_on()
+
+# ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
+# █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀ 
+#  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀▀
+  focus[id = USA_limited_intervention]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_neutrality_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_suspend_the_presecution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor
+        factor(f)
+
+  focus[id = USA_union_representation_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 4 * mtth:communism_factor /
+          (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = USA_america_first]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+
+  focus[id = USA_ally_with_the_silver_shirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 4 * mtth:fascism_factor /
+          (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
+        factor(f)
+        is_sandbox_mode_on()
+
+# ▄▀▀▄ █▀▀▀ █▄  █ ▀▀█▀▀ █▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █  ▄ █▀▀  █ ▀▄█   █   █▀▀▄ █  ▀▀▄   █    ▀▀▄
+#  ▀▀  ▀▀▀▀ ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀ 
+  focus[id = USA_wpa]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_agricultural_adjustment_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_fair_labour_standards_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_federal_housing_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_office_of_scientific_research_and_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_rubber_reserve_company]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_war_propaganda]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+      modifier:
+        $ai_mic_modifier()
+    completion_reward:
+      $add_tyranny(10)
+
+  focus[id = USA_focus_on_europe]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_office_of_strategic_services]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_focus_on_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_magic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_black_chamber]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_scientist_haven]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_manhattan_project]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_lend_lease_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_arsenal_of_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_the_giant_wakes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_wartime_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_military_construction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_USACE_projects]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_adjusted_compensation_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_labour_management_relations_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_protectionist_tariffs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_income_tax_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_institute_of_american_sciences]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █    █▀▀▀ █▀▀▀ ▀▀█▀▀ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █    █▀▀  █▀▀    █   █  ▀▀▄   █    ▀▀▄
+# ▀▀▀▀ ▀▀▀▀ ▀      ▀   ▀ ▀▀▀    ▀   ▀▀▀ 
+  focus[id = USA_desegregate_the_armed_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_full_desegregation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_democratic_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_liberty_for_the_philippines]:
+    available:
+      $not_rival_of_PREV($PHI)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($PHI)
+      +modifier:
+        factor(0)
+        $PHI in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = USA_pacific_decolonisation]:
+    available:
+      var:USA_pacific_decolonisation_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:USA_pacific_decolonisation_targets[1]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(USA_pacific_decolonisation_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.USA_pacific_decolonisation_targets[]
+          is_friend_of_ROOT()
+
+  focus[id = USA_old_age_pension_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_accumulated_wealth_tax_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_guarantee_the_american_dream]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_worker_management_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_militia_organization_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_communal_property_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_reintegration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_reach_out_to_the_ware_group]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_us_ussr_economic_cooperation]:
+    available:
+      $SOV->is_rival_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = USA_unholy_alliance]:
+    available:
+      $SOV->is_rival_of_PREV(no)
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        cooperation = $opinion_factor($SOV) /
+          ($opinion_factor($SOV) + $opinion_factor($PRC))
+        factor(cooperation)
+        is_sandbox_mode_on()
+      modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = USA_secure_china]:
+    available:
+      $PRC->is_rival_of_PREV(no)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        cooperation = $opinion_factor($PRC) /
+          ($opinion_factor($SOV) + $opinion_factor($PRC))
+        factor(cooperation)
+        is_sandbox_mode_on()
+      +modifier:
+        factor(0)
+        $PRC in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = USA_end_monarchism]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $HUN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
+      $MAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($GER) +
+          $opinion_factor($HUN) +
+          $opinion_factor($JAP) +
+          $opinion_factor($MAN)) / 5
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($HUN)
+        $rivalry_vs_into($JAP)
+        $rivalry_vs_into($MAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
+          $HUN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
+          $MAN->is_friend_of_PREV()
+
+  focus[id = USA_shatter_the_empires]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █▀▀▄ █ ▄▀▀▀  █  █ ▀▀█▀▀ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █▀▀▄ █ █  ▀█ █▀▀█   █   █  ▀▀▄   █    ▀▀▄
+# ▀  ▀ ▀  ▀▀▀  ▀  ▀   ▀   ▀ ▀▀▀    ▀   ▀▀▀ 
+  focus[id = USA_extend_the_chinese_exclusion_acts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_empower_the_huac]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_voter_registration_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_national_prosperity_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_privatize_the_TVA]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_de_regulate_the_banking_sector]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_national_employment_strategy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_invite_foreign_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_send_lindbergh_to_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_work_with_the_bund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_recruit_the_free_corps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_honor_the_confederacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_war_powers_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_seize_cuba]:
+    available:
+      var:USA_seize_cuba_targets[0]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(USA_seize_cuba_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.USA_seize_cuba_targets[]
+          is_friend_of_ROOT()
+
+  focus[id = USA_eliminate_the_southern_threat]:
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+
+  focus[id = USA_manifest_destiny]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_the_canadian_corridor]:
+    available:
+      $CAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_rivalry_modifier($CAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($CAN)
+
+  focus[id = USA_north_american_dominion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_strategic_interests]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_protect_south_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_pacific_pacification]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_secure_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = USA_global_hegemony]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █   █ ▄▀▀▄ █▀▀▄      █▀▀▄ █    ▄▀▀▄ █▄  █ ▄▀▀▀      █▀▀▄ █ █   █ █ ▄▀▀▀ █ ▄▀▀▀▄ █▄  █
+# █ ▄ █ █▀▀█ █▀▀▄      █▀▀  █    █▀▀█ █ ▀▄█  ▀▀▄      █  █ █  █ █  █  ▀▀▄ █ █   █ █ ▀▄█
+#  ▀ ▀  ▀  ▀ ▀  ▀      ▀    ▀▀▀▀ ▀  ▀ ▀   ▀ ▀▀▀       ▀▀▀  ▀   ▀   ▀ ▀▀▀  ▀  ▀▀▀  ▀   ▀
+  focus[id = USA_war_plans_division]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_intervention_in_the_americas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_green]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_reinforce_monroe_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_gray]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_hemisphere_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+      +modifier:
+        cooperation = 1 + ($opinion_factor($ARG) + $opinion_factor($BOL) +
+          $opinion_factor($BRA) +
+          $opinion_factor($CAN) +
+          $opinion_factor($CHL) +
+          $opinion_factor($COL) +
+          $opinion_factor($COS) +
+          $opinion_factor($CUB) +
+          $opinion_factor($DOM) +
+          $opinion_factor($ECU) +
+          $opinion_factor($ELS) +
+          $opinion_factor($GUA) +
+          $opinion_factor($HAI) +
+          $opinion_factor($HON) +
+          $opinion_factor($MEX) +
+          $opinion_factor($NIC) +
+          $opinion_factor($PAN) +
+          $opinion_factor($PAR) +
+          $opinion_factor($PRU) +
+          $opinion_factor($URG) +
+          $opinion_factor($VEN)) / 21
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  focus[id = USA_war_plan_crimson]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_intervention_in_europe]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_gold]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_silver]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_black]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_destroyers_for_bases]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_white]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_anti_bolshevist_aid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_red]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_ruby]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_scarlet_garnet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_intervention_in_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_orange]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_war_plan_yellow]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_defense_of_the_pacific]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($JAP)
+      modifier:
+        $ai_rivalry_modifier($JAP)
+      modifier:
+        $ai_betrayal_modifier_vs($JAP)
+
+# █   █ ▄▀▀▄ █▀▀▄      █▀▀▄ █▀▀▀ █▀▀▄ ▄▀▀▄ █▀▀▄ ▀▀█▀▀ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
+# █ ▄ █ █▀▀█ █▀▀▄      █  █ █▀▀  █▀▀  █▀▀█ █▀▀▄   █   █ ▀ █ █▀▀  █ ▀▄█   █  
+#  ▀ ▀  ▀  ▀ ▀  ▀      ▀▀▀  ▀▀▀▀ ▀    ▀  ▀ ▀  ▀   ▀   ▀   ▀ ▀▀▀▀ ▀   ▀   ▀  
+  focus[id = USA_war_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_build_the_pentagon]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_department_of_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_selective_training_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_first_special_service_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_louisiana_maneuvers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_airborne_divisions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_army_of_the_united_states]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_womens_armed_service_integration_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_support_rock_island]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_tank_experiments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_tank_destroyer_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_main_battle_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_armored_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_air_war_plans_division]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_air_support]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_strategic_bombing]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_CAS]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_TAC]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_us_army_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_escort_fighters]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_combined_bomber_offensive]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_us_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_two_ocean_navy_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_maritime_commission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_liberty_ships]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_bureau_of_ships]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_battleship_primacy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_advanced_mahanian_doctrine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_advanced_basing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_carrier_primacy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_bureau_of_aeronautics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_naval_radar]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_escort_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_convoy_tactics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_fleet_submarines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_unrestricted_submarine_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_fund_the_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_expand_the_USMC]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = USA_amphibious_operations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()

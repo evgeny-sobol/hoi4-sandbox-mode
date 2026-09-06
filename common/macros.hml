@@ -1,0 +1,336 @@
+# game.log line for GDD checklists. Grep `#sandbox`. Callers set
+# sandbox_log_old / _new / _delta, and optionally sandbox_log_other (tag)
+# and sandbox_log_slot (rivals 0–2, else −1). Monthly drift (|d| < 2) is
+# not logged from $add_honor / $add_tyranny.
+macro sandbox_log(_event_):
+  if is_sandbox_mode_on():
+    if sandbox_log_other != 0:
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] other=[?sandbox_log_other.GetTag] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    else:
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+  sandbox_log_other = 0
+  sandbox_log_slot = -1
+
+macro add_honor(_var_, _event_ = honor_change):
+  hidden_effect:
+    if _var_ != 0:
+      sandbox_log_old = honor
+      &prev_honor = honor
+      &honor = clamp(honor + _var_, -100, 100)
+      sandbox_log_new = honor
+      sandbox_log_delta = _var_
+      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+        $sandbox_log(_event_)
+      else:
+        sandbox_log_other = 0
+        sandbox_log_slot = -1
+      update_country_leader_traits()
+  custom_effect_tooltip:
+    localization_key(LocKey_honor_change_tt)
+    VALUE(_var_)
+
+macro add_tyranny(_var_, _event_ = tyranny_focus):
+  hidden_effect:
+    if _var_ != 0:
+      sandbox_log_old = tyranny
+      &prev_tyranny = tyranny
+      &tyranny = clamp(tyranny + _var_, -100, 100)
+      sandbox_log_new = tyranny
+      sandbox_log_delta = _var_
+      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+        $sandbox_log(_event_)
+      else:
+        sandbox_log_other = 0
+        sandbox_log_slot = -1
+      update_country_leader_traits()
+  custom_effect_tooltip:
+    localization_key(LocKey_tyranny_change_tt)
+    VALUE(_var_)
+
+macro rival_base(_country_):
+  allowed:
+    always()
+  enable:
+    _country_ in rivals[]
+    is_sandbox_mode_on()
+  abort_when_not_enabled()
+  ai_strategy:
+    type(antagonize)
+    id(_country_)
+    value(200)
+  ai_strategy:
+    type(alliance)
+    id(_country_)
+    value(-200)
+  ai_strategy:
+    type(befriend)
+    id(_country_)
+    value(-200)
+
+macro rival_contain(_country_):
+  allowed:
+    always()
+  enable:
+    is_sandbox_mode_on()
+    OR:
+      AND:
+        rivals[0] == _country_
+        rivalry[0] >= 25
+      AND:
+        rivals[1] == _country_
+        rivalry[1] >= 25
+      AND:
+        rivals[2] == _country_
+        rivalry[2] >= 25
+  abort_when_not_enabled()
+  ai_strategy:
+    type(contain)
+    id(_country_)
+    value(100)
+
+macro rival_feud(_country_):
+  allowed:
+    always()
+  enable:
+    is_sandbox_mode_on()
+    OR:
+      AND:
+        rivals[0] == _country_
+        rivalry[0] >= 75
+      AND:
+        rivals[1] == _country_
+        rivalry[1] >= 75
+      AND:
+        rivals[2] == _country_
+        rivalry[2] >= 75
+  abort_when_not_enabled()
+  ai_strategy:
+    type(conquer)
+    id(_country_)
+    value(100)
+  ai_strategy:
+    type(prepare_for_war)
+    id(_country_)
+    value(100)
+
+macro ideology_factor(_ideology_):
+  base(0)
+  modifier:
+    add(party_popularity@_ideology_)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+macro is_friend_of(_country_):
+  custom_override_tooltip:
+    tooltip(LocKey_is_friend_of_{_country_}_tt)
+    OR:
+      is_ally_with(_country_)
+      is_guaranteed_by(_country_)
+      has_non_aggression_pact_with(_country_)
+
+macro is_rival_of(_country_):
+  custom_override_tooltip:
+    tooltip(LocKey_is_rival_of_{_country_}_tt)
+    OR:
+      has_war_with(_country_)
+      THIS in _country_.rivals[]
+      _country_ in THIS.rivals[]
+
+macro ai_sandbox_modifier():
+  factor(0)
+  add(40)
+  is_sandbox_mode_on()
+
+# Same-block set. A lone `factor(0)` in another modifier zeroes the whole
+# ai_will_do, including later `add` — aiview stays at 0.
+macro ai_sandbox_set(_n_):
+  factor(0)
+  add(_n_)
+  is_sandbox_mode_on()
+
+#DEPRECATED
+macro basic_modifier():
+  $ai_sandbox_modifier()
+
+macro root_modifier():
+  factor(1.5)
+  is_sandbox_mode_on()
+
+macro crossroad_modifier(_number_of_choices_):
+  f = 1 / _number_of_choices_
+  factor(f)
+  is_sandbox_mode_on()
+
+macro opinion_factor(_tag_):
+  clamp(opinion@_tag_ / 100, -1.0, 1.0)
+
+macro ai_cooperation_modifier(_tag_):
+  cooperation = 1 + $opinion_factor(_tag_)
+  factor(cooperation)
+  is_sandbox_mode_on()
+
+macro ai_antagonism_modifier(_tag_):
+  antagonism = 1 - $opinion_factor(_tag_)
+  factor(antagonism)
+  is_sandbox_mode_on()
+
+# MIC means Military-Industrial Complex
+macro ai_mic_modifier():
+  mic = 1 + mtth:world_tension_factor
+  factor(mic)
+  is_sandbox_mode_on()
+
+macro ai_war_support_modifier():
+  factor(has_war_support)
+  is_sandbox_mode_on()
+
+# One slot per state (duplicates kept for focus tooltips).
+# Nested `state = { owner = { } }` is not an HSL loop, so `watcher` still
+# resolves to THIS (the owner). The focus country is PREV.PREV.
+macro add_state_owner_to_targets(targets_, state_id_):
+  state_id_:
+    owner:
+      PREV.PREV.&targets_[].add(THIS)
+
+macro add_country_to_targets(targets_, _tag_):
+  _tag_:
+    PREV.&targets_[].add(THIS)
+
+# Removes a non-aggression pact and applies the Honor −50 betrayal cost.
+macro break_non_aggression_pact_with(_tag_):
+  diplomatic_relation:
+    country(_tag_)
+    relation(non_aggression_pact)
+    active(no)
+  sandbox_log_other = _tag_
+  $add_honor(-50, honor_break_pact_focus)
+  &na_pacts[].erase(_tag_)
+  &prev_na_pacts[].erase(_tag_)
+
+# Scale betrayal focuses: Treacherous (honor −100) → 1, Inglorious at 24 → ~0.
+# Extra triggers in the same modifier (friend checks) AND with this body.
+macro ai_betrayal_modifier():
+  betrayal = clamp((25 - honor) / 125, 0, 1)
+  factor(betrayal)
+  is_sandbox_mode_on()
+
+# `country_exists` first: _tag_ may be a tag alias (SPA, SOU, VIC...) that
+# resolves to None until its country appears; entering such a scope logs
+# "Invalid Scope" in error.log.
+macro ai_betrayal_modifier_vs(_tag_):
+  $ai_betrayal_modifier()
+  country_exists(_tag_)
+  _tag_->is_friend_of_PREV()
+
+# Alias-safe form of `_tag_->can_PREV_get_wargoal_on_THIS()`. A country that
+# does not exist (or an alias that does not resolve) cannot be a friend, so
+# the focus is not blocked by it.
+macro can_get_wargoal_on(_tag_):
+  OR:
+    not country_exists(_tag_)
+    _tag_->can_PREV_get_wargoal_on_THIS()
+
+macro ai_high_tyranny_tilt():
+  f = 1 + mtth:high_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_low_tyranny_tilt():
+  f = 1 + mtth:low_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_high_tyranny_fork():
+  f = 0.5 + mtth:high_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_low_tyranny_fork():
+  f = 0.5 + mtth:low_tyranny_factor
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_medium_tyranny_fork():
+  factor(mtth:medium_tyranny_factor)
+  is_sandbox_mode_on()
+
+# Clamp and détente. The only writer of rivalry[i] besides set_rival/clear_rival.
+macro add_rivalry(_slot_, _var_):
+  if _var_ != 0:
+    # Read the element into a temp first: array indices inside math
+    # expressions are not trusted by the game's expression parser.
+    cur_rivalry = rivalry[_slot_]
+    new_rivalry = clamp(cur_rivalry + _var_, 0, 100)
+    &rivalry[_slot_] = new_rivalry
+    sandbox_log_delta = _var_
+    # Skip monthly ±1/±2; log discrete +15/+25/−50 and similar.
+    if sandbox_log_delta >= 10 or sandbox_log_delta <= -10:
+      sandbox_log_old = cur_rivalry
+      sandbox_log_new = new_rivalry
+      sandbox_log_slot = _slot_
+      sandbox_log_other = rivals[_slot_]
+      $sandbox_log(rivals_intensity)
+    if rivalry[_slot_] == 0:
+      rival_slot = _slot_
+      sandbox_clear_kind = 4
+      clear_rival()
+    elif sandbox_log_delta < 10 and sandbox_log_delta > -10:
+      # Monthly ±1/±2: log only band crossings (Cold 25 / Feud 75).
+      if cur_rivalry < 75 and new_rivalry >= 75:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_feud)
+      elif cur_rivalry >= 25 and new_rivalry < 25:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_cold)
+      elif cur_rivalry < 25 and new_rivalry >= 25:
+        sandbox_log_old = cur_rivalry
+        sandbox_log_new = new_rivalry
+        sandbox_log_delta = _var_
+        sandbox_log_slot = _slot_
+        sandbox_log_other = rivals[_slot_]
+        $sandbox_log(rivals_rival_band)
+
+# Highest rivalry among slots holding _tag_ (0 if none). ai_will_do trigger
+# context: temps + if, no scripted effect.
+macro rivalry_vs_into(_tag_):
+  if rivals[0] == _tag_:
+    if rivalry[0] > rivalry_vs:
+      rivalry_vs = rivalry[0]
+  if rivals[1] == _tag_:
+    if rivalry[1] > rivalry_vs:
+      rivalry_vs = rivalry[1]
+  if rivals[2] == _tag_:
+    if rivalry[2] > rivalry_vs:
+      rivalry_vs = rivalry[2]
+
+macro ai_rivalry_modifier(_tag_):
+  rivalry_vs = 0
+  $rivalry_vs_into(_tag_)
+  f = 1 + rivalry_vs / 50
+  factor(f)
+  is_sandbox_mode_on()
+
+macro ai_rivalry_modifier_max(_tag1_, _tag2_):
+  rivalry_vs = 0
+  $rivalry_vs_into(_tag1_)
+  $rivalry_vs_into(_tag2_)
+  f = 1 + rivalry_vs / 50
+  factor(f)
+  is_sandbox_mode_on()
+
+# Cooperation available-gate. country_exists first so tag aliases do not
+# log Invalid Scope.
+macro not_rival_of_PREV(_tag_):
+  OR:
+    not country_exists(_tag_)
+    _tag_->is_rival_of_PREV(no)

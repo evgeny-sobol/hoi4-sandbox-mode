@@ -1,0 +1,59 @@
+update_COG_national_focuses():
+  for watcher in every_country().which(original_tag($COG)):
+
+    if not has_completed_focus(COG_uniao_dos_povos_do_norte_de_angola):
+      &COG_uniao_dos_povos_do_norte_de_angola_targets[].clear()
+      $add_state_owner_to_targets(COG_uniao_dos_povos_do_norte_de_angola_targets, 540)
+      $add_state_owner_to_targets(COG_uniao_dos_povos_do_norte_de_angola_targets, 796)
+      $add_state_owner_to_targets(COG_uniao_dos_povos_do_norte_de_angola_targets, 892)
+      $add_state_owner_to_targets(COG_uniao_dos_povos_do_norte_de_angola_targets, 891)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in COG_uniao_dos_povos_do_norte_de_angola_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &COG_uniao_dos_povos_do_norte_de_angola_antagonism = 1 - sum_f / n
+      else:
+        &COG_uniao_dos_povos_do_norte_de_angola_antagonism = 1
+
+    if not has_completed_focus(CONGO_great_war_of_africa):
+      &CONGO_great_war_of_africa_targets[].clear()
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 891)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 892)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 540)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 796)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 295)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 888)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 889)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 890)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 538)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 718)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 769)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 768)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 772)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 539)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 297)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 705)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 773)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 660)
+      $add_state_owner_to_targets(CONGO_great_war_of_africa_targets, 774)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in CONGO_great_war_of_africa_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &CONGO_great_war_of_africa_antagonism = 1 - sum_f / n
+      else:
+        &CONGO_great_war_of_africa_antagonism = 1

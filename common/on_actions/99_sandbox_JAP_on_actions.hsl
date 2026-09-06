@@ -1,0 +1,10 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $JAP->update_JAP_national_focuses()
+
+  on_weekly_JAP:
+    effect:
+      if is_sandbox_mode_on():
+        update_JAP_national_focuses()

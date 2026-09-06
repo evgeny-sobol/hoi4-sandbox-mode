@@ -1,0 +1,608 @@
+focus_tree[id = lithuania_tree]:
+  focus[id = LIT_secure_a_loyal_cabinet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = LIT_rastikis_military_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_patriotic_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_soviet_mutual_assistance]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+
+  focus[id = LIT_victory_in_trust]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_integrate_the_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_patriotic_socialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_peace_with_poland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_strength_in_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_restore_public_elections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_indivisible_power_of_the_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_purge_popular_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = LIT_anti_communist_militia]:
+    available:
+      $LIT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
+        $ai_betrayal_modifier_vs($LIT)
+
+  focus[id = LIT_arrest_nazis_in_memel]:
+    available:
+      $LIT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($LIT)
+      +modifier:
+        $ai_rivalry_modifier($LIT)
+      +modifier:
+        $ai_betrayal_modifier_vs($LIT)
+
+  focus[id = LIT_reminder_of_true_enemy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_prepare_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_underground_production_centers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_infiltrate_homeland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_appease_soviets]:
+    available:
+      $can_get_wargoal_on($SOU)
+      $LIT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SOU) + $opinion_factor($LIT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($SOU, $LIT)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          and:
+            country_exists($SOU)
+            $SOU->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+
+  focus[id = LIT_appease_nazis]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $LIT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($LIT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $LIT)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+
+  focus[id = LIT_offer_military_basing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_occupation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_free_voldemares]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_lithuanian_activist_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_organize_the_iron_wolf]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_new_kind_of_iron_wolf]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_lithuanian_youth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_rapid_fortifications_in_the_east]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_defence_from_above]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_unify_the_military]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_seek_ties_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LIT_fortify_memel]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_proclaim_greater_lithuania]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_claim_livonia]:
+    available:
+      $LAT->can_PREV_get_wargoal_on_THIS()
+      $EST->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($LAT) + $opinion_factor($EST)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($LAT, $EST)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAT->is_friend_of_PREV()
+          $EST->is_friend_of_PREV()
+
+  focus[id = LIT_claim_lithuania_minor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_demand_vilnius]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_support_polish_fascists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_invade_poland]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+
+  focus[id = LIT_request_polish_occupation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_restore_order]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+
+  focus[id = LIT_restore_greater_lithuania]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_exile_voldemares]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LIT_root_out_the_iron_wolf]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_prepare_forest_brothers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_lithuanian_preservationism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_the_nation_and_its_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_state_media]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_exploit_the_international_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_presidential_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_a_corporatist_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_a_martial_prime_minister]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_the_nationalist_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_expand_military_budget]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_martial_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = LIT_merge_the_military_and_civilian_governments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_a_priestly_prime_minister]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_peasants_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_enforce_military_rule]:
+    available:
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+
+  focus[id = LIT_beyond_the_baltic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LIT_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_formalize_baltic_entente]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_look_north]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_baltic_economic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_baltic_defence_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_pan_baltic_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_propose_baltic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_baltic_stronger_together]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_baltic_unification]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = LIT_a_king_for_our_people]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:monarchy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = LIT_institute_royal_guards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_a_new_noble_class]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_abolish_the_presidency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_support_monarchism_in_POL]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_arm_monarchist_militants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_king_of_poland]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+
+  focus[id = LIT_POL_union]:
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+
+  focus[id = LIT_expand_lithuanian_shipyards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_lithuanian_rail]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_merge_the_arms_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_merge_civilian_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_push_for_ruthenia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_warsaw_to_crimea_railway]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_claim_livonia_monarchy]:
+    available:
+      $EST->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($EST, $LAT)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+
+  focus[id = LIT_claim_prussia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = LIT_claim_greater_lithuania]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = LIT_greater_commonwealth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

@@ -1,0 +1,898 @@
+focus_tree[id = mexico_focus_tree]:
+  focus[id = MEX_focus_plan_of_agua_prieta]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = MEX_focus_exile_calles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_jefe_maximo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_national_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = MEX_focus_agricultural_credit_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_confederation_of_mexican_workers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_rent_freeze]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_ejido_worker_militias]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_party_of_the_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_rural_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_peripheral_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_rural_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_liberalize_the_banking_sector]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_strike_breaking]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_urban_development]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_cientifico_camarilla]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_end_land_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_privatization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_caudillo_private_armies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_support_general_cedillo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_oil_field_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_royal_dutch_shell]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_oil_revenue_reinvestment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_capital_reserves]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_community_of_nations]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
+
+  focus[id = MEX_focus_purchase_belize]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_nationalize_the_oil_fields]:
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+
+  focus[id = MEX_focus_northern_steel_plants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_german_resource_exchange]:
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+
+  focus[id = MEX_focus_new_world_order]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = MEX_focus_oppose_yanqui_imperialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = MEX_focus_international_proletarianism]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = MEX_focus_interior_defence_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_compensation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = MEX_focus_liberty_and_justice_for_all]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+
+  focus[id = MEX_focus_aztec_eagles]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+
+  focus[id = MEX_focus_international_peacekeepers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_purge_the_bureaucracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = MEX_focus_institutional_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_arrest_general_cedillo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_control_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_repeal_the_calles_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_abolish_capital_punishment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_enforce_the_calles_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_triumph_over_the_cristeros]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_state_education]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_xefo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_law_on_industrial_promotion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_nafinsa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_engineering_school]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_television_innovators]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_antidisestablishmentarianism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_rewrite_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_knights_of_columbus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_catholic_politics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_social_catholicism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_legion_of_christ]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_crusade_against_atheism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_triumph_of_synarchism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_church_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_synarchist_communes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_reform_the_cristero_guard]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_synarchist_youth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_ban_political_militias]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_revolutionary_women]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_womens_suffrage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_soldaderas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_depoliticised_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_professional_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_legacy_of_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_the_gold_shirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_revanchist_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_the_red_shirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_communist_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_hispanic_culture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_revolutionary_class_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_international_struggle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_spanish_civil_war_refugees]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_falangist_veterans]:
+    available:
+      $can_get_wargoal_on($SPA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPA)
+      +modifier:
+        $ai_rivalry_modifier($SPA)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPA)
+
+  focus[id = MEX_focus_support_spains_loyalists]:
+    available:
+      $can_get_wargoal_on($SPD)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPD)
+      +modifier:
+        $ai_rivalry_modifier($SPD)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPD)
+
+  focus[id = MEX_focus_hispanic_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:communism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = MEX_focus_propaganda_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
+
+  focus[id = MEX_focus_invite_brazil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_realpolitik]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = MEX_focus_bolivarian_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:communism_factor + mtth:monarchy_factor) / (mtth:fascism_factor + 2 * mtth:monarchy_factor + mtth:communism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = MEX_focus_smash_the_bureaucrats]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = MEX_focus_liberate_the_antilles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_one_world_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_coastal_defence_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_march_southwards]:
+    available:
+      $GUA->can_PREV_get_wargoal_on_THIS()
+      $HON->can_PREV_get_wargoal_on_THIS()
+      $ELS->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GUA) + $opinion_factor($HON) + $opinion_factor($ELS)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GUA)
+        $rivalry_vs_into($HON)
+        $rivalry_vs_into($ELS)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GUA->is_friend_of_PREV()
+          $HON->is_friend_of_PREV()
+          $ELS->is_friend_of_PREV()
+
+  focus[id = MEX_focus_unify_centroamerica]:
+    available:
+      $NIC->can_PREV_get_wargoal_on_THIS()
+      $COS->can_PREV_get_wargoal_on_THIS()
+      $PAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($NIC) + $opinion_factor($COS) + $opinion_factor($PAN)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($NIC)
+        $rivalry_vs_into($COS)
+        $rivalry_vs_into($PAN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NIC->is_friend_of_PREV()
+          $COS->is_friend_of_PREV()
+          $PAN->is_friend_of_PREV()
+
+  focus[id = MEX_focus_liberate_the_caribbean]:
+    available:
+      $CUB->can_PREV_get_wargoal_on_THIS()
+      $DOM->can_PREV_get_wargoal_on_THIS()
+      $HAI->can_PREV_get_wargoal_on_THIS()
+      $BAH->can_PREV_get_wargoal_on_THIS()
+      $BAS->can_PREV_get_wargoal_on_THIS()
+      $JAM->can_PREV_get_wargoal_on_THIS()
+      $PUE->can_PREV_get_wargoal_on_THIS()
+      $CRC->can_PREV_get_wargoal_on_THIS()
+      $TRI->can_PREV_get_wargoal_on_THIS()
+      $GDL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI) + $opinion_factor($BAH) + $opinion_factor($BAS) + $opinion_factor($JAM) + $opinion_factor($PUE) + $opinion_factor($CRC) + $opinion_factor($TRI) + $opinion_factor($GDL)) / 10
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CUB)
+        $rivalry_vs_into($DOM)
+        $rivalry_vs_into($HAI)
+        $rivalry_vs_into($BAH)
+        $rivalry_vs_into($BAS)
+        $rivalry_vs_into($JAM)
+        $rivalry_vs_into($PUE)
+        $rivalry_vs_into($CRC)
+        $rivalry_vs_into($TRI)
+        $rivalry_vs_into($GDL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CUB->is_friend_of_PREV()
+          $DOM->is_friend_of_PREV()
+          $HAI->is_friend_of_PREV()
+          $BAH->is_friend_of_PREV()
+          $BAS->is_friend_of_PREV()
+          $JAM->is_friend_of_PREV()
+          $PUE->is_friend_of_PREV()
+          $CRC->is_friend_of_PREV()
+          $TRI->is_friend_of_PREV()
+          $GDL->is_friend_of_PREV()
+
+  focus[id = MEX_focus_integrate_the_caribbean]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_push_past_the_darien_gap]:
+    available:
+      $COL->can_PREV_get_wargoal_on_THIS()
+      $ECU->can_PREV_get_wargoal_on_THIS()
+      $VEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($COL) + $opinion_factor($ECU) + $opinion_factor($VEN)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($COL)
+        $rivalry_vs_into($ECU)
+        $rivalry_vs_into($VEN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $COL->is_friend_of_PREV()
+          $ECU->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
+
+  focus[id = MEX_focus_andean_offensive]:
+    available:
+      $ARG->can_PREV_get_wargoal_on_THIS()
+      $CHL->can_PREV_get_wargoal_on_THIS()
+      $URG->can_PREV_get_wargoal_on_THIS()
+      $PAR->can_PREV_get_wargoal_on_THIS()
+      $BOL->can_PREV_get_wargoal_on_THIS()
+      $PRU->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL) + $opinion_factor($URG) + $opinion_factor($PAR) + $opinion_factor($BOL) + $opinion_factor($PRU)) / 6
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ARG)
+        $rivalry_vs_into($CHL)
+        $rivalry_vs_into($URG)
+        $rivalry_vs_into($PAR)
+        $rivalry_vs_into($BOL)
+        $rivalry_vs_into($PRU)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ARG->is_friend_of_PREV()
+          $CHL->is_friend_of_PREV()
+          $URG->is_friend_of_PREV()
+          $PAR->is_friend_of_PREV()
+          $BOL->is_friend_of_PREV()
+          $PRU->is_friend_of_PREV()
+
+  focus[id = MEX_focus_seize_the_panama_canal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = MEX_focus_integrate_the_south]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_fortify_the_canal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_rescind_the_mexican_cession]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+
+  focus[id = MEX_focus_redeem_aztlan]:
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+
+  focus[id = MEX_focus_military_budget_review]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_gulf_coast_naval_yards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_pacific_coast_naval_yards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_brown_water_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_blue_water_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_raiding_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_heroic_military_college]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_weapons_modernisation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_tank_workshops]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_aviation_workshops]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_military_aviation_specialists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_army_expansion_programme]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = MEX_focus_heavy_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = MEX_focus_aerial_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)

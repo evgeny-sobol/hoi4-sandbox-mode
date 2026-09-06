@@ -1,0 +1,12 @@
+ENG_sandbox_strategy_plan_common:
+  allowed:
+    original_tag($ENG)
+  enable:
+    is_sandbox_mode_on()
+  abort_when_not_enabled()
+  weight:
+    factor(1)
+
+  raw ai_national_focuses: {
+    crypto_bomb_focus
+  }

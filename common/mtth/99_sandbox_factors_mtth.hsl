@@ -1,0 +1,72 @@
+# █   █ ▄▀▀▀▄ █▀▀▄ █    █▀▀▄      █▀▀▀ ▄▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▄ ▄▀▀▀
+# █ ▄ █ █   █ █▀▀▄ █    █  █      █▀▀  █▀▀█ █  ▄   █   █   █ █▀▀▄  ▀▀▄
+#  ▀ ▀   ▀▀▀  ▀  ▀ ▀▀▀▀ ▀▀▀       ▀    ▀  ▀  ▀▀    ▀    ▀▀▀  ▀  ▀ ▀▀▀ 
+world_tension_factor:
+  base(-0.75)
+  modifier:
+    # `threat` is global-scoped; a bare name is read as a country var and stays 0.
+    wt_bonus = 0.75 * global.threat
+    add(wt_bonus)
+    has_government(democratic | neutrality)
+    not has_country_leader_ideology(japan_militarism_ideology)
+    is_sandbox_mode_on()
+  modifier:
+    add(0.75)
+    or:
+      has_government(communism | fascism)
+      has_country_leader_ideology(japan_militarism_ideology)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+# █ █▀▀▄ █▀▀▀ ▄▀▀▀▄ █    ▄▀▀▀▄ ▄▀▀▀  ▀▄ ▄▀      █▀▀▀ ▄▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▄ ▄▀▀▀
+# █ █  █ █▀▀  █   █ █    █   █ █  ▀█   █        █▀▀  █▀▀█ █  ▄   █   █   █ █▀▀▄  ▀▀▄
+# ▀ ▀▀▀  ▀▀▀▀  ▀▀▀  ▀▀▀▀  ▀▀▀   ▀▀▀    ▀        ▀    ▀  ▀  ▀▀    ▀    ▀▀▀  ▀  ▀ ▀▀▀ 
+democracy_factor:
+  $ideology_factor(democratic)
+
+monarchy_factor:
+  $ideology_factor(neutrality)
+
+communism_factor:
+  $ideology_factor(communism)
+
+fascism_factor:
+  $ideology_factor(fascism)
+
+# ▀▀█▀▀ ▀▄ ▄▀ █▀▀▄ ▄▀▀▄ █▄  █ █▄  █ ▀▄ ▄▀      █▀▀▀ ▄▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▄ ▄▀▀▀
+#   █     █   █▀▀▄ █▀▀█ █ ▀▄█ █ ▀▄█   █        █▀▀  █▀▀█ █  ▄   █   █   █ █▀▀▄  ▀▀▄
+#   ▀     ▀   ▀  ▀ ▀  ▀ ▀   ▀ ▀   ▀   ▀        ▀    ▀  ▀  ▀▀    ▀    ▀▀▀  ▀  ▀ ▀▀▀ 
+# Peak at low tyranny (≤ −75), zero at −25 and above
+low_tyranny_factor:
+  base(0)
+  modifier:
+    low_tyranny_bonus = clamp((-25 - tyranny) / 50, 0.0, 1.0)
+    add(low_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+# Peak at high tyranny (≥ 75), zero at 25 and below
+high_tyranny_factor:
+  base(0)
+  modifier:
+    high_tyranny_bonus = clamp((tyranny - 25) / 50, 0.0, 1.0)
+    add(high_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)
+
+# Peak inside [−25, 25], zero at ±75
+medium_tyranny_factor:
+  base(0)
+  modifier:
+    medium_tyranny_bonus = clamp(1 - (abs(tyranny) - 25) / 50, 0.0, 1.0)
+    add(medium_tyranny_bonus)
+    is_sandbox_mode_on()
+  modifier:
+    factor(0)
+    is_sandbox_mode_on(no)

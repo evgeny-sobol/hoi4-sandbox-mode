@@ -1,0 +1,159 @@
+on_actions:
+  on_startup:
+    effect:
+      if is_historical_focus_on(no):
+        $HAI->set_global_flag(sandbox_mode_enabled)
+        for every_country():
+          initialize_country_for_sandbox_mode()
+
+  on_weekly:
+    effect:
+      if is_sandbox_mode_on():
+        # Countries created after startup (civil-war rebels, released nations)
+        # never went through on_startup: initialise them on their first week.
+        if not has_country_flag(sandbox_initialized):
+          initialize_country_for_sandbox_mode()
+        # One-shot guard set by on_release_as_free; must not outlive the week.
+        clr_country_flag(sandbox_honor_skip_leave_faction)
+        update_country_leader_traits()
+        update_honor_gain_monthly_factor()
+        update_tyranny_gain_monthly_factor()
+
+  on_monthly:
+    effect:
+      if is_sandbox_mode_on():
+        &months_elapsed += 1
+        expire_dropped_obligations()
+        expire_former_rivals()
+        apply_honor_for_unmet_obligations()
+        # "Once per war": forget answered calls once we are at peace.
+        if not has_war():
+          &honor_answered_call[].clear()
+        $add_honor(honor_gain_monthly_factor)
+        $add_tyranny(tyranny_gain_monthly_factor)
+        review_rivals()
+        update_rivalry_monthly()
+        fill_rival_vacancies()
+        sandbox_log_census()
+
+  on_ruling_party_change:
+    effect:
+      if is_sandbox_mode_on():
+        inherit_honor_on_ruling_party_change()
+
+  # Civil-war splits and ideology swaps often install a new character without
+  # initialize_new_country_leader (the initialized flag copies with the tag).
+  on_government_change:
+    effect:
+      if is_sandbox_mode_on():
+        update_country_leader_traits()
+
+  # ROOT = winner. The rebel tag itself is initialised by the weekly guard above;
+  # on_coup_succeeded is not used because its ROOT is the country the coup was
+  # staged against, not the new regime.
+  on_civil_war_end:
+    effect:
+      if is_sandbox_mode_on():
+        reset_honor_for_new_ruler()
+
+  on_new_term_election:
+    effect:
+      if is_sandbox_mode_on():
+        $add_tyranny(-5, tyranny_election)
+
+  # ROOT = attacker, FROM = target
+  on_declare_war:
+    effect:
+      if is_sandbox_mode_on():
+        apply_honor_on_declare_war()
+        apply_rivalry_on_declare_war()
+
+  # ROOT = justifier, FROM = target. The pulse is DAILY in vanilla, so the
+  # −2 of the GDD is charged once per 30 pulses against a friend.
+  on_justifying_wargoal_pulse:
+    effect:
+      if is_sandbox_mode_on():
+        if $is_friend_of(FROM):
+          &honor_justify_pulses += 1
+          if honor_justify_pulses >= 30:
+            &honor_justify_pulses = 0
+            sandbox_log_other = FROM
+            $add_honor(-2, honor_justify_friend)
+
+  # ROOT = leaving country, FROM = faction leader
+  on_leave_faction:
+    effect:
+      if is_sandbox_mode_on():
+        if has_country_flag(sandbox_honor_skip_leave_faction):
+          clr_country_flag(sandbox_honor_skip_leave_faction)
+        elif is_subject_of(FROM) or FROM->has_capitulated():
+          pass
+        elif has_country_flag(expelled_by_leader):
+          clr_country_flag(expelled_by_leader)
+          FROM:
+            sandbox_log_other = ROOT
+            $add_honor(-15, honor_expel_member)
+        elif FROM->has_war():
+          sandbox_log_other = FROM
+          $add_honor(-30, honor_leave_faction_war)
+        else:
+          sandbox_log_other = FROM
+          $add_honor(-10, honor_leave_faction_peace)
+
+  # ROOT = joining country, FROM = caller / country whose war was joined
+  on_join_allies:
+    effect:
+      if is_sandbox_mode_on():
+        if FROM not in &honor_answered_call[]:
+          &honor_answered_call[].add(FROM)
+          if FROM->is_guaranteed_by(ROOT):
+            sandbox_log_other = FROM
+            $add_honor(15, honor_join_allies_guarantee)
+          else:
+            sandbox_log_other = FROM
+            $add_honor(10, honor_join_allies_call)
+        review_rivals()
+        FROM->review_rivals()
+
+  # FROM is faction leader. Does not fire on add_to_faction.
+  on_join_faction:
+    effect:
+      if is_sandbox_mode_on():
+        review_rivals()
+        FROM->review_rivals()
+
+  # ROOT = nation being puppeted, FROM = overlord
+  on_puppet:
+    effect:
+      if is_sandbox_mode_on():
+        review_rivals()
+        FROM->review_rivals()
+
+  # ROOT is winner, FROM gets annexed
+  on_annex:
+    effect:
+      if is_sandbox_mode_on():
+        clear_annexed_from_rivals()
+
+  # ROOT is capitulated country, FROM is winner
+  on_capitulation:
+    effect:
+      if is_sandbox_mode_on():
+        apply_rivalry_on_capitulation()
+
+  # ROOT = released nation, FROM = releaser
+  on_release_as_free:
+    effect:
+      if is_sandbox_mode_on():
+        set_country_flag(sandbox_honor_skip_leave_faction)
+        FROM:
+          sandbox_log_other = ROOT
+          $add_honor(5, honor_release)
+
+  # ROOT = liberated nation, FROM = liberator
+  on_liberate:
+    effect:
+      if is_sandbox_mode_on():
+        FROM:
+          sandbox_log_other = ROOT
+          $add_honor(5, honor_liberate)

@@ -1,0 +1,80 @@
+update_CHI_national_focuses():
+  for watcher in every_country().which(original_tag($CHI) or original_tag($PRC) or original_tag($MAN) or original_tag($YUN) or original_tag($GXC) or original_tag($SHX) or original_tag($XSM) or original_tag($SIK)):
+
+    if not has_completed_focus(CHI_overlordship_over_indochina):
+      &CHI_overlordship_over_indochina_targets[].clear()
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 671)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 670)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 286)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 741)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 1017)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 1066)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 1067)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 1068)
+      $add_state_owner_to_targets(CHI_overlordship_over_indochina_targets, 1069)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in CHI_overlordship_over_indochina_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &CHI_overlordship_over_indochina_antagonism = 1 - sum_f / n
+      else:
+        &CHI_overlordship_over_indochina_antagonism = 1
+
+    if not has_completed_focus(CHI_sea_guidance_and_support):
+      &CHI_sea_guidance_and_support_targets[].clear()
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 671)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 670)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 286)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 741)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 1017)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 1066)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 1067)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 1069)
+      $add_state_owner_to_targets(CHI_sea_guidance_and_support_targets, 1068)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in CHI_sea_guidance_and_support_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &CHI_sea_guidance_and_support_antagonism = 1 - sum_f / n
+      else:
+        &CHI_sea_guidance_and_support_antagonism = 1
+
+    if not has_completed_focus(CHI_sea_overlordship_over_indochina):
+      &CHI_sea_overlordship_over_indochina_targets[].clear()
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 671)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 670)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 286)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 741)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 1017)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 1066)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 1067)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 1068)
+      $add_state_owner_to_targets(CHI_sea_overlordship_over_indochina_targets, 1069)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in CHI_sea_overlordship_over_indochina_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &CHI_sea_overlordship_over_indochina_antagonism = 1 - sum_f / n
+      else:
+        &CHI_sea_overlordship_over_indochina_antagonism = 1

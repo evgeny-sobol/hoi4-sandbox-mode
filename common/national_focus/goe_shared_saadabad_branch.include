@@ -1,0 +1,93 @@
+  joint_focus[id = SSB_the_saadabad_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  joint_focus[id = SSB_military_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_economic_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_baghlan_sugar_factory_branches]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_road_and_rail_connections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_integration_of_our_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_berlin_baghdad_railway_into_iran_afghanistan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_joint_military_exercises]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  joint_focus[id = SSB_coordinate_military_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_savak_protect_us]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_turkeys_military_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_afghanistans_military_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_iraqs_military_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_irans_military_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_turkish_chromium_deposits]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_expand_iranian_oil_fields]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_combined_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = SSB_saadabad_research_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

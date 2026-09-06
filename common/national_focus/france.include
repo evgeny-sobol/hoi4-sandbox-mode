@@ -1,0 +1,1603 @@
+focus_tree[id = french_focus]:
+# ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀█
+# █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       █
+#  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀        ▀
+  focus[id = FRA_form_the_popular_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:democracy_factor + mtth:communism_factor) /
+          (2 * mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_revive_the_national_bloc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:democracy_factor + mtth:monarchy_factor + mtth:fascism_factor) /
+          (2 * mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+# ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
+# █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀
+#  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀▀
+  focus[id = FRA_invite_communist_ministers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:communism_factor * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_review_foreign_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:democracy_factor * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_utilize_the_leagues]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:monarchy_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+# ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
+# █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       ▀▀▄
+#  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀
+  focus[id = FRA_national_regeneration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:fascism_factor / (mtth:monarchy_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_the_council_of_rambouillet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:monarchy_factor / (mtth:monarchy_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+# █▀▀▄ █▀▀▀ █   █ ▄▀▀▄ █    █  █ █▀▀▀      █▀▀▀ █▀▀▄ ▄▀▀▄ █▄  █ ▄▀▀▄
+# █  █ █▀▀   █ █  █▀▀█ █    █  █ █▀▀       █▀▀  █▀▀▄ █▀▀█ █ ▀▄█ █  ▄
+# ▀▀▀  ▀▀▀▀   ▀   ▀  ▀ ▀▀▀▀  ▀▀  ▀▀▀▀      ▀    ▀  ▀ ▀  ▀ ▀   ▀  ▀▀
+  focus[id = FRA_devalue_the_franc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = FRA_invest_in_the_metropole]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_metropolitan_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_industrial_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_military_factories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_extra_research_slot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_autoroutes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_algerie_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_colonial_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_extra_research_slot_2]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_global_integration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_invest_in_the_colonies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_invest_in_west_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_invest_in_indochina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_invest_in_syria]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █▀▀▄ █▀▀▀ ▄▀▀▀  █ █▄  █      █▀▀▄ █▀▀▀ ▄▀▀▄ █▀▀▄ █▄ ▄█ ▄▀▀▄ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
+# █▀▀▄ █▀▀  █  ▀█ █ █ ▀▄█      █▀▀▄ █▀▀  █▀▀█ █▀▀▄ █ ▀ █ █▀▀█ █ ▀ █ █▀▀  █ ▀▄█   █
+# ▀▀▀  ▀▀▀▀  ▀▀▀  ▀ ▀   ▀      ▀  ▀ ▀▀▀▀ ▀  ▀ ▀  ▀ ▀   ▀ ▀  ▀ ▀   ▀ ▀▀▀▀ ▀   ▀   ▀
+  focus[id = FRA_begin_rearmament]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_defensive_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_aggressive_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_firepower_kills]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_methodical_battle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_infantry_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_artillery_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_heavy_armor_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_division_cuirassee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_fortification_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_alpine_forts]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_extend_the_maginot_line]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_army_reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_infantry_tanks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_special_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_fusiliers_marine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_battle_of_maneuver]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_air_dominance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_motorized_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_mechanized_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_light_medium_armor]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_cas_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_air_ground_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_flying_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+# ▄▀▀▄ ▄▀▀▀▄ █▄ ▄█ █▄ ▄█ █  █ █▄  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █  ▄ █   █ █ ▀ █ █ ▀ █ █  █ █ ▀▄█ █  ▀▀▄   █    ▀▀▄
+#  ▀▀   ▀▀▀  ▀   ▀ ▀   ▀  ▀▀  ▀   ▀ ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = FRA_strengthen_the_unions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_celebrate_the_commune]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_force_the_issue]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_womens_suffrage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_industrial_collectivization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_agricultural_collectivization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_legal_equality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_reconciliation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_revolution_to_the_utmost]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_constitutional_convention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_anti_fascist_coalition]:
+    available:
+      $not_rival_of_PREV($USA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_cooperation_modifier($USA)
+      +modifier:
+        factor(0)
+        $USA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_loyalty_to_moscow]:
+    available:
+      $not_rival_of_PREV($SOV)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_loyalty_to_the_cause]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_invite_anti_fascist_emigrants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_reconnect_to_the_balkans]:
+    available:
+      $not_rival_of_PREV($CZE)
+      $not_rival_of_PREV($ROM)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        factor(0)
+        or:
+          $CZE in rivals[]
+          $ROM in rivals[]
+        is_sandbox_mode_on()
+      +modifier:
+        cooperation = 1 + ($opinion_factor($CZE) + $opinion_factor($ROM)) / 2
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_pre_empt_the_fascist_attack]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ITA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $ITA)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+
+  focus[id = FRA_league_of_french_bolshevist_volunteers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_host_the_german_exiles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_destroy_the_counter_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_carry_the_revolution_north]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
+
+  focus[id = FRA_carry_the_revolution_west]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_rivalry_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
+
+  focus[id = FRA_carry_the_revolution_east]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = FRA_carry_the_revolution_south]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+
+  focus[id = FRA_egalite_liberte_solidarite]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_revolutionary_zeal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █▀▀▄ █▀▀▀ █▄ ▄█ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄ ▄▀▀▄ ▀▀█▀▀ ▄▀▀▀
+# █  █ █▀▀  █ ▀ █ █   █ █  ▄ █▀▀▄ █▀▀█   █    ▀▀▄
+# ▀▀▀  ▀▀▀▀ ▀   ▀  ▀▀▀   ▀▀  ▀  ▀ ▀  ▀   ▀   ▀▀▀
+  focus[id = FRA_support_the_finns]:
+    available:
+      $not_rival_of_PREV($FIN)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($FIN)
+      +modifier:
+        factor(0)
+        $FIN->is_rival_of_PREV()
+        is_sandbox_mode_on()
+
+  focus[id = FRA_confirm_eastern_commitments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_buy_time]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_strengthen_the_little_entente]:
+    available:
+      $not_rival_of_PREV($CZE)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($CZE)
+      +modifier:
+        factor(0)
+        $CZE in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_revive_the_franco_polish_alliance]:
+    available:
+      $not_rival_of_PREV($POL)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($POL)
+      +modifier:
+        factor(0)
+        $POL in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_invite_yugoslavia]:
+    available:
+      $not_rival_of_PREV($YUG)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($YUG)
+      +modifier:
+        factor(0)
+        $YUG in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_invite_romania]:
+    available:
+      $not_rival_of_PREV($ROM)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ROM)
+      +modifier:
+        factor(0)
+        $ROM in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_invest_in_our_weaker_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_coordinate_rearmament]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_join_the_ententes]:
+    available:
+      $not_rival_of_PREV($ENG)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ENG)
+      +modifier:
+        factor(0)
+        $ENG in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_foreign_guest_workers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_strengthen_government_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_defensive_strategems]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_go_with_britain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + $opinion_factor($ENG) - $opinion_factor($ITA)
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_france_leads]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 - $opinion_factor($ENG) + $opinion_factor($ITA)
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_arms_purchases_in_the_us]:
+    available:
+      $not_rival_of_PREV($USA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($USA)
+      +modifier:
+        factor(0)
+        $USA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_concessions_to_italy]:
+    available:
+      $not_rival_of_PREV($ITA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ITA)
+      +modifier:
+        factor(0)
+        $ITA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_ratify_the_stresa_front]:
+    available:
+      $not_rival_of_PREV($ITA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ITA)
+      +modifier:
+        factor(0)
+        $ITA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_franco_soviet_treaty]:
+    available:
+      $not_rival_of_PREV($SOV)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+
+# █▀▀▀ ▄▀▀▄ ▄▀▀▀ ▄▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █▀▀  █▀▀█  ▀▀▄ █  ▄ █  ▀▀▄   █    ▀▀▄
+# ▀    ▀  ▀ ▀▀▀   ▀▀  ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = FRA_destroy_decadence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_integralism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_work]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_family]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_fatherland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_political_unity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_diplomatic_freedom]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_latin_entente]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        cooperation = 1 + 1 / 3 * ($opinion_factor($SPR) +
+          $opinion_factor($POR) + $opinion_factor($ITA))
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_towards_a_new_europe]:
+    available:
+      $not_rival_of_PREV($GER)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($GER)
+      +modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_reach_out_to_spain]:
+    available:
+      $not_rival_of_PREV($SPR)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($SPR)
+      +modifier:
+        factor(0)
+        $SPR in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_invite_portugal]:
+    available:
+      $not_rival_of_PREV($POR)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($POR)
+      +modifier:
+        factor(0)
+        $POR in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_compensate_italy]:
+    available:
+      $not_rival_of_PREV($ITA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ITA)
+      +modifier:
+        factor(0)
+        $ITA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_intervention_in_greece]:
+    available:
+      $GRE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
+        $ai_betrayal_modifier_vs($GRE)
+
+  focus[id = FRA_the_congress_of_paris]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_the_natural_borders_of_france]:
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - 1 / 4 * ($opinion_factor($BEL) +
+          $opinion_factor($LUX) + $opinion_factor($HOL) + $opinion_factor($GER))
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BEL)
+        $rivalry_vs_into($LUX)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($GER)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
+
+  focus[id = FRA_expand_to_the_suez]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ENG)
+      +modifier:
+        $ai_rivalry_modifier($ENG)
+      +modifier:
+        $ai_betrayal_modifier_vs($ENG)
+
+  focus[id = FRA_dominate_the_middle_east]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_establish_spheres_of_influence]:
+    available:
+      $not_rival_of_PREV($GER)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($GER)
+      +modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_split_belgium]:
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_rivalry_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
+
+  focus[id = FRA_align_belgium]:
+    available:
+      $not_rival_of_PREV($BEL)
+      $BEL->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($BEL)
+      +modifier:
+        factor(0)
+        $BEL in rivals[]
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_rivalry_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
+
+  focus[id = FRA_grow_the_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_bring_home_quebec]:
+    available:
+      $CAN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_rivalry_modifier($CAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($CAN)
+
+# █▄ ▄█ ▄▀▀▀▄ █▄  █ ▄▀▀▄ █▀▀▄ ▄▀▀▄ █  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
+# █ ▀ █ █   █ █ ▀▄█ █▀▀█ █▀▀▄ █  ▄ █▀▀█ █  ▀▀▄   █    ▀▀▄
+# ▀   ▀  ▀▀▀  ▀   ▀ ▀  ▀ ▀  ▀  ▀▀  ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀
+  focus[id = FRA_revise_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_repeal_the_law_of_exile]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_orleanist_restoration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_the_legitimate_heir]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_proclaim_the_third_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = FRA_guarantee_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_the_first_citizen_of_the_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_counter_action]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_no_further_humiliations]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ITA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $ITA)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+
+  focus[id = FRA_slum_clearing]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_public_welfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_secure_the_crown_of_spain]:
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_rivalry_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
+
+  focus[id = FRA_unite_the_crowns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_two_countries_two_crowns]:
+    available:
+      $not_rival_of_PREV($SPB)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SPB)
+      +modifier:
+        factor(0)
+        $SPB in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_avenge_waterloo]:
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $LUX->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - 1 / 4 * ($opinion_factor($BEL) +
+          $opinion_factor($LUX) + $opinion_factor($HOL) + $opinion_factor($ENG))
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BEL)
+        $rivalry_vs_into($LUX)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($ENG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $LUX->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+
+  focus[id = FRA_reorganize_the_dutch]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_retribution_for_sedan]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = FRA_disunite_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_return_to_borodino]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = FRA_je_suis_la_deluge]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █▄  █ ▄▀▀▄ █   █ ▄▀▀▄ █         █▀▀▄ █▀▀▀ ▄▀▀▄ █▀▀▄ █▄ ▄█ ▄▀▀▄ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
+# █ ▀▄█ █▀▀█  █ █  █▀▀█ █         █▀▀▄ █▀▀  █▀▀█ █▀▀▄ █ ▀ █ █▀▀█ █ ▀ █ █▀▀  █ ▀▄█   █
+# ▀   ▀ ▀  ▀   ▀   ▀  ▀ ▀▀▀▀      ▀  ▀ ▀▀▀▀ ▀  ▀ ▀  ▀ ▀   ▀ ▀  ▀ ▀   ▀ ▀▀▀▀ ▀   ▀   ▀
+  focus[id = FRA_naval_rearmament]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_colonial_naval_bases]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_develop_colonial_dockyards]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_the_old_school]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_the_young_school]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_capital_ship_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_carrier_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_rush_the_richelieus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_naval_doctrine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_carrier_planes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_prioritize_the_joffre]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_undersea_combat]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_surface_combat]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_improved_screen_ships]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+# ▄▀▀▄ █ █▀▀▄      █▀▀▀ ▄▀▀▀▄ ▄▀▀▄ █  █ ▄▀▀▀
+# █▀▀█ █ █▀▀▄      █▀▀  █   █ █  ▄ █  █  ▀▀▄
+# ▀  ▀ ▀ ▀  ▀      ▀     ▀▀▀   ▀▀   ▀▀  ▀▀▀
+  focus[id = FRA_air_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_fighter_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_bomber_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_heavy_fighter_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_air_doctrine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_heavy_bomber_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FRA_naval_bomber_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+# █▀▀▀ █   █ █▀▀▀ █▀▀▄ ▀▄ ▄▀ ▀▀█▀▀ █  █ █ █▄  █ ▄▀▀▀       █▀▀▀ █    ▄▀▀▀ █▀▀▀
+# █▀▀   █ █  █▀▀  █▀▀▄   █     █   █▀▀█ █ █ ▀▄█ █  ▀█      █▀▀  █     ▀▀▄ █▀▀
+# ▀▀▀▀   ▀   ▀▀▀▀ ▀  ▀   ▀     ▀   ▀  ▀ ▀ ▀   ▀  ▀▀▀       ▀▀▀▀ ▀▀▀▀ ▀▀▀  ▀▀▀▀
+  focus[id = FRA_reform_the_labour_laws]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_nationalize_key_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_reorganize_the_aviation_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_form_the_state_arsenals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_general_work_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_dirigisme]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_national_champions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_ban_the_leagues]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = FRA_the_blum_viollette_proposal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 - mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_expand_the_citizenship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_france_undividable]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_encourage_immigration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = FRA_french_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 - mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_intervention_in_spain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_laissez_faire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_agricultural_protectionism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_protect_the_rights_of_man]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = FRA_freedom_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_stimulate_the_dynamic_market]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_economic_devolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_promote_entrepeneurship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+# █  █ ▄▀▀▄ ▄▀▀▀      █▄  █ ▄▀▀▀▄ ▀▀█▀▀      █    ▄▀▀▄      █▀▀▄ █▀▀▀ ▄▀▀▀ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▄ █▄  █ ▄▀▀▄ █▀▀▀
+# █▀▀█ █▀▀█  ▀▀▄      █ ▀▄█ █   █   █        █    █▀▀█      █▀▀▄ █▀▀   ▀▀▄ █  ▀▀▄   █   █▀▀█ █ ▀▄█ █  ▄ █▀▀
+# ▀  ▀ ▀  ▀ ▀▀▀       ▀   ▀  ▀▀▀    ▀        ▀▀▀▀ ▀  ▀      ▀  ▀ ▀▀▀▀ ▀▀▀  ▀ ▀▀▀    ▀   ▀  ▀ ▀   ▀  ▀▀  ▀▀▀▀
+  focus[id = FRA_leftist_rhetoric]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_national_mobilization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_join_comintern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = FRA_humanite_unie]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = FRA_ban_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = FRA_right_wing_rhetoric]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_army_of_aggression]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_france_first]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = FRA_woo_italy]:
+    available:
+      $not_rival_of_PREV($ITA)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ITA)
+      +modifier:
+        factor(0)
+        $ITA in rivals[]
+        is_sandbox_mode_on()
+
+  focus[id = FRA_dismantle_the_democracies]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = FRA_join_germany]:
+    available:
+      $not_rival_of_PREV($GER)
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($GER)
+      +modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()

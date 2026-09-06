@@ -1,0 +1,301 @@
+  shared_focus[id = GUAY_rekindle_old_gripes]:
+    available:
+      $BRA->can_PREV_get_wargoal_on_THIS()
+      $ARG->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($BRA) + $opinion_factor($ARG)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($BRA)
+        $rivalry_vs_into($ARG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BRA->is_friend_of_PREV()
+          $ARG->is_friend_of_PREV()
+
+  shared_focus[id = GUAY_laissez_faire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = GUAY_disperse_military_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = GUAY_nationalize_foreign_owned_companies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_urbanization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_abolish_low_level_income_tax]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_free_seconday_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_cooperation_in_the_americas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_defense_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_specialized_terrain_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_volunteers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_mass_drafts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_form_ties_with_the_military]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = GUAY_military_licenses]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_place_opposition_leaders_in_house_arrest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_enact_martial_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  shared_focus[id = GUAY_coup_detat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  shared_focus[id = GUAY_appease_the_generals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_cult_of_personality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
+
+  shared_focus[id = GUAY_adopt_minority_languages]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_mythologize_the_father_of_the_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_a_domestic_arms_factory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_penal_battalions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_the_permanent_leader]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_mobalize_the_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_meet_with_the_old_powers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = GUAY_long_term_contracts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_land_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = GUAY_workers_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_agricultural_colonization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_beef_and_hide_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_wool_makers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_heavy_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_empower_the_land_owners]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_river_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_cash_crop_exports]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_export_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_clamp_down_on_new_territories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = GUAY_develop_new_territories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = GUAY_no_second_american_colonization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  shared_focus[id = GUAY_the_stuff_of_legends]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_a_deal_with_devil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  shared_focus[id = GUAY_demand_a_seat_at_the_high_table]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_the_tag_economic_miracle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  shared_focus[id = GUAY_protect_domestic_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_exploit_mineral_wealth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_national_academy_of_sciences]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_national_academy_of_sciences_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = GUAY_national_academy_of_sciences_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

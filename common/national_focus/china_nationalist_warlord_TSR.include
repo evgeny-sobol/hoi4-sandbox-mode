@@ -1,0 +1,548 @@
+focus_tree[id = china_nationalist_warlord_focus]:
+  focus[id = CHI_tsr_repoen_the_natioal_assembly]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+  focus[id = CHI_sea_three_principles_of_the_people]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_welfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_refugee_relief_agency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_land_tax_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_new_life_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_unemployment_assistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_free_hospitals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_rural_schooling]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_democracy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_constitutional_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_republicanism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_inter_party_coordination_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_judicial_yuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_control_yuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_examination_yuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_executive_yuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_legislative_yuan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_nationalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_prioritize_the_interior]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_anti_communism]:
+    available:
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $TIB->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $YUN->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SIK) + $opinion_factor($TIB) + $opinion_factor($PRC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($HBC) + $opinion_factor($GXC) + $opinion_factor($XSM) + $opinion_factor($SND) + $opinion_factor($GDC) + $opinion_factor($SIC) + $opinion_factor($XIC) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 15
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($TIB)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($YUN)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($HBC)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($KHM)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SIK->is_friend_of_PREV()
+          $TIB->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $YUN->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+
+  focus[id = CHI_sea_pick_a_fight_with_japan]:
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($JAP)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MAN, $JAP)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
+
+  focus[id = CHI_sea_subjugate_the_warlords]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_war_of_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_industrial_evacuations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_war_of_national_liberation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_scorched_earth_tactics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_war_of_anti_imperialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_forced_conscription]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_dare_to_die_corps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_form_a_preparatory_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+  focus[id = CHI_tsr_legacy_of_the_hongxian_emperor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CHI_tsr_coronation_at_the_temple_of_heaven]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_outlaw_the_kmt_and_cpc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = CHI_tsr_restoration_of_the_chinese_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_adopt_the_twelve_symbols]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_reinstate_the_new_imperial_code]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_reestablish_xinhua_palace]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_reclaim_the_mandate_of_heaven]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_five_races_under_one_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_zhonghua_minzu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_reestablish_the_beiyang_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_reestablish_the_wuwei_corps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_never_another_national_protection_war]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+      $PRC->can_PREV_get_wargoal_on_THIS()
+      $GXC->can_PREV_get_wargoal_on_THIS()
+      $YUN->can_PREV_get_wargoal_on_THIS()
+      $SHX->can_PREV_get_wargoal_on_THIS()
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $SIK->can_PREV_get_wargoal_on_THIS()
+      $GDC->can_PREV_get_wargoal_on_THIS()
+      $SND->can_PREV_get_wargoal_on_THIS()
+      $SIC->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $XIC->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+      $KUM->can_PREV_get_wargoal_on_THIS()
+      $RNG->can_PREV_get_wargoal_on_THIS()
+      $HBC->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CHI) + $opinion_factor($PRC) + $opinion_factor($GXC) + $opinion_factor($YUN) + $opinion_factor($SHX) + $opinion_factor($XSM) + $opinion_factor($SIK) + $opinion_factor($GDC) + $opinion_factor($SND) + $opinion_factor($SIC) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($XIC) + $opinion_factor($KHM) + $opinion_factor($KUM) + $opinion_factor($RNG) + $opinion_factor($HBC)) / 17
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CHI)
+        $rivalry_vs_into($PRC)
+        $rivalry_vs_into($GXC)
+        $rivalry_vs_into($YUN)
+        $rivalry_vs_into($SHX)
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($SIK)
+        $rivalry_vs_into($GDC)
+        $rivalry_vs_into($SND)
+        $rivalry_vs_into($SIC)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($XIC)
+        $rivalry_vs_into($KHM)
+        $rivalry_vs_into($KUM)
+        $rivalry_vs_into($RNG)
+        $rivalry_vs_into($HBC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CHI->is_friend_of_PREV()
+          $PRC->is_friend_of_PREV()
+          $GXC->is_friend_of_PREV()
+          $YUN->is_friend_of_PREV()
+          $SHX->is_friend_of_PREV()
+          $XSM->is_friend_of_PREV()
+          $SIK->is_friend_of_PREV()
+          $GDC->is_friend_of_PREV()
+          $SND->is_friend_of_PREV()
+          $SIC->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $XIC->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+          $KUM->is_friend_of_PREV()
+          $RNG->is_friend_of_PREV()
+          $HBC->is_friend_of_PREV()
+
+  focus[id = CHI_tsr_tianxia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_the_reorganied_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_tsr_military_industrial_collaboration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_industrial_expansion_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_expand_the_nanjing_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CHI_tsr_promote_tridemism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_peace]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_anti_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_national_construction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_pan_asianism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_establish_the_tewu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_embrace_japanese_cultural_institutions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = CHI_tsr_deepen_our_collaboration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_tsr_a_new_chinese_identity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = CHI_tsr_our_place_in_the_sphere]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_military_affairs_commission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_sea_fortify_shanghai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_the_chinese_hindenburg_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_army_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_bureau_of_investigation_and_statistics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_60_divisions_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_whampoa_military_academy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_unified_industrial_planning]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CHI_sea_expand_the_academica_sinica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_chemical_research_institute]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_rural_reconstruction_movement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_mining_commission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_taiyuan_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_develop_the_hanyan_arsenal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_financial_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_price_controls]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_grain_tax]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_reform_the_national_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CHI_sea_forced_loans]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

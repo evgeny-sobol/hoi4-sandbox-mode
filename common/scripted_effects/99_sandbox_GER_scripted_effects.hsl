@@ -1,0 +1,99 @@
+update_GER_national_focuses():
+  for watcher in every_country().which(original_tag($GER)):
+
+    # Helper for (focus) GER_realize_mittelafrika `available` / AI
+    if not has_completed_focus(GER_realize_mittelafrika):
+      &GER_realize_mittelafrika_targets[].clear()
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 904)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 547)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 905)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 903)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 897)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 896)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 544)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 891)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 892)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 540)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 796)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 295)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 888)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 889)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 890)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 718)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 538)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 708)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 543)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 542)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 268)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 297)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 705)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 781)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 778)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 779)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 780)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 700)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 298)
+      $add_state_owner_to_targets(GER_realize_mittelafrika_targets, 296)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in GER_realize_mittelafrika_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &GER_realize_mittelafrika_antagonism = 1 - sum_f / n
+      else:
+        &GER_realize_mittelafrika_antagonism = 1
+
+    # Helper for (focus) GER_carve_up_czechoslovakia `available` / AI
+    if not has_completed_focus(GER_carve_up_czechoslovakia |
+        GER_align_czechoslovakia):
+      &GER_carve_up_czechoslovakia_targets[].clear()
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 70)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 664)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 72)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 71)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 73)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 69)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 9)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 75)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 74)
+      $add_state_owner_to_targets(GER_carve_up_czechoslovakia_targets, 972)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in GER_carve_up_czechoslovakia_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &GER_carve_up_czechoslovakia_antagonism = 1 - sum_f / n
+      else:
+        &GER_carve_up_czechoslovakia_antagonism = 1
+
+    # Helper for (focus) GER_demand_slovenia `available` / AI
+    if not has_completed_focus(GER_demand_slovenia):
+      &GER_demand_slovenia_targets[].clear()
+      $add_state_owner_to_targets(GER_demand_slovenia_targets, 102)
+      $add_state_owner_to_targets(GER_demand_slovenia_targets, 853)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in GER_demand_slovenia_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &GER_demand_slovenia_antagonism = 1 - sum_f / n
+      else:
+        &GER_demand_slovenia_antagonism = 1

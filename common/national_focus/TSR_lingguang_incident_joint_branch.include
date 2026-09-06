@@ -1,0 +1,46 @@
+  joint_focus[id = GXC_the_japanese_visit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  joint_focus[id = GXC_question_chiangs_authority]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = GXC_rumors_of_deposition]:
+    available:
+      $CHI->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CHI)
+      +modifier:
+        $ai_rivalry_modifier($CHI)
+      +modifier:
+        $ai_betrayal_modifier_vs($CHI)
+
+  joint_focus[id = GXC_the_scorched_earth_speech]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = GXC_denounce_chiang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = GXC_formation_of_the_nraja]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = GXC_declare_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

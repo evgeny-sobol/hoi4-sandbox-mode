@@ -1,0 +1,426 @@
+focus_tree[id = estonia_tree]:
+  focus[id = EST_era_of_silence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+  focus[id = EST_ismaaliit]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_establish_the_rahvuskogu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_chamber_of_deputies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_exploit_the_banks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_modernize_capital]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_break_the_silence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_squash_the_opposition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_formalize_baltic_entente]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = EST_look_north]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_beyond_the_baltic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = EST_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_national_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_support_independent_militaries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_new_economic_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_corporate_chambers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_fight_the_vaps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_republican_defence_league]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_womens_defence_league]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_cave_to_enemy_pressure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = EST_rally_the_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+  focus[id = EST_march_on_talinn]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_glory_of_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_mobilize_the_vets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_vapsid_youth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_veterans_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_anti_communist_militia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:fascism_factor) / (2 * mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = EST_reach_out_to_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:fascism_factor) / (2 * mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = EST_baltic_shield]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_the_brotherhood]:
+    available:
+      $LIT->can_PREV_get_wargoal_on_THIS()
+      $LAT->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($LIT) + $opinion_factor($LAT)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($LIT, $LAT)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LIT->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+
+  focus[id = EST_empower_finnish_militants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_national_pride_in_finland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_finno_estonian_supremacy_league]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:fascism_factor) / (2 * mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = EST_unite_our_nations]:
+    available:
+      $FIN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:fascism_factor) / (2 * mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_rivalry_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
+
+  focus[id = EST_sieze_swedish_assets]:
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
+
+  focus[id = EST_secure_the_straits]:
+    available:
+      $DEN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
+
+  focus[id = EST_occupy_norway]:
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_rivalry_modifier($NOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($NOR)
+
+  focus[id = EST_form_scandinavia]:
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+      $FIN->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($NOR) + $opinion_factor($SWE) + $opinion_factor($DEN) + $opinion_factor($FIN)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($NOR)
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($DEN)
+        $rivalry_vs_into($FIN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NOR->is_friend_of_PREV()
+          $SWE->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+          $FIN->is_friend_of_PREV()
+
+  focus[id = EST_proclaim_finno_ugra]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_unite_the_sami]:
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $SWE->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($NOR) + $opinion_factor($SWE)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($NOR, $SWE)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NOR->is_friend_of_PREV()
+          $SWE->is_friend_of_PREV()
+
+  focus[id = EST_unite_karelia]:
+    available:
+      var:EST_unite_karelia_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:EST_unite_karelia_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:EST_unite_karelia_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:EST_unite_karelia_targets[3]->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(EST_unite_karelia_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.EST_unite_karelia_targets[]
+          is_friend_of_ROOT()
+
+  focus[id = EST_unite_the_finnic_identity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_threat_on_our_border]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_fortify_tallinn]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = EST_hold_saaremaa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_fortify_the_border]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = EST_fight_against_communism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_long_push_east]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_prepare_for_the_inevitable]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_forest_brothers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_prepare_underground_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_prepare_covert_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_baltic_economic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_baltic_defence_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_pan_baltic_bank]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_propose_baltic_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = EST_baltic_stronger_together]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+  focus[id = EST_baltic_unification]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

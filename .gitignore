@@ -1,6 +1,9 @@
 *.ico
 *.txt
 
+### Obsidian
+gdd/.obsidian/*
+
 ### macOS
 # Finder metadata
 .DS_Store

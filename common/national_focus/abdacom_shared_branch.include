@@ -1,0 +1,56 @@
+  joint_focus[id = ABDA_abdacom]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  joint_focus[id = ABDA_fortress_singapore]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_corps_expeditionnaire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_maintain_strategic_flexibility]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_the_malay_barrier]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_develop_naval_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_unified_naval_command]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_ship_a_day_sinking_quotas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_naval_procurement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_keep_trade_open]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = ABDA_expand_the_command]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

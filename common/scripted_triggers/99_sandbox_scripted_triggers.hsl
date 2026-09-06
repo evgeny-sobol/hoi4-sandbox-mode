@@ -1,0 +1,136 @@
+is_sandbox_mode_on:
+  has_global_flag(sandbox_mode_enabled)
+
+is_sandbox_census_country:
+  OR:
+    tag(GER)
+    tag(SOV)
+    tag(ENG)
+    tag(USA)
+    tag(FRA)
+    tag(ITA)
+    tag(JAP)
+    tag(FIN)
+    tag(HUN)
+
+# THIS = target, PREV = would-be attacker. Required Honor band depends on
+# the relation: NAP → Inglorious or worse, guarantee → Dishonorable or worse,
+# faction → Treacherous. Non-friends are always allowed.
+can_PREV_get_wargoal_on_THIS:
+  OR:
+    is_friend_of_PREV(no)
+    AND:
+      is_ally_with(PREV)
+      PREV->is_treacherous_leader()
+    AND:
+      not is_ally_with(PREV)
+      is_guaranteed_by(PREV)
+      PREV->is_dishonorable_leader()
+    AND:
+      not is_ally_with(PREV)
+      not is_guaranteed_by(PREV)
+      has_non_aggression_pact_with(PREV)
+      PREV->is_honored_leader(no)
+
+has_same_ideology_as_PREV:
+  custom_trigger_tooltip:
+    tooltip(has_same_ideology_tt)
+    OR:
+      AND:
+        has_government(democratic)
+        PREV->has_government(democratic)
+      AND:
+        has_government(neutrality)
+        PREV->has_government(neutrality)
+      AND:
+        has_government(communism)
+        PREV->has_government(communism)
+      AND:
+        has_government(fascism)
+        PREV->has_government(fascism)
+
+has_enemy_ideology_with_FROM:
+  OR:
+    AND:
+      has_government(communism)
+      FROM->OR:
+        has_government(fascism)
+        has_government(democratic)
+    AND:
+      has_government(democratic)
+      FROM->OR:
+        has_government(communism)
+        has_government(fascism)
+    AND:
+      has_government(fascism)
+      FROM->OR:
+        has_government(democratic)
+        has_government(communism)
+
+has_enemy_ideology_with_PREV:
+  OR:
+    AND:
+      has_government(communism)
+      PREV->OR:
+        has_government(fascism)
+        has_government(democratic)
+    AND:
+      has_government(democratic)
+      PREV->OR:
+        has_government(communism)
+        has_government(fascism)
+    AND:
+      has_government(fascism)
+      PREV->OR:
+        has_government(democratic)
+        has_government(communism)
+
+is_friend_of_PREV:
+  $is_friend_of(PREV)
+
+is_friend_of_ROOT:
+  $is_friend_of(ROOT)
+
+is_friend_of_FROM:
+  $is_friend_of(FROM)
+
+is_honored_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_honored_leader_tt)
+    has_country_leader_with_trait(honorable_leader | righteous_leader)
+
+is_dishonorable_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_dishonorable_leader_tt)
+    has_country_leader_with_trait(dishonorable_leader | treacherous_leader)
+
+is_treacherous_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_treacherous_leader_tt)
+    has_country_leader_with_trait(treacherous_leader)
+
+# Authoritarian or Despotic (tyranny ≥ 25)
+is_authoritarian_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_authoritarian_leader_tt)
+    has_country_leader_with_trait(authoritarian_leader | despotic_leader)
+
+# Liberal or Libertarian (tyranny < −25)
+is_liberal_leader:
+  custom_override_tooltip:
+    tooltip(LocKey_is_liberal_leader_tt)
+    has_country_leader_with_trait(liberal_leader | libertarian_leader)
+
+# True when THIS is an existing country with a ruling country leader.
+# add/remove_country_leader_trait error if THIS has no leader (civil-war
+# spawn, government change, or a tag that exists without a character yet).
+has_ruling_country_leader:
+  exists()
+  any_character:
+    is_country_leader()
+
+is_rival_of_PREV:
+  $is_rival_of(PREV)
+
+is_rival_of_ROOT:
+  $is_rival_of(ROOT)

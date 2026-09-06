@@ -1,0 +1,20 @@
+update_HOL_national_focuses():
+  for watcher in every_country().which(original_tag($HOL)):
+
+    if not has_completed_focus(HOL_taking_back_french_flanders):
+      &HOL_taking_back_french_flanders_targets[].clear()
+      $add_state_owner_to_targets(HOL_taking_back_french_flanders_targets, 29)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in HOL_taking_back_french_flanders_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &HOL_taking_back_french_flanders_antagonism = 1 - sum_f / n
+      else:
+        &HOL_taking_back_french_flanders_antagonism = 1

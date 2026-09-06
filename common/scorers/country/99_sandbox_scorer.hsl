@@ -1,0 +1,119 @@
+major_rivals_scorer:
+  targets:
+    targets_dynamic(no)
+    target_non_existing(no)
+    target_array(global.majors)
+    # FROM is the initiator, THIS is a target
+    score:
+      base(40)
+      modifier:
+        add(40)
+        has_enemy_ideology_with_FROM()
+        has_war_with_major(no)
+      modifier:
+        factor(0.5)
+        has_government(FROM)
+        has_war_with_major(no)
+      modifier:
+        factor(1_000)
+        has_war_with(FROM)
+      modifier:
+        factor(2)
+        OR:
+          any_owned_state->is_core_of(FROM)
+          FROM->any_owned_state->is_core_of(THIS)
+      modifier:
+        factor(2)
+        FROM in rivals[]
+      modifier:
+        factor(0.25)
+        is_friend_of_FROM()
+      modifier:
+        factor(0)
+        FROM == THIS
+      modifier:
+        factor(0)
+        is_in_faction_with(FROM)
+      modifier:
+        factor(0)
+        is_subject_of(FROM)
+      modifier:
+        factor(0)
+        FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        THIS in FROM.former_rivals[]
+
+minor_rivals_scorer:
+  targets:
+    targets_dynamic(no)
+    target_non_existing(no)
+    target_array(global.countries)
+    # FROM is the initiator, THIS is a target
+    score:
+      base(40)
+      modifier:
+        add(40)
+        is_neighbor_of(FROM)
+      modifier:
+        add(40)
+        is_on_same_continent_as(FROM)
+      modifier:
+        factor(1.25)
+        has_enemy_ideology_with_FROM()
+      modifier:
+        factor(1_000)
+        has_defensive_war_with(FROM)
+      modifier:
+        factor(2)
+        OR:
+          any_owned_state->is_core_of(FROM)
+          FROM->any_owned_state->is_core_of(THIS)
+      modifier:
+        factor(2)
+        FROM in rivals[]
+      modifier:
+        factor(0.25)
+        is_friend_of_FROM()
+      modifier:
+        factor(0)
+        not has_war_with(FROM)
+        NOT->OR:
+          AND:
+            any_controlled_state->is_on_continent(europe)
+            FROM->any_controlled_state->is_on_continent(europe)
+          AND:
+            any_controlled_state->is_on_continent(africa)
+            FROM->any_controlled_state->is_on_continent(africa)
+          AND:
+            any_controlled_state->is_on_continent(middle_east)
+            FROM->any_controlled_state->is_on_continent(middle_east)
+          AND:
+            OR:
+              any_controlled_state->is_on_continent(north_america)
+              any_controlled_state->is_on_continent(south_america)
+            OR:
+              FROM->any_controlled_state->is_on_continent(north_america)
+              FROM->any_controlled_state->is_on_continent(south_america)
+          AND:
+            OR:
+              any_controlled_state->is_on_continent(asia)
+              any_controlled_state->is_on_continent(australia)
+            OR:
+              FROM->any_controlled_state->is_on_continent(asia)
+              FROM->any_controlled_state->is_on_continent(australia)
+      modifier:
+        factor(0)
+        FROM == THIS
+      modifier:
+        factor(0)
+        is_in_faction_with(FROM)
+      modifier:
+        factor(0)
+        is_subject_of(FROM)
+      modifier:
+        factor(0)
+        FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        THIS in FROM.former_rivals[]

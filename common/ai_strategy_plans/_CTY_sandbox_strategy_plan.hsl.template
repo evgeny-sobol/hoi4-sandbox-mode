@@ -1,0 +1,23 @@
+CTY_sandbox_strategy_plan_common:
+  #name("")
+  #desc("")
+
+  allowed:
+    original_tag(CTY)
+  enable:
+    is_sandbox_mode_on(yes)
+  abort_when_not_enabled()
+  weight:
+    factor(1)
+
+  #ai_strategy:
+
+  # raw ai_national_focuses: {}
+
+  #focus_factors:
+
+  #research:
+
+  #ideas:
+
+  #traits:

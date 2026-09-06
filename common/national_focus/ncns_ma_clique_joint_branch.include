@@ -1,0 +1,57 @@
+  joint_focus[id = MA_develop_inter_province_ties]:
+    available:
+      $XSM->can_PREV_get_wargoal_on_THIS()
+      $NXM->can_PREV_get_wargoal_on_THIS()
+      $GSM->can_PREV_get_wargoal_on_THIS()
+      $KHM->can_PREV_get_wargoal_on_THIS()
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($XSM) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($XSM)
+        $rivalry_vs_into($NXM)
+        $rivalry_vs_into($GSM)
+        $rivalry_vs_into($KHM)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $XSM->is_friend_of_PREV()
+          $NXM->is_friend_of_PREV()
+          $GSM->is_friend_of_PREV()
+          $KHM->is_friend_of_PREV()
+
+  joint_focus[id = MA_unified_training_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = MA_strenghten_regional_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = MA_promises_of_mutual_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        cooperation = 1 + ($opinion_factor($XSM) + $opinion_factor($NXM) + $opinion_factor($GSM) + $opinion_factor($KHM)) / 4
+        factor(cooperation)
+        is_sandbox_mode_on()
+
+  joint_focus[id = MA_formalize_the_ma_clique_collective]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

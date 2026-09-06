@@ -1,0 +1,399 @@
+  shared_focus[id = CONGO_belgian_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  shared_focus[id = CONGO_expand_villages]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_free_enterprise_fund]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_secure_international_funding]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_weapon_repair_workshops]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_rawji_group]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_the_heart_of_africa]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_establish_university_of_louvain]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_congo_investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_societe_generale_de_belgique]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_ccci]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_forminiere]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_ruanda_urundi]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_jungle_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_belgian_devaluation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_french_congo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_force_publique]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_symbiotic_industrialization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_prince_leopold_mine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_bakwanga_mine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expand_tungsten_mines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_rubber_plantations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_interfaith_school_subsidies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_colonial_ambitions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_congo_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_modernize_force_publique]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_aviation_militaire_de_la_force_publique]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expand_ndolo_and_elisabethville_airports]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_cheap_labor]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_societe_miniere_de_bakwanga]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_kasai_secessionist_state]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_regional_specialization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expanded_rubber_plantations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_separate_corporations_from_politics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_belgian_officer_corps]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_appoint_van_overstraeten]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_fuel_for_belgium]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_antwerp_diamond_district]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_shinkolobwe_mine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_chefs_coutumiers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_humanitarian_aid]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_purchasing_commission]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expand_force_publique_recruitment]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_jungle_fighting]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_requisition_funds]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_gold_and_diamonds]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_uranium_development_trust]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_smuggle_uranium]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_develop_infrastructure]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_new_vegetable_produce_markets]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_congolese_generals]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_even_a_hospital_can_do_better]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expand_metallurgical_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_smuggle_diamonds]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_office_des_transports_coloniaux]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_improved_employment_contracts]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_compagnie_belge_maritime_du_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_heat_resistant_cobalt]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_copper_cartridges]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_research_grants]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_congos_place_in_the_world]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_legacy_of_lake_tanganyika]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_expand_matadi_seaport]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_soviet_interest]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_whispers_of_independence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  joint_focus[id = CONGO_congo_free_state]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = CONGO_overseas_department_of_belgium]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = CONGO_dominion_of_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = CONGO_republic_of_congo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(4)
+
+  joint_focus[id = CONGO_establish_cometro]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_african_union]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  shared_focus[id = CONGO_great_war_of_africa]:
+    available:
+      var:CONGO_great_war_of_africa_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[8]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[9]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[10]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[11]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[12]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[13]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[14]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[15]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[16]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[17]->can_PREV_get_wargoal_on_THIS()
+      var:CONGO_great_war_of_africa_targets[18]->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        factor(CONGO_great_war_of_africa_antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.CONGO_great_war_of_africa_targets[]
+          is_friend_of_ROOT()

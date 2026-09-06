@@ -1,0 +1,24 @@
+update_SOV_national_focuses():
+  for watcher in every_country().which(original_tag($SOV)):
+
+    # Helper for (focus) SOV_the_rightful_heir_to_the_empire `available` / AI
+    if not has_completed_focus(SOV_the_path_of_marxism_leninism |
+        SOV_panslavic_nationalism | SOV_the_rightful_heir_to_the_empire):
+      &rightful_heir_to_empire_targets[].clear()
+      $add_state_owner_to_targets(rightful_heir_to_empire_targets, 2)
+      $add_state_owner_to_targets(rightful_heir_to_empire_targets, 454)
+      $add_state_owner_to_targets(rightful_heir_to_empire_targets, 797)
+      unique_owners[].clear()
+      sum_f = 0
+      n = 0
+      for owner, idx in rightful_heir_to_empire_targets[]:
+        if owner not in unique_owners[]:
+          unique_owners[].add(owner)
+          if owner != THIS:
+            n += 1
+            var:owner:
+              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+      if n > 0:
+        &rightful_heir_to_empire_antagonism = 1 - sum_f / n
+      else:
+        &rightful_heir_to_empire_antagonism = 1

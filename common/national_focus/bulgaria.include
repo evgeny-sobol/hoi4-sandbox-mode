@@ -1,0 +1,1098 @@
+focus_tree[id = bulgarian_focus]:
+  focus[id = BUL_acquire_modern_tools]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = BUL_improve_the_road_system]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_attract_foreign_capitals]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+
+  focus[id = BUL_invigorate_national_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_expand_sofia_university]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_expand_the_tobacco_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_nationalization]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = 1 + mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_increase_industry_investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_utmost_optimization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_national_railway_lines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_all_that_glitters]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_light_metal_exploitation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_steel_plant_in_pernik]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_mineral_extraction_in_the_rhodopes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_uranium_prospecting]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_georgi_benkovski_aircraft_repair_facilities]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_pilot_training_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_negotiate_bulgarian_rearmament]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_reorganize_the_military_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_darzhavna_aeroplanna_rabotilnitsa]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_darzhavna_samoletna_fabrika]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_foreign_aircraft_designers]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+
+  focus[id = BUL_kaproni_bulgarski]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_darzhavna_voenna_fabrika]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_found_dvf_sopot]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_contract_foreign_companies]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+
+  focus[id = BUL_rebuild_the_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_vasil_levsky_national_military_university]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_prussia_of_the_balkans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_national_military_academy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_war_logistics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_defensive_lines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_a_black_sea_fleet]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $ITA->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($SOV) + $opinion_factor($ITA)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $SOV->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+
+  focus[id = BUL_improve_coastal_defenses]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_reinforce_naval_bases]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_supremacy_on_the_bosporus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_dominance_in_the_black_sea]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_dominance_in_the_aegean_sea]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_dominance_in_the_adriatic_sea]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_bulgaria_on_the_three_seas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_national_submarine_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_bulgarian_shipping_chamber]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_strike_from_the_seas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_expand_varna_naval_base]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_develop_burgas_shipyards]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_an_aegean_sea_fleet]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_a_powerful_bulgarian_navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_modern_tactics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_oppose_the_royal_dictatorship]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+  focus[id = BUL_appoint_communist_ministers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_the_spanish_struggle]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_overthrow_the_tsar]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_abolish_the_tarnovo_constitution]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_unify_the_bourgeois_movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_united_front_against_fascism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_fatherland_front]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_full_voting_rights_for_women]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_peoples_republic_of_bulgaria]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_soviet_bulgarian_treaty_of_mutual_assistance]:
+    available:
+      $can_get_wargoal_on($SOU)
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($SOU)
+      modifier:
+        $ai_rivalry_modifier($SOU)
+      modifier:
+        $ai_betrayal_modifier_vs($SOU)
+
+  focus[id = BUL_follow_the_stalinist_doctrine]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_joint_research_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_soviet_military_exercises]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_soviet_bulgarian_war_industry]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_carry_the_revolution_abroad]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_liberation_of_the_proletariat]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_anti_capitalist_fight]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_united_we_shall_prevail]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_unification_of_the_balkans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_the_peoples_militia_directorate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_purge_the_elites]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(20)
+    available:
+      is_liberal_leader(no)
+
+  focus[id = BUL_collectivization_of_the_countryside]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_heavy_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_train_the_youth_wings]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_treaty_of_perpetual_friendship]:
+    available:
+      $YUG->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($YUG)
+      modifier:
+        $ai_rivalry_modifier($YUG)
+      modifier:
+        $ai_betrayal_modifier_vs($YUG)
+
+  focus[id = BUL_balkan_federation_of_socialist_republics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_bury_the_grudges_of_the_past]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_balkan_trade_union_secretariat]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_defy_moscow]:
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($SOV)
+      modifier:
+        $ai_rivalry_modifier($SOV)
+      modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = BUL_balkan_research_cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_recover_italian_territories]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_democratic_principles]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_legalize_the_agrarian_party]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_form_a_popular_bloc]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_abolish_the_monarchy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_seek_cooperation_with_the_tsar]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_legislative_elections]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_petorka]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_land_reorganization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_agrarian_cooperative_movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_modernize_the_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_salonika_agreement]:
+    available:
+      $GRE->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($GRE)
+      modifier:
+        $ai_rivalry_modifier($GRE)
+      modifier:
+        $ai_betrayal_modifier_vs($GRE)
+
+  focus[id = BUL_a_balkan_confederation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:democracy_factor) / (2 * mtth:democracy_factor + 2 * mtth:fascism_factor + 3 * mtth:monarchy_factor + mtth:communism_factor) * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_approach_the_united_kingdom]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($BUL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($ENG, $BUL)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+
+  focus[id = BUL_join_the_allies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:communism_factor + mtth:democracy_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + 2 * mtth:fascism_factor + 3 * mtth:monarchy_factor + mtth:communism_factor) * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_consolidate_the_third_bulgarian_state]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_free_balkan_states]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_fight_tyranny]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_assert_our_claims]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_appeal_to_european_capitalists]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_obliterate_the_bolshevik_threat]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_research_sharing]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_power_to_the_tsar]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+  focus[id = BUL_condemn_macedonian_organizations]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_support_macedonian_organizations]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_dissolve_the_military_union]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_cooperate_with_the_zveno]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_the_tsars_regime]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_restrained_paramilitary_organizations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_ban_far_right_organizations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_restore_the_tarnovo_constitution]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_freedom_of_press]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_promote_bulgarian_nationalism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_crush_the_communists]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_illusions_of_a_non_partisan_system]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_limited_womens_suffrage]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_found_the_brannik]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_bulgarian_irredentism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_strengthen_the_royal_dictatorship]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_war_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_liberalization_of_trade_policies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_plot_against_boris]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_return_of_ferdinand_i]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_amend_old_grudges]:
+    available:
+      $ENG->can_PREV_get_wargoal_on_THIS()
+      $FRA->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($ENG, $FRA)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+
+  focus[id = BUL_form_a_regency_council]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_the_fate_of_the_balkans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + 2 * mtth:fascism_factor + 3 * mtth:monarchy_factor + mtth:communism_factor) * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_nationalist_propaganda]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+    completion_reward:
+      $add_tyranny(10)
+
+  focus[id = BUL_toppling_giants]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_bulgarian_academy_of_sciences]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_guardians_of_the_balkans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_consolidate_dominance_of_the_seas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_appoint_right_wing_ministers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_the_path_towards_a_greater_bulgaria]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_depose_the_tsar]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+  focus[id = BUL_military_dictatorship]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_support_the_spanish_coup]:
+    available:
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($BUL)
+      modifier:
+        $ai_rivalry_modifier($BUL)
+      modifier:
+        $ai_betrayal_modifier_vs($BUL)
+
+  focus[id = BUL_allow_far_right_organizations]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_integrate_the_ratniks]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_economic_protectionism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_industrial_autarky]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_corporatism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_approach_germany]:
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($BUL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($GER, $BUL)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+
+  focus[id = BUL_cooperation_with_italy]:
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+      $BUL->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($ITA) + $opinion_factor($BUL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($ITA, $BUL)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ITA->is_friend_of_PREV()
+          $BUL->is_friend_of_PREV()
+
+  focus[id = BUL_join_the_tripartite_pact]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:fascism_factor + mtth:monarchy_factor) / (2 * mtth:democracy_factor + 2 * mtth:fascism_factor + 3 * mtth:monarchy_factor + mtth:communism_factor) * 4
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = BUL_peaceful_development]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = BUL_military_secrets_sharing]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_bulgarian_administration_of_the_balkans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_restore_the_bulgarian_patriarchate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_total_war]:
+    available:
+      $ROM->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = 1 + mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($ROM)
+      modifier:
+        $ai_rivalry_modifier($ROM)
+      modifier:
+        $ai_betrayal_modifier_vs($ROM)
+
+  focus[id = BUL_the_eastern_front]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = BUL_the_third_bulgarian_empire]:
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($TUR)
+      modifier:
+        $ai_rivalry_modifier($TUR)
+      modifier:
+        $ai_betrayal_modifier_vs($TUR)
