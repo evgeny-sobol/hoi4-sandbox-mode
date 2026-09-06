@@ -8,9 +8,11 @@ initialize_country_for_sandbox_mode():
 
 
 initialize_new_country_leader():
-  add_country_leader_trait(leader_personality)
-  add_country_leader_trait(inglorious_leader)
-  add_country_leader_trait(moderate_leader)
+  if not has_country_leader_with_trait(leader_personality):
+    add_country_leader_trait(leader_personality)
+  # Civil-war copies may already carry the parent's Honor/Tyranny traits.
+  remove_honor_leader_traits()
+  remove_tyranny_leader_traits()
 
   set_tyranny_range_from_government()
   &tyranny = randi(min_tyranny, max_tyranny)
@@ -163,19 +165,35 @@ shuffle_political_party_popularities():
   $set_political_party(var:party, budget)
 
 
+remove_honor_leader_traits():
+  if has_country_leader_with_trait(treacherous_leader):
+    remove_country_leader_trait(treacherous_leader)
+  if has_country_leader_with_trait(dishonorable_leader):
+    remove_country_leader_trait(dishonorable_leader)
+  if has_country_leader_with_trait(inglorious_leader):
+    remove_country_leader_trait(inglorious_leader)
+  if has_country_leader_with_trait(honorable_leader):
+    remove_country_leader_trait(honorable_leader)
+  if has_country_leader_with_trait(righteous_leader):
+    remove_country_leader_trait(righteous_leader)
+
+
+remove_tyranny_leader_traits():
+  if has_country_leader_with_trait(libertarian_leader):
+    remove_country_leader_trait(libertarian_leader)
+  if has_country_leader_with_trait(liberal_leader):
+    remove_country_leader_trait(liberal_leader)
+  if has_country_leader_with_trait(moderate_leader):
+    remove_country_leader_trait(moderate_leader)
+  if has_country_leader_with_trait(authoritarian_leader):
+    remove_country_leader_trait(authoritarian_leader)
+  if has_country_leader_with_trait(despotic_leader):
+    remove_country_leader_trait(despotic_leader)
+
+
 update_country_leader_traits():
   if honor != prev_honor:
-    if has_country_leader_with_trait(treacherous_leader):
-      remove_country_leader_trait(treacherous_leader)
-    elif has_country_leader_with_trait(dishonorable_leader):
-      remove_country_leader_trait(dishonorable_leader)
-    elif has_country_leader_with_trait(inglorious_leader):
-      remove_country_leader_trait(inglorious_leader)
-    elif has_country_leader_with_trait(honorable_leader):
-      remove_country_leader_trait(honorable_leader)
-    elif has_country_leader_with_trait(righteous_leader):
-      remove_country_leader_trait(righteous_leader)
-
+    remove_honor_leader_traits()
     if honor < -75:
       add_country_leader_trait(treacherous_leader)
     elif honor < -25:
@@ -186,6 +204,7 @@ update_country_leader_traits():
       add_country_leader_trait(honorable_leader)
     else:
       add_country_leader_trait(righteous_leader)
+    &prev_honor = honor
 
     for other in every_other_country():
       $remove_opinion_modifier(ROOT, treacherous_leader)
@@ -205,17 +224,7 @@ update_country_leader_traits():
         other->$add_opinion_modifier(ROOT, righteous_leader)
 
   if tyranny != prev_tyranny:
-    if has_country_leader_with_trait(libertarian_leader):
-      remove_country_leader_trait(libertarian_leader)
-    elif has_country_leader_with_trait(liberal_leader):
-      remove_country_leader_trait(liberal_leader)
-    elif has_country_leader_with_trait(moderate_leader):
-      remove_country_leader_trait(moderate_leader)
-    elif has_country_leader_with_trait(authoritarian_leader):
-      remove_country_leader_trait(authoritarian_leader)
-    elif has_country_leader_with_trait(despotic_leader):
-      remove_country_leader_trait(despotic_leader)
-
+    remove_tyranny_leader_traits()
     if tyranny < -75:
       add_country_leader_trait(libertarian_leader)
     elif tyranny < -25:
@@ -226,6 +235,7 @@ update_country_leader_traits():
       add_country_leader_trait(authoritarian_leader)
     else:
       add_country_leader_trait(despotic_leader)
+    &prev_tyranny = tyranny
 
 
 # Persistent snapshots: last week in prev_* , this week rebuilt in guaranting / na_pacts.
