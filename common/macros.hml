@@ -11,6 +11,13 @@ macro sandbox_log(_event_):
   sandbox_log_other = 0
   sandbox_log_slot = -1
 
+# GER inner-circle pick: old/new/delta are GER_ascended_advisor_1/2/3 (0 = empty).
+macro sandbox_log_ger_inner_circle(_event_):
+  sandbox_log_old = GER_ascended_advisor_1
+  sandbox_log_new = GER_ascended_advisor_2
+  sandbox_log_delta = GER_ascended_advisor_3
+  $sandbox_log(_event_)
+
 macro add_honor(_var_, _event_ = honor_change):
   hidden_effect:
     if _var_ != 0:

@@ -132,5 +132,19 @@ has_ruling_country_leader:
 is_rival_of_PREV:
   $is_rival_of(PREV)
 
+# Inner-circle / party chancellor foci share 3 advisor slots
+# (GER_ascended_advisor_1/2/3). Vanilla can replace an occupant;
+# sandbox AI should stop after any 3 of those foci.
+GER_sandbox_three_inner_circle_chosen:
+  count_triggers:
+    amount(3)
+    has_completed_focus(GER_ascension_of_todt)
+    has_completed_focus(GER_ascension_of_speer)
+    has_completed_focus(GER_ascension_of_goring)
+    has_completed_focus(GER_ascension_of_himmler)
+    has_completed_focus(GER_ascension_of_goebbels)
+    has_completed_focus(GER_party_chancellor_hess)
+    has_completed_focus(GER_party_chancellor_bormann)
+
 is_rival_of_ROOT:
   $is_rival_of(ROOT)

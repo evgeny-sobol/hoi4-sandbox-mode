@@ -2296,6 +2296,12 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_ascension_of_todt)
 
   focus[id = GER_form_organization_todt]:
     +ai_will_do:
@@ -2306,6 +2312,12 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_ascension_of_speer)
 
   focus[id = GER_employ_philipp_holzmann]:
     +ai_will_do:
@@ -2316,6 +2328,12 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_ascension_of_goring)
 
   focus[id = GER_prioritize_the_four_year_plan]:
     +ai_will_do:
@@ -2348,6 +2366,12 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_ascension_of_himmler)
 
   focus[id = GER_expand_gestapo]:
     +ai_will_do:
@@ -2383,6 +2407,12 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_ascension_of_goebbels)
 
   focus[id = GER_ministry_of_public_enlightenment]:
     +ai_will_do:
@@ -2407,10 +2437,22 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_party_chancellor_hess)
   focus[id = GER_party_chancellor_bormann]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+    select_effect:
+      $sandbox_log_ger_inner_circle(focus_GER_party_chancellor_bormann)
   focus[id = GER_optimize_reich_labour_service]:
     +ai_will_do:
       modifier:
