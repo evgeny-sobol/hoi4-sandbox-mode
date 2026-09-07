@@ -248,6 +248,23 @@ Repressive and liberal focuses are tagged with `$add_tyranny(±X)` in `completio
 
 The Authoritarian bypass for unconstitutional government-change focuses is deferred (see "Party-popularity modifiers"); such focuses get only the tilt below.
 
+### Civil-war focuses
+
+Alt-history branches that start a civil war are weighted separately (`gdd/Civil Wars.md`). `$ai_sandbox_modifier()` still applies. On top of it:
+
+**Ignition** (the focus whose reward, or the event it always fires, can `start_civil_war` for ROOT):
+```
+      +modifier:
+        $ai_civil_war_ignition_modifier()   # factor 0.25 in sandbox
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()     # 2 distinct original_tags already in a civil war
+```
+
+**Root** of such a branch (the first exclusive pick that commits to it): `$ai_civil_war_root_modifier()` only (same 0.25, **no** cap — otherwise Spain 1936 freezes every alt-history tree).
+
+Do not tag intervention / "lessons from the Spanish Civil War" focuses. Keep existing Tyranny tilts on unconstitutional ignitions; do not stack a second tyranny factor. Player `ai_will_do` is the only surface: `available` is unchanged.
+
 **Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Drop `$crossroad_modifier`. Do **not** multiply by `N` the way party-popularity shares do: between −25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open (Despotic 1.5 : 0.5, Moderate 0.5 : 0.5).
 
 ```
