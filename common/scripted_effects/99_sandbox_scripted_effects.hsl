@@ -1015,3 +1015,6 @@ clear_annexed_from_rivals():
 sandbox_log_census():
   if is_sandbox_census_country():
     log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    if original_tag(GER):
+      GER_sandbox_count_inner_circle_foci()
+      $sandbox_log_ger_inner_circle_state(GER_inner_circle_census)

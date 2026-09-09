@@ -11,12 +11,32 @@ macro sandbox_log(_event_):
   sandbox_log_other = 0
   sandbox_log_slot = -1
 
-# GER inner-circle pick: old/new/delta are GER_ascended_advisor_1/2/3 (0 = empty).
-macro sandbox_log_ger_inner_circle(_event_):
-  sandbox_log_old = GER_ascended_advisor_1
-  sandbox_log_new = GER_ascended_advisor_2
-  sandbox_log_delta = GER_ascended_advisor_3
+# GER inner-circle: slot/old/new/delta = completed count among the 7 foci.
+macro sandbox_log_ger_inner_circle_state(_event_):
+  sandbox_log_old = GER_inner_circle_count
+  sandbox_log_new = GER_inner_circle_count
+  sandbox_log_delta = GER_inner_circle_count
+  sandbox_log_slot = GER_inner_circle_count
   $sandbox_log(_event_)
+
+macro sandbox_log_ger_inner_circle(_event_):
+  GER_sandbox_count_inner_circle_foci()
+  $sandbox_log_ger_inner_circle_state(_event_)
+
+# Select: count is how many of the 7 are already completed (this one is not yet).
+# Overflow means a 4th pick after the AI gate should have blocked it.
+macro sandbox_log_ger_inner_circle_select(_event_):
+  $sandbox_log_ger_inner_circle(_event_)
+  if GER_inner_circle_count >= 3:
+    $sandbox_log_ger_inner_circle_state(GER_inner_circle_overflow)
+
+# Complete: count includes this focus. Full at exactly 3; overflow if a 4th finished.
+macro sandbox_log_ger_inner_circle_done(_event_):
+  $sandbox_log_ger_inner_circle(_event_)
+  if GER_inner_circle_count == 3:
+    $sandbox_log_ger_inner_circle_state(GER_inner_circle_full)
+  elif GER_inner_circle_count > 3:
+    $sandbox_log_ger_inner_circle_state(GER_inner_circle_overflow)
 
 macro add_honor(_var_, _event_ = honor_change):
   hidden_effect:
