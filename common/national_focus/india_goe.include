@@ -1163,6 +1163,11 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
@@ -1170,6 +1175,8 @@ focus_tree[id = indian_focus_goe]:
         $ai_rivalry_modifier($RAJ)
       +modifier:
         $ai_betrayal_modifier_vs($RAJ)
+    completion_reward:
+      $sandbox_log_cw_ignition(RAJ_give_me_blood_and_i_will_grant_you_freedom)
 
   focus[id = RAJ_rani_of_jhansi_regiment]:
     ai_will_do:

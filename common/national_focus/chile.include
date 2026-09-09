@@ -306,6 +306,13 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(CHL_avenge_the_pacification_of_araucania)
 
   focus[id = CHL_revise_the_social_classes]:
     ai_will_do:

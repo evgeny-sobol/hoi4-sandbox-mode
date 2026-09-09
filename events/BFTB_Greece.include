@@ -1,0 +1,15 @@
+# Pattern B: 207.a stays; AI will not queue bftb_greece.218 while capped.
+country_event[id = bftb_greece.207]:
+  option[name = bftb_greece.207.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+
+# Hidden dispatcher. When the four plot flags are set, this queues .105.
+# Skip that else_if while the AI is capped; weekly retry re-fires .100.
+country_event[id = bftb_greece.100]:
+  immediate:
+    else_if:
+      limit:
+        sandbox_civil_war_ai_allowed()

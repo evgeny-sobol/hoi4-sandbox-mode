@@ -1,0 +1,14 @@
+MEX_category_military_issues:
+  MEX_mission_cedillos_rebellion:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    timeout_effect:
+      if:
+        limit:
+          sandbox_civil_war_ai_allowed()
+  MEX_mission_second_cristiada:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  MEX_mission_second_revolution:
+    activation:
+      sandbox_civil_war_ai_allowed()

@@ -320,6 +320,10 @@ focus_tree[id = greek_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(GRE_the_right_to_rule)
   focus[id = GRE_metaxism_focus]:
     ai_will_do:
       +modifier:

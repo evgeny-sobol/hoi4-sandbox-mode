@@ -9,12 +9,23 @@ focus_tree[id = finnish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(FIN_towards_a_red_government)
   focus[id = FIN_the_second_finnish_civil_war]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         $ai_mic_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(FIN_the_second_finnish_civil_war)
 
   focus[id = FIN_the_peoples_democratic_league]:
     +ai_will_do:
@@ -542,7 +553,11 @@ focus_tree[id = finnish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_root_modifier()
+      modifier:
         $root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(FIN_right_wing_policies)
   focus[id = FIN_discredit_the_democratic_system]:
     +ai_will_do:
       modifier:
@@ -555,6 +570,13 @@ focus_tree[id = finnish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(FIN_a_fascist_regime)
 
   focus[id = FIN_seek_german_protection]:
     +ai_will_do:

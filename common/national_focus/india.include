@@ -58,11 +58,18 @@ focus_tree[id = indian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         $ai_cooperation_modifier($RAJ)
       +modifier:
         factor(0)
         $RAJ in rivals[]
         is_sandbox_mode_on()
+    completion_reward:
+      $sandbox_log_cw_ignition(RAJ_indian_peoples_army)
 
   focus[id = RAJ_research_city_excursions]:
     ai_will_do:
@@ -96,11 +103,18 @@ focus_tree[id = indian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         $ai_cooperation_modifier($RAJ)
       +modifier:
         factor(0)
         $RAJ in rivals[]
         is_sandbox_mode_on()
+    completion_reward:
+      $sandbox_log_cw_ignition(RAJ_indian_national_army)
 
   focus[id = RAJ_battaglione_azad_hindoustan]:
     ai_will_do:

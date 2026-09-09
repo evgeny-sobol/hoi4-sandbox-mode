@@ -1,0 +1,9 @@
+# Pattern B: POL can still cave (.9.b loc). AI POL will not take the war option at cap.
+# The LIT decision that queues this is also Pattern D.
+country_event[id = LIT_events.10]:
+  option[name = EST_events.7.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(LIT_events.10.a)

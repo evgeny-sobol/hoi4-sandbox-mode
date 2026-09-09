@@ -709,6 +709,13 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(ARG_viva_la_revolucion)
 
   focus[id = ARG_forge_our_own_future]:
     ai_will_do:

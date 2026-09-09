@@ -159,7 +159,11 @@
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_root_modifier()
+      +modifier:
         $root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(BALTIC_restore_workers_republic)
 
   shared_focus[id = BALTIC_seek_support_of_soviets]:
     ai_will_do:
@@ -211,6 +215,13 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BALTIC_overthrow_the_government)
 
   shared_focus[id = BALTIC_sieze_the_means_of_production]:
     ai_will_do:
@@ -269,6 +280,13 @@
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BALTIC_arm_baltic_reds)
 
   shared_focus[id = BALTIC_belarus_ssr]:
     ai_will_do:

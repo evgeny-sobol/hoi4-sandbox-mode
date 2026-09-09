@@ -354,6 +354,13 @@ focus_tree[id = congo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(COG_strike_while_the_rion_is_hot)
 
   focus[id = COG_congo_and_the_war_in_europe]:
     +ai_will_do:
@@ -666,6 +673,11 @@ focus_tree[id = congo_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         factor(COG_uniao_dos_povos_do_norte_de_angola_antagonism)
@@ -675,6 +687,8 @@ focus_tree[id = congo_focus]:
         any_other_country:
           THIS in ROOT.COG_uniao_dos_povos_do_norte_de_angola_targets[]
           is_friend_of_ROOT()
+    completion_reward:
+      $sandbox_log_cw_ignition(COG_uniao_dos_povos_do_norte_de_angola)
 
   focus[id = COG_bundu_dia_kongo]:
     ai_will_do:

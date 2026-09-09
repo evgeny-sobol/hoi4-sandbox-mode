@@ -144,6 +144,13 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SIA_the_kings_gambit)
 
   focus[id = SIA_restore_order]:
     ai_will_do:
@@ -226,6 +233,13 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SIA_and_spring_the_trap)
 
   focus[id = SIA_the_purge]:
     ai_will_do:
@@ -975,6 +989,13 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SIA_unseat_the_government)
 
   focus[id = SIA_the_phayap_army]:
     available:

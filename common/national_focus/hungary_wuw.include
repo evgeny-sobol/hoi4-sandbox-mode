@@ -1188,6 +1188,13 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(wuw_HUN_reviving_the_spirit_of_1848)
 
   focus[id = wuw_HUN_officialize_the_rakosi_battalion]:
     ai_will_do:

@@ -760,7 +760,14 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         $ai_high_tyranny_tilt()
+    completion_reward:
+      $sandbox_log_cw_ignition(DEN_seize_power)
   focus[id = DEN_denmark_first]:
     +ai_will_do:
       modifier:
@@ -771,9 +778,16 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    completion_reward:
+      $sandbox_log_cw_ignition(DEN_ask_for_support)
 
   focus[id = DEN_dano_german_military_cooperation]:
     +ai_will_do:

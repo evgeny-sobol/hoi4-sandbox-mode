@@ -1,0 +1,5 @@
+# fire_only_once = no. Discard for a capped AI; weekly
+# sandbox_retry_per_civil_war_fuse re-fires after PER_revive_old_ways.
+country_event[id = PER_revolution_events.1]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

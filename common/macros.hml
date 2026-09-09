@@ -170,6 +170,86 @@ macro ai_sandbox_modifier():
   add(40)
   is_sandbox_mode_on()
 
+# Civil-war AI (gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
+# be separate modifiers: if the cap trigger fails, that modifier is skipped
+# and a folded factor(0) would also drop the 0.25.
+macro ai_civil_war_ignition_modifier():
+  factor(0.25)
+  is_sandbox_mode_on()
+
+macro ai_civil_war_root_modifier():
+  factor(0.25)
+  is_sandbox_mode_on()
+
+# game.log (`#sandbox`, grep `cw_`) for gdd/Civil Wars.md acceptance:
+#   cw_pulse / cw_count  — census; pulse `N->N` is not a weekly delta, use `cw=`
+#   cw_declare / cw_end  — a slot occupied or freed; ai=0 if either side is the player
+#   cw_ignition / cw_root — focus complete; ai=0 is the player (cap does not block)
+#   cw_defer — Pattern C skip this tick (mission +8, BoP, Spain wait, AST daily)
+#   cw_event — the fuse actually fired (Spain MTTH, election option, ITA retry)
+macro sandbox_log_cw_snapshot(_event_):
+  if is_sandbox_mode_on():
+    sandbox_cw_cap = 0
+    sandbox_cw_base = 10
+    if sandbox_civil_war_cap_reached():
+      sandbox_cw_cap = 1
+      sandbox_cw_base = 0
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+macro sandbox_log_cw_focus(_kind_, _focus_):
+  hidden_effect:
+    if is_sandbox_mode_on():
+      sandbox_cw_ai = 0
+      if is_ai(yes):
+        sandbox_cw_ai = 1
+      sandbox_cw_cap = 0
+      if sandbox_civil_war_cap_reached():
+        sandbox_cw_cap = 1
+      log("#sandbox [GetDateText] [THIS.GetTag] _kind_ _focus_ ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+macro sandbox_log_cw_ignition(_focus_):
+  $sandbox_log_cw_focus(cw_ignition, _focus_)
+
+macro sandbox_log_cw_root(_focus_):
+  $sandbox_log_cw_focus(cw_root, _focus_)
+
+macro sandbox_log_cw_defer(_id_):
+  $sandbox_log_cw_focus(cw_defer, _id_)
+
+macro sandbox_log_cw_event(_id_):
+  $sandbox_log_cw_focus(cw_event, _id_)
+
+# Decision ai_will_do: skip the whole modifier when the cap is free.
+macro ai_civil_war_decision_cap():
+  factor(0)
+  sandbox_civil_war_cap_reached()
+
+# Push a fire-once mission's timeout while the AI is blocked (gdd Pattern C).
+macro sandbox_delay_mission_if_capped(_mission_):
+  if has_active_mission(_mission_):
+    raw add_days_mission_timeout: {
+      mission = _mission_
+      days = 8
+    }
+    $sandbox_log_cw_defer(_mission_)
+
+# ROOT vs FROM (declare / civil-war end). Caller sets sandbox_log_other and
+# sandbox_cw_old (the count before the rebuild that just ran).
+macro sandbox_log_cw_war(_event_):
+  if is_sandbox_mode_on():
+    # ROOT is often a Dxx rebel. Player-started wars still count as ai=0
+    # if FROM (the other civil-war tag) is human.
+    sandbox_cw_ai = 1
+    if is_ai(no) or FROM->is_ai(no):
+      sandbox_cw_ai = 0
+    sandbox_cw_cap = 0
+    sandbox_cw_base = 10
+    if sandbox_civil_war_cap_reached():
+      sandbox_cw_cap = 1
+      sandbox_cw_base = 0
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] ai=[?sandbox_cw_ai|.0] other=[?sandbox_log_other.GetTag] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
+  sandbox_log_other = 0
+
 # Same-block set. A lone `factor(0)` in another modifier zeroes the whole
 # ai_will_do, including later `add` — aiview stays at 0.
 macro ai_sandbox_set(_n_):

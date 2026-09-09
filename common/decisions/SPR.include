@@ -1,0 +1,7 @@
+SPR_the_inevitable_civil_war:
+  SPA_military_plot_nationalists:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  SPR_military_plot_republicans:
+    activation:
+      sandbox_civil_war_ai_allowed()

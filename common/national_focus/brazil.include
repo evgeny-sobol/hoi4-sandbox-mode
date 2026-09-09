@@ -69,6 +69,13 @@ focus_tree[id = brazil_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BRA_ban_political_parties)
 
   focus[id = BRA_establish_psad]:
     ai_will_do:
@@ -710,6 +717,13 @@ focus_tree[id = brazil_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BRA_launch_the_revolution)
 
   focus[id = BRA_align_with_moscow]:
     ai_will_do:

@@ -1,0 +1,14 @@
+# War is in immediate. Not fire_only_once. Discard for a capped AI;
+# weekly sandbox_retry_est_civil_war_fuse re-fires after EST_march_on_talinn.
+country_event[id = EST_events.7]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+# Pattern B: FIN can still cave (.9.b). AI will not start the Finnish war at cap.
+country_event[id = EST_events.9]:
+  option[name = EST_events.7.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(EST_events.9.a)

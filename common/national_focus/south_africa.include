@@ -140,6 +140,13 @@ focus_tree[id = south_african_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SAF_support_the_german_coup)
 
   focus[id = SAF_reclaim_boer_colonies]:
     available:
