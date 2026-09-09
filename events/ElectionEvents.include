@@ -1,0 +1,17 @@
+# gdd/Civil Wars.md Pattern B: AI picks the peaceful option while the cap is full.
+# Log the option that actually starts the war (skip is silent — ai_chance 0).
+country_event[id = election.11]:
+  option[name = election.11.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(election.11.b)
+
+country_event[id = election.12]:
+  option[name = election.12.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(election.12.b)

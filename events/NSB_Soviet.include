@@ -1,0 +1,13 @@
+# Focus completion_reward queues these with hours = 1. Discard while the
+# AI is capped; sandbox_retry_sov_civil_war_fuse re-fires after a slot opens.
+country_event[id = NSB_soviet_communist_civil_war.001]:
+  trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = NSB_soviet_communist_civil_war.003]:
+  trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = NSB_Soviet_fascist_civil_war.001]:
+  trigger:
+    sandbox_civil_war_ai_allowed()

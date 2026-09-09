@@ -1,0 +1,9 @@
+EST_vaps_revolt_category:
+  EST_vaps_uprising:
+    activation:
+      sandbox_civil_war_ai_allowed()
+
+march_through_estonia:
+  EST_stomp_the_vaps:
+    activation:
+      sandbox_civil_war_ai_allowed()

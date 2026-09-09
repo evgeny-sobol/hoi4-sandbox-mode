@@ -1,10 +1,19 @@
 on_actions:
   on_startup:
     effect:
+      HAI:
+        log("#sandbox Mode Overhaul v0.1.0")
       if is_historical_focus_on(no):
         $HAI->set_global_flag(sandbox_mode_enabled)
+        HAI:
+          log("#sandbox [GetDateText] [THIS.GetTag] sandbox_start historical=0")
         for every_country():
           initialize_country_for_sandbox_mode()
+      else:
+        # Fires without is_sandbox_mode_on: historical game.log must still
+        # show the mode, and must not contain cw_* lines afterwards.
+        HAI:
+          log("#sandbox [GetDateText] [THIS.GetTag] sandbox_start historical=1")
 
   on_weekly:
     effect:
@@ -18,6 +27,19 @@ on_actions:
         update_country_leader_traits()
         update_honor_gain_monthly_factor()
         update_tyranny_gain_monthly_factor()
+        sandbox_delay_capped_cw_missions()
+        sandbox_retry_ita_civil_war_fuse()
+        sandbox_retry_eth_civil_war_fuse()
+        sandbox_retry_sov_civil_war_fuse()
+        sandbox_retry_gre_civil_war_fuse()
+        sandbox_retry_per_civil_war_fuse()
+        sandbox_retry_est_civil_war_fuse()
+        sandbox_log_waiting_cw_fuses()
+        # One rebuild + pulse per week (HAI is the sandbox flag holder).
+        if tag(HAI):
+          update_sandbox_civil_war_count()
+          sandbox_cw_old = global.sandbox_civil_war_count
+          $sandbox_log_cw_snapshot(cw_pulse)
 
   on_monthly:
     effect:
@@ -55,6 +77,10 @@ on_actions:
     effect:
       if is_sandbox_mode_on():
         reset_honor_for_new_ruler()
+        # Rebuild the same day so an ignition slot opens without waiting a week.
+        sandbox_log_other = FROM
+        update_sandbox_civil_war_count()
+        $sandbox_log_cw_war(cw_end)
 
   on_new_term_election:
     effect:
@@ -67,6 +93,10 @@ on_actions:
       if is_sandbox_mode_on():
         apply_honor_on_declare_war()
         apply_rivalry_on_declare_war()
+        if has_civil_war() and FROM->has_civil_war():
+          sandbox_log_other = FROM
+          update_sandbox_civil_war_count()
+          $sandbox_log_cw_war(cw_declare)
 
   # ROOT = justifier, FROM = target. The pulse is DAILY in vanilla, so the
   # −2 of the GDD is charged once per 30 pulses against a friend.

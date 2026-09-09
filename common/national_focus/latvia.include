@@ -137,6 +137,10 @@ focus_tree[id = latvia_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(LAT_lift_ban_on_perkonkrusts)
 
   focus[id = LAT_fanatic_recruitment]:
     ai_will_do:

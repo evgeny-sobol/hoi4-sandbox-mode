@@ -1,0 +1,4 @@
+infiltrate_belarus_decisions:
+  BALTIC_belarus_uprising:
+    activation:
+      sandbox_civil_war_ai_allowed()

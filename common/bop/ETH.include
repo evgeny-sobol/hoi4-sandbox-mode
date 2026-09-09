@@ -1,0 +1,17 @@
+# Pattern C at the BoP caller. Vanilla IF also sets ETH_rebellion_happened_flag;
+# skip the whole IF while the AI is blocked so weekly retry can still fire.
+ETH_centralization_balance:
+  side[id = ETH_mekwanint_side]:
+    range[id = ETH_mekwanint_total_control_range]:
+      on_activate:
+        hidden_effect:
+          IF:
+            limit:
+              sandbox_civil_war_ai_allowed()
+  side[id = ETH_communist_side]:
+    range[id = ETH_communist_total_control_range]:
+      on_activate:
+        hidden_effect:
+          IF:
+            limit:
+              sandbox_civil_war_ai_allowed()

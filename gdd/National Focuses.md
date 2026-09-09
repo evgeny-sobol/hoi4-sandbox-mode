@@ -258,10 +258,12 @@ Alt-history branches that start a civil war are weighted separately (`gdd/Civil 
         $ai_civil_war_ignition_modifier()   # factor 0.25 in sandbox
       +modifier:
         factor(0)
-        sandbox_civil_war_cap_reached()     # 2 distinct original_tags already in a civil war
+        sandbox_civil_war_cap_reached()     # 3 distinct original_tags already in a civil war
 ```
 
 **Root** of such a branch (the first exclusive pick that commits to it): `$ai_civil_war_root_modifier()` only (same 0.25, **no** cap — otherwise Spain 1936 freezes every alt-history tree).
+
+Events, missions, decisions, BoP ranges, and `on_action`s that call `start_civil_war` are capped the same way (`gdd/Civil Wars.md`, "Event and mission overlays"). Do not duplicate those patterns here.
 
 Do not tag intervention / "lessons from the Spanish Civil War" focuses. Keep existing Tyranny tilts on unconstitutional ignitions; do not stack a second tyranny factor. Player `ai_will_do` is the only surface: `available` is unchanged.
 

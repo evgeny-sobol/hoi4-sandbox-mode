@@ -671,6 +671,140 @@ reset_honor_for_new_ruler():
   reroll_leader_rival()
 
 
+# Distinct original_tags with has_civil_war. seen[] is rebuilt from scratch
+# every call (gdd/Civil Wars.md). every_country_with_original_tag uses the
+# candidate's original_tag, so SPR/SPA/SPB count as one slot.
+#
+# Do not bind a loop variable on every_country_with_original_tag: that
+# parameter is evaluated in THIS (the civil-war country). Binding `sib`
+# would compile `cty` to PREV — the on_weekly/on_civil_war_end ROOT —
+# and Spain's rebel tags would each take a slot.
+update_sandbox_civil_war_count():
+  sandbox_cw_old = global.sandbox_civil_war_count
+  global.&sandbox_civil_war_count = 0
+  global.&sandbox_civil_war_seen[].clear()
+  for cty in every_country():
+    if has_civil_war():
+      already = 0
+      for every_country_with_original_tag():
+        raw original_tag_to_check = cty
+        if THIS in global.sandbox_civil_war_seen[]:
+          already = 1
+      if already == 0:
+        global.&sandbox_civil_war_seen[].add(cty)
+        global.&sandbox_civil_war_count += 1
+  if global.sandbox_civil_war_count != sandbox_cw_old:
+    $sandbox_log_cw_snapshot(cw_count)
+
+
+# Called on every country each week. fire_only_once missions cannot be
+# cancelled, so add days while the AI is blocked (gdd/Civil Wars.md).
+sandbox_delay_capped_cw_missions():
+  if sandbox_civil_war_ai_blocked():
+    $sandbox_delay_mission_if_capped(SPA_military_plot_nationalists)
+    $sandbox_delay_mission_if_capped(SPR_military_plot_republicans)
+    $sandbox_delay_mission_if_capped(AST_veterans_revolt)
+    $sandbox_delay_mission_if_capped(POL_peasants_strike)
+    $sandbox_delay_mission_if_capped(PER_civil_war_imminent)
+    $sandbox_delay_mission_if_capped(GRE_civil_war_imminent)
+    $sandbox_delay_mission_if_capped(GRE_civil_war_imminent_1)
+    $sandbox_delay_mission_if_capped(GRE_civil_war_imminent_2)
+    $sandbox_delay_mission_if_capped(GRE_civil_war_imminent_3)
+    $sandbox_delay_mission_if_capped(GRE_civil_war_imminent_4)
+    $sandbox_delay_mission_if_capped(EST_vaps_uprising)
+    $sandbox_delay_mission_if_capped(EST_stomp_the_vaps)
+    $sandbox_delay_mission_if_capped(LAT_perkonkrust_uprising)
+    $sandbox_delay_mission_if_capped(MEX_mission_cedillos_rebellion)
+    $sandbox_delay_mission_if_capped(MEX_mission_second_cristiada)
+    $sandbox_delay_mission_if_capped(MEX_mission_second_revolution)
+    $sandbox_delay_mission_if_capped(ENG_support_imperialist_coup_in_canada_mission_1)
+    $sandbox_delay_mission_if_capped(ENG_support_imperialist_coup_in_south_africa_mission_1)
+    $sandbox_delay_mission_if_capped(ENG_support_imperialist_coup_in_australia_mission_1)
+    $sandbox_delay_mission_if_capped(ENG_support_imperialist_coup_in_new_zealand_mission_1)
+    $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
+    $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
+    $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
+
+
+# BoP on_activate fires once. If the cap skipped it, retry when a slot opens.
+sandbox_retry_ita_civil_war_fuse():
+  if original_tag($ITA) and not has_civil_war() and not has_completed_focus(ITA_crush_opposition) and not has_country_flag(ITA_fascist_side_for_character_split_flag) and sandbox_ita_grand_council_total_control():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(BBA_italy_civil_war.1)
+    else:
+      $sandbox_log_cw_event(BBA_italy_civil_war.1)
+      country_event(BBA_italy_civil_war.1)
+
+
+sandbox_retry_eth_civil_war_fuse():
+  if original_tag($ETH) and sandbox_eth_rebellion_fuse_ready():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(BBA_ethiopia_balance_of_power_events.01)
+    else:
+      $sandbox_log_cw_event(BBA_ethiopia_balance_of_power_events.01)
+      set_country_flag(ETH_rebellion_happened_flag)
+      raw country_event: { id = BBA_ethiopia_balance_of_power_events.01 hours = 4 }
+
+
+sandbox_retry_sov_civil_war_fuse():
+  if original_tag($SOV) and SOV_soviet_civil_war_not_started() and not has_civil_war():
+    if has_completed_focus(SOV_left_opposition_coup):
+      if sandbox_civil_war_ai_blocked():
+        $sandbox_log_cw_defer(NSB_soviet_communist_civil_war.001)
+      else:
+        $sandbox_log_cw_event(NSB_soviet_communist_civil_war.001)
+        country_event(NSB_soviet_communist_civil_war.001)
+    elif has_completed_focus(SOV_coup_detat):
+      if sandbox_civil_war_ai_blocked():
+        $sandbox_log_cw_defer(NSB_soviet_communist_civil_war.003)
+      else:
+        $sandbox_log_cw_event(NSB_soviet_communist_civil_war.003)
+        country_event(NSB_soviet_communist_civil_war.003)
+    elif has_completed_focus(SOV_the_hands_do):
+      if sandbox_civil_war_ai_blocked():
+        $sandbox_log_cw_defer(NSB_Soviet_fascist_civil_war.001)
+      else:
+        $sandbox_log_cw_event(NSB_Soviet_fascist_civil_war.001)
+        country_event(NSB_Soviet_fascist_civil_war.001)
+
+
+sandbox_retry_gre_civil_war_fuse():
+  if original_tag($GRE) and not has_civil_war() and not has_country_flag(GRE_monarchist_civil_war) and sandbox_gre_george_cw_fuse_ready():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(bftb_greece.105)
+    else:
+      $sandbox_log_cw_event(bftb_greece.100)
+      country_event(bftb_greece.100)
+
+
+sandbox_retry_per_civil_war_fuse():
+  if original_tag($PER) and not has_global_flag(PER_civil_war_happened) and not has_civil_war() and has_completed_focus(PER_revive_old_ways):
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(PER_revolution_events.1)
+    else:
+      $sandbox_log_cw_event(PER_revolution_events.1)
+      country_event(PER_revolution_events.1)
+
+
+sandbox_retry_est_civil_war_fuse():
+  if original_tag($EST) and not has_civil_war() and not has_government(fascism) and has_country_flag(EST_vapsid_takeover):
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(EST_events.7)
+    else:
+      $sandbox_log_cw_event(EST_events.7)
+      country_event(EST_events.7)
+
+
+# Pattern A / on_daily skips have no vanilla effect to hook. Log the wait
+# so a capped observer game is distinguishable from "MTTH has not rolled".
+sandbox_log_waiting_cw_fuses():
+  if sandbox_civil_war_ai_blocked():
+    if original_tag($SPR) and not has_civil_war() and not has_global_flag(spanish_civil_war) and not has_global_flag(scw_over):
+      $sandbox_log_cw_defer(spain)
+    if original_tag($AST) and sandbox_ast_veterans_fuse_ready():
+      $sandbox_log_cw_defer(on_daily_AST)
+
+
 reset_tyranny_for_new_ruler():
   set_tyranny_range_from_government()
   sandbox_log_old = tyranny
@@ -1014,4 +1148,4 @@ clear_annexed_from_rivals():
 # GER/SOV/ENG/USA/FRA/ITA/JAP/FIN/HUN once per month after drift/rivals.
 sandbox_log_census():
   if is_sandbox_census_country():
-    log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")

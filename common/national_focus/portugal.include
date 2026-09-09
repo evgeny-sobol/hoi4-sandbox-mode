@@ -361,6 +361,11 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
@@ -368,6 +373,8 @@ focus_tree[id = portuguese_focus]:
         $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_reorganization_of_the_communist_party)
 
   focus[id = POR_join_the_comintern]:
     +ai_will_do:
@@ -430,6 +437,13 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_workers_of_iberia_unite)
   focus[id = POR_the_iberian_socialist_union]:
     +ai_will_do:
       modifier:
@@ -535,6 +549,11 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
@@ -542,6 +561,8 @@ focus_tree[id = portuguese_focus]:
         $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_allow_free_elections)
 
   focus[id = POR_join_the_allies]:
     +ai_will_do:
@@ -699,6 +720,11 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
@@ -706,6 +732,8 @@ focus_tree[id = portuguese_focus]:
         $ai_rivalry_modifier($POR)
       modifier:
         $ai_betrayal_modifier_vs($POR)
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_ditadura_militar)
 
   focus[id = POR_camisas_azuis]:
     +ai_will_do:
@@ -869,6 +897,13 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_restoration_of_the_monarchy)
 
   focus[id = POR_the_kingdom_reunited]:
     +ai_will_do:

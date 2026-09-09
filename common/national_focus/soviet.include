@@ -1863,6 +1863,13 @@ focus_tree[id = soviet_focus]:
         add(4)
         has_completed_focus(SOV_the_eyes_fear)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SOV_the_hands_do)
 
   focus[id = SOV_call_for_aid]:
     ai_will_do:
@@ -2036,6 +2043,13 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SOV_left_opposition_coup)
 
   focus[id = SOV_the_vanguard_of_the_true_revolution]:
     +ai_will_do:
@@ -2200,6 +2214,13 @@ focus_tree[id = soviet_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_high_tyranny_tilt()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(SOV_coup_detat)
 
 
   focus[id = SOV_right_purges]:

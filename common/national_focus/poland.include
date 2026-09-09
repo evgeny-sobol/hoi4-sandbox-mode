@@ -256,6 +256,10 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(POL_the_sanation_left)
 
   focus[id = POL_modus_vivendi]:
     ai_will_do:
@@ -299,6 +303,10 @@ focus_tree[id = polish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(POL_the_sanation_right)
 
   focus[id = POL_department_for_home_defence]:
     ai_will_do:
@@ -607,7 +615,11 @@ focus_tree[id = polish_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_root_modifier()
+      +modifier:
         $root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(POL_organize_the_peasants_strike)
   focus[id = POL_woo_morges_staff]:
     ai_will_do:
       +modifier:

@@ -400,6 +400,13 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BUL_overthrow_the_tsar)
 
   focus[id = BUL_abolish_the_tarnovo_constitution]:
     +ai_will_do:
@@ -624,6 +631,13 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BUL_abolish_the_monarchy)
 
   focus[id = BUL_seek_cooperation_with_the_tsar]:
     +ai_will_do:
@@ -940,6 +954,13 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(BUL_depose_the_tsar)
   focus[id = BUL_military_dictatorship]:
     +ai_will_do:
       modifier:

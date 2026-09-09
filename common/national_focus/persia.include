@@ -1005,6 +1005,13 @@ focus_tree[id = persian_focus_tree]:
         f = (mtth:monarchy_factor) / (3 * mtth:monarchy_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(PER_revive_old_ways)
 
   focus[id = PER_imperial_expansionism]:
     ai_will_do:
@@ -1262,11 +1269,25 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(PER_strengthen_iranian_parliament)
 
   focus[id = PER_force_abdication]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(PER_force_abdication)
 
   focus[id = PER_promise_clergy_power]:
     ai_will_do:
@@ -1420,6 +1441,13 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(PER_iranian_socialist_revolution)
 
   focus[id = PER_soviet_alignment]:
     available:
@@ -1678,6 +1706,13 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(PER_march_on_saadabad)
 
   focus[id = PER_roll_back_reforms]:
     ai_will_do:
