@@ -1,0 +1,4 @@
+# LaR SCW is lar_spain.2 (not spain.1). Log when the plot mission actually fires.
+country_event[id = lar_spain.2]:
+  immediate:
+    $sandbox_log_cw_event(lar_spain.2)
