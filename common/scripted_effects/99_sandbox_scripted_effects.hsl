@@ -743,7 +743,9 @@ sandbox_retry_eth_civil_war_fuse():
     else:
       $sandbox_log_cw_event(BBA_ethiopia_balance_of_power_events.01)
       set_country_flag(ETH_rebellion_happened_flag)
-      raw country_event: { id = BBA_ethiopia_balance_of_power_events.01 hours = 4 }
+      country_event:
+        id(BBA_ethiopia_balance_of_power_events.01)
+        hours(4)
 
 
 sandbox_retry_sov_civil_war_fuse():

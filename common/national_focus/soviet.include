@@ -941,7 +941,7 @@ focus_tree[id = soviet_focus]:
         $ai_sandbox_modifier()
       modifier:
         factor(@HIGH_PRIORITY)
-        raw has_country_flag: { flag=SOV_second_moscow_trial_flag days>105 }
+        $has_country_flag_days(SOV_second_moscow_trial_flag, 105)
         is_sandbox_mode_on()
 
   focus[id = SOV_organization_centralization_discipline]:
