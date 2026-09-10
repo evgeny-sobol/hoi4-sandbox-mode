@@ -378,6 +378,13 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(AFG_the_faqirs_revolt)
 
   focus[id = AFG_request_japanese_support]:
     ai_will_do:
@@ -795,6 +802,13 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(AFG_return_of_the_emir)
 
   focus[id = AFG_revive_the_1923_constitution]:
     ai_will_do:
@@ -1228,6 +1242,13 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(AFG_parliamentary_democracy)
 
   focus[id = AFG_gain_religious_support_for_reforms]:
     ai_will_do:
@@ -1314,6 +1335,13 @@ focus_tree[id = afghanistan_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(AFG_socialist_coup)
 
   focus[id = AFG_request_soviet_support]:
     ai_will_do:

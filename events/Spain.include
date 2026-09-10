@@ -1,0 +1,14 @@
+# Pattern A: gate the event trigger. Do not navigate `country_event` into
+# nested same-line `POR = { country_event = { ... } }` — the compiler skips
+# those; the event `trigger` is the first `trigger` child (not option triggers).
+country_event[id = spain.1]:
+  trigger:
+    sandbox_civil_war_ai_allowed()
+  immediate:
+    $sandbox_log_cw_event(spain.1)
+
+country_event[id = spain.10]:
+  trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(spain.10)

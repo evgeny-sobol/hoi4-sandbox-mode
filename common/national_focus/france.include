@@ -494,6 +494,13 @@ focus_tree[id = french_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(FRA_destroy_the_counter_revolution)
 
   focus[id = FRA_carry_the_revolution_north]:
     available:

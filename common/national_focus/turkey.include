@@ -210,6 +210,13 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(TUR_restack_the_officer_corps)
 
   focus[id = TUR_form_the_redshirts]:
     ai_will_do:

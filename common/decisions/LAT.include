@@ -1,0 +1,8 @@
+LAT_perkonkrust_revolt_category:
+  LAT_perkonkrust_uprising:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    # Completing this mission (fascism > 0.55) fires LAT_events.8.
+    # Timeout only reactivates; delay completion while the AI is capped.
+    available:
+      sandbox_civil_war_ai_allowed()

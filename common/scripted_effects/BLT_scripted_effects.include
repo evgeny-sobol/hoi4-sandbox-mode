@@ -1,0 +1,12 @@
+# Iron Wolf / Vaps mission timeouts call these. At the worst idea the first
+# if starts the war; skip that block while the AI is capped. The mission
+# re-activates and retries.
+LIT_iron_wolf_down_effect:
+  if:
+    limit:
+      sandbox_civil_war_ai_allowed()
+
+EST_vaps_down_effect:
+  if:
+    limit:
+      sandbox_civil_war_ai_allowed()

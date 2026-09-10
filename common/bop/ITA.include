@@ -1,0 +1,7 @@
+ITA_power_balance:
+  side[id = ITA_grand_council_side]:
+    range[id = ITA_grand_council_total_control_range]:
+      on_activate:
+        if:
+          limit:
+            sandbox_civil_war_ai_allowed()

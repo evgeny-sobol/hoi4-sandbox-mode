@@ -3188,6 +3188,13 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(JAP_cast_the_die)
 
   focus[id = JAP_the_fate_of_the_imperial_family]:
     ai_will_do:
@@ -3296,6 +3303,13 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(JAP_pre_emptive_coup)
 
   focus[id = JAP_purge_the_militarists]:
     ai_will_do:

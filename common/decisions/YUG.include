@@ -1,0 +1,5 @@
+YUG_peasant_uprisings:
+  YUG_communist_coup:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

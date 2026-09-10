@@ -1,0 +1,16 @@
+crisis:
+  GRE_civil_war_imminent:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  GRE_civil_war_imminent_1:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  GRE_civil_war_imminent_2:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  GRE_civil_war_imminent_3:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  GRE_civil_war_imminent_4:
+    activation:
+      sandbox_civil_war_ai_allowed()

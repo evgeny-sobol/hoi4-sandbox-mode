@@ -1,0 +1,5 @@
+# BoP on_activate can still deliver this while capped. Discard for the AI
+# (not fire_only_once); weekly sandbox_retry_ita_civil_war_fuse re-fires.
+country_event[id = BBA_italy_civil_war.1]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

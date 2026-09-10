@@ -1,0 +1,4 @@
+POL_peasant_strike_category:
+  POL_peasants_strike:
+    activation:
+      sandbox_civil_war_ai_allowed()

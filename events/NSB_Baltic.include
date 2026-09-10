@@ -1,0 +1,8 @@
+# Pattern B: peaceful option .4.a stays; AI will not pick the war option at cap.
+country_event[id = BALTIC_events.4]:
+  option[name = BALTIC_events.4.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(BALTIC_events.4.b)

@@ -4,13 +4,21 @@ focus_tree[id = norwegian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
+        $ai_civil_war_root_modifier()
+      modifier:
         $root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(NOR_a_resurgent_labor_movement)
   focus[id = NOR_vote_of_no_confidence]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_root_modifier()
+      +modifier:
         $root_modifier()
+    completion_reward:
+      $sandbox_log_cw_root(NOR_vote_of_no_confidence)
   focus[id = NOR_continue_nygaardsvold_government]:
     ai_will_do:
       +modifier:
@@ -74,6 +82,13 @@ focus_tree[id = norwegian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+      modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(NOR_workers_and_farmers_rise)
 
   focus[id = NOR_war_in_finland]:
     available:
@@ -542,6 +557,13 @@ focus_tree[id = norwegian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(NOR_quislings_coup)
 
   focus[id = NOR_quislings_regime]:
     ai_will_do:

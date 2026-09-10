@@ -97,3 +97,21 @@ update_GER_national_focuses():
         &GER_demand_slovenia_antagonism = 1 - sum_f / n
       else:
         &GER_demand_slovenia_antagonism = 1
+
+# Completed count among the 7 inner-circle / party-chancellor foci.
+GER_sandbox_count_inner_circle_foci():
+  GER_inner_circle_count = 0
+  if has_completed_focus(GER_ascension_of_todt):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_ascension_of_speer):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_ascension_of_goring):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_ascension_of_himmler):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_ascension_of_goebbels):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_party_chancellor_hess):
+    GER_inner_circle_count += 1
+  if has_completed_focus(GER_party_chancellor_bormann):
+    GER_inner_circle_count += 1

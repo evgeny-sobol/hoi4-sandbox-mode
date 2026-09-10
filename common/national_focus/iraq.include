@@ -868,6 +868,13 @@ focus_tree[id = iraq_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    completion_reward:
+      $sandbox_log_cw_ignition(IRQ_kurdish_revolt)
 
   focus[id = IRQ_kurdish_language]:
     ai_will_do:

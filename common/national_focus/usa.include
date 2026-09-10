@@ -52,32 +52,50 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         f = 4 * mtth:communism_factor /
           (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
         is_sandbox_mode_on()
+    completion_reward:
+      $sandbox_log_cw_ignition(USA_union_representation_act)
 
   focus[id = USA_america_first]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_root_modifier()
+      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
+    completion_reward:
+      $sandbox_log_cw_root(USA_america_first)
 
   focus[id = USA_ally_with_the_silver_shirts]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
         f = 4 * mtth:fascism_factor /
           (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
         is_sandbox_mode_on()
+    completion_reward:
+      $sandbox_log_cw_ignition(USA_ally_with_the_silver_shirts)
 
 # ▄▀▀▄ █▀▀▀ █▄  █ ▀▀█▀▀ █▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 # █  ▄ █▀▀  █ ▀▄█   █   █▀▀▄ █  ▀▀▄   █    ▀▀▄
-#  ▀▀  ▀▀▀▀ ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀ 
+#  ▀▀  ▀▀▀▀ ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀
   focus[id = USA_wpa]:
     +ai_will_do:
       modifier:
