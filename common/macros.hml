@@ -227,10 +227,7 @@ macro ai_civil_war_decision_cap():
 # Push a fire-once mission's timeout while the AI is blocked (gdd Pattern C).
 macro sandbox_delay_mission_if_capped(_mission_):
   if has_active_mission(_mission_):
-    raw add_days_mission_timeout: {
-      mission = _mission_
-      days = 8
-    }
+    $add_days_mission_timeout(_mission_, 8)
     $sandbox_log_cw_defer(_mission_)
 
 # ROOT vs FROM (declare / civil-war end). Caller sets sandbox_log_other and
@@ -307,10 +304,7 @@ macro add_country_to_targets(targets_, _tag_):
 
 # Removes a non-aggression pact and applies the Honor −50 betrayal cost.
 macro break_non_aggression_pact_with(_tag_):
-  diplomatic_relation:
-    country(_tag_)
-    relation(non_aggression_pact)
-    active(no)
+  $diplomatic_relation(_tag_, non_aggression_pact, no)
   sandbox_log_other = _tag_
   $add_honor(-50, honor_break_pact_focus)
   &na_pacts[].erase(_tag_)

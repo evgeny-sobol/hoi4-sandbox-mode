@@ -167,17 +167,17 @@ sandbox_civil_war_ai_allowed:
 
 # ITA BoP range that lights BBA_italy_civil_war.1. Not an HSL trigger.
 sandbox_ita_grand_council_total_control:
-  raw is_power_balance_in_range: { id = ITA_power_balance range = ITA_grand_council_total_control_range }
+  $is_power_balance_in_range(ITA_power_balance, ITA_grand_council_total_control_range)
 
 # ETH BoP total-control ranges that queue BBA_ethiopia_balance_of_power_events.01
 sandbox_eth_rebellion_fuse_ready:
   not has_country_flag(ETH_rebellion_happened_flag)
   not has_civil_war()
   OR:
-    raw is_power_balance_in_range: { id = ETH_centralization_balance range = ETH_mekwanint_total_control_range }
-    raw is_power_balance_in_range: { id = ETH_centralization_balance range = ETH_communist_total_control_range }
+    $is_power_balance_in_range(ETH_centralization_balance, ETH_mekwanint_total_control_range)
+    $is_power_balance_in_range(ETH_centralization_balance, ETH_communist_total_control_range)
   OR:
-    raw has_stability < 0.15
+    not $has_stability(0.15)
     raw check_variable: { ROOT.party_popularity@ruling_party < 0.4 }
 
 # on_daily_AST veterans fuse is live (mission delay may also log).
@@ -185,7 +185,7 @@ sandbox_ast_veterans_fuse_ready:
   has_country_flag(AST_veterans_revolt_active)
   not has_country_flag(AST_revolt_triggered_early)
   not has_government(communism)
-  raw has_stability < 0.40
+  not $has_stability(0.40)
 
 # GRE_the_right_to_rule dispatcher is ready to queue bftb_greece.105.
 sandbox_gre_george_cw_fuse_ready:

@@ -11,7 +11,9 @@ world_tension_factor:
     not has_country_leader_ideology(japan_militarism_ideology)
     is_sandbox_mode_on()
   modifier:
-    add(0.75)
+    # MIC: 0.5 at 0% WT → 1.0 at 100% (`1 + (-0.75 + 0.25 + 0.5 * threat)`).
+    wt_bonus = 0.25 + 0.5 * global.threat
+    add(wt_bonus)
     or:
       has_government(communism | fascism)
       has_country_leader_ideology(japan_militarism_ideology)

@@ -8,7 +8,7 @@ country_event[id = siam.8]:
     # Vanilla only starts the war when independent and not capitulated.
     # Do not re-queue a subject / fallen SIA forever.
     if sandbox_civil_war_ai_blocked() and not is_subject() and not has_capitulated():
-      raw country_event: { id = siam.8 days = 7 }
+      $country_event(siam.8, 7)
       $sandbox_log_cw_defer(siam.8)
     if sandbox_civil_war_ai_allowed() and not is_subject() and not has_capitulated():
       $sandbox_log_cw_event(siam.8)
