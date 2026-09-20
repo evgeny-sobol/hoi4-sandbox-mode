@@ -4,6 +4,9 @@
 ### Obsidian
 gdd/.obsidian/*
 
+### Python
+__pycache__/
+
 ### macOS
 # Finder metadata
 .DS_Store
