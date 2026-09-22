@@ -117,3 +117,79 @@ minor_rivals_scorer:
       modifier:
         factor(0)
         THIS in FROM.former_rivals[]
+
+scenario_join_scorer:
+  targets:
+    targets_dynamic(no)
+    target_non_existing(no)
+    target_array(global.countries)
+    # FROM is the aggressor, THIS is the candidate
+    score:
+      base(0)
+      modifier:
+        add(5)
+        raw num_divisions > 10
+      modifier:
+        add(10)
+        raw num_divisions > 30
+      modifier:
+        add(15)
+        raw num_divisions > 60
+      modifier:
+        add(15)
+        raw num_divisions > 100
+      modifier:
+        add(15)
+        raw num_divisions > 150
+      modifier:
+        add(10)
+        scenario_join_industry > 10
+      modifier:
+        add(15)
+        scenario_join_industry > 25
+      modifier:
+        add(20)
+        scenario_join_industry > 50
+      modifier:
+        add(15)
+        scenario_join_industry > 80
+      modifier:
+        add(10)
+        raw has_opinion: { target = FROM value > 25 }
+      modifier:
+        add(20)
+        raw has_opinion: { target = FROM value > 50 }
+      modifier:
+        add(30)
+        raw has_opinion: { target = FROM value > 75 }
+      modifier:
+        add(-10)
+        raw has_opinion: { target = FROM value < 0 }
+      modifier:
+        add(-20)
+        raw has_opinion: { target = FROM value < -50 }
+      modifier:
+        factor(0)
+        FROM == THIS
+      modifier:
+        factor(0)
+        is_ai(no)
+      modifier:
+        factor(0)
+        has_civil_war()
+      modifier:
+        factor(0)
+        has_war_with(FROM)
+      modifier:
+        factor(0)
+        is_in_faction_with(FROM)
+      modifier:
+        factor(0)
+        is_subject_of(FROM)
+      modifier:
+        factor(0)
+        FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        has_enemy_ideology_with_FROM()
+

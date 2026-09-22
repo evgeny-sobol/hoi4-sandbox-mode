@@ -1,0 +1,79 @@
+# docs/gdd/Scenarios Catalog.md: arc events for eng_soviet.
+add_namespace(sandbox_eng_soviet)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_eng_soviet.1)
+  title(sandbox_eng_soviet_1_t)
+  desc(sandbox_eng_soviet_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_eng_soviet_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, eng_soviet_crisis)
+    $sandbox_add_rivalry_vs(SOV, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_eng_soviet_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (SOV).
+country_event:
+  id(sandbox_eng_soviet.2)
+  title(sandbox_eng_soviet_2_t)
+  desc(sandbox_eng_soviet_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_eng_soviet_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, eng_soviet_ult_2_submit)
+  option:
+    name(sandbox_eng_soviet_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, eng_soviet_ult_2_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# The exit from any old faction is Honor-free (one-shot skip flag, like a
+# released nation). No faction is created: see the note above.
+country_event:
+  id(sandbox_eng_soviet.3)
+  title(sandbox_eng_soviet_3_t)
+  desc(sandbox_eng_soviet_3_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(ENG)
+  option:
+    name(sandbox_eng_soviet_3_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(ENG)
+    ENG:
+      give_military_access(PREV)
+    $add_opinion_modifier(ENG, scenario_ally)
+    $sandbox_log_sc(sc_join, eng_soviet_joined)
+  option:
+    name(sandbox_eng_soviet_3_b)
+    ai_chance:
+      factor(10)

@@ -16,3 +16,6 @@ opinion_modifiers:
 
   leaders_rival:
     value(-10)
+
+  scenario_ally:
+    value(40)

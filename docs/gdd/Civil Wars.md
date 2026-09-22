@@ -5,15 +5,15 @@ A civil war is the most expensive way a country can change its politics: it spli
 This document is about **how often** the AI starts one. It does not redesign vanilla civil-war content (Spanish Civil War, Cedillo, Vaps, second Finnish war). Those scripts stay. Sandbox only changes whether the AI walks into them, and whether a fourth country is allowed to explode while three are already burning.
 
 Civil wars are **not**:
-- Honor. Starting a civil war does not cost Honor; Honor is about promises to *other* countries (`gdd/Honor System.md`).
-- Tyranny as a value. A purge or a coup may raise Tyranny; the civil war itself is a method, not a Tyranny source (`gdd/Tyranny System.md`). Unconstitutional focuses that happen to start a war still use the existing tyranny tilt.
+- Honor. Starting a civil war does not cost Honor; Honor is about promises to *other* countries (`docs/gdd/Honor System.md`).
+- Tyranny as a value. A purge or a coup may raise Tyranny; the civil war itself is a method, not a Tyranny source (`docs/gdd/Tyranny System.md`). Unconstitutional focuses that happen to start a war still use the existing tyranny tilt.
 - A substitute for the revolution events `political.21/22/23`. Those already have an AI-only peaceful referendum; do not touch them here.
 
 Sandbox-only: every rule below runs under `is_sandbox_mode_on()`. Historical mode is unchanged.
 
 ## Why this is needed
 
-`$ai_sandbox_modifier()` (`gdd/National Focuses.md`) sets every focus to weight 40 and historical AI plans are aborted. Political roots that vanilla AI almost never takes — `USA_america_first`, Baltic "break the silence" / Vaps, Norwegian fascist and communist openers — now compete with industry. Party-popularity factors then pull those roots. By 1936–37 several AIs complete the focus that actually fires `start_civil_war` in the same window.
+`$ai_sandbox_modifier()` (`docs/gdd/National Focuses.md`) sets every focus to weight 40 and historical AI plans are aborted. Political roots that vanilla AI almost never takes — `USA_america_first`, Baltic "break the silence" / Vaps, Norwegian fascist and communist openers — now compete with industry. Party-popularity factors then pull those roots. By 1936–37 several AIs complete the focus that actually fires `start_civil_war` in the same window.
 
 The first pass zeroed `ai_will_do` on ignition **focuses** once three distinct `original_tag`s were at war. That did not stop the pile-up. Observed sandbox observer game (v0.1.1, `historical=0`, through Feb 1938): `cw` reached **8**. After `cap=1` / `ignition_base=0` the extra wars were still `cw_declare` from rebels (AST, GRE, then MEX, LIT, PER, POL, ITA) — missions, MTTH/plot events, BoP, `on_daily` — not tagged focuses (`cw_ignition` never fired). The counter was honest; the fuse was not on a focus.
 
@@ -98,7 +98,7 @@ A war started **by another tag** (ENG decision lighting AST, LIT event lighting 
 
 ## AI weighting (focuses)
 
-Macros in `common/macros.hml`, patterns in `gdd/National Focuses.md`. Unchanged from the first pass.
+Macros in `common/macros.hml`, patterns in `docs/gdd/National Focuses.md`. Unchanged from the first pass.
 
 **Ignition** (`$ai_civil_war_ignition_modifier()`), next to `$ai_sandbox_modifier()`:
 

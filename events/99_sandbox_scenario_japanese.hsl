@@ -1,0 +1,133 @@
+# docs/gdd/Scenarios Catalog.md: arc events for japanese.
+add_namespace(sandbox_japanese)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_japanese.1)
+  title(sandbox_japanese_1_t)
+  desc(sandbox_japanese_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_japanese_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, japanese_crisis)
+    $sandbox_add_rivalry_vs(CHI, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_japanese_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (CHI | BRM).
+country_event:
+  id(sandbox_japanese.2)
+  title(sandbox_japanese_2_t)
+  desc(sandbox_japanese_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CHI | BRM)
+  option:
+    name(sandbox_japanese_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, japanese_ult_2_submit)
+  option:
+    name(sandbox_japanese_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, japanese_ult_2_defy)
+
+# Ultimatum 3 (PHI | INS).
+country_event:
+  id(sandbox_japanese.3)
+  title(sandbox_japanese_3_t)
+  desc(sandbox_japanese_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(PHI | INS)
+  option:
+    name(sandbox_japanese_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, japanese_ult_3_submit)
+  option:
+    name(sandbox_japanese_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, japanese_ult_3_defy)
+
+# Ultimatum 4 (MAL).
+country_event:
+  id(sandbox_japanese.4)
+  title(sandbox_japanese_4_t)
+  desc(sandbox_japanese_4_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(MAL)
+  option:
+    name(sandbox_japanese_4_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, japanese_ult_4_submit)
+  option:
+    name(sandbox_japanese_4_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, japanese_ult_4_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# The exit from any old faction is Honor-free (one-shot skip flag, like a
+# released nation). No faction is created: see the note above.
+country_event:
+  id(sandbox_japanese.5)
+  title(sandbox_japanese_5_t)
+  desc(sandbox_japanese_5_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(JAP)
+  option:
+    name(sandbox_japanese_5_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(JAP)
+    JAP:
+      give_military_access(PREV)
+    $add_opinion_modifier(JAP, scenario_ally)
+    $sandbox_log_sc(sc_join, japanese_joined)
+  option:
+    name(sandbox_japanese_5_b)
+    ai_chance:
+      factor(10)

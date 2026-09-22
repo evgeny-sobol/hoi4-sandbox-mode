@@ -1,4 +1,4 @@
-# gdd/Civil Wars.md Pattern B: AI picks the peaceful option while the cap is full.
+# docs/gdd/Civil Wars.md Pattern B: AI picks the peaceful option while the cap is full.
 # Log the option that actually starts the war (skip is silent — ai_chance 0).
 country_event[id = election.11]:
   option[name = election.11.b]:

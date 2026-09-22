@@ -1,5 +1,5 @@
 name="Sandbox Mode Overhaul"
-version="0.1.2"
+version="0.2.0"
 supported_version="1.19.*"
 tags={
 	"Alternative History"

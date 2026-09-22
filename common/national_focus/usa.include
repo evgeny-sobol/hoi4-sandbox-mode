@@ -668,7 +668,11 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_intervention_in_europe)
 
   focus[id = USA_war_plan_gold]:
     ai_will_do:
@@ -688,8 +692,12 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_war_plan_black)
 
   focus[id = USA_destroyers_for_bases]:
     +ai_will_do:
@@ -738,21 +746,35 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_intervention_in_asia)
+
 
   focus[id = USA_war_plan_orange]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_war_plan_orange)
 
   focus[id = USA_war_plan_yellow]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_war_plan_yellow)
+
 
   focus[id = USA_defense_of_the_pacific]:
     available:
@@ -760,6 +782,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -774,6 +798,8 @@ focus_tree[id = usa_focus]:
 # █   █ ▄▀▀▄ █▀▀▄      █▀▀▄ █▀▀▀ █▀▀▄ ▄▀▀▄ █▀▀▄ ▀▀█▀▀ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
 # █ ▄ █ █▀▀█ █▀▀▄      █  █ █▀▀  █▀▀  █▀▀█ █▀▀▄   █   █ ▀ █ █▀▀  █ ▀▄█   █  
 #  ▀ ▀  ▀  ▀ ▀  ▀      ▀▀▀  ▀▀▀▀ ▀    ▀  ▀ ▀  ▀   ▀   ▀   ▀ ▀▀▀▀ ▀   ▀   ▀  
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_defense_of_the_pacific)
   focus[id = USA_war_department]:
     ai_will_do:
       +modifier:

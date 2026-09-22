@@ -1,6 +1,6 @@
 # Rivals
 
-Rivals answer one question about a country: "**whom** does it want to fight?" Honor answers "how does it treat its promises" (`gdd/Honor System.md`), Tyranny "how does it rule at home" (`gdd/Tyranny System.md`), Opinion "how do others feel about it". In a randomised sandbox world rivalries are the source of long, readable conflicts: they steer AI aggression and tell the player why someone is sharpening a knife for them.
+Rivals answer one question about a country: "**whom** does it want to fight?" Honor answers "how does it treat its promises" (`docs/gdd/Honor System.md`), Tyranny "how does it rule at home" (`docs/gdd/Tyranny System.md`), Opinion "how do others feel about it". In a randomised sandbox world rivalries are the source of long, readable conflicts: they steer AI aggression and tell the player why someone is sharpening a knife for them.
 
 Rivalry is **not**:
 - An excuse. Attacking a rival protected by a pact or guarantee costs the same Honor as attacking anyone else.
@@ -134,10 +134,10 @@ The per-tag macro `country_is_rival(_country_)` becomes three macros (`rival_bas
 
 ### National focuses
 
-Patterns are in `gdd/National Focuses.md`, "Diplomacy modifiers":
+Patterns are in `docs/gdd/National Focuses.md`, "Diplomacy modifiers":
 - cooperation focuses with **one or two** named partners are gated: `available: $not_rival_of_PREV($TAG)` (alias-safe form of `$TAG->is_rival_of_PREV(no)`) and `factor(0)` on `$TAG in rivals[]`;
 - cooperation focuses that invite **three or more** countries (faction-building focuses such as `USA_hemisphere_defense`, `ITA_south_american_alliances`, the Baltic and Balkan invitations) are **not** gated and get no `factor(0)`. National rivals are drawn from neighbours and the same continent, so one of many invitees is almost always a rival and a gate would block the focus permanently; the rival opinion modifiers already lower the averaged cooperation factor, and the rival's own AI refuses the alliance (`alliance −200`);
-- antagonism focuses add `$ai_rivalry_modifier($TAG)` next to `$ai_antagonism_modifier($TAG)`: `factor(1 + rivalry_vs / 50)` where `rivalry_vs` is the highest `rivalry` among slots holding `TAG` (×1 for a non-rival, ×2 at 50, ×3 at Feud); two targets use `$ai_rivalry_modifier_max($TAG1, $TAG2)`; three or more targets spell the same modifier out with one `$rivalry_vs_into($TAG)` line per target (pattern in `gdd/National Focuses.md`);
+- antagonism focuses add `$ai_rivalry_modifier($TAG)` next to `$ai_antagonism_modifier($TAG)`: `factor(1 + rivalry_vs / 50)` where `rivalry_vs` is the highest `rivalry` among slots holding `TAG` (×1 for a non-rival, ×2 at 50, ×3 at Feud); two targets use `$ai_rivalry_modifier_max($TAG1, $TAG2)`; three or more targets spell the same modifier out with one `$rivalry_vs_into($TAG)` line per target (pattern in `docs/gdd/National Focuses.md`);
 - the macros compute `rivalry_vs` inside the modifier with temp variables and `if` triggers over the three slots (`ai_will_do` is a trigger context, so no scripted effect can be called); the focus files never index `rivalry[]` directly;
 - coverage is complete: every `$ai_antagonism_modifier` and every multi-target `antagonism = …` block, including the shared trees (`baltic_shared`, `china_shared*`, `indonesia_joint`, `TSR_*`), has a rivalry modifier;
 - tag aliases follow the `country_exists` guard rule from the same document.
@@ -215,5 +215,5 @@ Verify in game (not yet run after the implementation; `error.log` and the toolti
 - Player decisions "declare rival" / "seek détente" (`common/decisions` is empty; add once the AI loop is tuned).
 - Targeted ideas per rival (`targeted_modifier`: `attack_bonus_against`, `generate_wargoal_tension_against`); requires per-tag generation like the AI-strategy file.
 - News events and notifications about rivalry changes.
-- Opinion by Tyranny band distance (listed under "Second iteration" in `gdd/Tyranny System.md`; independent of rivals).
+- Opinion by Tyranny band distance (listed under "Second iteration" in `docs/gdd/Tyranny System.md`; independent of rivals).
 - Historical-mode behaviour: everything here is sandbox-only.
