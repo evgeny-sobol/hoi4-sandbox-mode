@@ -1,0 +1,33 @@
+# docs/gdd/Scenarios.md "Selection": pin rule for the scenario pick. Random
+# (default) lets the director surprise; named options pin one arc.
+sandbox_scenario:
+  name("RULE_SANDBOX_SCENARIO")
+  group("RULE_GROUP_SANDBOX")
+  default:
+    name(sandbox_random)
+    text("RULE_OPTION_SANDBOX_RANDOM")
+    desc("RULE_OPTION_SANDBOX_RANDOM_DESC")
+  option:
+    name(sandbox_axis_expansion)
+    text("RULE_OPTION_SANDBOX_AXIS")
+    desc("RULE_OPTION_SANDBOX_AXIS_DESC")
+  option:
+    name(sandbox_sov_south)
+    text("RULE_OPTION_SANDBOX_SOV_SOUTH")
+    desc("RULE_OPTION_SANDBOX_SOV_SOUTH_DESC")
+  option:
+    name(sandbox_japanese_expansion)
+    text("RULE_OPTION_SANDBOX_JAPANESE")
+    desc("RULE_OPTION_SANDBOX_JAPANESE_DESC")
+  option:
+    name(sandbox_italian_expansion)
+    text("RULE_OPTION_SANDBOX_ITALIAN")
+    desc("RULE_OPTION_SANDBOX_ITALIAN_DESC")
+  option:
+    name(sandbox_eng_soviet)
+    text("RULE_OPTION_SANDBOX_ENG_SOVIET")
+    desc("RULE_OPTION_SANDBOX_ENG_SOVIET_DESC")
+  option:
+    name(sandbox_usa_warplan)
+    text("RULE_OPTION_SANDBOX_USA_WARPLAN")
+    desc("RULE_OPTION_SANDBOX_USA_WARPLAN_DESC")

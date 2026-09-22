@@ -40,11 +40,15 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = mtth:democracy_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_steady_as_she_goes)
 
   focus[id = ENG_a_change_in_course]:
     ai_will_do:
@@ -65,14 +69,21 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_global_defense)
+
 
   focus[id = ENG_home_defence]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $crossroad_modifier(2)
       +modifier:
@@ -81,6 +92,9 @@ focus_tree[id = british_focus]:
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      █  █
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▀▀▀█
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀          ▀
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_home_defence)
+
   focus[id = ENG_the_kings_party]:
     ai_will_do:
       +modifier:
@@ -698,6 +712,11 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_every_man_will_do_his_duty)
+
 
   focus[id = ENG_motion_of_no_confidence]:
     ai_will_do:
@@ -708,6 +727,11 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_no_further_appeasement)
+
 
   focus[id = ENG_kickstart_the_war_industry]:
     ai_will_do:
@@ -788,6 +812,8 @@ focus_tree[id = british_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -796,6 +822,8 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_embargo_ussr)
 
   focus[id = ENG_war_with_ussr]:
     available:
@@ -803,6 +831,8 @@ focus_tree[id = british_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -811,6 +841,8 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+    +completion_reward:
+      $sandbox_log_sc_focus(ENG_war_with_ussr)
 
   focus[id = uk_iraq_focus]:
     available:
@@ -819,6 +851,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($IRQ)
@@ -826,6 +860,9 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($IRQ)
       +modifier:
         $ai_betrayal_modifier_vs($IRQ)
+    +completion_reward:
+      $sandbox_log_sc_focus(uk_iraq_focus)
+
 
   focus[id = uk_iran_focus]:
     available:
@@ -834,6 +871,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)
@@ -841,6 +880,9 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($PER)
       +modifier:
         $ai_betrayal_modifier_vs($PER)
+    +completion_reward:
+      $sandbox_log_sc_focus(uk_iran_focus)
+
 
   focus[id = uk_scandinavian_focus]:
     available:

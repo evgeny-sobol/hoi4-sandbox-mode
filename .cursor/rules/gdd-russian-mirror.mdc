@@ -1,0 +1,12 @@
+---
+description: Do not translate GDD to Russian unless the user explicitly asks
+alwaysApply: true
+---
+
+# GDD Russian mirror
+
+English files under `docs/gdd/*.md` are canonical. Do not create, update, or delete Russian mirrors (`<Name> - RU.md`) unless the user explicitly asks for a Russian translation or for the mirrors to be synced.
+
+- A GDD edit is done when the English file is updated. Stale or missing RU files are not a blocker.
+- If the user does ask for a RU mirror: same sections, same facts, same checklist states; English wins on disagreement; Cyrillic is allowed in RU files, but punctuation stays plain ASCII (`"` not `«»`, `-` not `—`, `...` not `…`).
+- Never change a RU mirror without the matching English change.

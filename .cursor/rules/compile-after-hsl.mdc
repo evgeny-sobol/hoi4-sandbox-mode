@@ -11,9 +11,9 @@ After any create, edit, or delete of files with extensions `.include`, `.hsl`, o
 Use a single PowerShell session (activation does not persist across separate shells):
 
 ```powershell
-cd C:\Users\evgeny\Repos\HoI4\hsl
+cd $env:USERPROFILE\Repos\HoI4\hsl
 .\venv\Scripts\activate
-python .\compiler.py C:\Games\Steam\steamapps\workshop\content\394360\_sandbox "C:\Games\Steam\steamapps\common\Hearts of Iron IV"
+python .\compiler.py "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox" "C:\Games\Steam\steamapps\common\Hearts of Iron IV"
 ```
 
 - Do not skip this step after a batch of related source edits; one compile at the end of the batch is enough.

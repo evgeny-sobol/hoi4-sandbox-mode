@@ -1,0 +1,133 @@
+# docs/gdd/Scenarios Catalog.md: arc events for sov_south.
+add_namespace(sandbox_sov_south)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_sov_south.1)
+  title(sandbox_sov_south_1_t)
+  desc(sandbox_sov_south_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_sov_south_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, sov_south_crisis)
+    $sandbox_add_rivalry_vs(TUR, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_sov_south_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (TUR | PAK).
+country_event:
+  id(sandbox_sov_south.2)
+  title(sandbox_sov_south_2_t)
+  desc(sandbox_sov_south_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(TUR | PAK)
+  option:
+    name(sandbox_sov_south_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_2_submit)
+  option:
+    name(sandbox_sov_south_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_2_defy)
+
+# Ultimatum 3 (IRQ | RAJ).
+country_event:
+  id(sandbox_sov_south.3)
+  title(sandbox_sov_south_3_t)
+  desc(sandbox_sov_south_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(IRQ | RAJ)
+  option:
+    name(sandbox_sov_south_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_3_submit)
+  option:
+    name(sandbox_sov_south_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_3_defy)
+
+# Ultimatum 4 (PER | AFG).
+country_event:
+  id(sandbox_sov_south.4)
+  title(sandbox_sov_south_4_t)
+  desc(sandbox_sov_south_4_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(PER | AFG)
+  option:
+    name(sandbox_sov_south_4_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_4_submit)
+  option:
+    name(sandbox_sov_south_4_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, sov_south_ult_4_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# The exit from any old faction is Honor-free (one-shot skip flag, like a
+# released nation). No faction is created: see the note above.
+country_event:
+  id(sandbox_sov_south.5)
+  title(sandbox_sov_south_5_t)
+  desc(sandbox_sov_south_5_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(SOV)
+  option:
+    name(sandbox_sov_south_5_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(SOV)
+    SOV:
+      give_military_access(PREV)
+    $add_opinion_modifier(SOV, scenario_ally)
+    $sandbox_log_sc(sc_join, sov_south_joined)
+  option:
+    name(sandbox_sov_south_5_b)
+    ai_chance:
+      factor(10)
