@@ -186,7 +186,7 @@ macro ai_sandbox_modifier():
   add(40)
   is_sandbox_mode_on()
 
-# Civil-war AI (gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
+# Civil-war AI (docs/gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
 # be separate modifiers: if the cap trigger fails, that modifier is skipped
 # and a folded factor(0) would also drop the 0.25.
 macro ai_civil_war_ignition_modifier():
@@ -197,7 +197,7 @@ macro ai_civil_war_root_modifier():
   factor(0.25)
   is_sandbox_mode_on()
 
-# game.log (`#sandbox`, grep `cw_`) for gdd/Civil Wars.md acceptance:
+# game.log (`#sandbox`, grep `cw_`) for docs/gdd/Civil Wars.md acceptance:
 #   cw_pulse / cw_count  — census; pulse `N->N` is not a weekly delta, use `cw=`
 #   cw_declare / cw_end  — a slot occupied or freed; ai=0 if either side is the player
 #   cw_ignition / cw_root — focus complete; ai=0 is the player (cap does not block)

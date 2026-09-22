@@ -149,7 +149,7 @@ GER_sandbox_three_inner_circle_chosen:
 is_rival_of_ROOT:
   $is_rival_of(ROOT)
 
-# Distinct original_tags currently in a civil war. Cap is 3 (gdd/Civil Wars.md).
+# Distinct original_tags currently in a civil war. Cap is 3 (docs/gdd/Civil Wars.md).
 sandbox_civil_war_cap_reached:
   is_sandbox_mode_on()
   global.sandbox_civil_war_count >= 3

@@ -5,6 +5,8 @@ alwaysApply: true
 
 # Commit message style
 
+**Every response that creates, edits, moves, or deletes files in this mod must end with a ready-to-use commit message for those changes**, placed at the very end under a `Commit message:` heading (fenced block or plain block, so it can be copied as-is). Generate it from the changes made in that response even when the user did not ask for one and did not stage anything; this is a standing instruction, not a per-request task. If the response changed no mod files, do not add one.
+
 When writing a git commit message (or a comment for staged changes), use this style. Prefer English. Imperative mood.
 
 If the change is small (one concern, a few files, no extra context needed), use **only a single subject line**. Do not add a body.

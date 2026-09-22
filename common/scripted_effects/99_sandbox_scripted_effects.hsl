@@ -672,7 +672,7 @@ reset_honor_for_new_ruler():
 
 
 # Distinct original_tags with has_civil_war. seen[] is rebuilt from scratch
-# every call (gdd/Civil Wars.md). every_country_with_original_tag uses the
+# every call (docs/gdd/Civil Wars.md). every_country_with_original_tag uses the
 # candidate's original_tag, so SPR/SPA/SPB count as one slot.
 #
 # Do not bind a loop variable on every_country_with_original_tag: that
@@ -698,7 +698,7 @@ update_sandbox_civil_war_count():
 
 
 # Called on every country each week. fire_only_once missions cannot be
-# cancelled, so add days while the AI is blocked (gdd/Civil Wars.md).
+# cancelled, so add days while the AI is blocked (docs/gdd/Civil Wars.md).
 sandbox_delay_capped_cw_missions():
   if sandbox_civil_war_ai_blocked():
     $sandbox_delay_mission_if_capped(SPA_military_plot_nationalists)

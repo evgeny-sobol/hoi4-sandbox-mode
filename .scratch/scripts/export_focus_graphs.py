@@ -5,7 +5,7 @@ Usage:
     python export_focus_graphs.py
 
 Reads common/national_focus/*.txt in the current project tree and writes
-Markdown files into gdd/National Focuses/, mirroring the source name.
+Markdown files into docs/gdd/National Focuses/, mirroring the source name.
 Each Markdown file contains one diagram per root focus (a focus without
 prerequisites) and all of its descendants; focuses not reachable from any
 root are grouped into an "orphans" diagram.
@@ -296,7 +296,7 @@ def build_mermaid(
 
 
 def process_source(project_root: Path) -> None:
-    out_root = project_root / "gdd" / "National Focuses"
+    out_root = project_root / "docs" / "gdd" / "National Focuses"
     out_root.mkdir(parents=True, exist_ok=True)
     patterns = list((project_root / "common" / "national_focus").glob("*.txt"))
     if not patterns:
