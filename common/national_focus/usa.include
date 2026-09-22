@@ -668,6 +668,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
 
   focus[id = USA_war_plan_gold]:
@@ -688,6 +690,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
 
@@ -744,6 +748,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
 
@@ -760,6 +766,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:

@@ -24,6 +24,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = mtth:fascism_factor * 2
@@ -2604,6 +2606,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($AUS)
@@ -2619,6 +2623,8 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2738,6 +2744,8 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $crossroad_modifier(2)
       +modifier:
@@ -2879,6 +2887,8 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -3057,6 +3067,8 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_mic_modifier()
       +modifier:

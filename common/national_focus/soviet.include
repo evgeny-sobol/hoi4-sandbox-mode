@@ -1552,6 +1552,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PER)

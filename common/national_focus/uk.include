@@ -40,6 +40,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = mtth:democracy_factor * 2
@@ -788,6 +790,8 @@ focus_tree[id = british_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -803,6 +807,8 @@ focus_tree[id = british_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       +modifier:

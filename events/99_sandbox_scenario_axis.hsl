@@ -1,0 +1,108 @@
+# docs/gdd/Scenarios Catalog.md: arc events for axis.
+add_namespace(sandbox_axis)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_axis.1)
+  title(sandbox_axis_1_t)
+  desc(sandbox_axis_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_axis_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, axis_crisis)
+    $sandbox_add_rivalry_vs(CZE, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_axis_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (CZE | FRA).
+country_event:
+  id(sandbox_axis.2)
+  title(sandbox_axis_2_t)
+  desc(sandbox_axis_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CZE | FRA)
+  option:
+    name(sandbox_axis_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, axis_ult_2_submit)
+  option:
+    name(sandbox_axis_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, axis_ult_2_defy)
+
+# Ultimatum 3 (POL | ENG).
+country_event:
+  id(sandbox_axis.3)
+  title(sandbox_axis_3_t)
+  desc(sandbox_axis_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(POL | ENG)
+  option:
+    name(sandbox_axis_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, axis_ult_3_submit)
+  option:
+    name(sandbox_axis_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, axis_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# Whoever accepts leaves its old faction first (leave-then-join); the exit
+# carries no Honor charge (one-shot skip flag, like a released nation).
+country_event:
+  id(sandbox_axis.4)
+  title(sandbox_axis_4_t)
+  desc(sandbox_axis_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(GER)
+  option:
+    name(sandbox_axis_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    GER:
+      if is_in_faction(no):
+        create_faction(sandbox_axis_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(GER, scenario_ally)
+    $sandbox_log_sc(sc_join, axis_joined)
+  option:
+    name(sandbox_axis_4_b)
+    ai_chance:
+      factor(10)

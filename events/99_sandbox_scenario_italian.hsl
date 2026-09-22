@@ -1,0 +1,108 @@
+# docs/gdd/Scenarios Catalog.md: arc events for italian.
+add_namespace(sandbox_italian)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_italian.1)
+  title(sandbox_italian_1_t)
+  desc(sandbox_italian_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA)
+  option:
+    name(sandbox_italian_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, italian_crisis)
+    $sandbox_add_rivalry_vs(YUG, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_italian_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (YUG | FRA).
+country_event:
+  id(sandbox_italian.2)
+  title(sandbox_italian_2_t)
+  desc(sandbox_italian_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(YUG | FRA)
+  option:
+    name(sandbox_italian_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, italian_ult_2_submit)
+  option:
+    name(sandbox_italian_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, italian_ult_2_defy)
+
+# Ultimatum 3 (GRE | ENG).
+country_event:
+  id(sandbox_italian.3)
+  title(sandbox_italian_3_t)
+  desc(sandbox_italian_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(GRE | ENG)
+  option:
+    name(sandbox_italian_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, italian_ult_3_submit)
+  option:
+    name(sandbox_italian_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, italian_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# Whoever accepts leaves its old faction first (leave-then-join); the exit
+# carries no Honor charge (one-shot skip flag, like a released nation).
+country_event:
+  id(sandbox_italian.4)
+  title(sandbox_italian_4_t)
+  desc(sandbox_italian_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(ITA)
+  option:
+    name(sandbox_italian_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    ITA:
+      if is_in_faction(no):
+        create_faction(sandbox_italian_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(ITA, scenario_ally)
+    $sandbox_log_sc(sc_join, italian_joined)
+  option:
+    name(sandbox_italian_4_b)
+    ai_chance:
+      factor(10)

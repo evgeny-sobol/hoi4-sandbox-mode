@@ -1821,6 +1821,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
@@ -1848,6 +1850,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -1993,6 +1997,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_establish_mongol_military_government]:
     available:
@@ -2064,6 +2070,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:

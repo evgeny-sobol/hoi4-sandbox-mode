@@ -1381,6 +1381,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_balkan_ambition]:
     available:
@@ -1481,6 +1483,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(0)
         or:
@@ -1529,6 +1533,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1731,6 +1737,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:

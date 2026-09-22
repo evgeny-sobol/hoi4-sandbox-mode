@@ -1,0 +1,108 @@
+# docs/gdd/Scenarios Catalog.md: arc events for usa_warplan.
+add_namespace(sandbox_usa_warplan)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_usa_warplan.1)
+  title(sandbox_usa_warplan_1_t)
+  desc(sandbox_usa_warplan_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_usa_warplan_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, usa_warplan_crisis)
+    $sandbox_add_rivalry_vs(JAP, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_usa_warplan_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (JAP | ENG).
+country_event:
+  id(sandbox_usa_warplan.2)
+  title(sandbox_usa_warplan_2_t)
+  desc(sandbox_usa_warplan_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP | ENG)
+  option:
+    name(sandbox_usa_warplan_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_2_submit)
+  option:
+    name(sandbox_usa_warplan_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_2_defy)
+
+# Ultimatum 3 (CAN).
+country_event:
+  id(sandbox_usa_warplan.3)
+  title(sandbox_usa_warplan_3_t)
+  desc(sandbox_usa_warplan_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CAN)
+  option:
+    name(sandbox_usa_warplan_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_3_submit)
+  option:
+    name(sandbox_usa_warplan_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+# Whoever accepts leaves its old faction first (leave-then-join); the exit
+# carries no Honor charge (one-shot skip flag, like a released nation).
+country_event:
+  id(sandbox_usa_warplan.4)
+  title(sandbox_usa_warplan_4_t)
+  desc(sandbox_usa_warplan_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(USA)
+  option:
+    name(sandbox_usa_warplan_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    USA:
+      if is_in_faction(no):
+        create_faction(sandbox_usa_warplan_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(USA, scenario_ally)
+    $sandbox_log_sc(sc_join, usa_warplan_joined)
+  option:
+    name(sandbox_usa_warplan_4_b)
+    ai_chance:
+      factor(10)
