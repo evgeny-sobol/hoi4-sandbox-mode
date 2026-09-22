@@ -1561,6 +1561,8 @@ focus_tree[id = soviet_focus]:
         $ai_rivalry_modifier($PER)
       +modifier:
         $ai_betrayal_modifier_vs($PER)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_preemptive_invasion_of_iran)
 
   focus[id = SOV_the_threat_from_the_land_of_the_rising_sun]:
     available:

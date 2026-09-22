@@ -31,6 +31,8 @@ focus_tree[id = german_focus]:
         f = mtth:fascism_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_remilitarize_the_rhineland)
 
   focus[id = GER_oppose_hitler_ww]:
     +ai_will_do:
@@ -2615,6 +2617,8 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($AUS)
       +modifier:
         $ai_betrayal_modifier_vs($AUS)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_anschluss)
 
   focus[id = GER_demand_sudetenland]:
     available:
@@ -2638,6 +2642,8 @@ focus_tree[id = german_focus]:
         or:
           $CZE->is_friend_of_PREV()
           $FRA->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_demand_sudetenland)
 
   focus[id = GER_first_vienna_award]:
     ai_will_do:
@@ -2756,6 +2762,8 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($POL)
       +modifier:
         $ai_betrayal_modifier_vs($POL)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_danzig_or_war)
 
   focus[id = GER_befriend_poland]:
     available:
@@ -2913,6 +2921,8 @@ focus_tree[id = german_focus]:
           $HOL->is_friend_of_PREV()
           $LUX->is_friend_of_PREV()
           $FRA->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_around_maginot)
 
   focus[id = GER_operation_weserubung]:
     available:
@@ -3079,6 +3089,8 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($FRA)
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_war_with_france)
 
   focus[id = GER_operation_tannenbaum]:
     available:

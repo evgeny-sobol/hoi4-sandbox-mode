@@ -3,6 +3,9 @@
 
 Keys mirror the Rt56 overlay naming (sandbox_<ns>_<n>_t/_d/_a/_b) so the
 event files line up. Text is vanilla-flavoured, no arc is named.
+
+The output file MUST keep a UTF-8 BOM (utf-8-sig): HOI4 drops a localisation
+file without one and every string falls back to its raw key in the UI.
 """
 from __future__ import annotations
 
@@ -82,9 +85,9 @@ def main() -> None:
         sb.append(f' sandbox_{ns}_{jn}_d: "A great power offers a place in its bloc. To accept means leaving any current alignment and joining theirs."')
         sb.append(f' sandbox_{ns}_{jn}_a: "Join them"')
         sb.append(f' sandbox_{ns}_{jn}_b: "Decline"')
-    text = LOC.read_text(encoding="utf-8").rstrip("\n")
-    text += "\n\n# Scenario events (docs/gdd/Scenarios.md)\n" + "\n".join(sb) + "\n"
-    LOC.write_text(text, encoding="utf-8")
+    text = LOC.read_text(encoding="utf-8-sig").rstrip("\n")
+    text += "\n\n # Scenario events (docs/gdd/Scenarios.md)\n" + "\n".join(sb) + "\n"
+    LOC.write_text(text, encoding="utf-8-sig")
     print(f"appended {len(sb)} keys")
 
 

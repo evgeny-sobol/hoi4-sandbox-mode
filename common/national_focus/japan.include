@@ -1832,6 +1832,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_rivalry_modifier($SIA)
       +modifier:
         $ai_betrayal_modifier_vs($SIA)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_occupy_siam)
 
   focus[id = JAP_strike_the_southern_road]:
     available:
@@ -1900,6 +1902,8 @@ focus_tree[id = japan_wtt_focus]:
           $BRN->is_friend_of_PREV()
           $BRM->is_friend_of_PREV()
           $WPG->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_strike_the_southern_road)
 
   focus[id = JAP_occupy_east_timor]:
     available:
@@ -1999,6 +2003,8 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_revisit_the_thirteen_demands)
 
   focus[id = JAP_establish_mongol_military_government]:
     available:
@@ -2099,6 +2105,8 @@ focus_tree[id = japan_wtt_focus]:
           $HBC->is_friend_of_PREV()
           $SND->is_friend_of_PREV()
           $XIC->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_reinforce_the_beijing_garrison)
 
   focus[id = JAP_strategic_offensives]:
     ai_will_do:

@@ -103,6 +103,24 @@ Log-first. Observer sandbox. Tick only when the grep holds.
 - [ ] Derail: `sc_derail` + `sc_end` with a reason; random repicks.
 - [ ] No `error.log` lines attributable to scenario files.
 
+Observer note (first vanilla session, `italian` / variant a / YUG+GRE): phases
+ran on schedule, the chosen variant was honoured, and the join lever fired
+(`sc_offer` -> `sc_join`). The arc then hung at peak for a full year with no
+`sc_ignite`, `sc_success` or `sc_derail`: both ultimatums were defied and the
+defy option only adds war support, so ignition depends on the AI justifying on
+its own. The betrayal exemption (F1) and the `sc_justify` / `sc_goal_end` /
+`sc_focus` telemetry were missing from the vanilla port and are now wired;
+a peak that outlives the ladder is still undetected and is an open item.
+
+l10n note: `99_sandbox_l_english.yml` must stay UTF-8 **with BOM**. HOI4
+silently drops a localisation file without it, and every string falls back to
+its raw key (the leader-personality tooltip is the tell). The event-key
+generator writes with `utf-8-sig` for this reason. Separately, every key the
+engine points at must exist: the six `sandbox_<ns>_faction` names and the
+`scenario_ally` opinion modifier were missing and surfaced as raw keys in the
+diplomacy tooltip. Game-rule `option = sandbox_<arc>` ids are not l10n keys and
+need no entry.
+
 ## Out of scope for this iteration
 
 - Flip and imperial arcs (DLC-gated focus branches in vanilla; they live in the

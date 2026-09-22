@@ -1383,6 +1383,8 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_foreign_affairs)
 
   focus[id = ITA_balkan_ambition]:
     available:
@@ -1495,6 +1497,8 @@ focus_tree[id = italian_focus]:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_ratify_the_stresa_front)
 
   focus[id = ITA_joint_military_programs]:
     available:
@@ -1581,6 +1585,8 @@ focus_tree[id = italian_focus]:
           $KOS->is_friend_of_PREV()
           $MNT->is_friend_of_PREV()
           $TRA->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_italys_destiny)
 
   focus[id = ITA_the_eastern_threat]:
     available:
@@ -1749,6 +1755,8 @@ focus_tree[id = italian_focus]:
         $ai_rivalry_modifier($GRE)
       modifier:
         $ai_betrayal_modifier_vs($GRE)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_war_with_greece)
 
   focus[id = ITA_befriend_greece]:
     available:

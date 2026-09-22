@@ -340,6 +340,7 @@ macro ai_betrayal_modifier_vs(_tag_):
   $ai_betrayal_modifier()
   country_exists(_tag_)
   _tag_->is_friend_of_PREV()
+  _tag_->is_scenario_enemy_of_PREV(no)
 
 # Alias-safe form of `_tag_->can_PREV_get_wargoal_on_THIS()`. A country that
 # does not exist (or an alias that does not resolve) cannot be a friend, so

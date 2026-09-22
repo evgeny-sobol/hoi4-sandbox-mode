@@ -47,6 +47,8 @@ focus_tree[id = british_focus]:
         f = mtth:democracy_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_steady_as_she_goes)
 
   focus[id = ENG_a_change_in_course]:
     ai_will_do:
@@ -800,6 +802,8 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_embargo_ussr)
 
   focus[id = ENG_war_with_ussr]:
     available:
@@ -817,6 +821,8 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_war_with_ussr)
 
   focus[id = uk_iraq_focus]:
     available:
