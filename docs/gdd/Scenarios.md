@@ -139,6 +139,15 @@ it does nothing. `boost_focus_ancestors.py` now boosts the transitive ancestor
 closure of every key focus (63 focuses), and `sc_focus` logging was extended to
 match, so a dead gate is visible in the log rather than silent.
 
+Observer note (third vanilla session, `japanese` -> `axis` repick): the peak
+timeout worked as designed. Japan held at peak from 1938.1, both ultimatums were
+submitted, the join lever fired (GER and SOV joined), and on 1939.1 the arc
+derailed with `sc_derail peak_timeout` and repicked to `axis`. The axis arc then
+compressed its ladder (crises and peak on consecutive ticks) and reached peak
+with CZE/POL ultimatums and JAP/HUN joiners within a month. `sc_focus` showed
+zero lines: the gate `is_scenario_actor` called the aggressor branch without
+parentheses, so the compiler dropped it and only targets could log; fixed.
+
 l10n note: `99_sandbox_l_english.yml` must stay UTF-8 **with BOM**. HOI4
 silently drops a localisation file without it, and every string falls back to
 its raw key (the leader-personality tooltip is the tell). The event-key
