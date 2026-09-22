@@ -76,8 +76,9 @@ either direction, detected at declaration or by the monthly ongoing-war sweep.
 Ignition logs `sc_ignite` + `sc_success` + `sc_end`.
 
 **Derail** parks a dead arc at phase 3: the aggressor is gone, capitulated, or
-has been in a protracted civil war (12 months); or no viable target remains.
-On random a derail repicks; pinned sessions go quiet.
+has been in a protracted civil war (12 months); no viable target remains; or the
+arc has sat at peak for 12 months without ignition (`peak_timeout`). On random a
+derail repicks; pinned sessions go quiet.
 
 ## Hooks and telemetry
 
