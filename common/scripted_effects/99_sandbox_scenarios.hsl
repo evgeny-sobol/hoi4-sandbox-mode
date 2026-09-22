@@ -313,34 +313,36 @@ sandbox_fire_axis_crises():
 # Peak phase for axis: ultimatums to the chosen targets, then join offers.
 sandbox_fire_axis_peak():
   if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 2:
-    if country_exists(CZE):
-      CZE:
-        $sandbox_log_target_status(GER)
-    if country_exists(FRA):
-      FRA:
-        $sandbox_log_target_status(GER)
-    if country_exists(CZE) and not GER->has_war_with(CZE):
-      CZE:
-        country_event:
-          id(sandbox_axis.2)
-    if country_exists(FRA) and not GER->has_war_with(FRA):
-      FRA:
-        country_event:
-          id(sandbox_axis.2)
-    if country_exists(POL):
-      POL:
-        $sandbox_log_target_status(GER)
-    if country_exists(ENG):
-      ENG:
-        $sandbox_log_target_status(GER)
-    if country_exists(POL) and not GER->has_war_with(POL):
-      POL:
-        country_event:
-          id(sandbox_axis.3)
-    if country_exists(ENG) and not GER->has_war_with(ENG):
-      ENG:
-        country_event:
-          id(sandbox_axis.3)
+    if global.sandbox_target_variant == a:
+      if country_exists(CZE):
+        CZE:
+          $sandbox_log_target_status(GER)
+      if country_exists(CZE) and not GER->has_war_with(CZE):
+        CZE:
+          country_event:
+            id(sandbox_axis.2)
+      if country_exists(POL):
+        POL:
+          $sandbox_log_target_status(GER)
+      if country_exists(POL) and not GER->has_war_with(POL):
+        POL:
+          country_event:
+            id(sandbox_axis.3)
+    else:
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(GER)
+      if country_exists(FRA) and not GER->has_war_with(FRA):
+        FRA:
+          country_event:
+            id(sandbox_axis.2)
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(GER)
+      if country_exists(ENG) and not GER->has_war_with(ENG):
+        ENG:
+          country_event:
+            id(sandbox_axis.3)
     GER:
       sandbox_select_axis_joiners()
 
@@ -371,48 +373,50 @@ sandbox_fire_sov_south_crises():
 # Peak phase for sov_south: ultimatums to the chosen targets, then join offers.
 sandbox_fire_sov_south_peak():
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 2:
-    if country_exists(TUR):
-      TUR:
-        $sandbox_log_target_status(SOV)
-    if country_exists(PAK):
-      PAK:
-        $sandbox_log_target_status(SOV)
-    if country_exists(TUR) and not SOV->has_war_with(TUR):
-      TUR:
-        country_event:
-          id(sandbox_sov_south.2)
-    if country_exists(PAK) and not SOV->has_war_with(PAK):
-      PAK:
-        country_event:
-          id(sandbox_sov_south.2)
-    if country_exists(IRQ):
-      IRQ:
-        $sandbox_log_target_status(SOV)
-    if country_exists(RAJ):
-      RAJ:
-        $sandbox_log_target_status(SOV)
-    if country_exists(IRQ) and not SOV->has_war_with(IRQ):
-      IRQ:
-        country_event:
-          id(sandbox_sov_south.3)
-    if country_exists(RAJ) and not SOV->has_war_with(RAJ):
-      RAJ:
-        country_event:
-          id(sandbox_sov_south.3)
-    if country_exists(PER):
-      PER:
-        $sandbox_log_target_status(SOV)
-    if country_exists(AFG):
-      AFG:
-        $sandbox_log_target_status(SOV)
-    if country_exists(PER) and not SOV->has_war_with(PER):
-      PER:
-        country_event:
-          id(sandbox_sov_south.4)
-    if country_exists(AFG) and not SOV->has_war_with(AFG):
-      AFG:
-        country_event:
-          id(sandbox_sov_south.4)
+    if global.sandbox_target_variant == a:
+      if country_exists(TUR):
+        TUR:
+          $sandbox_log_target_status(SOV)
+      if country_exists(TUR) and not SOV->has_war_with(TUR):
+        TUR:
+          country_event:
+            id(sandbox_sov_south.2)
+      if country_exists(IRQ):
+        IRQ:
+          $sandbox_log_target_status(SOV)
+      if country_exists(IRQ) and not SOV->has_war_with(IRQ):
+        IRQ:
+          country_event:
+            id(sandbox_sov_south.3)
+      if country_exists(PER):
+        PER:
+          $sandbox_log_target_status(SOV)
+      if country_exists(PER) and not SOV->has_war_with(PER):
+        PER:
+          country_event:
+            id(sandbox_sov_south.4)
+    else:
+      if country_exists(PAK):
+        PAK:
+          $sandbox_log_target_status(SOV)
+      if country_exists(PAK) and not SOV->has_war_with(PAK):
+        PAK:
+          country_event:
+            id(sandbox_sov_south.2)
+      if country_exists(RAJ):
+        RAJ:
+          $sandbox_log_target_status(SOV)
+      if country_exists(RAJ) and not SOV->has_war_with(RAJ):
+        RAJ:
+          country_event:
+            id(sandbox_sov_south.3)
+      if country_exists(AFG):
+        AFG:
+          $sandbox_log_target_status(SOV)
+      if country_exists(AFG) and not SOV->has_war_with(AFG):
+        AFG:
+          country_event:
+            id(sandbox_sov_south.4)
     SOV:
       sandbox_select_sov_south_joiners()
 
@@ -423,12 +427,12 @@ sandbox_select_sov_south_joiners():
   if scenario_join_scores[0] > 0:
     var:scenario_join_candidates[0]:
       country_event:
-        id(sandbox_sov_south.4)
+        id(sandbox_sov_south.5)
       $sandbox_log_sc(sc_offer, invited)
   if scenario_join_scores[1] > 0:
     var:scenario_join_candidates[1]:
       country_event:
-        id(sandbox_sov_south.4)
+        id(sandbox_sov_south.5)
       $sandbox_log_sc(sc_offer, invited)
 
 # Crises phase for japanese: provocation lands on the aggressor's desk.
@@ -443,41 +447,43 @@ sandbox_fire_japanese_crises():
 # Peak phase for japanese: ultimatums to the chosen targets, then join offers.
 sandbox_fire_japanese_peak():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 2:
-    if country_exists(CHI):
-      CHI:
-        $sandbox_log_target_status(JAP)
-    if country_exists(BRM):
-      BRM:
-        $sandbox_log_target_status(JAP)
-    if country_exists(CHI) and not JAP->has_war_with(CHI):
-      CHI:
-        country_event:
-          id(sandbox_japanese.2)
-    if country_exists(BRM) and not JAP->has_war_with(BRM):
-      BRM:
-        country_event:
-          id(sandbox_japanese.2)
-    if country_exists(PHI):
-      PHI:
-        $sandbox_log_target_status(JAP)
-    if country_exists(INS):
-      INS:
-        $sandbox_log_target_status(JAP)
-    if country_exists(PHI) and not JAP->has_war_with(PHI):
-      PHI:
-        country_event:
-          id(sandbox_japanese.3)
-    if country_exists(INS) and not JAP->has_war_with(INS):
-      INS:
-        country_event:
-          id(sandbox_japanese.3)
-    if country_exists(MAL):
-      MAL:
-        $sandbox_log_target_status(JAP)
-    if country_exists(MAL) and not JAP->has_war_with(MAL):
-      MAL:
-        country_event:
-          id(sandbox_japanese.4)
+    if global.sandbox_target_variant == a:
+      if country_exists(CHI):
+        CHI:
+          $sandbox_log_target_status(JAP)
+      if country_exists(CHI) and not JAP->has_war_with(CHI):
+        CHI:
+          country_event:
+            id(sandbox_japanese.2)
+      if country_exists(PHI):
+        PHI:
+          $sandbox_log_target_status(JAP)
+      if country_exists(PHI) and not JAP->has_war_with(PHI):
+        PHI:
+          country_event:
+            id(sandbox_japanese.3)
+    else:
+      if country_exists(BRM):
+        BRM:
+          $sandbox_log_target_status(JAP)
+      if country_exists(BRM) and not JAP->has_war_with(BRM):
+        BRM:
+          country_event:
+            id(sandbox_japanese.2)
+      if country_exists(INS):
+        INS:
+          $sandbox_log_target_status(JAP)
+      if country_exists(INS) and not JAP->has_war_with(INS):
+        INS:
+          country_event:
+            id(sandbox_japanese.3)
+      if country_exists(MAL):
+        MAL:
+          $sandbox_log_target_status(JAP)
+      if country_exists(MAL) and not JAP->has_war_with(MAL):
+        MAL:
+          country_event:
+            id(sandbox_japanese.4)
     JAP:
       sandbox_select_japanese_joiners()
 
@@ -488,12 +494,12 @@ sandbox_select_japanese_joiners():
   if scenario_join_scores[0] > 0:
     var:scenario_join_candidates[0]:
       country_event:
-        id(sandbox_japanese.4)
+        id(sandbox_japanese.5)
       $sandbox_log_sc(sc_offer, invited)
   if scenario_join_scores[1] > 0:
     var:scenario_join_candidates[1]:
       country_event:
-        id(sandbox_japanese.4)
+        id(sandbox_japanese.5)
       $sandbox_log_sc(sc_offer, invited)
 
 # Crises phase for italian: provocation lands on the aggressor's desk.
@@ -508,34 +514,36 @@ sandbox_fire_italian_crises():
 # Peak phase for italian: ultimatums to the chosen targets, then join offers.
 sandbox_fire_italian_peak():
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 2:
-    if country_exists(YUG):
-      YUG:
-        $sandbox_log_target_status(ITA)
-    if country_exists(FRA):
-      FRA:
-        $sandbox_log_target_status(ITA)
-    if country_exists(YUG) and not ITA->has_war_with(YUG):
-      YUG:
-        country_event:
-          id(sandbox_italian.2)
-    if country_exists(FRA) and not ITA->has_war_with(FRA):
-      FRA:
-        country_event:
-          id(sandbox_italian.2)
-    if country_exists(GRE):
-      GRE:
-        $sandbox_log_target_status(ITA)
-    if country_exists(ENG):
-      ENG:
-        $sandbox_log_target_status(ITA)
-    if country_exists(GRE) and not ITA->has_war_with(GRE):
-      GRE:
-        country_event:
-          id(sandbox_italian.3)
-    if country_exists(ENG) and not ITA->has_war_with(ENG):
-      ENG:
-        country_event:
-          id(sandbox_italian.3)
+    if global.sandbox_target_variant == a:
+      if country_exists(YUG):
+        YUG:
+          $sandbox_log_target_status(ITA)
+      if country_exists(YUG) and not ITA->has_war_with(YUG):
+        YUG:
+          country_event:
+            id(sandbox_italian.2)
+      if country_exists(GRE):
+        GRE:
+          $sandbox_log_target_status(ITA)
+      if country_exists(GRE) and not ITA->has_war_with(GRE):
+        GRE:
+          country_event:
+            id(sandbox_italian.3)
+    else:
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(ITA)
+      if country_exists(FRA) and not ITA->has_war_with(FRA):
+        FRA:
+          country_event:
+            id(sandbox_italian.2)
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(ITA)
+      if country_exists(ENG) and not ITA->has_war_with(ENG):
+        ENG:
+          country_event:
+            id(sandbox_italian.3)
     ITA:
       sandbox_select_italian_joiners()
 
@@ -566,13 +574,22 @@ sandbox_fire_eng_soviet_crises():
 # Peak phase for eng_soviet: ultimatums to the chosen targets, then join offers.
 sandbox_fire_eng_soviet_peak():
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 2:
-    if country_exists(SOV):
-      SOV:
-        $sandbox_log_target_status(ENG)
-    if country_exists(SOV) and not ENG->has_war_with(SOV):
-      SOV:
-        country_event:
-          id(sandbox_eng_soviet.2)
+    if global.sandbox_target_variant == a:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(ENG)
+      if country_exists(SOV) and not ENG->has_war_with(SOV):
+        SOV:
+          country_event:
+            id(sandbox_eng_soviet.2)
+    else:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(ENG)
+      if country_exists(SOV) and not ENG->has_war_with(SOV):
+        SOV:
+          country_event:
+            id(sandbox_eng_soviet.2)
     ENG:
       sandbox_select_eng_soviet_joiners()
 
@@ -583,12 +600,12 @@ sandbox_select_eng_soviet_joiners():
   if scenario_join_scores[0] > 0:
     var:scenario_join_candidates[0]:
       country_event:
-        id(sandbox_eng_soviet.4)
+        id(sandbox_eng_soviet.3)
       $sandbox_log_sc(sc_offer, invited)
   if scenario_join_scores[1] > 0:
     var:scenario_join_candidates[1]:
       country_event:
-        id(sandbox_eng_soviet.4)
+        id(sandbox_eng_soviet.3)
       $sandbox_log_sc(sc_offer, invited)
 
 # Crises phase for usa_warplan: provocation lands on the aggressor's desk.
@@ -603,27 +620,29 @@ sandbox_fire_usa_warplan_crises():
 # Peak phase for usa_warplan: ultimatums to the chosen targets, then join offers.
 sandbox_fire_usa_warplan_peak():
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 2:
-    if country_exists(JAP):
-      JAP:
-        $sandbox_log_target_status(USA)
-    if country_exists(ENG):
-      ENG:
-        $sandbox_log_target_status(USA)
-    if country_exists(JAP) and not USA->has_war_with(JAP):
-      JAP:
-        country_event:
-          id(sandbox_usa_warplan.2)
-    if country_exists(ENG) and not USA->has_war_with(ENG):
-      ENG:
-        country_event:
-          id(sandbox_usa_warplan.2)
-    if country_exists(CAN):
-      CAN:
-        $sandbox_log_target_status(USA)
-    if country_exists(CAN) and not USA->has_war_with(CAN):
-      CAN:
-        country_event:
-          id(sandbox_usa_warplan.3)
+    if global.sandbox_target_variant == a:
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(USA)
+      if country_exists(JAP) and not USA->has_war_with(JAP):
+        JAP:
+          country_event:
+            id(sandbox_usa_warplan.2)
+    else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(USA)
+      if country_exists(ENG) and not USA->has_war_with(ENG):
+        ENG:
+          country_event:
+            id(sandbox_usa_warplan.2)
+      if country_exists(CAN):
+        CAN:
+          $sandbox_log_target_status(USA)
+      if country_exists(CAN) and not USA->has_war_with(CAN):
+        CAN:
+          country_event:
+            id(sandbox_usa_warplan.3)
     USA:
       sandbox_select_usa_warplan_joiners()
 

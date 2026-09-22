@@ -81,22 +81,22 @@ def crisis(ns: str, agg: str, t0: str) -> str:
     ])
 
 
-def join(ns: str, agg: str, bloc: str) -> str:
+def join(ns: str, agg: str, bloc: str, num: int) -> str:
     return "\n".join([
         "# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.",
         "# Whoever accepts leaves its old faction first (leave-then-join); the exit",
         "# carries no Honor charge (one-shot skip flag, like a released nation).",
         "country_event:",
-        f"  id(sandbox_{ns}.4)",
-        f"  title(sandbox_{ns}_4_t)",
-        f"  desc(sandbox_{ns}_4_d)",
+        f"  id(sandbox_{ns}.{num})",
+        f"  title(sandbox_{ns}_{num}_t)",
+        f"  desc(sandbox_{ns}_{num}_d)",
         "  picture(GFX_news_event_004)",
         "  is_triggered_only(yes)",
         "  trigger:",
         "    is_ai(yes)",
         f"    not is_in_faction_with({agg})",
         "  option:",
-        f"    name(sandbox_{ns}_4_a)",
+        f"    name(sandbox_{ns}_{num}_a)",
         "    ai_chance:",
         "      factor(90)",
         "    if is_in_faction(yes):",
@@ -110,7 +110,7 @@ def join(ns: str, agg: str, bloc: str) -> str:
         f"    $add_opinion_modifier({agg}, scenario_ally)",
         f"    $sandbox_log_sc(sc_join, {bloc}_joined)",
         "  option:",
-        f"    name(sandbox_{ns}_4_b)",
+        f"    name(sandbox_{ns}_{num}_b)",
         "    ai_chance:",
         "      factor(10)",
     ])
@@ -133,7 +133,7 @@ def main() -> None:
             if i < len(a["B"]) and a["B"][i] not in tags:
                 tags.append(a["B"][i])
             parts += ["", ultimatum(agg, ns, i + 2, tags)]
-        parts += ["", join(ns, agg, ns)]
+        parts += ["", join(ns, agg, ns, n + 2)]
         path = EVENTS / f"99_sandbox_scenario_{ns}.hsl"
         path.write_text("\n".join(parts) + "\n", encoding="utf-8")
         print(f"wrote {path.name}")

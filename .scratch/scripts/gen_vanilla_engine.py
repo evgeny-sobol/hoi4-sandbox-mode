@@ -213,31 +213,25 @@ def peak(sid: int, a: dict) -> str:
         f"# Peak phase for {ns}: ultimatums to the chosen targets, then join offers.",
         f"sandbox_fire_{ns}_peak():",
         f"  if global.sandbox_scenario == {sid} and global.sandbox_scenario_phase == 2:",
+        "    if global.sandbox_target_variant == a:",
     ]
-    # union of A[i] and B[i]
-    n = max(len(a["A"]), len(a["B"]))
-    for i in range(n):
-        tags = []
-        if i < len(a["A"]):
-            tags.append(a["A"][i])
-        if i < len(a["B"]) and a["B"][i] not in tags:
-            tags.append(a["B"][i])
-        ev = i + 2
-        for t in tags:
-            out.append(f"    if country_exists({t}):")
-            out.append(f"      {t}:")
-            out.append(f"        $sandbox_log_target_status({agg})")
-        t0 = tags[0]
-        out.append(f"    if country_exists({t0}) and not {agg}->has_war_with({t0}):")
-        out.append(f"      {t0}:")
-        out.append("        country_event:")
-        out.append(f"          id(sandbox_{ns}.{ev})")
-        # other union tags share the same ultimatum event
-        for t in tags[1:]:
-            out.append(f"    if country_exists({t}) and not {agg}->has_war_with({t}):")
-            out.append(f"      {t}:")
-            out.append("        country_event:")
-            out.append(f"          id(sandbox_{ns}.{ev})")
+
+    def variant_block(tags: list[str], indent: str) -> list[str]:
+        b = []
+        for i, t in enumerate(tags):
+            ev = i + 2
+            b.append(f"{indent}if country_exists({t}):")
+            b.append(f"{indent}  {t}:")
+            b.append(f"{indent}    $sandbox_log_target_status({agg})")
+            b.append(f"{indent}if country_exists({t}) and not {agg}->has_war_with({t}):")
+            b.append(f"{indent}  {t}:")
+            b.append(f"{indent}    country_event:")
+            b.append(f"{indent}      id(sandbox_{ns}.{ev})")
+        return b
+
+    out += variant_block(a["A"], "      ")
+    out.append("    else:")
+    out += variant_block(a["B"], "      ")
     out.append(f"    {agg}:")
     out.append(f"      sandbox_select_{ns}_joiners()")
     return "\n".join(out)
@@ -245,6 +239,7 @@ def peak(sid: int, a: dict) -> str:
 
 def joiners(sid: int, a: dict) -> str:
     ns = a["ns"]
+    num = max(len(a["A"]), len(a["B"])) + 2
     return "\n".join([
         f"# Join levers for {ns}: open-pool top-2 by scenario_join_scorer.",
         f"sandbox_select_{ns}_joiners():",
@@ -253,12 +248,12 @@ def joiners(sid: int, a: dict) -> str:
         "  if scenario_join_scores[0] > 0:",
         "    var:scenario_join_candidates[0]:",
         "      country_event:",
-        f"        id(sandbox_{ns}.4)",
+        f"        id(sandbox_{ns}.{num})",
         "      $sandbox_log_sc(sc_offer, invited)",
         "  if scenario_join_scores[1] > 0:",
         "    var:scenario_join_candidates[1]:",
         "      country_event:",
-        f"        id(sandbox_{ns}.4)",
+        f"        id(sandbox_{ns}.{num})",
         "      $sandbox_log_sc(sc_offer, invited)",
     ])
 

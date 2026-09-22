@@ -107,16 +107,16 @@ country_event:
 # Whoever accepts leaves its old faction first (leave-then-join); the exit
 # carries no Honor charge (one-shot skip flag, like a released nation).
 country_event:
-  id(sandbox_japanese.4)
-  title(sandbox_japanese_4_t)
-  desc(sandbox_japanese_4_d)
+  id(sandbox_japanese.5)
+  title(sandbox_japanese_5_t)
+  desc(sandbox_japanese_5_d)
   picture(GFX_news_event_004)
   is_triggered_only(yes)
   trigger:
     is_ai(yes)
     not is_in_faction_with(JAP)
   option:
-    name(sandbox_japanese_4_a)
+    name(sandbox_japanese_5_a)
     ai_chance:
       factor(90)
     if is_in_faction(yes):
@@ -130,6 +130,6 @@ country_event:
     $add_opinion_modifier(JAP, scenario_ally)
     $sandbox_log_sc(sc_join, japanese_joined)
   option:
-    name(sandbox_japanese_4_b)
+    name(sandbox_japanese_5_b)
     ai_chance:
       factor(10)

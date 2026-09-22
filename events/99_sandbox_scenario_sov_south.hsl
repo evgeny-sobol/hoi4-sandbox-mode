@@ -107,16 +107,16 @@ country_event:
 # Whoever accepts leaves its old faction first (leave-then-join); the exit
 # carries no Honor charge (one-shot skip flag, like a released nation).
 country_event:
-  id(sandbox_sov_south.4)
-  title(sandbox_sov_south_4_t)
-  desc(sandbox_sov_south_4_d)
+  id(sandbox_sov_south.5)
+  title(sandbox_sov_south_5_t)
+  desc(sandbox_sov_south_5_d)
   picture(GFX_news_event_004)
   is_triggered_only(yes)
   trigger:
     is_ai(yes)
     not is_in_faction_with(SOV)
   option:
-    name(sandbox_sov_south_4_a)
+    name(sandbox_sov_south_5_a)
     ai_chance:
       factor(90)
     if is_in_faction(yes):
@@ -130,6 +130,6 @@ country_event:
     $add_opinion_modifier(SOV, scenario_ally)
     $sandbox_log_sc(sc_join, sov_south_joined)
   option:
-    name(sandbox_sov_south_4_b)
+    name(sandbox_sov_south_5_b)
     ai_chance:
       factor(10)

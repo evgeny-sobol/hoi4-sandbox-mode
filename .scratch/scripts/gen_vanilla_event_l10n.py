@@ -21,19 +21,21 @@ ARCS = {
         ],
     ),
     "sov_south": dict(
-        t=["The Southern Thrust", "Moscow Demands the Straits", "Moscow Demands the Plateau"],
+        t=["The Southern Thrust", "Moscow Demands the Straits", "Moscow Demands the Gulf", "Moscow Demands the Plateau"],
         d=[
             "From the Caucasus to the Gulf, the road south beckons the Red Army. The Commissariat demands a drive toward the warm seas; the Foreign Bureau urges caution. Moscow must decide: press our claims, or let the matter cool down?",
-            "Moscow demands the Turkish Straits and a naval base on the Aegean. The note speaks of the historical rights of the Slavs and carries an unmistakable threat of war. Turkey must answer: yield, or brace for what follows?",
-            "The Soviet Union demands the northern provinces of Persia and the oil of the plateau. The note carries an unmistakable threat of war. Tehran must answer: yield, or brace for what follows?",
+            "Moscow demands the Turkish Straits and a naval base on the Aegean. The note speaks of the historical rights of the Slavs and carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
+            "Moscow demands a sphere on the Persian Gulf and the oil of the south. The note carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
+            "The Soviet Union demands the northern provinces and the oil of the plateau. The note carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
         ],
     ),
     "japanese": dict(
-        t=["The China Incident", "Tokyo Demands the North", "Tokyo Demands the South"],
+        t=["The China Incident", "Tokyo Demands the North", "Tokyo Demands the South", "Tokyo Demands the Seas"],
         d=[
             "From Manchuria to the China Sea, the Imperial Army presses its claims. The Kwantung clique demands a reckoning; the Navy urges the south. Tokyo must decide: press our claims, or let the matter cool down?",
-            "Tokyo demands the demilitarisation of the northern provinces and a free hand in China. The note speaks of the divine mission and carries an unmistakable threat of war. Nanjing must answer: yield, or brace for what follows?",
-            "Tokyo demands the southern resource area and the end of the old colonial order. The note carries an unmistakable threat of war. The old powers must answer: yield, or brace for what follows?",
+            "Tokyo demands the demilitarisation of the northern provinces and a free hand on the mainland. The note speaks of the divine mission and carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
+            "Tokyo demands the southern resource area and the end of the old colonial order. The note carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
+            "Tokyo demands mastery of the southern seas and the end of the rival fleets. The note carries an unmistakable threat of war. The government must answer: yield, or brace for what follows?",
         ],
     ),
     "italian": dict(
@@ -75,10 +77,11 @@ def main() -> None:
             sb.append(f' sandbox_{ns}_{num}_d: "{a["d"][i]}"')
             sb.append(f' sandbox_{ns}_{num}_a: "Yield to the demands"')
             sb.append(f' sandbox_{ns}_{num}_b: "Defy them"')
-        sb.append(f' sandbox_{ns}_4_t: "An offer from the bloc"')
-        sb.append(f' sandbox_{ns}_4_d: "A great power offers a place in its bloc. To accept means leaving any current alignment and joining theirs."')
-        sb.append(f' sandbox_{ns}_4_a: "Join them"')
-        sb.append(f' sandbox_{ns}_4_b: "Decline"')
+        jn = max(len(a["t"]), 2) + 1
+        sb.append(f' sandbox_{ns}_{jn}_t: "An offer from the bloc"')
+        sb.append(f' sandbox_{ns}_{jn}_d: "A great power offers a place in its bloc. To accept means leaving any current alignment and joining theirs."')
+        sb.append(f' sandbox_{ns}_{jn}_a: "Join them"')
+        sb.append(f' sandbox_{ns}_{jn}_b: "Decline"')
     text = LOC.read_text(encoding="utf-8").rstrip("\n")
     text += "\n\n# Scenario events (docs/gdd/Scenarios.md)\n" + "\n".join(sb) + "\n"
     LOC.write_text(text, encoding="utf-8")
