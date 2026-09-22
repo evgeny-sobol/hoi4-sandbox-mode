@@ -82,10 +82,14 @@ def crisis(ns: str, agg: str, t0: str) -> str:
 
 
 def join(ns: str, agg: str, bloc: str, num: int) -> str:
+    # No faction is formed. Making the aggressor a faction leader would lock it
+    # out of its own war focuses, several of which require `is_in_faction = no`
+    # (ITA_pact_of_steel, ITA_italy_first, GER_integrate_czechoslovakia,
+    # JAP_sea_pressure_siam). Joiners get opinion plus mutual military access.
     return "\n".join([
         "# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.",
-        "# Whoever accepts leaves its old faction first (leave-then-join); the exit",
-        "# carries no Honor charge (one-shot skip flag, like a released nation).",
+        "# The exit from any old faction is Honor-free (one-shot skip flag, like a",
+        "# released nation). No faction is created: see the note above.",
         "country_event:",
         f"  id(sandbox_{ns}.{num})",
         f"  title(sandbox_{ns}_{num}_t)",
@@ -102,11 +106,9 @@ def join(ns: str, agg: str, bloc: str, num: int) -> str:
         "    if is_in_faction(yes):",
         "      set_country_flag(sandbox_honor_skip_leave_faction)",
         "      leave_faction(yes)",
+        f"    give_military_access({agg})",
         f"    {agg}:",
-        "      if is_in_faction(no):",
-        f"        create_faction(sandbox_{ns}_faction)",
-        "      add_to_faction(PREV)",
-        "      $add_opinion_modifier(PREV, scenario_ally)",
+        "      give_military_access(PREV)",
         f"    $add_opinion_modifier({agg}, scenario_ally)",
         f"    $sandbox_log_sc(sc_join, {bloc}_joined)",
         "  option:",

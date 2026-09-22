@@ -89,7 +89,20 @@ On random a derail repicks; pinned sessions go quiet.
 - Telemetry: `sc_pick`, `sc_variant`, `sc_seed`, `sc_phase`, `sc_crisis`,
   `sc_target`, `sc_power`, `sc_goal`, `sc_justify`, `sc_goal_end`, `sc_focus`,
   `sc_offer`, `sc_ignite`, `sc_success`, `sc_join`, `sc_end`, `sc_derail`,
-  `sc_repick`.
+  `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a
+  declared target), so an unrelated country's focus does not pollute the arc.
+
+### Join lever
+
+The lever sends `sc_offer` to the top-2 pool candidates. Accepting is
+Honor-free (`sandbox_honor_skip_leave_faction`), grants **mutual military
+access** with the aggressor and the `scenario_ally` opinion modifier, and logs
+`sc_join`. **No faction is formed.** Making the aggressor a faction leader locks
+it out of its own war focuses, several of which require `is_in_faction = no`
+(`ITA_pact_of_steel`, `ITA_italy_first`, `GER_integrate_czechoslovakia`,
+`JAP_sea_pressure_siam`); an observer session showed Italy reaching
+`ITA_foreign_affairs` and then stalling for six years, unable to open the
+`italian_irredentism` path to war.
 
 ## Acceptance checklist
 
@@ -129,10 +142,9 @@ l10n note: `99_sandbox_l_english.yml` must stay UTF-8 **with BOM**. HOI4
 silently drops a localisation file without it, and every string falls back to
 its raw key (the leader-personality tooltip is the tell). The event-key
 generator writes with `utf-8-sig` for this reason. Separately, every key the
-engine points at must exist: the six `sandbox_<ns>_faction` names and the
-`scenario_ally` opinion modifier were missing and surfaced as raw keys in the
-diplomacy tooltip. Game-rule `option = sandbox_<arc>` ids are not l10n keys and
-need no entry.
+engine points at must exist: the `scenario_ally` opinion modifier was missing
+and surfaced as a raw key in the diplomacy tooltip. Game-rule
+`option = sandbox_<arc>` ids are not l10n keys and need no entry.
 
 ## Out of scope for this iteration
 

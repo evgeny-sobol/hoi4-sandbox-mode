@@ -169,11 +169,4 @@
  sandbox_usa_warplan_4_a: "Join them"
  sandbox_usa_warplan_4_b: "Decline"
 
- # Scenario factions (docs/gdd/Scenarios.md)
- sandbox_axis_faction: "Axis"
- sandbox_sov_south_faction: "Comintern"
- sandbox_japanese_faction: "Co-Prosperity"
- sandbox_italian_faction: "Mare Nostrum"
- sandbox_eng_soviet_faction: "New Empire"
- sandbox_usa_warplan_faction: "Pacific Pact"
  scenario_ally: "Scenario ally"

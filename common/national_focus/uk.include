@@ -48,7 +48,7 @@ focus_tree[id = british_focus]:
         factor(f)
         is_sandbox_mode_on()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_steady_as_she_goes)
+      $sandbox_log_sc_focus(ENG_steady_as_she_goes)
 
   focus[id = ENG_a_change_in_course]:
     ai_will_do:
@@ -75,7 +75,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_mic_modifier()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_global_defense)
+      $sandbox_log_sc_focus(ENG_global_defense)
 
 
   focus[id = ENG_home_defence]:
@@ -93,7 +93,7 @@ focus_tree[id = british_focus]:
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▀▀▀█
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀          ▀
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_home_defence)
+      $sandbox_log_sc_focus(ENG_home_defence)
 
   focus[id = ENG_the_kings_party]:
     ai_will_do:
@@ -715,7 +715,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_every_man_will_do_his_duty)
+      $sandbox_log_sc_focus(ENG_every_man_will_do_his_duty)
 
 
   focus[id = ENG_motion_of_no_confidence]:
@@ -730,7 +730,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_no_further_appeasement)
+      $sandbox_log_sc_focus(ENG_no_further_appeasement)
 
 
   focus[id = ENG_kickstart_the_war_industry]:
@@ -823,7 +823,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_embargo_ussr)
+      $sandbox_log_sc_focus(ENG_embargo_ussr)
 
   focus[id = ENG_war_with_ussr]:
     available:
@@ -842,7 +842,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ENG_war_with_ussr)
+      $sandbox_log_sc_focus(ENG_war_with_ussr)
 
   focus[id = uk_iraq_focus]:
     available:
@@ -861,7 +861,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($IRQ)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, uk_iraq_focus)
+      $sandbox_log_sc_focus(uk_iraq_focus)
 
 
   focus[id = uk_iran_focus]:
@@ -881,7 +881,7 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($PER)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, uk_iran_focus)
+      $sandbox_log_sc_focus(uk_iran_focus)
 
 
   focus[id = uk_scandinavian_focus]:

@@ -32,7 +32,7 @@ focus_tree[id = german_focus]:
         factor(f)
         is_sandbox_mode_on()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_remilitarize_the_rhineland)
+      $sandbox_log_sc_focus(GER_remilitarize_the_rhineland)
 
   focus[id = GER_oppose_hitler_ww]:
     +ai_will_do:
@@ -2540,7 +2540,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_heed_von_neuraths_concerns)
+      $sandbox_log_sc_focus(GER_heed_von_neuraths_concerns)
 
   focus[id = GER_reorganize_the_wehrmacht]:
     +ai_will_do:
@@ -2549,7 +2549,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_reorganize_the_wehrmacht)
+      $sandbox_log_sc_focus(GER_reorganize_the_wehrmacht)
 
   focus[id = GER_war_preparations]:
     +ai_will_do:
@@ -2558,7 +2558,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_war_preparations)
+      $sandbox_log_sc_focus(GER_war_preparations)
 
 
   focus[id = GER_reorganize_secret_services]:
@@ -2591,7 +2591,7 @@ focus_tree[id = german_focus]:
         $CZE in rivals[]
         is_sandbox_mode_on()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_befriend_czechoslovakia)
+      $sandbox_log_sc_focus(GER_befriend_czechoslovakia)
 
 
   focus[id = GER_integrate_czechoslovakia]:
@@ -2611,7 +2611,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_integrate_czechoslovakia)
+      $sandbox_log_sc_focus(GER_integrate_czechoslovakia)
 
 
   focus[id = GER_integrate_czech_manufacturers]:
@@ -2643,7 +2643,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($AUS)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_anschluss)
+      $sandbox_log_sc_focus(GER_anschluss)
 
   focus[id = GER_demand_sudetenland]:
     available:
@@ -2668,7 +2668,7 @@ focus_tree[id = german_focus]:
           $CZE->is_friend_of_PREV()
           $FRA->is_friend_of_PREV()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_demand_sudetenland)
+      $sandbox_log_sc_focus(GER_demand_sudetenland)
 
   focus[id = GER_first_vienna_award]:
     ai_will_do:
@@ -2677,7 +2677,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_first_vienna_award)
+      $sandbox_log_sc_focus(GER_first_vienna_award)
 
 
   focus[id = GER_fate_of_czechoslovakia]:
@@ -2697,7 +2697,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_fate_of_czechoslovakia)
+      $sandbox_log_sc_focus(GER_fate_of_czechoslovakia)
 
 
   focus[id = GER_demonstration_of_military_achievements]:
@@ -2732,7 +2732,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_reassert_eastern_claims)
+      $sandbox_log_sc_focus(GER_reassert_eastern_claims)
 
 
   focus[id = GER_expand_claims_in_baltic]:
@@ -2786,7 +2786,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $crossroad_modifier(2)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_danzig_for_slovakia)
+      $sandbox_log_sc_focus(GER_danzig_for_slovakia)
 
 
   focus[id = GER_danzig_or_war]:
@@ -2808,7 +2808,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($POL)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_danzig_or_war)
+      $sandbox_log_sc_focus(GER_danzig_or_war)
 
   focus[id = GER_befriend_poland]:
     available:
@@ -2967,7 +2967,7 @@ focus_tree[id = german_focus]:
           $LUX->is_friend_of_PREV()
           $FRA->is_friend_of_PREV()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_around_maginot)
+      $sandbox_log_sc_focus(GER_around_maginot)
 
   focus[id = GER_operation_weserubung]:
     available:
@@ -2992,7 +2992,7 @@ focus_tree[id = german_focus]:
           $DEN->is_friend_of_PREV()
           $NOR->is_friend_of_PREV()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_operation_weserubung)
+      $sandbox_log_sc_focus(GER_operation_weserubung)
 
 
   focus[id = GER_utilize_the_nordliche_gesellschaft]:
@@ -3140,7 +3140,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, GER_war_with_france)
+      $sandbox_log_sc_focus(GER_war_with_france)
 
   focus[id = GER_operation_tannenbaum]:
     available:

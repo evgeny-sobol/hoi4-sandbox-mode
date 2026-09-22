@@ -18,7 +18,7 @@ focus_tree[id = soviet_focus]:
         factor(f)
         is_sandbox_mode_on()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, SOV_the_path_of_marxism_leninism)
+      $sandbox_log_sc_focus(SOV_the_path_of_marxism_leninism)
 
 
   focus[id = SOV_beaten_but_not_defeated]:
@@ -1156,7 +1156,7 @@ focus_tree[id = soviet_focus]:
             not has_completed_focus(SOV_coup_detat)
         is_sandbox_mode_on()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, SOV_the_comintern)
+      $sandbox_log_sc_focus(SOV_the_comintern)
 
 
   focus[id = SOV_development_aid_for_eastern_allies]:
@@ -1518,7 +1518,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_scenario_focus_boost()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, SOV_middle_east_diplomacy)
+      $sandbox_log_sc_focus(SOV_middle_east_diplomacy)
 
 
   focus[id = SOV_the_southern_thrust]:
@@ -1562,7 +1562,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $crossroad_modifier(2)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, SOV_support_afghan_ideology)
+      $sandbox_log_sc_focus(SOV_support_afghan_ideology)
 
 
   focus[id = SOV_preemptive_invasion_of_iran]:
@@ -1582,7 +1582,7 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_betrayal_modifier_vs($PER)
     +completion_reward:
-      $sandbox_log_sc(sc_focus, SOV_preemptive_invasion_of_iran)
+      $sandbox_log_sc_focus(SOV_preemptive_invasion_of_iran)
 
   focus[id = SOV_the_threat_from_the_land_of_the_rising_sun]:
     available:

@@ -77,8 +77,8 @@ country_event:
     $sandbox_log_sc(sc_crisis, italian_ult_3_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
-# Whoever accepts leaves its old faction first (leave-then-join); the exit
-# carries no Honor charge (one-shot skip flag, like a released nation).
+# The exit from any old faction is Honor-free (one-shot skip flag, like a
+# released nation). No faction is created: see the note above.
 country_event:
   id(sandbox_italian.4)
   title(sandbox_italian_4_t)
@@ -95,11 +95,9 @@ country_event:
     if is_in_faction(yes):
       set_country_flag(sandbox_honor_skip_leave_faction)
       leave_faction(yes)
+    give_military_access(ITA)
     ITA:
-      if is_in_faction(no):
-        create_faction(sandbox_italian_faction)
-      add_to_faction(PREV)
-      $add_opinion_modifier(PREV, scenario_ally)
+      give_military_access(PREV)
     $add_opinion_modifier(ITA, scenario_ally)
     $sandbox_log_sc(sc_join, italian_joined)
   option:
