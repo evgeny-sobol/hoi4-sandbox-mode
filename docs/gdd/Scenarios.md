@@ -112,6 +112,19 @@ its own. The betrayal exemption (F1) and the `sc_justify` / `sc_goal_end` /
 `sc_focus` telemetry were missing from the vanilla port and are now wired;
 a peak that outlives the ladder is still undetected and is an open item.
 
+Observer note (second vanilla session, `japanese` / variant a / CHI+PHI): the
+new `sc_focus` telemetry showed Japan completing **zero** war focuses over four
+years while the arc sat at peak. Cause: the port boosted only the war leafs and
+one or two roots, so nearly every leaf sat behind an unboosted prerequisite
+(the ideological fork `JAP_sea_purge_the_kodoha_faction` XOR
+`JAP_revere_the_emperor_destroy_the_traitors` for Japan, the Africa path for
+Italy, `reorganize_the_wehrmacht` for Germany, `the_comintern` for the USSR,
+`no_further_appeasement` for Britain, `intervention_in_asia` for the USA). The
+AI never commits to the gate, so the leaf is never *available* and the boost on
+it does nothing. `boost_focus_ancestors.py` now boosts the transitive ancestor
+closure of every key focus (63 focuses), and `sc_focus` logging was extended to
+match, so a dead gate is visible in the log rather than silent.
+
 l10n note: `99_sandbox_l_english.yml` must stay UTF-8 **with BOM**. HOI4
 silently drops a localisation file without it, and every string falls back to
 its raw key (the leader-personality tooltip is the tell). The event-key

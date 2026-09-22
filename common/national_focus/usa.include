@@ -746,7 +746,12 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_intervention_in_asia)
+
 
   focus[id = USA_war_plan_orange]:
     +ai_will_do:
@@ -764,7 +769,12 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_war_plan_yellow)
+
 
   focus[id = USA_defense_of_the_pacific]:
     available:

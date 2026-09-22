@@ -8,24 +8,36 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_solid_progress)
+
 
   focus[id = ITA_the_abyssinian_fiasco]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
         f = (mtth:democracy_factor + mtth:communism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_the_abyssinian_fiasco)
+
 
   focus[id = ITA_struggle_in_ethiopia]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
@@ -40,6 +52,9 @@ focus_tree[id = italian_focus]:
 # █ █▄  █ █▀▀▄ █  █ ▄▀▀▀ ▀▀█▀▀ █▀▀▄ ▀▄ ▄▀
 # █ █ ▀▄█ █  █ █  █  ▀▀▄   █   █▀▀▄   █
 # ▀ ▀   ▀ ▀▀▀   ▀▀  ▀▀▀    ▀   ▀  ▀   ▀
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_struggle_in_ethiopia)
+
   focus[id = ITA_ethiopian_war_logistics_bba]:
     +ai_will_do:
       modifier:
@@ -649,37 +664,57 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = 1 + mtth:monarchy_factor + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_undermine_the_duce)
+
 
   focus[id = ITA_servizio_informazione_militare]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_servizio_informazione_militare)
+
 
   focus[id = ITA_conspiracies_in_the_shadows]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = 1 + mtth:monarchy_factor + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_conspiracies_in_the_shadows)
+
 
   focus[id = ITA_triumph_in_africa_bba]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_triumph_in_africa_bba)
+
 
   focus[id = ITA_convene_the_grand_council]:
     +ai_will_do:
@@ -1394,6 +1429,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -1417,11 +1454,16 @@ focus_tree[id = italian_focus]:
           $YUG->is_friend_of_PREV()
           $CRO->is_friend_of_PREV()
           $MNT->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_balkan_ambition)
+
 
   focus[id = ITA_potential_allies_in_the_balkans]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -1429,6 +1471,9 @@ focus_tree[id = italian_focus]:
           $opinion_factor($BUL)) / 3
         factor(cooperation)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_potential_allies_in_the_balkans)
+
 
   focus[id = ITA_albanian_occupation]:
     available:
@@ -1466,17 +1511,27 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_cooperation_modifier($AUS)
       modifier:
         factor(0)
         $AUS in rivals[]
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_guarantee_austrian_independence)
+
 
   focus[id = ITA_negotiate_italian_claims]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_negotiate_italian_claims)
+
 
   focus[id = ITA_ratify_the_stresa_front]:
     available:
@@ -1609,12 +1664,17 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_cooperation_modifier($GER)
       modifier:
         factor(0)
         $GER in rivals[]
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_pact_of_steel)
+
 
   focus[id = ITA_german_military_cooperation]:
     available:
@@ -1665,12 +1725,17 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_cooperation_modifier($BUL)
       modifier:
         factor(0)
         $BUL in rivals[]
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_italy_first)
+
 
   focus[id = ITA_befriend_japan]:
     available:
@@ -1689,6 +1754,11 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_italian_irredentism)
+
 
   focus[id = ITA_war_with_france]:
     available:

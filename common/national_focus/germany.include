@@ -2537,14 +2537,29 @@ focus_tree[id = german_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_heed_von_neuraths_concerns)
+
   focus[id = GER_reorganize_the_wehrmacht]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_reorganize_the_wehrmacht)
+
   focus[id = GER_war_preparations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_war_preparations)
+
 
   focus[id = GER_reorganize_secret_services]:
     +ai_will_do:
@@ -2568,11 +2583,16 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_cooperation_modifier($CZE)
       +modifier:
         factor(0)
         $CZE in rivals[]
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_befriend_czechoslovakia)
+
 
   focus[id = GER_integrate_czechoslovakia]:
     available:
@@ -2581,6 +2601,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
@@ -2588,6 +2610,9 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_integrate_czechoslovakia)
+
 
   focus[id = GER_integrate_czech_manufacturers]:
     ai_will_do:
@@ -2649,6 +2674,11 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_first_vienna_award)
+
 
   focus[id = GER_fate_of_czechoslovakia]:
     available:
@@ -2657,6 +2687,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($CZE)
@@ -2664,6 +2696,9 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($CZE)
       +modifier:
         $ai_betrayal_modifier_vs($CZE)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_fate_of_czechoslovakia)
+
 
   focus[id = GER_demonstration_of_military_achievements]:
     +ai_will_do:
@@ -2687,6 +2722,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($LIT)
@@ -2694,6 +2731,9 @@ focus_tree[id = german_focus]:
         $ai_rivalry_modifier($LIT)
       +modifier:
         $ai_betrayal_modifier_vs($LIT)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_reassert_eastern_claims)
+
 
   focus[id = GER_expand_claims_in_baltic]:
     available:
@@ -2742,7 +2782,12 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_danzig_for_slovakia)
+
 
   focus[id = GER_danzig_or_war]:
     available:
@@ -2932,6 +2977,8 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($DEN) + $opinion_factor($NOR)) / 2
@@ -2944,6 +2991,9 @@ focus_tree[id = german_focus]:
         or:
           $DEN->is_friend_of_PREV()
           $NOR->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, GER_operation_weserubung)
+
 
   focus[id = GER_utilize_the_nordliche_gesellschaft]:
     ai_will_do:

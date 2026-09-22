@@ -38,17 +38,24 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = mtth:monarchy_factor /
           (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_revere_the_emperor_destroy_the_traitors)
+
 
   focus[id = JAP_sea_purge_the_kodoha_faction]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_high_tyranny_tilt()
       +modifier:
@@ -66,6 +73,9 @@ focus_tree[id = japan_wtt_focus]:
       $add_tyranny(20)
     available:
       is_liberal_leader(no)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_sea_purge_the_kodoha_faction)
+
 
   focus[id = JAP_seek_yakuza_support]:
     ai_will_do:
@@ -1756,6 +1766,11 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_nanshin_ron)
+
 
   focus[id = JAP_demand_tonkinese_bases]:
     available:
@@ -1764,6 +1779,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -1777,6 +1794,9 @@ focus_tree[id = japan_wtt_focus]:
         or:
           $FRA->is_friend_of_PREV()
           $VIN->is_friend_of_PREV()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_demand_tonkinese_bases)
+
 
   focus[id = JAP_occupy_indochina]:
     available:
@@ -1806,6 +1826,8 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($SIA)
@@ -1813,6 +1835,9 @@ focus_tree[id = japan_wtt_focus]:
         factor(0)
         $SIA in rivals[]
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, JAP_sea_pressure_siam)
+
 
   focus[id = JAP_occupy_siam]:
     available:
