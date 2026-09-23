@@ -118,6 +118,19 @@ minor_rivals_scorer:
         factor(0)
         THIS in FROM.former_rivals[]
 
+# docs/gdd/Scenarios.md "Join levers": open-pool join offers (join 2.0, no fixed
+# tag list). FROM is the aggressor (offer sender), THIS is the candidate.
+# Gates score zero (skipped): self, human, civil war, at war with FROM, in
+# FROM's own faction, subject ties with FROM, enemy ideology with FROM
+# (same group or non-aligned on either side passes). Membership in a THIRD
+# party faction is not a bar: the accept option leaves it first
+# (leave-then-join). Strength plus goodwill stack in three staircases
+# (divisions / industry / opinion, maxima 60/60/60, tunable in the GDD).
+# Numeric engine triggers go through `raw`: a bare `num_divisions > 100`
+# would compile to check_variable, which is wrong here. Industry has no
+# plain trigger at all (num_of_factories is script math), so the effect
+# snapshots it into scenario_join_industry first and the scorer reads the
+# variable (check_variable is correct there).
 scenario_join_scorer:
   targets:
     targets_dynamic(no)
@@ -192,4 +205,3 @@ scenario_join_scorer:
       modifier:
         factor(0)
         has_enemy_ideology_with_FROM()
-

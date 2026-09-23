@@ -18,6 +18,8 @@ is_sandbox_census_country:
 # faction → Treacherous. Non-friends are always allowed.
 can_PREV_get_wargoal_on_THIS:
   OR:
+    # Declared scenario enemies never need a band (docs/gdd/Scenarios.md).
+    THIS in PREV.scenario_enemies[]
     is_friend_of_PREV(no)
     AND:
       is_ally_with(PREV)
@@ -165,7 +167,8 @@ sandbox_civil_war_ai_blocked:
 sandbox_civil_war_ai_allowed:
   not sandbox_civil_war_ai_blocked()
 
-# ITA BoP range that lights BBA_italy_civil_war.1. Not an HSL trigger.
+# ITA BoP range that lights BBA_italy_civil_war.1. Workshop has no ITA.txt BoP
+# file (vanilla fall-through); weekly retry still uses this trigger.
 sandbox_ita_grand_council_total_control:
   $is_power_balance_in_range(ITA_power_balance, ITA_grand_council_total_control_range)
 
@@ -193,3 +196,21 @@ sandbox_gre_george_cw_fuse_ready:
   has_country_flag(GRE_monarchist_civil_war_factory_raided)
   has_country_flag(GRE_monarchist_civil_war_generals_returned)
   has_country_flag(GRE_monarchist_civil_war_riots)
+
+# AFG BoP total-control range that starts a fascist war inline.
+sandbox_afg_bop_cw_fuse_ready:
+  $is_power_balance_in_range(AFG_power_balance, AFG_total_government_influence)
+  not has_government(fascism)
+  not has_country_flag(AFG_had_civil_war_bop)
+  not has_civil_war()
+  not has_war()
+
+# Sunfall MTTH is live enough to log a wait (full vanilla trigger is longer).
+sandbox_jap_sfl_fuse_ready:
+  original_tag($JAP)
+  not has_civil_war()
+  not is_subject()
+  not has_global_flag(jap_civil_war_sf)
+  not has_completed_focus(JAP_the_unthinkable_option)
+  not has_completed_focus(JAP_strengthen_civilian_government)
+  not has_completed_focus(JAP_revoke_the_peace_preservation_law)

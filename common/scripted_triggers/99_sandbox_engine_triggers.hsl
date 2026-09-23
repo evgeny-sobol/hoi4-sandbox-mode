@@ -1,0 +1,25 @@
+# docs/gdd/Scenarios.md "Levers": betrayal-weight exemption for declared scenario
+# enemies (mirrors can_PREV_get_wargoal_on_THIS). THIS is the target, PREV is
+# the focus owner / attacker.
+is_scenario_enemy_of_PREV:
+  THIS in PREV.scenario_enemies[]
+
+# ROOT owns at least one declared scenario enemy while the ladder is live.
+# Used to gate the shared war-focus weight boost (any arc, aggressor only).
+is_live_scenario_aggressor:
+  is_sandbox_mode_on()
+  global.sandbox_scenario > 0
+  global.sandbox_scenario_phase < 3
+  any_other_country:
+    THIS in ROOT.scenario_enemies[]
+
+# ROOT is a live actor of the current arc: the aggressor, or one of the
+# declared targets. Gates per-actor telemetry (focus completions) so unrelated
+# countries do not pollute an arc's log.
+is_scenario_actor:
+  is_sandbox_mode_on()
+  global.sandbox_scenario > 0
+  global.sandbox_scenario_phase < 3
+  OR:
+    is_live_scenario_aggressor()
+    THIS in global.sandbox_targets[]

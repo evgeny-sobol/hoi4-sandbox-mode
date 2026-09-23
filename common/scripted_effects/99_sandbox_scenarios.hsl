@@ -207,37 +207,8 @@ sandbox_seed_actors():
       sandbox_seed_from_targets()
 
 # Runs in the aggressor's scope. Each live target slot is seeded as a
-# rival and both sides record scenario_enemies[].
-sandbox_seed_from_targets():
-  add_war_support(0.10)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  $sandbox_log_sc_seed()
+# rival and both sides record scenario_enemies[]. Body lives in the shared
+# engine (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 # Monthly ladder tick (docs/gdd/Scenarios.md "Lifecycle"). Thresholds are
 # HAI months_elapsed: < 12 smolder, 12-23 crises, 24+ peak. A derail check
@@ -298,10 +269,8 @@ sandbox_scenario_tick():
     sandbox_fire_usa_warplan_peak()
   sandbox_scenario_s7_telemetry()
 
-# Shared join-2.0 helper: industry snapshot for the scorer.
-sandbox_snapshot_join_industry():
-  for every_country():
-    &scenario_join_industry = num_of_factories
+# Shared join-2.0 helper: industry snapshot for the scorer. Body lives in
+# the shared engine (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 # Crises phase for axis: provocation lands on the aggressor's desk.
 sandbox_fire_axis_crises():
@@ -941,38 +910,8 @@ sandbox_log_scenario_success():
 # docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario
 # enemies ignites the arc (symmetric). Two paths share the log table:
 # on_declare_war (direct) and the monthly ongoing-war sweep (indirect).
-sandbox_scenario_ignite():
-  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
-    global.&sandbox_scenario_phase = 3
-    sandbox_log_scenario_success()
-
-# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
-# war with any chosen target.
-sandbox_ignite_if_at_war():
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[3] != 0:
-    var:sandbox_targets[3]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
+# Bodies live in the shared engine
+# (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 sandbox_scenario_check_ignite_by_war():
   if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:

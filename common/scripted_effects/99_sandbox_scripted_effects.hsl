@@ -517,7 +517,15 @@ update_honor_gain_monthly_factor():
 # per war, shared with on_join_allies through honor_answered_call).
 apply_honor_on_declare_war():
   sandbox_log_other = FROM
-  if FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
+  if FROM in &scenario_enemies[]:
+    # Declared scenario enemies fight without Honor cost (docs/gdd/Scenarios.md).
+    sandbox_log_other = FROM
+    sandbox_log_old = honor
+    sandbox_log_new = honor
+    sandbox_log_delta = 0
+    sandbox_log_slot = -1
+    $sandbox_log_honor(honor_scenario_exempt)
+  elif FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
     $add_honor(-50, honor_war_break_pact)
     &na_pacts[].erase(FROM)
     &prev_na_pacts[].erase(FROM)
@@ -724,6 +732,11 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
     $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
     $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
+    $sandbox_delay_mission_if_capped(AFG_march_on_tehran)
+    $sandbox_delay_mission_if_capped(AFG_the_internal_crisis_mission)
+    $sandbox_delay_mission_if_capped(GER_freikorps_riots)
+    $sandbox_delay_mission_if_capped(EGY_impending_nationalist_uprising)
+    $sandbox_delay_mission_if_capped(LIT_communist_revolution_uprising_mission)
 
 
 # BoP on_activate fires once. If the cap skipped it, retry when a slot opens.
@@ -797,6 +810,23 @@ sandbox_retry_est_civil_war_fuse():
       country_event(EST_events.7)
 
 
+# BoP on_activate fires once. If the cap skipped it, retry the payload while
+# the range is still live (no event wrapper in Rt56).
+sandbox_retry_afg_bop_civil_war_fuse():
+  if original_tag($AFG) and sandbox_afg_bop_cw_fuse_ready():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(AFG_total_government_influence)
+    else:
+      $sandbox_log_cw_event(AFG_total_government_influence)
+      start_civil_war:
+        ideology(fascism)
+        size(0.8)
+        army_ratio(0.8)
+        air_ratio(0.8)
+        capital(267)
+      set_country_flag(AFG_had_civil_war_bop)
+
+
 # Pattern A / on_daily skips have no vanilla effect to hook. Log the wait
 # so a capped observer game is distinguishable from "MTTH has not rolled".
 sandbox_log_waiting_cw_fuses():
@@ -806,6 +836,9 @@ sandbox_log_waiting_cw_fuses():
         $sandbox_log_cw_defer(spain)
       if original_tag($AST) and sandbox_ast_veterans_fuse_ready():
         $sandbox_log_cw_defer(on_daily_AST)
+      if sandbox_jap_sfl_fuse_ready():
+        $sandbox_log_cw_defer(sfl.1)
+
 
 reset_tyranny_for_new_ruler():
   set_tyranny_range_from_government()

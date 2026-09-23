@@ -186,6 +186,12 @@ macro ai_sandbox_modifier():
   add(40)
   is_sandbox_mode_on()
 
+# docs/gdd/Scenarios.md "Focus weights": scenario-specific x5 after Feud plus
+# Honor exemptions proved insufficient (s8/s9). Only the live aggressor.
+macro ai_scenario_focus_boost():
+  factor(5)
+  is_live_scenario_aggressor()
+
 # Civil-war AI (docs/gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
 # be separate modifiers: if the cap trigger fails, that modifier is skipped
 # and a folded factor(0) would also drop the 0.25.
@@ -263,6 +269,32 @@ macro sandbox_log_cw_war(_event_):
     log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] ai=[?sandbox_cw_ai|.0] other=[?sandbox_log_other.GetTag] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
   sandbox_log_other = 0
 
+# docs/gdd/Scenarios.md "Hooks and telemetry". Mirrors the cw_ line shape.
+# Arc ids: 0 none, 1 axis_expansion. Phases: 0 smolder, 1 crises, 2 peak.
+macro sandbox_log_sc(_event_, _id_):
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+# s7 diagnostic (docs/gdd/Scenarios.md "Hooks and telemetry"): strength census.
+# Reads sc_div / sc_fab temps set in-actor-scope before the call. Read-only.
+macro sandbox_log_sc_power():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    log("#sandbox [GetDateText] [THIS.GetTag] sc_power div=[?sc_div|.0] fab=[?sc_fab|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
+
+# docs/gdd/Scenarios.md "Hooks and telemetry": seed snapshot for the picked
+# arc. Runs in the aggressor's scope right after seeding; lists the chosen
+# targets and the A/B variant beside the arc id. The target fields are gated
+# on the array size (`^num`): referencing a nonexistent slot makes HoI4
+# substitute the current scope, so a 2-target arc would print its own
+# aggressor tag as a phantom `t2`.
+macro sandbox_log_sc_seed():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    if global.sandbox_targets[].size() > 2:
+      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] t2=[?global.sandbox_targets^2.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
+    elif global.sandbox_targets[].size() == 2:
+      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
+    else:
+      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
 # Same-block set. A lone `factor(0)` in another modifier zeroes the whole
 # ai_will_do, including later `add` — aiview stays at 0.
 macro ai_sandbox_set(_n_):
@@ -453,58 +485,9 @@ macro not_rival_of_PREV(_tag_):
     not country_exists(_tag_)
     _tag_->is_rival_of_PREV(no)
 
-# Scenario engine macros (docs/gdd/Scenarios.md), shared with the Rt56
-# overlay. Flip gates are omitted: every vanilla arc is historical.
-
-macro ai_scenario_focus_boost():
-  factor(5)
-  is_live_scenario_aggressor()
-
-# Civil-war AI (docs/gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
-# be separate modifiers: if the cap trigger fails, that modifier is skipped
-# and a folded factor(0) would also drop the 0.25.
-
-macro sandbox_log_sc(_event_, _id_):
-  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
-    log("#sandbox [GetDateText] [THIS.GetTag] _event_ _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
-
-# s7 diagnostic (docs/gdd/Scenarios.md "Hooks and telemetry"): strength census.
-# Reads sc_div / sc_fab temps set in-actor-scope before the call. Read-only.
-
-macro sandbox_log_sc_power():
-  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
-    log("#sandbox [GetDateText] [THIS.GetTag] sc_power div=[?sc_div|.0] fab=[?sc_fab|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
-
-# docs/gdd/Scenarios.md "Hooks and telemetry": seed snapshot for the picked
-# arc. Runs in the aggressor's scope right after seeding; lists the chosen
-# targets and the A/B variant beside the arc id. The target fields are gated
-# on the array size (`^num`): referencing a nonexistent slot makes HoI4
-# substitute the current scope, so a 2-target arc would print its own
-# aggressor tag as a phantom `t2`.
-
-macro sandbox_log_sc_seed():
-  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
-    if global.sandbox_targets[].size() > 2:
-      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] t2=[?global.sandbox_targets^2.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
-    elif global.sandbox_targets[].size() == 2:
-      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
-    else:
-      log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
-# Same-block set. A lone `factor(0)` in another modifier zeroes the whole
-# ai_will_do, including later `add` — aiview stays at 0.
-
-macro sandbox_log_target_status(_agg_):
-  if has_war_with(_agg_):
-    $sandbox_log_sc(sc_target, at_war)
-  elif has_civil_war():
-    $sandbox_log_sc(sc_target, civil_war)
-  elif is_subject_of(_agg_):
-    $sandbox_log_sc(sc_target, subject)
-  elif is_in_faction_with(_agg_):
-    $sandbox_log_sc(sc_target, in_faction)
-  else:
-    $sandbox_log_sc(sc_target, open)
-
+# docs/gdd/Scenarios.md "Levers" (kept at the end: macro libraries resolve nested
+# calls top-down, so these come after $add_rivalry).
+# Add _var_ rivalry to every slot holding _tag_ (no-op if absent).
 macro sandbox_add_rivalry_vs(_tag_, _var_):
   if rivals[0] == _tag_:
     $add_rivalry(0, _var_)
@@ -519,7 +502,6 @@ macro sandbox_add_rivalry_vs(_tag_, _var_):
 # cooldown from clear_rival). Literal tags appear only as scope heads and
 # comparisons; rival_tag always takes a scope (PREV), never a literal, so no
 # tag value ever enters a variable.
-
 macro sandbox_seed_rival(_tag_, _intensity_):
   if _tag_ in rivals[]:
     rivalry_vs = 0
@@ -563,7 +545,6 @@ macro sandbox_seed_rival(_tag_, _intensity_):
 # (every target is gone, a subject of the aggressor, or in the aggressor's
 # faction). Split per arity: macro params are text-substituted, so an unused
 # `0` slot would leak into country_exists/is_subject_of.
-
 macro sandbox_check_targets_derail1(_agg_, _t0_):
   if not country_exists(_t0_):
     global.&sandbox_scenario_phase = 3
@@ -597,7 +578,6 @@ macro sandbox_check_targets_derail3(_agg_, _t0_, _t1_, _t2_):
 # docs/gdd/Scenarios.md "Lifecycle": four-target derail arm for wide-pool arcs
 # (e.g. USA hegemony variant A: ENG, GER, HUN, JAP). Same semantics as the
 # 3-target arm.
-
 macro sandbox_check_targets_derail4(_agg_, _t0_, _t1_, _t2_, _t3_):
   if not country_exists(_t0_) and not country_exists(_t1_) and not country_exists(_t2_) and not country_exists(_t3_):
     global.&sandbox_scenario_phase = 3
@@ -614,7 +594,34 @@ macro sandbox_check_targets_derail4(_agg_, _t0_, _t1_, _t2_, _t3_):
 # unused `0` ideology would emit `has_government = 0`. The log label (e.g.
 # britain_not_fascist) is passed in. Mirrors the arcs 5/6 arm: wartime
 # ideology flips are ignored, no civil-war exclusion.
+macro sandbox_check_flip_gate1(_agg_, _ideo1_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if not _agg_->has_government(_ideo1_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
 
+macro sandbox_check_flip_gate2(_agg_, _ideo1_, _ideo2_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if not _agg_->has_government(_ideo1_) and not _agg_->has_government(_ideo2_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
+
+# docs/gdd/Scenarios.md "Flips": inverted flip gate for post-flip arcs that need
+# the aggressor OFF an ideology (e.g. White Russia: SOV must not be
+# communist by the crises phase). Same phase-1 timing as the normal gate.
+macro sandbox_check_flip_gate_inv(_agg_, _ideo1_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if _agg_->has_government(_ideo1_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
+
+# docs/gdd/Scenarios.md "Lifecycle": an aggressor stuck in a civil war cannot
+# prosecute its arc, so the director derails after N consecutive months of
+# it. Runs in the aggressor's scope; the counter resets when the war ends
+# (and at pick/repick). THIS is the aggressor.
 # docs/gdd/Scenarios.md "Lifecycle": an arc that reaches peak and does not
 # ignite within 12 months is dead: the ladder holds at peak forever
 # otherwise (an observer session sat there for six years). Derails with reason
@@ -645,6 +652,17 @@ macro sandbox_check_aggressor_civil_war():
 # (THIS is the target); the aggressor is passed explicitly (the director's
 # scope is not the aggressor). First match wins: at_war > civil_war > subject
 # > in_faction > open.
+macro sandbox_log_target_status(_agg_):
+  if has_war_with(_agg_):
+    $sandbox_log_sc(sc_target, at_war)
+  elif has_civil_war():
+    $sandbox_log_sc(sc_target, civil_war)
+  elif is_subject_of(_agg_):
+    $sandbox_log_sc(sc_target, subject)
+  elif is_in_faction_with(_agg_):
+    $sandbox_log_sc(sc_target, in_faction)
+  else:
+    $sandbox_log_sc(sc_target, open)
 
 # Scenario-actor focus telemetry. Only the aggressor and the declared targets
 # are logged; the factors for other countries are noise in a session log.

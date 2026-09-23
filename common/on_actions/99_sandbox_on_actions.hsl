@@ -1,3 +1,10 @@
+# Shared on_actions skeleton (docs/gdd/Scenarios.md "Hooks and telemetry").
+# Per-mod arc hooks (implemented in each mod's 99_sandbox_scenarios.hsl):
+#   sandbox_arc_on_weekly()              - extra weekly fuse retries (e.g. AFG BoP)
+#   sandbox_arc_wargoal_expire_hook()    - sc_goal_end per-arc tag gates
+#   sandbox_arc_justify_hook()           - sc_justify per-arc FROM gates
+#   sandbox_arc_tick_hosts()             - extra monthly tick hosts past USA
+#     (vanilla chain ends at USA; Rt56 appends FRA then HUN)
 on_actions:
   on_startup:
     effect:
@@ -47,6 +54,7 @@ on_actions:
         sandbox_retry_gre_civil_war_fuse()
         sandbox_retry_per_civil_war_fuse()
         sandbox_retry_est_civil_war_fuse()
+        sandbox_arc_on_weekly()
         sandbox_log_waiting_cw_fuses()
         # One rebuild + pulse per week (HAI is the sandbox flag holder).
         if tag(HAI):
@@ -87,6 +95,8 @@ on_actions:
           sandbox_scenario_tick()
         elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and tag(USA):
           sandbox_scenario_tick()
+        else:
+          sandbox_arc_tick_hosts()
 
   on_ruling_party_change:
     effect:
@@ -131,133 +141,28 @@ on_actions:
           $sandbox_log_cw_war(cw_declare)
 
   # ROOT = justifier, FROM = target. The pulse is DAILY in vanilla, so the
-  # −2 of the GDD is charged once per 30 pulses against a friend.
+  # -2 of the GDD is charged once per 30 pulses against a friend.
   # s7 diagnostic (read-only): a held-then-unused wargoal is the last-step
   # smoking gun. THIS-only: on_wargoal_expire scopes are undocumented.
   on_wargoal_expire:
     effect:
       if global.sandbox_scenario_phase < 3:
-        if global.sandbox_scenario == 1:
-          if global.sandbox_target_variant == a:
-            if tag(GER | CZE | POL):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(GER | FRA | ENG):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-        if global.sandbox_scenario == 2:
-          if global.sandbox_target_variant == a:
-            if tag(SOV | TUR | IRQ | PER):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(SOV | PAK | RAJ | AFG):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-        if global.sandbox_scenario == 3:
-          if global.sandbox_target_variant == a:
-            if tag(JAP | CHI | PHI):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(JAP | BRM | INS | MAL):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-        if global.sandbox_scenario == 4:
-          if global.sandbox_target_variant == a:
-            if tag(ITA | YUG | GRE):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(ITA | FRA | ENG):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-        if global.sandbox_scenario == 5:
-          if global.sandbox_target_variant == a:
-            if tag(ENG | SOV):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(ENG | SOV):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-        if global.sandbox_scenario == 6:
-          if global.sandbox_target_variant == a:
-            if tag(USA | JAP):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
-          else:
-            if tag(USA | ENG | CAN):
-              $sandbox_log_sc(sc_goal_end, goal_expired)
+        sandbox_arc_wargoal_expire_hook()
 
   on_justifying_wargoal_pulse:
     effect:
       if is_sandbox_mode_on():
         if $is_friend_of(FROM):
-          &honor_justify_pulses += 1
-          if honor_justify_pulses >= 30:
-            &honor_justify_pulses = 0
-            sandbox_log_other = FROM
-            $add_honor(-2, honor_justify_friend)
-
+          # Declared scenario enemies justify without the drip (docs/gdd/Scenarios.md).
+          if FROM not in &scenario_enemies[]:
+            &honor_justify_pulses += 1
+            if honor_justify_pulses >= 30:
+              &honor_justify_pulses = 0
+              sandbox_log_other = FROM
+              $add_honor(-2, honor_justify_friend)
         # s7 diagnostic (read-only): aggressor justifying on arc targets is
         # otherwise silent (Honor drips only vs friends). Daily while active.
-        if global.sandbox_scenario == 1 and global.sandbox_scenario_phase < 3 and tag(GER):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(CZE):
-              $sandbox_log_sc(sc_justify, ger_on_cze)
-            if FROM->tag(POL):
-              $sandbox_log_sc(sc_justify, ger_on_pol)
-          else:
-            if FROM->tag(FRA):
-              $sandbox_log_sc(sc_justify, ger_on_fra)
-            if FROM->tag(ENG):
-              $sandbox_log_sc(sc_justify, ger_on_eng)
-        if global.sandbox_scenario == 2 and global.sandbox_scenario_phase < 3 and tag(SOV):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(TUR):
-              $sandbox_log_sc(sc_justify, sov_on_tur)
-            if FROM->tag(IRQ):
-              $sandbox_log_sc(sc_justify, sov_on_irq)
-            if FROM->tag(PER):
-              $sandbox_log_sc(sc_justify, sov_on_per)
-          else:
-            if FROM->tag(PAK):
-              $sandbox_log_sc(sc_justify, sov_on_pak)
-            if FROM->tag(RAJ):
-              $sandbox_log_sc(sc_justify, sov_on_raj)
-            if FROM->tag(AFG):
-              $sandbox_log_sc(sc_justify, sov_on_afg)
-        if global.sandbox_scenario == 3 and global.sandbox_scenario_phase < 3 and tag(JAP):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(CHI):
-              $sandbox_log_sc(sc_justify, jap_on_chi)
-            if FROM->tag(PHI):
-              $sandbox_log_sc(sc_justify, jap_on_phi)
-          else:
-            if FROM->tag(BRM):
-              $sandbox_log_sc(sc_justify, jap_on_brm)
-            if FROM->tag(INS):
-              $sandbox_log_sc(sc_justify, jap_on_ins)
-            if FROM->tag(MAL):
-              $sandbox_log_sc(sc_justify, jap_on_mal)
-        if global.sandbox_scenario == 4 and global.sandbox_scenario_phase < 3 and tag(ITA):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(YUG):
-              $sandbox_log_sc(sc_justify, ita_on_yug)
-            if FROM->tag(GRE):
-              $sandbox_log_sc(sc_justify, ita_on_gre)
-          else:
-            if FROM->tag(FRA):
-              $sandbox_log_sc(sc_justify, ita_on_fra)
-            if FROM->tag(ENG):
-              $sandbox_log_sc(sc_justify, ita_on_eng)
-        if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3 and tag(ENG):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(SOV):
-              $sandbox_log_sc(sc_justify, eng_on_sov)
-          else:
-            if FROM->tag(SOV):
-              $sandbox_log_sc(sc_justify, eng_on_sov)
-        if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3 and tag(USA):
-          if global.sandbox_target_variant == a:
-            if FROM->tag(JAP):
-              $sandbox_log_sc(sc_justify, usa_on_jap)
-          else:
-            if FROM->tag(ENG):
-              $sandbox_log_sc(sc_justify, usa_on_eng)
-            if FROM->tag(CAN):
-              $sandbox_log_sc(sc_justify, usa_on_can)
+        sandbox_arc_justify_hook()
 
   # ROOT = leaving country, FROM = faction leader
   on_leave_faction:
