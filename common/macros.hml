@@ -673,34 +673,7 @@ macro sandbox_log_target_status(_agg_):
 
 # Scenario-actor focus telemetry. Only the aggressor and the declared targets
 # are logged; the factors for other countries are noise in a session log.
-#
-# TEMPORARY (issue 04 logging session): every boosted-focus completion is now
-# logged with the is_scenario_actor result inline (`gate=`), so one session can
-# separate "the gate is dead" from "no boosted focus completed while the country
-# was an actor". Restore the gated form (`if is_scenario_actor():`) and drop
-# sandbox_log_sc_actor_probe() below after the session.
 macro sandbox_log_sc_focus(_id_):
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
-    sc_focus_gate = 0
     if is_scenario_actor():
-      sc_focus_gate = 1
-    log("#sandbox [GetDateText] [THIS.GetTag] sc_focus _id_ gate=[?sc_focus_gate|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
-
-# TEMPORARY (issue 04 logging session): monthly probe of the sc_focus actor
-# gate. Logs one line per arc candidate (aggressor or declared target) with the
-# is_scenario_actor result and the scenario_enemies[] size, so the session shows
-# whether the gate is healthy even in a month when no boosted focus completes.
-# Called from on_monthly; remove together with the sc_focus change above.
-macro sandbox_log_sc_actor_probe():
-  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
-    sc_probe_agg = 0
-    if is_live_scenario_aggressor():
-      sc_probe_agg = 1
-    sc_probe_tgt = 0
-    if THIS in global.sandbox_targets[]:
-      sc_probe_tgt = 1
-    if sc_probe_agg == 1 or sc_probe_tgt == 1:
-      sc_probe_gate = 0
-      if is_scenario_actor():
-        sc_probe_gate = 1
-      log("#sandbox [GetDateText] [THIS.GetTag] sc_actor gate=[?sc_probe_gate|.0] agg=[?sc_probe_agg|.0] tgt=[?sc_probe_tgt|.0] enemies=[?scenario_enemies^num] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] t=[?months_elapsed]")
+      log("#sandbox [GetDateText] [THIS.GetTag] sc_focus _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
