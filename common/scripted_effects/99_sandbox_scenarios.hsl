@@ -55,6 +55,17 @@ sandbox_set_targets():
       global.&sandbox_targets[].add(ENG)
       global.&sandbox_targets[].add(CAN)
 
+# Hand-written arc hooks for the shared on_actions skeleton. The two
+# generated hooks (wargoal_expire / justify) live in
+# common/scripted_effects/99_sandbox_arc_hooks.hsl. The skeleton calls all
+# four unconditionally, so both must exist even when empty.
+sandbox_arc_on_weekly():
+  pass
+
+# The vanilla tick chain ends at USA; this mod has no extra host.
+sandbox_arc_tick_hosts():
+  pass
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1

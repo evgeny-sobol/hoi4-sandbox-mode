@@ -1,5 +1,6 @@
 # Shared on_actions skeleton (docs/gdd/Scenarios.md "Hooks and telemetry").
-# Per-mod arc hooks (implemented in each mod's 99_sandbox_scenarios.hsl):
+# Per-mod arc hooks (generated into common/scripted_effects/99_sandbox_arc_hooks.hsl,
+# with the hand-written parts in this mod's 99_sandbox_scenarios.hsl):
 #   sandbox_arc_on_weekly()              - extra weekly fuse retries (e.g. AFG BoP)
 #   sandbox_arc_wargoal_expire_hook()    - sc_goal_end per-arc tag gates
 #   sandbox_arc_justify_hook()           - sc_justify per-arc FROM gates

@@ -1,6 +1,6 @@
 # 01 - Arc hooks are compiled into `common/on_actions/`
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -80,3 +80,37 @@ or how the skeleton calls it.
 - `_sandbox-r56`: `sandbox_retry_afg_bop_civil_war_fuse` is reachable from `on_weekly` again.
 
 ## Comments
+
+### Resolved (core b7d9cd1)
+
+The fix went further than the plan above: the old extractor no longer worked at all.
+
+- **The old tool was dead, not just misdirected.** `extract_arc_hooks.py` scraped the
+  wargoal/justify bodies out of `99_sandbox_on_actions.hsl`. After the `6760a43` split that
+  file is the skeleton plus hook *calls*, so running the tool on it produced self-recursive
+  stubs (`sandbox_arc_wargoal_expire_hook(): sandbox_arc_wargoal_expire_hook()`). Only the
+  hand-written `on_weekly` / `tick_hosts` content survived. The bodies are now derived from the
+  mod's scenario catalog instead: the aggressor from `sandbox_seed_actors()`, the target tags
+  per arc and variant from `sandbox_set_targets()`.
+- **The hand-written hooks moved into the per-mod catalog.** The skeleton calls all four hooks
+  unconditionally, so a mod must define all four even when empty. `sandbox_arc_on_weekly()` and
+  `sandbox_arc_tick_hosts()` now live in `common/scripted_effects/99_sandbox_scenarios.hsl`
+  (which is already an EXCLUDE catalog), and the tool fails the build if either is missing.
+- **Latent r56 bug found and fixed.** The old r56 file's arc 8 justify branch wrote
+  `hun_on_rou` (ROM is `ROM`, not `ROU`) and silently dropped the second variant-B target
+  `SLO`, so that arm never fired. The generator emits both. See the follow-up below.
+- Output path is now `common/scripted_effects/99_sandbox_arc_hooks.hsl`; the stale
+  `common/on_actions/99_sandbox_arc_hooks.{hsl,txt}` were deleted from both mods.
+
+Files: `tools/extract_arc_hooks.py`, `tools/sync_core.py`, `common/on_actions/99_sandbox_core_on_actions.hsl`
+(core b7d9cd1); per-mod catalogs, `.cursor/rules/sync-core-first.mdc`, and the skeleton header in
+both mods. Both mods compile clean (`--force`, exit 0). Runtime acceptance still needs a session.
+
+### Follow-up: label casing drift
+
+The generated `sc_justify` labels are normalized to lowercase (`hun_on_rom`), but the r56
+catalog's `sc_goal` labels are mixed case for some countries (`ITA_on_rom`, `USA_on_can`,
+`ENG_on_sov`). An earlier generator revision keyed `sc_justify` labels off the catalog's
+`sc_goal` labels, which turned this inconsistency into 257 noisy diff lines - reverted to plain
+lowercase, which is what vanilla and most of r56 already use. Worth a separate ticket to
+normalize the r56 catalog labels so `sc_goal` and `sc_justify` for one pair read identically.

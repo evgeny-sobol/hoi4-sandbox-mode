@@ -52,11 +52,14 @@ design change: every issue restores behaviour the GDD already describes.
 ## Issues
 
 - `issues/01-arc-hooks-wrong-directory.md` - move arc hooks out of `common/on_actions/`.
+  Resolved in core b7d9cd1.
 - `issues/02-add-honor-tyranny-math-in-on-actions.md` - rewrite the two macros to the vanilla
   `add_to_variable` + `clamp_variable` idiom.
 - `issues/03-r56-only-mission-refs-in-vanilla.md` - split the R56-only content refs into the
   per-mod catalogs (decision: per-mod catalog, not a runtime guard).
 - `issues/04-sc-focus-telemetry-never-fires.md` - re-check the actor gate once 01 and 02 land.
+- `issues/05-normalize-r56-telemetry-labels.md` - the r56 catalog mixes `sc_goal` label casing,
+  which the generated `sc_justify` labels cannot mirror.
 
 ## Ownership note
 
