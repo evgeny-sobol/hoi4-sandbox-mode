@@ -1,6 +1,6 @@
 # 02 - `$add_honor` / `$add_tyranny` math fails inside on_actions
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -103,3 +103,27 @@ out of scope for this issue, but do not be surprised if Tyranny bands start cros
 - A +20 Tyranny focus still moves the value by exactly 20 and clamps at the band edges.
 
 ## Comments
+
+- `common/macros.hml` is core, so the fix was made in the `sandbox-mod-core` repo (`929464f`)
+  and synced outward; both `_sandbox` and `_sandbox-r56` now match core (`sync_core.py --check`
+  reports `drifted=0`).
+- HSL had no `clamp_variable` wrapper (its six siblings `set_/add_to_/subtract_from_/multiply_/
+  divide_/modulo_variable` already existed), so `$clamp_variable` was added to the HSL stdlib
+  (`hsl` `b0fb434`) and documented in the ReadMe variables bullet.
+- Source diff is two lines per macro: `&honor = clamp(honor + _var_, -100, 100)` became
+  `&honor += _var_` plus `$clamp_variable(honor, -100, 100)`. HSL compound assignment on a
+  persistent variable already compiles to `add_to_variable`, so no explicit effect was needed.
+- Acceptance 1 verified after compiling both mods: `99_sandbox_on_actions.txt` has 20
+  `clamp_variable` blocks (11 `add_honor` + 9 `add_tyranny` call sites) and **zero**
+  `value = {` accumulators. Same counts in `_sandbox-r56`. Each emitted block is the vanilla
+  `clamp_variable = { var = honor min = -100 max = 100 }`, matching the `[-100.0, 100.0]`
+  contract in `docs/gdd/Honor System.md:14` and `docs/gdd/Tyranny System.md:16`.
+- `clamp_variable` is documented as `Max(Min(var, max), min)`, identical to the old
+  `clamp(honor + _var_, -100, 100)` ordering, so edge behavior is unchanged.
+- Acceptance 2-4 need a fresh session (run the game, re-extract `sandbox_extract.txt`, confirm
+  zero `script_math.cpp` lines and real `new` values for `tyranny_election`,
+  `honor_join_allies_call`, `honor_leave_faction_war`, `honor_liberate`,
+  `honor_leave_faction_peace`). Left for the next playtest.
+- Noted for follow-up, out of scope here: with Tyranny actually moving, the
+  `update_country_leader_traits()` gap in `docs/gdd/Tyranny System.md:151` (Honor traits only)
+  becomes reachable.

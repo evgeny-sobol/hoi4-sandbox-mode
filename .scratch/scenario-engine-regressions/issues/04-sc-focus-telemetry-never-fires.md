@@ -2,7 +2,7 @@
 
 Status: needs-info
 Type: task
-Blocked by: 02
+Blocked by: none
 
 ## Problem
 
@@ -49,7 +49,8 @@ still open and the log cannot separate them:
 
 Issues 01 and 02 must land first: both silently reset state (arc hooks dead, Honor/Tyranny
 zeroed), and either can shift when a scenario survives long enough for a boosted focus to
-complete. Issue 01 is resolved (core b7d9cd1), so only 02 is still open.
+complete. Both are now resolved (core `b7d9cd1`, core `929464f`), so the gate can be probed on
+its own; this issue is unblocked and waiting on a session.
 
 ## What to gather
 
