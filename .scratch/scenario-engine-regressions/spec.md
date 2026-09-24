@@ -53,6 +53,43 @@ design change: every issue restores behaviour the GDD already describes.
    `scenario_enemies[]` is never populated, `is_live_scenario_aggressor` is always false, and
    both the focus boost and arc ignition are dead. Details: issue 04.
 
+## Verification session (second run)
+
+A second `_sandbox` session (4306 `#sandbox` lines, 1936.1 - 1942.1, 72 months, three arcs)
+confirmed all four original fixes:
+
+| Symptom | Before | After |
+| --- | --- | --- |
+| `sc_actor` aggressor lines (`agg=1`) | 0 | 50 (SOV 36, GER 13, JAP 1) |
+| `sc_focus` with `gate=1` | 0 | 1 (`SOV_the_path_of_marxism_leninism`) |
+| `sc_ignite` / `sc_success` / `sc_end` | 0 / 0 / 0 | 1 / 1 / 3 |
+| `error.log` lines from `99_sandbox_*` | 26 | 0 |
+| `script_math` / `is_power_balance` / `Invalid Decision` | 32 | 0 |
+
+The same session surfaced six further defects, filed as issues 06-10 plus one open question:
+
+- `06-honor-tyranny-delta-fields-are-not-deltas.md` - the `999` sentinel leaks into `old`/`delta`
+  (478 band lines), `honor_window_expire` writes the window age into `delta`, and `tyranny_init`
+  writes `tyranny_home` into `delta`. Telemetry only.
+- `07-arc-ladder-uses-session-time.md` - the ladder rungs gate on `months_elapsed`, so a repicked
+  arc reaches crises and peak in the same month. Affects pacing, not telemetry.
+- `08-peak-never-converts.md` - the aggressor produced zero `sc_goal` / `sc_justify` / `sc_focus`
+  in 72 months and both peaks died on `peak_timeout` with `sc_target open`. The levers are wired
+  and the gate is now healthy, so the AI does not walk the war branch.
+- `09-symmetric-seeding-writes-aggressor-array-twice.md` - the "symmetric" seed loop flips scope
+  back to the aggressor, so the aggressor's `scenario_enemies[]` holds every target twice
+  (`enemies=6` for three targets) and every target's array stays empty (180/180 lines). Makes the
+  GDD's "either direction" ignition one-directional and disables the F1 exemption target-side.
+- `10-repick-is-not-random.md` - repick takes `eligible[0]` instead of rolling, so a session
+  walks arcs in ascending id order.
+
+False alarms checked and dismissed: the `cw_count` vs `t0..t3` "mismatch" is a logging artifact
+(out-of-range array indices echo `THIS`); the `random_list: all entries ... 0 chance` errors come
+from a third-party mod (`common/on_actions/14_sea_on_actions.txt`); the `france.txt` /
+`new_zealand.txt` / `SPR.txt` / `ITA.txt` errors are in vanilla content this mod copies unchanged
+and are out of scope.
+
+
 ## Issues
 
 - `issues/01-arc-hooks-wrong-directory.md` - move arc hooks out of `common/on_actions/`.
@@ -66,10 +103,19 @@ design change: every issue restores behaviour the GDD already describes.
   r56 catalogs.
 - `issues/04-sc-focus-telemetry-never-fires.md` - root cause found: `sandbox_targets[]` is read
   without the `global.` prefix in the shared engine, so `scenario_enemies[]` stays empty. This
-  also kills the x5 aggressor focus boost and arc ignition. Fixed in core fa607a9; session
-  verification pending.
+  also kills the x5 aggressor focus boost and arc ignition. Fixed in core fa607a9; **verified**
+  in the second session (`agg=1`, first `gate=1`, first `sc_ignite`).
 - `issues/05-normalize-r56-telemetry-labels.md` - the r56 catalog mixes `sc_goal` label casing,
   which the generated `sc_justify` labels cannot mirror.
+- `issues/06-honor-tyranny-delta-fields-are-not-deltas.md` - the `999` sentinel and two
+  non-delta writers corrupt the `old` / `d=` columns of the Honor/Tyranny log lines.
+- `issues/07-arc-ladder-uses-session-time.md` - the ladder gates on the session-wide
+  `months_elapsed`, so a repicked arc collapses smolder and crises into one month.
+- `issues/08-peak-never-converts.md` - no wargoal, no justify, no boosted focus for the aggressor
+  in 72 months; both peaks derailed on `peak_timeout`.
+- `issues/09-symmetric-seeding-writes-aggressor-array-twice.md` - the symmetric seed loop flips
+  scope back to the aggressor, doubling its `scenario_enemies[]` and leaving targets empty.
+- `issues/10-repick-is-not-random.md` - repick takes `eligible[0]`, so arcs are walked in id order.
 
 ## Ownership note
 

@@ -131,20 +131,44 @@ var:global.sandbox_targets^0 = { ... }
 This was a core file: edited under `core/`, committed to `sandbox-mod-core`, then synced
 outward (`drifted=0` for both mods). Both mods carried the same bug.
 
-## Verification pending
+## Verification: PASSED
 
-The fix is compiled but not yet observed in a session. The next run should confirm:
+Second `_sandbox` session (`sandbox_extract.txt`, 4306 lines, 1936.1 - 1942.1, 72 months, three
+arcs). The gate is alive in every direction:
 
-- `sc_actor` lines with `agg=1` and `enemies>0` (the aggressor now appears at all).
-- `sc_focus` lines with `gate=1` for the aggressor.
-- `sc_ignite` / `sc_success` when a declared-enemy war fires.
+- `sc_actor`: **230 lines**. The aggressor now appears at all - `agg=1` with `enemies=6` (SOV),
+  `4` (GER), `4` (JAP), each holding across every month of its arc. Before the fix: 80 lines,
+  all `agg=0`, `enemies=0`.
+- `sc_focus`: 10 lines, and the first `gate=1` line in the project's history:
+
+  ```
+  SOV sc_focus SOV_the_path_of_marxism_leninism gate=1 sc=2 phase=0 pin=0 t=1
+  ```
+
+- `sc_ignite` / `sc_success` / `sc_end` fired for the first time
+  (`JAP sc_ignite japanese_war sc=3 phase=3 t=50`); before the fix all three were 0.
+- `error.log`: zero lines attributable to the engine, the trigger, or `is_in_array`.
+
+Two caveats, both filed separately rather than reopened here:
+
+- `sc_focus` `gate=1` fired once, not for every boosted completion, and never for GER or SOV.
+  That is the AI-walks-the-war-branch problem, not the gate: issue 08.
+- The aggressor's `enemies=` is `2 x` the declared target count and every target shows
+  `enemies=0`, which is the symmetric-seeding scoping bug: issue 09.
 
 ## Follow-up
 
-The temporary instrumentation from the logging session (core `5866fa7`) must be reverted after
-the fix is verified: restore `if is_scenario_actor():` in `sandbox_log_sc_focus`, drop
-`sandbox_log_sc_actor_probe` from `on_monthly`, and comment the five extra `sandbox_log_*`
-gates back out in `on_startup`.
+Verification is complete, so the temporary instrumentation from the logging session (core
+`5866fa7`) was reverted in core `2cf0e69` and synced outward:
+
+- `sandbox_log_sc_focus` is back to the gated form (`if is_scenario_actor():`), with no `gate=`
+  field;
+- `sandbox_log_sc_actor_probe` is gone, and its `on_monthly` call with it;
+- the five extra `sandbox_log_*` gates are commented back out in `on_startup` (only
+  `sandbox_log_scenarios` stays raised).
+
+Both mods were resynced (`drifted=0`) and recompiled; the compiled `on_actions` and focus trees
+carry no `sc_actor` / `gate=` / probe residue.
 
 ## Clone topology note
 
