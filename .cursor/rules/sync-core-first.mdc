@@ -22,8 +22,9 @@ python core/tools/sync_core.py --check
 ```
 
 - Never edit a synced copy to change shared behavior: edit the authoritative file under `core/` (or the `sandbox-mod-core` repo), then sync outward so both mods receive the same content.
-- Per-mod catalogs are never overwritten by the sync and stay editable here:
-  - `common/scripted_effects/99_sandbox_scenarios.hsl` (also holds the hand-written `sandbox_arc_on_weekly()` / `sandbox_arc_tick_hosts()`)
+ - Per-mod catalogs are never overwritten by the sync and stay editable here:
+ - `common/scripted_effects/99_sandbox_scenarios.hsl` (also holds the hand-written `sandbox_arc_on_weekly()` / `sandbox_arc_tick_hosts()` and the mod-specific `sandbox_delay_capped_cw_missions_mod()`)
+ - `common/scripted_triggers/99_sandbox_scenario_triggers.hsl` (also holds mod-specific triggers the core cannot define, e.g. the Rt56-only `sandbox_afg_bop_cw_fuse_ready`)
   - `common/scripted_triggers/99_sandbox_scenario_triggers.hsl`
   - `common/game_rules/99_sandbox_scenario_rules.hsl`
   - `common/on_actions/99_sandbox_on_actions.hsl` (generated from the core skeleton + arc hooks; do not edit by hand)

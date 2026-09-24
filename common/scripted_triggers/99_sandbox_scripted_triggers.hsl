@@ -197,14 +197,6 @@ sandbox_gre_george_cw_fuse_ready:
   has_country_flag(GRE_monarchist_civil_war_generals_returned)
   has_country_flag(GRE_monarchist_civil_war_riots)
 
-# AFG BoP total-control range that starts a fascist war inline.
-sandbox_afg_bop_cw_fuse_ready:
-  $is_power_balance_in_range(AFG_power_balance, AFG_total_government_influence)
-  not has_government(fascism)
-  not has_country_flag(AFG_had_civil_war_bop)
-  not has_civil_war()
-  not has_war()
-
 # Sunfall MTTH is live enough to log a wait (full vanilla trigger is longer).
 sandbox_jap_sfl_fuse_ready:
   original_tag($JAP)

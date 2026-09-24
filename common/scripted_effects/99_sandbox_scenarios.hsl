@@ -66,6 +66,12 @@ sandbox_arc_on_weekly():
 sandbox_arc_tick_hosts():
   pass
 
+# Mod-specific mission ids for the shared weekly cap delay. The core loop
+# (sandbox_delay_capped_cw_missions) keeps only ids that exist in vanilla;
+# this mod has none to add (docs/gdd/Civil Wars.md).
+sandbox_delay_capped_cw_missions_mod():
+  pass
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1

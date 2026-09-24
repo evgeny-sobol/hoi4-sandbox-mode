@@ -707,6 +707,10 @@ update_sandbox_civil_war_count():
 
 # Called on every country each week. fire_only_once missions cannot be
 # cancelled, so add days while the AI is blocked (docs/gdd/Civil Wars.md).
+# The entries below exist in vanilla; mod-specific missions are appended by
+# sandbox_delay_capped_cw_missions_mod(), defined in each mod's per-mod
+# catalog (common/scripted_effects/99_sandbox_scenarios.hsl), because the
+# mission ids there are not portable across mods (docs/gdd/Scenarios.md:42).
 sandbox_delay_capped_cw_missions():
   if sandbox_civil_war_ai_blocked():
     $sandbox_delay_mission_if_capped(SPA_military_plot_nationalists)
@@ -732,11 +736,7 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
     $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
     $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
-    $sandbox_delay_mission_if_capped(AFG_march_on_tehran)
-    $sandbox_delay_mission_if_capped(AFG_the_internal_crisis_mission)
-    $sandbox_delay_mission_if_capped(GER_freikorps_riots)
-    $sandbox_delay_mission_if_capped(EGY_impending_nationalist_uprising)
-    $sandbox_delay_mission_if_capped(LIT_communist_revolution_uprising_mission)
+    sandbox_delay_capped_cw_missions_mod()
 
 
 # BoP on_activate fires once. If the cap skipped it, retry when a slot opens.
@@ -808,23 +808,6 @@ sandbox_retry_est_civil_war_fuse():
     else:
       $sandbox_log_cw_event(EST_events.7)
       country_event(EST_events.7)
-
-
-# BoP on_activate fires once. If the cap skipped it, retry the payload while
-# the range is still live (no event wrapper in Rt56).
-sandbox_retry_afg_bop_civil_war_fuse():
-  if original_tag($AFG) and sandbox_afg_bop_cw_fuse_ready():
-    if sandbox_civil_war_ai_blocked():
-      $sandbox_log_cw_defer(AFG_total_government_influence)
-    else:
-      $sandbox_log_cw_event(AFG_total_government_influence)
-      start_civil_war:
-        ideology(fascism)
-        size(0.8)
-        army_ratio(0.8)
-        air_ratio(0.8)
-        capital(267)
-      set_country_flag(AFG_had_civil_war_bop)
 
 
 # Pattern A / on_daily skips have no vanilla effect to hook. Log the wait

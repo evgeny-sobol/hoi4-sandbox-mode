@@ -1,6 +1,6 @@
 # 03 - Road-to-56-only content refs live in the shared core
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -87,3 +87,31 @@ all 23).
 - Do not enable `_sandbox` and `_sandbox-r56` together (`.cursor/rules/r56-overlay.mdc`).
 
 ## Comments
+
+- Done in core `7336310`, synced outward; `sync_core.py --check` reports `drifted=0` for both
+  mods.
+- `sandbox_delay_capped_cw_missions()` keeps the 23 vanilla ids and ends with a call to the new
+  per-mod `sandbox_delay_capped_cw_missions_mod()`. `_sandbox` defines it with `pass`;
+  `_sandbox-r56` defines it with the five Rt56-only calls. The per-mod hook is defined in
+  `common/scripted_effects/99_sandbox_scenarios.hsl`, which the sync never overwrites.
+- `sandbox_retry_afg_bop_civil_war_fuse` moved to the r56 effect catalog (right after the
+  mission hook) and `sandbox_afg_bop_cw_fuse_ready` to the r56 trigger catalog
+  (`99_sandbox_scenario_triggers.hsl`). Both were deleted from core. `sandbox_arc_on_weekly()`
+  in the r56 catalog still calls the retry, so the on_weekly path is intact.
+- `extract_arc_hooks.py` now also requires `sandbox_delay_capped_cw_missions_mod` in every mod
+  catalog (`MOD_CATALOG_HOOKS`), alongside the two hand-written arc hooks. Verified with a
+  negative test: deleting the hook makes the tool exit 1 with
+  `must define sandbox_delay_capped_cw_missions_mod`.
+- `sync_core.py` docstring and both `.cursor/rules/sync-core-first.mdc` copies now list the
+  per-mod hooks so the split is discoverable.
+- Acceptance verified after compiling both mods:
+  - `_sandbox`: zero `AFG_*` / `GER_freikorps_riots` / `EGY_*` / `LIT_*` occurrences anywhere
+    under `common/` (compiled `.txt`). `99_sandbox_scripted_triggers.txt` still has three
+    `is_power_balance_in_range` blocks, all vanilla: `ITA_power_balance` and the two
+    `ETH_centralization_balance` ranges. The AFG one is gone.
+  - `_sandbox-r56`: the five missions compile into `99_sandbox_scenarios.txt` (with their
+    `cw_defer` logging), the `sandbox_afg_bop_cw_fuse_ready` trigger compiles with
+    `id = AFG_power_balance`, and `sandbox_arc_on_weekly = { sandbox_retry_afg_bop_civil_war_fuse = yes }`
+    still reaches the retry.
+- Not verified in a live session: the runtime error.log lines for these ids need a playtest.
+- `SIA_war_fervor_coup` stayed in core as the issue required; it is valid in vanilla.
