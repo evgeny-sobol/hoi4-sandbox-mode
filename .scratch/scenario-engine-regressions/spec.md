@@ -33,6 +33,7 @@ design change: every issue restores behaviour the GDD already describes.
 | `Trigger failed to validate: ...:329: is_power_balance_in_range` | 1 | `error.log:41` |
 | `sc_goal_end` / `sc_justify` telemetry lines | 0 | `sandbox_extract.txt` |
 | `sc_focus` telemetry lines | 0 | `sandbox_extract.txt` |
+| `sc_ignite` / `sc_success` lines | 0 | `sandbox_extract.txt` (issue 04 session) |
 
 ## Root causes
 
@@ -47,20 +48,26 @@ design change: every issue restores behaviour the GDD already describes.
 3. **Five mission ids and one BoP trigger that only exist in Road to 56 live in the shared
    core.** They validate in `_sandbox-r56` and fail in `_sandbox`. Details: issue 03.
 4. **`sc_focus` never fires.** The gate is compiled into six focus trees but produced zero
-   lines in 54 months. Details: issue 04.
+   lines in 54 months. Root cause found in the issue 04 logging session: `sandbox_seed_from_targets`
+   and `sandbox_ignite_if_at_war` read `sandbox_targets[]` without the `global.` prefix, so
+   `scenario_enemies[]` is never populated, `is_live_scenario_aggressor` is always false, and
+   both the focus boost and arc ignition are dead. Details: issue 04.
 
 ## Issues
 
 - `issues/01-arc-hooks-wrong-directory.md` - move arc hooks out of `common/on_actions/`.
   Resolved in core b7d9cd1.
 - `issues/02-add-honor-tyranny-math-in-on-actions.md` - rewrite the two macros to the vanilla
-  `add_to_variable` + `clamp_variable` idiom.
+  `add_to_variable` + `clamp_variable` idiom. Resolved in core 929464f.
 - `issues/03-r56-only-mission-refs-in-vanilla.md` - split the R56-only content refs into the
   per-mod catalogs (decision: per-mod catalog, not a runtime guard). Resolved in core
   7336310: the core keeps 23 vanilla mission ids and calls a per-mod
   `sandbox_delay_capped_cw_missions_mod()`; the AFG BoP trigger and retry fuse moved to the
   r56 catalogs.
-- `issues/04-sc-focus-telemetry-never-fires.md` - re-check the actor gate once 01 and 02 land.
+- `issues/04-sc-focus-telemetry-never-fires.md` - root cause found: `sandbox_targets[]` is read
+  without the `global.` prefix in the shared engine, so `scenario_enemies[]` stays empty. This
+  also kills the x5 aggressor focus boost and arc ignition. Fixed in core fa607a9; session
+  verification pending.
 - `issues/05-normalize-r56-telemetry-labels.md` - the r56 catalog mixes `sc_goal` label casing,
   which the generated `sc_justify` labels cannot mirror.
 

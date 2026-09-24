@@ -1,7 +1,7 @@
 # 04 - `sc_focus` telemetry never fires
 
-Status: needs-info
-Type: task
+Status: resolved
+Type: bug
 Blocked by: none
 
 ## Problem
@@ -20,50 +20,154 @@ common/national_focus/uk.txt        9
 common/national_focus/usa.txt       6
 ```
 
-Compiled shape in `common/national_focus/germany.txt`:
-
-```text
-limit = {
-    is_sandbox_mode_on = yes
-    has_global_flag = sandbox_log_scenarios
-}
-if = {
-    limit = { is_scenario_actor = yes }
-    log = "#sandbox [GetDateText] [THIS.GetTag] sc_focus GER_remilitarize_the_rhineland ..."
-}
-```
-
-The source macro is `sandbox_log_sc_focus` (`common/macros.hml:669`), spliced into the focus
+The source macro is `sandbox_log_sc_focus` (`core/common/macros.hml`), spliced into the focus
 files by `.scratch/scripts/add_sc_focus_to_boosted.py` and gated by
 `.scratch/scripts/gate_sc_focus_to_actors.py`.
 
-## Why this is needs-info
+## Root cause (found: explanation 1, the gate is genuinely dead)
 
-The gate depends on `is_scenario_actor`, which commit `9227ab6` changed. Two explanations are
-still open and the log cannot separate them:
+`is_live_scenario_aggressor` is always false because `scenario_enemies[]` is never populated.
+The seeding function reads the target array **without the `global.` prefix**, so it reads an
+always-empty country variable instead of the global array the writer fills.
 
-1. The gate is genuinely broken, and no country passes `is_scenario_actor` at the moment a
-   boosted focus completes.
-2. The gate is correct, but in this session no boosted focus completed while the country was an
-   actor - the scenarios may have been derailed before the boosted focuses landed.
+`core/common/scripted_effects/99_sandbox_engine.hsl`:
 
-Issues 01 and 02 must land first: both silently reset state (arc hooks dead, Honor/Tyranny
-zeroed), and either can shift when a scenario survives long enough for a boosted focus to
-complete. Both are now resolved (core `b7d9cd1`, core `929464f`), so the gate can be probed on
-its own; this issue is unblocked and waiting on a session.
+```hsl
+sandbox_seed_from_targets():
+  add_war_support(0.10)
+  if sandbox_targets[0] != 0:      # <-- reads a COUNTRY variable
+    var:sandbox_targets[0]:        # <-- scopes a COUNTRY variable
+      PREV:
+        $sandbox_seed_rival(PREV, 65)
+        &scenario_enemies[].add(PREV)
+```
 
-## What to gather
+The array is written as a global in the per-mod catalog
+(`common/scripted_effects/99_sandbox_scenarios.hsl`):
 
-- Re-run a session with `sandbox_log_scenarios` on and confirm whether `sc_focus` appears.
-- If it still does not, log `is_scenario_actor` once per scenario actor per month
-  (temporarily) and compare against the moment a boosted focus completes.
-- Confirm the `.include` splice actually carries the gate for the six trees above and not just
-  the source macro: check that `common/national_focus/*.include` contains 63 `sc_focus`
-  call sites (it does today).
+```hsl
+global.&sandbox_targets[].add(CZE)
+```
 
-## Acceptance
+and read as a global in the trigger (`core/common/scripted_triggers/99_sandbox_engine_triggers.hsl`):
 
-- Either `sc_focus` lines appear for scenario actors, or the issue is reclassified with the
-  reason the gate cannot fire in the observed sessions.
+```hsl
+is_scenario_actor:
+  ...
+  OR:
+    is_live_scenario_aggressor()
+    THIS in global.sandbox_targets[]    # <-- global, and it works
+```
+
+So `is_scenario_actor`'s second branch works (declared targets pass) but the first branch
+(`is_live_scenario_aggressor`, which needs `scenario_enemies[]`) never can. Compiled evidence -
+`common/scripted_effects/99_sandbox_engine.txt`:
+
+```
+check_variable = { var=sandbox_targets^0 value=0 compare=not_equals }   # country var, always 0
+var:sandbox_targets^0 = { ... }                                         # never entered
+```
+
+The same bug is in `sandbox_ignite_if_at_war` (lines 53-72), which is the only writer of
+`sc_ignite` / `sc_success`.
+
+## Wider impact (same root cause, not just telemetry)
+
+- `sandbox_scenario_ignite` gates on `FROM in &scenario_enemies[]`. Empty array -> the arc can
+  never ignite. Session evidence: `sc_ignite` 0, `sc_success` 0, only `sc_derail` 2.
+- `ai_scenario_focus_boost()` (x5, "live aggressor only", GDD "Levers") gates on the same
+  trigger, so the aggressor's war focuses were **never boosted**. This is the long-standing
+  "Japan completed zero war focuses" observation in `docs/gdd/Scenarios.md` - it was not the AI
+  ignoring the boost, the boost was never applied.
+- `scenario_enemies[]` empty also means the betrayal exemption
+  (`is_scenario_enemy_of_PREV`) and the symmetric target-side seeding are dead.
+
+## Session evidence (issue 04 logging session, `_sandbox`, 1936.1 - 1939.7, 42 months)
+
+Instrumentation: `sc_focus` logs every boosted-focus completion with `gate=`; a monthly
+`sc_actor` probe logs one line per arc candidate. Build: local dev copy `_sandbox.mod`, all six
+`sandbox_log_*` gates raised.
+
+- `sc_focus`: **17 lines, all `gate=0`** (was 0 lines before instrumentation).
+- `sc_actor`: **80 lines, all `agg=0`**; every line is a declared target (`tgt=1`) with
+  `enemies=0`. The aggressor never appears at all - `agg=0` and not a target means the probe
+  body is skipped, so the aggressor is invisible.
+- Example rows:
+
+  ```
+  ITA sc_seed t0=YUG t1=GRE sc=4 phase=0 t=0          # targets seeded into the global array
+  YUG sc_actor gate=1 agg=0 tgt=1 enemies=0 sc=4 ...  # target passes, aggressor branch dead
+  GER sc_focus GER_anschluss gate=0 sc=1 phase=2 ...  # GER is the aggressor of arc 1 -> dead
+  ```
+
+- Zero `error.log` lines attributable to the engine, the trigger, or `is_in_array`.
+
+## Fix
+
+Applied in core `fa607a9` ("Read sandbox_targets as a global in the scenario engine seeding
+and ignition"), synced outward to both mods and recompiled.
+
+Added the `global.` prefix to every `sandbox_targets` read in
+`core/common/scripted_effects/99_sandbox_engine.hsl` (10 guards + 10 `var:` scopes across
+`sandbox_seed_from_targets` and `sandbox_ignite_if_at_war`):
+
+```hsl
+  if global.sandbox_targets[0] != 0:
+    var:global.sandbox_targets[0]:
+```
+
+Canonical vanilla idiom: `common/scripted_effects/NORDIC_scripted_effects.txt:498` uses
+`var:GLOBAL.NORDIC_at_defensive_war^0 = { ... }`. The same `var:global.<name> = { ... }` form
+appears 80 times in vanilla (e.g. `common/decisions/CZE.txt:6321`) and 60 times in Rt56, so the
+prefixed read is the established convention, not a guess.
+
+Compiled proof after the fix (`common/scripted_effects/99_sandbox_engine.txt`, both mods):
+
+```text
+check_variable = { var=global.sandbox_targets^0 value=0 compare=not_equals }
+var:global.sandbox_targets^0 = { ... }
+```
+
+This was a core file: edited under `core/`, committed to `sandbox-mod-core`, then synced
+outward (`drifted=0` for both mods). Both mods carried the same bug.
+
+## Verification pending
+
+The fix is compiled but not yet observed in a session. The next run should confirm:
+
+- `sc_actor` lines with `agg=1` and `enemies>0` (the aggressor now appears at all).
+- `sc_focus` lines with `gate=1` for the aggressor.
+- `sc_ignite` / `sc_success` when a declared-enemy war fires.
+
+## Follow-up
+
+The temporary instrumentation from the logging session (core `5866fa7`) must be reverted after
+the fix is verified: restore `if is_scenario_actor():` in `sandbox_log_sc_focus`, drop
+`sandbox_log_sc_actor_probe` from `on_monthly`, and comment the five extra `sandbox_log_*`
+gates back out in `on_startup`.
+
+## Clone topology note
+
+`core/` in each mod is a gitlink to a **separate** repo, not the standalone checkout:
+
+- `_sandbox/core` -> `Repos/HoI4/sandbox-mod/modules/core` (git dir; worktree is the mod's `core/`)
+- `_sandbox-r56/core` -> `Repos/HoI4/sandbox-mod-r56/modules/core`
+- `Repos/HoI4/sandbox-mod-core` is a **third, standalone** clone - the one a Git client opens,
+  and the one whose `origin` is GitHub.
+
+A commit made in `_sandbox/core` lands in `sandbox-mod/modules/core` and is invisible in
+`sandbox-mod-core` until it is fetched. After core commits, fast-forward all clones from the
+one that received them:
+
+```
+git -C <sandbox-mod-core> fetch <sandbox-mod/modules/core> develop
+git -C <sandbox-mod-core> merge --ff-only FETCH_HEAD
+git -C <sandbox-mod-r56/modules/core> fetch <sandbox-mod/modules/core> develop
+git -C <sandbox-mod-r56/modules/core> merge --ff-only FETCH_HEAD
+```
+
+Also note the mod repos still record the **old** core gitlink (`_sandbox` 7336310,
+`_sandbox-r56` b7d9cd1) while their working `core/` is newer. That gitlink drift is pre-existing
+and unrelated to this issue.
 
 ## Comments

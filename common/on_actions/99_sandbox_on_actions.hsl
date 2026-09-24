@@ -14,14 +14,14 @@ on_actions:
       if is_historical_focus_on(no):
         $HAI->set_global_flag(sandbox_mode_enabled)
         # Logging gates (docs/gdd/* "Hooks and telemetry"): each system logs only
-        # while its gate is up. Scenarios is the only one on now; raise the
-        # others from game.log by uncommenting the line below.
+        # while its gate is up. All gates are raised for the issue 04 logging
+        # session; comment them back out (keep scenarios) after it.
         HAI->$set_global_flag(sandbox_log_scenarios, 1)
-        # HAI->$set_global_flag(sandbox_log_civil_wars, 1)
-        # HAI->$set_global_flag(sandbox_log_honor, 1)
-        # HAI->$set_global_flag(sandbox_log_national_focuses, 1)
-        # HAI->$set_global_flag(sandbox_log_rivals, 1)
-        # HAI->$set_global_flag(sandbox_log_tyranny, 1)
+        HAI->$set_global_flag(sandbox_log_civil_wars, 1)
+        HAI->$set_global_flag(sandbox_log_honor, 1)
+        HAI->$set_global_flag(sandbox_log_national_focuses, 1)
+        HAI->$set_global_flag(sandbox_log_rivals, 1)
+        HAI->$set_global_flag(sandbox_log_tyranny, 1)
         HAI:
           log("#sandbox [GetDateText] [THIS.GetTag] sandbox_start historical=0")
         for every_country():
@@ -79,6 +79,9 @@ on_actions:
         update_rivalry_monthly()
         fill_rival_vacancies()
         sandbox_log_census()
+        # TEMPORARY (issue 04 logging session): monthly sc_focus actor-gate probe.
+        # Remove together with the sc_focus change in macros.hml.
+        $sandbox_log_sc_actor_probe()
         # Scenario ladder tick (docs/gdd/Scenarios.md "Lifecycle"). on_monthly
         # runs per country, so the tick fires in exactly one host per month:
         # HAI is the primary host with a fallback chain through the majors.
