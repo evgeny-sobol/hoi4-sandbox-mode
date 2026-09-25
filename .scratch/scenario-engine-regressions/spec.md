@@ -90,6 +90,29 @@ from a third-party mod (`common/on_actions/14_sea_on_actions.txt`); the `france.
 and are out of scope.
 
 
+## Third session (2026-09-25)
+
+`_sandbox` alone, 942 `#sandbox` lines, 1936.1 - 1942.6 (77 months, two arcs). The arc engine is
+healthy end to end: `smolder` -> `crises` -> `peak` -> `sc_ignite` -> `sc_success` -> `sc_end`,
+with `sc_focus` firing on the boosted war focuses (`GER_reassert_eastern_claims`,
+`GER_demand_sudetenland`, `GER_danzig_or_war`). `error.log` has **zero** lines attributable to
+`99_sandbox_*`. Two new defects surfaced, filed as issues 11 and 12:
+
+- `11-honor-tyranny-rivals-telemetry-bypasses-gate.md` - `add_honor` / `add_tyranny` /
+  `add_rivalry` call the base `$sandbox_log` instead of the gated wrappers, so 805 of 942 lines
+  came from three systems whose gates were off. Telemetry only.
+- `12-derail-checks-fire-after-park.md` - the derail dispatcher has no phase guard, so a parked
+  arc re-logs `sc_derail targets_neutralized` + `sc_end` every month (two phantom `sc_end`
+  lines in 1942 for the arc that ended in 1939).
+
+Issue 08 (`peak-never-converts`) did **not** reproduce in this session and should be re-scoped:
+the `axis` arc reached `peak`, GER completed its war focuses, and the arc ignited
+(`sc_ignite axis_war`, GER vs POL, 1939.8) - the AI did walk the branch here. What stayed at
+zero is the goal telemetry: `sc_goal` / `sc_justify` are sampled only once, at peak entry
+(`sandbox_fire_axis_peak`), which is before GER holds any wargoal, so a later ignition logs
+nothing. That sampling gap is a telemetry defect, separate from the earlier sessions where the
+peak genuinely timed out. Needs its own triage.
+
 ## Issues
 
 - `issues/01-arc-hooks-wrong-directory.md` - move arc hooks out of `common/on_actions/`.
@@ -116,6 +139,11 @@ and are out of scope.
 - `issues/09-symmetric-seeding-writes-aggressor-array-twice.md` - the symmetric seed loop flips
   scope back to the aggressor, doubling its `scenario_enemies[]` and leaving targets empty.
 - `issues/10-repick-is-not-random.md` - repick takes `eligible[0]`, so arcs are walked in id order.
+- `issues/11-honor-tyranny-rivals-telemetry-bypasses-gate.md` - `add_honor` / `add_tyranny` /
+  `add_rivalry` call the ungated base `$sandbox_log`, so Honor/Tyranny/Rivals telemetry prints
+  with its gates off (805 of 942 lines in the third session).
+- `issues/12-derail-checks-fire-after-park.md` - the derail dispatcher lacks the `phase < 3`
+  guard, so a parked arc re-derails every month (phantom `sc_derail` / `sc_end` in 1942).
 
 ## Ownership note
 
