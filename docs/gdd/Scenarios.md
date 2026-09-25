@@ -93,6 +93,20 @@ derail repicks; pinned sessions go quiet.
   `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a
   declared target), so an unrelated country's focus does not pollute the arc.
 
+### Telemetry label convention
+
+`sc_goal` and `sc_justify` carry one label per aggressor/target pair, always
+`<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The
+catalog writes the `sc_goal` labels by hand; `sc_justify` is generated from the
+same pair by `core/tools/extract_arc_hooks.py`, which lowercases. Both must
+match exactly, or one arc reads as two keys when a session is grepped.
+
+- `sc_goal` logs wargoals in **both** directions, so it also holds
+  `<target>_on_<aggressor>` labels (`cze_on_ger`); `sc_justify` only covers the
+  aggressor's justifications.
+- Every target tag in a label must be a real tag the arc seeds
+  (`sandbox_set_targets`). Romania is `ROM`, never `ROU`.
+
 ### Join lever
 
 The lever sends `sc_offer` to the top-2 pool candidates. Accepting is

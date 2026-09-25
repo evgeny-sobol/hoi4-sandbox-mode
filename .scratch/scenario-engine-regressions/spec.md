@@ -129,7 +129,9 @@ peak genuinely timed out. Needs its own triage.
   also kills the x5 aggressor focus boost and arc ignition. Fixed in core fa607a9; **verified**
   in the second session (`agg=1`, first `gate=1`, first `sc_ignite`).
 - `issues/05-normalize-r56-telemetry-labels.md` - the r56 catalog mixes `sc_goal` label casing,
-  which the generated `sc_justify` labels cannot mirror.
+  which the generated `sc_justify` labels cannot mirror. Resolved: all labels normalized to
+  lowercase and the non-existent `ROU` tag corrected to `ROM`; the convention is now pinned in
+  both mods' `docs/gdd/Scenarios.md`.
 - `issues/06-honor-tyranny-delta-fields-are-not-deltas.md` - the `999` sentinel and two
   non-delta writers corrupt the `old` / `d=` columns of the Honor/Tyranny log lines.
 - `issues/07-arc-ladder-uses-session-time.md` - the ladder gates on the session-wide
