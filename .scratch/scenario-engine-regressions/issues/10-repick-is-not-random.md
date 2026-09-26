@@ -1,6 +1,6 @@
 # 10 - Repick is deterministic (`eligible[0]`), not random
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -49,6 +49,40 @@ strength and start position).
 
 Mirror the initial pick: `roll = randi(0, eligible[].size() - 1)` then
 `global.&sandbox_scenario = eligible[roll]`.
+
+## Fix
+
+Applied to both mods (this file is a per-mod catalog, so not a core change): repick now rolls like
+the initial pick.
+
+```hsl
+    if eligible[].size() == 0:
+      $sandbox_log_sc(sc_repick, none_eligible)
+    else:
+      repick_max = eligible[].size() - 1
+      repick_roll = randi(0, repick_max)
+      global.&sandbox_scenario = eligible[repick_roll]
+```
+
+Compiled proof (`common/scripted_effects/99_sandbox_scenarios.txt`), byte-for-byte the same shape
+as the initial pick's roll:
+
+```text
+set_temp_variable = { repick_max = { value = eligible^num  subtract = 1 } }
+set_temp_variable = { _hsl_randmax1 = { value=repick_max add=1 } }
+set_temp_variable_to_random = { var=repick_roll min=0 max=_hsl_randmax1 integer=yes }
+set_variable = { global.sandbox_scenario = eligible^repick_roll }
+```
+
+`global.sandbox_scenario = eligible[0]` no longer appears in either mod.
+
+## Verification: PASSED (static)
+
+- The repick path now picks `eligible[repick_roll]`, matching `eligible[roll]` in the initial pick.
+- The initial pick is unchanged.
+- Both mods recompiled clean (`_sandbox` and `_sandbox-r56`).
+
+Observer confirmation is still owed: two repicks in one session should not follow ascending arc id.
 
 ## Comments
 

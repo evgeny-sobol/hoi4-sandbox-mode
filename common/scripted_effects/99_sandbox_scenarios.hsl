@@ -168,7 +168,11 @@ sandbox_scenario_maybe_repick():
     if eligible[].size() == 0:
       $sandbox_log_sc(sc_repick, none_eligible)
     else:
-      global.&sandbox_scenario = eligible[0]
+      # Roll like the initial pick (docs/gdd/Scenarios.md "Selection": random
+      # repicks). Taking eligible[0] walked the arcs in ascending id order.
+      repick_max = eligible[].size() - 1
+      repick_roll = randi(0, repick_max)
+      global.&sandbox_scenario = eligible[repick_roll]
       global.&sandbox_scenario_phase = 0
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
