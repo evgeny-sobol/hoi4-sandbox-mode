@@ -108,10 +108,14 @@ with `sc_focus` firing on the boosted war focuses (`GER_reassert_eastern_claims`
 Issue 08 (`peak-never-converts`) did **not** reproduce in this session and should be re-scoped:
 the `axis` arc reached `peak`, GER completed its war focuses, and the arc ignited
 (`sc_ignite axis_war`, GER vs POL, 1939.8) - the AI did walk the branch here. What stayed at
-zero is the goal telemetry: `sc_goal` / `sc_justify` are sampled only once, at peak entry
-(`sandbox_fire_axis_peak`), which is before GER holds any wargoal, so a later ignition logs
-nothing. That sampling gap is a telemetry defect, separate from the earlier sessions where the
-peak genuinely timed out. Needs its own triage.
+zero is the goal telemetry: `sc_goal` / `sc_justify` sample the **wargoal** path
+(`has_wargoal_against`), but the historical war focuses do not grant wargoals - they send a
+`country_event` ultimatum (`germany.86`) and the war follows from the event options. The zero is
+therefore expected, not a symptom. (The earlier note that the telemetry is "sampled only once, at
+peak entry" is also wrong for the current code: `sandbox_scenario_s7_telemetry()` is called every
+month from `sandbox_scenario_tick()`, verified in the compiled `on_actions`.) Triage closed 08 as
+`wontfix` and filed the real defect as issue 13: the goal telemetry cannot see the event path the
+arcs actually use.
 
 ## Issues
 
@@ -137,7 +141,9 @@ peak genuinely timed out. Needs its own triage.
 - `issues/07-arc-ladder-uses-session-time.md` - the ladder gates on the session-wide
   `months_elapsed`, so a repicked arc collapses smolder and crises into one month.
 - `issues/08-peak-never-converts.md` - no wargoal, no justify, no boosted focus for the aggressor
-  in 72 months; both peaks derailed on `peak_timeout`.
+  in 72 months; both peaks derailed on `peak_timeout`. **Closed `wontfix`** in triage: the claim
+  did not reproduce in the third session (the arc ignited via the event path), and the zero
+  telemetry has a different cause - see issue 13.
 - `issues/09-symmetric-seeding-writes-aggressor-array-twice.md` - the symmetric seed loop flips
   scope back to the aggressor, doubling its `scenario_enemies[]` and leaving targets empty.
 - `issues/10-repick-is-not-random.md` - repick takes `eligible[0]`, so arcs are walked in id order.
@@ -146,6 +152,26 @@ peak genuinely timed out. Needs its own triage.
   with its gates off (805 of 942 lines in the third session).
 - `issues/12-derail-checks-fire-after-park.md` - the derail dispatcher lacks the `phase < 3`
   guard, so a parked arc re-derails every month (phantom `sc_derail` / `sc_end` in 1942).
+- `issues/13-goal-telemetry-blind-to-event-ultimatums.md` - `sc_goal` / `sc_justify` sample
+  `has_wargoal_against`, but the historical war focuses war through an event ultimatum instead, so
+  the goal telemetry is silent on a working arc. Filed by triage out of issue 08.
+
+## Triage (Sep 2026)
+
+All seven open tickets were verified against the code before their state was set. Findings:
+
+- **Confirmed and briefed** (`ready-for-agent`): 06, 07, 09, 10, 11, 12. Each carries an agent
+  brief under `## Comments`, and the defects were reproduced from the source (the `999` sentinel
+  path, the `months_elapsed` rung gates, the doubled `PREV:` seeding loop, `eligible[0]`, the
+  ungated `$sandbox_log` calls, the missing phase guard).
+- **Closed** (`wontfix`): 08. Its claim did not reproduce in the third session; the zero telemetry
+  it reported has a different, non-bug cause (wargoal-only sampling), filed as 13.
+- **New** (`needs-triage`): 13, which needs a maintainer decision on what the goal telemetry should
+  sample before an agent can take it.
+
+Ownership for the briefed tickets: 06 and 11 are core files (`macros.hml`,
+`99_sandbox_scripted_effects.hsl`), so they are edited in `sandbox-mod-core` and synced outward;
+07, 09 and 12 are per-mod catalogs or the shared engine, applied in both mods; 10 is per-mod.
 
 ## Ownership note
 
