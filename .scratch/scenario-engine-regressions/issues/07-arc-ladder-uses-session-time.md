@@ -1,6 +1,6 @@
 # 07 - Arc ladder is global-time based, so a repicked arc compresses to two months
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -75,6 +75,42 @@ separately if the arc age is needed for acceptance reads.
 
 The `t=` field is read in `docs/gdd/Scenarios.md:113-117`, so the GDD may need a note that the
 ladder clock is arc-relative while `t=` is session-relative.
+
+## Fix
+
+Applied to both mods (the catalog is per-mod, so not a core change): the ladder clock is now
+arc-relative.
+
+- New persistent counter `sandbox_scenario_arc_months`.
+- Reset to 0 next to the other per-arc counters in `sandbox_pick_scenario` and
+  `sandbox_scenario_maybe_repick`.
+- Incremented once per tick in `sandbox_scenario_tick`, and only while the arc is live
+  (`phase < 3`), so a parked or ignited arc stops ageing.
+- Every rung gate now compares `global.sandbox_scenario_arc_months` instead of `months_elapsed`:
+  12 gates in `_sandbox`, 56 in `_sandbox-r56` (r56 uses 12/18 for crises and 24/30 for peak
+  depending on the arc; both thresholds moved unchanged).
+
+`t=` telemetry deliberately still reports `months_elapsed` (session-relative), so the existing
+acceptance greps are unaffected. The tick comment was rewritten to say the ladder is arc-relative
+while `t=` is session-relative.
+
+## Verification: PASSED (static)
+
+Compiled `common/scripted_effects/99_sandbox_scenarios.txt`, both mods:
+
+```text
+add_to_variable = { global.sandbox_scenario_arc_months = 1 }        # once per tick
+set_variable = { global.sandbox_scenario_arc_months = 0 }           # x2: pick + repick
+check_variable = { var=global.sandbox_scenario_arc_months value=12 compare=greater_than_or_equals }
+```
+
+- Zero `and months_elapsed >=` gates remain in either mod; all were converted.
+- `t=[?months_elapsed]` is untouched (331 lines in `_sandbox`, 1320 in `_sandbox-r56`), and
+  `months_elapsed` is still incremented in `on_monthly`.
+- Both mods recompiled clean.
+
+Observer confirmation is still owed: a repicked arc should now log `crises` twelve months after its
+own pick, not in the same month.
 
 ## Comments
 

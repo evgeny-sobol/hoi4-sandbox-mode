@@ -116,6 +116,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_phase = 0
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
+  global.&sandbox_scenario_arc_months = 0
   variant_roll = randi(0, 1)
   if variant_roll == 0:
     global.&sandbox_target_variant = a
@@ -176,6 +177,7 @@ sandbox_scenario_maybe_repick():
       global.&sandbox_scenario_phase = 0
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
+      global.&sandbox_scenario_arc_months = 0
       variant_roll = randi(0, 1)
       if variant_roll == 0:
         global.&sandbox_target_variant = a
@@ -232,59 +234,63 @@ sandbox_seed_actors():
 # engine (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 # Monthly ladder tick (docs/gdd/Scenarios.md "Lifecycle"). Thresholds are
-# HAI months_elapsed: < 12 smolder, 12-23 crises, 24+ peak. A derail check
-# runs first; a parked arc goes quiet.
+# arc-relative (`sandbox_scenario_arc_months`): < 12 smolder, 12-23 crises,
+# 24+ peak, counted from the arc's own pick, so a repick restarts the ladder
+# instead of inheriting the session clock. A derail check runs first; a
+# parked arc goes quiet.
 sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
   else:
+    if global.sandbox_scenario_phase < 3:
+      global.&sandbox_scenario_arc_months += 1
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
-  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_axis_crises()
-  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_axis_peak()
-  if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_south_crises()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_south_peak()
-  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_japanese_crises()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_japanese_peak()
-  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_italian_crises()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_italian_peak()
-  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_soviet_crises()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_soviet_peak()
-  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_warplan_crises()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_warplan_peak()
