@@ -37,7 +37,9 @@ initialize_new_country_leader():
   sandbox_log_other = sandbox_parent
   sandbox_log_old = 0
   sandbox_log_new = tyranny
-  sandbox_log_delta = tyranny_home
+  # The change from nothing, matching the honor_init line above (was
+  # tyranny_home, which is neither the delta nor the new value).
+  sandbox_log_delta = tyranny
   $sandbox_log_tyranny(tyranny_init)
   update_country_leader_traits()
   select_major_rival()
@@ -313,9 +315,14 @@ sandbox_log_honor_band_if_changed():
   else:
     new_honor_band = 4
   if old_honor_band != new_honor_band:
-    sandbox_log_old = old_h
+    # `old_h` carries the 999 "no previous value" sentinel on the first assign.
+    # Report 0 for it so the triple stays honest (d == new - old).
+    if old_h != 999:
+      sandbox_log_old = old_h
+    else:
+      sandbox_log_old = 0
     sandbox_log_new = honor
-    sandbox_log_delta = honor - old_h
+    sandbox_log_delta = honor - sandbox_log_old
     sandbox_log_slot = -1
     sandbox_log_other = 0
     if new_honor_band == 0:
@@ -357,9 +364,13 @@ sandbox_log_tyranny_band_if_changed():
   else:
     new_tyranny_band = 4
   if old_tyranny_band != new_tyranny_band:
-    sandbox_log_old = old_t
+    # See the Honor band logger: 999 means "no previous value", reported as 0.
+    if old_t != 999:
+      sandbox_log_old = old_t
+    else:
+      sandbox_log_old = 0
     sandbox_log_new = tyranny
-    sandbox_log_delta = tyranny - old_t
+    sandbox_log_delta = tyranny - sandbox_log_old
     sandbox_log_slot = -1
     sandbox_log_other = 0
     if new_tyranny_band == 0:
@@ -419,7 +430,8 @@ expire_dropped_obligations():
       sandbox_log_other = v
       sandbox_log_old = honor
       sandbox_log_new = honor
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_honor(honor_window_expire)
   &dropped_pacts[].clear()
@@ -441,7 +453,8 @@ expire_dropped_obligations():
       sandbox_log_other = v
       sandbox_log_old = honor
       sandbox_log_new = honor
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_honor(honor_window_expire)
   &dropped_guarantees[].clear()
@@ -517,7 +530,15 @@ update_honor_gain_monthly_factor():
 # per war, shared with on_join_allies through honor_answered_call).
 apply_honor_on_declare_war():
   sandbox_log_other = FROM
-  if FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
+  if FROM in &scenario_enemies[]:
+    # Declared scenario enemies fight without Honor cost (docs/gdd/Scenarios.md).
+    sandbox_log_other = FROM
+    sandbox_log_old = honor
+    sandbox_log_new = honor
+    sandbox_log_delta = 0
+    sandbox_log_slot = -1
+    $sandbox_log_honor(honor_scenario_exempt)
+  elif FROM in &na_pacts[] or FROM in &prev_na_pacts[]:
     $add_honor(-50, honor_war_break_pact)
     &na_pacts[].erase(FROM)
     &prev_na_pacts[].erase(FROM)
@@ -530,7 +551,8 @@ apply_honor_on_declare_war():
     sandbox_log_other = FROM
     sandbox_log_old = honor
     sandbox_log_new = honor
-    sandbox_log_delta = window_age
+    sandbox_log_delta = 0
+    sandbox_log_age = window_age
     sandbox_log_slot = -1
     $sandbox_log_honor(honor_window_hit)
     sandbox_log_other = FROM
@@ -549,7 +571,8 @@ apply_honor_on_declare_war():
     sandbox_log_other = FROM
     sandbox_log_old = honor
     sandbox_log_new = honor
-    sandbox_log_delta = window_age
+    sandbox_log_delta = 0
+    sandbox_log_age = window_age
     sandbox_log_slot = -1
     $sandbox_log_honor(honor_window_hit)
     sandbox_log_other = FROM
@@ -699,6 +722,10 @@ update_sandbox_civil_war_count():
 
 # Called on every country each week. fire_only_once missions cannot be
 # cancelled, so add days while the AI is blocked (docs/gdd/Civil Wars.md).
+# The entries below exist in vanilla; mod-specific missions are appended by
+# sandbox_delay_capped_cw_missions_mod(), defined in each mod's per-mod
+# catalog (common/scripted_effects/99_sandbox_scenarios.hsl), because the
+# mission ids there are not portable across mods (docs/gdd/Scenarios.md:42).
 sandbox_delay_capped_cw_missions():
   if sandbox_civil_war_ai_blocked():
     $sandbox_delay_mission_if_capped(SPA_military_plot_nationalists)
@@ -724,6 +751,7 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
     $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
     $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
+    sandbox_delay_capped_cw_missions_mod()
 
 
 # BoP on_activate fires once. If the cap skipped it, retry when a slot opens.
@@ -806,6 +834,9 @@ sandbox_log_waiting_cw_fuses():
         $sandbox_log_cw_defer(spain)
       if original_tag($AST) and sandbox_ast_veterans_fuse_ready():
         $sandbox_log_cw_defer(on_daily_AST)
+      if sandbox_jap_sfl_fuse_ready():
+        $sandbox_log_cw_defer(sfl.1)
+
 
 reset_tyranny_for_new_ruler():
   set_tyranny_range_from_government()
@@ -1053,7 +1084,8 @@ expire_former_rivals():
       sandbox_log_other = v
       sandbox_log_old = 0
       sandbox_log_new = 0
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_rivals(rivals_cooldown_expire)
   &former_rivals[].clear()

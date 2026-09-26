@@ -71,6 +71,7 @@ def pick() -> str:
     out.append("      global.&sandbox_scenario = eligible[roll]")
     out.append("  global.&sandbox_scenario_phase = 0")
     out.append("  global.&sandbox_scenario_civil_war_months = 0")
+    out.append("  global.&sandbox_scenario_peak_months = 0")
     out.append("  variant_roll = randi(0, 1)")
     out.append("  if variant_roll == 0:")
     out.append("    global.&sandbox_target_variant = a")
@@ -117,6 +118,7 @@ def repick() -> str:
     out.append("      global.&sandbox_scenario = eligible[0]")
     out.append("      global.&sandbox_scenario_phase = 0")
     out.append("      global.&sandbox_scenario_civil_war_months = 0")
+    out.append("      global.&sandbox_scenario_peak_months = 0")
     out.append("      variant_roll = randi(0, 1)")
     out.append("      if variant_roll == 0:")
     out.append("        global.&sandbox_target_variant = a")
@@ -388,6 +390,7 @@ def derail() -> str:
         "sandbox_scenario_check_derail():",
         "  phase_before = global.sandbox_scenario_phase",
         "  sandbox_scenario_check_civil_war_derail()",
+        "  $sandbox_check_peak_timeout()",
     ]
     for i, (sid, a) in enumerate(ARCS.items()):
         agg = a["agg"]

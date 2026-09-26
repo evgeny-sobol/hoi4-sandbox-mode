@@ -7,10 +7,15 @@
   Run from the mod root (or invoke this script by path). Moves, preserving
   relative paths into _hidden/:
 
-    .cursor/, .scratch/, AGENTS.md, docs/, scripts/, tools/
+    .cursor/, .scratch/, AGENTS.md, docs/, scripts/, tools/, core/
     .git* at the mod root
-    *.hsl, *.hml, *.include anywhere except _hidden/
+    *.hsl, *.hml, *.include, *.template anywhere except _hidden/
     this script
+
+  .template is listed because a scaffold like
+  common/ai_strategy_plans/_CTY_sandbox_strategy_plan.hsl.template has
+  Extension '.template', not '.hsl', so an extension test on '.hsl' alone
+  would ship the developer placeholder into the release.
 #>
 $ErrorActionPreference = 'Stop'
 
@@ -63,7 +68,7 @@ New-Item -ItemType Directory -Path $Hidden -Force | Out-Null
 Write-Host "Hiding development files -> _hidden\"
 Write-Host ""
 
-foreach ($name in @('.cursor', '.scratch', 'AGENTS.md', 'docs', 'scripts', 'tools')) {
+foreach ($name in @('.cursor', '.scratch', 'AGENTS.md', 'docs', 'scripts', 'tools', 'core')) {
     Move-ToHidden (Join-Path $Root $name)
 }
 
@@ -74,7 +79,7 @@ Get-ChildItem -LiteralPath $Root -Force | Where-Object {
 }
 
 Get-ChildItem -LiteralPath $Root -Recurse -File -Force | Where-Object {
-    $_.Extension -in @('.hsl', '.hml', '.include') -and
+    $_.Extension -in @('.hsl', '.hml', '.include', '.template') -and
         -not (Test-UnderHidden $_.FullName)
 } | ForEach-Object {
     Move-ToHidden $_.FullName

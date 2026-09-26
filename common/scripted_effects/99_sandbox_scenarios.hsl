@@ -55,6 +55,23 @@ sandbox_set_targets():
       global.&sandbox_targets[].add(ENG)
       global.&sandbox_targets[].add(CAN)
 
+# Hand-written arc hooks for the shared on_actions skeleton. The two
+# generated hooks (wargoal_expire / justify) live in
+# common/scripted_effects/99_sandbox_arc_hooks.hsl. The skeleton calls all
+# four unconditionally, so both must exist even when empty.
+sandbox_arc_on_weekly():
+  pass
+
+# The vanilla tick chain ends at USA; this mod has no extra host.
+sandbox_arc_tick_hosts():
+  pass
+
+# Mod-specific mission ids for the shared weekly cap delay. The core loop
+# (sandbox_delay_capped_cw_missions) keeps only ids that exist in vanilla;
+# this mod has none to add (docs/gdd/Civil Wars.md).
+sandbox_delay_capped_cw_missions_mod():
+  pass
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1
@@ -99,6 +116,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_phase = 0
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
+  global.&sandbox_scenario_arc_months = 0
   variant_roll = randi(0, 1)
   if variant_roll == 0:
     global.&sandbox_target_variant = a
@@ -151,10 +169,15 @@ sandbox_scenario_maybe_repick():
     if eligible[].size() == 0:
       $sandbox_log_sc(sc_repick, none_eligible)
     else:
-      global.&sandbox_scenario = eligible[0]
+      # Roll like the initial pick (docs/gdd/Scenarios.md "Selection": random
+      # repicks). Taking eligible[0] walked the arcs in ascending id order.
+      repick_max = eligible[].size() - 1
+      repick_roll = randi(0, repick_max)
+      global.&sandbox_scenario = eligible[repick_roll]
       global.&sandbox_scenario_phase = 0
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
+      global.&sandbox_scenario_arc_months = 0
       variant_roll = randi(0, 1)
       if variant_roll == 0:
         global.&sandbox_target_variant = a
@@ -207,101 +230,74 @@ sandbox_seed_actors():
       sandbox_seed_from_targets()
 
 # Runs in the aggressor's scope. Each live target slot is seeded as a
-# rival and both sides record scenario_enemies[].
-sandbox_seed_from_targets():
-  add_war_support(0.10)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  $sandbox_log_sc_seed()
+# rival and both sides record scenario_enemies[]. Body lives in the shared
+# engine (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 # Monthly ladder tick (docs/gdd/Scenarios.md "Lifecycle"). Thresholds are
-# HAI months_elapsed: < 12 smolder, 12-23 crises, 24+ peak. A derail check
-# runs first; a parked arc goes quiet.
+# arc-relative (`sandbox_scenario_arc_months`): < 12 smolder, 12-23 crises,
+# 24+ peak, counted from the arc's own pick, so a repick restarts the ladder
+# instead of inheriting the session clock. A derail check runs first; a
+# parked arc goes quiet.
 sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
   else:
+    if global.sandbox_scenario_phase < 3:
+      global.&sandbox_scenario_arc_months += 1
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
-  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_axis_crises()
-  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_axis_peak()
-  if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_south_crises()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_south_peak()
-  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_japanese_crises()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_japanese_peak()
-  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_italian_crises()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_italian_peak()
-  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_soviet_crises()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_soviet_peak()
-  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_warplan_crises()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_warplan_peak()
   sandbox_scenario_s7_telemetry()
 
-# Shared join-2.0 helper: industry snapshot for the scorer.
-sandbox_snapshot_join_industry():
-  for every_country():
-    &scenario_join_industry = num_of_factories
+# Shared join-2.0 helper: industry snapshot for the scorer. Body lives in
+# the shared engine (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 # Crises phase for axis: provocation lands on the aggressor's desk.
 sandbox_fire_axis_crises():
@@ -941,38 +937,8 @@ sandbox_log_scenario_success():
 # docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario
 # enemies ignites the arc (symmetric). Two paths share the log table:
 # on_declare_war (direct) and the monthly ongoing-war sweep (indirect).
-sandbox_scenario_ignite():
-  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
-    global.&sandbox_scenario_phase = 3
-    sandbox_log_scenario_success()
-
-# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
-# war with any chosen target.
-sandbox_ignite_if_at_war():
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[3] != 0:
-    var:sandbox_targets[3]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
+# Bodies live in the shared engine
+# (core/common/scripted_effects/99_sandbox_engine.hsl).
 
 sandbox_scenario_check_ignite_by_war():
   if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:
@@ -1023,7 +989,7 @@ sandbox_scenario_check_derail():
   phase_before = global.sandbox_scenario_phase
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
-  if global.sandbox_scenario == 1:
+  if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
     if not country_exists(GER):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, ger_gone)
@@ -1037,7 +1003,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(GER, CZE, POL)
       else:
         $sandbox_check_targets_derail2(GER, FRA, ENG)
-  elif global.sandbox_scenario == 2:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     if not country_exists(SOV):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, sov_gone)
@@ -1051,7 +1017,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
       else:
         $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
-  elif global.sandbox_scenario == 3:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 3:
     if not country_exists(JAP):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, jap_gone)
@@ -1065,7 +1031,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(JAP, CHI, PHI)
       else:
         $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)
-  elif global.sandbox_scenario == 4:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     if not country_exists(ITA):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, ita_gone)
@@ -1079,7 +1045,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(ITA, YUG, GRE)
       else:
         $sandbox_check_targets_derail2(ITA, FRA, ENG)
-  elif global.sandbox_scenario == 5:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
     if not country_exists(ENG):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, eng_gone)
@@ -1093,7 +1059,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail1(ENG, SOV)
       else:
         $sandbox_check_targets_derail1(ENG, SOV)
-  elif global.sandbox_scenario == 6:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     if not country_exists(USA):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, usa_gone)

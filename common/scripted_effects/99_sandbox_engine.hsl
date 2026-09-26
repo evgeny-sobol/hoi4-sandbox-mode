@@ -1,0 +1,76 @@
+# docs/gdd/Scenarios.md: shared scenario engine (mod-agnostic).
+# Catalog dispatchers (pick/repick/tick/seed_actors/set_targets/success,
+# per-arc fire/select/derail, ignite/derail dispatchers) live in each mod's
+# 99_sandbox_scenarios.hsl next to the arc table. This file holds only
+# functions with no arc ids and no focus/event ids.
+
+sandbox_seed_from_targets():
+  add_war_support(0.10)
+  if global.sandbox_targets[0] != 0:
+    var:global.sandbox_targets[0]:
+      PREV:
+        $sandbox_seed_rival(PREV, 65)
+        &scenario_enemies[].add(PREV)
+  if global.sandbox_targets[1] != 0:
+    var:global.sandbox_targets[1]:
+      PREV:
+        $sandbox_seed_rival(PREV, 65)
+        &scenario_enemies[].add(PREV)
+  if global.sandbox_targets[2] != 0:
+    var:global.sandbox_targets[2]:
+      PREV:
+        $sandbox_seed_rival(PREV, 65)
+        &scenario_enemies[].add(PREV)
+    # Symmetric side: each target lists the aggressor. The `var:` head puts the
+    # target in scope (THIS) and the aggressor in PREV, so no extra scope hop:
+    # an added `PREV:` would flip back to the aggressor and write its array a
+    # second time (docs/gdd/Scenarios.md, "either direction" ignition).
+  if global.sandbox_targets[0] != 0:
+    var:global.sandbox_targets[0]:
+      &scenario_enemies[].add(PREV)
+  if global.sandbox_targets[1] != 0:
+    var:global.sandbox_targets[1]:
+      &scenario_enemies[].add(PREV)
+  if global.sandbox_targets[2] != 0:
+    var:global.sandbox_targets[2]:
+      &scenario_enemies[].add(PREV)
+  $sandbox_log_sc_seed()
+
+sandbox_snapshot_join_industry():
+  for every_country():
+    &scenario_join_industry = num_of_factories
+
+sandbox_scenario_ignite():
+  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
+    global.&sandbox_scenario_phase = 3
+    sandbox_log_scenario_success()
+
+# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
+# war with any chosen target. Called by the monthly tick dispatcher.
+
+sandbox_ignite_if_at_war():
+  if global.sandbox_scenario_phase < 3 and global.sandbox_targets[0] != 0:
+    var:global.sandbox_targets[0]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and global.sandbox_targets[1] != 0:
+    var:global.sandbox_targets[1]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and global.sandbox_targets[2] != 0:
+    var:global.sandbox_targets[2]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and global.sandbox_targets[3] != 0:
+    var:global.sandbox_targets[3]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+
