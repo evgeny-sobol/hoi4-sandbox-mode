@@ -155,6 +155,40 @@ arcs actually use.
 - `issues/13-goal-telemetry-blind-to-event-ultimatums.md` - `sc_goal` / `sc_justify` sample
   `has_wargoal_against`, but the historical war focuses war through an event ultimatum instead, so
   the goal telemetry is silent on a working arc. Filed by triage out of issue 08.
+- `issues/14-declared-target-tag-drift.md` - a declared target's tag can stop matching (a civil-war
+  split re-tags it), and the peak telemetry logs the new tag while the derail arm keyed to the
+  declared tag stays silent, so the two disagree about whether the target still exists.
+- `issues/15-s7-sampling-cadence.md` - the s7 package has no stated sampling policy: `sc_power` and
+  `sc_goal` are monthly, `sc_goal_end` is discrete, but `sc_justify` rides the daily justify pulse
+  and produced 61 identical lines for one justification (40% of a session's telemetry).
+- `issues/16-sc-goal-blind-to-justification-window.md` - `sc_goal` samples a completed wargoal, so it
+  is silent while the aggressor is actively justifying and the arc ignites before the wargoal lands.
+  A second cause of issue 13's symptom, on the wargoal path rather than the event path.
+
+## Fourth session (2026-09-26, `_sandbox-r56`)
+
+152 telemetry lines, 1936.1 - 1938.2, the `axis` arc. The first r56 session with a full ignition:
+`sc_justify` fired (61 lines, the generated arc hooks work), the join lever fired (JAP and CSA
+invited and joined), and `sc_ignite` / `sc_success` / `sc_end` closed the arc on 1938.2. All fixes
+from the triage round hold: zero `honor_*` / `tyranny_*` / `rivals_*` lines with their gates down,
+the ladder rungs spaced correctly, `sc_power` covering the aggressor and both targets, and zero
+`error.log` lines attributable to the mod.
+
+Three defects surfaced, filed as issues 14-16:
+
+- The declared second target (`POL`) stopped matching mid-arc; the peak telemetry logged `D09`
+  instead while the derail arm keyed to `POL` stayed silent (issue 14).
+- One justification produced 61 daily `sc_justify` lines with no stated sampling policy to bound
+  them (issue 15).
+- `sc_goal` stayed at zero through a two-month justification and a successful ignition (issue 16).
+
+## Third session (2026-09-26, `_sandbox`)
+
+90 telemetry lines, 1936.1 - 1937.12, the `italian` arc. The first clean vanilla ignition: Italy
+walked its whole war branch (`ITA_struggle_in_ethiopia` through `ITA_war_with_greece`), held a
+wargoal (`sc_goal ita_on_gre`), and ignited on 1937.12 - on the crises rung, before peak, so
+`sc_offer` / `sc_join` never ran. Every triage fix held: zero gated telemetry, no `999` sentinel,
+arc-relative ladder spacing, zero mod-attributable `error.log` lines.
 
 ## Triage (Sep 2026)
 
