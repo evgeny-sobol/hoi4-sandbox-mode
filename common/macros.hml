@@ -2,16 +2,21 @@
 # generic writer; callers pick the gated wrapper for their system:
 #   $sandbox_log_honor / $sandbox_log_tyranny / $sandbox_log_rivals
 # Callers set sandbox_log_old / _new / _delta, and optionally
-# sandbox_log_other (tag) and sandbox_log_slot (rivals 0–2, else −1).
+# sandbox_log_other (tag), sandbox_log_slot (rivals 0-2, else -1) and
+# sandbox_log_age (months an obligation window was open; 0 = not applicable).
+# The triple always means `old` before, `new` after, `d = new - old`. The `999`
+# "no previous value" sentinel is read as 0, never written into `old`. A window
+# duration goes in `age=`, never in `d=`, which would misread as a value change.
 # Monthly drift (|d| < 2) is not logged from $add_honor / $add_tyranny.
 macro sandbox_log(_event_):
   if is_sandbox_mode_on():
     if sandbox_log_other != 0:
-      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] other=[?sandbox_log_other.GetTag] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] age=[?sandbox_log_age|.0] other=[?sandbox_log_other.GetTag] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
     else:
-      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
+      log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_log_old|.2]->[?sandbox_log_new|.2] d=[?sandbox_log_delta|.2] age=[?sandbox_log_age|.0] slot=[?sandbox_log_slot] t=[?months_elapsed] home=[?tyranny_home|.1]")
   sandbox_log_other = 0
   sandbox_log_slot = -1
+  sandbox_log_age = 0
 
 macro sandbox_log_honor(_event_):
   if has_global_flag(sandbox_log_honor):

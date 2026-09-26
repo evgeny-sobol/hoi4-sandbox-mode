@@ -1,6 +1,6 @@
 # 12 - Derail checks keep firing after an arc is already parked at phase 3
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -94,6 +94,38 @@ be applied in `_sandbox` and `_sandbox-r56` (r56 line 3183).
 
 - `docs/gdd/Scenarios.md:78-81` - "Derail parks a dead arc at phase 3 ... On random a derail
   repicks". One derail per arc, not one per month.
+
+## Fix
+
+Applied to both mods (the dispatcher lives in the per-mod catalog): every per-arc arm of
+`sandbox_scenario_check_derail()` now carries `global.sandbox_scenario_phase < 3`, the same guard
+`sandbox_scenario_check_civil_war_derail()` already uses.
+
+- 6 arms guarded in `_sandbox`, 28 in `_sandbox-r56`.
+- `phase_before` is still captured before the body, and the repick tail
+  (`if phase_before < 3 and global.sandbox_scenario_phase == 3:`) is untouched - it needs
+  `phase_before` to detect the transition the checks just caused.
+- The ladder rungs inside `sandbox_scenario_tick()` were left alone; they keep their own
+  `phase == 0` / `phase == 1` gates.
+
+## Verification: PASSED (static)
+
+Compiled `common/scripted_effects/99_sandbox_scenarios.txt`, both mods:
+
+```text
+if = { limit = {
+        check_variable = { global.sandbox_scenario_phase < 3 }
+        check_variable = { global.sandbox_scenario = 1 } }
+    ...
+```
+
+- Each per-arc arm is now gated on `phase < 3` (6 in `_sandbox`, 28 in `_sandbox-r56`).
+- The repick tail still appears exactly once.
+- The tick's rung gates are unchanged (12 and 56 respectively, still keyed to arc months).
+- Both mods recompiled clean.
+
+Observer confirmation is still owed: a parked arc should stop producing `sc_derail` / `sc_end`
+lines, so the totals equal one per arc that ended.
 
 ## Comments
 

@@ -37,7 +37,9 @@ initialize_new_country_leader():
   sandbox_log_other = sandbox_parent
   sandbox_log_old = 0
   sandbox_log_new = tyranny
-  sandbox_log_delta = tyranny_home
+  # The change from nothing, matching the honor_init line above (was
+  # tyranny_home, which is neither the delta nor the new value).
+  sandbox_log_delta = tyranny
   $sandbox_log_tyranny(tyranny_init)
   update_country_leader_traits()
   select_major_rival()
@@ -313,9 +315,14 @@ sandbox_log_honor_band_if_changed():
   else:
     new_honor_band = 4
   if old_honor_band != new_honor_band:
-    sandbox_log_old = old_h
+    # `old_h` carries the 999 "no previous value" sentinel on the first assign.
+    # Report 0 for it so the triple stays honest (d == new - old).
+    if old_h != 999:
+      sandbox_log_old = old_h
+    else:
+      sandbox_log_old = 0
     sandbox_log_new = honor
-    sandbox_log_delta = honor - old_h
+    sandbox_log_delta = honor - sandbox_log_old
     sandbox_log_slot = -1
     sandbox_log_other = 0
     if new_honor_band == 0:
@@ -357,9 +364,13 @@ sandbox_log_tyranny_band_if_changed():
   else:
     new_tyranny_band = 4
   if old_tyranny_band != new_tyranny_band:
-    sandbox_log_old = old_t
+    # See the Honor band logger: 999 means "no previous value", reported as 0.
+    if old_t != 999:
+      sandbox_log_old = old_t
+    else:
+      sandbox_log_old = 0
     sandbox_log_new = tyranny
-    sandbox_log_delta = tyranny - old_t
+    sandbox_log_delta = tyranny - sandbox_log_old
     sandbox_log_slot = -1
     sandbox_log_other = 0
     if new_tyranny_band == 0:
@@ -419,7 +430,8 @@ expire_dropped_obligations():
       sandbox_log_other = v
       sandbox_log_old = honor
       sandbox_log_new = honor
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_honor(honor_window_expire)
   &dropped_pacts[].clear()
@@ -441,7 +453,8 @@ expire_dropped_obligations():
       sandbox_log_other = v
       sandbox_log_old = honor
       sandbox_log_new = honor
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_honor(honor_window_expire)
   &dropped_guarantees[].clear()
@@ -538,7 +551,8 @@ apply_honor_on_declare_war():
     sandbox_log_other = FROM
     sandbox_log_old = honor
     sandbox_log_new = honor
-    sandbox_log_delta = window_age
+    sandbox_log_delta = 0
+    sandbox_log_age = window_age
     sandbox_log_slot = -1
     $sandbox_log_honor(honor_window_hit)
     sandbox_log_other = FROM
@@ -557,7 +571,8 @@ apply_honor_on_declare_war():
     sandbox_log_other = FROM
     sandbox_log_old = honor
     sandbox_log_new = honor
-    sandbox_log_delta = window_age
+    sandbox_log_delta = 0
+    sandbox_log_age = window_age
     sandbox_log_slot = -1
     $sandbox_log_honor(honor_window_hit)
     sandbox_log_other = FROM
@@ -1069,7 +1084,8 @@ expire_former_rivals():
       sandbox_log_other = v
       sandbox_log_old = 0
       sandbox_log_new = 0
-      sandbox_log_delta = age
+      sandbox_log_delta = 0
+      sandbox_log_age = age
       sandbox_log_slot = -1
       $sandbox_log_rivals(rivals_cooldown_expire)
   &former_rivals[].clear()

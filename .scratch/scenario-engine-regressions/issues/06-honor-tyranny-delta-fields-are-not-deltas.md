@@ -1,6 +1,6 @@
 # 06 - Honor/Tyranny telemetry: `old` and `delta` fields are not real values
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -112,6 +112,42 @@ and on every init/expiry line, and the fake `d=-1091.00` values invite false bug
 
 All three live in core files (`common/scripted_effects/99_sandbox_scripted_effects.hsl`), so the
 fix goes to `sandbox-mod-core` and is synced outward per `.cursor/rules/sync-core-first.mdc`.
+
+## Fix
+
+Applied in `sandbox-mod-core` (synced outward, `drifted=0`): the `999` sentinel no longer reaches
+`old`, and durations moved out of `delta` into their own field.
+
+- **Band loggers** (`sandbox_log_honor_band_if_changed`, `sandbox_log_tyranny_band_if_changed`):
+  when the previous value is the `999` "no previous value" sentinel, `old` is reported as `0` and
+  `delta` as `new - old`, so `d == new` on the first assign instead of `new - 999`.
+- **`tyranny_init`**: `delta` is now `tyranny` (the change from nothing), matching the adjacent
+  `honor_init` line. It was `tyranny_home`, which is neither the delta nor the new value.
+- **Window and cooldown durations** moved from `delta` to a new `age=` field, with `d=0`:
+  `honor_window_expire` (x2), `honor_window_hit` (x2) and `rivals_cooldown_expire`. The last two
+  were not named in the ticket but are the same defect (a duration written into the change column).
+- The base `$sandbox_log` now emits `age=<months>` between `d=` and the next field, always present
+  (`0` when not applicable), and resets it to 0 after each line like `sandbox_log_other`/`_slot`.
+
+## Verification: PASSED (static)
+
+Compiled `common/scripted_effects/99_sandbox_scripted_effects.txt` and `common/macros.txt`:
+
+```text
+if = { limit = { check_variable = { var=old_h value=999 compare=not_equals } }
+       set_temp_variable = { sandbox_log_old = old_h } }
+else = { set_temp_variable = { sandbox_log_old = 0 } }
+set_temp_variable = { sandbox_log_delta = { value = honor  subtract = sandbox_log_old } }
+```
+
+- No `sandbox_log_delta = age` / `= window_age` / `= tyranny_home` remains in either mod.
+- Every log line now carries `age=[?sandbox_log_age|.0]` (124 such lines in the compiled
+  `_sandbox` output).
+- `sandbox_log_age` is reset to 0 by the base macro, so a site that does not set it logs `age=0`.
+- Both mods recompiled clean; `sync_core.py --check` reports `drifted=0`.
+
+Observer confirmation is still owed: no `999.00` in any `old` column, and every line satisfies
+`d == new - old`.
 
 ## Comments
 

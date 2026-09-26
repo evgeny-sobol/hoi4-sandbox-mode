@@ -989,7 +989,7 @@ sandbox_scenario_check_derail():
   phase_before = global.sandbox_scenario_phase
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
-  if global.sandbox_scenario == 1:
+  if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
     if not country_exists(GER):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, ger_gone)
@@ -1003,7 +1003,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(GER, CZE, POL)
       else:
         $sandbox_check_targets_derail2(GER, FRA, ENG)
-  elif global.sandbox_scenario == 2:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     if not country_exists(SOV):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, sov_gone)
@@ -1017,7 +1017,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
       else:
         $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
-  elif global.sandbox_scenario == 3:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 3:
     if not country_exists(JAP):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, jap_gone)
@@ -1031,7 +1031,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(JAP, CHI, PHI)
       else:
         $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)
-  elif global.sandbox_scenario == 4:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     if not country_exists(ITA):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, ita_gone)
@@ -1045,7 +1045,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail2(ITA, YUG, GRE)
       else:
         $sandbox_check_targets_derail2(ITA, FRA, ENG)
-  elif global.sandbox_scenario == 5:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
     if not country_exists(ENG):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, eng_gone)
@@ -1059,7 +1059,7 @@ sandbox_scenario_check_derail():
         $sandbox_check_targets_derail1(ENG, SOV)
       else:
         $sandbox_check_targets_derail1(ENG, SOV)
-  elif global.sandbox_scenario == 6:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     if not country_exists(USA):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, usa_gone)
