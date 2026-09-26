@@ -21,20 +21,19 @@ sandbox_seed_from_targets():
       PREV:
         $sandbox_seed_rival(PREV, 65)
         &scenario_enemies[].add(PREV)
-    # Symmetric side: each target lists the aggressor (scoped as PREV at the
-    # var: head; THIS is the target country, PREV is the aggressor tag).
+    # Symmetric side: each target lists the aggressor. The `var:` head puts the
+    # target in scope (THIS) and the aggressor in PREV, so no extra scope hop:
+    # an added `PREV:` would flip back to the aggressor and write its array a
+    # second time (docs/gdd/Scenarios.md, "either direction" ignition).
   if global.sandbox_targets[0] != 0:
     var:global.sandbox_targets[0]:
-      PREV:
-        &scenario_enemies[].add(PREV)
+      &scenario_enemies[].add(PREV)
   if global.sandbox_targets[1] != 0:
     var:global.sandbox_targets[1]:
-      PREV:
-        &scenario_enemies[].add(PREV)
+      &scenario_enemies[].add(PREV)
   if global.sandbox_targets[2] != 0:
     var:global.sandbox_targets[2]:
-      PREV:
-        &scenario_enemies[].add(PREV)
+      &scenario_enemies[].add(PREV)
   $sandbox_log_sc_seed()
 
 sandbox_snapshot_join_industry():

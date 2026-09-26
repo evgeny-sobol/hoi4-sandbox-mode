@@ -68,7 +68,7 @@ macro add_honor(_var_, _event_ = honor_change):
       sandbox_log_new = honor
       sandbox_log_delta = _var_
       if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
-        $sandbox_log(_event_)
+        $sandbox_log_honor(_event_)
       else:
         sandbox_log_other = 0
         sandbox_log_slot = -1
@@ -88,7 +88,7 @@ macro add_tyranny(_var_, _event_ = tyranny_focus):
       sandbox_log_new = tyranny
       sandbox_log_delta = _var_
       if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
-        $sandbox_log(_event_)
+        $sandbox_log_tyranny(_event_)
       else:
         sandbox_log_other = 0
         sandbox_log_slot = -1
@@ -428,7 +428,7 @@ macro add_rivalry(_slot_, _var_):
       sandbox_log_new = new_rivalry
       sandbox_log_slot = _slot_
       sandbox_log_other = rivals[_slot_]
-      $sandbox_log(rivals_intensity)
+      $sandbox_log_rivals(rivals_intensity)
     if rivalry[_slot_] == 0:
       rival_slot = _slot_
       sandbox_clear_kind = 4
@@ -441,21 +441,21 @@ macro add_rivalry(_slot_, _var_):
         sandbox_log_delta = _var_
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
-        $sandbox_log(rivals_feud)
+        $sandbox_log_rivals(rivals_feud)
       elif cur_rivalry >= 25 and new_rivalry < 25:
         sandbox_log_old = cur_rivalry
         sandbox_log_new = new_rivalry
         sandbox_log_delta = _var_
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
-        $sandbox_log(rivals_cold)
+        $sandbox_log_rivals(rivals_cold)
       elif cur_rivalry < 25 and new_rivalry >= 25:
         sandbox_log_old = cur_rivalry
         sandbox_log_new = new_rivalry
         sandbox_log_delta = _var_
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
-        $sandbox_log(rivals_rival_band)
+        $sandbox_log_rivals(rivals_rival_band)
 
 # Highest rivalry among slots holding _tag_ (0 if none). ai_will_do trigger
 # context: temps + if, no scripted effect.

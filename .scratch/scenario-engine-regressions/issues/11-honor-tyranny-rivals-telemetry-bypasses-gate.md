@@ -1,6 +1,6 @@
 # 11 - Honor, Tyranny and Rivals telemetry bypasses its logging gate
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -99,6 +99,30 @@ Point the emitters at the gated wrappers:
 
 - `docs/gdd/Honor System.md` / `Tyranny System.md` / `Rivals System.md` - telemetry sections.
 - The on_startup comment: "each system logs only while its gate is up".
+
+## Fix
+
+Applied in `sandbox-mod-core` (synced outward, `drifted=0`): the three emitters now call their
+system's gated wrapper instead of the base logger.
+
+- `add_honor` -> `$sandbox_log_honor`
+- `add_tyranny` -> `$sandbox_log_tyranny`
+- `add_rivalry` -> `$sandbox_log_rivals` for all four events (`rivals_intensity`, `rivals_feud`,
+  `rivals_cold`, `rivals_rival_band`)
+
+The wrappers and the base `$sandbox_log` are unchanged. Only the wrappers (and the self-gating
+inner-circle logger) still call the base macro.
+
+## Verification: PASSED (static)
+
+- Compiled `add_honor` emit now sits under the gate:
+  `if = { limit = { has_global_flag = sandbox_log_honor } ... log = "... honor_change ..." }`.
+- `has_global_flag = sandbox_log_honor` appears in the compiled on_actions, matching the gated
+  call sites that survive in this mod.
+- Both mods recompiled clean; `sync_core.py --check` reports `drifted=0`.
+
+Observer confirmation is still owed: with only the scenario gate up, a session should produce zero
+`honor_*`, `tyranny_*` and `rivals_*` lines; raising one gate should make only that system audible.
 
 ## Comments
 
