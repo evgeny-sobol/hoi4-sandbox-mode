@@ -1,6 +1,6 @@
 # 02 - Walking skeleton: spec schema, loader, validator, CLI check
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -43,3 +43,17 @@ Author one real spec for `axis_expansion` in the vanilla mod as the fixture.
 ## Out of scope
 
 - Generating the catalog, diagrams, boosts or labels; those are later tickets.
+
+## Verification: PASSED (tests)
+
+- `core/tools/build_scenario_catalog.py` (mirrored into the authoritative core
+  repo): TOML loader, schema validator, single CLI seam with `build` and
+  `--check`. Target tags checked against the vanilla `country_tags` registry
+  when available, by shape otherwise.
+- `core/tools/test_build_scenario_catalog.py`: 7/7 process-level tests green
+  (valid spec, check mode, unknown focus, missing field, duplicate id, bad
+  target tag, real vanilla spec).
+- `docs/scenarios/axis_expansion.toml` validates green: `1 spec(s) valid`.
+- Fixed during implementation: duplicate detection keyed on the `id` field
+  (not the file stem); top-level keys placed before `[table]` headers in TOML
+  (sticky-table trap documented in the spec file comment).
