@@ -11,3 +11,7 @@ Five canonical roles with label strings equal to role names. See `docs/agents/tr
 ### Domain docs
 
 Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
+
+### External directories
+
+Work spans five directories (vanilla, both mods, Rt56, shared core). See `docs/agents/external-dirs.md`.
