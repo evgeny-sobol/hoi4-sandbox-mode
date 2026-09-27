@@ -1,427 +1,511 @@
 # ENG_a_change_in_course
 
 ```mermaid
-flowchart TD
-    n1{"ENG_a_change_in_course"}
-    n2["ENG_alliance_with_germany"]
-    n3["ENG_appeal_to_imperial_loyalists"]
-    n4["ENG_bermuda_invasion_launch_point"]
-    n5["ENG_bring_the_dominions_back_into_the_fold"]
-    n6["ENG_ceylon_forward_operating_base"]
-    n7["ENG_concessions_to_the_trade_unions"]
-    n8["ENG_consolidate_the_british_isles"]
-    n9["ENG_crush_the_dream"]
-    n10["ENG_eliminate_the_upper_class"]
-    n11["ENG_enact_the_mosley_manifesto"]
-    n12{"ENG_enforce_decolonization"}
-    n13["ENG_expose_the_belly_of_the_bear"]
-    n14{"ENG_follow_moscow"}
-    n15{"ENG_for_the_good_of_the_revolution"}
-    n16["ENG_gibraltar_for_spanish_support"]
-    n17["ENG_god_save_the_king"]
-    n18["ENG_imperial_conscription"]
-    n19{"ENG_isolate_the_mediterranean_threat"}
-    n20["ENG_liberate_the_home_of_marx"]
-    n21["ENG_move_to_secure_the_dominions"]
-    n22["ENG_noninterference_treaty_with_germany"]
-    n23["ENG_organize_the_blackshirts"]
-    n24["ENG_pre_empt_spanish_alignment"]
-    n25["ENG_pre_empt_the_ideological_threat"]
-    n26["ENG_pre_empt_the_strategic_threat"]
-    n27["ENG_preparing_the_second_front"]
-    n28["ENG_prevent_a_continental_hegemony"]
-    n29{"ENG_reach_out_across_the_channel"}
-    n30["ENG_reassess_continental_commitments"]
-    n31["ENG_reclaim_burma"]
-    n32["ENG_reclaim_the_jewel_in_the_crown"]
-    n33{"ENG_secure_the_italian_alliance"}
-    n34["ENG_socialist_science_pool"]
-    n35["ENG_soviet_cooperation"]
-    n36["ENG_spirit_of_the_industrial_revolution"]
-    n37["ENG_steady_as_she_goes"]
-    n38["ENG_tackle_capitalism"]
-    n39["ENG_tackle_fascism"]
-    n40["ENG_take_out_the_regia_marina"]
-    n41{"ENG_the_british_communist_alternative"}
-    n42["ENG_the_british_path_to_fascism"]
-    n43["ENG_the_fate_of_the_royal_family"]
-    n44["ENG_the_kings_party"]
-    n45["ENG_the_one_true_revolution"]
-    n46["ENG_the_sun_never_sets"]
-    n47["ENG_unite_the_anglosphere"]
-    n19 --> n2
-    n17 --> n3
-    n38 --> n4
-    n3 --> n5
-    n17 --> n6
-    n1 --> n7
-    n17 --> n8
-    n4 --> n9
-    n7 --> n10
-    n42 --> n11
-    n41 --> n12
-    n25 --> n13
-    n15 --> n14
-    n43 --> n15
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"ENG_a_change_in_course"}
+        n2["ENG_steady_as_she_goes"]
+    end
+    subgraph tier_1["Tier 1"]
+        n3["ENG_concessions_to_the_trade_unions"]
+        n4["ENG_organize_the_blackshirts"]
+        n5["ENG_the_kings_party"]
+    end
+    subgraph tier_2["Tier 2"]
+        n6["ENG_eliminate_the_upper_class"]
+        n7["ENG_god_save_the_king"]
+        n8["ENG_move_to_secure_the_dominions"]
+        n9["ENG_reassess_continental_commitments"]
+        n10["ENG_the_british_path_to_fascism"]
+        n11["ENG_the_fate_of_the_royal_family"]
+    end
+    subgraph tier_3["Tier 3"]
+        n12["ENG_appeal_to_imperial_loyalists"]
+        n13["ENG_ceylon_forward_operating_base"]
+        n14["ENG_consolidate_the_british_isles"]
+        n15["ENG_enact_the_mosley_manifesto"]
+        n16{"ENG_for_the_good_of_the_revolution"}
+        n17{"ENG_isolate_the_mediterranean_threat"}
+        n18{"ENG_secure_the_italian_alliance"}
+    end
+    subgraph tier_4["Tier 4"]
+        n19["ENG_alliance_with_germany"]
+        n20["ENG_bring_the_dominions_back_into_the_fold"]
+        n21{"ENG_follow_moscow"}
+        n22["ENG_gibraltar_for_spanish_support"]
+        n23["ENG_imperial_conscription"]
+        n24["ENG_noninterference_treaty_with_germany"]
+        n25["ENG_pre_empt_spanish_alignment"]
+        n26{"ENG_the_british_communist_alternative"}
+    end
+    subgraph tier_5["Tier 5"]
+        n27{"ENG_enforce_decolonization"}
+        n28["ENG_pre_empt_the_strategic_threat"]
+        n29["ENG_prevent_a_continental_hegemony"]
+        n30{"ENG_reach_out_across_the_channel"}
+        n31["ENG_reclaim_burma"]
+        n32["ENG_reclaim_the_jewel_in_the_crown"]
+        n33["ENG_socialist_science_pool"]
+        n34["ENG_tackle_capitalism"]
+        n35["ENG_tackle_fascism"]
+        n36["ENG_take_out_the_regia_marina"]
+        n37["ENG_the_sun_never_sets"]
+        n38["ENG_unite_the_anglosphere"]
+    end
+    subgraph tier_6["Tier 6"]
+        n39["ENG_bermuda_invasion_launch_point"]
+        n40["ENG_pre_empt_the_ideological_threat"]
+        n41["ENG_preparing_the_second_front"]
+        n42["ENG_soviet_cooperation"]
+        n43["ENG_the_one_true_revolution"]
+    end
+    subgraph tier_7["Tier 7"]
+        n44["ENG_crush_the_dream"]
+        n45["ENG_expose_the_belly_of_the_bear"]
+        n46["ENG_liberate_the_home_of_marx"]
+    end
+    subgraph tier_8["Tier 8"]
+        n47["ENG_spirit_of_the_industrial_revolution"]
+    end
+    n17 --> n19
+    n7 --> n12
+    n34 --> n39
+    n12 --> n20
+    n7 --> n13
+    n1 --> n3
+    n7 --> n14
+    n39 --> n44
+    n3 --> n6
     n10 --> n15
-    n33 --> n16
-    n44 --> n17
-    n23 --> n17
-    n6 --> n18
-    n30 --> n19
-    n45 --> n20
-    n27 --> n20
-    n23 --> n21
-    n7 --> n21
-    n19 --> n22
-    n1 --> n23
-    n33 --> n24
+    n26 --> n27
+    n40 --> n45
+    n16 --> n21
+    n11 --> n16
+    n6 --> n16
+    n18 --> n22
+    n5 --> n7
+    n4 --> n7
+    n13 --> n23
+    n9 --> n17
+    n43 --> n46
+    n41 --> n46
+    n4 --> n8
+    n3 --> n8
+    n17 --> n24
+    n1 --> n4
     n18 --> n25
-    n40 --> n25
-    n5 --> n26
-    n39 --> n27
-    n16 --> n28
-    n24 --> n28
-    n41 --> n29
-    n44 --> n30
-    n18 --> n31
-    n18 --> n32
-    n42 --> n33
-    n14 --> n34
-    n12 --> n35
-    n29 --> n35
-    n35 --> n36
-    n20 --> n36
-    n9 --> n36
-    n14 --> n38
-    n14 --> n39
-    n22 --> n40
-    n2 --> n40
-    n15 --> n41
-    n23 --> n42
-    n7 --> n43
-    n1 --> n44
-    n12 --> n45
-    n29 --> n45
-    n5 --> n46
-    n18 --> n47
-    n5 --> n47
-    n1 x--x n37
-    n2 x--x n22
-    n7 x--x n23
-    n7 x--x n44
-    n12 x--x n29
-    n14 x--x n41
-    n16 x--x n24
-    n23 x--x n44
-    n35 x--x n45
-    n38 x--x n39
+    n23 --> n40
+    n36 --> n40
+    n20 --> n28
+    n35 --> n41
+    n22 --> n29
+    n25 --> n29
+    n26 --> n30
+    n5 --> n9
+    n23 --> n31
+    n23 --> n32
+    n10 --> n18
+    n21 --> n33
+    n27 --> n42
+    n30 --> n42
+    n42 --> n47
+    n46 --> n47
+    n44 --> n47
+    n21 --> n34
+    n21 --> n35
+    n24 --> n36
+    n19 --> n36
+    n16 --> n26
+    n4 --> n10
+    n3 --> n11
+    n1 --> n5
+    n27 --> n43
+    n30 --> n43
+    n20 --> n37
+    n23 --> n38
+    n20 --> n38
+    n1 x--x n2
+    n19 x--x n24
+    n3 x--x n4
+    n3 x--x n5
+    n27 x--x n30
+    n21 x--x n26
+    n22 x--x n25
+    n4 x--x n5
+    n42 x--x n43
+    n34 x--x n35
 ```
 
 # ENG_revisit_colonial_policy
 
 ```mermaid
-flowchart TD
-    n48["ENG_decolonization"]
-    n49["ENG_foundations_for_an_indian_state"]
-    n50["ENG_guide_the_colonies"]
-    n51(("ENG_revisit_colonial_policy"))
-    n52["ENG_self_government_for_africa"]
-    n53["ENG_self_government_for_asia"]
-    n54["ENG_self_government_for_the_americas"]
-    n55["ENG_self_government_for_the_mediterranean"]
-    n56["ENG_self_government_for_the_middle_east"]
-    n57["ENG_the_three_nation_solution"]
-    n58["ENG_the_winds_of_change"]
-    n59["ENG_towards_dominion_independence"]
-    n60["ENG_towards_indian_independence"]
-    n61["ENG_withdraw_from_contested_territories"]
-    n62["uk_empire_focus"]
-    n52 --> n48
-    n53 --> n48
-    n60 --> n48
-    n59 --> n49
-    n51 --> n50
-    n55 --> n52
-    n54 --> n53
-    n56 --> n54
-    n61 --> n55
-    n61 --> n56
-    n49 --> n57
-    n48 --> n58
-    n50 --> n59
-    n49 --> n60
-    n50 --> n61
-    n51 x--x n62
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n48(("ENG_revisit_colonial_policy"))
+        n49["uk_empire_focus"]
+    end
+    subgraph tier_1["Tier 1"]
+        n50["ENG_guide_the_colonies"]
+    end
+    subgraph tier_2["Tier 2"]
+        n51["ENG_towards_dominion_independence"]
+        n52["ENG_withdraw_from_contested_territories"]
+    end
+    subgraph tier_3["Tier 3"]
+        n53["ENG_foundations_for_an_indian_state"]
+        n54["ENG_self_government_for_the_mediterranean"]
+        n55["ENG_self_government_for_the_middle_east"]
+    end
+    subgraph tier_4["Tier 4"]
+        n56["ENG_self_government_for_africa"]
+        n57["ENG_self_government_for_the_americas"]
+        n58["ENG_the_three_nation_solution"]
+        n59["ENG_towards_indian_independence"]
+    end
+    subgraph tier_5["Tier 5"]
+        n60["ENG_self_government_for_asia"]
+    end
+    subgraph tier_6["Tier 6"]
+        n61["ENG_decolonization"]
+    end
+    subgraph tier_7["Tier 7"]
+        n62["ENG_the_winds_of_change"]
+    end
+    n56 --> n61
+    n60 --> n61
+    n59 --> n61
+    n51 --> n53
+    n48 --> n50
+    n54 --> n56
+    n57 --> n60
+    n55 --> n57
+    n52 --> n54
+    n52 --> n55
+    n53 --> n58
+    n61 --> n62
+    n50 --> n51
+    n53 --> n59
+    n50 --> n52
+    n48 x--x n49
 ```
 
 # ENG_steady_as_she_goes
 
 ```mermaid
-flowchart TD
-    n1["ENG_a_change_in_course"]
-    n63["ENG_belgium_security"]
-    n64["ENG_benelux_intervention"]
-    n65["ENG_continental_intervention"]
-    n66["ENG_danish_intervention"]
-    n67["ENG_dutch_security"]
-    n68["ENG_embargo_germany"]
-    n69["ENG_embargo_ussr"]
-    n70["ENG_enforce_the_naval_treaties"]
-    n71["ENG_every_man_will_do_his_duty"]
-    n72["ENG_global_defense"]
-    n73["ENG_home_defence"]
-    n74["ENG_issue_gasmasks"]
-    n75["ENG_kickstart_the_war_industry"]
-    n76["ENG_maintaining_imperial_integrity"]
-    n77["ENG_maintaining_the_balance_of_power"]
-    n78["ENG_military_training_act"]
-    n79["ENG_motion_of_no_confidence"]
-    n80{"ENG_no_further_appeasement"}
-    n81["ENG_norwegian_intervention"]
-    n82["ENG_prepare_for_the_inevitable"]
-    n83["ENG_secure_the_oil_imports"]
-    n37{"ENG_steady_as_she_goes"}
-    n84["ENG_swedish_intervention"]
-    n85["ENG_war_with_germany"]
-    n86["ENG_war_with_ussr"]
-    n87["uk_iran_focus"]
-    n88["uk_iraq_focus"]
-    n89["uk_scandinavian_focus"]
-    n64 --> n63
-    n73 --> n64
-    n77 --> n65
-    n89 --> n66
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["ENG_a_change_in_course"]
+        n2{"ENG_steady_as_she_goes"}
+    end
+    subgraph tier_1["Tier 1"]
+        n63["ENG_global_defense"]
+        n64["ENG_home_defence"]
+    end
+    subgraph tier_2["Tier 2"]
+        n65["ENG_benelux_intervention"]
+        n66["ENG_every_man_will_do_his_duty"]
+        n67["ENG_issue_gasmasks"]
+        n68["ENG_motion_of_no_confidence"]
+        n69["ENG_prepare_for_the_inevitable"]
+        n70["uk_iraq_focus"]
+        n71["uk_scandinavian_focus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n72["ENG_belgium_security"]
+        n73["ENG_danish_intervention"]
+        n74["ENG_dutch_security"]
+        n75["ENG_military_training_act"]
+        n76{"ENG_no_further_appeasement"}
+        n77["ENG_norwegian_intervention"]
+        n78["ENG_swedish_intervention"]
+        n79["uk_iran_focus"]
+    end
+    subgraph tier_4["Tier 4"]
+        n80["ENG_embargo_germany"]
+        n81["ENG_embargo_ussr"]
+        n82["ENG_kickstart_the_war_industry"]
+        n83["ENG_maintaining_imperial_integrity"]
+        n84["ENG_maintaining_the_balance_of_power"]
+    end
+    subgraph tier_5["Tier 5"]
+        n85["ENG_continental_intervention"]
+        n86["ENG_enforce_the_naval_treaties"]
+        n87["ENG_secure_the_oil_imports"]
+        n88["ENG_war_with_germany"]
+        n89["ENG_war_with_ussr"]
+    end
+    n65 --> n72
+    n64 --> n65
+    n84 --> n85
+    n71 --> n73
+    n65 --> n74
+    n75 --> n80
+    n79 --> n81
+    n76 --> n81
+    n83 --> n86
+    n63 --> n66
+    n2 --> n63
+    n2 --> n64
     n64 --> n67
-    n78 --> n68
-    n87 --> n69
-    n80 --> n69
-    n76 --> n70
-    n72 --> n71
-    n37 --> n72
-    n37 --> n73
-    n73 --> n74
-    n80 --> n75
-    n80 --> n76
-    n80 --> n77
-    n74 --> n78
-    n72 --> n79
-    n71 --> n80
-    n79 --> n80
-    n89 --> n81
-    n73 --> n82
-    n75 --> n83
-    n89 --> n84
-    n68 --> n85
-    n69 --> n86
-    n88 --> n87
-    n73 --> n88
-    n73 --> n89
-    n1 x--x n37
-    n72 x--x n73
-    n76 x--x n77
+    n76 --> n82
+    n76 --> n83
+    n76 --> n84
+    n67 --> n75
+    n63 --> n68
+    n66 --> n76
+    n68 --> n76
+    n71 --> n77
+    n64 --> n69
+    n82 --> n87
+    n71 --> n78
+    n80 --> n88
+    n81 --> n89
+    n70 --> n79
+    n64 --> n70
+    n64 --> n71
+    n1 x--x n2
+    n63 x--x n64
+    n83 x--x n84
 ```
 
 # crypto_bomb_focus
 
 ```mermaid
-flowchart TD
-    n90["UK_secret_focus"]
-    n91(("crypto_bomb_focus"))
-    n92["maud_focus"]
-    n93["radar_focus"]
-    n94["royal_ordinance_focus"]
-    n95["tizard_mission_focus"]
-    n94 --> n90
-    n92 --> n90
-    n95 --> n92
-    n91 --> n95
-    n93 --> n95
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n90(("crypto_bomb_focus"))
+        n91["radar_focus"]
+        n92["royal_ordinance_focus"]
+    end
+    subgraph tier_1["Tier 1"]
+        n93["tizard_mission_focus"]
+    end
+    subgraph tier_2["Tier 2"]
+        n94["maud_focus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n95["UK_secret_focus"]
+    end
+    n92 --> n95
+    n94 --> n95
+    n93 --> n94
+    n90 --> n93
+    n91 --> n93
 ```
 
 # limited_rearmament_focus
 
 ```mermaid
-flowchart TD
-    n96["ENG_a_s_warfare"]
-    n97["ENG_anti_non_contact_committee"]
-    n98["ENG_anti_submarine_training_school"]
-    n99["ENG_chiefs_of_staff_committee"]
-    n100["ENG_expand_the_repair_yards"]
-    n101["ENG_expand_the_secret_intelligence_service_focus"]
-    n102["ENG_motorized_focus"]
-    n103["ENG_parachute_regiments"]
-    n104["ENG_secure_the_imperial_shipping_routes"]
-    n105["ENG_special_air_service"]
-    n106["ENG_tank_focus"]
-    n107["ENG_vanguard"]
-    n108["ENG_vickers_experimental_facility_focus"]
-    n90["UK_secret_focus"]
-    n109["air_defense_focus"]
-    n110["air_rearmament_focus"]
-    n111["aircraft_production_focus"]
-    n112["bomber_command_focus"]
-    n113["coastal_command_focus"]
-    n91["crypto_bomb_focus"]
-    n114["fighter_command_focus"]
-    n115["general_rearmament_focus"]
-    n116(("limited_rearmament_focus"))
-    n92["maud_focus"]
-    n117["naval_rearmament_focus"]
-    n93["radar_focus"]
-    n94["royal_ordinance_focus"]
-    n118["shadow_scheme_focus"]
-    n95["tizard_mission_focus"]
-    n119["uk_amphibious_focus"]
-    n120["uk_battleship_focus"]
-    n121["uk_carrier_focus"]
-    n122["uk_convoy_focus"]
-    n123["uk_destroyer_focus"]
-    n124["uk_extra_tech_slot"]
-    n125["uk_industrial_focus"]
-    n126["uk_jet_focus"]
-    n127["uk_service_focus"]
-    n128["uk_small_arms_focus"]
-    n129{"uk_waves_focus"}
-    n123 --> n96
-    n117 --> n97
-    n122 --> n98
-    n110 --> n99
-    n117 --> n99
-    n120 --> n100
-    n121 --> n100
-    n116 --> n101
-    n116 --> n102
-    n105 --> n103
-    n117 --> n104
-    n127 --> n104
-    n115 --> n105
-    n102 --> n106
-    n120 --> n107
-    n125 --> n108
-    n94 --> n90
-    n92 --> n90
-    n116 --> n109
-    n115 --> n110
-    n114 --> n111
-    n112 --> n111
-    n113 --> n111
-    n110 --> n112
-    n110 --> n113
-    n110 --> n114
-    n116 --> n115
-    n95 --> n92
-    n115 --> n117
-    n109 --> n93
-    n125 --> n94
-    n116 --> n118
-    n91 --> n95
-    n93 --> n95
-    n117 --> n119
-    n129 --> n120
-    n129 --> n121
-    n123 --> n122
-    n117 --> n123
-    n125 --> n124
-    n118 --> n125
-    n111 --> n126
-    n94 --> n128
-    n117 --> n129
-    n120 x--x n121
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n90["crypto_bomb_focus"]
+        n96(("limited_rearmament_focus"))
+        n97["uk_service_focus"]
+    end
+    subgraph tier_1["Tier 1"]
+        n98["ENG_expand_the_secret_intelligence_service_focus"]
+        n99["ENG_motorized_focus"]
+        n100["air_defense_focus"]
+        n101["general_rearmament_focus"]
+        n102["shadow_scheme_focus"]
+    end
+    subgraph tier_2["Tier 2"]
+        n103["ENG_special_air_service"]
+        n104["ENG_tank_focus"]
+        n105["air_rearmament_focus"]
+        n106["naval_rearmament_focus"]
+        n91["radar_focus"]
+        n107["uk_industrial_focus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n108["ENG_anti_non_contact_committee"]
+        n109["ENG_chiefs_of_staff_committee"]
+        n110["ENG_parachute_regiments"]
+        n111["ENG_secure_the_imperial_shipping_routes"]
+        n112["ENG_vickers_experimental_facility_focus"]
+        n113["bomber_command_focus"]
+        n114["coastal_command_focus"]
+        n115["fighter_command_focus"]
+        n92["royal_ordinance_focus"]
+        n93["tizard_mission_focus"]
+        n116["uk_amphibious_focus"]
+        n117["uk_destroyer_focus"]
+        n118["uk_extra_tech_slot"]
+        n119{"uk_waves_focus"}
+    end
+    subgraph tier_4["Tier 4"]
+        n120["ENG_a_s_warfare"]
+        n121["aircraft_production_focus"]
+        n94["maud_focus"]
+        n122["uk_battleship_focus"]
+        n123["uk_carrier_focus"]
+        n124["uk_convoy_focus"]
+        n125["uk_small_arms_focus"]
+    end
+    subgraph tier_5["Tier 5"]
+        n126["ENG_anti_submarine_training_school"]
+        n127["ENG_expand_the_repair_yards"]
+        n128["ENG_vanguard"]
+        n95["UK_secret_focus"]
+        n129["uk_jet_focus"]
+    end
+    n117 --> n120
+    n106 --> n108
+    n124 --> n126
+    n105 --> n109
+    n106 --> n109
+    n122 --> n127
+    n123 --> n127
+    n96 --> n98
+    n96 --> n99
+    n103 --> n110
+    n106 --> n111
+    n97 --> n111
+    n101 --> n103
+    n99 --> n104
+    n122 --> n128
+    n107 --> n112
+    n92 --> n95
+    n94 --> n95
+    n96 --> n100
+    n101 --> n105
+    n115 --> n121
+    n113 --> n121
+    n114 --> n121
+    n105 --> n113
+    n105 --> n114
+    n105 --> n115
+    n96 --> n101
+    n93 --> n94
+    n101 --> n106
+    n100 --> n91
+    n107 --> n92
+    n96 --> n102
+    n90 --> n93
+    n91 --> n93
+    n106 --> n116
+    n119 --> n122
+    n119 --> n123
+    n117 --> n124
+    n106 --> n117
+    n107 --> n118
+    n102 --> n107
+    n121 --> n129
+    n92 --> n125
+    n106 --> n119
+    n122 x--x n123
 ```
 
 # uk_empire_focus
 
 ```mermaid
-flowchart TD
-    n130["ENG_british_commonwealth_air_training_plan"]
-    n131["ENG_east_indies_fleet_focus"]
-    n132["ENG_imperial_conference"]
-    n133["ENG_imperial_federation"]
-    n134["ENG_indian_autonomy"]
-    n51["ENG_revisit_colonial_policy"]
-    n135["ENG_royal_malay_regiment_focus"]
-    n136["ENG_sarawakrangers_focus"]
-    n104["ENG_secure_the_imperial_shipping_routes"]
-    n137["ENG_south_east_asia_air_command_focus"]
-    n138["ENG_territorial_army_of_malaysia_focus"]
-    n139["ENG_war_with_italy"]
-    n140["ENG_war_with_japan"]
-    n141["hongkong_focus"]
-    n117["naval_rearmament_focus"]
-    n142["peninsular_focus"]
-    n143{"singapore_focus"}
-    n144["uk_asia_focus"]
-    n145["uk_australia_focus"]
-    n146["uk_balkan_strategy"]
-    n147["uk_burma_focus"]
-    n148["uk_canada_focus"]
-    n149["uk_china_focus"]
-    n150["uk_colonial_focus"]
-    n151["uk_commonwealth_focus"]
-    n62(("uk_empire_focus"))
-    n152["uk_free_india_focus"]
-    n153["uk_greece_focus"]
-    n154{"uk_india_focus"}
-    n155["uk_malta_focus"]
-    n156{"uk_mediterranean_focus"}
-    n157["uk_new_zealand_focus"]
-    n158{"uk_protect_suez"}
-    n159["uk_rock_focus"]
-    n160["uk_sanction_italy_focus"]
-    n161["uk_sanction_japan_focus"]
-    n127["uk_service_focus"]
-    n162["uk_south_africa_focus"]
-    n163["uk_spain_focus"]
-    n164["uk_turkey_focus"]
-    n151 --> n130
-    n142 --> n131
-    n137 --> n131
-    n148 --> n132
-    n157 --> n132
-    n162 --> n132
-    n132 --> n133
-    n154 --> n134
-    n143 --> n135
-    n142 --> n136
-    n117 --> n104
-    n127 --> n104
-    n141 --> n137
-    n143 --> n138
-    n160 --> n139
-    n161 --> n140
-    n136 --> n140
-    n131 --> n140
-    n144 --> n141
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n48["ENG_revisit_colonial_policy"]
+        n106["naval_rearmament_focus"]
+        n49(("uk_empire_focus"))
+    end
+    subgraph tier_1["Tier 1"]
+        n97["uk_service_focus"]
+    end
+    subgraph tier_2["Tier 2"]
+        n111["ENG_secure_the_imperial_shipping_routes"]
+        n130["uk_colonial_focus"]
+        n131{"uk_mediterranean_focus"}
+    end
+    subgraph tier_3["Tier 3"]
+        n132["uk_asia_focus"]
+        n133["uk_commonwealth_focus"]
+        n134["uk_malta_focus"]
+        n135{"uk_protect_suez"}
+        n136["uk_rock_focus"]
+        n137["uk_spain_focus"]
+    end
+    subgraph tier_4["Tier 4"]
+        n138["ENG_british_commonwealth_air_training_plan"]
+        n139["hongkong_focus"]
+        n140{"singapore_focus"}
+        n141["uk_australia_focus"]
+        n142["uk_balkan_strategy"]
+        n143["uk_burma_focus"]
+        n144["uk_canada_focus"]
+        n145["uk_greece_focus"]
+        n146{"uk_india_focus"}
+        n147["uk_south_africa_focus"]
+        n148["uk_turkey_focus"]
+    end
+    subgraph tier_5["Tier 5"]
+        n149["ENG_indian_autonomy"]
+        n150["ENG_royal_malay_regiment_focus"]
+        n151["ENG_south_east_asia_air_command_focus"]
+        n152["ENG_territorial_army_of_malaysia_focus"]
+        n153["uk_free_india_focus"]
+        n154["uk_new_zealand_focus"]
+        n155["uk_sanction_italy_focus"]
+        n156["uk_sanction_japan_focus"]
+    end
+    subgraph tier_6["Tier 6"]
+        n157["ENG_imperial_conference"]
+        n158["ENG_war_with_italy"]
+        n159["peninsular_focus"]
+        n160["uk_china_focus"]
+    end
+    subgraph tier_7["Tier 7"]
+        n161["ENG_east_indies_fleet_focus"]
+        n162["ENG_imperial_federation"]
+        n163["ENG_sarawakrangers_focus"]
+    end
+    subgraph tier_8["Tier 8"]
+        n164["ENG_war_with_japan"]
+    end
+    n133 --> n138
+    n159 --> n161
+    n151 --> n161
+    n144 --> n157
+    n154 --> n157
+    n147 --> n157
+    n157 --> n162
+    n146 --> n149
+    n140 --> n150
+    n159 --> n163
+    n106 --> n111
+    n97 --> n111
+    n139 --> n151
+    n140 --> n152
+    n155 --> n158
+    n156 --> n164
+    n163 --> n164
+    n161 --> n164
+    n132 --> n139
+    n150 --> n159
+    n152 --> n159
+    n132 --> n140
+    n130 --> n132
+    n133 --> n141
     n135 --> n142
-    n138 --> n142
-    n144 --> n143
-    n150 --> n144
-    n151 --> n145
-    n158 --> n146
-    n155 --> n146
-    n144 --> n147
-    n151 --> n148
-    n137 --> n149
-    n127 --> n150
-    n150 --> n151
-    n154 --> n152
-    n158 --> n153
-    n151 --> n154
-    n156 --> n155
-    n127 --> n156
-    n145 --> n157
-    n156 --> n158
-    n156 --> n159
-    n146 --> n160
-    n147 --> n161
-    n62 --> n127
-    n151 --> n162
-    n156 --> n163
-    n158 --> n164
-    n134 x--x n152
-    n51 x--x n62
-    n135 x--x n138
-    n153 x--x n164
-    n159 x--x n163
+    n134 --> n142
+    n132 --> n143
+    n133 --> n144
+    n151 --> n160
+    n97 --> n130
+    n130 --> n133
+    n146 --> n153
+    n135 --> n145
+    n133 --> n146
+    n131 --> n134
+    n97 --> n131
+    n141 --> n154
+    n131 --> n135
+    n131 --> n136
+    n142 --> n155
+    n143 --> n156
+    n49 --> n97
+    n133 --> n147
+    n131 --> n137
+    n135 --> n148
+    n149 x--x n153
+    n48 x--x n49
+    n150 x--x n152
+    n145 x--x n148
+    n136 x--x n137
 ```

@@ -1,1900 +1,2082 @@
 # ITA_air_innovations_bba
 
 ```mermaid
-flowchart TD
-    n1(("ITA_air_innovations_bba"))
-    n2["ITA_bomber_designs"]
-    n3["ITA_citta_dell_aria"]
-    n4["ITA_diving_bombers"]
-    n5["ITA_expand_rome_flying_school"]
-    n6["ITA_fighter_designs"]
-    n7["ITA_long_range_aircraft"]
-    n8["ITA_multirole_aircraft"]
-    n9["ITA_naval_air_coordination"]
-    n10["ITA_officers_of_the_service_role"]
-    n11["ITA_reggianes_exports"]
-    n12["ITA_specialization"]
-    n13["ITA_standardization"]
-    n14{"ITA_superaereo"}
-    n15["ITA_supermarina"]
-    n16["ITA_supremacy_in_the_skies"]
-    n13 --> n2
-    n12 --> n2
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("ITA_air_innovations_bba"))
+        n2["ITA_supermarina"]
+    end
+    subgraph tier_1["Tier 1"]
+        n3["ITA_citta_dell_aria"]
+        n4["ITA_expand_rome_flying_school"]
+    end
+    subgraph tier_2["Tier 2"]
+        n5["ITA_diving_bombers"]
+        n6["ITA_naval_air_coordination"]
+        n7["ITA_reggianes_exports"]
+        n8{"ITA_superaereo"}
+    end
+    subgraph tier_3["Tier 3"]
+        n9["ITA_officers_of_the_service_role"]
+        n10["ITA_specialization"]
+        n11["ITA_standardization"]
+    end
+    subgraph tier_4["Tier 4"]
+        n12["ITA_bomber_designs"]
+        n13["ITA_fighter_designs"]
+        n14["ITA_long_range_aircraft"]
+        n15["ITA_multirole_aircraft"]
+    end
+    subgraph tier_5["Tier 5"]
+        n16["ITA_supremacy_in_the_skies"]
+    end
+    n11 --> n12
+    n10 --> n12
     n1 --> n3
-    n3 --> n4
-    n5 --> n4
-    n1 --> n5
-    n13 --> n6
-    n12 --> n6
-    n13 --> n7
-    n12 --> n8
-    n15 --> n9
-    n5 --> n9
-    n14 --> n10
-    n5 --> n10
-    n3 --> n11
-    n14 --> n12
-    n14 --> n13
-    n3 --> n14
-    n8 --> n16
-    n7 --> n16
-    n6 --> n16
-    n2 --> n16
-    n12 x--x n13
+    n3 --> n5
+    n4 --> n5
+    n1 --> n4
+    n11 --> n13
+    n10 --> n13
+    n11 --> n14
+    n10 --> n15
+    n2 --> n6
+    n4 --> n6
+    n8 --> n9
+    n4 --> n9
+    n3 --> n7
+    n8 --> n10
+    n8 --> n11
+    n3 --> n8
+    n15 --> n16
+    n14 --> n16
+    n13 --> n16
+    n12 --> n16
+    n10 x--x n11
 ```
 
 # ITA_army_primacy_bba
 
 ```mermaid
-flowchart TD
-    n17["ITA_a_bandits_war"]
-    n18["ITA_army_leaders"]
-    n19{"ITA_army_primacy_bba"}
-    n20["ITA_bersaglieri"]
-    n21["ITA_carica_di_isbuscenskij"]
-    n22["ITA_divisioni_alpine"]
-    n23["ITA_end_fiat_ansaldo_duopoly"]
-    n24["ITA_fanti_dell_aria"]
-    n25["ITA_ferrea_mole_ferreo_cuore"]
-    n26["ITA_fiocchi_munizioni"]
-    n27["ITA_increase_artillery_production"]
-    n28["ITA_italian_tankettes"]
-    n29["ITA_milan_comms_industry"]
-    n30["ITA_modernize_ansaldo_facilities"]
-    n31["ITA_moschettieri_del_duce"]
-    n32["ITA_preserve_army_traditions"]
-    n33{"ITA_self_propelled_guns"}
-    n34["ITA_superesercito"]
-    n35["ITA_vallo_alpino_del_littorio"]
-    n19 --> n17
-    n32 --> n18
-    n17 --> n18
-    n18 --> n20
-    n34 --> n20
-    n17 --> n21
-    n20 --> n22
-    n33 --> n23
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n17{"ITA_army_primacy_bba"}
+        n18["ITA_fiocchi_munizioni"]
+        n19["ITA_milan_comms_industry"]
+    end
+    subgraph tier_1["Tier 1"]
+        n20["ITA_a_bandits_war"]
+        n21["ITA_increase_artillery_production"]
+        n22["ITA_preserve_army_traditions"]
+    end
+    subgraph tier_2["Tier 2"]
+        n23["ITA_army_leaders"]
+        n24["ITA_carica_di_isbuscenskij"]
+        n25["ITA_italian_tankettes"]
+        n26["ITA_moschettieri_del_duce"]
+        n27["ITA_superesercito"]
+        n28["ITA_vallo_alpino_del_littorio"]
+    end
+    subgraph tier_3["Tier 3"]
+        n29["ITA_bersaglieri"]
+        n30{"ITA_self_propelled_guns"}
+    end
+    subgraph tier_4["Tier 4"]
+        n31["ITA_divisioni_alpine"]
+        n32["ITA_end_fiat_ansaldo_duopoly"]
+        n33["ITA_fanti_dell_aria"]
+        n34["ITA_modernize_ansaldo_facilities"]
+    end
+    subgraph tier_5["Tier 5"]
+        n35["ITA_ferrea_mole_ferreo_cuore"]
+    end
+    n17 --> n20
+    n22 --> n23
+    n20 --> n23
+    n23 --> n29
+    n27 --> n29
     n20 --> n24
-    n23 --> n25
-    n30 --> n25
-    n26 --> n27
-    n19 --> n27
-    n32 --> n28
-    n17 --> n28
-    n33 --> n30
-    n32 --> n31
-    n19 --> n32
-    n34 --> n33
-    n28 --> n33
-    n32 --> n34
-    n17 --> n34
-    n29 --> n35
-    n27 --> n35
-    n17 x--x n32
-    n23 x--x n30
+    n29 --> n31
+    n30 --> n32
+    n29 --> n33
+    n32 --> n35
+    n34 --> n35
+    n18 --> n21
+    n17 --> n21
+    n22 --> n25
+    n20 --> n25
+    n30 --> n34
+    n22 --> n26
+    n17 --> n22
+    n27 --> n30
+    n25 --> n30
+    n22 --> n27
+    n20 --> n27
+    n19 --> n28
+    n21 --> n28
+    n20 x--x n22
+    n32 x--x n34
 ```
 
 # ITA_ethiopian_war_logistics_bba
 
 ```mermaid
-flowchart TD
-    n36["ITA_comandante_diavolo"]
-    n37["ITA_develop_eritrea"]
-    n38["ITA_develop_ethiopia"]
-    n39["ITA_develop_libya"]
-    n40["ITA_develop_somaliland"]
-    n41(("ITA_ethiopian_war_logistics_bba"))
-    n42["ITA_italian_highways_bba"]
-    n43["ITA_libyan_railway"]
-    n44["ITA_libyan_refineries"]
-    n45["ITA_litoranea_balbo"]
-    n46["ITA_ministry_of_italian_africa"]
-    n47["ITA_polizia_dell_africa_italiana"]
-    n48["ITA_prospect_for_oil"]
-    n49{"ITA_regional_development"}
-    n50["ITA_strengthen_ascari_corps"]
-    n51["ITA_via_della_vittoria"]
-    n47 --> n36
-    n50 --> n36
-    n46 --> n37
-    n46 --> n38
-    n46 --> n39
-    n46 --> n40
-    n45 --> n43
-    n48 --> n43
-    n48 --> n44
-    n49 --> n45
-    n42 --> n46
-    n41 --> n46
-    n49 --> n47
-    n49 --> n48
-    n37 --> n49
-    n39 --> n49
-    n40 --> n49
-    n38 --> n49
-    n49 --> n50
-    n45 --> n51
-    n47 x--x n50
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n36(("ITA_ethiopian_war_logistics_bba"))
+        n37["ITA_italian_highways_bba"]
+    end
+    subgraph tier_1["Tier 1"]
+        n38["ITA_ministry_of_italian_africa"]
+    end
+    subgraph tier_2["Tier 2"]
+        n39["ITA_develop_eritrea"]
+        n40["ITA_develop_ethiopia"]
+        n41["ITA_develop_libya"]
+        n42["ITA_develop_somaliland"]
+    end
+    subgraph tier_3["Tier 3"]
+        n43{"ITA_regional_development"}
+    end
+    subgraph tier_4["Tier 4"]
+        n44["ITA_litoranea_balbo"]
+        n45["ITA_polizia_dell_africa_italiana"]
+        n46["ITA_prospect_for_oil"]
+        n47["ITA_strengthen_ascari_corps"]
+    end
+    subgraph tier_5["Tier 5"]
+        n48["ITA_comandante_diavolo"]
+        n49["ITA_libyan_railway"]
+        n50["ITA_libyan_refineries"]
+        n51["ITA_via_della_vittoria"]
+    end
+    n45 --> n48
+    n47 --> n48
+    n38 --> n39
+    n38 --> n40
+    n38 --> n41
+    n38 --> n42
+    n44 --> n49
+    n46 --> n49
+    n46 --> n50
+    n43 --> n44
+    n37 --> n38
+    n36 --> n38
+    n43 --> n45
+    n43 --> n46
+    n39 --> n43
+    n41 --> n43
+    n42 --> n43
+    n40 --> n43
+    n43 --> n47
+    n44 --> n51
+    n45 x--x n47
 ```
 
 # ITA_italian_highways_bba
 
 ```mermaid
-flowchart TD
-    n19["ITA_army_primacy_bba"]
-    n52["ITA_brescia_small_arms_industry"]
-    n36["ITA_comandante_diavolo"]
-    n37["ITA_develop_eritrea"]
-    n38["ITA_develop_ethiopia"]
-    n39["ITA_develop_libya"]
-    n40["ITA_develop_somaliland"]
-    n41["ITA_ethiopian_war_logistics_bba"]
-    n53["ITA_expand_foggia_farm_fields"]
-    n54{"ITA_expand_national_universities"}
-    n26["ITA_fiocchi_munizioni"]
-    n27["ITA_increase_artillery_production"]
-    n55["ITA_increase_production"]
-    n56{"ITA_industria_della_gomma_sintetica"}
-    n57["ITA_investments_in_edison"]
-    n42{"ITA_italian_highways_bba"}
-    n58["ITA_keep_specialization"]
-    n43["ITA_libyan_railway"]
-    n44["ITA_libyan_refineries"]
-    n45["ITA_litoranea_balbo"]
-    n29["ITA_milan_comms_industry"]
-    n46["ITA_ministry_of_italian_africa"]
-    n59["ITA_modernize_the_mezzogiorno"]
-    n60["ITA_new_industrialization_program"]
-    n47["ITA_polizia_dell_africa_italiana"]
-    n61["ITA_power_plants_in_terni"]
-    n48["ITA_prospect_for_oil"]
-    n62["ITA_railway_innovations"]
-    n63{"ITA_redirect_alfa_romeo_production"}
-    n49{"ITA_regional_development"}
-    n64["ITA_steel_industry_in_terni"]
-    n50["ITA_strengthen_ascari_corps"]
-    n65["ITA_strengthen_northern_industry"]
-    n66["ITA_thermojet_research"]
-    n35["ITA_vallo_alpino_del_littorio"]
-    n51["ITA_via_della_vittoria"]
-    n26 --> n52
-    n47 --> n36
-    n50 --> n36
-    n46 --> n37
-    n46 --> n38
-    n46 --> n39
-    n46 --> n40
-    n62 --> n53
-    n57 --> n54
-    n42 --> n26
-    n26 --> n27
-    n19 --> n27
-    n54 --> n55
-    n63 --> n55
-    n64 --> n56
-    n61 --> n56
-    n62 --> n57
-    n54 --> n58
-    n63 --> n58
-    n45 --> n43
-    n48 --> n43
-    n48 --> n44
-    n49 --> n45
-    n26 --> n29
-    n42 --> n46
-    n41 --> n46
-    n56 --> n59
-    n65 --> n60
-    n59 --> n60
-    n54 --> n60
-    n49 --> n47
-    n42 --> n61
-    n49 --> n48
-    n42 --> n62
-    n52 --> n63
-    n29 --> n63
-    n37 --> n49
-    n39 --> n49
-    n40 --> n49
-    n38 --> n49
-    n42 --> n64
-    n49 --> n50
-    n56 --> n65
-    n55 --> n66
-    n58 --> n66
-    n29 --> n35
-    n27 --> n35
-    n45 --> n51
-    n55 x--x n58
-    n59 x--x n65
-    n47 x--x n50
-    n61 x--x n64
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n17["ITA_army_primacy_bba"]
+        n36["ITA_ethiopian_war_logistics_bba"]
+        n37{"ITA_italian_highways_bba"}
+    end
+    subgraph tier_1["Tier 1"]
+        n18["ITA_fiocchi_munizioni"]
+        n38["ITA_ministry_of_italian_africa"]
+        n52["ITA_power_plants_in_terni"]
+        n53["ITA_railway_innovations"]
+        n54["ITA_steel_industry_in_terni"]
+    end
+    subgraph tier_2["Tier 2"]
+        n55["ITA_brescia_small_arms_industry"]
+        n39["ITA_develop_eritrea"]
+        n40["ITA_develop_ethiopia"]
+        n41["ITA_develop_libya"]
+        n42["ITA_develop_somaliland"]
+        n56["ITA_expand_foggia_farm_fields"]
+        n21["ITA_increase_artillery_production"]
+        n57{"ITA_industria_della_gomma_sintetica"}
+        n58["ITA_investments_in_edison"]
+        n19["ITA_milan_comms_industry"]
+    end
+    subgraph tier_3["Tier 3"]
+        n59{"ITA_expand_national_universities"}
+        n60["ITA_modernize_the_mezzogiorno"]
+        n61{"ITA_redirect_alfa_romeo_production"}
+        n43{"ITA_regional_development"}
+        n62["ITA_strengthen_northern_industry"]
+        n28["ITA_vallo_alpino_del_littorio"]
+    end
+    subgraph tier_4["Tier 4"]
+        n63["ITA_increase_production"]
+        n64["ITA_keep_specialization"]
+        n44["ITA_litoranea_balbo"]
+        n65["ITA_new_industrialization_program"]
+        n45["ITA_polizia_dell_africa_italiana"]
+        n46["ITA_prospect_for_oil"]
+        n47["ITA_strengthen_ascari_corps"]
+    end
+    subgraph tier_5["Tier 5"]
+        n48["ITA_comandante_diavolo"]
+        n49["ITA_libyan_railway"]
+        n50["ITA_libyan_refineries"]
+        n66["ITA_thermojet_research"]
+        n51["ITA_via_della_vittoria"]
+    end
+    n18 --> n55
+    n45 --> n48
+    n47 --> n48
+    n38 --> n39
+    n38 --> n40
+    n38 --> n41
+    n38 --> n42
+    n53 --> n56
+    n58 --> n59
+    n37 --> n18
+    n18 --> n21
+    n17 --> n21
+    n59 --> n63
+    n61 --> n63
+    n54 --> n57
+    n52 --> n57
+    n53 --> n58
+    n59 --> n64
+    n61 --> n64
+    n44 --> n49
+    n46 --> n49
+    n46 --> n50
+    n43 --> n44
+    n18 --> n19
+    n37 --> n38
+    n36 --> n38
+    n57 --> n60
+    n62 --> n65
+    n60 --> n65
+    n59 --> n65
+    n43 --> n45
+    n37 --> n52
+    n43 --> n46
+    n37 --> n53
+    n55 --> n61
+    n19 --> n61
+    n39 --> n43
+    n41 --> n43
+    n42 --> n43
+    n40 --> n43
+    n37 --> n54
+    n43 --> n47
+    n57 --> n62
+    n63 --> n66
+    n64 --> n66
+    n19 --> n28
+    n21 --> n28
+    n44 --> n51
+    n63 x--x n64
+    n60 x--x n62
+    n45 x--x n47
+    n52 x--x n54
 ```
 
 # ITA_naval_power_projection
 
 ```mermaid
-flowchart TD
-    n67["ITA_cacciatorpediniere_di_scorta"]
-    n68["ITA_cooperation_programs"]
-    n69["ITA_cruiser_submarines"]
-    n70["ITA_decima_flottiglia_mas"]
-    n71["ITA_expand_naval_facilities"]
-    n72["ITA_expand_naval_intelligence"]
-    n5["ITA_expand_rome_flying_school"]
-    n73["ITA_flotta_d_evasione"]
-    n74["ITA_forza_navale_especiale"]
-    n75["ITA_improve_overseas_naval_bases"]
-    n76{"ITA_incrociatori_leggeri"}
-    n77{"ITA_incrociatori_pesanti"}
-    n78["ITA_intensify_torpedo_manufacturing"]
-    n79["ITA_ispettorato_dei_mezzi_antisommergibili"]
-    n80["ITA_midget_submarines"]
-    n81["ITA_milizia_marittima_di_artiglieria"]
-    n9["ITA_naval_air_coordination"]
-    n82(("ITA_naval_power_projection"))
-    n83["ITA_navi_da_battaglia"]
-    n84["ITA_oto_naval_guns"]
-    n85["ITA_proper_carriers"]
-    n86["ITA_refit_civilian_ships"]
-    n87["ITA_stockpile_fuel"]
-    n15{"ITA_supermarina"}
-    n76 --> n67
-    n15 --> n68
-    n76 --> n69
-    n15 --> n70
-    n82 --> n71
-    n15 --> n72
-    n79 --> n73
-    n67 --> n73
-    n83 --> n73
-    n71 --> n74
-    n71 --> n75
-    n15 --> n76
-    n15 --> n77
-    n82 --> n78
-    n76 --> n79
-    n77 --> n79
-    n76 --> n80
-    n71 --> n81
-    n15 --> n9
-    n5 --> n9
-    n77 --> n83
-    n82 --> n84
-    n77 --> n85
-    n77 --> n86
-    n71 --> n87
-    n71 --> n15
-    n69 x--x n80
-    n76 x--x n77
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n4["ITA_expand_rome_flying_school"]
+        n67(("ITA_naval_power_projection"))
+    end
+    subgraph tier_1["Tier 1"]
+        n68["ITA_expand_naval_facilities"]
+        n69["ITA_intensify_torpedo_manufacturing"]
+        n70["ITA_oto_naval_guns"]
+    end
+    subgraph tier_2["Tier 2"]
+        n71["ITA_forza_navale_especiale"]
+        n72["ITA_improve_overseas_naval_bases"]
+        n73["ITA_milizia_marittima_di_artiglieria"]
+        n74["ITA_stockpile_fuel"]
+        n2{"ITA_supermarina"}
+    end
+    subgraph tier_3["Tier 3"]
+        n75["ITA_cooperation_programs"]
+        n76["ITA_decima_flottiglia_mas"]
+        n77["ITA_expand_naval_intelligence"]
+        n78{"ITA_incrociatori_leggeri"}
+        n79{"ITA_incrociatori_pesanti"}
+        n6["ITA_naval_air_coordination"]
+    end
+    subgraph tier_4["Tier 4"]
+        n80["ITA_cacciatorpediniere_di_scorta"]
+        n81["ITA_cruiser_submarines"]
+        n82["ITA_ispettorato_dei_mezzi_antisommergibili"]
+        n83["ITA_midget_submarines"]
+        n84["ITA_navi_da_battaglia"]
+        n85["ITA_proper_carriers"]
+        n86["ITA_refit_civilian_ships"]
+    end
+    subgraph tier_5["Tier 5"]
+        n87["ITA_flotta_d_evasione"]
+    end
+    n78 --> n80
+    n2 --> n75
+    n78 --> n81
+    n2 --> n76
+    n67 --> n68
+    n2 --> n77
+    n82 --> n87
+    n80 --> n87
+    n84 --> n87
+    n68 --> n71
+    n68 --> n72
+    n2 --> n78
+    n2 --> n79
+    n67 --> n69
+    n78 --> n82
+    n79 --> n82
+    n78 --> n83
+    n68 --> n73
+    n2 --> n6
+    n4 --> n6
+    n79 --> n84
+    n67 --> n70
+    n79 --> n85
+    n79 --> n86
+    n68 --> n74
+    n68 --> n2
+    n81 x--x n83
+    n78 x--x n79
     n85 x--x n86
 ```
 
 # ITA_solid_progress
 
 ```mermaid
-flowchart TD
-    n88["ITA_a_colonial_empire"]
-    n89["ITA_a_greater_purpose"]
-    n90["ITA_a_leader_steps_forward"]
-    n91["ITA_a_new_era_for_the_red_shirts"]
-    n92["ITA_a_time_for_war"]
-    n93["ITA_abolish_the_colonies"]
-    n94["ITA_agents_of_the_church"]
-    n95["ITA_aid_for_the_spanish_republic"]
-    n96["ITA_albanian_fascist_militia"]
-    n97["ITA_albanian_occupation"]
-    n98["ITA_albanian_oil"]
-    n99["ITA_all_roads_lead_to_rome"]
-    n100["ITA_anglo_italian_agreements"]
-    n101["ITA_anglo_italian_pact"]
-    n102["ITA_appeal_to_the_bourgeoisie"]
-    n103["ITA_appease_the_military"]
-    n104["ITA_army_modernization"]
-    n105["ITA_ascari"]
-    n106["ITA_auxiliaries"]
-    n107{"ITA_balkan_ambition"}
-    n108["ITA_banda_carita"]
-    n109["ITA_banda_koch"]
-    n110["ITA_battaglioni_d_assalto"]
-    n111{"ITA_befriend_greece"}
-    n112["ITA_befriend_japan"]
-    n113["ITA_befriend_portugal"]
-    n114["ITA_befriend_turkey"]
-    n115["ITA_believe_obey_fight"]
-    n116["ITA_bend_the_bars"]
-    n117{"ITA_blackshirt_loyalty"}
-    n118["ITA_boost_the_grand_council_of_fascism"]
-    n119["ITA_bring_back_exiled_intellectuals"]
-    n120["ITA_bring_back_old_glories"]
-    n121["ITA_bring_down_fascist_strongholds"]
-    n122["ITA_by_blood_alone"]
-    n123["ITA_caligulas_pride"]
-    n124["ITA_capo_supremo"]
-    n125["ITA_catholic_action"]
-    n126["ITA_christian_democracy"]
-    n127["ITA_claims_on_turkey_bba"]
-    n128["ITA_combined_land_and_air_warfare"]
-    n129["ITA_combined_research_effort"]
-    n130{"ITA_common_ground"}
-    n131["ITA_compagnie_auto_avio_sahariane"]
-    n132["ITA_condemn_colonialism"]
-    n133["ITA_consolidate_power"]
-    n134{"ITA_conspiracies_in_the_shadows"}
-    n135["ITA_convene_the_grand_council"]
-    n136["ITA_cooperate_with_moderates"]
-    n137["ITA_cooperate_with_the_mafia"]
-    n138["ITA_cooperatives_for_intensive_exploitation"]
-    n139{"ITA_corpo_di_truppe_volontarie"}
-    n140["ITA_crush_opposition"]
-    n141{"ITA_crush_the_mafia"}
-    n142{"ITA_culto_del_duce"}
-    n143["ITA_defend_the_land"]
-    n144["ITA_defense_against_capitalism"]
-    n145["ITA_defy_the_duce"]
-    n146["ITA_demand_balearic_islands_bba"]
-    n147["ITA_demand_ticino"]
-    n148["ITA_democratic_king"]
-    n149{"ITA_depose_mussolini"}
-    n150["ITA_deus_vult"]
-    n151["ITA_devaluate_the_lire"]
-    n152{"ITA_devotion"}
-    n153{"ITA_dino_grandi_focus"}
-    n154["ITA_disband_the_blackshirts"]
-    n155["ITA_divino_duce"]
-    n156["ITA_economic_reforms"]
-    n157["ITA_empower_the_carabinieri"]
-    n158["ITA_empower_the_unions"]
-    n159["ITA_enlist_the_bashkimi_kombetar"]
-    n160["ITA_european_democracies"]
-    n161["ITA_expand_intelligence_services"]
-    n162["ITA_expand_the_royal_guard"]
-    n163["ITA_expanded_corporatism"]
-    n164["ITA_extraction_industry"]
-    n165["ITA_follow_the_soviet_union"]
-    n166{"ITA_foreign_affairs"}
-    n167["ITA_franco_italian_pact"]
-    n168["ITA_german_military_cooperation"]
-    n169["ITA_gloria_al_regno_d_italia"]
-    n170["ITA_gruppi_di_difesa_della_donna"]
-    n171["ITA_guarantee_austrian_independence"]
-    n172["ITA_heroes_of_the_nation"]
-    n173["ITA_iberian_protection"]
-    n174["ITA_il_sol_dell_avvenire"]
-    n175["ITA_il_vento_aureo"]
-    n176["ITA_improve_the_industries"]
-    n177{"ITA_industrial_socialization"}
-    n178["ITA_institute_the_five_year_plan"]
-    n179["ITA_invite_france_to_military_partnership"]
-    n180["ITA_irregulars"]
-    n181["ITA_italia_libera"]
-    n182["ITA_italian_hegemony"]
-    n183{"ITA_italian_irredentism"}
-    n184{"ITA_italian_socialism"}
-    n185{"ITA_italo_balbo_focus"}
-    n186{"ITA_italy_first"}
-    n187["ITA_italys_destiny"]
-    n188["ITA_joint_military_programs"]
-    n189["ITA_la_battaglia_del_grano"]
-    n190["ITA_la_battaglia_per_la_terra"]
-    n191["ITA_la_battaglia_per_le_nascite"]
-    n192["ITA_legge_bottai"]
-    n193["ITA_liberate_gramsci"]
-    n194["ITA_liberate_the_workers_of_africa"]
-    n195["ITA_mafia_abroad"]
-    n196["ITA_mare_nostrum_bba"]
-    n197["ITA_masters_of_the_aegean"]
-    n198["ITA_masters_of_the_mediterranean"]
-    n199["ITA_meritocracy"]
-    n200["ITA_military_agreements"]
-    n201["ITA_military_cooperation"]
-    n202["ITA_milizia_coloniale"]
-    n203["ITA_ministero_della_cultura_popolare"]
-    n204["ITA_mobilize_the_railway_guns"]
-    n205["ITA_modern_musculus"]
-    n206{"ITA_monarchia_d_italia"}
-    n207["ITA_negotiate_italian_claims"]
-    n208["ITA_negotiations_with_albania"]
-    n209["ITA_new_colonial_policies"]
-    n210["ITA_new_corporations"]
-    n211["ITA_new_forms_of_weaponry"]
-    n212["ITA_new_ricostruzione_industriale"]
-    n213["ITA_new_roman_citizens"]
-    n214["ITA_novus_ordo"]
-    n215["ITA_oil_in_tripoli"]
-    n216{"ITA_organize_strikes_in_the_north"}
-    n217{"ITA_pact_of_steel"}
-    n218["ITA_paramilitary_training"]
-    n219["ITA_peace_preservation"]
-    n220["ITA_planned_economy"]
-    n221["ITA_political_commissars"]
-    n222{"ITA_potential_allies_in_the_balkans"}
-    n223{"ITA_power_to_the_king"}
-    n224["ITA_prepare_for_the_coming_wars"]
-    n225["ITA_proclaim_the_italian_empire"]
-    n226["ITA_production_lines"]
-    n227["ITA_pugno_alzato"]
-    n228["ITA_purge_the_party"]
-    n229["ITA_raise_the_peoples"]
-    n230["ITA_ratify_the_stresa_front"]
-    n231["ITA_reestablish_old_alliances"]
-    n232["ITA_reinforce_regia_aeronautica"]
-    n233["ITA_reorganize_regio_esercito"]
-    n234["ITA_reorganize_the_party"]
-    n235["ITA_request_control_of_french_territories"]
-    n236{"ITA_revoke_the_acerbo_law"}
-    n237["ITA_scientific_cooperation"]
-    n238["ITA_sea_wolves_bba"]
-    n239["ITA_secret_weapons"]
-    n240["ITA_secure_the_borders"]
-    n241{"ITA_security_militias"}
-    n242["ITA_seek_british_military_cooperation"]
-    n243["ITA_seek_papal_support"]
-    n244["ITA_seize_old_equipment"]
-    n245["ITA_servizio_informazione_militare"]
-    n246{"ITA_setting_course"}
-    n247{"ITA_social_stability"}
-    n248(("ITA_solid_progress"))
-    n249["ITA_south_american_alliances"]
-    n250["ITA_spanish_italian_alliance"]
-    n251["ITA_special_brigades"]
-    n252["ITA_spreading_the_eagles_wings"]
-    n253["ITA_steel_in_tripoli"]
-    n254{"ITA_stop_the_squandering"}
-    n255["ITA_strengthen_the_blackshirts"]
-    n256["ITA_strengthen_the_papacy"]
-    n257{"ITA_strengthen_the_regime"}
-    n258["ITA_struggle_in_ethiopia"]
-    n259["ITA_subdue_the_sentinels"]
-    n260["ITA_support_albanian_irredentism"]
-    n261["ITA_the_abyssinian_fiasco"]
-    n262["ITA_the_catholic_dominion"]
-    n263["ITA_the_eastern_threat"]
-    n264["ITA_the_enemies_of_capitalism"]
-    n265{"ITA_the_ethiopian_question"}
-    n266{"ITA_the_fate_of_mussolini"}
-    n267["ITA_the_fight_against_stalinism"]
-    n268["ITA_the_fight_overseas"]
-    n269{"ITA_the_fourth_shore"}
-    n270["ITA_the_garibaldi_legion"]
-    n271["ITA_the_holy_lands"]
-    n272["ITA_the_italian_confederation"]
-    n273["ITA_the_italian_legions"]
-    n274{"ITA_the_italian_republic"}
-    n275["ITA_the_king_of_the_skies"]
-    n276{"ITA_the_man_of_providence"}
-    n277["ITA_the_new_emperor_of_ethiopia"]
-    n278["ITA_the_papacy_reborn"]
-    n279["ITA_the_path_to_progress"]
-    n280{"ITA_the_popular_front"}
-    n281["ITA_the_republics_leadership"]
-    n282{"ITA_the_southern_farmlands"}
-    n283["ITA_to_live_as_a_lion"]
-    n284["ITA_topple_amhara_rulers"]
-    n285{"ITA_towards_a_greater_italy"}
-    n286["ITA_treaty_with_germany"]
-    n287{"ITA_triumph_in_africa_bba"}
-    n288{"ITA_union_in_the_party"}
-    n289["ITA_unite_the_opposition"]
-    n290["ITA_united_anarchist_confederations"]
-    n291["ITA_utilize_the_blackshirts"]
-    n292["ITA_war_with_france"]
-    n293{"ITA_war_with_greece"}
-    n294["ITA_war_with_the_uk"]
-    n259 --> n88
-    n266 --> n89
-    n280 --> n90
-    n270 --> n91
-    n150 --> n92
-    n265 --> n93
-    n243 --> n94
-    n184 --> n95
-    n260 --> n96
-    n222 --> n97
-    n107 --> n97
-    n97 --> n98
-    n273 --> n99
-    n287 --> n100
-    n242 --> n101
-    n145 --> n102
-    n130 --> n103
-    n103 --> n104
-    n221 --> n104
-    n157 --> n104
-    n268 --> n105
-    n196 --> n106
-    n166 --> n107
-    n115 --> n108
-    n108 --> n109
-    n241 --> n110
-    n186 --> n111
-    n217 --> n112
-    n186 --> n112
-    n250 --> n113
-    n146 --> n113
-    n293 --> n114
-    n111 --> n114
-    n203 --> n115
-    n285 --> n116
-    n155 --> n117
-    n276 --> n118
-    n281 --> n119
-    n224 --> n120
-    n237 --> n121
-    n88 --> n122
-    n99 --> n123
-    n285 --> n124
-    n152 --> n124
-    n278 --> n125
-    n236 --> n126
-    n293 --> n127
-    n111 --> n127
-    n131 --> n128
-    n201 --> n129
-    n280 --> n130
-    n184 --> n130
-    n233 --> n131
-    n232 --> n131
-    n138 --> n132
-    n185 --> n133
-    n153 --> n133
-    n287 --> n135
-    n134 --> n135
-    n126 --> n136
-    n148 --> n136
-    n184 --> n137
-    n93 --> n138
-    n166 --> n139
-    n136 --> n140
-    n161 --> n140
-    n280 --> n141
-    n184 --> n141
-    n287 --> n142
-    n288 --> n143
-    n201 --> n144
-    n216 --> n145
-    n282 --> n145
-    n287 --> n145
-    n139 --> n146
-    n292 --> n147
-    n235 --> n147
-    n236 --> n148
-    n135 --> n149
-    n278 --> n150
-    n287 --> n151
-    n283 --> n152
-    n118 --> n152
-    n257 --> n152
-    n149 --> n153
-    n223 --> n154
-    n236 --> n154
-    n266 --> n155
-    n234 --> n156
-    n141 --> n157
-    n184 --> n158
-    n208 --> n159
-    n181 --> n160
-    n148 --> n161
-    n126 --> n161
-    n154 --> n162
-    n291 --> n162
-    n199 --> n163
-    n176 --> n163
-    n206 --> n164
-    n288 --> n165
-    n287 --> n166
-    n134 --> n166
-    n179 --> n167
-    n217 --> n168
-    n162 --> n169
-    n148 --> n169
-    n270 --> n170
-    n222 --> n171
-    n107 --> n171
-    n285 --> n172
-    n152 --> n172
-    n196 --> n173
-    n150 --> n173
-    n129 --> n174
-    n229 --> n174
-    n150 --> n175
-    n156 --> n176
-    n280 --> n177
-    n177 --> n178
-    n153 --> n179
-    n206 --> n179
-    n268 --> n180
-    n247 --> n181
-    n252 --> n182
-    n217 --> n183
-    n186 --> n183
-    n274 --> n184
-    n149 --> n185
-    n222 --> n186
-    n107 --> n186
-    n230 --> n187
-    n230 --> n188
-    n142 --> n189
-    n142 --> n190
-    n189 --> n191
-    n190 --> n191
-    n276 --> n192
-    n289 --> n193
-    n287 --> n193
-    n268 --> n194
-    n137 --> n195
-    n246 --> n196
-    n257 --> n196
-    n117 --> n196
-    n116 --> n197
-    n197 --> n198
-    n234 --> n199
-    n228 --> n199
-    n231 --> n200
-    n165 --> n201
-    n110 --> n202
-    n255 --> n202
-    n142 --> n203
-    n135 --> n203
-    n224 --> n204
-    n99 --> n205
-    n149 --> n206
-    n171 --> n207
-    n93 --> n208
-    n209 --> n208
-    n265 --> n209
-    n164 --> n210
-    n224 --> n211
-    n178 --> n212
-    n196 --> n213
-    n253 --> n214
-    n215 --> n214
-    n269 --> n215
-    n222 --> n217
-    n107 --> n217
-    n162 --> n218
-    n291 --> n218
-    n160 --> n219
-    n272 --> n220
-    n177 --> n221
-    n166 --> n222
-    n206 --> n223
-    n164 --> n224
-    n101 --> n225
-    n167 --> n225
-    n158 --> n226
-    n170 --> n227
-    n91 --> n227
-    n133 --> n228
-    n254 --> n228
-    n143 --> n229
-    n207 --> n230
-    n247 --> n231
-    n185 --> n232
-    n254 --> n232
-    n185 --> n233
-    n254 --> n233
-    n153 --> n234
-    n133 --> n234
-    n217 --> n235
-    n183 --> n235
-    n206 --> n236
-    n181 --> n237
-    n231 --> n237
-    n168 --> n238
-    n168 --> n239
-    n237 --> n240
-    n142 --> n241
-    n135 --> n241
-    n153 --> n242
-    n206 --> n242
-    n223 --> n243
-    n145 --> n244
-    n248 --> n245
-    n261 --> n245
-    n258 --> n245
-    n169 --> n246
-    n140 --> n246
-    n256 --> n246
-    n119 --> n247
-    n173 --> n249
-    n139 --> n250
-    n186 --> n250
-    n165 --> n251
-    n143 --> n251
-    n89 --> n252
-    n269 --> n253
-    n185 --> n254
-    n153 --> n254
-    n241 --> n255
-    n94 --> n256
-    n191 --> n257
-    n116 --> n259
-    n97 --> n260
-    n92 --> n262
-    n271 --> n262
-    n187 --> n263
-    n200 --> n264
-    n145 --> n265
-    n228 --> n266
-    n143 --> n267
-    n138 --> n268
-    n272 --> n268
-    n185 --> n269
-    n254 --> n269
-    n280 --> n270
-    n150 --> n271
-    n209 --> n272
-    n196 --> n273
-    n145 --> n274
-    n99 --> n275
-    n142 --> n276
-    n287 --> n277
-    n256 --> n278
-    n90 --> n279
-    n274 --> n280
-    n184 --> n281
-    n276 --> n283
-    n287 --> n284
-    n257 --> n285
-    n117 --> n285
-    n246 --> n285
-    n217 --> n286
-    n245 --> n287
-    n279 --> n288
-    n143 --> n290
-    n223 --> n291
-    n183 --> n292
-    n183 --> n293
-    n186 --> n294
-    n183 --> n294
-    n89 x--x n155
-    n93 x--x n209
-    n103 x--x n157
-    n103 x--x n221
-    n107 x--x n222
-    n110 x--x n255
-    n111 x--x n293
-    n114 x--x n127
-    n118 x--x n283
-    n124 x--x n172
-    n126 x--x n148
-    n135 x--x n142
-    n135 x--x n145
-    n137 x--x n141
-    n142 x--x n145
-    n143 x--x n165
-    n146 x--x n250
-    n153 x--x n185
-    n153 x--x n206
-    n154 x--x n291
-    n157 x--x n221
-    n171 x--x n186
-    n171 x--x n217
-    n179 x--x n242
-    n181 x--x n231
-    n184 x--x n280
-    n185 x--x n206
-    n186 x--x n217
-    n189 x--x n190
-    n196 x--x n285
-    n215 x--x n253
-    n223 x--x n236
-    n232 x--x n233
-    n235 x--x n292
-    n248 x--x n258
-    n248 x--x n261
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n88{"ITA_conspiracies_in_the_shadows"}
+        n89{"ITA_organize_strikes_in_the_north"}
+        n90(("ITA_solid_progress"))
+        n91["ITA_struggle_in_ethiopia"]
+        n92["ITA_the_abyssinian_fiasco"]
+        n93{"ITA_the_southern_farmlands"}
+        n94["ITA_unite_the_opposition"]
+    end
+    subgraph tier_1["Tier 1"]
+        n95["ITA_servizio_informazione_militare"]
+    end
+    subgraph tier_2["Tier 2"]
+        n96{"ITA_triumph_in_africa_bba"}
+    end
+    subgraph tier_3["Tier 3"]
+        n97["ITA_anglo_italian_agreements"]
+        n98["ITA_convene_the_grand_council"]
+        n99{"ITA_culto_del_duce"}
+        n100["ITA_defy_the_duce"]
+        n101["ITA_devaluate_the_lire"]
+        n102{"ITA_foreign_affairs"}
+        n103["ITA_liberate_gramsci"]
+        n104["ITA_the_new_emperor_of_ethiopia"]
+        n105["ITA_topple_amhara_rulers"]
+    end
+    subgraph tier_4["Tier 4"]
+        n106["ITA_appeal_to_the_bourgeoisie"]
+        n107{"ITA_balkan_ambition"}
+        n108{"ITA_corpo_di_truppe_volontarie"}
+        n109{"ITA_depose_mussolini"}
+        n110["ITA_la_battaglia_del_grano"]
+        n111["ITA_la_battaglia_per_la_terra"]
+        n112["ITA_ministero_della_cultura_popolare"]
+        n113{"ITA_potential_allies_in_the_balkans"}
+        n114{"ITA_security_militias"}
+        n115["ITA_seize_old_equipment"]
+        n116{"ITA_the_ethiopian_question"}
+        n117{"ITA_the_italian_republic"}
+        n118{"ITA_the_man_of_providence"}
+    end
+    subgraph tier_5["Tier 5"]
+        n119["ITA_abolish_the_colonies"]
+        n120["ITA_albanian_occupation"]
+        n121["ITA_battaglioni_d_assalto"]
+        n122["ITA_believe_obey_fight"]
+        n123["ITA_boost_the_grand_council_of_fascism"]
+        n124["ITA_demand_balearic_islands_bba"]
+        n125{"ITA_dino_grandi_focus"}
+        n126["ITA_guarantee_austrian_independence"]
+        n127{"ITA_italian_socialism"}
+        n128{"ITA_italo_balbo_focus"}
+        n129{"ITA_italy_first"}
+        n130["ITA_la_battaglia_per_le_nascite"]
+        n131["ITA_legge_bottai"]
+        n132{"ITA_monarchia_d_italia"}
+        n133["ITA_new_colonial_policies"]
+        n134{"ITA_pact_of_steel"}
+        n135["ITA_strengthen_the_blackshirts"]
+        n136{"ITA_the_popular_front"}
+        n137["ITA_to_live_as_a_lion"]
+    end
+    subgraph tier_6["Tier 6"]
+        n138["ITA_a_leader_steps_forward"]
+        n139["ITA_aid_for_the_spanish_republic"]
+        n140["ITA_albanian_oil"]
+        n141["ITA_banda_carita"]
+        n142{"ITA_befriend_greece"}
+        n143["ITA_befriend_japan"]
+        n144{"ITA_common_ground"}
+        n145["ITA_consolidate_power"]
+        n146["ITA_cooperate_with_the_mafia"]
+        n147["ITA_cooperatives_for_intensive_exploitation"]
+        n148{"ITA_crush_the_mafia"}
+        n149["ITA_empower_the_unions"]
+        n150["ITA_extraction_industry"]
+        n151["ITA_german_military_cooperation"]
+        n152{"ITA_industrial_socialization"}
+        n153["ITA_invite_france_to_military_partnership"]
+        n154{"ITA_italian_irredentism"}
+        n155["ITA_milizia_coloniale"]
+        n156["ITA_negotiate_italian_claims"]
+        n157["ITA_negotiations_with_albania"]
+        n158{"ITA_power_to_the_king"}
+        n159{"ITA_revoke_the_acerbo_law"}
+        n160["ITA_seek_british_military_cooperation"]
+        n161["ITA_spanish_italian_alliance"]
+        n162{"ITA_stop_the_squandering"}
+        n163{"ITA_strengthen_the_regime"}
+        n164["ITA_support_albanian_irredentism"]
+        n165["ITA_the_garibaldi_legion"]
+        n166["ITA_the_italian_confederation"]
+        n167["ITA_the_republics_leadership"]
+        n168["ITA_treaty_with_germany"]
+    end
+    subgraph tier_7["Tier 7"]
+        n169["ITA_a_new_era_for_the_red_shirts"]
+        n170["ITA_albanian_fascist_militia"]
+        n171["ITA_anglo_italian_pact"]
+        n172["ITA_appease_the_military"]
+        n173["ITA_banda_koch"]
+        n174["ITA_befriend_portugal"]
+        n175["ITA_bring_back_exiled_intellectuals"]
+        n176["ITA_christian_democracy"]
+        n177["ITA_condemn_colonialism"]
+        n178["ITA_democratic_king"]
+        n179{"ITA_devotion"}
+        n180["ITA_disband_the_blackshirts"]
+        n181["ITA_empower_the_carabinieri"]
+        n182["ITA_enlist_the_bashkimi_kombetar"]
+        n183["ITA_franco_italian_pact"]
+        n184["ITA_gruppi_di_difesa_della_donna"]
+        n185["ITA_institute_the_five_year_plan"]
+        n186["ITA_mafia_abroad"]
+        n187["ITA_new_corporations"]
+        n188["ITA_planned_economy"]
+        n189["ITA_political_commissars"]
+        n190["ITA_prepare_for_the_coming_wars"]
+        n191["ITA_production_lines"]
+        n192["ITA_purge_the_party"]
+        n193["ITA_ratify_the_stresa_front"]
+        n194["ITA_reinforce_regia_aeronautica"]
+        n195["ITA_reorganize_regio_esercito"]
+        n196["ITA_reorganize_the_party"]
+        n197["ITA_request_control_of_french_territories"]
+        n198["ITA_sea_wolves_bba"]
+        n199["ITA_secret_weapons"]
+        n200["ITA_seek_papal_support"]
+        n201["ITA_the_fight_overseas"]
+        n202{"ITA_the_fourth_shore"}
+        n203["ITA_the_path_to_progress"]
+        n204["ITA_utilize_the_blackshirts"]
+        n205["ITA_war_with_france"]
+        n206{"ITA_war_with_greece"}
+        n207["ITA_war_with_the_uk"]
+    end
+    subgraph tier_8["Tier 8"]
+        n208["ITA_agents_of_the_church"]
+        n209["ITA_army_modernization"]
+        n210["ITA_ascari"]
+        n211["ITA_befriend_turkey"]
+        n212["ITA_bring_back_old_glories"]
+        n213["ITA_claims_on_turkey_bba"]
+        n214["ITA_compagnie_auto_avio_sahariane"]
+        n215["ITA_cooperate_with_moderates"]
+        n216["ITA_demand_ticino"]
+        n217["ITA_economic_reforms"]
+        n218["ITA_expand_intelligence_services"]
+        n219["ITA_expand_the_royal_guard"]
+        n220["ITA_irregulars"]
+        n221["ITA_italys_destiny"]
+        n222["ITA_joint_military_programs"]
+        n223["ITA_liberate_the_workers_of_africa"]
+        n224["ITA_meritocracy"]
+        n225["ITA_mobilize_the_railway_guns"]
+        n226["ITA_new_forms_of_weaponry"]
+        n227["ITA_new_ricostruzione_industriale"]
+        n228["ITA_oil_in_tripoli"]
+        n229["ITA_proclaim_the_italian_empire"]
+        n230["ITA_pugno_alzato"]
+        n231{"ITA_social_stability"}
+        n232["ITA_steel_in_tripoli"]
+        n233{"ITA_the_fate_of_mussolini"}
+        n234{"ITA_union_in_the_party"}
+    end
+    subgraph tier_9["Tier 9"]
+        n235["ITA_a_greater_purpose"]
+        n236["ITA_combined_land_and_air_warfare"]
+        n237["ITA_crush_opposition"]
+        n238["ITA_defend_the_land"]
+        n239["ITA_divino_duce"]
+        n240["ITA_follow_the_soviet_union"]
+        n241["ITA_gloria_al_regno_d_italia"]
+        n242["ITA_improve_the_industries"]
+        n243["ITA_italia_libera"]
+        n244["ITA_novus_ordo"]
+        n245["ITA_paramilitary_training"]
+        n246["ITA_reestablish_old_alliances"]
+        n247["ITA_strengthen_the_papacy"]
+        n248["ITA_the_eastern_threat"]
+    end
+    subgraph tier_10["Tier 10"]
+        n249{"ITA_blackshirt_loyalty"}
+        n250["ITA_european_democracies"]
+        n251["ITA_expanded_corporatism"]
+        n252["ITA_military_agreements"]
+        n253["ITA_military_cooperation"]
+        n254["ITA_raise_the_peoples"]
+        n255["ITA_scientific_cooperation"]
+        n256{"ITA_setting_course"}
+        n257["ITA_special_brigades"]
+        n258["ITA_spreading_the_eagles_wings"]
+        n259["ITA_the_fight_against_stalinism"]
+        n260["ITA_the_papacy_reborn"]
+        n261["ITA_united_anarchist_confederations"]
+    end
+    subgraph tier_11["Tier 11"]
+        n262["ITA_bring_down_fascist_strongholds"]
+        n263["ITA_catholic_action"]
+        n264["ITA_combined_research_effort"]
+        n265["ITA_defense_against_capitalism"]
+        n266["ITA_deus_vult"]
+        n267["ITA_italian_hegemony"]
+        n268["ITA_mare_nostrum_bba"]
+        n269["ITA_peace_preservation"]
+        n270["ITA_secure_the_borders"]
+        n271["ITA_the_enemies_of_capitalism"]
+        n272{"ITA_towards_a_greater_italy"}
+    end
+    subgraph tier_12["Tier 12"]
+        n273["ITA_a_time_for_war"]
+        n274["ITA_auxiliaries"]
+        n275["ITA_bend_the_bars"]
+        n276["ITA_capo_supremo"]
+        n277["ITA_heroes_of_the_nation"]
+        n278["ITA_iberian_protection"]
+        n279["ITA_il_sol_dell_avvenire"]
+        n280["ITA_il_vento_aureo"]
+        n281["ITA_new_roman_citizens"]
+        n282["ITA_the_holy_lands"]
+        n283["ITA_the_italian_legions"]
+    end
+    subgraph tier_13["Tier 13"]
+        n284["ITA_all_roads_lead_to_rome"]
+        n285["ITA_masters_of_the_aegean"]
+        n286["ITA_south_american_alliances"]
+        n287["ITA_subdue_the_sentinels"]
+        n288["ITA_the_catholic_dominion"]
+    end
+    subgraph tier_14["Tier 14"]
+        n289["ITA_a_colonial_empire"]
+        n290["ITA_caligulas_pride"]
+        n291["ITA_masters_of_the_mediterranean"]
+        n292["ITA_modern_musculus"]
+        n293["ITA_the_king_of_the_skies"]
+    end
+    subgraph tier_15["Tier 15"]
+        n294["ITA_by_blood_alone"]
+    end
+    n287 --> n289
+    n233 --> n235
+    n136 --> n138
+    n165 --> n169
+    n266 --> n273
+    n116 --> n119
+    n200 --> n208
+    n127 --> n139
+    n164 --> n170
+    n113 --> n120
+    n107 --> n120
+    n120 --> n140
+    n283 --> n284
+    n96 --> n97
+    n160 --> n171
+    n100 --> n106
+    n144 --> n172
+    n172 --> n209
+    n189 --> n209
+    n181 --> n209
+    n201 --> n210
+    n268 --> n274
+    n102 --> n107
+    n122 --> n141
+    n141 --> n173
+    n114 --> n121
+    n129 --> n142
+    n134 --> n143
+    n129 --> n143
+    n161 --> n174
+    n124 --> n174
+    n206 --> n211
+    n142 --> n211
+    n112 --> n122
+    n272 --> n275
+    n239 --> n249
+    n118 --> n123
+    n167 --> n175
+    n190 --> n212
+    n255 --> n262
+    n289 --> n294
+    n284 --> n290
+    n272 --> n276
+    n179 --> n276
+    n260 --> n263
+    n159 --> n176
+    n206 --> n213
+    n142 --> n213
+    n214 --> n236
+    n253 --> n264
+    n136 --> n144
+    n127 --> n144
+    n195 --> n214
+    n194 --> n214
+    n147 --> n177
+    n128 --> n145
+    n125 --> n145
+    n96 --> n98
+    n88 --> n98
+    n176 --> n215
+    n178 --> n215
+    n127 --> n146
+    n119 --> n147
+    n102 --> n108
+    n215 --> n237
+    n218 --> n237
+    n136 --> n148
+    n127 --> n148
+    n96 --> n99
+    n234 --> n238
+    n253 --> n265
+    n89 --> n100
+    n93 --> n100
+    n96 --> n100
+    n108 --> n124
+    n205 --> n216
+    n197 --> n216
+    n159 --> n178
+    n98 --> n109
+    n260 --> n266
+    n96 --> n101
+    n137 --> n179
+    n123 --> n179
+    n163 --> n179
+    n109 --> n125
+    n158 --> n180
+    n159 --> n180
+    n233 --> n239
+    n196 --> n217
+    n148 --> n181
+    n127 --> n149
+    n157 --> n182
+    n243 --> n250
+    n178 --> n218
+    n176 --> n218
+    n180 --> n219
+    n204 --> n219
+    n224 --> n251
+    n242 --> n251
+    n132 --> n150
+    n234 --> n240
+    n96 --> n102
+    n88 --> n102
+    n153 --> n183
+    n134 --> n151
+    n219 --> n241
+    n178 --> n241
+    n165 --> n184
+    n113 --> n126
+    n107 --> n126
+    n272 --> n277
+    n179 --> n277
+    n268 --> n278
+    n266 --> n278
+    n264 --> n279
+    n254 --> n279
+    n266 --> n280
+    n217 --> n242
+    n136 --> n152
+    n152 --> n185
+    n125 --> n153
+    n132 --> n153
+    n201 --> n220
+    n231 --> n243
+    n258 --> n267
+    n134 --> n154
+    n129 --> n154
+    n117 --> n127
+    n109 --> n128
+    n113 --> n129
+    n107 --> n129
+    n193 --> n221
+    n193 --> n222
+    n99 --> n110
+    n99 --> n111
+    n110 --> n130
+    n111 --> n130
+    n118 --> n131
+    n94 --> n103
+    n96 --> n103
+    n201 --> n223
+    n146 --> n186
+    n256 --> n268
+    n163 --> n268
+    n249 --> n268
+    n275 --> n285
+    n285 --> n291
+    n196 --> n224
+    n192 --> n224
+    n246 --> n252
+    n240 --> n253
+    n121 --> n155
+    n135 --> n155
+    n99 --> n112
+    n98 --> n112
+    n190 --> n225
+    n284 --> n292
+    n109 --> n132
+    n126 --> n156
+    n119 --> n157
+    n133 --> n157
+    n116 --> n133
+    n150 --> n187
+    n190 --> n226
+    n185 --> n227
+    n268 --> n281
+    n232 --> n244
+    n228 --> n244
+    n202 --> n228
+    n113 --> n134
+    n107 --> n134
+    n219 --> n245
+    n204 --> n245
+    n250 --> n269
+    n166 --> n188
+    n152 --> n189
+    n102 --> n113
+    n132 --> n158
+    n150 --> n190
+    n171 --> n229
+    n183 --> n229
+    n149 --> n191
+    n184 --> n230
+    n169 --> n230
+    n145 --> n192
+    n162 --> n192
+    n238 --> n254
+    n156 --> n193
+    n231 --> n246
+    n128 --> n194
+    n162 --> n194
+    n128 --> n195
+    n162 --> n195
+    n125 --> n196
+    n145 --> n196
+    n134 --> n197
+    n154 --> n197
+    n132 --> n159
+    n243 --> n255
+    n246 --> n255
+    n151 --> n198
+    n151 --> n199
+    n255 --> n270
+    n99 --> n114
+    n98 --> n114
+    n125 --> n160
+    n132 --> n160
+    n158 --> n200
+    n100 --> n115
+    n90 --> n95
+    n92 --> n95
+    n91 --> n95
+    n241 --> n256
+    n237 --> n256
+    n247 --> n256
+    n175 --> n231
+    n278 --> n286
+    n108 --> n161
+    n129 --> n161
+    n240 --> n257
+    n238 --> n257
+    n235 --> n258
+    n202 --> n232
+    n128 --> n162
+    n125 --> n162
+    n114 --> n135
+    n208 --> n247
+    n130 --> n163
+    n275 --> n287
+    n120 --> n164
+    n273 --> n288
+    n282 --> n288
+    n221 --> n248
+    n252 --> n271
+    n100 --> n116
+    n192 --> n233
+    n238 --> n259
+    n147 --> n201
+    n166 --> n201
+    n128 --> n202
+    n162 --> n202
+    n136 --> n165
+    n266 --> n282
+    n133 --> n166
+    n268 --> n283
+    n100 --> n117
+    n284 --> n293
+    n99 --> n118
+    n96 --> n104
+    n247 --> n260
+    n138 --> n203
+    n117 --> n136
+    n127 --> n167
+    n118 --> n137
+    n96 --> n105
+    n163 --> n272
+    n249 --> n272
+    n256 --> n272
+    n134 --> n168
+    n95 --> n96
+    n203 --> n234
+    n238 --> n261
+    n158 --> n204
+    n154 --> n205
+    n154 --> n206
+    n129 --> n207
+    n154 --> n207
+    n235 x--x n239
+    n119 x--x n133
+    n172 x--x n181
+    n172 x--x n189
+    n107 x--x n113
+    n121 x--x n135
+    n142 x--x n206
+    n211 x--x n213
+    n123 x--x n137
+    n276 x--x n277
+    n176 x--x n178
+    n98 x--x n99
+    n98 x--x n100
+    n146 x--x n148
+    n99 x--x n100
+    n238 x--x n240
+    n124 x--x n161
+    n125 x--x n128
+    n125 x--x n132
+    n180 x--x n204
+    n181 x--x n189
+    n126 x--x n129
+    n126 x--x n134
+    n153 x--x n160
+    n243 x--x n246
+    n127 x--x n136
+    n128 x--x n132
+    n129 x--x n134
+    n110 x--x n111
+    n268 x--x n272
+    n228 x--x n232
+    n158 x--x n159
+    n194 x--x n195
+    n197 x--x n205
+    n90 x--x n91
+    n90 x--x n92
 ```
 
 # ITA_struggle_in_ethiopia
 
 ```mermaid
-flowchart TD
-    n88["ITA_a_colonial_empire"]
-    n89["ITA_a_greater_purpose"]
-    n90["ITA_a_leader_steps_forward"]
-    n91["ITA_a_new_era_for_the_red_shirts"]
-    n92["ITA_a_time_for_war"]
-    n93["ITA_abolish_the_colonies"]
-    n94["ITA_agents_of_the_church"]
-    n95["ITA_aid_for_the_spanish_republic"]
-    n96["ITA_albanian_fascist_militia"]
-    n97["ITA_albanian_occupation"]
-    n98["ITA_albanian_oil"]
-    n99["ITA_all_roads_lead_to_rome"]
-    n100["ITA_anglo_italian_agreements"]
-    n101["ITA_anglo_italian_pact"]
-    n102["ITA_appeal_to_the_bourgeoisie"]
-    n103["ITA_appease_the_military"]
-    n104["ITA_army_modernization"]
-    n105["ITA_ascari"]
-    n106["ITA_auxiliaries"]
-    n107{"ITA_balkan_ambition"}
-    n108["ITA_banda_carita"]
-    n109["ITA_banda_koch"]
-    n110["ITA_battaglioni_d_assalto"]
-    n111{"ITA_befriend_greece"}
-    n112["ITA_befriend_japan"]
-    n113["ITA_befriend_portugal"]
-    n114["ITA_befriend_turkey"]
-    n115["ITA_believe_obey_fight"]
-    n116["ITA_bend_the_bars"]
-    n117{"ITA_blackshirt_loyalty"}
-    n118["ITA_boost_the_grand_council_of_fascism"]
-    n119["ITA_bring_back_exiled_intellectuals"]
-    n120["ITA_bring_back_old_glories"]
-    n121["ITA_bring_down_fascist_strongholds"]
-    n122["ITA_by_blood_alone"]
-    n123["ITA_caligulas_pride"]
-    n124["ITA_capo_supremo"]
-    n125["ITA_catholic_action"]
-    n126["ITA_christian_democracy"]
-    n127["ITA_claims_on_turkey_bba"]
-    n128["ITA_combined_land_and_air_warfare"]
-    n129["ITA_combined_research_effort"]
-    n130{"ITA_common_ground"}
-    n131["ITA_compagnie_auto_avio_sahariane"]
-    n132["ITA_condemn_colonialism"]
-    n133["ITA_consolidate_power"]
-    n134{"ITA_conspiracies_in_the_shadows"}
-    n135["ITA_convene_the_grand_council"]
-    n136["ITA_cooperate_with_moderates"]
-    n137["ITA_cooperate_with_the_mafia"]
-    n138["ITA_cooperatives_for_intensive_exploitation"]
-    n139{"ITA_corpo_di_truppe_volontarie"}
-    n140["ITA_crush_opposition"]
-    n141{"ITA_crush_the_mafia"}
-    n142{"ITA_culto_del_duce"}
-    n143["ITA_defend_the_land"]
-    n144["ITA_defense_against_capitalism"]
-    n145["ITA_defy_the_duce"]
-    n146["ITA_demand_balearic_islands_bba"]
-    n147["ITA_demand_ticino"]
-    n148["ITA_democratic_king"]
-    n149{"ITA_depose_mussolini"}
-    n150["ITA_deus_vult"]
-    n151["ITA_devaluate_the_lire"]
-    n152{"ITA_devotion"}
-    n153{"ITA_dino_grandi_focus"}
-    n154["ITA_disband_the_blackshirts"]
-    n155["ITA_divino_duce"]
-    n156["ITA_economic_reforms"]
-    n157["ITA_empower_the_carabinieri"]
-    n158["ITA_empower_the_unions"]
-    n159["ITA_enlist_the_bashkimi_kombetar"]
-    n160["ITA_european_democracies"]
-    n161["ITA_expand_intelligence_services"]
-    n162["ITA_expand_the_royal_guard"]
-    n163["ITA_expanded_corporatism"]
-    n164["ITA_extraction_industry"]
-    n165["ITA_follow_the_soviet_union"]
-    n166{"ITA_foreign_affairs"}
-    n167["ITA_franco_italian_pact"]
-    n168["ITA_german_military_cooperation"]
-    n169["ITA_gloria_al_regno_d_italia"]
-    n170["ITA_gruppi_di_difesa_della_donna"]
-    n171["ITA_guarantee_austrian_independence"]
-    n172["ITA_heroes_of_the_nation"]
-    n173["ITA_iberian_protection"]
-    n174["ITA_il_sol_dell_avvenire"]
-    n175["ITA_il_vento_aureo"]
-    n176["ITA_improve_the_industries"]
-    n177{"ITA_industrial_socialization"}
-    n178["ITA_institute_the_five_year_plan"]
-    n179["ITA_invite_france_to_military_partnership"]
-    n180["ITA_irregulars"]
-    n181["ITA_italia_libera"]
-    n182["ITA_italian_hegemony"]
-    n183{"ITA_italian_irredentism"}
-    n184{"ITA_italian_socialism"}
-    n185{"ITA_italo_balbo_focus"}
-    n186{"ITA_italy_first"}
-    n187["ITA_italys_destiny"]
-    n188["ITA_joint_military_programs"]
-    n189["ITA_la_battaglia_del_grano"]
-    n190["ITA_la_battaglia_per_la_terra"]
-    n191["ITA_la_battaglia_per_le_nascite"]
-    n192["ITA_legge_bottai"]
-    n193["ITA_liberate_gramsci"]
-    n194["ITA_liberate_the_workers_of_africa"]
-    n195["ITA_mafia_abroad"]
-    n196["ITA_mare_nostrum_bba"]
-    n197["ITA_masters_of_the_aegean"]
-    n198["ITA_masters_of_the_mediterranean"]
-    n199["ITA_meritocracy"]
-    n200["ITA_military_agreements"]
-    n201["ITA_military_cooperation"]
-    n202["ITA_milizia_coloniale"]
-    n203["ITA_ministero_della_cultura_popolare"]
-    n204["ITA_mobilize_the_railway_guns"]
-    n205["ITA_modern_musculus"]
-    n206{"ITA_monarchia_d_italia"}
-    n207["ITA_negotiate_italian_claims"]
-    n208["ITA_negotiations_with_albania"]
-    n209["ITA_new_colonial_policies"]
-    n210["ITA_new_corporations"]
-    n211["ITA_new_forms_of_weaponry"]
-    n212["ITA_new_ricostruzione_industriale"]
-    n213["ITA_new_roman_citizens"]
-    n214["ITA_novus_ordo"]
-    n215["ITA_oil_in_tripoli"]
-    n216{"ITA_organize_strikes_in_the_north"}
-    n217{"ITA_pact_of_steel"}
-    n218["ITA_paramilitary_training"]
-    n219["ITA_peace_preservation"]
-    n220["ITA_planned_economy"]
-    n221["ITA_political_commissars"]
-    n222{"ITA_potential_allies_in_the_balkans"}
-    n223{"ITA_power_to_the_king"}
-    n224["ITA_prepare_for_the_coming_wars"]
-    n225["ITA_proclaim_the_italian_empire"]
-    n226["ITA_production_lines"]
-    n227["ITA_pugno_alzato"]
-    n228["ITA_purge_the_party"]
-    n229["ITA_raise_the_peoples"]
-    n230["ITA_ratify_the_stresa_front"]
-    n231["ITA_reestablish_old_alliances"]
-    n232["ITA_reinforce_regia_aeronautica"]
-    n233["ITA_reorganize_regio_esercito"]
-    n234["ITA_reorganize_the_party"]
-    n235["ITA_request_control_of_french_territories"]
-    n236{"ITA_revoke_the_acerbo_law"}
-    n237["ITA_scientific_cooperation"]
-    n238["ITA_sea_wolves_bba"]
-    n239["ITA_secret_weapons"]
-    n240["ITA_secure_the_borders"]
-    n241{"ITA_security_militias"}
-    n242["ITA_seek_british_military_cooperation"]
-    n243["ITA_seek_papal_support"]
-    n244["ITA_seize_old_equipment"]
-    n245["ITA_servizio_informazione_militare"]
-    n246{"ITA_setting_course"}
-    n247{"ITA_social_stability"}
-    n248["ITA_solid_progress"]
-    n249["ITA_south_american_alliances"]
-    n250["ITA_spanish_italian_alliance"]
-    n251["ITA_special_brigades"]
-    n252["ITA_spreading_the_eagles_wings"]
-    n253["ITA_steel_in_tripoli"]
-    n254{"ITA_stop_the_squandering"}
-    n255["ITA_strengthen_the_blackshirts"]
-    n256["ITA_strengthen_the_papacy"]
-    n257{"ITA_strengthen_the_regime"}
-    n258(("ITA_struggle_in_ethiopia"))
-    n259["ITA_subdue_the_sentinels"]
-    n260["ITA_support_albanian_irredentism"]
-    n261["ITA_the_abyssinian_fiasco"]
-    n262["ITA_the_catholic_dominion"]
-    n263["ITA_the_eastern_threat"]
-    n264["ITA_the_enemies_of_capitalism"]
-    n265{"ITA_the_ethiopian_question"}
-    n266{"ITA_the_fate_of_mussolini"}
-    n267["ITA_the_fight_against_stalinism"]
-    n268["ITA_the_fight_overseas"]
-    n269{"ITA_the_fourth_shore"}
-    n270["ITA_the_garibaldi_legion"]
-    n271["ITA_the_holy_lands"]
-    n272["ITA_the_italian_confederation"]
-    n273["ITA_the_italian_legions"]
-    n274{"ITA_the_italian_republic"}
-    n275["ITA_the_king_of_the_skies"]
-    n276{"ITA_the_man_of_providence"}
-    n277["ITA_the_new_emperor_of_ethiopia"]
-    n278["ITA_the_papacy_reborn"]
-    n279["ITA_the_path_to_progress"]
-    n280{"ITA_the_popular_front"}
-    n281["ITA_the_republics_leadership"]
-    n282{"ITA_the_southern_farmlands"}
-    n283["ITA_to_live_as_a_lion"]
-    n284["ITA_topple_amhara_rulers"]
-    n285{"ITA_towards_a_greater_italy"}
-    n286["ITA_treaty_with_germany"]
-    n287{"ITA_triumph_in_africa_bba"}
-    n295["ITA_undermine_the_duce"]
-    n288{"ITA_union_in_the_party"}
-    n289["ITA_unite_the_opposition"]
-    n290["ITA_united_anarchist_confederations"]
-    n291["ITA_utilize_the_blackshirts"]
-    n292["ITA_war_with_france"]
-    n293{"ITA_war_with_greece"}
-    n294["ITA_war_with_the_uk"]
-    n259 --> n88
-    n266 --> n89
-    n280 --> n90
-    n270 --> n91
-    n150 --> n92
-    n265 --> n93
-    n243 --> n94
-    n184 --> n95
-    n260 --> n96
-    n222 --> n97
-    n107 --> n97
-    n97 --> n98
-    n273 --> n99
-    n287 --> n100
-    n242 --> n101
-    n145 --> n102
-    n130 --> n103
-    n103 --> n104
-    n221 --> n104
-    n157 --> n104
-    n268 --> n105
-    n196 --> n106
-    n166 --> n107
-    n115 --> n108
-    n108 --> n109
-    n241 --> n110
-    n186 --> n111
-    n217 --> n112
-    n186 --> n112
-    n250 --> n113
-    n146 --> n113
-    n293 --> n114
-    n111 --> n114
-    n203 --> n115
-    n285 --> n116
-    n155 --> n117
-    n276 --> n118
-    n281 --> n119
-    n224 --> n120
-    n237 --> n121
-    n88 --> n122
-    n99 --> n123
-    n285 --> n124
-    n152 --> n124
-    n278 --> n125
-    n236 --> n126
-    n293 --> n127
-    n111 --> n127
-    n131 --> n128
-    n201 --> n129
-    n280 --> n130
-    n184 --> n130
-    n233 --> n131
-    n232 --> n131
-    n138 --> n132
-    n185 --> n133
-    n153 --> n133
-    n295 --> n134
-    n287 --> n135
-    n134 --> n135
-    n126 --> n136
-    n148 --> n136
-    n184 --> n137
-    n93 --> n138
-    n166 --> n139
-    n136 --> n140
-    n161 --> n140
-    n280 --> n141
-    n184 --> n141
-    n287 --> n142
-    n288 --> n143
-    n201 --> n144
-    n216 --> n145
-    n282 --> n145
-    n287 --> n145
-    n139 --> n146
-    n292 --> n147
-    n235 --> n147
-    n236 --> n148
-    n135 --> n149
-    n278 --> n150
-    n287 --> n151
-    n283 --> n152
-    n118 --> n152
-    n257 --> n152
-    n149 --> n153
-    n223 --> n154
-    n236 --> n154
-    n266 --> n155
-    n234 --> n156
-    n141 --> n157
-    n184 --> n158
-    n208 --> n159
-    n181 --> n160
-    n148 --> n161
-    n126 --> n161
-    n154 --> n162
-    n291 --> n162
-    n199 --> n163
-    n176 --> n163
-    n206 --> n164
-    n288 --> n165
-    n287 --> n166
-    n134 --> n166
-    n179 --> n167
-    n217 --> n168
-    n162 --> n169
-    n148 --> n169
-    n270 --> n170
-    n222 --> n171
-    n107 --> n171
-    n285 --> n172
-    n152 --> n172
-    n196 --> n173
-    n150 --> n173
-    n129 --> n174
-    n229 --> n174
-    n150 --> n175
-    n156 --> n176
-    n280 --> n177
-    n177 --> n178
-    n153 --> n179
-    n206 --> n179
-    n268 --> n180
-    n247 --> n181
-    n252 --> n182
-    n217 --> n183
-    n186 --> n183
-    n274 --> n184
-    n149 --> n185
-    n222 --> n186
-    n107 --> n186
-    n230 --> n187
-    n230 --> n188
-    n142 --> n189
-    n142 --> n190
-    n189 --> n191
-    n190 --> n191
-    n276 --> n192
-    n289 --> n193
-    n287 --> n193
-    n268 --> n194
-    n137 --> n195
-    n246 --> n196
-    n257 --> n196
-    n117 --> n196
-    n116 --> n197
-    n197 --> n198
-    n234 --> n199
-    n228 --> n199
-    n231 --> n200
-    n165 --> n201
-    n110 --> n202
-    n255 --> n202
-    n142 --> n203
-    n135 --> n203
-    n224 --> n204
-    n99 --> n205
-    n149 --> n206
-    n171 --> n207
-    n93 --> n208
-    n209 --> n208
-    n265 --> n209
-    n164 --> n210
-    n224 --> n211
-    n178 --> n212
-    n196 --> n213
-    n253 --> n214
-    n215 --> n214
-    n269 --> n215
-    n222 --> n217
-    n107 --> n217
-    n162 --> n218
-    n291 --> n218
-    n160 --> n219
-    n272 --> n220
-    n177 --> n221
-    n166 --> n222
-    n206 --> n223
-    n164 --> n224
-    n101 --> n225
-    n167 --> n225
-    n158 --> n226
-    n170 --> n227
-    n91 --> n227
-    n133 --> n228
-    n254 --> n228
-    n143 --> n229
-    n207 --> n230
-    n247 --> n231
-    n185 --> n232
-    n254 --> n232
-    n185 --> n233
-    n254 --> n233
-    n153 --> n234
-    n133 --> n234
-    n217 --> n235
-    n183 --> n235
-    n206 --> n236
-    n181 --> n237
-    n231 --> n237
-    n168 --> n238
-    n168 --> n239
-    n237 --> n240
-    n142 --> n241
-    n135 --> n241
-    n153 --> n242
-    n206 --> n242
-    n223 --> n243
-    n145 --> n244
-    n248 --> n245
-    n261 --> n245
-    n258 --> n245
-    n169 --> n246
-    n140 --> n246
-    n256 --> n246
-    n119 --> n247
-    n173 --> n249
-    n139 --> n250
-    n186 --> n250
-    n165 --> n251
-    n143 --> n251
-    n89 --> n252
-    n269 --> n253
-    n185 --> n254
-    n153 --> n254
-    n241 --> n255
-    n94 --> n256
-    n191 --> n257
-    n116 --> n259
-    n97 --> n260
-    n92 --> n262
-    n271 --> n262
-    n187 --> n263
-    n200 --> n264
-    n145 --> n265
-    n228 --> n266
-    n143 --> n267
-    n138 --> n268
-    n272 --> n268
-    n185 --> n269
-    n254 --> n269
-    n280 --> n270
-    n150 --> n271
-    n209 --> n272
-    n196 --> n273
-    n145 --> n274
-    n99 --> n275
-    n142 --> n276
-    n287 --> n277
-    n256 --> n278
-    n90 --> n279
-    n274 --> n280
-    n184 --> n281
-    n276 --> n283
-    n287 --> n284
-    n257 --> n285
-    n117 --> n285
-    n246 --> n285
-    n217 --> n286
-    n245 --> n287
-    n258 --> n295
-    n279 --> n288
-    n143 --> n290
-    n223 --> n291
-    n183 --> n292
-    n183 --> n293
-    n186 --> n294
-    n183 --> n294
-    n89 x--x n155
-    n93 x--x n209
-    n103 x--x n157
-    n103 x--x n221
-    n107 x--x n222
-    n110 x--x n255
-    n111 x--x n293
-    n114 x--x n127
-    n118 x--x n283
-    n124 x--x n172
-    n126 x--x n148
-    n135 x--x n142
-    n135 x--x n145
-    n137 x--x n141
-    n142 x--x n145
-    n143 x--x n165
-    n146 x--x n250
-    n153 x--x n185
-    n153 x--x n206
-    n154 x--x n291
-    n157 x--x n221
-    n171 x--x n186
-    n171 x--x n217
-    n179 x--x n242
-    n181 x--x n231
-    n184 x--x n280
-    n185 x--x n206
-    n186 x--x n217
-    n189 x--x n190
-    n196 x--x n285
-    n215 x--x n253
-    n223 x--x n236
-    n232 x--x n233
-    n235 x--x n292
-    n248 x--x n258
-    n258 x--x n261
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n89{"ITA_organize_strikes_in_the_north"}
+        n90["ITA_solid_progress"]
+        n91(("ITA_struggle_in_ethiopia"))
+        n92["ITA_the_abyssinian_fiasco"]
+        n93{"ITA_the_southern_farmlands"}
+        n94["ITA_unite_the_opposition"]
+    end
+    subgraph tier_1["Tier 1"]
+        n95["ITA_servizio_informazione_militare"]
+        n295["ITA_undermine_the_duce"]
+    end
+    subgraph tier_2["Tier 2"]
+        n88{"ITA_conspiracies_in_the_shadows"}
+        n96{"ITA_triumph_in_africa_bba"}
+    end
+    subgraph tier_3["Tier 3"]
+        n97["ITA_anglo_italian_agreements"]
+        n98["ITA_convene_the_grand_council"]
+        n99{"ITA_culto_del_duce"}
+        n100["ITA_defy_the_duce"]
+        n101["ITA_devaluate_the_lire"]
+        n102{"ITA_foreign_affairs"}
+        n103["ITA_liberate_gramsci"]
+        n104["ITA_the_new_emperor_of_ethiopia"]
+        n105["ITA_topple_amhara_rulers"]
+    end
+    subgraph tier_4["Tier 4"]
+        n106["ITA_appeal_to_the_bourgeoisie"]
+        n107{"ITA_balkan_ambition"}
+        n108{"ITA_corpo_di_truppe_volontarie"}
+        n109{"ITA_depose_mussolini"}
+        n110["ITA_la_battaglia_del_grano"]
+        n111["ITA_la_battaglia_per_la_terra"]
+        n112["ITA_ministero_della_cultura_popolare"]
+        n113{"ITA_potential_allies_in_the_balkans"}
+        n114{"ITA_security_militias"}
+        n115["ITA_seize_old_equipment"]
+        n116{"ITA_the_ethiopian_question"}
+        n117{"ITA_the_italian_republic"}
+        n118{"ITA_the_man_of_providence"}
+    end
+    subgraph tier_5["Tier 5"]
+        n119["ITA_abolish_the_colonies"]
+        n120["ITA_albanian_occupation"]
+        n121["ITA_battaglioni_d_assalto"]
+        n122["ITA_believe_obey_fight"]
+        n123["ITA_boost_the_grand_council_of_fascism"]
+        n124["ITA_demand_balearic_islands_bba"]
+        n125{"ITA_dino_grandi_focus"}
+        n126["ITA_guarantee_austrian_independence"]
+        n127{"ITA_italian_socialism"}
+        n128{"ITA_italo_balbo_focus"}
+        n129{"ITA_italy_first"}
+        n130["ITA_la_battaglia_per_le_nascite"]
+        n131["ITA_legge_bottai"]
+        n132{"ITA_monarchia_d_italia"}
+        n133["ITA_new_colonial_policies"]
+        n134{"ITA_pact_of_steel"}
+        n135["ITA_strengthen_the_blackshirts"]
+        n136{"ITA_the_popular_front"}
+        n137["ITA_to_live_as_a_lion"]
+    end
+    subgraph tier_6["Tier 6"]
+        n138["ITA_a_leader_steps_forward"]
+        n139["ITA_aid_for_the_spanish_republic"]
+        n140["ITA_albanian_oil"]
+        n141["ITA_banda_carita"]
+        n142{"ITA_befriend_greece"}
+        n143["ITA_befriend_japan"]
+        n144{"ITA_common_ground"}
+        n145["ITA_consolidate_power"]
+        n146["ITA_cooperate_with_the_mafia"]
+        n147["ITA_cooperatives_for_intensive_exploitation"]
+        n148{"ITA_crush_the_mafia"}
+        n149["ITA_empower_the_unions"]
+        n150["ITA_extraction_industry"]
+        n151["ITA_german_military_cooperation"]
+        n152{"ITA_industrial_socialization"}
+        n153["ITA_invite_france_to_military_partnership"]
+        n154{"ITA_italian_irredentism"}
+        n155["ITA_milizia_coloniale"]
+        n156["ITA_negotiate_italian_claims"]
+        n157["ITA_negotiations_with_albania"]
+        n158{"ITA_power_to_the_king"}
+        n159{"ITA_revoke_the_acerbo_law"}
+        n160["ITA_seek_british_military_cooperation"]
+        n161["ITA_spanish_italian_alliance"]
+        n162{"ITA_stop_the_squandering"}
+        n163{"ITA_strengthen_the_regime"}
+        n164["ITA_support_albanian_irredentism"]
+        n165["ITA_the_garibaldi_legion"]
+        n166["ITA_the_italian_confederation"]
+        n167["ITA_the_republics_leadership"]
+        n168["ITA_treaty_with_germany"]
+    end
+    subgraph tier_7["Tier 7"]
+        n169["ITA_a_new_era_for_the_red_shirts"]
+        n170["ITA_albanian_fascist_militia"]
+        n171["ITA_anglo_italian_pact"]
+        n172["ITA_appease_the_military"]
+        n173["ITA_banda_koch"]
+        n174["ITA_befriend_portugal"]
+        n175["ITA_bring_back_exiled_intellectuals"]
+        n176["ITA_christian_democracy"]
+        n177["ITA_condemn_colonialism"]
+        n178["ITA_democratic_king"]
+        n179{"ITA_devotion"}
+        n180["ITA_disband_the_blackshirts"]
+        n181["ITA_empower_the_carabinieri"]
+        n182["ITA_enlist_the_bashkimi_kombetar"]
+        n183["ITA_franco_italian_pact"]
+        n184["ITA_gruppi_di_difesa_della_donna"]
+        n185["ITA_institute_the_five_year_plan"]
+        n186["ITA_mafia_abroad"]
+        n187["ITA_new_corporations"]
+        n188["ITA_planned_economy"]
+        n189["ITA_political_commissars"]
+        n190["ITA_prepare_for_the_coming_wars"]
+        n191["ITA_production_lines"]
+        n192["ITA_purge_the_party"]
+        n193["ITA_ratify_the_stresa_front"]
+        n194["ITA_reinforce_regia_aeronautica"]
+        n195["ITA_reorganize_regio_esercito"]
+        n196["ITA_reorganize_the_party"]
+        n197["ITA_request_control_of_french_territories"]
+        n198["ITA_sea_wolves_bba"]
+        n199["ITA_secret_weapons"]
+        n200["ITA_seek_papal_support"]
+        n201["ITA_the_fight_overseas"]
+        n202{"ITA_the_fourth_shore"}
+        n203["ITA_the_path_to_progress"]
+        n204["ITA_utilize_the_blackshirts"]
+        n205["ITA_war_with_france"]
+        n206{"ITA_war_with_greece"}
+        n207["ITA_war_with_the_uk"]
+    end
+    subgraph tier_8["Tier 8"]
+        n208["ITA_agents_of_the_church"]
+        n209["ITA_army_modernization"]
+        n210["ITA_ascari"]
+        n211["ITA_befriend_turkey"]
+        n212["ITA_bring_back_old_glories"]
+        n213["ITA_claims_on_turkey_bba"]
+        n214["ITA_compagnie_auto_avio_sahariane"]
+        n215["ITA_cooperate_with_moderates"]
+        n216["ITA_demand_ticino"]
+        n217["ITA_economic_reforms"]
+        n218["ITA_expand_intelligence_services"]
+        n219["ITA_expand_the_royal_guard"]
+        n220["ITA_irregulars"]
+        n221["ITA_italys_destiny"]
+        n222["ITA_joint_military_programs"]
+        n223["ITA_liberate_the_workers_of_africa"]
+        n224["ITA_meritocracy"]
+        n225["ITA_mobilize_the_railway_guns"]
+        n226["ITA_new_forms_of_weaponry"]
+        n227["ITA_new_ricostruzione_industriale"]
+        n228["ITA_oil_in_tripoli"]
+        n229["ITA_proclaim_the_italian_empire"]
+        n230["ITA_pugno_alzato"]
+        n231{"ITA_social_stability"}
+        n232["ITA_steel_in_tripoli"]
+        n233{"ITA_the_fate_of_mussolini"}
+        n234{"ITA_union_in_the_party"}
+    end
+    subgraph tier_9["Tier 9"]
+        n235["ITA_a_greater_purpose"]
+        n236["ITA_combined_land_and_air_warfare"]
+        n237["ITA_crush_opposition"]
+        n238["ITA_defend_the_land"]
+        n239["ITA_divino_duce"]
+        n240["ITA_follow_the_soviet_union"]
+        n241["ITA_gloria_al_regno_d_italia"]
+        n242["ITA_improve_the_industries"]
+        n243["ITA_italia_libera"]
+        n244["ITA_novus_ordo"]
+        n245["ITA_paramilitary_training"]
+        n246["ITA_reestablish_old_alliances"]
+        n247["ITA_strengthen_the_papacy"]
+        n248["ITA_the_eastern_threat"]
+    end
+    subgraph tier_10["Tier 10"]
+        n249{"ITA_blackshirt_loyalty"}
+        n250["ITA_european_democracies"]
+        n251["ITA_expanded_corporatism"]
+        n252["ITA_military_agreements"]
+        n253["ITA_military_cooperation"]
+        n254["ITA_raise_the_peoples"]
+        n255["ITA_scientific_cooperation"]
+        n256{"ITA_setting_course"}
+        n257["ITA_special_brigades"]
+        n258["ITA_spreading_the_eagles_wings"]
+        n259["ITA_the_fight_against_stalinism"]
+        n260["ITA_the_papacy_reborn"]
+        n261["ITA_united_anarchist_confederations"]
+    end
+    subgraph tier_11["Tier 11"]
+        n262["ITA_bring_down_fascist_strongholds"]
+        n263["ITA_catholic_action"]
+        n264["ITA_combined_research_effort"]
+        n265["ITA_defense_against_capitalism"]
+        n266["ITA_deus_vult"]
+        n267["ITA_italian_hegemony"]
+        n268["ITA_mare_nostrum_bba"]
+        n269["ITA_peace_preservation"]
+        n270["ITA_secure_the_borders"]
+        n271["ITA_the_enemies_of_capitalism"]
+        n272{"ITA_towards_a_greater_italy"}
+    end
+    subgraph tier_12["Tier 12"]
+        n273["ITA_a_time_for_war"]
+        n274["ITA_auxiliaries"]
+        n275["ITA_bend_the_bars"]
+        n276["ITA_capo_supremo"]
+        n277["ITA_heroes_of_the_nation"]
+        n278["ITA_iberian_protection"]
+        n279["ITA_il_sol_dell_avvenire"]
+        n280["ITA_il_vento_aureo"]
+        n281["ITA_new_roman_citizens"]
+        n282["ITA_the_holy_lands"]
+        n283["ITA_the_italian_legions"]
+    end
+    subgraph tier_13["Tier 13"]
+        n284["ITA_all_roads_lead_to_rome"]
+        n285["ITA_masters_of_the_aegean"]
+        n286["ITA_south_american_alliances"]
+        n287["ITA_subdue_the_sentinels"]
+        n288["ITA_the_catholic_dominion"]
+    end
+    subgraph tier_14["Tier 14"]
+        n289["ITA_a_colonial_empire"]
+        n290["ITA_caligulas_pride"]
+        n291["ITA_masters_of_the_mediterranean"]
+        n292["ITA_modern_musculus"]
+        n293["ITA_the_king_of_the_skies"]
+    end
+    subgraph tier_15["Tier 15"]
+        n294["ITA_by_blood_alone"]
+    end
+    n287 --> n289
+    n233 --> n235
+    n136 --> n138
+    n165 --> n169
+    n266 --> n273
+    n116 --> n119
+    n200 --> n208
+    n127 --> n139
+    n164 --> n170
+    n113 --> n120
+    n107 --> n120
+    n120 --> n140
+    n283 --> n284
+    n96 --> n97
+    n160 --> n171
+    n100 --> n106
+    n144 --> n172
+    n172 --> n209
+    n189 --> n209
+    n181 --> n209
+    n201 --> n210
+    n268 --> n274
+    n102 --> n107
+    n122 --> n141
+    n141 --> n173
+    n114 --> n121
+    n129 --> n142
+    n134 --> n143
+    n129 --> n143
+    n161 --> n174
+    n124 --> n174
+    n206 --> n211
+    n142 --> n211
+    n112 --> n122
+    n272 --> n275
+    n239 --> n249
+    n118 --> n123
+    n167 --> n175
+    n190 --> n212
+    n255 --> n262
+    n289 --> n294
+    n284 --> n290
+    n272 --> n276
+    n179 --> n276
+    n260 --> n263
+    n159 --> n176
+    n206 --> n213
+    n142 --> n213
+    n214 --> n236
+    n253 --> n264
+    n136 --> n144
+    n127 --> n144
+    n195 --> n214
+    n194 --> n214
+    n147 --> n177
+    n128 --> n145
+    n125 --> n145
+    n295 --> n88
+    n96 --> n98
+    n88 --> n98
+    n176 --> n215
+    n178 --> n215
+    n127 --> n146
+    n119 --> n147
+    n102 --> n108
+    n215 --> n237
+    n218 --> n237
+    n136 --> n148
+    n127 --> n148
+    n96 --> n99
+    n234 --> n238
+    n253 --> n265
+    n89 --> n100
+    n93 --> n100
+    n96 --> n100
+    n108 --> n124
+    n205 --> n216
+    n197 --> n216
+    n159 --> n178
+    n98 --> n109
+    n260 --> n266
+    n96 --> n101
+    n137 --> n179
+    n123 --> n179
+    n163 --> n179
+    n109 --> n125
+    n158 --> n180
+    n159 --> n180
+    n233 --> n239
+    n196 --> n217
+    n148 --> n181
+    n127 --> n149
+    n157 --> n182
+    n243 --> n250
+    n178 --> n218
+    n176 --> n218
+    n180 --> n219
+    n204 --> n219
+    n224 --> n251
+    n242 --> n251
+    n132 --> n150
+    n234 --> n240
+    n96 --> n102
+    n88 --> n102
+    n153 --> n183
+    n134 --> n151
+    n219 --> n241
+    n178 --> n241
+    n165 --> n184
+    n113 --> n126
+    n107 --> n126
+    n272 --> n277
+    n179 --> n277
+    n268 --> n278
+    n266 --> n278
+    n264 --> n279
+    n254 --> n279
+    n266 --> n280
+    n217 --> n242
+    n136 --> n152
+    n152 --> n185
+    n125 --> n153
+    n132 --> n153
+    n201 --> n220
+    n231 --> n243
+    n258 --> n267
+    n134 --> n154
+    n129 --> n154
+    n117 --> n127
+    n109 --> n128
+    n113 --> n129
+    n107 --> n129
+    n193 --> n221
+    n193 --> n222
+    n99 --> n110
+    n99 --> n111
+    n110 --> n130
+    n111 --> n130
+    n118 --> n131
+    n94 --> n103
+    n96 --> n103
+    n201 --> n223
+    n146 --> n186
+    n256 --> n268
+    n163 --> n268
+    n249 --> n268
+    n275 --> n285
+    n285 --> n291
+    n196 --> n224
+    n192 --> n224
+    n246 --> n252
+    n240 --> n253
+    n121 --> n155
+    n135 --> n155
+    n99 --> n112
+    n98 --> n112
+    n190 --> n225
+    n284 --> n292
+    n109 --> n132
+    n126 --> n156
+    n119 --> n157
+    n133 --> n157
+    n116 --> n133
+    n150 --> n187
+    n190 --> n226
+    n185 --> n227
+    n268 --> n281
+    n232 --> n244
+    n228 --> n244
+    n202 --> n228
+    n113 --> n134
+    n107 --> n134
+    n219 --> n245
+    n204 --> n245
+    n250 --> n269
+    n166 --> n188
+    n152 --> n189
+    n102 --> n113
+    n132 --> n158
+    n150 --> n190
+    n171 --> n229
+    n183 --> n229
+    n149 --> n191
+    n184 --> n230
+    n169 --> n230
+    n145 --> n192
+    n162 --> n192
+    n238 --> n254
+    n156 --> n193
+    n231 --> n246
+    n128 --> n194
+    n162 --> n194
+    n128 --> n195
+    n162 --> n195
+    n125 --> n196
+    n145 --> n196
+    n134 --> n197
+    n154 --> n197
+    n132 --> n159
+    n243 --> n255
+    n246 --> n255
+    n151 --> n198
+    n151 --> n199
+    n255 --> n270
+    n99 --> n114
+    n98 --> n114
+    n125 --> n160
+    n132 --> n160
+    n158 --> n200
+    n100 --> n115
+    n90 --> n95
+    n92 --> n95
+    n91 --> n95
+    n241 --> n256
+    n237 --> n256
+    n247 --> n256
+    n175 --> n231
+    n278 --> n286
+    n108 --> n161
+    n129 --> n161
+    n240 --> n257
+    n238 --> n257
+    n235 --> n258
+    n202 --> n232
+    n128 --> n162
+    n125 --> n162
+    n114 --> n135
+    n208 --> n247
+    n130 --> n163
+    n275 --> n287
+    n120 --> n164
+    n273 --> n288
+    n282 --> n288
+    n221 --> n248
+    n252 --> n271
+    n100 --> n116
+    n192 --> n233
+    n238 --> n259
+    n147 --> n201
+    n166 --> n201
+    n128 --> n202
+    n162 --> n202
+    n136 --> n165
+    n266 --> n282
+    n133 --> n166
+    n268 --> n283
+    n100 --> n117
+    n284 --> n293
+    n99 --> n118
+    n96 --> n104
+    n247 --> n260
+    n138 --> n203
+    n117 --> n136
+    n127 --> n167
+    n118 --> n137
+    n96 --> n105
+    n163 --> n272
+    n249 --> n272
+    n256 --> n272
+    n134 --> n168
+    n95 --> n96
+    n91 --> n295
+    n203 --> n234
+    n238 --> n261
+    n158 --> n204
+    n154 --> n205
+    n154 --> n206
+    n129 --> n207
+    n154 --> n207
+    n235 x--x n239
+    n119 x--x n133
+    n172 x--x n181
+    n172 x--x n189
+    n107 x--x n113
+    n121 x--x n135
+    n142 x--x n206
+    n211 x--x n213
+    n123 x--x n137
+    n276 x--x n277
+    n176 x--x n178
+    n98 x--x n99
+    n98 x--x n100
+    n146 x--x n148
+    n99 x--x n100
+    n238 x--x n240
+    n124 x--x n161
+    n125 x--x n128
+    n125 x--x n132
+    n180 x--x n204
+    n181 x--x n189
+    n126 x--x n129
+    n126 x--x n134
+    n153 x--x n160
+    n243 x--x n246
+    n127 x--x n136
+    n128 x--x n132
+    n129 x--x n134
+    n110 x--x n111
+    n268 x--x n272
+    n228 x--x n232
+    n158 x--x n159
+    n194 x--x n195
+    n197 x--x n205
+    n90 x--x n91
+    n91 x--x n92
 ```
 
 # ITA_the_abyssinian_fiasco
 
 ```mermaid
-flowchart TD
-    n88["ITA_a_colonial_empire"]
-    n89["ITA_a_greater_purpose"]
-    n90["ITA_a_leader_steps_forward"]
-    n91["ITA_a_new_era_for_the_red_shirts"]
-    n92["ITA_a_time_for_war"]
-    n93["ITA_abolish_the_colonies"]
-    n94["ITA_agents_of_the_church"]
-    n95["ITA_aid_for_the_spanish_republic"]
-    n96["ITA_albanian_fascist_militia"]
-    n97["ITA_albanian_occupation"]
-    n98["ITA_albanian_oil"]
-    n99["ITA_all_roads_lead_to_rome"]
-    n100["ITA_anglo_italian_agreements"]
-    n101["ITA_anglo_italian_pact"]
-    n102["ITA_appeal_to_the_bourgeoisie"]
-    n103["ITA_appease_the_military"]
-    n104["ITA_army_modernization"]
-    n105["ITA_ascari"]
-    n106["ITA_auxiliaries"]
-    n107{"ITA_balkan_ambition"}
-    n108["ITA_banda_carita"]
-    n109["ITA_banda_koch"]
-    n110["ITA_battaglioni_d_assalto"]
-    n111{"ITA_befriend_greece"}
-    n112["ITA_befriend_japan"]
-    n113["ITA_befriend_portugal"]
-    n114["ITA_befriend_turkey"]
-    n115["ITA_believe_obey_fight"]
-    n116["ITA_bend_the_bars"]
-    n117{"ITA_blackshirt_loyalty"}
-    n118["ITA_boost_the_grand_council_of_fascism"]
-    n119["ITA_bring_back_exiled_intellectuals"]
-    n120["ITA_bring_back_old_glories"]
-    n121["ITA_bring_down_fascist_strongholds"]
-    n122["ITA_by_blood_alone"]
-    n123["ITA_caligulas_pride"]
-    n124["ITA_capo_supremo"]
-    n125["ITA_catholic_action"]
-    n126["ITA_christian_democracy"]
-    n127["ITA_claims_on_turkey_bba"]
-    n128["ITA_combined_land_and_air_warfare"]
-    n129["ITA_combined_research_effort"]
-    n130{"ITA_common_ground"}
-    n131["ITA_compagnie_auto_avio_sahariane"]
-    n132["ITA_condemn_colonialism"]
-    n133["ITA_consolidate_power"]
-    n134{"ITA_conspiracies_in_the_shadows"}
-    n135["ITA_convene_the_grand_council"]
-    n136["ITA_cooperate_with_moderates"]
-    n137["ITA_cooperate_with_the_mafia"]
-    n138["ITA_cooperatives_for_intensive_exploitation"]
-    n139{"ITA_corpo_di_truppe_volontarie"}
-    n140["ITA_crush_opposition"]
-    n141{"ITA_crush_the_mafia"}
-    n142{"ITA_culto_del_duce"}
-    n143["ITA_defend_the_land"]
-    n144["ITA_defense_against_capitalism"]
-    n145["ITA_defy_the_duce"]
-    n146["ITA_demand_balearic_islands_bba"]
-    n147["ITA_demand_ticino"]
-    n148["ITA_democratic_king"]
-    n149{"ITA_depose_mussolini"}
-    n150["ITA_deus_vult"]
-    n151["ITA_devaluate_the_lire"]
-    n152{"ITA_devotion"}
-    n153{"ITA_dino_grandi_focus"}
-    n154["ITA_disband_the_blackshirts"]
-    n155["ITA_divino_duce"]
-    n156["ITA_economic_reforms"]
-    n157["ITA_empower_the_carabinieri"]
-    n158["ITA_empower_the_unions"]
-    n159["ITA_enlist_the_bashkimi_kombetar"]
-    n160["ITA_european_democracies"]
-    n161["ITA_expand_intelligence_services"]
-    n162["ITA_expand_the_royal_guard"]
-    n163["ITA_expanded_corporatism"]
-    n164["ITA_extraction_industry"]
-    n165["ITA_follow_the_soviet_union"]
-    n166{"ITA_foreign_affairs"}
-    n167["ITA_franco_italian_pact"]
-    n168["ITA_german_military_cooperation"]
-    n169["ITA_gloria_al_regno_d_italia"]
-    n170["ITA_gruppi_di_difesa_della_donna"]
-    n171["ITA_guarantee_austrian_independence"]
-    n172["ITA_heroes_of_the_nation"]
-    n173["ITA_iberian_protection"]
-    n174["ITA_il_sol_dell_avvenire"]
-    n175["ITA_il_vento_aureo"]
-    n176["ITA_improve_the_industries"]
-    n177{"ITA_industrial_socialization"}
-    n178["ITA_institute_the_five_year_plan"]
-    n179["ITA_invite_france_to_military_partnership"]
-    n180["ITA_irregulars"]
-    n181["ITA_italia_libera"]
-    n182["ITA_italian_hegemony"]
-    n183{"ITA_italian_irredentism"}
-    n184{"ITA_italian_socialism"}
-    n185{"ITA_italo_balbo_focus"}
-    n186{"ITA_italy_first"}
-    n187["ITA_italys_destiny"]
-    n188["ITA_joint_military_programs"]
-    n189["ITA_la_battaglia_del_grano"]
-    n190["ITA_la_battaglia_per_la_terra"]
-    n191["ITA_la_battaglia_per_le_nascite"]
-    n192["ITA_legge_bottai"]
-    n193["ITA_liberate_gramsci"]
-    n194["ITA_liberate_the_workers_of_africa"]
-    n195["ITA_mafia_abroad"]
-    n196["ITA_mare_nostrum_bba"]
-    n197["ITA_masters_of_the_aegean"]
-    n198["ITA_masters_of_the_mediterranean"]
-    n199["ITA_meritocracy"]
-    n200["ITA_military_agreements"]
-    n201["ITA_military_cooperation"]
-    n202["ITA_milizia_coloniale"]
-    n203["ITA_ministero_della_cultura_popolare"]
-    n204["ITA_mobilize_the_railway_guns"]
-    n205["ITA_modern_musculus"]
-    n206{"ITA_monarchia_d_italia"}
-    n207["ITA_negotiate_italian_claims"]
-    n208["ITA_negotiations_with_albania"]
-    n209["ITA_new_colonial_policies"]
-    n210["ITA_new_corporations"]
-    n211["ITA_new_forms_of_weaponry"]
-    n212["ITA_new_ricostruzione_industriale"]
-    n213["ITA_new_roman_citizens"]
-    n214["ITA_novus_ordo"]
-    n215["ITA_oil_in_tripoli"]
-    n216{"ITA_organize_strikes_in_the_north"}
-    n217{"ITA_pact_of_steel"}
-    n218["ITA_paramilitary_training"]
-    n219["ITA_peace_preservation"]
-    n220["ITA_planned_economy"]
-    n221["ITA_political_commissars"]
-    n222{"ITA_potential_allies_in_the_balkans"}
-    n223{"ITA_power_to_the_king"}
-    n224["ITA_prepare_for_the_coming_wars"]
-    n225["ITA_proclaim_the_italian_empire"]
-    n226["ITA_production_lines"]
-    n227["ITA_pugno_alzato"]
-    n228["ITA_purge_the_party"]
-    n229["ITA_raise_the_peoples"]
-    n230["ITA_ratify_the_stresa_front"]
-    n231["ITA_reestablish_old_alliances"]
-    n232["ITA_reinforce_regia_aeronautica"]
-    n233["ITA_reorganize_regio_esercito"]
-    n234["ITA_reorganize_the_party"]
-    n235["ITA_request_control_of_french_territories"]
-    n236{"ITA_revoke_the_acerbo_law"}
-    n237["ITA_scientific_cooperation"]
-    n238["ITA_sea_wolves_bba"]
-    n239["ITA_secret_weapons"]
-    n240["ITA_secure_the_borders"]
-    n241{"ITA_security_militias"}
-    n242["ITA_seek_british_military_cooperation"]
-    n243["ITA_seek_papal_support"]
-    n244["ITA_seize_old_equipment"]
-    n245["ITA_servizio_informazione_militare"]
-    n246{"ITA_setting_course"}
-    n247{"ITA_social_stability"}
-    n248["ITA_solid_progress"]
-    n249["ITA_south_american_alliances"]
-    n250["ITA_spanish_italian_alliance"]
-    n251["ITA_special_brigades"]
-    n252["ITA_spreading_the_eagles_wings"]
-    n253["ITA_steel_in_tripoli"]
-    n254{"ITA_stop_the_squandering"}
-    n255["ITA_strengthen_the_blackshirts"]
-    n256["ITA_strengthen_the_papacy"]
-    n257{"ITA_strengthen_the_regime"}
-    n258["ITA_struggle_in_ethiopia"]
-    n259["ITA_subdue_the_sentinels"]
-    n260["ITA_support_albanian_irredentism"]
-    n261(("ITA_the_abyssinian_fiasco"))
-    n262["ITA_the_catholic_dominion"]
-    n263["ITA_the_eastern_threat"]
-    n264["ITA_the_enemies_of_capitalism"]
-    n265{"ITA_the_ethiopian_question"}
-    n266{"ITA_the_fate_of_mussolini"}
-    n267["ITA_the_fight_against_stalinism"]
-    n268["ITA_the_fight_overseas"]
-    n269{"ITA_the_fourth_shore"}
-    n270["ITA_the_garibaldi_legion"]
-    n271["ITA_the_holy_lands"]
-    n272["ITA_the_italian_confederation"]
-    n273["ITA_the_italian_legions"]
-    n274{"ITA_the_italian_republic"}
-    n275["ITA_the_king_of_the_skies"]
-    n276{"ITA_the_man_of_providence"}
-    n277["ITA_the_new_emperor_of_ethiopia"]
-    n278["ITA_the_papacy_reborn"]
-    n279["ITA_the_path_to_progress"]
-    n280{"ITA_the_popular_front"}
-    n281["ITA_the_republics_leadership"]
-    n282{"ITA_the_southern_farmlands"}
-    n283["ITA_to_live_as_a_lion"]
-    n284["ITA_topple_amhara_rulers"]
-    n285{"ITA_towards_a_greater_italy"}
-    n286["ITA_treaty_with_germany"]
-    n287{"ITA_triumph_in_africa_bba"}
-    n288{"ITA_union_in_the_party"}
-    n289{"ITA_unite_the_opposition"}
-    n290["ITA_united_anarchist_confederations"]
-    n291["ITA_utilize_the_blackshirts"]
-    n292["ITA_war_with_france"]
-    n293{"ITA_war_with_greece"}
-    n294["ITA_war_with_the_uk"]
-    n259 --> n88
-    n266 --> n89
-    n280 --> n90
-    n270 --> n91
-    n150 --> n92
-    n265 --> n93
-    n243 --> n94
-    n184 --> n95
-    n260 --> n96
-    n222 --> n97
-    n107 --> n97
-    n97 --> n98
-    n273 --> n99
-    n287 --> n100
-    n242 --> n101
-    n145 --> n102
-    n130 --> n103
-    n103 --> n104
-    n221 --> n104
-    n157 --> n104
-    n268 --> n105
-    n196 --> n106
-    n166 --> n107
-    n115 --> n108
-    n108 --> n109
-    n241 --> n110
-    n186 --> n111
-    n217 --> n112
-    n186 --> n112
-    n250 --> n113
-    n146 --> n113
-    n293 --> n114
-    n111 --> n114
-    n203 --> n115
-    n285 --> n116
-    n155 --> n117
-    n276 --> n118
-    n281 --> n119
-    n224 --> n120
-    n237 --> n121
-    n88 --> n122
-    n99 --> n123
-    n285 --> n124
-    n152 --> n124
-    n278 --> n125
-    n236 --> n126
-    n293 --> n127
-    n111 --> n127
-    n131 --> n128
-    n201 --> n129
-    n280 --> n130
-    n184 --> n130
-    n233 --> n131
-    n232 --> n131
-    n138 --> n132
-    n185 --> n133
-    n153 --> n133
-    n287 --> n135
-    n134 --> n135
-    n126 --> n136
-    n148 --> n136
-    n184 --> n137
-    n93 --> n138
-    n166 --> n139
-    n136 --> n140
-    n161 --> n140
-    n280 --> n141
-    n184 --> n141
-    n287 --> n142
-    n288 --> n143
-    n201 --> n144
-    n216 --> n145
-    n282 --> n145
-    n287 --> n145
-    n139 --> n146
-    n292 --> n147
-    n235 --> n147
-    n236 --> n148
-    n135 --> n149
-    n278 --> n150
-    n287 --> n151
-    n283 --> n152
-    n118 --> n152
-    n257 --> n152
-    n149 --> n153
-    n223 --> n154
-    n236 --> n154
-    n266 --> n155
-    n234 --> n156
-    n141 --> n157
-    n184 --> n158
-    n208 --> n159
-    n181 --> n160
-    n148 --> n161
-    n126 --> n161
-    n154 --> n162
-    n291 --> n162
-    n199 --> n163
-    n176 --> n163
-    n206 --> n164
-    n288 --> n165
-    n287 --> n166
-    n134 --> n166
-    n179 --> n167
-    n217 --> n168
-    n162 --> n169
-    n148 --> n169
-    n270 --> n170
-    n222 --> n171
-    n107 --> n171
-    n285 --> n172
-    n152 --> n172
-    n196 --> n173
-    n150 --> n173
-    n129 --> n174
-    n229 --> n174
-    n150 --> n175
-    n156 --> n176
-    n280 --> n177
-    n177 --> n178
-    n153 --> n179
-    n206 --> n179
-    n268 --> n180
-    n247 --> n181
-    n252 --> n182
-    n217 --> n183
-    n186 --> n183
-    n274 --> n184
-    n149 --> n185
-    n222 --> n186
-    n107 --> n186
-    n230 --> n187
-    n230 --> n188
-    n142 --> n189
-    n142 --> n190
-    n189 --> n191
-    n190 --> n191
-    n276 --> n192
-    n289 --> n193
-    n287 --> n193
-    n268 --> n194
-    n137 --> n195
-    n246 --> n196
-    n257 --> n196
-    n117 --> n196
-    n116 --> n197
-    n197 --> n198
-    n234 --> n199
-    n228 --> n199
-    n231 --> n200
-    n165 --> n201
-    n110 --> n202
-    n255 --> n202
-    n142 --> n203
-    n135 --> n203
-    n224 --> n204
-    n99 --> n205
-    n149 --> n206
-    n171 --> n207
-    n93 --> n208
-    n209 --> n208
-    n265 --> n209
-    n164 --> n210
-    n224 --> n211
-    n178 --> n212
-    n196 --> n213
-    n253 --> n214
-    n215 --> n214
-    n269 --> n215
-    n289 --> n216
-    n222 --> n217
-    n107 --> n217
-    n162 --> n218
-    n291 --> n218
-    n160 --> n219
-    n272 --> n220
-    n177 --> n221
-    n166 --> n222
-    n206 --> n223
-    n164 --> n224
-    n101 --> n225
-    n167 --> n225
-    n158 --> n226
-    n170 --> n227
-    n91 --> n227
-    n133 --> n228
-    n254 --> n228
-    n143 --> n229
-    n207 --> n230
-    n247 --> n231
-    n185 --> n232
-    n254 --> n232
-    n185 --> n233
-    n254 --> n233
-    n153 --> n234
-    n133 --> n234
-    n217 --> n235
-    n183 --> n235
-    n206 --> n236
-    n181 --> n237
-    n231 --> n237
-    n168 --> n238
-    n168 --> n239
-    n237 --> n240
-    n142 --> n241
-    n135 --> n241
-    n153 --> n242
-    n206 --> n242
-    n223 --> n243
-    n145 --> n244
-    n248 --> n245
-    n261 --> n245
-    n258 --> n245
-    n169 --> n246
-    n140 --> n246
-    n256 --> n246
-    n119 --> n247
-    n173 --> n249
-    n139 --> n250
-    n186 --> n250
-    n165 --> n251
-    n143 --> n251
-    n89 --> n252
-    n269 --> n253
-    n185 --> n254
-    n153 --> n254
-    n241 --> n255
-    n94 --> n256
-    n191 --> n257
-    n116 --> n259
-    n97 --> n260
-    n92 --> n262
-    n271 --> n262
-    n187 --> n263
-    n200 --> n264
-    n145 --> n265
-    n228 --> n266
-    n143 --> n267
-    n138 --> n268
-    n272 --> n268
-    n185 --> n269
-    n254 --> n269
-    n280 --> n270
-    n150 --> n271
-    n209 --> n272
-    n196 --> n273
-    n145 --> n274
-    n99 --> n275
-    n142 --> n276
-    n287 --> n277
-    n256 --> n278
-    n90 --> n279
-    n274 --> n280
-    n184 --> n281
-    n289 --> n282
-    n276 --> n283
-    n287 --> n284
-    n257 --> n285
-    n117 --> n285
-    n246 --> n285
-    n217 --> n286
-    n245 --> n287
-    n279 --> n288
-    n261 --> n289
-    n143 --> n290
-    n223 --> n291
-    n183 --> n292
-    n183 --> n293
-    n186 --> n294
-    n183 --> n294
-    n89 x--x n155
-    n93 x--x n209
-    n103 x--x n157
-    n103 x--x n221
-    n107 x--x n222
-    n110 x--x n255
-    n111 x--x n293
-    n114 x--x n127
-    n118 x--x n283
-    n124 x--x n172
-    n126 x--x n148
-    n135 x--x n142
-    n135 x--x n145
-    n137 x--x n141
-    n142 x--x n145
-    n143 x--x n165
-    n146 x--x n250
-    n153 x--x n185
-    n153 x--x n206
-    n154 x--x n291
-    n157 x--x n221
-    n171 x--x n186
-    n171 x--x n217
-    n179 x--x n242
-    n181 x--x n231
-    n184 x--x n280
-    n185 x--x n206
-    n186 x--x n217
-    n189 x--x n190
-    n196 x--x n285
-    n215 x--x n253
-    n216 x--x n282
-    n223 x--x n236
-    n232 x--x n233
-    n235 x--x n292
-    n248 x--x n261
-    n258 x--x n261
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n88{"ITA_conspiracies_in_the_shadows"}
+        n90["ITA_solid_progress"]
+        n91["ITA_struggle_in_ethiopia"]
+        n92(("ITA_the_abyssinian_fiasco"))
+    end
+    subgraph tier_1["Tier 1"]
+        n95["ITA_servizio_informazione_militare"]
+        n94{"ITA_unite_the_opposition"}
+    end
+    subgraph tier_2["Tier 2"]
+        n89{"ITA_organize_strikes_in_the_north"}
+        n93{"ITA_the_southern_farmlands"}
+        n96{"ITA_triumph_in_africa_bba"}
+    end
+    subgraph tier_3["Tier 3"]
+        n97["ITA_anglo_italian_agreements"]
+        n98["ITA_convene_the_grand_council"]
+        n99{"ITA_culto_del_duce"}
+        n100["ITA_defy_the_duce"]
+        n101["ITA_devaluate_the_lire"]
+        n102{"ITA_foreign_affairs"}
+        n103["ITA_liberate_gramsci"]
+        n104["ITA_the_new_emperor_of_ethiopia"]
+        n105["ITA_topple_amhara_rulers"]
+    end
+    subgraph tier_4["Tier 4"]
+        n106["ITA_appeal_to_the_bourgeoisie"]
+        n107{"ITA_balkan_ambition"}
+        n108{"ITA_corpo_di_truppe_volontarie"}
+        n109{"ITA_depose_mussolini"}
+        n110["ITA_la_battaglia_del_grano"]
+        n111["ITA_la_battaglia_per_la_terra"]
+        n112["ITA_ministero_della_cultura_popolare"]
+        n113{"ITA_potential_allies_in_the_balkans"}
+        n114{"ITA_security_militias"}
+        n115["ITA_seize_old_equipment"]
+        n116{"ITA_the_ethiopian_question"}
+        n117{"ITA_the_italian_republic"}
+        n118{"ITA_the_man_of_providence"}
+    end
+    subgraph tier_5["Tier 5"]
+        n119["ITA_abolish_the_colonies"]
+        n120["ITA_albanian_occupation"]
+        n121["ITA_battaglioni_d_assalto"]
+        n122["ITA_believe_obey_fight"]
+        n123["ITA_boost_the_grand_council_of_fascism"]
+        n124["ITA_demand_balearic_islands_bba"]
+        n125{"ITA_dino_grandi_focus"}
+        n126["ITA_guarantee_austrian_independence"]
+        n127{"ITA_italian_socialism"}
+        n128{"ITA_italo_balbo_focus"}
+        n129{"ITA_italy_first"}
+        n130["ITA_la_battaglia_per_le_nascite"]
+        n131["ITA_legge_bottai"]
+        n132{"ITA_monarchia_d_italia"}
+        n133["ITA_new_colonial_policies"]
+        n134{"ITA_pact_of_steel"}
+        n135["ITA_strengthen_the_blackshirts"]
+        n136{"ITA_the_popular_front"}
+        n137["ITA_to_live_as_a_lion"]
+    end
+    subgraph tier_6["Tier 6"]
+        n138["ITA_a_leader_steps_forward"]
+        n139["ITA_aid_for_the_spanish_republic"]
+        n140["ITA_albanian_oil"]
+        n141["ITA_banda_carita"]
+        n142{"ITA_befriend_greece"}
+        n143["ITA_befriend_japan"]
+        n144{"ITA_common_ground"}
+        n145["ITA_consolidate_power"]
+        n146["ITA_cooperate_with_the_mafia"]
+        n147["ITA_cooperatives_for_intensive_exploitation"]
+        n148{"ITA_crush_the_mafia"}
+        n149["ITA_empower_the_unions"]
+        n150["ITA_extraction_industry"]
+        n151["ITA_german_military_cooperation"]
+        n152{"ITA_industrial_socialization"}
+        n153["ITA_invite_france_to_military_partnership"]
+        n154{"ITA_italian_irredentism"}
+        n155["ITA_milizia_coloniale"]
+        n156["ITA_negotiate_italian_claims"]
+        n157["ITA_negotiations_with_albania"]
+        n158{"ITA_power_to_the_king"}
+        n159{"ITA_revoke_the_acerbo_law"}
+        n160["ITA_seek_british_military_cooperation"]
+        n161["ITA_spanish_italian_alliance"]
+        n162{"ITA_stop_the_squandering"}
+        n163{"ITA_strengthen_the_regime"}
+        n164["ITA_support_albanian_irredentism"]
+        n165["ITA_the_garibaldi_legion"]
+        n166["ITA_the_italian_confederation"]
+        n167["ITA_the_republics_leadership"]
+        n168["ITA_treaty_with_germany"]
+    end
+    subgraph tier_7["Tier 7"]
+        n169["ITA_a_new_era_for_the_red_shirts"]
+        n170["ITA_albanian_fascist_militia"]
+        n171["ITA_anglo_italian_pact"]
+        n172["ITA_appease_the_military"]
+        n173["ITA_banda_koch"]
+        n174["ITA_befriend_portugal"]
+        n175["ITA_bring_back_exiled_intellectuals"]
+        n176["ITA_christian_democracy"]
+        n177["ITA_condemn_colonialism"]
+        n178["ITA_democratic_king"]
+        n179{"ITA_devotion"}
+        n180["ITA_disband_the_blackshirts"]
+        n181["ITA_empower_the_carabinieri"]
+        n182["ITA_enlist_the_bashkimi_kombetar"]
+        n183["ITA_franco_italian_pact"]
+        n184["ITA_gruppi_di_difesa_della_donna"]
+        n185["ITA_institute_the_five_year_plan"]
+        n186["ITA_mafia_abroad"]
+        n187["ITA_new_corporations"]
+        n188["ITA_planned_economy"]
+        n189["ITA_political_commissars"]
+        n190["ITA_prepare_for_the_coming_wars"]
+        n191["ITA_production_lines"]
+        n192["ITA_purge_the_party"]
+        n193["ITA_ratify_the_stresa_front"]
+        n194["ITA_reinforce_regia_aeronautica"]
+        n195["ITA_reorganize_regio_esercito"]
+        n196["ITA_reorganize_the_party"]
+        n197["ITA_request_control_of_french_territories"]
+        n198["ITA_sea_wolves_bba"]
+        n199["ITA_secret_weapons"]
+        n200["ITA_seek_papal_support"]
+        n201["ITA_the_fight_overseas"]
+        n202{"ITA_the_fourth_shore"}
+        n203["ITA_the_path_to_progress"]
+        n204["ITA_utilize_the_blackshirts"]
+        n205["ITA_war_with_france"]
+        n206{"ITA_war_with_greece"}
+        n207["ITA_war_with_the_uk"]
+    end
+    subgraph tier_8["Tier 8"]
+        n208["ITA_agents_of_the_church"]
+        n209["ITA_army_modernization"]
+        n210["ITA_ascari"]
+        n211["ITA_befriend_turkey"]
+        n212["ITA_bring_back_old_glories"]
+        n213["ITA_claims_on_turkey_bba"]
+        n214["ITA_compagnie_auto_avio_sahariane"]
+        n215["ITA_cooperate_with_moderates"]
+        n216["ITA_demand_ticino"]
+        n217["ITA_economic_reforms"]
+        n218["ITA_expand_intelligence_services"]
+        n219["ITA_expand_the_royal_guard"]
+        n220["ITA_irregulars"]
+        n221["ITA_italys_destiny"]
+        n222["ITA_joint_military_programs"]
+        n223["ITA_liberate_the_workers_of_africa"]
+        n224["ITA_meritocracy"]
+        n225["ITA_mobilize_the_railway_guns"]
+        n226["ITA_new_forms_of_weaponry"]
+        n227["ITA_new_ricostruzione_industriale"]
+        n228["ITA_oil_in_tripoli"]
+        n229["ITA_proclaim_the_italian_empire"]
+        n230["ITA_pugno_alzato"]
+        n231{"ITA_social_stability"}
+        n232["ITA_steel_in_tripoli"]
+        n233{"ITA_the_fate_of_mussolini"}
+        n234{"ITA_union_in_the_party"}
+    end
+    subgraph tier_9["Tier 9"]
+        n235["ITA_a_greater_purpose"]
+        n236["ITA_combined_land_and_air_warfare"]
+        n237["ITA_crush_opposition"]
+        n238["ITA_defend_the_land"]
+        n239["ITA_divino_duce"]
+        n240["ITA_follow_the_soviet_union"]
+        n241["ITA_gloria_al_regno_d_italia"]
+        n242["ITA_improve_the_industries"]
+        n243["ITA_italia_libera"]
+        n244["ITA_novus_ordo"]
+        n245["ITA_paramilitary_training"]
+        n246["ITA_reestablish_old_alliances"]
+        n247["ITA_strengthen_the_papacy"]
+        n248["ITA_the_eastern_threat"]
+    end
+    subgraph tier_10["Tier 10"]
+        n249{"ITA_blackshirt_loyalty"}
+        n250["ITA_european_democracies"]
+        n251["ITA_expanded_corporatism"]
+        n252["ITA_military_agreements"]
+        n253["ITA_military_cooperation"]
+        n254["ITA_raise_the_peoples"]
+        n255["ITA_scientific_cooperation"]
+        n256{"ITA_setting_course"}
+        n257["ITA_special_brigades"]
+        n258["ITA_spreading_the_eagles_wings"]
+        n259["ITA_the_fight_against_stalinism"]
+        n260["ITA_the_papacy_reborn"]
+        n261["ITA_united_anarchist_confederations"]
+    end
+    subgraph tier_11["Tier 11"]
+        n262["ITA_bring_down_fascist_strongholds"]
+        n263["ITA_catholic_action"]
+        n264["ITA_combined_research_effort"]
+        n265["ITA_defense_against_capitalism"]
+        n266["ITA_deus_vult"]
+        n267["ITA_italian_hegemony"]
+        n268["ITA_mare_nostrum_bba"]
+        n269["ITA_peace_preservation"]
+        n270["ITA_secure_the_borders"]
+        n271["ITA_the_enemies_of_capitalism"]
+        n272{"ITA_towards_a_greater_italy"}
+    end
+    subgraph tier_12["Tier 12"]
+        n273["ITA_a_time_for_war"]
+        n274["ITA_auxiliaries"]
+        n275["ITA_bend_the_bars"]
+        n276["ITA_capo_supremo"]
+        n277["ITA_heroes_of_the_nation"]
+        n278["ITA_iberian_protection"]
+        n279["ITA_il_sol_dell_avvenire"]
+        n280["ITA_il_vento_aureo"]
+        n281["ITA_new_roman_citizens"]
+        n282["ITA_the_holy_lands"]
+        n283["ITA_the_italian_legions"]
+    end
+    subgraph tier_13["Tier 13"]
+        n284["ITA_all_roads_lead_to_rome"]
+        n285["ITA_masters_of_the_aegean"]
+        n286["ITA_south_american_alliances"]
+        n287["ITA_subdue_the_sentinels"]
+        n288["ITA_the_catholic_dominion"]
+    end
+    subgraph tier_14["Tier 14"]
+        n289["ITA_a_colonial_empire"]
+        n290["ITA_caligulas_pride"]
+        n291["ITA_masters_of_the_mediterranean"]
+        n292["ITA_modern_musculus"]
+        n293["ITA_the_king_of_the_skies"]
+    end
+    subgraph tier_15["Tier 15"]
+        n294["ITA_by_blood_alone"]
+    end
+    n287 --> n289
+    n233 --> n235
+    n136 --> n138
+    n165 --> n169
+    n266 --> n273
+    n116 --> n119
+    n200 --> n208
+    n127 --> n139
+    n164 --> n170
+    n113 --> n120
+    n107 --> n120
+    n120 --> n140
+    n283 --> n284
+    n96 --> n97
+    n160 --> n171
+    n100 --> n106
+    n144 --> n172
+    n172 --> n209
+    n189 --> n209
+    n181 --> n209
+    n201 --> n210
+    n268 --> n274
+    n102 --> n107
+    n122 --> n141
+    n141 --> n173
+    n114 --> n121
+    n129 --> n142
+    n134 --> n143
+    n129 --> n143
+    n161 --> n174
+    n124 --> n174
+    n206 --> n211
+    n142 --> n211
+    n112 --> n122
+    n272 --> n275
+    n239 --> n249
+    n118 --> n123
+    n167 --> n175
+    n190 --> n212
+    n255 --> n262
+    n289 --> n294
+    n284 --> n290
+    n272 --> n276
+    n179 --> n276
+    n260 --> n263
+    n159 --> n176
+    n206 --> n213
+    n142 --> n213
+    n214 --> n236
+    n253 --> n264
+    n136 --> n144
+    n127 --> n144
+    n195 --> n214
+    n194 --> n214
+    n147 --> n177
+    n128 --> n145
+    n125 --> n145
+    n96 --> n98
+    n88 --> n98
+    n176 --> n215
+    n178 --> n215
+    n127 --> n146
+    n119 --> n147
+    n102 --> n108
+    n215 --> n237
+    n218 --> n237
+    n136 --> n148
+    n127 --> n148
+    n96 --> n99
+    n234 --> n238
+    n253 --> n265
+    n89 --> n100
+    n93 --> n100
+    n96 --> n100
+    n108 --> n124
+    n205 --> n216
+    n197 --> n216
+    n159 --> n178
+    n98 --> n109
+    n260 --> n266
+    n96 --> n101
+    n137 --> n179
+    n123 --> n179
+    n163 --> n179
+    n109 --> n125
+    n158 --> n180
+    n159 --> n180
+    n233 --> n239
+    n196 --> n217
+    n148 --> n181
+    n127 --> n149
+    n157 --> n182
+    n243 --> n250
+    n178 --> n218
+    n176 --> n218
+    n180 --> n219
+    n204 --> n219
+    n224 --> n251
+    n242 --> n251
+    n132 --> n150
+    n234 --> n240
+    n96 --> n102
+    n88 --> n102
+    n153 --> n183
+    n134 --> n151
+    n219 --> n241
+    n178 --> n241
+    n165 --> n184
+    n113 --> n126
+    n107 --> n126
+    n272 --> n277
+    n179 --> n277
+    n268 --> n278
+    n266 --> n278
+    n264 --> n279
+    n254 --> n279
+    n266 --> n280
+    n217 --> n242
+    n136 --> n152
+    n152 --> n185
+    n125 --> n153
+    n132 --> n153
+    n201 --> n220
+    n231 --> n243
+    n258 --> n267
+    n134 --> n154
+    n129 --> n154
+    n117 --> n127
+    n109 --> n128
+    n113 --> n129
+    n107 --> n129
+    n193 --> n221
+    n193 --> n222
+    n99 --> n110
+    n99 --> n111
+    n110 --> n130
+    n111 --> n130
+    n118 --> n131
+    n94 --> n103
+    n96 --> n103
+    n201 --> n223
+    n146 --> n186
+    n256 --> n268
+    n163 --> n268
+    n249 --> n268
+    n275 --> n285
+    n285 --> n291
+    n196 --> n224
+    n192 --> n224
+    n246 --> n252
+    n240 --> n253
+    n121 --> n155
+    n135 --> n155
+    n99 --> n112
+    n98 --> n112
+    n190 --> n225
+    n284 --> n292
+    n109 --> n132
+    n126 --> n156
+    n119 --> n157
+    n133 --> n157
+    n116 --> n133
+    n150 --> n187
+    n190 --> n226
+    n185 --> n227
+    n268 --> n281
+    n232 --> n244
+    n228 --> n244
+    n202 --> n228
+    n94 --> n89
+    n113 --> n134
+    n107 --> n134
+    n219 --> n245
+    n204 --> n245
+    n250 --> n269
+    n166 --> n188
+    n152 --> n189
+    n102 --> n113
+    n132 --> n158
+    n150 --> n190
+    n171 --> n229
+    n183 --> n229
+    n149 --> n191
+    n184 --> n230
+    n169 --> n230
+    n145 --> n192
+    n162 --> n192
+    n238 --> n254
+    n156 --> n193
+    n231 --> n246
+    n128 --> n194
+    n162 --> n194
+    n128 --> n195
+    n162 --> n195
+    n125 --> n196
+    n145 --> n196
+    n134 --> n197
+    n154 --> n197
+    n132 --> n159
+    n243 --> n255
+    n246 --> n255
+    n151 --> n198
+    n151 --> n199
+    n255 --> n270
+    n99 --> n114
+    n98 --> n114
+    n125 --> n160
+    n132 --> n160
+    n158 --> n200
+    n100 --> n115
+    n90 --> n95
+    n92 --> n95
+    n91 --> n95
+    n241 --> n256
+    n237 --> n256
+    n247 --> n256
+    n175 --> n231
+    n278 --> n286
+    n108 --> n161
+    n129 --> n161
+    n240 --> n257
+    n238 --> n257
+    n235 --> n258
+    n202 --> n232
+    n128 --> n162
+    n125 --> n162
+    n114 --> n135
+    n208 --> n247
+    n130 --> n163
+    n275 --> n287
+    n120 --> n164
+    n273 --> n288
+    n282 --> n288
+    n221 --> n248
+    n252 --> n271
+    n100 --> n116
+    n192 --> n233
+    n238 --> n259
+    n147 --> n201
+    n166 --> n201
+    n128 --> n202
+    n162 --> n202
+    n136 --> n165
+    n266 --> n282
+    n133 --> n166
+    n268 --> n283
+    n100 --> n117
+    n284 --> n293
+    n99 --> n118
+    n96 --> n104
+    n247 --> n260
+    n138 --> n203
+    n117 --> n136
+    n127 --> n167
+    n94 --> n93
+    n118 --> n137
+    n96 --> n105
+    n163 --> n272
+    n249 --> n272
+    n256 --> n272
+    n134 --> n168
+    n95 --> n96
+    n203 --> n234
+    n92 --> n94
+    n238 --> n261
+    n158 --> n204
+    n154 --> n205
+    n154 --> n206
+    n129 --> n207
+    n154 --> n207
+    n235 x--x n239
+    n119 x--x n133
+    n172 x--x n181
+    n172 x--x n189
+    n107 x--x n113
+    n121 x--x n135
+    n142 x--x n206
+    n211 x--x n213
+    n123 x--x n137
+    n276 x--x n277
+    n176 x--x n178
+    n98 x--x n99
+    n98 x--x n100
+    n146 x--x n148
+    n99 x--x n100
+    n238 x--x n240
+    n124 x--x n161
+    n125 x--x n128
+    n125 x--x n132
+    n180 x--x n204
+    n181 x--x n189
+    n126 x--x n129
+    n126 x--x n134
+    n153 x--x n160
+    n243 x--x n246
+    n127 x--x n136
+    n128 x--x n132
+    n129 x--x n134
+    n110 x--x n111
+    n268 x--x n272
+    n228 x--x n232
+    n89 x--x n93
+    n158 x--x n159
+    n194 x--x n195
+    n197 x--x n205
+    n90 x--x n92
+    n91 x--x n92
 ```
 
 # ITA_the_italian_liberation_war
 
 ```mermaid
-flowchart TD
-    n296["ITA_corpo_volontari_della_liberta"]
-    n297{"ITA_fronte_militare_clandestino"}
-    n298["ITA_gappisti"]
-    n299["ITA_grande_rivolta_rurale"]
-    n300["ITA_independence_rds"]
-    n301["ITA_liberation_or_death"]
-    n302["ITA_partisan_republics"]
-    n303["ITA_the_carabinieri"]
-    n304(("ITA_the_italian_liberation_war"))
-    n305["ITA_the_kings_finest"]
-    n297 --> n296
-    n304 --> n297
-    n296 --> n298
-    n302 --> n299
-    n298 --> n299
-    n305 --> n299
-    n301 --> n300
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n296(("ITA_the_italian_liberation_war"))
+    end
+    subgraph tier_1["Tier 1"]
+        n297{"ITA_fronte_militare_clandestino"}
+    end
+    subgraph tier_2["Tier 2"]
+        n298["ITA_corpo_volontari_della_liberta"]
+        n299["ITA_the_carabinieri"]
+    end
+    subgraph tier_3["Tier 3"]
+        n300["ITA_gappisti"]
+        n301["ITA_partisan_republics"]
+        n302["ITA_the_kings_finest"]
+    end
+    subgraph tier_4["Tier 4"]
+        n303["ITA_grande_rivolta_rurale"]
+    end
+    subgraph tier_5["Tier 5"]
+        n304["ITA_liberation_or_death"]
+    end
+    subgraph tier_6["Tier 6"]
+        n305["ITA_independence_rds"]
+    end
+    n297 --> n298
+    n296 --> n297
+    n298 --> n300
+    n301 --> n303
+    n300 --> n303
+    n302 --> n303
+    n304 --> n305
+    n303 --> n304
+    n298 --> n301
     n299 --> n301
-    n296 --> n302
-    n303 --> n302
-    n297 --> n303
-    n303 --> n305
-    n296 x--x n303
+    n297 --> n299
+    n299 --> n302
+    n298 x--x n299
 ```
 
 # ITA_the_italian_social_republic
 
 ```mermaid
-flowchart TD
-    n306["ITA_all_within_the_state"]
-    n307["ITA_anti_partisan_measures"]
-    n308["ITA_battaglioni_m"]
-    n309["ITA_guardia_nazionale_repubblicana"]
-    n310["ITA_independence_rsi"]
-    n311["ITA_integrate_polizia_dell_africa_italiana"]
-    n312["ITA_reinforce_the_gustav_line"]
-    n313(("ITA_the_italian_social_republic"))
-    n314["ITA_the_social_republic_prevails"]
-    n309 --> n306
-    n311 --> n307
-    n309 --> n308
-    n313 --> n309
-    n314 --> n310
-    n309 --> n311
-    n308 --> n312
-    n307 --> n314
-    n306 --> n314
-    n312 --> n314
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n306(("ITA_the_italian_social_republic"))
+    end
+    subgraph tier_1["Tier 1"]
+        n307["ITA_guardia_nazionale_repubblicana"]
+    end
+    subgraph tier_2["Tier 2"]
+        n308["ITA_all_within_the_state"]
+        n309["ITA_battaglioni_m"]
+        n310["ITA_integrate_polizia_dell_africa_italiana"]
+    end
+    subgraph tier_3["Tier 3"]
+        n311["ITA_anti_partisan_measures"]
+        n312["ITA_reinforce_the_gustav_line"]
+    end
+    subgraph tier_4["Tier 4"]
+        n313["ITA_the_social_republic_prevails"]
+    end
+    subgraph tier_5["Tier 5"]
+        n314["ITA_independence_rsi"]
+    end
+    n307 --> n308
+    n310 --> n311
+    n307 --> n309
+    n306 --> n307
+    n313 --> n314
+    n307 --> n310
+    n309 --> n312
+    n311 --> n313
+    n308 --> n313
+    n312 --> n313
 ```

@@ -1,149 +1,187 @@
 # ARG_a_call_to_reform
 
 ```mermaid
-flowchart TD
-    n1(("ARG_a_call_to_reform"))
-    n2["ARG_a_red_south_america"]
-    n3["ARG_align_with_the_soviets"]
-    n4{"ARG_centralize_power"}
-    n5["ARG_committee_of_state_security"]
-    n6["ARG_conquer_south_america"]
-    n7{"ARG_empower_the_fjc"}
-    n8["ARG_establish_the_free_association"]
-    n9["ARG_forge_our_own_future"]
-    n10["ARG_improve_patagonia"]
-    n11["ARG_integrate_the_motherland"]
-    n12["ARG_invite_ghioldi_back_to_argentina"]
-    n13["ARG_legitimize_the_PCA"]
-    n14["ARG_liberation_theology"]
-    n15["ARG_no_gods_no_masters"]
-    n16["ARG_reach_out_to_the_soviet_union"]
-    n17["ARG_reform_our_industry"]
-    n18["ARG_roberto_maria_ortiz"]
-    n19["ARG_russian_manufacturers"]
-    n20["ARG_socialist_researchers"]
-    n21["ARG_socialist_volunteers"]
-    n22["ARG_soviet_industrial_model"]
-    n23["ARG_state_atheism"]
-    n24["ARG_support_the_farmers"]
-    n25["ARG_support_the_spanish_republicans"]
-    n26{"ARG_the_buenos_aires_conference"}
-    n27["ARG_the_clean_election"]
-    n28["ARG_unify_south_america"]
-    n29["ARG_unite_the_workers_of_argentina"]
-    n30{"ARG_viva_la_revolucion"}
-    n31["ARG_women_in_industry"]
-    n32["ARG_workers_rights"]
-    n28 --> n2
-    n6 --> n2
-    n30 --> n3
-    n19 --> n4
-    n5 --> n4
-    n22 --> n5
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("ARG_a_call_to_reform"))
+        n2["ARG_roberto_maria_ortiz"]
+        n3["ARG_the_clean_election"]
+    end
+    subgraph tier_1["Tier 1"]
+        n4["ARG_invite_ghioldi_back_to_argentina"]
+        n5["ARG_support_the_spanish_republicans"]
+    end
+    subgraph tier_2["Tier 2"]
+        n6["ARG_legitimize_the_PCA"]
+    end
+    subgraph tier_3["Tier 3"]
+        n7["ARG_reach_out_to_the_soviet_union"]
+        n8["ARG_unite_the_workers_of_argentina"]
+    end
+    subgraph tier_4["Tier 4"]
+        n9{"ARG_viva_la_revolucion"}
+    end
+    subgraph tier_5["Tier 5"]
+        n10["ARG_align_with_the_soviets"]
+        n11["ARG_forge_our_own_future"]
+    end
+    subgraph tier_6["Tier 6"]
+        n12["ARG_soviet_industrial_model"]
+        n13["ARG_women_in_industry"]
+        n14["ARG_workers_rights"]
+    end
+    subgraph tier_7["Tier 7"]
+        n15["ARG_committee_of_state_security"]
+        n16["ARG_reform_our_industry"]
+        n17["ARG_russian_manufacturers"]
+        n18["ARG_socialist_volunteers"]
+        n19["ARG_support_the_farmers"]
+    end
+    subgraph tier_8["Tier 8"]
+        n20{"ARG_centralize_power"}
+        n21{"ARG_empower_the_fjc"}
+        n22{"ARG_the_buenos_aires_conference"}
+    end
+    subgraph tier_9["Tier 9"]
+        n23["ARG_conquer_south_america"]
+        n24["ARG_improve_patagonia"]
+        n25["ARG_liberation_theology"]
+        n26["ARG_state_atheism"]
+        n27["ARG_unify_south_america"]
+    end
+    subgraph tier_10["Tier 10"]
+        n28["ARG_a_red_south_america"]
+        n29["ARG_establish_the_free_association"]
+        n30["ARG_integrate_the_motherland"]
+        n31["ARG_socialist_researchers"]
+    end
+    subgraph tier_11["Tier 11"]
+        n32["ARG_no_gods_no_masters"]
+    end
+    n27 --> n28
+    n23 --> n28
+    n9 --> n10
+    n17 --> n20
+    n15 --> n20
+    n12 --> n15
+    n20 --> n23
+    n22 --> n23
+    n16 --> n21
+    n24 --> n29
+    n9 --> n11
+    n22 --> n24
+    n23 --> n30
+    n1 --> n4
     n4 --> n6
-    n26 --> n6
-    n17 --> n7
-    n10 --> n8
-    n30 --> n9
-    n26 --> n10
-    n6 --> n11
-    n1 --> n12
-    n12 --> n13
-    n7 --> n14
-    n8 --> n15
-    n13 --> n16
-    n32 --> n17
-    n22 --> n19
-    n23 --> n20
-    n14 --> n20
-    n31 --> n21
-    n3 --> n22
-    n7 --> n23
-    n31 --> n24
-    n1 --> n25
-    n24 --> n26
+    n21 --> n25
+    n29 --> n32
+    n6 --> n7
+    n14 --> n16
+    n12 --> n17
+    n26 --> n31
+    n25 --> n31
+    n13 --> n18
+    n10 --> n12
     n21 --> n26
-    n26 --> n28
-    n13 --> n29
-    n16 --> n30
-    n29 --> n30
-    n9 --> n31
-    n9 --> n32
-    n3 --> n32
-    n1 x--x n18
-    n1 x--x n27
-    n3 x--x n9
-    n6 x--x n28
-    n14 x--x n23
+    n13 --> n19
+    n1 --> n5
+    n19 --> n22
+    n18 --> n22
+    n22 --> n27
+    n6 --> n8
+    n7 --> n9
+    n8 --> n9
+    n11 --> n13
+    n11 --> n14
+    n10 --> n14
+    n1 x--x n2
+    n1 x--x n3
+    n10 x--x n11
+    n23 x--x n27
+    n25 x--x n26
 ```
 
 # ARG_banco_central_de_la_republica_argentina
 
 ```mermaid
-flowchart TD
-    n33["ARG_a_new_trading_partner"]
-    n34["ARG_agricultural_improvements"]
-    n35(("ARG_banco_central_de_la_republica_argentina"))
-    n36{"ARG_capitalize_the_beef_industry"}
-    n37["ARG_develop_civilian_economy"]
-    n38["ARG_develop_the_electricity_sector"]
-    n39["ARG_economic_reactivation_act"]
-    n40["ARG_economic_tax_reforms"]
-    n41["ARG_expand_aluminum_extraction"]
-    n42["ARG_expand_steel_extraction"]
-    n43["ARG_immigration_wave"]
-    n44["ARG_industrial_expansion"]
-    n45["ARG_invest_in_construction_guilds"]
-    n46["ARG_invest_in_the_railways"]
-    n47["ARG_invest_in_the_roads"]
-    n48{"ARG_military_production_lines"}
-    n49["ARG_production_initiative"]
-    n50["ARG_rapid_urbanization"]
-    n51["ARG_reach_out_to_the_great_powers"]
-    n52["ARG_revisit_the_roca_runciman_treaty"]
-    n53["ARG_technical_schools"]
-    n54["ARG_the_argentinian_metropole"]
-    n55["ARG_yacimientos_petroliferos_fiscales"]
-    n36 --> n33
-    n48 --> n33
-    n44 --> n34
-    n34 --> n36
-    n50 --> n36
-    n43 --> n37
-    n49 --> n38
-    n35 --> n39
-    n35 --> n40
-    n46 --> n41
-    n47 --> n41
-    n47 --> n42
-    n46 --> n42
-    n39 --> n43
-    n35 --> n44
-    n38 --> n45
-    n40 --> n46
-    n40 --> n47
-    n50 --> n48
-    n34 --> n48
-    n35 --> n49
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n33(("ARG_banco_central_de_la_republica_argentina"))
+    end
+    subgraph tier_1["Tier 1"]
+        n34["ARG_economic_reactivation_act"]
+        n35["ARG_economic_tax_reforms"]
+        n36["ARG_industrial_expansion"]
+        n37["ARG_production_initiative"]
+        n38["ARG_reach_out_to_the_great_powers"]
+    end
+    subgraph tier_2["Tier 2"]
+        n39["ARG_agricultural_improvements"]
+        n40["ARG_develop_the_electricity_sector"]
+        n41["ARG_immigration_wave"]
+        n42["ARG_invest_in_the_railways"]
+        n43["ARG_invest_in_the_roads"]
+        n44["ARG_rapid_urbanization"]
+    end
+    subgraph tier_3["Tier 3"]
+        n45{"ARG_capitalize_the_beef_industry"}
+        n46["ARG_develop_civilian_economy"]
+        n47["ARG_expand_aluminum_extraction"]
+        n48["ARG_expand_steel_extraction"]
+        n49["ARG_invest_in_construction_guilds"]
+        n50{"ARG_military_production_lines"}
+    end
+    subgraph tier_4["Tier 4"]
+        n51["ARG_a_new_trading_partner"]
+        n52["ARG_revisit_the_roca_runciman_treaty"]
+        n53["ARG_technical_schools"]
+        n54["ARG_the_argentinian_metropole"]
+        n55["ARG_yacimientos_petroliferos_fiscales"]
+    end
+    n45 --> n51
+    n50 --> n51
+    n36 --> n39
+    n39 --> n45
+    n44 --> n45
+    n41 --> n46
+    n37 --> n40
+    n33 --> n34
+    n33 --> n35
+    n42 --> n47
+    n43 --> n47
+    n43 --> n48
+    n42 --> n48
+    n34 --> n41
+    n33 --> n36
+    n40 --> n49
+    n35 --> n42
+    n35 --> n43
     n44 --> n50
-    n35 --> n51
-    n36 --> n52
-    n48 --> n52
-    n45 --> n53
-    n37 --> n54
-    n41 --> n55
-    n42 --> n55
-    n33 x--x n52
+    n39 --> n50
+    n33 --> n37
+    n36 --> n44
+    n33 --> n38
+    n45 --> n52
+    n50 --> n52
+    n49 --> n53
+    n46 --> n54
+    n47 --> n55
+    n48 --> n55
+    n51 x--x n52
 ```
 
 # ARG_hitler_1
 
 ```mermaid
-flowchart TD
-    n56(("ARG_hitler_1"))
-    n57["ARG_hitler_2"]
-    n58["ARG_hitler_3"]
-    n59["ARG_hitler_4"]
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n56(("ARG_hitler_1"))
+    end
+    subgraph tier_1["Tier 1"]
+        n57["ARG_hitler_2"]
+        n58["ARG_hitler_3"]
+        n59["ARG_hitler_4"]
+    end
     n56 --> n57
     n56 --> n58
     n56 --> n59
@@ -152,285 +190,341 @@ flowchart TD
 # ARG_roberto_maria_ortiz
 
 ```mermaid
-flowchart TD
-    n1["ARG_a_call_to_reform"]
-    n60["ARG_align_with_the_monroe_doctrine"]
-    n61{"ARG_alvears_democracy"}
-    n62["ARG_american_allyship"]
-    n63["ARG_anti_american_propaganda"]
-    n64["ARG_argentina_first"]
-    n65["ARG_argentine_island_sovereignty"]
-    n66["ARG_argentine_nationalism"]
-    n67["ARG_balancing_act"]
-    n68["ARG_bastion_of_democracy"]
-    n69["ARG_bolstering_the_army"]
-    n70["ARG_british_cooperation"]
-    n71["ARG_chilean_ultimatum"]
-    n72{"ARG_conquer_paraguay"}
-    n73["ARG_conquer_uruguay"]
-    n74["ARG_consolidating_power"]
-    n75["ARG_corporatism"]
-    n76["ARG_counter_intelligence_program"]
-    n77["ARG_crack_down_on_corruption"]
-    n78{"ARG_cut_ties_with_britain"}
-    n79["ARG_defense_and_democracy"]
-    n80["ARG_demand_spanish_compensation"]
-    n81{"ARG_dominate_the_south"}
-    n82["ARG_emphasis_on_public_works"]
-    n83{"ARG_encourage_german_investments"}
-    n84{"ARG_encourage_italian_argentine_diplomacy"}
-    n85["ARG_encourage_the_red_scare"]
-    n86["ARG_end_operation_bolivar"]
-    n87["ARG_envoy_to_london"]
-    n88["ARG_extinguish_south_american_communism"]
-    n89["ARG_extinguish_south_american_fascism"]
-    n90["ARG_fascist_researchers"]
-    n91["ARG_firmes_volamos"]
-    n92["ARG_guardia_nacional"]
-    n93["ARG_import_substitution"]
-    n94["ARG_improving_the_islands"]
-    n95["ARG_integrate_operation_bolivar"]
-    n96["ARG_intervenciones_federales"]
-    n97["ARG_invite_spanish_nationalists"]
-    n98["ARG_islas_del_atlantico_sur"]
-    n99["ARG_join_the_allies"]
-    n100["ARG_join_the_axis"]
-    n101{"ARG_joint_military_exercises"}
-    n102["ARG_juan_peron_elected"]
-    n103["ARG_maintain_neutrality"]
-    n104["ARG_maintain_the_status_quo"]
-    n105["ARG_march_to_la_casa_rosada"]
-    n106["ARG_our_own_path"]
-    n107{"ARG_paraguayan_ultimatum"}
-    n108["ARG_peronism"]
-    n109["ARG_preparations_for_war"]
-    n110["ARG_rapid_militirization"]
-    n111["ARG_reach_out_to_chile"]
-    n112["ARG_reestablish_ligas_patrioticas"]
-    n113{"ARG_reinforced_alliance"}
-    n114["ARG_release_hellmuth"]
-    n115["ARG_revive_the_colonial_plan"]
-    n18{"ARG_roberto_maria_ortiz"}
-    n116["ARG_secure_the_borders"]
-    n117["ARG_south_american_alliance"]
-    n118["ARG_south_american_unity"]
-    n119["ARG_study_the_battle_of_the_river_plate"]
-    n120["ARG_subdue_dissension"]
-    n121["ARG_support_radical_nationalism"]
-    n122["ARG_support_the_spanish_coup"]
-    n123{"ARG_the_american_push"}
-    n124{"ARG_the_castillo_cabinet"}
-    n27["ARG_the_clean_election"]
-    n125["ARG_the_old_enemy"]
-    n126["ARG_the_second_argentine_republic"]
-    n127["ARG_the_war_machine"]
-    n128["ARG_towards_a_greater_argentina"]
-    n129["ARG_union_nacional_fascista"]
-    n130["ARG_universidad_de_buenos_aires"]
-    n131["ARG_us_marine_program"]
-    n132{"ARG_war_division"}
-    n133["ARG_work_with_the_nationalists"]
-    n99 --> n60
-    n68 --> n60
-    n60 --> n62
-    n114 --> n63
-    n132 --> n64
-    n116 --> n65
-    n129 --> n66
-    n105 --> n67
-    n117 --> n69
-    n79 --> n70
-    n72 --> n71
-    n107 --> n71
-    n81 --> n72
-    n78 --> n73
-    n124 --> n74
-    n78 --> n75
-    n62 --> n76
-    n79 --> n77
-    n133 --> n77
-    n133 --> n78
-    n18 --> n79
-    n122 --> n80
-    n64 --> n81
-    n100 --> n81
-    n103 --> n81
-    n93 --> n82
-    n121 --> n83
-    n121 --> n84
-    n131 --> n85
-    n76 --> n86
-    n60 --> n87
-    n85 --> n88
-    n126 --> n88
-    n91 --> n89
-    n126 --> n89
-    n112 --> n90
-    n119 --> n91
-    n83 --> n92
-    n70 --> n93
-    n98 --> n94
-    n81 --> n95
-    n104 --> n96
-    n122 --> n97
-    n87 --> n98
-    n101 --> n99
-    n113 --> n99
-    n61 --> n99
-    n123 --> n99
-    n132 --> n100
-    n67 --> n102
-    n123 --> n103
-    n124 --> n104
-    n74 --> n105
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["ARG_a_call_to_reform"]
+        n60{"ARG_alvears_democracy"}
+        n61["ARG_bastion_of_democracy"]
+        n62{"ARG_joint_military_exercises"}
+        n63{"ARG_reinforced_alliance"}
+        n2{"ARG_roberto_maria_ortiz"}
+        n3["ARG_the_clean_election"]
+    end
+    subgraph tier_1["Tier 1"]
+        n64["ARG_defense_and_democracy"]
+        n65["ARG_work_with_the_nationalists"]
+    end
+    subgraph tier_2["Tier 2"]
+        n66["ARG_british_cooperation"]
+        n67["ARG_crack_down_on_corruption"]
+        n68{"ARG_cut_ties_with_britain"}
+    end
+    subgraph tier_3["Tier 3"]
+        n69["ARG_conquer_uruguay"]
+        n70["ARG_corporatism"]
+        n71["ARG_import_substitution"]
+        n72["ARG_revive_the_colonial_plan"]
+        n73["ARG_support_radical_nationalism"]
+        n74["ARG_support_the_spanish_coup"]
+        n75{"ARG_the_castillo_cabinet"}
+    end
+    subgraph tier_4["Tier 4"]
+        n76["ARG_consolidating_power"]
+        n77["ARG_demand_spanish_compensation"]
+        n78["ARG_emphasis_on_public_works"]
+        n79{"ARG_encourage_german_investments"}
+        n80{"ARG_encourage_italian_argentine_diplomacy"}
+        n81["ARG_invite_spanish_nationalists"]
+        n82["ARG_maintain_the_status_quo"]
+        n83["ARG_reestablish_ligas_patrioticas"]
+    end
+    subgraph tier_5["Tier 5"]
+        n84["ARG_fascist_researchers"]
+        n85["ARG_guardia_nacional"]
+        n86["ARG_intervenciones_federales"]
+        n87["ARG_march_to_la_casa_rosada"]
+        n88["ARG_towards_a_greater_argentina"]
+        n89["ARG_union_nacional_fascista"]
+    end
+    subgraph tier_6["Tier 6"]
+        n90["ARG_argentine_nationalism"]
+        n91["ARG_balancing_act"]
+        n92["ARG_rapid_militirization"]
+        n93["ARG_subdue_dissension"]
+        n94["ARG_universidad_de_buenos_aires"]
+    end
+    subgraph tier_7["Tier 7"]
+        n95["ARG_juan_peron_elected"]
+        n96{"ARG_the_american_push"}
+        n97{"ARG_war_division"}
+    end
+    subgraph tier_8["Tier 8"]
+        n98["ARG_argentina_first"]
+        n99["ARG_join_the_allies"]
+        n100["ARG_join_the_axis"]
+        n101["ARG_maintain_neutrality"]
+        n102["ARG_peronism"]
+    end
+    subgraph tier_9["Tier 9"]
+        n103["ARG_align_with_the_monroe_doctrine"]
+        n104{"ARG_dominate_the_south"}
+        n105["ARG_our_own_path"]
+    end
+    subgraph tier_10["Tier 10"]
+        n106["ARG_american_allyship"]
+        n107{"ARG_conquer_paraguay"}
+        n108["ARG_envoy_to_london"]
+        n109["ARG_integrate_operation_bolivar"]
+        n110{"ARG_paraguayan_ultimatum"}
+        n111["ARG_preparations_for_war"]
+        n112["ARG_south_american_alliance"]
+        n113["ARG_the_war_machine"]
+    end
+    subgraph tier_11["Tier 11"]
+        n114["ARG_bolstering_the_army"]
+        n115["ARG_chilean_ultimatum"]
+        n116["ARG_counter_intelligence_program"]
+        n117["ARG_islas_del_atlantico_sur"]
+        n118["ARG_reach_out_to_chile"]
+        n119["ARG_release_hellmuth"]
+        n120["ARG_secure_the_borders"]
+        n121["ARG_study_the_battle_of_the_river_plate"]
+        n122["ARG_us_marine_program"]
+    end
+    subgraph tier_12["Tier 12"]
+        n123["ARG_anti_american_propaganda"]
+        n124["ARG_argentine_island_sovereignty"]
+        n125["ARG_encourage_the_red_scare"]
+        n126["ARG_end_operation_bolivar"]
+        n127["ARG_firmes_volamos"]
+        n128["ARG_improving_the_islands"]
+        n129["ARG_the_old_enemy"]
+        n130["ARG_the_second_argentine_republic"]
+    end
+    subgraph tier_13["Tier 13"]
+        n131["ARG_extinguish_south_american_communism"]
+        n132["ARG_extinguish_south_american_fascism"]
+        n133["ARG_south_american_unity"]
+    end
+    n99 --> n103
+    n61 --> n103
     n103 --> n106
-    n64 --> n106
-    n81 --> n107
-    n102 --> n108
-    n81 --> n109
-    n92 --> n110
-    n72 --> n111
-    n107 --> n111
-    n75 --> n112
-    n95 --> n114
-    n78 --> n115
-    n127 --> n116
-    n60 --> n117
-    n125 --> n118
-    n87 --> n119
-    n96 --> n120
-    n78 --> n121
-    n78 --> n122
-    n67 --> n123
-    n120 --> n123
-    n70 --> n124
-    n111 --> n125
-    n71 --> n125
-    n69 --> n126
-    n81 --> n127
-    n82 --> n128
-    n84 --> n129
-    n128 --> n130
-    n62 --> n131
-    n110 --> n132
-    n66 --> n132
-    n18 --> n133
-    n1 x--x n18
-    n64 x--x n100
-    n68 x--x n99
-    n71 x--x n111
-    n72 x--x n107
-    n73 x--x n115
-    n74 x--x n104
-    n79 x--x n133
-    n92 x--x n129
-    n99 x--x n103
-    n18 x--x n27
+    n119 --> n123
+    n97 --> n98
+    n120 --> n124
+    n89 --> n90
+    n87 --> n91
+    n112 --> n114
+    n64 --> n66
+    n107 --> n115
+    n110 --> n115
+    n104 --> n107
+    n68 --> n69
+    n75 --> n76
+    n68 --> n70
+    n106 --> n116
+    n64 --> n67
+    n65 --> n67
+    n65 --> n68
+    n2 --> n64
+    n74 --> n77
+    n98 --> n104
+    n100 --> n104
+    n101 --> n104
+    n71 --> n78
+    n73 --> n79
+    n73 --> n80
+    n122 --> n125
+    n116 --> n126
+    n103 --> n108
+    n125 --> n131
+    n130 --> n131
+    n127 --> n132
+    n130 --> n132
+    n83 --> n84
+    n121 --> n127
+    n79 --> n85
+    n66 --> n71
+    n117 --> n128
+    n104 --> n109
+    n82 --> n86
+    n74 --> n81
+    n108 --> n117
+    n62 --> n99
+    n63 --> n99
+    n60 --> n99
+    n96 --> n99
+    n97 --> n100
+    n91 --> n95
+    n96 --> n101
+    n75 --> n82
+    n76 --> n87
+    n101 --> n105
+    n98 --> n105
+    n104 --> n110
+    n95 --> n102
+    n104 --> n111
+    n85 --> n92
+    n107 --> n118
+    n110 --> n118
+    n70 --> n83
+    n109 --> n119
+    n68 --> n72
+    n113 --> n120
+    n103 --> n112
+    n129 --> n133
+    n108 --> n121
+    n86 --> n93
+    n68 --> n73
+    n68 --> n74
+    n91 --> n96
+    n93 --> n96
+    n66 --> n75
+    n118 --> n129
+    n115 --> n129
+    n114 --> n130
+    n104 --> n113
+    n78 --> n88
+    n80 --> n89
+    n88 --> n94
+    n106 --> n122
+    n92 --> n97
+    n90 --> n97
+    n2 --> n65
+    n1 x--x n2
+    n98 x--x n100
+    n61 x--x n99
+    n115 x--x n118
+    n107 x--x n110
+    n69 x--x n72
+    n76 x--x n82
+    n64 x--x n65
+    n85 x--x n89
+    n99 x--x n101
+    n2 x--x n3
 ```
 
 # ARG_the_clean_election
 
 ```mermaid
-flowchart TD
-    n1["ARG_a_call_to_reform"]
-    n134["ARG_a_true_democracy"]
-    n60["ARG_align_with_the_monroe_doctrine"]
-    n61{"ARG_alvears_democracy"}
-    n62["ARG_american_allyship"]
-    n135["ARG_american_defense_investments"]
-    n136["ARG_anti_corruption_policies"]
-    n137{"ARG_argentina_for_all"}
-    n68["ARG_bastion_of_democracy"]
-    n69["ARG_bolstering_the_army"]
-    n138{"ARG_british_gaurantee"}
-    n76["ARG_counter_intelligence_program"]
-    n85["ARG_encourage_the_red_scare"]
-    n86["ARG_end_operation_bolivar"]
-    n87["ARG_envoy_to_london"]
-    n88["ARG_extinguish_south_american_communism"]
-    n89["ARG_extinguish_south_american_fascism"]
-    n91["ARG_firmes_volamos"]
-    n94["ARG_improving_the_islands"]
-    n139["ARG_in_memory_of_yrigoyen"]
-    n140["ARG_internal_focus"]
-    n98["ARG_islas_del_atlantico_sur"]
-    n99["ARG_join_the_allies"]
-    n101{"ARG_joint_military_exercises"}
-    n103["ARG_maintain_neutrality"]
-    n141["ARG_promote_urbanization"]
-    n142["ARG_regulated_national_salaries"]
-    n143["ARG_reinforce_the_education_system"]
-    n113{"ARG_reinforced_alliance"}
-    n18["ARG_roberto_maria_ortiz"]
-    n144["ARG_royal_airforce_influence"]
-    n145["ARG_royal_navy_influence"]
-    n146["ARG_secure_the_opposition"]
-    n147{"ARG_seek_american_support"}
-    n148["ARG_social_welfare_fund"]
-    n117["ARG_south_american_alliance"]
-    n119["ARG_study_the_battle_of_the_river_plate"]
-    n123{"ARG_the_american_push"}
-    n27(("ARG_the_clean_election"))
-    n126["ARG_the_second_argentine_republic"]
-    n149["ARG_university_reforms"]
-    n150["ARG_us_army_training"]
-    n131["ARG_us_marine_program"]
-    n136 --> n134
-    n99 --> n60
-    n68 --> n60
-    n140 --> n61
-    n60 --> n62
-    n147 --> n135
-    n139 --> n136
-    n134 --> n137
-    n146 --> n137
-    n101 --> n68
-    n113 --> n68
-    n61 --> n68
-    n117 --> n69
-    n137 --> n138
-    n62 --> n76
-    n131 --> n85
-    n76 --> n86
-    n60 --> n87
-    n85 --> n88
-    n126 --> n88
-    n91 --> n89
-    n126 --> n89
-    n119 --> n91
-    n98 --> n94
-    n27 --> n139
-    n137 --> n140
-    n87 --> n98
-    n101 --> n99
-    n113 --> n99
-    n61 --> n99
-    n123 --> n99
-    n150 --> n101
-    n135 --> n101
-    n139 --> n141
-    n141 --> n142
-    n136 --> n143
-    n145 --> n113
-    n144 --> n113
-    n138 --> n144
-    n138 --> n145
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["ARG_a_call_to_reform"]
+        n101["ARG_maintain_neutrality"]
+        n2["ARG_roberto_maria_ortiz"]
+        n96{"ARG_the_american_push"}
+        n3(("ARG_the_clean_election"))
+    end
+    subgraph tier_1["Tier 1"]
+        n134["ARG_in_memory_of_yrigoyen"]
+    end
+    subgraph tier_2["Tier 2"]
+        n135["ARG_anti_corruption_policies"]
+        n136["ARG_promote_urbanization"]
+    end
+    subgraph tier_3["Tier 3"]
+        n137["ARG_a_true_democracy"]
+        n138["ARG_regulated_national_salaries"]
+        n139["ARG_reinforce_the_education_system"]
+        n140["ARG_secure_the_opposition"]
+    end
+    subgraph tier_4["Tier 4"]
+        n141{"ARG_argentina_for_all"}
+        n142["ARG_social_welfare_fund"]
+        n143["ARG_university_reforms"]
+    end
+    subgraph tier_5["Tier 5"]
+        n144{"ARG_british_gaurantee"}
+        n145["ARG_internal_focus"]
+        n146{"ARG_seek_american_support"}
+    end
+    subgraph tier_6["Tier 6"]
+        n60{"ARG_alvears_democracy"}
+        n147["ARG_american_defense_investments"]
+        n148["ARG_royal_airforce_influence"]
+        n149["ARG_royal_navy_influence"]
+        n150["ARG_us_army_training"]
+    end
+    subgraph tier_7["Tier 7"]
+        n62{"ARG_joint_military_exercises"}
+        n63{"ARG_reinforced_alliance"}
+    end
+    subgraph tier_8["Tier 8"]
+        n61["ARG_bastion_of_democracy"]
+        n99["ARG_join_the_allies"]
+    end
+    subgraph tier_9["Tier 9"]
+        n103["ARG_align_with_the_monroe_doctrine"]
+    end
+    subgraph tier_10["Tier 10"]
+        n106["ARG_american_allyship"]
+        n108["ARG_envoy_to_london"]
+        n112["ARG_south_american_alliance"]
+    end
+    subgraph tier_11["Tier 11"]
+        n114["ARG_bolstering_the_army"]
+        n116["ARG_counter_intelligence_program"]
+        n117["ARG_islas_del_atlantico_sur"]
+        n121["ARG_study_the_battle_of_the_river_plate"]
+        n122["ARG_us_marine_program"]
+    end
+    subgraph tier_12["Tier 12"]
+        n125["ARG_encourage_the_red_scare"]
+        n126["ARG_end_operation_bolivar"]
+        n127["ARG_firmes_volamos"]
+        n128["ARG_improving_the_islands"]
+        n130["ARG_the_second_argentine_republic"]
+    end
+    subgraph tier_13["Tier 13"]
+        n131["ARG_extinguish_south_american_communism"]
+        n132["ARG_extinguish_south_american_fascism"]
+    end
+    n135 --> n137
+    n99 --> n103
+    n61 --> n103
+    n145 --> n60
+    n103 --> n106
+    n146 --> n147
+    n134 --> n135
+    n137 --> n141
+    n140 --> n141
+    n62 --> n61
+    n63 --> n61
+    n60 --> n61
+    n112 --> n114
+    n141 --> n144
+    n106 --> n116
+    n122 --> n125
+    n116 --> n126
+    n103 --> n108
+    n125 --> n131
+    n130 --> n131
+    n127 --> n132
+    n130 --> n132
+    n121 --> n127
+    n117 --> n128
+    n3 --> n134
+    n141 --> n145
+    n108 --> n117
+    n62 --> n99
+    n63 --> n99
+    n60 --> n99
+    n96 --> n99
+    n150 --> n62
+    n147 --> n62
+    n134 --> n136
+    n136 --> n138
+    n135 --> n139
+    n149 --> n63
+    n148 --> n63
+    n144 --> n148
+    n144 --> n149
+    n136 --> n140
     n141 --> n146
-    n137 --> n147
-    n142 --> n148
-    n60 --> n117
-    n87 --> n119
-    n69 --> n126
-    n143 --> n149
-    n147 --> n150
-    n62 --> n131
-    n1 x--x n27
-    n135 x--x n150
-    n68 x--x n99
-    n138 x--x n140
-    n138 x--x n147
-    n140 x--x n147
-    n99 x--x n103
-    n18 x--x n27
+    n138 --> n142
+    n103 --> n112
+    n108 --> n121
+    n114 --> n130
+    n139 --> n143
+    n146 --> n150
+    n106 --> n122
+    n1 x--x n3
+    n147 x--x n150
+    n61 x--x n99
     n144 x--x n145
+    n144 x--x n146
+    n145 x--x n146
+    n99 x--x n101
+    n2 x--x n3
+    n148 x--x n149
 ```
