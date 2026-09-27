@@ -756,8 +756,12 @@ sandbox_scenario_s7_telemetry():
       GER:
         if has_wargoal_against(CZE) or is_justifying_wargoal_against(CZE):
           $sandbox_log_sc(sc_goal, ger_on_cze)
+        if is_justifying_wargoal_against(CZE):
+          $sandbox_log_sc(sc_justify, ger_on_cze)
         if has_wargoal_against(POL) or is_justifying_wargoal_against(POL):
           $sandbox_log_sc(sc_goal, ger_on_pol)
+        if is_justifying_wargoal_against(POL):
+          $sandbox_log_sc(sc_justify, ger_on_pol)
     else:
       GER:
         sc_div = num_divisions
@@ -776,8 +780,12 @@ sandbox_scenario_s7_telemetry():
       GER:
         if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
           $sandbox_log_sc(sc_goal, ger_on_fra)
+        if is_justifying_wargoal_against(FRA):
+          $sandbox_log_sc(sc_justify, ger_on_fra)
         if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
           $sandbox_log_sc(sc_goal, ger_on_eng)
+        if is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_justify, ger_on_eng)
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       SOV:
@@ -802,10 +810,16 @@ sandbox_scenario_s7_telemetry():
       SOV:
         if has_wargoal_against(TUR) or is_justifying_wargoal_against(TUR):
           $sandbox_log_sc(sc_goal, sov_on_tur)
+        if is_justifying_wargoal_against(TUR):
+          $sandbox_log_sc(sc_justify, sov_on_tur)
         if has_wargoal_against(IRQ) or is_justifying_wargoal_against(IRQ):
           $sandbox_log_sc(sc_goal, sov_on_irq)
+        if is_justifying_wargoal_against(IRQ):
+          $sandbox_log_sc(sc_justify, sov_on_irq)
         if has_wargoal_against(PER) or is_justifying_wargoal_against(PER):
           $sandbox_log_sc(sc_goal, sov_on_per)
+        if is_justifying_wargoal_against(PER):
+          $sandbox_log_sc(sc_justify, sov_on_per)
     else:
       SOV:
         sc_div = num_divisions
@@ -829,10 +843,16 @@ sandbox_scenario_s7_telemetry():
       SOV:
         if has_wargoal_against(PAK) or is_justifying_wargoal_against(PAK):
           $sandbox_log_sc(sc_goal, sov_on_pak)
+        if is_justifying_wargoal_against(PAK):
+          $sandbox_log_sc(sc_justify, sov_on_pak)
         if has_wargoal_against(RAJ) or is_justifying_wargoal_against(RAJ):
           $sandbox_log_sc(sc_goal, sov_on_raj)
+        if is_justifying_wargoal_against(RAJ):
+          $sandbox_log_sc(sc_justify, sov_on_raj)
         if has_wargoal_against(AFG) or is_justifying_wargoal_against(AFG):
           $sandbox_log_sc(sc_goal, sov_on_afg)
+        if is_justifying_wargoal_against(AFG):
+          $sandbox_log_sc(sc_justify, sov_on_afg)
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       JAP:
@@ -852,8 +872,12 @@ sandbox_scenario_s7_telemetry():
       JAP:
         if has_wargoal_against(CHI) or is_justifying_wargoal_against(CHI):
           $sandbox_log_sc(sc_goal, jap_on_chi)
+        if is_justifying_wargoal_against(CHI):
+          $sandbox_log_sc(sc_justify, jap_on_chi)
         if has_wargoal_against(PHI) or is_justifying_wargoal_against(PHI):
           $sandbox_log_sc(sc_goal, jap_on_phi)
+        if is_justifying_wargoal_against(PHI):
+          $sandbox_log_sc(sc_justify, jap_on_phi)
     else:
       JAP:
         sc_div = num_divisions
@@ -877,10 +901,16 @@ sandbox_scenario_s7_telemetry():
       JAP:
         if has_wargoal_against(BRM) or is_justifying_wargoal_against(BRM):
           $sandbox_log_sc(sc_goal, jap_on_brm)
+        if is_justifying_wargoal_against(BRM):
+          $sandbox_log_sc(sc_justify, jap_on_brm)
         if has_wargoal_against(INS) or is_justifying_wargoal_against(INS):
           $sandbox_log_sc(sc_goal, jap_on_ins)
+        if is_justifying_wargoal_against(INS):
+          $sandbox_log_sc(sc_justify, jap_on_ins)
         if has_wargoal_against(MAL) or is_justifying_wargoal_against(MAL):
           $sandbox_log_sc(sc_goal, jap_on_mal)
+        if is_justifying_wargoal_against(MAL):
+          $sandbox_log_sc(sc_justify, jap_on_mal)
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       ITA:
@@ -900,8 +930,12 @@ sandbox_scenario_s7_telemetry():
       ITA:
         if has_wargoal_against(YUG) or is_justifying_wargoal_against(YUG):
           $sandbox_log_sc(sc_goal, ita_on_yug)
+        if is_justifying_wargoal_against(YUG):
+          $sandbox_log_sc(sc_justify, ita_on_yug)
         if has_wargoal_against(GRE) or is_justifying_wargoal_against(GRE):
           $sandbox_log_sc(sc_goal, ita_on_gre)
+        if is_justifying_wargoal_against(GRE):
+          $sandbox_log_sc(sc_justify, ita_on_gre)
     else:
       ITA:
         sc_div = num_divisions
@@ -920,8 +954,12 @@ sandbox_scenario_s7_telemetry():
       ITA:
         if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
           $sandbox_log_sc(sc_goal, ita_on_fra)
+        if is_justifying_wargoal_against(FRA):
+          $sandbox_log_sc(sc_justify, ita_on_fra)
         if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
           $sandbox_log_sc(sc_goal, ita_on_eng)
+        if is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_justify, ita_on_eng)
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       ENG:
@@ -936,6 +974,8 @@ sandbox_scenario_s7_telemetry():
       ENG:
         if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
           $sandbox_log_sc(sc_goal, eng_on_sov)
+        if is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_justify, eng_on_sov)
     else:
       ENG:
         sc_div = num_divisions
@@ -949,6 +989,8 @@ sandbox_scenario_s7_telemetry():
       ENG:
         if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
           $sandbox_log_sc(sc_goal, eng_on_sov)
+        if is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_justify, eng_on_sov)
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       USA:
@@ -963,6 +1005,8 @@ sandbox_scenario_s7_telemetry():
       USA:
         if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
           $sandbox_log_sc(sc_goal, usa_on_jap)
+        if is_justifying_wargoal_against(JAP):
+          $sandbox_log_sc(sc_justify, usa_on_jap)
     else:
       USA:
         sc_div = num_divisions
@@ -981,8 +1025,12 @@ sandbox_scenario_s7_telemetry():
       USA:
         if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
           $sandbox_log_sc(sc_goal, usa_on_eng)
+        if is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_justify, usa_on_eng)
         if has_wargoal_against(CAN) or is_justifying_wargoal_against(CAN):
           $sandbox_log_sc(sc_goal, usa_on_can)
+        if is_justifying_wargoal_against(CAN):
+          $sandbox_log_sc(sc_justify, usa_on_can)
 
 sandbox_log_scenario_success():
   if global.sandbox_scenario == 1:

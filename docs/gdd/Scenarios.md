@@ -93,12 +93,27 @@ derail repicks; pinned sessions go quiet.
   `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a
   declared target), so an unrelated country's focus does not pollute the arc.
 
+### Sampling cadence
+
+A recurring state is sampled on a schedule; a transition is logged when it
+happens. The s7 diagnostic package follows this rule:
+
+| Line | Cadence |
+| --- | --- |
+| `sc_power` | monthly per live actor |
+| `sc_goal` | monthly per declared pair with a held wargoal or an active justification |
+| `sc_justify` | monthly per declared pair with an active justification |
+| `sc_goal_end` | on wargoal expiry (transition) |
+
+`sc_justify` used to ride the daily justification pulse (one line per day per
+justification); since issue 15 it is a monthly sample like the rest of s7, so
+a long justification costs lines per month, not per day.
+
 ### Telemetry label convention
 
 `sc_goal` and `sc_justify` carry one label per aggressor/target pair, always
 `<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The
-catalog writes the `sc_goal` labels by hand; `sc_justify` is generated from the
-same pair by `core/tools/extract_arc_hooks.py`, which lowercases. Both must
+catalog writes both label sets by hand in the s7 telemetry; both must
 match exactly, or one arc reads as two keys when a session is grepped.
 
 - `sc_goal` logs wargoals in **both** directions, so it also holds

@@ -3,7 +3,6 @@
 # with the hand-written parts in this mod's 99_sandbox_scenarios.hsl):
 #   sandbox_arc_on_weekly()              - extra weekly fuse retries (e.g. AFG BoP)
 #   sandbox_arc_wargoal_expire_hook()    - sc_goal_end per-arc tag gates
-#   sandbox_arc_justify_hook()           - sc_justify per-arc FROM gates
 #   sandbox_arc_tick_hosts()             - extra monthly tick hosts past USA
 #     (vanilla chain ends at USA; Rt56 appends FRA then HUN)
 on_actions:
@@ -161,9 +160,8 @@ on_actions:
               &honor_justify_pulses = 0
               sandbox_log_other = FROM
               $add_honor(-2, honor_justify_friend)
-        # s7 diagnostic (read-only): aggressor justifying on arc targets is
-        # otherwise silent (Honor drips only vs friends). Daily while active.
-        sandbox_arc_justify_hook()
+        # s7 sc_justify is sampled monthly in the catalog (issue 15); the
+        # daily pulse keeps the Honor drip only.
 
   # ROOT = leaving country, FROM = faction leader
   on_leave_faction:
