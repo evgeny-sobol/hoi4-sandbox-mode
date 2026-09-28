@@ -1,5 +1,8 @@
 # Author arcs as per-mod TOML specs; tooling derives the rest
 
+Status: partially superseded by ADR-0003 (the "no HSL generation" option only;
+specs stay the source of truth for decisions).
+
 ## Context
 
 Authoring a scenario arc meant editing several places at once: the HSL catalog

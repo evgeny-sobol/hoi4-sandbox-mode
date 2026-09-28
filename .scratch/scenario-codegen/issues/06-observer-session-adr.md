@@ -23,3 +23,11 @@ direction.
 ## Out of scope
 
 - Migrating any further arc; each is its own change.
+
+## Progress
+
+- Done: ADR-0003 written, ADR-0002 marked partially superseded.
+- Done: forced recompile of both mods clean (293 + 470 files, exit 0).
+- Pending (needs a game run): observer session with the generated axis
+  mechanics — pick, variant, ladder phases, target lines and ignition or
+  derail off the checklist, plus a scenario-clean error log.
