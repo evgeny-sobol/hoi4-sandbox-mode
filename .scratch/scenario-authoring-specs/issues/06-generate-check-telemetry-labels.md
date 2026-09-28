@@ -1,6 +1,6 @@
 # 06 - Generate and check telemetry labels against the HSL catalog
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 03
 
@@ -27,3 +27,19 @@ drift that produced the earlier label-case bug.
 ## Out of scope
 
 - Changing what the `sc_goal` / `sc_justify` probes sample.
+
+## Verification: PASSED (tests + live build + compile)
+
+- `expected_labels()` derives the set from spec aggressor/targets: `sc_goal`
+  both directions, `sc_justify` aggressor-to-target, lowercase. The generated
+  catalog carries a per-arc Telemetry labels section (axis: 8 goal + 4 justify).
+- `check_labels()` compares against `99_sandbox_scenarios.hsl`: missing label,
+  case drift (`GER_on_CZE` names the want), and unexpected label each fail
+  distinctly. Labels of arcs without specs are skipped (migration state).
+- The vanilla s7 had no reverse labels while the GDD documents both
+  directions, so `.scratch/scripts/add_reverse_goal_lines.py` (spec-driven,
+  idempotent) added the 4 axis reverse guards in target scope with the
+  issue-16 justification alternative; actor always matches the label's first
+  party. Compiled `.txt` confirms all four.
+- 17/17 harness tests green, including the four new label tests; real
+  `build` + `--check` green; full HSL recompile clean.

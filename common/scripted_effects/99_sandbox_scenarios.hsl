@@ -748,11 +748,15 @@ sandbox_scenario_s7_telemetry():
           sc_div = num_divisions
           sc_fab = num_of_factories
           $sandbox_log_sc_power()
+          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
+            $sandbox_log_sc(sc_goal, cze_on_ger)
       if country_exists(POL):
         POL:
           sc_div = num_divisions
           sc_fab = num_of_factories
           $sandbox_log_sc_power()
+          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
+            $sandbox_log_sc(sc_goal, pol_on_ger)
       GER:
         if has_wargoal_against(CZE) or is_justifying_wargoal_against(CZE):
           $sandbox_log_sc(sc_goal, ger_on_cze)
@@ -772,11 +776,15 @@ sandbox_scenario_s7_telemetry():
           sc_div = num_divisions
           sc_fab = num_of_factories
           $sandbox_log_sc_power()
+          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
+            $sandbox_log_sc(sc_goal, fra_on_ger)
       if country_exists(ENG):
         ENG:
           sc_div = num_divisions
           sc_fab = num_of_factories
           $sandbox_log_sc_power()
+          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
+            $sandbox_log_sc(sc_goal, eng_on_ger)
       GER:
         if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
           $sandbox_log_sc(sc_goal, ger_on_fra)
