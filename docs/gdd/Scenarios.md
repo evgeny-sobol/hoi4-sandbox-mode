@@ -24,23 +24,67 @@ and most documentation; this file describes what is specific to vanilla.
 One arc per session, chosen at startup: pinned by a game rule or rolled at
 random over the arcs whose aggressor exists. Arc ids are fixed per major
 (1 GER, 2 SOV, 3 JAP, 4 ITA, 5 ENG, 6 USA); id 7 is a documented gap (France is
-not content-portable; see `docs/gdd/Scenarios Catalog.md`). The pick rolls the
+not content-portable; see below). The pick rolls the
 A/B target variant 50/50 and logs `sc_pick` plus `sc_variant`.
+
+### Pool and selection
+
+- Random sessions pick from the pool with equal weights, over arcs whose
+  aggressor exists. Pin options exist for all six.
+- A derail repicks the next eligible never-derailed arc; a derailed arc never
+  re-enters the pool in the same session.
+- Target variants are rolled at pick (50/50) and remain fixed for the session.
+
+### Excluded majors
+
+- **FRA**: the Bonapartist branch is Rt56-only, and the revanchist and Plan XIV
+  branches are likewise absent. No French arc is content-portable, so arc id 7
+  is left as a documented gap rather than filled with a substituted arc.
+- **HUN**: the Habsburg restoration arc is out of scope for this pool by user
+  decision; its vanilla focuses do exist should it be added later.
 
 ## Arc schema
 
+Each arc is described by one TOML **arc spec** in `docs/scenarios/<id>.toml`
+(one per arc per mod). Shared tooling reads the specs and derives the catalog,
+the focus diagrams, the focus-boost closure and the expected telemetry labels;
+scripted events and effects stay hand-written in the HSL catalog.
+
+```toml
+id = "axis_expansion"       # slug; identity and file name
+number = 1                  # the director's arc id; written when the arc has code
+status = "ready"            # ready (in the shipped pool) | draft (authored, not selected)
+aggressor = "GER"           # a single tag
+
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled 50/50
+
+[ladder]                    # months from arc start
+crises_at_month = 12
+peak_at_month = 24
+
+[joiners]                   # shared scorer, no per-arc parameters
+select = "top_n_by_scorer"
+n = 2
+
+[gate]                      # optional; absent means no gate
+ideology = "fascism"
+at_phase = "crises"
+
+# Ordered focus paths: each list runs from a branch entry to a war leaf.
+paths = [
+  ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"],
+]
+
+notes = """
+Free rationale prose, printed into the catalog beside the arc.
+"""
 ```
-sandbox_scenario_<id>:
-  aggressor: GER            # a single tag
-  type: historical          # every vanilla arc; no flip gate
-  targets:
-    a: [CZE, POL]           # variant A (historical default)
-    b: [FRA, ENG]           # variant B (alt)
-  joiners: open_pool_top2   # shared scorer, no per-arc parameters
-  ladder: template          # smolder / crises / peak
-  block: axis               # faction name if one forms
-  content_refs: ...         # per-mod focus/event ids
-```
+
+Top-level keys come before `[table]` headers: in TOML everything after a
+header belongs to that table. `id` must match the file name; `number` is
+unique and must match the code dispatcher; a `ready` arc requires a `number`.
+Every key focus must exist in the aggressor's focus graph. There is no `type`,
+`block` or `content_refs` field.
 
 ## Ladder
 

@@ -1,6 +1,6 @@
 # 03 - Generate the catalog tables and notes
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02
 
@@ -30,3 +30,14 @@ error.
 ## Out of scope
 
 - Diagrams, boosts and telemetry labels; those are later tickets.
+
+## Verification: PASSED (tests + live build)
+
+- `build` writes `docs/gdd/Scenarios Catalog.md` from the specs alone; the old
+  hand-pasted file is replaced. Table shows aggressor, both variants, key
+  focuses and status; arcs grouped `ready`/`draft`; each arc's `notes` appear.
+- Spec edit without rebuild makes `--check` fail; rebuild greens it.
+- Determinism covered by `test_build_deterministic` (two builds byte-identical).
+- Pool/excluded-majors prose moved into `docs/gdd/Scenarios.md` (Selection
+  area) so no content was lost; the redundant Arc-anatomy section dropped
+  (covered by Selection and ADR-0001).

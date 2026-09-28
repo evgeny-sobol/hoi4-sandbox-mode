@@ -2583,8 +2583,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_cooperation_modifier($CZE)
       +modifier:
         factor(0)
@@ -2781,8 +2779,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       +modifier:
         $crossroad_modifier(2)
     +completion_reward:

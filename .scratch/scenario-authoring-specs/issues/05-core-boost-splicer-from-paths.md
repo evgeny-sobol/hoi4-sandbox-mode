@@ -1,6 +1,6 @@
 # 05 - Move the boost splicer into core and drive it from paths
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02
 
@@ -30,3 +30,15 @@ specs.
 ## Out of scope
 
 - Changing the boost macro itself or the war-focus weighting.
+
+## Verification: PASSED (tests + live build + compile)
+
+- One core splicer (`core/tools/build_scenario_catalog.py`, `<mod_dir>`
+  argument); `add_vanilla_focus_boosts.py`, `boost_focus_ancestors.py` and
+  `build_scenario_graphs.py` deleted (superseded; history kept in git).
+- Live axis run: 14 boosted focuses in `germany.include`; the Q38 fork trim
+  removed exactly the two fork-losing sides (`GER_befriend_czechoslovakia`,
+  `GER_danzig_for_slovakia`); all 6 keys stay boosted.
+- `test_fork_prefers_path_side`, idempotency (`test_splice_converges_and_idempotent`)
+  and unexpected-boost detection (`test_unexpected_boost_detected`) green.
+- Full HSL recompile clean; compiled `germany.txt` confirms the trim.

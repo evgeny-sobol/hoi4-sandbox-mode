@@ -1,6 +1,6 @@
 # 04 - Generate the focus diagrams from paths
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02
 
@@ -28,3 +28,14 @@ re-exporting silently.
 ## Out of scope
 
 - The boost splice that acts on the same paths; that is the next ticket.
+
+## Verification: PASSED (tests + live build)
+
+- Diagrams built from spec `paths` plus the focus graph, over the boost set
+  itself, so diagram and boost agree by construction. Roles: keys
+  double-bordered, roots rounded, intermediates plain (and boosted, per the
+  corrected legend).
+- Prerequisite and mutual-exclusion edges parsed from the graph data.
+- `test_stale_graph_fails_with_export_message`: a graph older than its specs
+  fails `--check` without re-exporting.
+- Spec edit changes the diagram; `--check` catches it (`test_check_catches_spec_edit`).

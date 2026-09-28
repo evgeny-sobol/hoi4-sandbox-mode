@@ -1,6 +1,6 @@
 # 08 - Document the arc spec schema in the engine GDD
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02
 
@@ -25,3 +25,11 @@ Join lever description no longer mentions a bloc.
 ## Out of scope
 
 - Documenting the tooling internals; only the schema is documented here.
+
+## Verification: PASSED (review)
+
+- `docs/gdd/Scenarios.md` "Arc schema" documents the TOML schema field by
+  field against the validator (same names, same required/optional split); the
+  old pseudo-schema is gone. No `Block`/`plausibility`; Join lever has no bloc.
+- The vanilla file never had the YAML draft block (that draft lives in the r56
+  doc); nothing kept beside the new section.
