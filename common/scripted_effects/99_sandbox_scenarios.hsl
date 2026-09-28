@@ -240,14 +240,7 @@ sandbox_scenario_tick():
       global.&sandbox_scenario_arc_months += 1
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
-  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
-    global.&sandbox_scenario_phase = 1
-    $sandbox_log_sc(sc_phase, crises)
-    sandbox_fire_axis_crises()
-  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_axis_peak()
+  gen_axis_expansion_tick()
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)

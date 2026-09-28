@@ -26,6 +26,8 @@ and ultimatums plus join offers at peak.
 [ladder]
 crises_at_month = 12
 peak_at_month = 24
+crises_func = "sandbox_fire_axis_crises"
+peak_func = "sandbox_fire_axis_peak"
 
 [joiners]
 select = "top_n_by_scorer"
