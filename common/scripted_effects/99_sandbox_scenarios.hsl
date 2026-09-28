@@ -725,62 +725,7 @@ sandbox_select_usa_warplan_joiners():
 # s7 diagnostic (read-only): monthly strength + wargoal snapshot.
 sandbox_scenario_s7_telemetry():
   if global.sandbox_scenario == 1 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == a:
-      GER:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(CZE):
-        CZE:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
-            $sandbox_log_sc(sc_goal, cze_on_ger)
-      if country_exists(POL):
-        POL:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
-            $sandbox_log_sc(sc_goal, pol_on_ger)
-      GER:
-        if has_wargoal_against(CZE) or is_justifying_wargoal_against(CZE):
-          $sandbox_log_sc(sc_goal, ger_on_cze)
-        if is_justifying_wargoal_against(CZE):
-          $sandbox_log_sc(sc_justify, ger_on_cze)
-        if has_wargoal_against(POL) or is_justifying_wargoal_against(POL):
-          $sandbox_log_sc(sc_goal, ger_on_pol)
-        if is_justifying_wargoal_against(POL):
-          $sandbox_log_sc(sc_justify, ger_on_pol)
-    else:
-      GER:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(FRA):
-        FRA:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
-            $sandbox_log_sc(sc_goal, fra_on_ger)
-      if country_exists(ENG):
-        ENG:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-          if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
-            $sandbox_log_sc(sc_goal, eng_on_ger)
-      GER:
-        if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, ger_on_fra)
-        if is_justifying_wargoal_against(FRA):
-          $sandbox_log_sc(sc_justify, ger_on_fra)
-        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, ger_on_eng)
-        if is_justifying_wargoal_against(ENG):
-          $sandbox_log_sc(sc_justify, ger_on_eng)
+    gen_axis_expansion_telemetry()
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       SOV:
