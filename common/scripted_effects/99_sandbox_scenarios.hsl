@@ -13,12 +13,7 @@
 sandbox_set_targets():
   global.&sandbox_targets[].clear()
   if global.sandbox_scenario == 1:
-    if global.sandbox_target_variant == a:
-      global.&sandbox_targets[].add(CZE)
-      global.&sandbox_targets[].add(POL)
-    else:
-      global.&sandbox_targets[].add(FRA)
-      global.&sandbox_targets[].add(ENG)
+    gen_axis_expansion_set_targets()
   if global.sandbox_scenario == 2:
     if global.sandbox_target_variant == a:
       global.&sandbox_targets[].add(TUR)
@@ -211,8 +206,7 @@ sandbox_scenario_maybe_repick():
 # enemies symmetrically. THIS is the aggressor.
 sandbox_seed_actors():
   if global.sandbox_scenario == 1:
-    GER:
-      sandbox_seed_from_targets()
+    gen_axis_expansion_seed()
   if global.sandbox_scenario == 2:
     SOV:
       sandbox_seed_from_targets()

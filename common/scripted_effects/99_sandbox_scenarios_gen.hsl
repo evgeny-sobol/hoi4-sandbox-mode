@@ -1,0 +1,14 @@
+# Generated from docs/scenarios/*.toml by core/tools/build_scenario_catalog.py -
+# do not edit by hand. Hand-written code lives in 99_sandbox_scenarios.hsl.
+
+gen_axis_expansion_set_targets():
+  if global.sandbox_target_variant == a:
+    global.&sandbox_targets[].add(CZE)
+    global.&sandbox_targets[].add(POL)
+  else:
+    global.&sandbox_targets[].add(FRA)
+    global.&sandbox_targets[].add(ENG)
+
+gen_axis_expansion_seed():
+  GER:
+    sandbox_seed_from_targets()
