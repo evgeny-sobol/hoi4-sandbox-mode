@@ -8,6 +8,7 @@ id = "axis_expansion"
 number = 1
 status = "ready"
 aggressor = "GER"
+key = "axis"
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }
 

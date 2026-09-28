@@ -1,6 +1,6 @@
 # 04 - Generate derail branch and pick data for axis
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 01
 
@@ -24,3 +24,18 @@ The mod recompiles clean.
 
 - Ladder, telemetry; those are other tickets.
 - Flip gates; the axis arc has none.
+
+## Verification: PASSED (tests + compile)
+
+- `render_derail()` emits `gen_axis_expansion_derail()` (gone/capitulated
+  arms plus per-variant target arms with arity from the spec), verified
+  byte-identical to the deleted hand branch modulo the function header.
+- Pick data renders as three small functions (`gen_axis_expansion_pin`,
+  `gen_axis_expansion_eligible`, `gen_axis_expansion_pick_log`) hosted at the
+  three dispatcher positions; shared loops unchanged apart from the calls.
+- The short pin/pick slug required a new optional spec field `key`
+  (documented in the GDD schema); variant target lists are validated to 1-4
+  entries (the derail macro range).
+- Harness at 23/23 (incl. key-shape, arity and golden tests); real `build` +
+  `--check` green; full recompile clean with all four gen calls in the
+  compiled dispatcher and no stale hand branches.

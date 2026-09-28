@@ -55,6 +55,7 @@ id = "axis_expansion"       # slug; identity and file name
 number = 1                  # the director's arc id; written when the arc has code
 status = "ready"            # ready (in the shipped pool) | draft (authored, not selected)
 aggressor = "GER"           # a single tag
+key = "axis"                # short slug for the pin trigger and pick label; optional
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled 50/50
 
@@ -89,8 +90,10 @@ header belongs to that table. `id` must match the file name; `number` is
 unique and must match the code dispatcher; a `ready` arc requires a `number`.
 Every key focus must exist in the aggressor's focus graph. The ladder content
 functions come as an optional pair (`crises_func` + `peak_func` naming the
-hand-written rung functions); absent means no generated tick branch. There is
-no `type`, `block` or `content_refs` field.
+hand-written rung functions); absent means no generated tick branch. The
+optional `key` names the pin trigger suffix and pick label; absent means no
+generated pick data. Every variant holds 1-4 targets (the derail arms cover
+that range). There is no `type`, `block` or `content_refs` field.
 
 ## Ladder
 

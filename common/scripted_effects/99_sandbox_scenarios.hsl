@@ -68,9 +68,7 @@ sandbox_delay_capped_cw_missions_mod():
   pass
 
 sandbox_pick_scenario():
-  if sandbox_scenario_pin_is_axis():
-    global.&sandbox_scenario_pin = 1
-    global.&sandbox_scenario = 1
+  gen_axis_expansion_pin()
   if sandbox_scenario_pin_is_sov_south():
     global.&sandbox_scenario_pin = 1
     global.&sandbox_scenario = 2
@@ -90,8 +88,7 @@ sandbox_pick_scenario():
     # Random pick (default): equal roll over eligible arcs (aggressor exists).
     global.&sandbox_scenario_pin = 0
     eligible[].clear()
-    if country_exists(GER):
-      eligible[].add(1)
+    gen_axis_expansion_eligible()
     if country_exists(SOV):
       eligible[].add(2)
     if country_exists(JAP):
@@ -119,8 +116,7 @@ sandbox_pick_scenario():
     global.&sandbox_target_variant = b
   sandbox_set_targets()
   sandbox_seed_actors()
-  if global.sandbox_scenario == 1:
-    $sandbox_log_sc(sc_pick, axis)
+  gen_axis_expansion_pick_log()
   if global.sandbox_scenario == 2:
     $sandbox_log_sc(sc_pick, sov_south)
   if global.sandbox_scenario == 3:
@@ -1054,19 +1050,7 @@ sandbox_scenario_check_derail():
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
   if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
-    if not country_exists(GER):
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, ger_gone)
-      $sandbox_log_sc(sc_end, ger_gone)
-    elif GER->has_capitulated():
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, ger_capitulated)
-      $sandbox_log_sc(sc_end, ger_capitulated)
-    else:
-      if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(GER, CZE, POL)
-      else:
-        $sandbox_check_targets_derail2(GER, FRA, ENG)
+    gen_axis_expansion_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     if not country_exists(SOV):
       global.&sandbox_scenario_phase = 3
