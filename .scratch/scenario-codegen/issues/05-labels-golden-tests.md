@@ -31,7 +31,15 @@ when the generated file on disk differs from what the spec produces.
 - Case drift fails per occurrence, so a drifted copy cannot hide behind a
   correct one; duplication across hand and generated files fails with the
   delete-the-branch message.
+- Duplication is arc-aware: the checker attributes each hand occurrence to
+  its enclosing `sandbox_scenario == N` guard, so a pair shared by two arcs
+  (each arc logs its own direction) does not false-positive
+  (`test_shared_pair_no_false_positive`). Verified live on the r56 britain
+  migration, whose pairs overlap other arcs.
 - Golden tests pin the full generated mechanics text for the axis spec
   (all eight per-arc functions); a stale generated file fails `--check`.
-- Harness at 24/24; real `build` + `--check` green with no code changes
-  (tool-only change, no recompile needed).
+- Harness at 25/25; real `build` + `--check` green in both mods with no code
+  changes (tool-only change, no recompile needed).
+- Incidental find: a regex name collision (`ARC_GUARD_RE` defined twice, the
+  anchored copy winning) silently disabled arc tracking; fixed by renaming to
+  `ARC_NUM_RE`.
