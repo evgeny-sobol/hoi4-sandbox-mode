@@ -121,11 +121,27 @@ other is needed to close the ticket fully.
 
 ## Check 22: arc 1 variant A presses both targets at peak
 
-Pin `sandbox_axis_expansion` (arc 1). The arc was repicked at `t=31` in the
-last run and ignited by war before its peak rung. Arc 1 reaches crises at 12
-months and peak at 24 months (`arc_months`), so to see variant A's peak keep
-the aggressor out of a war until month 24 after the pick. Pinning at game
-start is the deterministic way to get those 24 clean months.
+Pin `sandbox_axis_expansion` (arc 1). Arc 1 reaches crises at 12 months and peak
+at 24 months (`arc_months`). The peak must run **before** the aggressor wars a
+declared target, because `sandbox_ignite_if_at_war()` ends the arc the month
+GER is at war with CZE or POL.
+
+Pinning alone does not guarantee this: two pinned runs (2026-09 and 2026-10)
+both saw GER war a target at month 22, two months short of the peak. The r56
+German AI takes `GER_demand_sudetenland` (CZE) or `GER_danzig_or_war` (POL)
+around late 1937, which is inside the 24-month window. To reach the peak,
+prevent that war, for example:
+
+- console-tag GER and delete the wargoal or the target's border tension, or
+- console `annex CZE` and `annex POL` is wrong (that triggers `targets_gone`),
+  so instead delay the focuses: `add_ideas`/focus-cancel via console, or
+- start the arc earlier is not possible (the pin starts it at 1936.1), so the
+  workable trick is to keep GER from taking the war focus by keeping its tension
+  low, or to console-`activate_mission`/skip the focus.
+
+Verify progress from the extract: `sc_phase peak` must appear at `t=24` before
+any `sc_ignite`. If `sc_ignite` lands first, the run did not reach the peak and
+check 22 stays open.
 
 Variant A targets CZE and POL. Pass when both log a submit/defy outcome:
 

@@ -95,6 +95,35 @@ acceptance checklist unable to tell an inert target from a pressed one.
 See `.scratch/scenario-engine-regressions/verification-run.md`, check 22
 (pinned arc 1, variant A peak).
 
+### Attempt 2026-10-01: did not reach the peak (check stays open)
+
+Pinned `sandbox_axis_expansion`, 75 telemetry lines, 1936.1-1937.11. The arc
+ran the smolder rung, reached crises on schedule, then ignited by war two
+months short of the peak:
+
+```
+1937.1.1  HAI sc_phase crises   sc=1 phase=1 t=12
+1937.1.1  GER sc_crisis sudeten_unrest sc=1 phase=1 t=12
+1937.8.8  GER sc_focus GER_claim_old_colonies_in_the_east t=19
+1937.11.1 GER sc_ignite axis_war sc=1 phase=3 t=22
+```
+
+Arc 1 reaches peak at `arc_months = 24`, so the peak rung never ran: no
+`sc_phase peak`, no `sc_target`, no per-target `sc_crisis`. GER warred a
+declared target at month 22 (`sandbox_ignite_if_at_war` fires when GER is at
+war with CZE or POL), which is the r56 German AI taking a historical war focus
+inside the 24-month window. This is the same obstacle as the 2026-09 run (there
+GER ignited at `t=47` after a repick). The fix under test is not exercised
+either way; the run neither confirms nor refutes it.
+
+The war was entered before the peak, not caused by the scenario: `sc_crisis
+sudeten_unrest` is the aggressor-desk crises event (`sandbox_axis.1`, trigger
+`tag(GER)`), armed and correct. `error.log` clean (4060 lines, zero
+scenario/sandbox/completion hits).
+
+To close the ticket, run again with the German war focus prevented until the
+peak at month 24 (see the checklist for the console approaches).
+
 ## Notes
 
 The existing coverage guard (`.scratch/scripts/check_peak_coverage.py`) takes
