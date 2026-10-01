@@ -85,6 +85,46 @@ def arc_coverage(funcs_, ev):
     return out
 
 
+TAG_SCOPE = re.compile(r"^(\s+)([A-Z]{3}):\s*$")
+VAR = re.compile(r"sandbox_target_variant == (\w)")
+
+
+def arc_callsites(funcs_, ev):
+    """Pair every peak call's target scope with the event's own trigger tag.
+
+    The union coverage above cannot see a swap where the union still equals the
+    declared targets (issue 22: arc 1a sent the POL event to CZE and the CZE
+    event to POL). This pairs each call site with the event's trigger and
+    reports a call whose target the trigger does not admit.
+    """
+    problems: list[str] = []
+    for name, body in funcs_.items():
+        if not name.endswith("_peak"):
+            continue
+        arc, scope, variant = None, None, "?"
+        for line in body:
+            m = SCEN.search(line)
+            if m and line.strip().startswith(("if", "elif")):
+                arc = int(m.group(1))
+            m = VAR.search(line)
+            if m:
+                variant = m.group(1)
+            m = TAG_SCOPE.match(line)
+            if m:
+                scope = m.group(2)
+                continue
+            m = EID.search(line)
+            if m and scope:
+                eid = m.group(1)
+                allowed = ev.get(eid, set())
+                if allowed and scope not in allowed:
+                    problems.append(
+                        f"arc {arc}{variant} calls {eid} on {scope} "
+                        f"but the event triggers on {sorted(allowed)}"
+                    )
+    return problems
+
+
 def scenario_events(mod) -> set[str]:
     out: set[str] = set()
     for path in (mod / EVENTS).glob("*.hsl"):
@@ -122,6 +162,10 @@ def main() -> int:
                 if f"{stem}{suffix}" not in keys:
                     problems += 1
                     print(f"{mod.name}: {stem}{suffix} has no localisation key")
+
+        for msg in arc_callsites(f, event_tags(mod)):
+            problems += 1
+            print(f"{mod.name}: {msg}")
 
     print(f"problems: {problems}")
     return 1 if problems else 0
