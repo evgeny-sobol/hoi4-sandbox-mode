@@ -17,16 +17,22 @@ option forces `sandbox_scenario_pin = 1` and the matching arc, so the run does
 not depend on the random pick. Run with the Rt56 mod set and observe as an
 uninvolved country.
 
+The default option `sandbox_random` is the one that permits a repick: the
+repick function (`sandbox_scenario_maybe_repick`) runs only when
+`sandbox_scenario_pin == 0`. A pinned run never repicks, so any check that
+needs a repick must use `sandbox_random`.
+
 | Check | Rule option | Arc | Why this arc |
 |-------|-------------|-----|--------------|
-| 21 | `sandbox_fra_plan_xiv` | 22 | FRA aggressor, inline derail branch |
-| 19 | `sandbox_fra_plan_xiv` | 22 | same run: inline gone/capitulated arms |
+| 19 | `sandbox_fra_plan_xiv` | 22 | FRA aggressor, inline derail branch (pin guarantees it) |
+| 21 | `sandbox_random` | any | a repick only happens unpinned |
 | 20 | `sandbox_sov_south` | 11 | three targets in both variants |
 | 22 | `sandbox_axis_expansion` | 1 | A-variant peak with CZE and POL |
 | 13 | `sandbox_axis_expansion` | 1 | event-path pressure with no wargoals |
-| 14 | any | any | watch a target whose tag is split by civil war |
+| 14 | `sandbox_random` | any | watch a target whose tag is split by civil war |
 
-Checks 19 and 21 share the arc-22 run. 22 and 13 share the arc-1 run.
+Checks 22 and 13 share the arc-1 run. Check 19 and check 21 do **not** share a
+run: 19 needs the pin, 21 needs the random pick.
 
 ## Analyse the log
 
@@ -67,8 +73,10 @@ The label for an inline arc is the same shape as the named helpers
 
 ## Check 21: a dead arc is not offered at the pick
 
-Same arc-22 run. Once FRA is dead, the pick/repick pool must not offer arc
-22 again.
+This needs an **unpinned** run: pick `sandbox_random`. The repick only runs
+when `sandbox_scenario_pin == 0`. Note the arc the run lands on, let it derail
+(a dead aggressor, a neutralized target set, or a peak timeout), then watch the
+repick.
 
 Pass when, after the derail, the repick lands on another arc:
 
@@ -77,12 +85,14 @@ Pass when, after the derail, the repick lands on another arc:
 <date> HAI sc_pick   <other arc>  sc=<n> ...
 ```
 
-and there is no `sc_pick fra_plan_xiv` after the derail. If nothing else is
-eligible, `scenario = 0` is the correct outcome.
+and the derailed arc is not re-picked (it is also barred by the
+`derailed_arcs` filter, so the pick-gate fix itself is best seen on the
+**first pick** of a session where an arc's aggressor starts off-ideology).
 
-Fail if arc 22 is re-picked while FRA is gone or capitulated. The pick now
-also requires the aggressor's government (breadcrumb: `check_pick_gate.py`),
-so an off-ideology aggressor must be skipped the same way.
+Fail if the derailed arc is re-picked, or if an arc whose aggressor already
+fails its gate is picked in the first place. The pick now also requires the
+aggressor's government (breadcrumb: `check_pick_gate.py`), so an off-ideology
+aggressor must be skipped.
 
 ## Check 20: a three-target arc arms all three
 

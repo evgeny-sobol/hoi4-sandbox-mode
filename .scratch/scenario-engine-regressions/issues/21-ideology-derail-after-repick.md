@@ -103,5 +103,10 @@ them.
 ## Verification run
 
 See `.scratch/scenario-engine-regressions/verification-run.md`, check 21
-(same arc-22 run as check 19).
+(unpinned `sandbox_random` run; a repick only happens when
+`sandbox_scenario_pin == 0`).
+
+Not covered by the 2026-10-01 arc-22 run: that run was pinned
+(`pin=1`), so no repick path ran. The observer half still needs an unpinned
+session.
 

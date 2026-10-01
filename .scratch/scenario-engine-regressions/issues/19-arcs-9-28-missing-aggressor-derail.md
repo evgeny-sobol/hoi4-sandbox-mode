@@ -42,9 +42,9 @@ gone/capitulated arm.
       minimum; the arc's documented ideology or flip gate where the catalog
       defines one (the flip gates for 17/20/23-28 were already present and
       stay).
-- [ ] An observer session with the aggressor removed parks the arc with
+- [x] An observer session with the aggressor removed parks the arc with
       `sc_derail` + `sc_end` and the arc's reason label, not a `peak_timeout`
-      or a silently running arc (needs a game run).
+      or a silently running arc.
 - [x] Arcs 1-8 keep the behaviour and labels they have today (re-audited).
 - [x] No new `error.log` lines attributable to scenario files (compiled
       output clean; session check pending).
@@ -78,3 +78,24 @@ gone/capitulated arm.
 
 See `.scratch/scenario-engine-regressions/verification-run.md`, check 19
 (inline arc 22, aggressor removed).
+
+### Result: PASSED (observer half closed, 2026-10-01)
+
+Pinned run, arc 22 (`fra_plan_xiv`, aggressor FRA, target SWI), 44 telemetry
+lines, 1936.1-1937.6. FRA capitulated while the arc was live and the inline
+branch parked it with the aggressor reason on the same monthly tick:
+
+```
+1937.6.1  HAI sc_derail france_capitulated sc=22 phase=3
+1937.6.1  HAI sc_end    france_capitulated sc=22 phase=3
+```
+
+The arc phase moved to 3 (`< 3` guard no longer runs), the label is the
+aggressor reason (`france_capitulated`, not a target or a `peak_timeout`), and
+no `sc_power` sampling continued after the park. The arc reached only the
+smolder rung (`sc_focus FRA_brumaire_movement` at `t=15`), which is the
+documented behaviour: the aggressor arm fires at any phase below 3.
+
+The branch exercised is the inline one (`sandbox_scenario_check_derail`, the
+arc 22 `elif` at line 3737), not a named helper, so this closes the inline
+half of the ticket rather than re-testing arcs 1-8.
