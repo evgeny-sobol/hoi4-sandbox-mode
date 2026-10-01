@@ -77,3 +77,8 @@ declared enemy still stands.
   class of gap out.
 - The observer half (a three-target arc logs a submit/defy outcome for all
   three) needs the next session.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 20
+(pinned arc 11, three targets).

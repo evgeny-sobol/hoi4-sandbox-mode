@@ -73,3 +73,8 @@ gone/capitulated arm.
   hand.
 - The observer half (removing an aggressor parks the arc with the reason
   label) needs the next session.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 19
+(inline arc 22, aggressor removed).

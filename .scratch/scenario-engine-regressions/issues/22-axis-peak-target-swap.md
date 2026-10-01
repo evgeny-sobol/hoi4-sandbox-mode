@@ -90,10 +90,15 @@ acceptance checklist unable to tell an inert target from a pressed one.
 - The observer half (both CZE and POL log a submit/defy at peak) needs a game
   run where arc 1 variant A reaches peak rather than igniting by war first.
 
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 22
+(pinned arc 1, variant A peak).
+
 ## Notes
 
 The existing coverage guard (`.scratch/scripts/check_peak_coverage.py`) takes
 the union of trigger tags over the events an arc's peak can fire, so a swap
-where the union still equals the declared targets passes. The new call-site
-audit (`.scratch/scripts/check_peak_callsites.py`) pairs each call's target
-scope with the event's trigger tag and catches this class.
+where the union still equals the declared targets passes. The guard grew a
+call-site pass (`arc_callsites`) that pairs each call's target scope with the
+event's trigger tag and catches this class.

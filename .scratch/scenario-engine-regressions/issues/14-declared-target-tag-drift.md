@@ -73,3 +73,8 @@ arc's targets", and an arc can run against a target the engine no longer conside
 - The `sc_goal` silence while the aggressor was actively justifying; that is issue 16.
 - The sampling cadence of the s7 package; that is issue 15.
 - The eligibility rules that pick the targets in the first place.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 14
+(a declared target whose tag drifts).

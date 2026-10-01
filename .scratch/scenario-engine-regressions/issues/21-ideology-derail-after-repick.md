@@ -100,3 +100,8 @@ them.
 - The observer half (no `sc_pick` for a dead arc, fresh arc reaching crises)
   needs the next session.
 
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 21
+(same arc-22 run as check 19).
+

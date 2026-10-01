@@ -100,3 +100,8 @@ After this change, an analyst can tell "the arc applied pressure" from "the arc 
 - Changing the sampling cadence of the diagnostic package; that is issue 15.
 - Changing tag-drift handling; that is issue 14.
 - Adding new diagnostic line types.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 13
+(same arc-1 run as check 22).
