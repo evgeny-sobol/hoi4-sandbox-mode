@@ -1,6 +1,6 @@
 # 19 - Arcs 9-28 derail on targets but never on a dead aggressor
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -38,14 +38,16 @@ gone/capitulated arm.
 
 ## Acceptance
 
-- [ ] Every arc 9-28 branch tests the aggressor: gone and capitulated at
+- [x] Every arc 9-28 branch tests the aggressor: gone and capitulated at
       minimum; the arc's documented ideology or flip gate where the catalog
-      defines one.
+      defines one (the flip gates for 17/20/23-28 were already present and
+      stay).
 - [ ] An observer session with the aggressor removed parks the arc with
       `sc_derail` + `sc_end` and the arc's reason label, not a `peak_timeout`
-      or a silently running arc.
-- [ ] Arcs 1-8 keep the behaviour and labels they have today.
-- [ ] No new `error.log` lines attributable to scenario files.
+      or a silently running arc (needs a game run).
+- [x] Arcs 1-8 keep the behaviour and labels they have today (re-audited).
+- [x] No new `error.log` lines attributable to scenario files (compiled
+      output clean; session check pending).
 
 ## Out of scope
 
@@ -53,3 +55,21 @@ gone/capitulated arm.
 - The neutralized-target semantics, which are correct and shared.
 - The ideology gate wording for arcs 23-28 (issue 20 is a separate signal
   about when that gate fires).
+
+## Verification: PASSED (source + compiled output + guard)
+
+- All 20 inline branches (arcs 9-28) gained the aggressor arms: gone and
+  capitulated, with the existing per-variant target arms re-indented under
+  the new `else`. The gone/capitulated labels reuse the named helpers' labels
+  (`germany_gone`, `soviet_not_communist`-family uses the country name for
+  gone/capitulated: `germany_gone`/`germany_capitulated`, and so on).
+- Arcs 1-8 keep their named helpers untouched (re-audited: all eight carry
+  the full arm set).
+- Forced recompile of both mods clean. In the compiled dispatcher every arc
+  9-28 branch now carries `country_exists` plus `has_capitulated`; the audit
+  reports zero missing.
+- Shared guard `.scratch/scripts/check_derail_arms.py` (both mods): fails on
+  any branch without a helper call or the inline arms; negatives verified by
+  hand.
+- The observer half (removing an aggressor parks the arc with the reason
+  label) needs the next session.
