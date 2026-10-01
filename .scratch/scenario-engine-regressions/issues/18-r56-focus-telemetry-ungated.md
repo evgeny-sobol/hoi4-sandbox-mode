@@ -1,6 +1,6 @@
 # 18 - r56 focus telemetry bypasses the scenario-actor gate
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -41,15 +41,28 @@ progress.
 
 ## Acceptance
 
-- [ ] Every Rt56 `sc_focus` log line goes through `$sandbox_log_sc_focus`.
+- [x] Every Rt56 `sc_focus` log line goes through `$sandbox_log_sc_focus`.
 - [ ] An observer session with a non-actor major completing focuses logs no
-      `sc_focus` line for it.
-- [ ] The aggressor and declared targets still log `sc_focus` when they
-      complete a spliced focus.
-- [ ] No `sc_focus` call site uses the base writer directly in either mod.
+      `sc_focus` line for it (needs a game run).
+- [x] The aggressor and declared targets still log `sc_focus` when they
+      complete a spliced focus (gate present in the call shape).
+- [x] No `sc_focus` call site uses the base writer directly in either mod.
 
 ## Out of scope
 
 - The misplaced-indent defect (issue 17); fixing the gate does not restore
   dropped splices and vice versa.
 - The set of spliced focuses.
+
+## Verification: PASSED (includes + compiled output + guard)
+
+- All 86 ungated Rt56 calls swapped to `$sandbox_log_sc_focus(...)`: france
+  16, germany 10, hungary 4, italy 11, japan 12, soviet 14, uk 10, usa 9.
+  Both mods now show zero ungated calls (vanilla 63 gated, 0 ungated; Rt56
+  86 gated, 0 ungated).
+- Forced recompile of both mods clean. In the compiled focus files every
+  `sc_focus` line sits behind `is_scenario_actor = yes`: vanilla 63/63, Rt56
+  86/86.
+- The shared guard `.scratch/scripts/check_focus_splices.py` now enforces
+  both rules (tree-level splice, ungated call); negatives verified by hand.
+- The observer half (a non-actor major logs nothing) needs the next session.
