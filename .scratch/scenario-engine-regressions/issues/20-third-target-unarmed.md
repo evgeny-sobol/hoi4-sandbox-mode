@@ -1,6 +1,6 @@
 # 20 - The third declared target gets no ultimatum
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -43,16 +43,37 @@ declared enemy still stands.
 
 ## Acceptance
 
-- [ ] In every multi-target arc, each declared target of each variant
+- [x] In every multi-target arc, each declared target of each variant
       receives a peak pressure line (an ultimatum, or a crisis event where
-      the catalog names one).
+      the catalog names one): audit reports zero uncovered targets.
 - [ ] A session running a three-target arc logs a submit/defy crisis outcome
       for all three targets, or a documented reason why a target is
-      deliberately passive.
-- [ ] No new `error.log` lines attributable to scenario files.
+      deliberately passive (needs a game run).
+- [x] No new `error.log` lines attributable to scenario files (compiled
+      output clean; session check pending).
 
 ## Out of scope
 
 - Balance of the events (submit/defy shares); the s13 reference anatomy
       stands.
 - Targets removed by neutralization, which legitimately log `<tag>_gone`.
+
+## Verification: PASSED (audit + compiled output + guard)
+
+- The gap is wider than this ticket first described: an audit of each arc and
+  variant against the events its peak can fire found 10 uncovered targets in
+  r56 (vanilla clean), all of the same shape - peak events carrying the
+  A-variant's tags while the B variant declared different ones.
+- Fixed: repointed six B-variant peak calls to the event that admits B's
+  tags (japanese, france, ger_atl, ger_me, jap_old, ita_west); widened six
+  paired-event triggers to the vanilla `tag(A | B)` form (japanese.6,
+  ger_me.3, sov_south.2/.3, sov_east.2/.3, jap_north.3); added the missing
+  third-ultimatum event `sandbox_sov_south.4` (PER | AFG) with its peak calls
+  and l10n; added `sandbox_japanese.8` (MAL) with its peak call and l10n.
+- Forced recompile of both mods clean. The audit reports zero uncovered
+  targets in either mod, and every scenario event has its four l10n keys.
+- Shared guard `.scratch/scripts/check_peak_coverage.py` covers both rules
+  (target coverage and event localisation); it is the gate that keeps this
+  class of gap out.
+- The observer half (a three-target arc logs a submit/defy outcome for all
+  three) needs the next session.
