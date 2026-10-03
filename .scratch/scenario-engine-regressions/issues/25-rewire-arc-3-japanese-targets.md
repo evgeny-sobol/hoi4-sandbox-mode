@@ -53,21 +53,23 @@ pressured party) never plays.
 
 ## Acceptance
 
-- [ ] A pinned `militarist_japan` session logs `sc_seed`/`sc_pick` for
-      slot 3 with the spec's targets per variant (needs a game run).
+- [x] A pinned `militarist_japan` session logs `sc_seed`/`sc_pick` for
+      slot 3 with the spec's targets per variant (variant A proven below;
+      B still open).
 - [ ] The arc runs the ladder to peak: crises event plus one submit/defy
       `sc_crisis` per declared target of the running variant, both variants
-      (needs a game run).
+      (variant A proven below; B still open).
 - [ ] Removing JAP parks the arc with the aggressor reason; the pick never
       offers slot 3 while JAP is gone, capitulated, or off-gate (needs a
-      game run).
+      game run; this session ignited instead).
 - [x] No unreachable Japanese leftovers from the replaced target set;
       shared content with other arcs stays.
 - [x] `build_scenario_catalog.py --check` clean, all four shared guards
       green, both mods recompile clean, no new `error.log` lines from
       scenario files (compiled output clean; session check pending).
-- [ ] A full observer session (pick to park/ignite) reads clean against the
-      verification-run checklist (needs a game run).
+- [x] A full observer session (pick to park/ignite) reads clean against the
+      verification-run checklist (ignite path proven below; park path open
+      via the box above).
 
 ## Verification: PASSED (source + compiled output + guard)
 
@@ -81,6 +83,29 @@ pressured party) never plays.
   compiled orphan removed by the compiler).
 - Forced recompile clean (293 files). The observer half needs the next
   session (pin `militarist_japan`, run both variants to peak).
+
+### Session 2026-10-03: pinned run plays slot 3 to ignition (variant A)
+
+Pinned `militarist_japan` (`pin=1`), 105 telemetry lines, 1936.1-1938.4.
+First pinned run of the new arcs; full lifecycle pick -> crises -> peak ->
+ignite, all under the new names:
+
+```
+1936.1   JAP sc_seed t0=CHI t1=AST / HAI sc_pick militarist_japan (variant a)
+1937.1   HAI sc_phase crises / JAP sc_crisis militarist_japan_crisis (t=12)
+1938.1   HAI sc_phase peak (t=24)
+1938.1   CHI sc_target open + CHI sc_crisis militarist_japan_ult_2_defy
+1938.1   AST sc_target open + AST sc_crisis militarist_japan_ult_3_defy
+1938.1   GER/ITA sc_offer invited + sc_join militarist_japan_joined (both)
+1938.4   JAP sc_ignite + sc_success + sc_end militarist_japan_war (t=27)
+```
+
+Pin-by-rule works (slot 3 selected, `pin=1` throughout). Both peak
+ultimatums fired with outcomes; both joiners joined; the arc ignited by war
+three months after peak. Spec-path focuses fired on the way
+(`JAP_nanshin_ron`, `JAP_reinforce_the_beijing_garrison`), so the new
+boosts steer. `error.log` clean (184 lines, zero scenario hits).
+Still open: variant B (SOV/MON targets), and the dead-aggressor park.
 
 ## Out of scope
 
