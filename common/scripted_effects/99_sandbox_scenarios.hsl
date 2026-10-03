@@ -1,7 +1,7 @@
 # docs/gdd/Scenarios.md: director skeleton for the vanilla mod. Pick runs
 # once at on_startup in HAI scope; the ladder tick runs monthly.
 # State (globals, all 0 until picked):
-#   sandbox_scenario: 0 none, 1 nazi_germany, 2 fascist_italy, 3 japanese, 4 italian,
+#   sandbox_scenario: 0 none, 1 nazi_germany, 2 fascist_italy, 3 militarist_japan, 4 italian,
 #     5 eng_soviet, 6 usa_warplan (7 reserved: France is not content-portable)
 #   sandbox_scenario_phase: 0 smolder, 1 crises, 2 peak, 3 ended
 #   sandbox_scenario_pin: 0 random, 1 pinned to the picked arc
@@ -17,13 +17,7 @@ sandbox_set_targets():
   if global.sandbox_scenario == 2:
     gen_fascist_italy_scenario_set_targets()
   if global.sandbox_scenario == 3:
-    if global.sandbox_target_variant == a:
-      global.&sandbox_targets[].add(CHI)
-      global.&sandbox_targets[].add(PHI)
-    else:
-      global.&sandbox_targets[].add(BRM)
-      global.&sandbox_targets[].add(INS)
-      global.&sandbox_targets[].add(MAL)
+    gen_militarist_japan_scenario_set_targets()
   if global.sandbox_scenario == 4:
     if global.sandbox_target_variant == a:
       global.&sandbox_targets[].add(YUG)
@@ -63,9 +57,7 @@ sandbox_delay_capped_cw_missions_mod():
 sandbox_pick_scenario():
   gen_nazi_germany_scenario_pin()
   gen_fascist_italy_scenario_pin()
-  if sandbox_scenario_pin_is_japanese():
-    global.&sandbox_scenario_pin = 1
-    global.&sandbox_scenario = 3
+  gen_militarist_japan_scenario_pin()
   if sandbox_scenario_pin_is_italian():
     global.&sandbox_scenario_pin = 1
     global.&sandbox_scenario = 4
@@ -81,8 +73,7 @@ sandbox_pick_scenario():
     eligible[].clear()
     gen_nazi_germany_scenario_eligible()
     gen_fascist_italy_scenario_eligible()
-    if country_exists(JAP):
-      eligible[].add(3)
+    gen_militarist_japan_scenario_eligible()
     if country_exists(ITA):
       eligible[].add(4)
     if country_exists(ENG):
@@ -108,8 +99,7 @@ sandbox_pick_scenario():
   sandbox_seed_actors()
   gen_nazi_germany_scenario_pick_log()
   gen_fascist_italy_scenario_pick_log()
-  if global.sandbox_scenario == 3:
-    $sandbox_log_sc(sc_pick, japanese)
+  gen_militarist_japan_scenario_pick_log()
   if global.sandbox_scenario == 4:
     $sandbox_log_sc(sc_pick, italian)
   if global.sandbox_scenario == 5:
@@ -172,8 +162,8 @@ sandbox_scenario_maybe_repick():
         $sandbox_log_sc(sc_repick, fascist_italy)
         $sandbox_log_sc(sc_pick, fascist_italy)
       if global.sandbox_scenario == 3:
-        $sandbox_log_sc(sc_repick, japanese)
-        $sandbox_log_sc(sc_pick, japanese)
+        $sandbox_log_sc(sc_repick, militarist_japan)
+        $sandbox_log_sc(sc_pick, militarist_japan)
       if global.sandbox_scenario == 4:
         $sandbox_log_sc(sc_repick, italian)
         $sandbox_log_sc(sc_pick, italian)
@@ -195,8 +185,7 @@ sandbox_seed_actors():
   if global.sandbox_scenario == 2:
     gen_fascist_italy_scenario_seed()
   if global.sandbox_scenario == 3:
-    JAP:
-      sandbox_seed_from_targets()
+    gen_militarist_japan_scenario_seed()
   if global.sandbox_scenario == 4:
     ITA:
       sandbox_seed_from_targets()
@@ -226,14 +215,7 @@ sandbox_scenario_tick():
     sandbox_scenario_check_derail()
   gen_nazi_germany_scenario_tick()
   gen_fascist_italy_scenario_tick()
-  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
-    global.&sandbox_scenario_phase = 1
-    $sandbox_log_sc(sc_phase, crises)
-    sandbox_fire_japanese_crises()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_japanese_peak()
+  gen_militarist_japan_scenario_tick()
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
@@ -411,17 +393,17 @@ sandbox_select_fascist_italy_joiners():
         id(sandbox_fascist_italy.4)
       $sandbox_log_sc(sc_offer, invited)
 
-# Crises phase for japanese: provocation lands on the aggressor's desk.
-sandbox_fire_japanese_crises():
+# Crises phase for militarist_japan: provocation lands on the aggressor's desk.
+sandbox_fire_militarist_japan_crises():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1:
     JAP:
       if country_exists(CHI) and not JAP->has_war_with(CHI):
         JAP:
           country_event:
-            id(sandbox_japanese.1)
+            id(sandbox_militarist_japan.1)
 
-# Peak phase for japanese: ultimatums to the chosen targets, then join offers.
-sandbox_fire_japanese_peak():
+# Peak phase for militarist_japan: ultimatums to the chosen targets, then join offers.
+sandbox_fire_militarist_japan_peak():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
       if country_exists(CHI):
@@ -433,64 +415,54 @@ sandbox_fire_japanese_peak():
       if country_exists(CHI) and not JAP->has_war_with(CHI):
         CHI:
           country_event:
-            id(sandbox_japanese.2)
-      if country_exists(PHI):
-        PHI:
+            id(sandbox_militarist_japan.2)
+      if country_exists(AST):
+        AST:
           $sandbox_log_target_status(JAP)
       else:
         JAP:
-          $sandbox_log_sc(sc_target, phi_gone)
-      if country_exists(PHI) and not JAP->has_war_with(PHI):
-        PHI:
+          $sandbox_log_sc(sc_target, ast_gone)
+      if country_exists(AST) and not JAP->has_war_with(AST):
+        AST:
           country_event:
-            id(sandbox_japanese.3)
+            id(sandbox_militarist_japan.3)
     else:
-      if country_exists(BRM):
-        BRM:
+      if country_exists(SOV):
+        SOV:
           $sandbox_log_target_status(JAP)
       else:
         JAP:
-          $sandbox_log_sc(sc_target, brm_gone)
-      if country_exists(BRM) and not JAP->has_war_with(BRM):
-        BRM:
+          $sandbox_log_sc(sc_target, sov_gone)
+      if country_exists(SOV) and not JAP->has_war_with(SOV):
+        SOV:
           country_event:
-            id(sandbox_japanese.2)
-      if country_exists(INS):
-        INS:
+            id(sandbox_militarist_japan.2)
+      if country_exists(MON):
+        MON:
           $sandbox_log_target_status(JAP)
       else:
         JAP:
-          $sandbox_log_sc(sc_target, ins_gone)
-      if country_exists(INS) and not JAP->has_war_with(INS):
-        INS:
+          $sandbox_log_sc(sc_target, mon_gone)
+      if country_exists(MON) and not JAP->has_war_with(MON):
+        MON:
           country_event:
-            id(sandbox_japanese.3)
-      if country_exists(MAL):
-        MAL:
-          $sandbox_log_target_status(JAP)
-      else:
-        JAP:
-          $sandbox_log_sc(sc_target, mal_gone)
-      if country_exists(MAL) and not JAP->has_war_with(MAL):
-        MAL:
-          country_event:
-            id(sandbox_japanese.4)
+            id(sandbox_militarist_japan.3)
     JAP:
-      sandbox_select_japanese_joiners()
+      sandbox_select_militarist_japan_joiners()
 
-# Join levers for japanese: open-pool top-2 by scenario_join_scorer.
-sandbox_select_japanese_joiners():
+# Join levers for militarist_japan: open-pool top-2 by scenario_join_scorer.
+sandbox_select_militarist_japan_joiners():
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
     var:scenario_join_candidates[0]:
       country_event:
-        id(sandbox_japanese.5)
+        id(sandbox_militarist_japan.4)
       $sandbox_log_sc(sc_offer, invited)
   if scenario_join_scores[1] > 0:
     var:scenario_join_candidates[1]:
       country_event:
-        id(sandbox_japanese.5)
+        id(sandbox_militarist_japan.4)
       $sandbox_log_sc(sc_offer, invited)
 
 # Crises phase for italian: provocation lands on the aggressor's desk.
@@ -818,9 +790,9 @@ sandbox_log_scenario_success():
     $sandbox_log_sc(sc_success, fascist_italy_war)
     $sandbox_log_sc(sc_end, fascist_italy_war)
   elif global.sandbox_scenario == 3:
-    $sandbox_log_sc(sc_ignite, japanese_war)
-    $sandbox_log_sc(sc_success, japanese_war)
-    $sandbox_log_sc(sc_end, japanese_war)
+    $sandbox_log_sc(sc_ignite, militarist_japan_war)
+    $sandbox_log_sc(sc_success, militarist_japan_war)
+    $sandbox_log_sc(sc_end, militarist_japan_war)
   elif global.sandbox_scenario == 4:
     $sandbox_log_sc(sc_ignite, italian_war)
     $sandbox_log_sc(sc_success, italian_war)
@@ -894,19 +866,7 @@ sandbox_scenario_check_derail():
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     gen_fascist_italy_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 3:
-    if not country_exists(JAP):
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, jap_gone)
-      $sandbox_log_sc(sc_end, jap_gone)
-    elif JAP->has_capitulated():
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, jap_capitulated)
-      $sandbox_log_sc(sc_end, jap_capitulated)
-    else:
-      if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(JAP, CHI, PHI)
-      else:
-        $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)
+    gen_militarist_japan_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     if not country_exists(ITA):
       global.&sandbox_scenario_phase = 3

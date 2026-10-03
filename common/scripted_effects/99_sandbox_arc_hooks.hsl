@@ -24,10 +24,10 @@ sandbox_arc_wargoal_expire_hook():
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 3:
     if global.sandbox_target_variant == a:
-      if tag(JAP | CHI | PHI):
+      if tag(JAP | CHI | AST):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(JAP | BRM | INS | MAL):
+      if tag(JAP | SOV | MON):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 4:
     if global.sandbox_target_variant == a:
