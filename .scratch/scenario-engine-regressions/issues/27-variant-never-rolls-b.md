@@ -24,6 +24,13 @@ Variant keys map to numbers at emit time (sorted keys -> 0, 1, ...; one
 arc runs per session so per-arc indexing is safe). Builder emits indices
 in every comparison and assignment; log labels keep the letters, so
 telemetry readouts are unchanged. Hand branches converted the same way.
+
+## B-content validation (2026-10-04)
+
+A day-1 session logged variant B with coherent B content (SOV/MON seed
+and sampling, `sc_variant b`) — the first B ever. The downstream chain
+handles B end to end; only the dice frequency is now in question. Probe
+and canary reverted right after; the tree runs the natural numeric roll.
 Specs keep letter keys; no author-facing change.
 
 ## Problem
