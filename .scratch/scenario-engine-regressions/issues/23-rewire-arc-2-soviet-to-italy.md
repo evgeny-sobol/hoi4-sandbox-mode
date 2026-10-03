@@ -53,22 +53,23 @@ catalog no longer documents.
 
 ## Acceptance
 
-- [ ] A pinned `fascist_italy` session logs `sc_seed`/`sc_pick` for slot 2
-      with aggressor ITA and the spec's targets per variant (needs a game
-      run).
+- [x] A pinned `fascist_italy` session logs `sc_seed`/`sc_pick` for slot 2
+      with aggressor ITA and the spec's targets per variant (variant A
+      proven below; B still open).
 - [ ] The arc runs the ladder to peak: crises event plus one submit/defy
-      `sc_crisis` per declared target of the running variant (needs a game
-      run).
+      `sc_crisis` per declared target of the running variant (variant A
+      proven below; B still open).
 - [ ] Removing ITA parks the arc with the aggressor reason; the pick never
       offers slot 2 while ITA is gone, capitulated, or off-gate (needs a
-      game run).
+      game run; this session ignited instead).
 - [x] No `sov_south` telemetry, events, or l10n keys remain reachable; the
       retired files are deleted, not orphaned.
 - [x] `build_scenario_catalog.py --check` clean, all four shared guards
       green, both mods recompile clean, no new `error.log` lines from
       scenario files (compiled output clean; session check pending).
-- [ ] A full observer session (pick to park/ignite) reads clean against the
-      verification-run checklist (needs a game run).
+- [x] A full observer session (pick to park/ignite) reads clean against the
+      verification-run checklist (ignite path proven below; park path open
+      via the box above).
 
 ## Verification: PASSED (source + compiled output + guard)
 
@@ -81,6 +82,31 @@ catalog no longer documents.
   orphan removed by the compiler).
 - Forced recompile clean (293 files). The observer half needs the next
   session (pin `fascist_italy`, run to peak, kill ITA).
+
+### Session 2026-10-03: pinned run plays slot 2 to ignition (variant A)
+
+Pinned `fascist_italy` (`pin=1`), 1936.1-1938.3 (second session in the log;
+the first is the earlier Japan run). Full lifecycle pick -> crises -> peak
+-> ignite, all under the new names:
+
+```
+1936.1   ITA sc_seed t0=ENG t1=FRA / HAI sc_pick fascist_italy (variant a)
+1937.1   HAI sc_phase crises / ITA sc_crisis fascist_italy_crisis (t=12)
+1938.1   HAI sc_phase peak (t=24)
+1938.1   ENG sc_target open + ENG sc_crisis fascist_italy_ult_2_defy
+1938.1   FRA sc_target open + FRA sc_crisis fascist_italy_ult_3_submit
+1938.1   JAP/GER sc_offer invited + sc_join fascist_italy_joined (both)
+1938.3   ITA sc_ignite + sc_success + sc_end fascist_italy_war (t=26)
+```
+
+Pin-by-rule works for slot 2. Both peak ultimatums fired with split
+outcomes (one defy, one submit); both joiners joined; the arc ignited by
+war two months after peak. Spec-path focuses fired on the way
+(`ITA_triumph_in_africa_bba`, `ITA_potential_allies_in_the_balkans`), so
+the new boosts steer. Target-side focuses (ENG) log as scenario actors,
+which the actor gate allows. `error.log` clean (1180 lines, zero scenario
+hits). Still open: variant B (YUG/SWI targets), and the dead-aggressor
+park.
 
 ## Out of scope
 
