@@ -13,7 +13,7 @@ do not edit by hand. The arc schema lives in `docs/gdd/Scenarios.md`.
 
 ## Germany
 
-| # | Aggressor | Arc | Variant A | Variant B | Key focuses | Status |
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
 |---|---|---|---|---|---|---|
 | 1 | GER | Nazi germany scenario | CZE, POL | FRA, ENG | `remilitarize_the_rhineland`, `anschluss`, `demand_sudetenland`, `danzig_or_war`, `around_maginot`, `war_with_france` | ready |
 
@@ -64,7 +64,7 @@ flowchart TD
 
 ## Italy
 
-| # | Aggressor | Arc | Variant A | Variant B | Key focuses | Status |
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
 |---|---|---|---|---|---|---|
 | 2 | ITA | Fascist italy scenario | ENG, FRA | YUG, SWI | `ethiopian_war_logistics_bba`, `italian_highways_bba`, `culto_del_duce`, `strengthen_the_regime`, `subdue_the_sentinels`, `ethiopian_war_logistics_bba`, `italian_highways_bba`, `culto_del_duce`, `strengthen_the_regime`, `all_roads_lead_to_rome` | ready |
 
@@ -198,7 +198,7 @@ flowchart TD
 
 ## Japan
 
-| # | Aggressor | Arc | Variant A | Variant B | Key focuses | Status |
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
 |---|---|---|---|---|---|---|
 | 3 | JAP | Militarist japan scenario | CHI, AST | SOV, MON | `reinforce_the_beijing_garrison`, `new_order_in_east_asia`, `sea_greater_east_asian_co_properity_sphere`, `nanshin_ron`, `ensure_temporary_peace_with_china`, `formalize_japan_china_manchukuo_alliance`, `sea_greater_east_asian_co_properity_sphere`, `hokushin_ron` | ready |
 

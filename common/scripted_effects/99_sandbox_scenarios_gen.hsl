@@ -19,9 +19,48 @@ gen_nazi_germany_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_nazi_germany_crises()
   elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_nazi_germany_peak()
+    if global.sandbox_target_variant == a:
+      GER:
+        if has_completed_focus(GER_war_with_france):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+        elif GER->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+    else:
+      GER:
+        if has_completed_focus(GER_war_with_france):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+        elif GER->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_nazi_germany_peak()
+
+gen_nazi_germany_scenario_roll_variant():
+  if global.sandbox_scenario == 1:
+    variant_roll = randi(0, 1)
+    if variant_roll == 0:
+      global.&sandbox_target_variant = a
+    else:
+      global.&sandbox_target_variant = b
+
+gen_nazi_germany_scenario_log_variant():
+  if global.sandbox_scenario == 1 and global.sandbox_target_variant == a:
+    $sandbox_log_sc(sc_variant, a)
+  elif global.sandbox_scenario == 1 and global.sandbox_target_variant == b:
+    $sandbox_log_sc(sc_variant, b)
 
 gen_nazi_germany_scenario_telemetry():
   if global.sandbox_target_variant == a:
@@ -127,9 +166,48 @@ gen_fascist_italy_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fascist_italy_crises()
   elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_fascist_italy_peak()
+    if global.sandbox_target_variant == a:
+      ITA:
+        if has_completed_focus(ITA_subdue_the_sentinels):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+        elif ITA->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+    else:
+      ITA:
+        if has_completed_focus(ITA_all_roads_lead_to_rome):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+        elif ITA->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_fascist_italy_peak()
+
+gen_fascist_italy_scenario_roll_variant():
+  if global.sandbox_scenario == 2:
+    variant_roll = randi(0, 1)
+    if variant_roll == 0:
+      global.&sandbox_target_variant = a
+    else:
+      global.&sandbox_target_variant = b
+
+gen_fascist_italy_scenario_log_variant():
+  if global.sandbox_scenario == 2 and global.sandbox_target_variant == a:
+    $sandbox_log_sc(sc_variant, a)
+  elif global.sandbox_scenario == 2 and global.sandbox_target_variant == b:
+    $sandbox_log_sc(sc_variant, b)
 
 gen_fascist_italy_scenario_telemetry():
   if global.sandbox_target_variant == a:
@@ -235,9 +313,48 @@ gen_militarist_japan_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_militarist_japan_crises()
   elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_militarist_japan_peak()
+    if global.sandbox_target_variant == a:
+      JAP:
+        if has_completed_focus(JAP_nanshin_ron):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+        elif JAP->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+    else:
+      JAP:
+        if has_completed_focus(JAP_hokushin_ron):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+        elif JAP->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_militarist_japan_peak()
+
+gen_militarist_japan_scenario_roll_variant():
+  if global.sandbox_scenario == 3:
+    variant_roll = randi(0, 1)
+    if variant_roll == 0:
+      global.&sandbox_target_variant = a
+    else:
+      global.&sandbox_target_variant = b
+
+gen_militarist_japan_scenario_log_variant():
+  if global.sandbox_scenario == 3 and global.sandbox_target_variant == a:
+    $sandbox_log_sc(sc_variant, a)
+  elif global.sandbox_scenario == 3 and global.sandbox_target_variant == b:
+    $sandbox_log_sc(sc_variant, b)
 
 gen_militarist_japan_scenario_telemetry():
   if global.sandbox_target_variant == a:

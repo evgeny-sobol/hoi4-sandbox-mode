@@ -28,10 +28,13 @@ _Avoid_: config, manifest, data file
 
 **Path**:
 One ordered sequence of key focuses inside an arc's spec, from a branch entry
-to a war leaf. An arc has one or more paths; the director boosts each path's
-foci plus their prerequisite closure. On a mutually exclusive fork the director
-boosts the side leading to the next focus of the path, or both sides when the
-path does not favour one.
+to a war leaf. An arc has one or more paths; each path declares the target
+variants it serves (a missing field means shared). The director boosts each
+path's foci plus their prerequisite closure only while one of its variants
+runs; shared focuses stay boosted whenever the aggressor is live. The last
+focus of the live path is the peak gate: AI ultimatums wait for it. Put
+rarely-bypassed focuses last: a bypassed tail stalls the arc to the peak
+fallback.
 _Avoid_: branch, chain, route
 
 **ready / draft** (arc status):

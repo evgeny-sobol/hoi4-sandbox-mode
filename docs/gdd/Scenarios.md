@@ -57,7 +57,7 @@ status = "ready"            # ready (in the shipped pool) | draft (authored, not
 aggressor = "GER"           # a single tag
 key = "axis"                # short slug for the pin trigger and pick label; optional
 
-targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled 50/50
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
 
 [ladder]                    # months from arc start
 crises_at_month = 12
@@ -75,10 +75,10 @@ n = 2
 ideology = "fascism"
 at_phase = "crises"
 
-# Ordered focus paths: each list runs from a branch entry to a war leaf.
-paths = [
-  ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"],
-]
+# Ordered focus paths: each table runs from a branch entry to a war leaf and
+# declares the variants it serves (absent means shared across all variants).
+[[paths]]
+focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
 
 notes = """
 Free rationale prose, printed into the catalog beside the arc.
@@ -93,7 +93,14 @@ functions come as an optional pair (`crises_func` + `peak_func` naming the
 hand-written rung functions); absent means no generated tick branch. The
 optional `key` names the pin trigger suffix and pick label; absent means no
 generated pick data. Every variant holds 1-4 targets (the derail arms cover
-that range). There is no `type`, `block` or `content_refs` field.
+that range). Every `targets` key is covered by at least one path; every listed
+`variants` entry is a `targets` key. Boosts follow the live variant: shared
+focuses stay boosted whenever the aggressor is live, path-specific focuses
+only while their variant runs. The peak rung waits for the AI to complete
+the last focus of the live path (humans proceed on schedule), with a
+fallback twelve months past the peak month; put rarely-bypassed focuses
+last, since a bypassed tail stalls to the fallback. There is no `type`,
+`block` or `content_refs` field.
 
 ## Ladder
 

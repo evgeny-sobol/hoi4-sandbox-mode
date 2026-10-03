@@ -75,11 +75,9 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
   global.&sandbox_scenario_arc_months = 0
-  variant_roll = randi(0, 1)
-  if variant_roll == 0:
-    global.&sandbox_target_variant = a
-  else:
-    global.&sandbox_target_variant = b
+  gen_nazi_germany_scenario_roll_variant()
+  gen_fascist_italy_scenario_roll_variant()
+  gen_militarist_japan_scenario_roll_variant()
   sandbox_set_targets()
   sandbox_seed_actors()
   gen_nazi_germany_scenario_pick_log()
@@ -97,10 +95,9 @@ sandbox_pick_scenario():
 # docs/gdd/Scenarios.md "Hooks and telemetry": the A/B roll is logged
 # as its own line so a session's target set reads without digging.
 sandbox_scenario_log_variant():
-  if global.sandbox_target_variant == a:
-    $sandbox_log_sc(sc_variant, a)
-  else:
-    $sandbox_log_sc(sc_variant, b)
+  gen_nazi_germany_scenario_log_variant()
+  gen_fascist_italy_scenario_log_variant()
+  gen_militarist_japan_scenario_log_variant()
 
 # docs/gdd/Scenarios.md "Selection": repick after a derail on random.
 sandbox_scenario_maybe_repick():
@@ -127,11 +124,9 @@ sandbox_scenario_maybe_repick():
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
       global.&sandbox_scenario_arc_months = 0
-      variant_roll = randi(0, 1)
-      if variant_roll == 0:
-        global.&sandbox_target_variant = a
-      else:
-        global.&sandbox_target_variant = b
+      gen_nazi_germany_scenario_roll_variant()
+      gen_fascist_italy_scenario_roll_variant()
+      gen_militarist_japan_scenario_roll_variant()
       sandbox_set_targets()
       sandbox_seed_actors()
       if global.sandbox_scenario == 1:

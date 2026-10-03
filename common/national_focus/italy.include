@@ -862,7 +862,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -903,7 +903,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -925,7 +925,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1368,7 +1368,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
       modifier:
         $crossroad_modifier(2)
 
@@ -1382,7 +1382,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
 
   focus[id = ITA_new_roman_citizens]:
     +ai_will_do:
@@ -1394,7 +1394,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:

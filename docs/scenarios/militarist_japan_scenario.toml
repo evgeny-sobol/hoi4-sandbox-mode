@@ -8,21 +8,6 @@ key = "militarist_japan"
 
 targets = { a = ["CHI", "AST"], b = ["SOV", "MON"] }
 
-paths = [
-  [
-    "JAP_reinforce_the_beijing_garrison",
-    "JAP_new_order_in_east_asia",
-    "JAP_sea_greater_east_asian_co_properity_sphere",
-    "JAP_nanshin_ron"
-  ],
-  [
-    "JAP_ensure_temporary_peace_with_china",
-    "JAP_formalize_japan_china_manchukuo_alliance",
-    "JAP_sea_greater_east_asian_co_properity_sphere",
-    "JAP_hokushin_ron"
-  ]
-]
-
 notes = """
 The historical arc.
 """
@@ -36,3 +21,20 @@ peak_func = "sandbox_fire_militarist_japan_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+[[paths]]
+variants = ["a"]
+focuses = [
+  "JAP_reinforce_the_beijing_garrison",
+  "JAP_new_order_in_east_asia",
+  "JAP_sea_greater_east_asian_co_properity_sphere",
+  "JAP_nanshin_ron"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "JAP_ensure_temporary_peace_with_china",
+  "JAP_formalize_japan_china_manchukuo_alliance",
+  "JAP_sea_greater_east_asian_co_properity_sphere",
+  "JAP_hokushin_ron"
+]

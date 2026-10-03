@@ -12,10 +12,6 @@ key = "nazi_germany"
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }
 
-paths = [
-  ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland", "GER_danzig_or_war", "GER_around_maginot", "GER_war_with_france"],
-]
-
 notes = """
 The historical arc: Germany remilitarizes, absorbs Austria, pressures
 Czechoslovakia and Poland through ultimatums, then turns on France. The
@@ -33,3 +29,5 @@ peak_func = "sandbox_fire_nazi_germany_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+[[paths]]
+focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland", "GER_danzig_or_war", "GER_around_maginot", "GER_war_with_france"]

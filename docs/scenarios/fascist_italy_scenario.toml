@@ -8,23 +8,6 @@ key = "fascist_italy"
 
 targets = { a = ["ENG", "FRA"], b = ["YUG", "SWI"] }
 
-paths = [
-  [
-    "ITA_ethiopian_war_logistics_bba",
-    "ITA_italian_highways_bba",
-    "ITA_culto_del_duce",
-    "ITA_strengthen_the_regime",
-    "ITA_subdue_the_sentinels"
-  ],
-  [
-    "ITA_ethiopian_war_logistics_bba",
-    "ITA_italian_highways_bba",
-    "ITA_culto_del_duce",
-    "ITA_strengthen_the_regime",
-    "ITA_all_roads_lead_to_rome"
-  ]
-]
-
 notes = """
 The historical arc: Italy consolidates at home and in Ethiopia, then presses
 its rivals around the Mediterranean. The variant roll picks the western pair
@@ -41,3 +24,22 @@ peak_func = "sandbox_fire_fascist_italy_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+[[paths]]
+variants = ["a"]
+focuses = [
+  "ITA_ethiopian_war_logistics_bba",
+  "ITA_italian_highways_bba",
+  "ITA_culto_del_duce",
+  "ITA_strengthen_the_regime",
+  "ITA_subdue_the_sentinels"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "ITA_ethiopian_war_logistics_bba",
+  "ITA_italian_highways_bba",
+  "ITA_culto_del_duce",
+  "ITA_strengthen_the_regime",
+  "ITA_all_roads_lead_to_rome"
+]

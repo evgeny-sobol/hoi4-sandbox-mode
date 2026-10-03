@@ -38,7 +38,7 @@ status = "ready"            # ready (in the shipped pool) | draft (authored, not
 aggressor = "GER"           # a single tag
 key = "axis"                # short slug for the pin trigger and pick label; optional
 
-targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled 50/50
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
 
 [ladder]                    # months from arc start
 crises_at_month = 12
@@ -56,17 +56,17 @@ n = 2
 ideology = "fascism"
 at_phase = "crises"
 
-# Ordered focus paths: each list runs from a branch entry to a war leaf.
-paths = [
-  ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"],
-]
+# Ordered focus paths: each table runs from a branch entry to a war leaf and
+# declares the variants it serves (absent means shared across all variants).
+[[paths]]
+focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
 
 notes = """
 Free rationale prose, printed into the catalog beside the arc.
 """
 ```
 
-Top-level ключи идут до заголовков `[table]`: в TOML все после заголовка принадлежит этой таблице. `id` должен совпадать с именем файла; `number` уникален и должен совпадать с диспетчером кода; `ready`-арке требуется `number`. Каждый key focus должен существовать в графе фокусов агрессора. Ladder content functions идут опциональной парой (`crises_func` + `peak_func` с именами рукописных rung-функций); отсутствие означает нет generated tick-ветки. Опциональный `key` именует суффикс pin-триггера и pick-метку; отсутствие означает нет generated pick-данных. Каждый вариант держит 1-4 цели (derail arms покрывают этот диапазон). Полей `type`, `block` и `content_refs` нет.
+Top-level ключи идут до заголовков `[table]`: в TOML все после заголовка принадлежит этой таблице. `id` должен совпадать с именем файла; `number` уникален и должен совпадать с диспетчером кода; `ready`-арке требуется `number`. Каждый key focus должен существовать в графе фокусов агрессора. Ladder content functions идут опциональной парой (`crises_func` + `peak_func` с именами рукописных rung-функций); отсутствие означает нет generated tick-ветки. Опциональный `key` именует суффикс pin-триггера и pick-метку; отсутствие означает нет generated pick-данных. Каждый вариант держит 1-4 цели (derail arms покрывают этот диапазон). Полей `type`, `block` и `content_refs` нет. Бусты следуют за живым вариантом: общие фокусы бустятся, пока агрессор жив, специфичные для пути - только пока идёт их вариант. Пиковая ступень ждёт, пока ИИ доберёт последний фокус живого пути (люди идут по расписанию), с фолбэком через двенадцать месяцев после месяца пика; в хвост ставьте редко-байпасящиеся фокусы, так как хвост в байпасе остановит арку до фолбэка.
 
 ## Ladder - RU
 

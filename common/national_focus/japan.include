@@ -1663,7 +1663,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
 
   focus[id = JAP_strenghten_manchukuo_imperial_army]:
     ai_will_do:
@@ -1680,7 +1680,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
 
   focus[id = JAP_a_mongol_volunteer_army]:
     ai_will_do:
@@ -1771,7 +1771,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
     +completion_reward:
       $sandbox_log_sc_focus(JAP_nanshin_ron)
 
@@ -2031,7 +2031,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
     +completion_reward:
       $sandbox_log_sc_focus(JAP_revisit_the_thirteen_demands)
 
@@ -2106,7 +2106,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2324,7 +2324,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2346,7 +2346,7 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(a)
 
   focus[id = JAP_sea_national_spiritual_mobliization_movement]:
     ai_will_do:
