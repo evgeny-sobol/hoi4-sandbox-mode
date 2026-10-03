@@ -18,8 +18,14 @@ lines, newest first:
 - 2026-10-01 pinned r56 arc 22: A
 - r56 v0.2.1 session: sov_south A, soviet_expansion A
 
-Nine consecutive A (plus one unknown) at a fair 50/50 die is a ~0.2%
-event. Either extraordinary luck or the roll is stuck.
+Nine consecutive A (plus three more, twelve total) at a fair 50/50 die.
+Update 2026-10-03: twelve of twelve. Luck is dead (p~0.02%). The roll is
+stuck and both mods show it (r56 sessions never showed B either), while
+scenario rolls with variable bounds visibly vary. Prime suspect: the
+literal-bounds `set_temp_variable_to_random min=0 max=2` shape; the
+working rolls use a variable upper bound. Probe in progress: variant B
+hardcoded for one session (militarist_japan) to validate the B-content
+chain end to end, then revert; dice fix follows from the result.
 
 ## Mechanism review (no defect found)
 
