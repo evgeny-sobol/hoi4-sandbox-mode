@@ -9,42 +9,42 @@
 # sc_goal_end per-arc tag gates (runs under phase < 3).
 sandbox_arc_wargoal_expire_hook():
   if global.sandbox_scenario == 1:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(GER | CZE | POL):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(GER | FRA | ENG):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(ITA | ENG | FRA):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(ITA | YUG | SWI):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 3:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(JAP | CHI | AST):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(JAP | SOV | MON):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 4:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(ITA | YUG | GRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(ITA | FRA | ENG):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 5:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(ENG | SOV):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(ENG | SOV):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 6:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(USA | JAP):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:

@@ -36,25 +36,32 @@ def split_funcs(lines):
     return out
 
 
+LETTERS = ("a", "b", "c", "d")
+
+
 def declared(body):
-    arcs, cur, variant = {}, None, "a"
+    arcs, cur, slot = {}, None, 0
     for line in body:
         m = SCEN.search(line)
         if m and line.strip().startswith(("if", "elif")):
             cur = int(m.group(1))
-            arcs[cur] = {"a": [], "b": []}
-            variant = "a"
+            arcs[cur] = {}
+            slot = 0
             continue
-        v = re.search(r"if global\.sandbox_target_variant == (\w):", line)
+        v = re.search(r"if global\.sandbox_target_variant == (\w+):", line)
         if v:
-            variant = v.group(1)
+            slot = len(arcs[cur])
+            arcs[cur].setdefault(LETTERS[slot] if slot < len(LETTERS) else v.group(1), [])
             continue
         if line.strip() == "else:" and cur is not None:
-            variant = "b"
+            slot = len(arcs[cur])
+            arcs[cur].setdefault(LETTERS[slot] if slot < len(LETTERS) else "else", [])
             continue
         a = ADD.search(line)
         if a and cur is not None:
-            arcs[cur][variant].append(a.group(1))
+            key = LETTERS[slot] if slot < len(LETTERS) else None
+            if key is not None:
+                arcs[cur].setdefault(key, []).append(a.group(1))
     return arcs
 
 
@@ -147,7 +154,7 @@ def main() -> int:
         cov = arc_coverage(f, event_tags(mod))
         for arc in sorted(need):
             covered = cov.get(arc, set())
-            for variant in ("a", "b"):
+            for variant in sorted(need[arc]):
                 miss = [t for t in need[arc][variant] if t not in covered]
                 if miss:
                     problems += 1

@@ -19,19 +19,19 @@ sandbox_set_targets():
   if global.sandbox_scenario == 3:
     gen_militarist_japan_scenario_set_targets()
   if global.sandbox_scenario == 4:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       global.&sandbox_targets[].add(YUG)
       global.&sandbox_targets[].add(GRE)
     else:
       global.&sandbox_targets[].add(FRA)
       global.&sandbox_targets[].add(ENG)
   if global.sandbox_scenario == 5:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       global.&sandbox_targets[].add(SOV)
     else:
       global.&sandbox_targets[].add(SOV)
   if global.sandbox_scenario == 6:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       global.&sandbox_targets[].add(JAP)
     else:
       global.&sandbox_targets[].add(ENG)
@@ -235,7 +235,7 @@ sandbox_fire_nazi_germany_crises():
 # Peak phase for nazi_germany: ultimatums to the chosen targets, then join offers.
 sandbox_fire_nazi_germany_peak():
   if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(CZE):
         CZE:
           $sandbox_log_target_status(GER)
@@ -307,7 +307,7 @@ sandbox_fire_fascist_italy_crises():
 # Peak phase for fascist_italy: ultimatums to the chosen targets, then join offers.
 sandbox_fire_fascist_italy_peak():
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(ENG):
         ENG:
           $sandbox_log_target_status(ITA)
@@ -379,7 +379,7 @@ sandbox_fire_militarist_japan_crises():
 # Peak phase for militarist_japan: ultimatums to the chosen targets, then join offers.
 sandbox_fire_militarist_japan_peak():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(CHI):
         CHI:
           $sandbox_log_target_status(JAP)
@@ -451,7 +451,7 @@ sandbox_fire_italian_crises():
 # Peak phase for italian: ultimatums to the chosen targets, then join offers.
 sandbox_fire_italian_peak():
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(YUG):
         YUG:
           $sandbox_log_target_status(ITA)
@@ -523,7 +523,7 @@ sandbox_fire_eng_soviet_crises():
 # Peak phase for eng_soviet: ultimatums to the chosen targets, then join offers.
 sandbox_fire_eng_soviet_peak():
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(SOV):
         SOV:
           $sandbox_log_target_status(ENG)
@@ -575,7 +575,7 @@ sandbox_fire_usa_warplan_crises():
 # Peak phase for usa_warplan: ultimatums to the chosen targets, then join offers.
 sandbox_fire_usa_warplan_peak():
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 2:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if country_exists(JAP):
         JAP:
           $sandbox_log_target_status(USA)
@@ -634,7 +634,7 @@ sandbox_scenario_s7_telemetry():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase < 3:
     gen_militarist_japan_scenario_telemetry()
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       ITA:
         sc_div = num_divisions
         sc_fab = num_of_factories
@@ -683,7 +683,7 @@ sandbox_scenario_s7_telemetry():
         if is_justifying_wargoal_against(ENG):
           $sandbox_log_sc(sc_justify, ita_on_eng)
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       ENG:
         sc_div = num_divisions
         sc_fab = num_of_factories
@@ -714,7 +714,7 @@ sandbox_scenario_s7_telemetry():
         if is_justifying_wargoal_against(SOV):
           $sandbox_log_sc(sc_justify, eng_on_sov)
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       USA:
         sc_div = num_divisions
         sc_fab = num_of_factories
@@ -851,7 +851,7 @@ sandbox_scenario_check_derail():
       $sandbox_log_sc(sc_derail, ita_capitulated)
       $sandbox_log_sc(sc_end, ita_capitulated)
     else:
-      if global.sandbox_target_variant == a:
+      if global.sandbox_target_variant == 0:
         $sandbox_check_targets_derail2(ITA, YUG, GRE)
       else:
         $sandbox_check_targets_derail2(ITA, FRA, ENG)
@@ -865,7 +865,7 @@ sandbox_scenario_check_derail():
       $sandbox_log_sc(sc_derail, eng_capitulated)
       $sandbox_log_sc(sc_end, eng_capitulated)
     else:
-      if global.sandbox_target_variant == a:
+      if global.sandbox_target_variant == 0:
         $sandbox_check_targets_derail1(ENG, SOV)
       else:
         $sandbox_check_targets_derail1(ENG, SOV)
@@ -879,7 +879,7 @@ sandbox_scenario_check_derail():
       $sandbox_log_sc(sc_derail, usa_capitulated)
       $sandbox_log_sc(sc_end, usa_capitulated)
     else:
-      if global.sandbox_target_variant == a:
+      if global.sandbox_target_variant == 0:
         $sandbox_check_targets_derail1(USA, JAP)
       else:
         $sandbox_check_targets_derail2(USA, ENG, CAN)

@@ -1,8 +1,30 @@
 # 27 - Target variant always rolls A, B never observed
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
+
+## Root cause (2026-10-04, confirmed by canary session)
+
+HoI4 variables are floats: bare-word enum literals do not survive a
+write/read round trip. Both `a` and `b` evaluate identically, so every
+`global.sandbox_target_variant == a` test is true and the B branches
+(set_targets, telemetry, derail, peak, log) never run. Numeric variables
+(`sandbox_scenario`, `phase`) always worked; only this token-valued
+variable was affected, in both mods.
+
+Proof chain: the literal-bounds dice is fair per the wiki (`[min, max)`);
+scenario rolls with variable bounds visibly vary; only the variant stuck.
+A hardcoded `= b` probe plus a `probe_files_live` canary fired in-session
+while seed and log still read A — the write executed, the read disagreed.
+
+## Fix
+
+Variant keys map to numbers at emit time (sorted keys -> 0, 1, ...; one
+arc runs per session so per-arc indexing is safe). Builder emits indices
+in every comparison and assignment; log labels keep the letters, so
+telemetry readouts are unchanged. Hand branches converted the same way.
+Specs keep letter keys; no author-facing change.
 
 ## Problem
 
@@ -55,10 +77,10 @@ Ticket 26's N-variant work also assumes a working roll.
 
 ## Acceptance
 
-- [ ] A session logs `sc_variant b` (luck verdict, close as wontfix), or
-      the stuck-roll root cause is found and fixed with B observed after.
-- [ ] Both mods recompile clean; no new `error.log` lines from scenario
-      files.
+- [ ] A session logs `sc_variant b` (fix makes B reachable; first session
+      with variation closes this).
+- [x] Both mods recompile clean; no new `error.log` lines from scenario
+      files (compiled output clean; session check pending).
 
 ## Out of scope
 

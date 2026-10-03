@@ -1,8 +1,5 @@
 # Arc 1: Axis expansion (vanilla). Aggressor GER drives a historical
 # confrontation first with CZE and POL, then with FRA and ENG.
-#
-# Top-level keys first, tables last: in TOML everything after a [table]
-# header belongs to that table.
 
 id = "nazi_germany_scenario"
 number = 1
@@ -29,5 +26,13 @@ peak_func = "sandbox_fire_nazi_germany_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+
 [[paths]]
-focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland", "GER_danzig_or_war", "GER_around_maginot", "GER_war_with_france"]
+focuses = [
+  "GER_remilitarize_the_rhineland",
+  "GER_anschluss",
+  "GER_demand_sudetenland",
+  "GER_danzig_or_war",
+  "GER_around_maginot",
+  "GER_war_with_france"
+]

@@ -2,7 +2,7 @@
 # do not edit by hand. Hand-written code lives in 99_sandbox_scenarios.hsl.
 
 gen_nazi_germany_scenario_set_targets():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     global.&sandbox_targets[].add(CZE)
     global.&sandbox_targets[].add(POL)
   else:
@@ -19,7 +19,7 @@ gen_nazi_germany_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_nazi_germany_crises()
   elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       GER:
         if has_completed_focus(GER_war_with_france):
           global.&sandbox_scenario_phase = 2
@@ -52,18 +52,18 @@ gen_nazi_germany_scenario_roll_variant():
   if global.sandbox_scenario == 1:
     variant_roll = randi(0, 1)
     if variant_roll == 0:
-      global.&sandbox_target_variant = a
+      global.&sandbox_target_variant = 0
     else:
-      global.&sandbox_target_variant = b
+      global.&sandbox_target_variant = 1
 
 gen_nazi_germany_scenario_log_variant():
-  if global.sandbox_scenario == 1 and global.sandbox_target_variant == a:
+  if global.sandbox_scenario == 1 and global.sandbox_target_variant == 0:
     $sandbox_log_sc(sc_variant, a)
-  elif global.sandbox_scenario == 1 and global.sandbox_target_variant == b:
+  elif global.sandbox_scenario == 1 and global.sandbox_target_variant == 1:
     $sandbox_log_sc(sc_variant, b)
 
 gen_nazi_germany_scenario_telemetry():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     GER:
       sc_div = num_divisions
       sc_fab = num_of_factories
@@ -130,7 +130,7 @@ gen_nazi_germany_scenario_derail():
     $sandbox_log_sc(sc_derail, ger_capitulated)
     $sandbox_log_sc(sc_end, ger_capitulated)
   else:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       $sandbox_check_targets_derail2(GER, CZE, POL)
     else:
       $sandbox_check_targets_derail2(GER, FRA, ENG)
@@ -149,7 +149,7 @@ gen_nazi_germany_scenario_pick_log():
     $sandbox_log_sc(sc_pick, nazi_germany)
 
 gen_fascist_italy_scenario_set_targets():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     global.&sandbox_targets[].add(ENG)
     global.&sandbox_targets[].add(FRA)
   else:
@@ -166,7 +166,7 @@ gen_fascist_italy_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fascist_italy_crises()
   elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       ITA:
         if has_completed_focus(ITA_subdue_the_sentinels):
           global.&sandbox_scenario_phase = 2
@@ -199,18 +199,18 @@ gen_fascist_italy_scenario_roll_variant():
   if global.sandbox_scenario == 2:
     variant_roll = randi(0, 1)
     if variant_roll == 0:
-      global.&sandbox_target_variant = a
+      global.&sandbox_target_variant = 0
     else:
-      global.&sandbox_target_variant = b
+      global.&sandbox_target_variant = 1
 
 gen_fascist_italy_scenario_log_variant():
-  if global.sandbox_scenario == 2 and global.sandbox_target_variant == a:
+  if global.sandbox_scenario == 2 and global.sandbox_target_variant == 0:
     $sandbox_log_sc(sc_variant, a)
-  elif global.sandbox_scenario == 2 and global.sandbox_target_variant == b:
+  elif global.sandbox_scenario == 2 and global.sandbox_target_variant == 1:
     $sandbox_log_sc(sc_variant, b)
 
 gen_fascist_italy_scenario_telemetry():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     ITA:
       sc_div = num_divisions
       sc_fab = num_of_factories
@@ -277,7 +277,7 @@ gen_fascist_italy_scenario_derail():
     $sandbox_log_sc(sc_derail, ita_capitulated)
     $sandbox_log_sc(sc_end, ita_capitulated)
   else:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       $sandbox_check_targets_derail2(ITA, ENG, FRA)
     else:
       $sandbox_check_targets_derail2(ITA, YUG, SWI)
@@ -296,7 +296,7 @@ gen_fascist_italy_scenario_pick_log():
     $sandbox_log_sc(sc_pick, fascist_italy)
 
 gen_militarist_japan_scenario_set_targets():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     global.&sandbox_targets[].add(CHI)
     global.&sandbox_targets[].add(AST)
   else:
@@ -313,7 +313,7 @@ gen_militarist_japan_scenario_tick():
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_militarist_japan_crises()
   elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       JAP:
         if has_completed_focus(JAP_nanshin_ron):
           global.&sandbox_scenario_phase = 2
@@ -346,18 +346,18 @@ gen_militarist_japan_scenario_roll_variant():
   if global.sandbox_scenario == 3:
     variant_roll = randi(0, 1)
     if variant_roll == 0:
-      global.&sandbox_target_variant = a
+      global.&sandbox_target_variant = 0
     else:
-      global.&sandbox_target_variant = b
+      global.&sandbox_target_variant = 1
 
 gen_militarist_japan_scenario_log_variant():
-  if global.sandbox_scenario == 3 and global.sandbox_target_variant == a:
+  if global.sandbox_scenario == 3 and global.sandbox_target_variant == 0:
     $sandbox_log_sc(sc_variant, a)
-  elif global.sandbox_scenario == 3 and global.sandbox_target_variant == b:
+  elif global.sandbox_scenario == 3 and global.sandbox_target_variant == 1:
     $sandbox_log_sc(sc_variant, b)
 
 gen_militarist_japan_scenario_telemetry():
-  if global.sandbox_target_variant == a:
+  if global.sandbox_target_variant == 0:
     JAP:
       sc_div = num_divisions
       sc_fab = num_of_factories
@@ -424,7 +424,7 @@ gen_militarist_japan_scenario_derail():
     $sandbox_log_sc(sc_derail, jap_capitulated)
     $sandbox_log_sc(sc_end, jap_capitulated)
   else:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       $sandbox_check_targets_derail2(JAP, CHI, AST)
     else:
       $sandbox_check_targets_derail2(JAP, SOV, MON)
