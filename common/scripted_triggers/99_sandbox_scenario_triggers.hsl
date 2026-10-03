@@ -2,8 +2,8 @@
 # has_game_rule needs a verbatim two-key block, hence raw inline.
 sandbox_scenario_pin_is_nazi_germany:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_nazi_germany }
-sandbox_scenario_pin_is_sov_south:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_sov_south }
+sandbox_scenario_pin_is_fascist_italy:
+  raw has_game_rule: { rule = sandbox_scenario option = fascist_italy }
 sandbox_scenario_pin_is_japanese:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_japanese_expansion }
 sandbox_scenario_pin_is_italian:

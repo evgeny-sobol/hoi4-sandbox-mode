@@ -12,9 +12,9 @@ sandbox_scenario:
     text("RULE_OPTION_SANDBOX_NAZI_GERMANY")
     desc("RULE_OPTION_SANDBOX_NAZI_GERMANY_DESC")
   option:
-    name(sandbox_sov_south)
-    text("RULE_OPTION_SANDBOX_SOV_SOUTH")
-    desc("RULE_OPTION_SANDBOX_SOV_SOUTH_DESC")
+    name(fascist_italy)
+    text("RULE_OPTION_SANDBOX_FASCIST_ITALY")
+    desc("RULE_OPTION_SANDBOX_FASCIST_ITALY_DESC")
   option:
     name(sandbox_japanese_expansion)
     text("RULE_OPTION_SANDBOX_JAPANESE")
