@@ -58,15 +58,6 @@ sandbox_pick_scenario():
   gen_nazi_germany_scenario_pin()
   gen_fascist_italy_scenario_pin()
   gen_militarist_japan_scenario_pin()
-  if sandbox_scenario_pin_is_italian():
-    global.&sandbox_scenario_pin = 1
-    global.&sandbox_scenario = 4
-  if sandbox_scenario_pin_is_eng_soviet():
-    global.&sandbox_scenario_pin = 1
-    global.&sandbox_scenario = 5
-  if sandbox_scenario_pin_is_usa_warplan():
-    global.&sandbox_scenario_pin = 1
-    global.&sandbox_scenario = 6
   else:
     # Random pick (default): equal roll over eligible arcs (aggressor exists).
     global.&sandbox_scenario_pin = 0
@@ -74,12 +65,6 @@ sandbox_pick_scenario():
     gen_nazi_germany_scenario_eligible()
     gen_fascist_italy_scenario_eligible()
     gen_militarist_japan_scenario_eligible()
-    if country_exists(ITA):
-      eligible[].add(4)
-    if country_exists(ENG):
-      eligible[].add(5)
-    if country_exists(USA):
-      eligible[].add(6)
     if eligible[].size() == 0:
       global.&sandbox_scenario = 0
     else:
@@ -130,12 +115,6 @@ sandbox_scenario_maybe_repick():
       eligible[].add(2)
     if country_exists(JAP) and 3 not in global.sandbox_derailed_arcs[]:
       eligible[].add(3)
-    if country_exists(ITA) and 4 not in global.sandbox_derailed_arcs[]:
-      eligible[].add(4)
-    if country_exists(ENG) and 5 not in global.sandbox_derailed_arcs[]:
-      eligible[].add(5)
-    if country_exists(USA) and 6 not in global.sandbox_derailed_arcs[]:
-      eligible[].add(6)
     if eligible[].size() == 0:
       $sandbox_log_sc(sc_repick, none_eligible)
     else:
