@@ -46,9 +46,10 @@ on the arc's name, or session logs and the rule UI describe different arcs.
 - [x] Zero reachable `axis`/`sandbox_axis` scenario references (grep over
       hsl/events/l10n/rules); the retired names are gone, not orphaned.
 - [ ] Pinning the arc by game rule selects slot 1 with the new key (needs a
-      game run).
+      pinned run; random pick proven below).
 - [ ] A pinned session runs pick -> crises -> peak -> park/ignite with the
-      new labels throughout (needs a game run).
+      new labels throughout (random pick to peak proven below; pin and
+      park/ignite still need a session).
 - [x] `build_scenario_catalog.py --check` clean, all four shared guards
       green, both mods recompile clean, no new `error.log` lines from
       scenario files (compiled output clean; session check pending).
@@ -72,6 +73,26 @@ on the arc's name, or session logs and the rule UI describe different arcs.
   option present in compiled output.
 - The observer half (rule-pinned session under the new labels) needs the
   next session.
+
+### Session 2026-10-03: random pick plays the renamed arc to peak
+
+Unpinned run (`pin=0`), 111 telemetry lines, 1936.1-1938.4. The pick fix
+works (eligible pool filled, no `sc=0`), and slot 1 plays end to end under
+the new names:
+
+```
+1936.1   GER sc_seed t0=CZE t1=POL / HAI sc_pick nazi_germany (variant a)
+1937.1   HAI sc_phase crises / GER sc_crisis nazi_germany_crisis (t=12)
+1938.1   HAI sc_phase peak (t=24)
+1938.1   CZE sc_target open + CZE sc_crisis nazi_germany_ult_2_defy
+1938.1   POL sc_target open + POL sc_crisis nazi_germany_ult_3_submit
+1938.1   HUN/JAP sc_offer invited + sc_join nazi_germany_joined (both)
+```
+
+Both peak ultimatums fired (one submit, one defy) — the issue-22 class stays
+fixed through the rename. `error.log` clean (381 lines, zero scenario
+hits). Still open: a rule-pinned run, and park/ignite under the new labels
+(the arc was alive at peak when the session ended).
 
 ## Agent Brief
 
