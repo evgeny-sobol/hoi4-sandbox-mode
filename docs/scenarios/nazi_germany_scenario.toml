@@ -4,11 +4,11 @@
 # Top-level keys first, tables last: in TOML everything after a [table]
 # header belongs to that table.
 
-id = "axis_expansion"
+id = "nazi_germany_scenario"
 number = 1
 status = "ready"
 aggressor = "GER"
-key = "axis"
+key = "nazi_germany"
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }
 
@@ -27,8 +27,8 @@ and ultimatums plus join offers at peak.
 [ladder]
 crises_at_month = 12
 peak_at_month = 24
-crises_func = "sandbox_fire_axis_crises"
-peak_func = "sandbox_fire_axis_peak"
+crises_func = "sandbox_fire_nazi_germany_crises"
+peak_func = "sandbox_fire_nazi_germany_peak"
 
 [joiners]
 select = "top_n_by_scorer"

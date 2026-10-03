@@ -1,7 +1,7 @@
 # Generated from docs/scenarios/*.toml by core/tools/build_scenario_catalog.py -
 # do not edit by hand. Hand-written code lives in 99_sandbox_scenarios.hsl.
 
-gen_axis_expansion_set_targets():
+gen_nazi_germany_scenario_set_targets():
   if global.sandbox_target_variant == a:
     global.&sandbox_targets[].add(CZE)
     global.&sandbox_targets[].add(POL)
@@ -9,21 +9,21 @@ gen_axis_expansion_set_targets():
     global.&sandbox_targets[].add(FRA)
     global.&sandbox_targets[].add(ENG)
 
-gen_axis_expansion_seed():
+gen_nazi_germany_scenario_seed():
   GER:
     sandbox_seed_from_targets()
 
-gen_axis_expansion_tick():
+gen_nazi_germany_scenario_tick():
   if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
-    sandbox_fire_axis_crises()
+    sandbox_fire_nazi_germany_crises()
   elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_axis_peak()
+    sandbox_fire_nazi_germany_peak()
 
-gen_axis_expansion_telemetry():
+gen_nazi_germany_scenario_telemetry():
   if global.sandbox_target_variant == a:
     GER:
       sc_div = num_divisions
@@ -81,7 +81,7 @@ gen_axis_expansion_telemetry():
       if is_justifying_wargoal_against(ENG):
         $sandbox_log_sc(sc_justify, ger_on_eng)
 
-gen_axis_expansion_derail():
+gen_nazi_germany_scenario_derail():
   if not country_exists(GER):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, ger_gone)
@@ -96,15 +96,231 @@ gen_axis_expansion_derail():
     else:
       $sandbox_check_targets_derail2(GER, FRA, ENG)
 
-gen_axis_expansion_pin():
-  if sandbox_scenario_pin_is_axis():
+gen_nazi_germany_scenario_pin():
+  if sandbox_scenario_pin_is_nazi_germany():
     global.&sandbox_scenario_pin = 1
     global.&sandbox_scenario = 1
 
-gen_axis_expansion_eligible():
+gen_nazi_germany_scenario_eligible():
   if country_exists(GER):
     eligible[].add(1)
 
-gen_axis_expansion_pick_log():
+gen_nazi_germany_scenario_pick_log():
   if global.sandbox_scenario == 1:
-    $sandbox_log_sc(sc_pick, axis)
+    $sandbox_log_sc(sc_pick, nazi_germany)
+
+gen_fascist_italy_scenario_set_targets():
+  if global.sandbox_target_variant == a:
+    global.&sandbox_targets[].add(ENG)
+    global.&sandbox_targets[].add(FRA)
+  else:
+    global.&sandbox_targets[].add(YUG)
+    global.&sandbox_targets[].add(SWI)
+
+gen_fascist_italy_scenario_seed():
+  ITA:
+    sandbox_seed_from_targets()
+
+gen_fascist_italy_scenario_tick():
+  if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
+    global.&sandbox_scenario_phase = 1
+    $sandbox_log_sc(sc_phase, crises)
+    sandbox_fire_fascist_italy_crises()
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
+    global.&sandbox_scenario_phase = 2
+    $sandbox_log_sc(sc_phase, peak)
+    sandbox_fire_fascist_italy_peak()
+
+gen_fascist_italy_scenario_telemetry():
+  if global.sandbox_target_variant == a:
+    ITA:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(ENG):
+      ENG:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+          $sandbox_log_sc(sc_goal, eng_on_ita)
+    if country_exists(FRA):
+      FRA:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+          $sandbox_log_sc(sc_goal, fra_on_ita)
+    ITA:
+      if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+        $sandbox_log_sc(sc_goal, ita_on_eng)
+      if is_justifying_wargoal_against(ENG):
+        $sandbox_log_sc(sc_justify, ita_on_eng)
+      if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
+        $sandbox_log_sc(sc_goal, ita_on_fra)
+      if is_justifying_wargoal_against(FRA):
+        $sandbox_log_sc(sc_justify, ita_on_fra)
+  else:
+    ITA:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(YUG):
+      YUG:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+          $sandbox_log_sc(sc_goal, yug_on_ita)
+    if country_exists(SWI):
+      SWI:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+          $sandbox_log_sc(sc_goal, swi_on_ita)
+    ITA:
+      if has_wargoal_against(YUG) or is_justifying_wargoal_against(YUG):
+        $sandbox_log_sc(sc_goal, ita_on_yug)
+      if is_justifying_wargoal_against(YUG):
+        $sandbox_log_sc(sc_justify, ita_on_yug)
+      if has_wargoal_against(SWI) or is_justifying_wargoal_against(SWI):
+        $sandbox_log_sc(sc_goal, ita_on_swi)
+      if is_justifying_wargoal_against(SWI):
+        $sandbox_log_sc(sc_justify, ita_on_swi)
+
+gen_fascist_italy_scenario_derail():
+  if not country_exists(ITA):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, ita_gone)
+    $sandbox_log_sc(sc_end, ita_gone)
+  elif ITA->has_capitulated():
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, ita_capitulated)
+    $sandbox_log_sc(sc_end, ita_capitulated)
+  else:
+    if global.sandbox_target_variant == a:
+      $sandbox_check_targets_derail2(ITA, ENG, FRA)
+    else:
+      $sandbox_check_targets_derail2(ITA, YUG, SWI)
+
+gen_fascist_italy_scenario_pin():
+  if sandbox_scenario_pin_is_fascist_italy():
+    global.&sandbox_scenario_pin = 1
+    global.&sandbox_scenario = 2
+
+gen_fascist_italy_scenario_eligible():
+  if country_exists(ITA):
+    eligible[].add(2)
+
+gen_fascist_italy_scenario_pick_log():
+  if global.sandbox_scenario == 2:
+    $sandbox_log_sc(sc_pick, fascist_italy)
+
+gen_militarist_japan_scenario_set_targets():
+  if global.sandbox_target_variant == a:
+    global.&sandbox_targets[].add(CHI)
+    global.&sandbox_targets[].add(AST)
+  else:
+    global.&sandbox_targets[].add(SOV)
+    global.&sandbox_targets[].add(MON)
+
+gen_militarist_japan_scenario_seed():
+  JAP:
+    sandbox_seed_from_targets()
+
+gen_militarist_japan_scenario_tick():
+  if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
+    global.&sandbox_scenario_phase = 1
+    $sandbox_log_sc(sc_phase, crises)
+    sandbox_fire_militarist_japan_crises()
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
+    global.&sandbox_scenario_phase = 2
+    $sandbox_log_sc(sc_phase, peak)
+    sandbox_fire_militarist_japan_peak()
+
+gen_militarist_japan_scenario_telemetry():
+  if global.sandbox_target_variant == a:
+    JAP:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(CHI):
+      CHI:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
+          $sandbox_log_sc(sc_goal, chi_on_jap)
+    if country_exists(AST):
+      AST:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
+          $sandbox_log_sc(sc_goal, ast_on_jap)
+    JAP:
+      if has_wargoal_against(CHI) or is_justifying_wargoal_against(CHI):
+        $sandbox_log_sc(sc_goal, jap_on_chi)
+      if is_justifying_wargoal_against(CHI):
+        $sandbox_log_sc(sc_justify, jap_on_chi)
+      if has_wargoal_against(AST) or is_justifying_wargoal_against(AST):
+        $sandbox_log_sc(sc_goal, jap_on_ast)
+      if is_justifying_wargoal_against(AST):
+        $sandbox_log_sc(sc_justify, jap_on_ast)
+  else:
+    JAP:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(SOV):
+      SOV:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
+          $sandbox_log_sc(sc_goal, sov_on_jap)
+    if country_exists(MON):
+      MON:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
+          $sandbox_log_sc(sc_goal, mon_on_jap)
+    JAP:
+      if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_goal, jap_on_sov)
+      if is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_justify, jap_on_sov)
+      if has_wargoal_against(MON) or is_justifying_wargoal_against(MON):
+        $sandbox_log_sc(sc_goal, jap_on_mon)
+      if is_justifying_wargoal_against(MON):
+        $sandbox_log_sc(sc_justify, jap_on_mon)
+
+gen_militarist_japan_scenario_derail():
+  if not country_exists(JAP):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, jap_gone)
+    $sandbox_log_sc(sc_end, jap_gone)
+  elif JAP->has_capitulated():
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, jap_capitulated)
+    $sandbox_log_sc(sc_end, jap_capitulated)
+  else:
+    if global.sandbox_target_variant == a:
+      $sandbox_check_targets_derail2(JAP, CHI, AST)
+    else:
+      $sandbox_check_targets_derail2(JAP, SOV, MON)
+
+gen_militarist_japan_scenario_pin():
+  if sandbox_scenario_pin_is_militarist_japan():
+    global.&sandbox_scenario_pin = 1
+    global.&sandbox_scenario = 3
+
+gen_militarist_japan_scenario_eligible():
+  if country_exists(JAP):
+    eligible[].add(3)
+
+gen_militarist_japan_scenario_pick_log():
+  if global.sandbox_scenario == 3:
+    $sandbox_log_sc(sc_pick, militarist_japan)

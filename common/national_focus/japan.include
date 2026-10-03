@@ -1662,6 +1662,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_strenghten_manchukuo_imperial_army]:
     ai_will_do:
@@ -1677,6 +1679,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_a_mongol_volunteer_army]:
     ai_will_do:
@@ -2291,19 +2295,27 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_reprimand_hamada_kunimatsu]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
   focus[id = JAP_the_harakiri_debate]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
   focus[id = JAP_reiterate_the_three_principles_of_hirota]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_formalize_japan_china_manchukuo_alliance]:
     available:
@@ -2311,6 +2323,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2324,16 +2338,22 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_new_order_in_east_asia]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_sea_national_spiritual_mobliization_movement]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_expand_the_showa_research_association]:
     ai_will_do:
@@ -2374,21 +2394,29 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_issue_the_ten_commandments_for_marriage]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_enact_religious_organizations_law]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_new_order_movement]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_sea_tripartite_pact]:
     available:
@@ -2417,6 +2445,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_form_the_yokusan_sonendan]:
     ai_will_do:
@@ -2523,6 +2553,8 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = JAP_expand_japan_manchukuo_economic_bloc]:
     ai_will_do:

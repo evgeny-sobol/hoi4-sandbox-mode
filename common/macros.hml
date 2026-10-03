@@ -282,7 +282,7 @@ macro sandbox_log_cw_war(_event_):
   sandbox_log_other = 0
 
 # docs/gdd/Scenarios.md "Hooks and telemetry". Mirrors the cw_ line shape.
-# Arc ids: 0 none, 1 axis_expansion. Phases: 0 smolder, 1 crises, 2 peak.
+# Arc ids: 0 none, 1 nazi_germany. Phases: 0 smolder, 1 crises, 2 peak.
 macro sandbox_log_sc(_event_, _id_):
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
     log("#sandbox [GetDateText] [THIS.GetTag] _event_ _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")

@@ -8,9 +8,9 @@ sandbox_scenario:
     text("RULE_OPTION_SANDBOX_RANDOM")
     desc("RULE_OPTION_SANDBOX_RANDOM_DESC")
   option:
-    name(sandbox_axis_expansion)
-    text("RULE_OPTION_SANDBOX_AXIS")
-    desc("RULE_OPTION_SANDBOX_AXIS_DESC")
+    name(sandbox_nazi_germany)
+    text("RULE_OPTION_SANDBOX_NAZI_GERMANY")
+    desc("RULE_OPTION_SANDBOX_NAZI_GERMANY_DESC")
   option:
     name(sandbox_sov_south)
     text("RULE_OPTION_SANDBOX_SOV_SOUTH")

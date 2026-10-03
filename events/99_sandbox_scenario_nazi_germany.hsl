@@ -1,95 +1,95 @@
-# docs/gdd/Scenarios Catalog.md: arc events for axis.
-add_namespace(sandbox_axis)
+# docs/gdd/Scenarios Catalog.md: arc events for nazi_germany.
+add_namespace(sandbox_nazi_germany)
 
 # Crisis: provocation lands on the aggressor's desk.
 country_event:
-  id(sandbox_axis.1)
-  title(sandbox_axis_1_t)
-  desc(sandbox_axis_1_d)
+  id(sandbox_nazi_germany.1)
+  title(sandbox_nazi_germany_1_t)
+  desc(sandbox_nazi_germany_1_d)
   picture(GFX_news_event_002)
   is_triggered_only(yes)
   trigger:
     tag(GER)
   option:
-    name(sandbox_axis_1_a)
+    name(sandbox_nazi_germany_1_a)
     ai_chance:
       factor(85)
-    $sandbox_log_sc(sc_crisis, axis_crisis)
+    $sandbox_log_sc(sc_crisis, nazi_germany_crisis)
     $sandbox_add_rivalry_vs(CZE, 10)
     add_war_support(0.05)
   option:
-    name(sandbox_axis_1_b)
+    name(sandbox_nazi_germany_1_b)
     ai_chance:
       factor(15)
 
 # Ultimatum 2 (CZE | FRA).
 country_event:
-  id(sandbox_axis.2)
-  title(sandbox_axis_2_t)
-  desc(sandbox_axis_2_d)
+  id(sandbox_nazi_germany.2)
+  title(sandbox_nazi_germany_2_t)
+  desc(sandbox_nazi_germany_2_d)
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
     tag(CZE | FRA)
   option:
-    name(sandbox_axis_2_a)
+    name(sandbox_nazi_germany_2_a)
     ai_chance:
       factor(30)
     add_war_support(-0.10)
     GER:
       add_war_support(0.05)
-    $sandbox_log_sc(sc_crisis, axis_ult_2_submit)
+    $sandbox_log_sc(sc_crisis, nazi_germany_ult_2_submit)
   option:
-    name(sandbox_axis_2_b)
+    name(sandbox_nazi_germany_2_b)
     ai_chance:
       factor(70)
     add_war_support(0.10)
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
-    $sandbox_log_sc(sc_crisis, axis_ult_2_defy)
+    $sandbox_log_sc(sc_crisis, nazi_germany_ult_2_defy)
 
 # Ultimatum 3 (POL | ENG).
 country_event:
-  id(sandbox_axis.3)
-  title(sandbox_axis_3_t)
-  desc(sandbox_axis_3_d)
+  id(sandbox_nazi_germany.3)
+  title(sandbox_nazi_germany_3_t)
+  desc(sandbox_nazi_germany_3_d)
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
     tag(POL | ENG)
   option:
-    name(sandbox_axis_3_a)
+    name(sandbox_nazi_germany_3_a)
     ai_chance:
       factor(30)
     add_war_support(-0.10)
     GER:
       add_war_support(0.05)
-    $sandbox_log_sc(sc_crisis, axis_ult_3_submit)
+    $sandbox_log_sc(sc_crisis, nazi_germany_ult_3_submit)
   option:
-    name(sandbox_axis_3_b)
+    name(sandbox_nazi_germany_3_b)
     ai_chance:
       factor(70)
     add_war_support(0.10)
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
-    $sandbox_log_sc(sc_crisis, axis_ult_3_defy)
+    $sandbox_log_sc(sc_crisis, nazi_germany_ult_3_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
 # The exit from any old faction is Honor-free (one-shot skip flag, like a
 # released nation). No faction is created: see the note above.
 country_event:
-  id(sandbox_axis.4)
-  title(sandbox_axis_4_t)
-  desc(sandbox_axis_4_d)
+  id(sandbox_nazi_germany.4)
+  title(sandbox_nazi_germany_4_t)
+  desc(sandbox_nazi_germany_4_d)
   picture(GFX_news_event_004)
   is_triggered_only(yes)
   trigger:
     is_ai(yes)
     not is_in_faction_with(GER)
   option:
-    name(sandbox_axis_4_a)
+    name(sandbox_nazi_germany_4_a)
     ai_chance:
       factor(90)
     if is_in_faction(yes):
@@ -99,8 +99,8 @@ country_event:
     GER:
       give_military_access(PREV)
     $add_opinion_modifier(GER, scenario_ally)
-    $sandbox_log_sc(sc_join, axis_joined)
+    $sandbox_log_sc(sc_join, nazi_germany_joined)
   option:
-    name(sandbox_axis_4_b)
+    name(sandbox_nazi_germany_4_b)
     ai_chance:
       factor(10)

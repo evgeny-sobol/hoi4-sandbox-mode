@@ -59,6 +59,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
 
@@ -140,6 +142,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
 
@@ -749,6 +753,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:fascism_factor / (mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + 2 * mtth:fascism_factor) * 3
         factor(f)
@@ -776,19 +782,27 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
   focus[id = ITA_la_battaglia_per_la_terra]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
   focus[id = ITA_la_battaglia_per_le_nascite]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_strengthen_the_regime]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_devotion]:
     +ai_will_do:
@@ -847,6 +861,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -886,6 +902,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -906,6 +924,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -939,11 +959,15 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_italo_balbo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         f = (mtth:fascism_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
@@ -953,6 +977,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
@@ -962,16 +988,22 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_consolidate_power]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_purge_the_party]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_high_tyranny_tilt()
     completion_reward:
@@ -983,15 +1015,21 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_divino_duce]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
   focus[id = ITA_blackshirt_loyalty]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_a_greater_purpose]:
     +ai_will_do:
@@ -1158,6 +1196,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
@@ -1197,6 +1237,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:democracy_factor * 2
         factor(f)
@@ -1206,6 +1248,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:democracy_factor * 2
         factor(f)
@@ -1215,6 +1259,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:monarchy_factor * 2
         factor(f)
@@ -1224,26 +1270,36 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_expand_intelligence_services]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_crush_opposition]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_power_to_the_king]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_disband_the_blackshirts]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
@@ -1253,6 +1309,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
@@ -1262,11 +1320,15 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_gloria_al_regno_d_italia]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_paramilitary_training]:
     +ai_will_do:
@@ -1277,26 +1339,36 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_agents_of_the_church]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_strengthen_the_papacy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_setting_course]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_mare_nostrum_bba]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
 
@@ -1309,6 +1381,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_new_roman_citizens]:
     +ai_will_do:
@@ -1319,6 +1393,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:
