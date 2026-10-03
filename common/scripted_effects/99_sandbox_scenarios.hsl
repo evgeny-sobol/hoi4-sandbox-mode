@@ -58,7 +58,7 @@ sandbox_pick_scenario():
   gen_nazi_germany_scenario_pin()
   gen_fascist_italy_scenario_pin()
   gen_militarist_japan_scenario_pin()
-  else:
+  if global.sandbox_scenario_pin == 0:
     # Random pick (default): equal roll over eligible arcs (aggressor exists).
     global.&sandbox_scenario_pin = 0
     eligible[].clear()
