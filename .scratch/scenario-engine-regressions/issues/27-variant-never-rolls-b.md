@@ -1,0 +1,60 @@
+# 27 - Target variant always rolls A, B never observed
+
+Status: ready-for-agent
+Type: bug
+Blocked by: none
+
+## Problem
+
+Every observed session rolls target variant A. Confirmed `sc_variant a`
+lines, newest first:
+
+- 2026-10-03 random #1: militarist_japan A, repick nazi_germany A
+- 2026-10-03 random #2: fascist_italy A, repick nazi_germany A
+- 2026-10-03 pinned militarist_japan: A
+- 2026-10-03 pinned fascist_italy: A
+- 2026-10-03 random nazi_germany: A
+- 2026-10-03 pinned nazi_germany (arc 1): A
+- 2026-10-01 pinned r56 arc 22: A
+- r56 v0.2.1 session: sov_south A, soviet_expansion A
+
+Nine consecutive A (plus one unknown) at a fair 50/50 die is a ~0.2%
+event. Either extraordinary luck or the roll is stuck.
+
+## Mechanism review (no defect found)
+
+- The die is fair: `set_temp_variable_to_random min=0 max=2 integer=yes`
+  yields `[min, max)` per the wiki, so `{0, 1}` at 50/50. The compiler
+  emits max = bound + 1 for the same reason in the scenario roll, which
+  observably varies (arcs 3, 2, 1 picked across sessions).
+- The only writers of `sandbox_target_variant` are the three generated
+  roll funcs (verified by grep); the compiled shape
+  (`if == 0 -> a else -> b`) matches the old hand code.
+- Repick rolls in the same sessions picked arc 1 twice from two-arc pools
+  (1/4 under fairness) — consistent with luck, not proof.
+
+## Decisive experiment (cheap)
+
+Start three fresh sessions and quit at day one, reading only the
+`sc_variant` line. Any B closes this ticket as luck. Three more A
+(12-13/13) confirms a stuck roll; investigate the temp-var/comparison
+path then, starting from a console-forced variant-B session to check the
+B content itself works.
+
+## Why it matters
+
+Variant-B observer halves (tickets 23, 25) are unreachable while B never
+rolls: no session can show the B target set, its ultimatums, or its tails.
+Ticket 26's N-variant work also assumes a working roll.
+
+## Acceptance
+
+- [ ] A session logs `sc_variant b` (luck verdict, close as wontfix), or
+      the stuck-roll root cause is found and fixed with B observed after.
+- [ ] Both mods recompile clean; no new `error.log` lines from scenario
+      files.
+
+## Out of scope
+
+- Variant-B content bugs (those belong to 23/25 once B is observable).
+- Changing roll weights; the design is 50/50 (even split over N later).
