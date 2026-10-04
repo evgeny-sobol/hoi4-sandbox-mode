@@ -47,34 +47,33 @@ lines, newest first:
 - 2026-10-01 pinned r56 arc 22: A
 - r56 v0.2.1 session: sov_south A, soviet_expansion A
 
-Nine consecutive A (plus three more, twelve total) at a fair 50/50 die.
-Update 2026-10-03: twelve of twelve. Luck is dead (p~0.02%). The roll is
-stuck and both mods show it (r56 sessions never showed B either), while
-scenario rolls with variable bounds visibly vary. Prime suspect: the
-literal-bounds `set_temp_variable_to_random min=0 max=2` shape; the
-working rolls use a variable upper bound. Probe in progress: variant B
-hardcoded for one session (militarist_japan) to validate the B-content
-chain end to end, then revert; dice fix follows from the result.
+Twelve consecutive A at a fair 50/50 die closed the luck verdict (p~0.02%).
+Update 2026-10-04: root cause found — HoI4 variables are floats, so the
+bare-word `a`/`b` literals never survived the round trip and every
+`== a` test read true (numeric variables always worked). Fixed by mapping
+sorted keys to indices at emit time; log labels keep the letters.
+Update 2026-10-04, session evidence: a repick to `fascist_italy` rolled B
+(YUG/SWI seed and sampling, `sc_variant b`) under the numeric code, plus
+an earlier day-1 B. The die varies; the streak was broken by the fix, not
+by luck running out.
 
-## Mechanism review (no defect found)
+## Mechanism review (superseded)
 
-- The die is fair: `set_temp_variable_to_random min=0 max=2 integer=yes`
-  yields `[min, max)` per the wiki, so `{0, 1}` at 50/50. The compiler
-  emits max = bound + 1 for the same reason in the scenario roll, which
-  observably varies (arcs 3, 2, 1 picked across sessions).
-- The only writers of `sandbox_target_variant` are the three generated
-  roll funcs (verified by grep); the compiled shape
-  (`if == 0 -> a else -> b`) matches the old hand code.
-- Repick rolls in the same sessions picked arc 1 twice from two-arc pools
-  (1/4 under fairness) — consistent with luck, not proof.
+- The die was always fair: `set_temp_variable_to_random min=0 max=2
+  integer=yes` yields `[min, max)` per the wiki, so `{0, 1}` at 50/50
+  (the compiler emits max = bound + 1 for the same reason; scenario rolls
+  observably vary).
+- The defect was downstream of the die: token writes/reads disagreed (see
+  Root cause above). The temp-var/comparison path needs no further work.
 
-## Decisive experiment (cheap)
+## Decisive experiment (closed)
 
-Start three fresh sessions and quit at day one, reading only the
-`sc_variant` line. Any B closes this ticket as luck. Three more A
-(12-13/13) confirms a stuck roll; investigate the temp-var/comparison
-path then, starting from a console-forced variant-B session to check the
-B content itself works.
+Day-1 reads plus full sessions: B observed twice with coherent content
+(2026-10-04 day-1 `militarist_japan` B; repick `fascist_italy` B with
+YUG/SWI seed, sampling and `sc_variant b`). Open point, single data: a
+B-without-canary line in one probe-era session was never explained
+(stale files at launch is the working theory, unproven). It does not
+affect the fix, which has since been confirmed by coherent B sessions.
 
 ## Why it matters
 
@@ -84,8 +83,9 @@ Ticket 26's N-variant work also assumes a working roll.
 
 ## Acceptance
 
-- [ ] A session logs `sc_variant b` (fix makes B reachable; first session
-      with variation closes this).
+- [x] A session logs `sc_variant b` (observed live 2026-10-04: repick to
+      `fascist_italy` rolled B with YUG/SWI targets; plus an earlier
+      day-1 B for `militarist_japan`).
 - [x] Both mods recompile clean; no new `error.log` lines from scenario
       files (compiled output clean; session check pending).
 

@@ -78,3 +78,21 @@ arc's targets", and an arc can run against a target the engine no longer conside
 
 See `.scratch/scenario-engine-regressions/verification-run.md`, check 14
 (a declared target whose tag drifts).
+
+### Session 2026-10-04: D06 substitution (third tag after D09, D04)
+
+Random `nazi_germany` A (CZE/POL declared), peak at t=36 (delayed from 24
+by the new tail gate), then `peak_timeout` at t=48 and a clean repick to
+`fascist_italy` B. At peak the POL slot logged a live fragment instead of
+the declared tag:
+
+```
+1939.1  CZE sc_target open + CZE sc_crisis nazi_germany_ult_2_defy (t=36)
+1939.1  D06 sc_target open + D06 sc_crisis nazi_germany_ult_3_defy (t=16!)
+```
+
+A Polish civil war split the tag; the `.3` ultimatum went to D06 and the
+log shows D06, never POL or `pol_gone`. Note the odd `t=16` on the D06
+lines vs `t=36` everywhere else at peak. The arc neither derailed on the
+drift nor reported the declared target — the exact shape this ticket
+describes. POL proper received no ultimatum.
