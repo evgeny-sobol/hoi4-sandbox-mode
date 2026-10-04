@@ -211,6 +211,13 @@ macro ai_scenario_focus_boost_variant(_variant_):
   is_live_scenario_aggressor()
   global.sandbox_target_variant == _variant_
 
+# Zero-weight form: closes a focus for the AI while the arc is live (for the
+# SOV purge forks it leaves only the_centre). Spec-driven: the arc spec lists
+# the ids in `suppress` (issue 33).
+macro ai_scenario_focus_suppress():
+  factor(0)
+  is_live_scenario_aggressor()
+
 # Civil-war AI (docs/gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
 # be separate modifiers: if the cap trigger fails, that modifier is skipped
 # and a folded factor(0) would also drop the 0.25.

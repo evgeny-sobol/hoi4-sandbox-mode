@@ -43,10 +43,14 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
   focus[id = SOV_the_right_opposition]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       ▀▀▄
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀

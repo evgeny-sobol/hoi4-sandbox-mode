@@ -17,6 +17,8 @@ ladder releases claims and incidents at the crises rung and ultimatums plus
 join offers at peak.
 """
 
+suppress = ["SOV_the_left_opposition", "SOV_the_right_opposition"]
+
 [ladder]
 crises_at_month = 12
 peak_at_month = 24
