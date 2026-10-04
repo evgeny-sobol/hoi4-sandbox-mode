@@ -118,7 +118,7 @@ def main() -> int:
             while True:
                 time.sleep(args.poll_seconds)
                 if proc.poll() is not None:
-                    outcome = "crashed"
+                    outcome = "process-gone"
                     break
                 size = game_log.stat().st_size if game_log.is_file() else 0
                 if size != last_size:

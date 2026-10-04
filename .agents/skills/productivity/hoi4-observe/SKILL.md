@@ -19,8 +19,9 @@ default `sandbox`), `--until-year N` (default 1940), `--poll-seconds N`
 (default 15, abort when the log stops growing), `--analyze-only` (skip
 everything, just analyze the current logs).
 
-Exit codes: 0 session reached the year and analysis printed; 1 crashed /
-silent log / timeout; 2 bad preconditions.
+Exit codes: 0 session reached the year and analysis printed; 1 process
+gone early (user quit or crash — the log cannot tell them apart),
+silent log or timeout; 2 bad preconditions.
 
 Procedure:
 
