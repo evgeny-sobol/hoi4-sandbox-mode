@@ -43,7 +43,7 @@ Middle East branch (four `sc_focus` lines), so the AI is not simply failing to
 pick focuses; it is choosing focuses outside the plan, or the baltic chain is
 unavailable to it.
 
-## Diagnosis plan
+## Diagnosis plan (executed, see the result below)
 
 - Establish which focuses SOV actually completes. `sc_focus` only sees the
   plan set; add a debug path (a flag-gated log of every SOV focus completion,
@@ -56,14 +56,60 @@ unavailable to it.
   is true for SOV, so the x5 should land); if it does, the branch weights still
   lose to the AI's other priorities.
 
+## Diagnosis (2026-10-04): SOV walks the purge branch, not the comintern branch
+
+Diagnostic build: `sandbox_pick_scenario()` forced to `scenario = 4` and every
+one of the 311 SOV focuses was temporarily given a `sc_focus` line, so the log
+shows the AI's real focus sequence. Reverted after the run. Forced seeded
+`soviet_west` variant A; observer ran 1936.1-1938.1.
+
+SOV completed 17 focuses, in order:
+
+```
+SOV_the_path_of_marxism_leninism
+SOV_addressing_internal_affairs
+SOV_nkvd_primacy
+SOV_heavy_industry
+SOV_the_new_soviet_woman
+SOV_the_left_opposition
+SOV_infiltrate_the_nkvd
+SOV_bring_old_trotskyists_back
+SOV_left_eliminate_right
+SOV_gain_support_from_party_members
+SOV_organize_the_wreckers
+SOV_expand_the_agitprop
+SOV_infrastructure_effort_nsb
+SOV_finish_the_five_year_plan
+SOV_national_specialists
+SOV_eastern_development
+SOV_the_komsomol
+```
+
+SOV went down the vanilla **internal-politics / purge** branch
+(`the_left_opposition` line) plus industry, and never touched
+`SOV_the_comintern` even though it is the shared trunk of both `soviet_west`
+variants and carries the plain x5 boost. `SOV_the_comintern` has
+`prerequisite = { focus = SOV_the_path_of_marxism_leninism }` and an empty
+`available`, so it is reachable from the second pick; its x5 simply loses to
+the purge/industry focuses' vanilla weights. The earlier mixed-build session
+did complete the trunk once, so the boost is not dead - it is unreliable.
+
+Consequence: the variant gate focus (`SOV_control_scandinavia`, behind the
+baltic chain) is never reached, the peak falls to the `t=36` fallback, and the
+arc times out. This is a **design** matter, not a builder defect: the intended
+branch does not out-prioritise SOV's early purge/industry focuses. Candidate
+fixes (maintainer's call): a much stronger or hard branch push, a different,
+reliably-taken gate focus, or driving the arc through a wargoal/threat instead
+of focus weights.
+
 ## Acceptance
 
-- [ ] The completed-focus set for SOV in a `soviet_west` session is recorded
+- [x] The completed-focus set for SOV in a `soviet_west` session is recorded
       and quoted.
-- [ ] The root cause is named: unavailable chain, losing weights, or a wrong
-      gate.
-- [ ] Either the AI reliably completes the peak gate before `t=24`, or the
-      arc's ladder gate / boost is redesigned so the peak is reached.
+- [x] The root cause is named: the boosted comintern/baltic branch loses to the
+      vanilla early internal-politics/industry focuses, so the gate is not met.
+- [ ] A fix is chosen: stronger branch push, a different gate, or a non-focus
+      lever, so the peak is reached before `t=24`.
 
 ## Out of scope
 
