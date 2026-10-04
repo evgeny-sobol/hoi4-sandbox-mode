@@ -58,6 +58,7 @@ aggressor = "GER"           # a single tag
 key = "axis"                # short slug for the pin trigger and pick label; optional
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
+suppress = ["GER_austria_first"]  # optional: focus ids the AI must not pick while the arc is live
 
 [ladder]                    # months from arc start
 crises_at_month = 12
@@ -99,8 +100,12 @@ focuses stay boosted whenever the aggressor is live, path-specific focuses
 only while their variant runs. The peak rung waits for the AI to complete
 the last focus of the live path (humans proceed on schedule), with a
 fallback twelve months past the peak month; put rarely-bypassed focuses
-last, since a bypassed tail stalls to the fallback. There is no `type`,
-`block` or `content_refs` field.
+last, since a bypassed tail stalls to the fallback. The optional `suppress`
+list closes focuses for the AI while the aggressor is live
+(`$ai_scenario_focus_suppress()`, factor 0); a suppressed id must exist in the
+graph and must not be a key focus, so suppressing a fork forces the AI onto a
+sibling (issue 33: the SOV purge-opposition forks, leaving `the_centre`). There
+is no `type`, `block` or `content_refs` field.
 
 ## Ladder
 
@@ -123,7 +128,9 @@ AI weights push war planning. Rivalry is the main lever; no new AI code.
 spliced onto the arc's war focuses and their branch roots, so the AI actually
 walks the war branch (the s10 lesson: a boost behind an unboosted fork is dead).
 Which focuses each arc boosts is drawn per arc in
-`docs/gdd/Scenarios Catalog.md`.
+`docs/gdd/Scenarios Catalog.md`. The spec's `suppress` list adds
+`$ai_scenario_focus_suppress()` (factor 0) to focuses the arc closes, so a
+wrong fork cannot win the AI's pick even before the boost applies.
 
 **Join levers**: at peak the two highest-scoring outsiders (`scenario_join_scorer`)
 get a bloc invitation. The scorer gates on ideology and hostility and scores

@@ -1,6 +1,6 @@
 # 33 - soviet_west peak still times out: the gate focus is never completed
 
-Status: needs-triage
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -108,8 +108,47 @@ of focus weights.
       and quoted.
 - [x] The root cause is named: the boosted comintern/baltic branch loses to the
       vanilla early internal-politics/industry focuses, so the gate is not met.
-- [ ] A fix is chosen: stronger branch push, a different gate, or a non-focus
+- [x] A fix is chosen: stronger branch push, a different gate, or a non-focus
       lever, so the peak is reached before `t=24`.
+
+## Verification: PASSED (spec-driven suppress, 2026-10-05)
+
+Fix (maintainer's call): the `soviet_west` spec now declares
+`suppress = ["SOV_the_left_opposition", "SOV_the_right_opposition"]`, so the AI
+can only take `SOV_the_centre` from that mutually exclusive trio. New spec
+field + `ai_scenario_focus_suppress` macro (`factor(0)`) + builder-owned
+splice; validation rejects a suppress id that is in a path or absent from the
+graph.
+
+Verification run (forced `soviet_west`, all-SOV-focus `sc_focus` splice,
+reverted): SOV's focus sequence changed from the purge branch to
+
+```
+SOV_the_path_of_marxism_leninism
+SOV_the_centre                       <- not the_left/right_opposition
+...
+SOV_the_comintern                    <- the shared trunk, now taken
+SOV_middle_east_diplomacy
+...
+SOV_baltic_security
+SOV_claims_in_baltic
+SOV_secure_leningrad
+SOV_control_scandinavia              <- the variant-A peak gate, completed
+```
+
+and the arc ignited:
+
+```
+1939.9.26  SOV sc_ignite soviet_west_war sc=4 phase=3 t=44
+1939.9.26  SOV sc_success soviet_west_war sc=4 phase=3 t=44
+1939.9.26  SOV sc_end soviet_west_war sc=4 phase=3 t=44
+```
+
+The three targets all reached peak and took ultimatums (EST submit, LAT defy,
+LIT submit), the join lever fired (ITA and JAP joined), and `error.log` had
+zero scenario lines. Note: the peak still entered at `t=36`, because the baltic
+chain is deep and `SOV_control_scandinavia` finishes late; the arc nonetheless
+converts. Tightening the peak timing is optional polish, not part of this fix.
 
 ## Out of scope
 
