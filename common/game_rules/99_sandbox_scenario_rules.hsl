@@ -19,3 +19,7 @@ sandbox_scenario:
     name(militarist_japan)
     text("RULE_OPTION_SANDBOX_MILITARIST_JAPAN")
     desc("RULE_OPTION_SANDBOX_MILITARIST_JAPAN_DESC")
+  option:
+    name(soviet_west)
+    text("RULE_OPTION_SANDBOX_SOVIET_WEST")
+    desc("RULE_OPTION_SANDBOX_SOVIET_WEST_DESC")

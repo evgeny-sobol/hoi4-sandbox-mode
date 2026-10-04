@@ -260,3 +260,45 @@ flowchart TD
         JAP_revere_the_emperor_destroy_the_traitors x--x JAP_sea_purge_the_kodoha_faction
     end
 ```
+
+## Soviet Union
+
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
+|---|---|---|---|---|---|---|
+| 4 | SOV | Soviet west scenario | EST, LAT, LIT | POL, ROM | `the_comintern`, `baltic_security`, `claims_in_baltic`, `secure_leningrad`, `control_scandinavia`, `the_comintern`, `baltic_security`, `respect_baltic_self_determination`, `claims_on_poland`, `demand_eastern_poland` | ready |
+
+### Arc 4: Soviet west scenario
+
+The historical arc: the Soviet Union consolidates its western approaches,
+pressing the Baltic states first then Poland and Romania. The variant roll
+picks the Baltic trio (EST, LAT, LIT) or the western pair (POL, ROM); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
+
+**Telemetry labels**: `sc_goal`: est_on_sov, lat_on_sov, lit_on_sov, pol_on_sov, rom_on_sov, sov_on_est, sov_on_lat, sov_on_lit, sov_on_pol, sov_on_rom; `sc_justify`: sov_on_est, sov_on_lat, sov_on_lit, sov_on_pol, sov_on_rom.
+
+```mermaid
+flowchart TD
+    subgraph arc4
+        SOV_baltic_security[["SOV_baltic_security"]]
+        SOV_claims_in_baltic[["SOV_claims_in_baltic"]]
+        SOV_claims_on_poland[["SOV_claims_on_poland"]]
+        SOV_control_scandinavia[["SOV_control_scandinavia"]]
+        SOV_demand_eastern_poland[["SOV_demand_eastern_poland"]]
+        SOV_respect_baltic_self_determination[["SOV_respect_baltic_self_determination"]]
+        SOV_secure_leningrad[["SOV_secure_leningrad"]]
+        SOV_the_comintern[["SOV_the_comintern"]]
+        SOV_the_path_of_marxism_leninism(["SOV_the_path_of_marxism_leninism"])
+        SOV_baltic_security --> SOV_claims_in_baltic
+        SOV_baltic_security --> SOV_respect_baltic_self_determination
+        SOV_claims_in_baltic --> SOV_claims_on_poland
+        SOV_claims_in_baltic --> SOV_secure_leningrad
+        SOV_claims_on_poland --> SOV_demand_eastern_poland
+        SOV_respect_baltic_self_determination --> SOV_claims_on_poland
+        SOV_respect_baltic_self_determination --> SOV_secure_leningrad
+        SOV_secure_leningrad --> SOV_control_scandinavia
+        SOV_the_comintern --> SOV_baltic_security
+        SOV_the_path_of_marxism_leninism --> SOV_the_comintern
+        SOV_claims_in_baltic x--x SOV_respect_baltic_self_determination
+    end
+```

@@ -6,3 +6,5 @@ sandbox_scenario_pin_is_fascist_italy:
   raw has_game_rule: { rule = sandbox_scenario option = fascist_italy }
 sandbox_scenario_pin_is_militarist_japan:
   raw has_game_rule: { rule = sandbox_scenario option = militarist_japan }
+sandbox_scenario_pin_is_soviet_west:
+  raw has_game_rule: { rule = sandbox_scenario option = soviet_west }

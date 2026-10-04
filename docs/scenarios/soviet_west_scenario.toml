@@ -1,0 +1,48 @@
+# Arc 4: Soviet western advance (vanilla). Aggressor SOV drives a historical
+# confrontation first with the Baltic states, then with Poland and Romania.
+
+id = "soviet_west_scenario"
+number = 4
+status = "ready"
+aggressor = "SOV"
+key = "soviet_west"
+
+targets = { a = ["EST", "LAT", "LIT"], b = ["POL", "ROM"] }
+
+notes = """
+The historical arc: the Soviet Union consolidates its western approaches,
+pressing the Baltic states first then Poland and Romania. The variant roll
+picks the Baltic trio (EST, LAT, LIT) or the western pair (POL, ROM); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
+"""
+
+[ladder]
+crises_at_month = 12
+peak_at_month = 24
+crises_func = "sandbox_fire_soviet_west_crises"
+peak_func = "sandbox_fire_soviet_west_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "SOV_the_comintern",
+  "SOV_baltic_security",
+  "SOV_claims_in_baltic",
+  "SOV_secure_leningrad",
+  "SOV_control_scandinavia"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "SOV_the_comintern",
+  "SOV_baltic_security",
+  "SOV_respect_baltic_self_determination",
+  "SOV_claims_on_poland",
+  "SOV_demand_eastern_poland"
+]

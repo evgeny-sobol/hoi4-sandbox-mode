@@ -1355,11 +1355,15 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = SOV_respect_baltic_self_determination]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(b)
       +modifier:
         $crossroad_modifier(2)
       +modifier:
@@ -1381,6 +1385,8 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(a)
       +modifier:
         $crossroad_modifier(2)
       +modifier:
@@ -1418,6 +1424,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost_variant(a)
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($FIN)
@@ -1434,12 +1442,16 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(a)
 
   #FIX: AI weight
   focus[id = SOV_claims_on_poland]:
     ai_will_do[0]:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(b)
       +modifier:
         factor(0)
         has_civil_war()
@@ -1456,6 +1468,8 @@ focus_tree[id = soviet_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(b)
       +modifier:
         $crossroad_modifier(2)
 

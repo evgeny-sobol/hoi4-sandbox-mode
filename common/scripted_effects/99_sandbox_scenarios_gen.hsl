@@ -441,3 +441,162 @@ gen_militarist_japan_scenario_eligible():
 gen_militarist_japan_scenario_pick_log():
   if global.sandbox_scenario == 3:
     $sandbox_log_sc(sc_pick, militarist_japan)
+
+gen_soviet_west_scenario_set_targets():
+  if global.sandbox_target_variant == 0:
+    global.&sandbox_targets[].add(EST)
+    global.&sandbox_targets[].add(LAT)
+    global.&sandbox_targets[].add(LIT)
+  else:
+    global.&sandbox_targets[].add(POL)
+    global.&sandbox_targets[].add(ROM)
+
+gen_soviet_west_scenario_seed():
+  SOV:
+    sandbox_seed_from_targets()
+
+gen_soviet_west_scenario_tick():
+  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
+    global.&sandbox_scenario_phase = 1
+    $sandbox_log_sc(sc_phase, crises)
+    sandbox_fire_soviet_west_crises()
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
+    if global.sandbox_target_variant == 0:
+      SOV:
+        if has_completed_focus(SOV_control_scandinavia):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+        elif SOV->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+    else:
+      SOV:
+        if has_completed_focus(SOV_demand_eastern_poland):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+        elif SOV->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+        elif global.sandbox_scenario_arc_months >= 36:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_soviet_west_peak()
+
+gen_soviet_west_scenario_roll_variant():
+  if global.sandbox_scenario == 4:
+    variant_roll = randi(0, 1)
+    if variant_roll == 0:
+      global.&sandbox_target_variant = 0
+    else:
+      global.&sandbox_target_variant = 1
+
+gen_soviet_west_scenario_log_variant():
+  if global.sandbox_scenario == 4 and global.sandbox_target_variant == 0:
+    $sandbox_log_sc(sc_variant, a)
+  elif global.sandbox_scenario == 4 and global.sandbox_target_variant == 1:
+    $sandbox_log_sc(sc_variant, b)
+
+gen_soviet_west_scenario_telemetry():
+  if global.sandbox_target_variant == 0:
+    SOV:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(EST):
+      EST:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_goal, est_on_sov)
+    if country_exists(LAT):
+      LAT:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_goal, lat_on_sov)
+    if country_exists(LIT):
+      LIT:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_goal, lit_on_sov)
+    SOV:
+      if has_wargoal_against(EST) or is_justifying_wargoal_against(EST):
+        $sandbox_log_sc(sc_goal, sov_on_est)
+      if is_justifying_wargoal_against(EST):
+        $sandbox_log_sc(sc_justify, sov_on_est)
+      if has_wargoal_against(LAT) or is_justifying_wargoal_against(LAT):
+        $sandbox_log_sc(sc_goal, sov_on_lat)
+      if is_justifying_wargoal_against(LAT):
+        $sandbox_log_sc(sc_justify, sov_on_lat)
+      if has_wargoal_against(LIT) or is_justifying_wargoal_against(LIT):
+        $sandbox_log_sc(sc_goal, sov_on_lit)
+      if is_justifying_wargoal_against(LIT):
+        $sandbox_log_sc(sc_justify, sov_on_lit)
+  else:
+    SOV:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(POL):
+      POL:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_goal, pol_on_sov)
+    if country_exists(ROM):
+      ROM:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+          $sandbox_log_sc(sc_goal, rom_on_sov)
+    SOV:
+      if has_wargoal_against(POL) or is_justifying_wargoal_against(POL):
+        $sandbox_log_sc(sc_goal, sov_on_pol)
+      if is_justifying_wargoal_against(POL):
+        $sandbox_log_sc(sc_justify, sov_on_pol)
+      if has_wargoal_against(ROM) or is_justifying_wargoal_against(ROM):
+        $sandbox_log_sc(sc_goal, sov_on_rom)
+      if is_justifying_wargoal_against(ROM):
+        $sandbox_log_sc(sc_justify, sov_on_rom)
+
+gen_soviet_west_scenario_derail():
+  if not country_exists(SOV):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, sov_gone)
+    $sandbox_log_sc(sc_end, sov_gone)
+  elif SOV->has_capitulated():
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, sov_capitulated)
+    $sandbox_log_sc(sc_end, sov_capitulated)
+  else:
+    if global.sandbox_target_variant == 0:
+      $sandbox_check_targets_derail3(SOV, EST, LAT, LIT)
+    else:
+      $sandbox_check_targets_derail2(SOV, POL, ROM)
+
+gen_soviet_west_scenario_pin():
+  if sandbox_scenario_pin_is_soviet_west():
+    global.&sandbox_scenario_pin = 1
+    global.&sandbox_scenario = 4
+
+gen_soviet_west_scenario_eligible():
+  if country_exists(SOV):
+    eligible[].add(4)
+
+gen_soviet_west_scenario_pick_log():
+  if global.sandbox_scenario == 4:
+    $sandbox_log_sc(sc_pick, soviet_west)
