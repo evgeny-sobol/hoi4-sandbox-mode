@@ -1,6 +1,6 @@
 # 30 - Stale focus-boost splices survive an arc rewire
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -38,15 +38,28 @@ and the arc died on `peak_timeout`.
 
 ## Acceptance
 
-- [ ] `apply_splice_file` removes a canonical out-of-plan boost (and its
+- [x] `apply_splice_file` removes a canonical out-of-plan boost (and its
       `sc_focus` block, issue 31) unconditionally; `remove_stale` is no longer
       a migration escape.
-- [ ] `--check` exits 1 on an out-of-plan boost for both mods.
-- [ ] After a build, `common/national_focus/*.include` in `_sandbox` carry no
+- [x] `--check` exits 1 on an out-of-plan boost for both mods.
+- [x] After a build, `common/national_focus/*.include` in `_sandbox` carry no
       boost outside the spec plans (the 20 stale splices are gone).
-- [ ] `test_build_scenario_catalog.py` covers apply-time removal of a stray
+- [x] `test_build_scenario_catalog.py` covers apply-time removal of a stray
       canonical boost; the old additive-migration test is retired.
-- [ ] Both mods recompile clean; no new `error.log` lines from scenario files.
+- [x] Both mods recompile clean; no new `error.log` lines from scenario files.
+
+## Verification: PASSED (source + compiled + guard)
+
+- Core `41514c8`: `apply_splice_file` always strips both owned splices from an
+  out-of-plan focus; `coverage()` no longer returns a `strict` flag.
+  `--check` on `_sandbox` reports 81 errors pre-build, `artifacts in sync`
+  after.
+- Apply removed 20 stale boosts (GER 2, ITA 11, JAP 4, SOV 3); the SOV fork is
+  now `SOV_baltic_security` plain x5 with the branches variant-gated, and the
+  three ex-`sov_south` foci carry no boost.
+- 32/32 builder tests pass; `check_focus_splices.py` reports 0 offenders;
+  `_sandbox` and `_sandbox-r56` recompile clean. Tests added:
+  `test_stale_boost_pruned_on_apply`.
 
 ## Out of scope
 

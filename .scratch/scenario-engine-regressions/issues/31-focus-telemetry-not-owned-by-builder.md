@@ -1,6 +1,6 @@
 # 31 - Focus telemetry is not owned by the builder
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -34,17 +34,30 @@ soviet 5/5), and `germany`/`uk`/`usa` carry one per boosted focus.
 
 ## Acceptance
 
-- [ ] Canonical splice shape is `    +completion_reward:` with
+- [x] Canonical splice shape is `    +completion_reward:` with
       `      $sandbox_log_sc_focus(<id>)`, appended at the end of the focus
       body; the builder adds, removes and idempotently keeps it.
-- [ ] The `sc_focus` set equals the boost plan of every spec; `--check` exits 1
+- [x] The `sc_focus` set equals the boost plan of every spec; `--check` exits 1
       on a boosted focus without the log and on a log without the boost.
-- [ ] After a build, the seven `soviet_west` path foci carry `sc_focus`; the
+- [x] After a build, the seven `soviet_west` path foci carry `sc_focus`; the
       `italy`/`japan`/`soviet` drift is converged.
-- [ ] `test_build_scenario_catalog.py` covers add / remove / idempotency and
+- [x] `test_build_scenario_catalog.py` covers add / remove / idempotency and
       the two `--check` failures.
-- [ ] Both mods recompile clean; a `soviet_west` run logs `sc_focus` on the
-      path (needs a game run).
+- [ ] A `soviet_west` run logs `sc_focus` on the path (needs a game run).
+
+## Verification: PASSED (source + compiled + guard)
+
+- Core `41514c8`: `log_insert()` / `FOCUS_LOG_RE` / `FOCUS_LOG_MARKER`; the
+  builder appends one block per plan focus and strips it when the focus leaves
+  the plan. `--check` fails on missing/unexpected/non-canonical for both owned
+  shapes.
+- Apply gave every plan focus the log: the compiled `soviet.txt` shows the
+  expanded `sc_focus SOV_*` on 9 foci (7 path + 2 shared), and the
+  `italy`/`japan` drift converged. 32/32 tests pass (new:
+  `test_focus_log_added_on_apply`, `test_missing_focus_log_detected`,
+  `test_focus_log_idempotent`); `check_focus_splices.py` rule 3 reports 0.
+- `_sandbox` and `_sandbox-r56` recompile clean. The observer box is the
+  pinned `soviet_west` run in `verification-run.md`.
 
 ## Out of scope
 
