@@ -206,3 +206,35 @@ the useful one. If no target drifts, the check stays open.
   change them.
 - If a check fails, file a new issue; do not reopen 17-22 (their source halves
   are done and guarded).
+
+## Issue 29: the `soviet_west` slot (pinned)
+
+The slot-4 rewire (`5d194b4`) plus the telemetry/prune build (issues 30-31)
+leave three observer boxes on issue 29 and one on issue 32. Pinned runs only;
+a repick needs `sandbox_random` (see issue 32).
+
+Pin: `sandbox_scenario` = `soviet_west`. Observe as an uninvolved country.
+
+1. **Slot seed + pick** (issue 29 box 1): the first lines show
+   `sc_seed t0=EST t1=LAT t2=LIT` (variant A) or `t0=POL t1=ROM` (variant B),
+   then `sc_pick soviet_west`, `sc_variant a|b`, `sc_phase smolder`.
+2. **Ladder to peak, both variants** (issue 29 box 2): the variant is rolled
+   50/50 per session, so run until both `sc_variant a` and `sc_variant b` have
+   reached peak. Pass when each declared target logs a submit/defy:
+   - A: EST/POL `sandbox_soviet_west.2`, LAT/ROM `.3`, LIT `.5`
+   - B: POL `.2`, ROM `.3`
+   and the seven path foci log `sc_focus` (the drift issue 31 removed:
+   `SOV_baltic_security`, `SOV_claims_in_baltic`, `SOV_secure_leningrad`,
+   `SOV_control_scandinavia`, `SOV_respect_baltic_self_determination`,
+   `SOV_claims_on_poland`, `SOV_demand_eastern_poland`). Peak is at `t=24`
+   when the variant gate focus is done, else the `t=36` fallback; either way it
+   must precede any `sc_ignite`.
+3. **Remove SOV** (issue 29 box 3): a pinned live run, console `annex SOV` (or
+   let it capitulate). Pass on
+   `<date> HAI sc_derail sov_gone|sov_capitulated` + `sc_end`, not
+   `peak_timeout`.
+4. **`none_eligible`** (issue 32): a separate `sandbox_random` run, watched for
+   `sc_repick_detail`; see that ticket.
+
+Analyse through `extract_sandbox.py`; quote the observed lines into the ticket
+boxes.

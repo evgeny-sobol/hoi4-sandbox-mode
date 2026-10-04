@@ -75,6 +75,7 @@ sandbox_pick_scenario():
   gen_nazi_germany_scenario_roll_variant()
   gen_fascist_italy_scenario_roll_variant()
   gen_militarist_japan_scenario_roll_variant()
+  gen_soviet_west_scenario_roll_variant()
   sandbox_set_targets()
   sandbox_seed_actors()
   gen_nazi_germany_scenario_pick_log()
@@ -94,6 +95,7 @@ sandbox_scenario_log_variant():
   gen_nazi_germany_scenario_log_variant()
   gen_fascist_italy_scenario_log_variant()
   gen_militarist_japan_scenario_log_variant()
+  gen_soviet_west_scenario_log_variant()
 
 # docs/gdd/Scenarios.md "Selection": repick after a derail on random.
 sandbox_scenario_maybe_repick():
@@ -111,6 +113,23 @@ sandbox_scenario_maybe_repick():
     if country_exists(SOV) and 4 not in global.sandbox_derailed_arcs[]:
       eligible[].add(4)
     if eligible[].size() == 0:
+      # Issue 32: a none_eligible repick is only sane when every aggressor is
+      # really gone or already derailed. Record the inputs so the next
+      # occurrence is readable instead of a mystery.
+      if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+        repick_ger = 0
+        if country_exists(GER):
+          repick_ger = 1
+        repick_ita = 0
+        if country_exists(ITA):
+          repick_ita = 1
+        repick_jap = 0
+        if country_exists(JAP):
+          repick_jap = 1
+        repick_sov = 0
+        if country_exists(SOV):
+          repick_sov = 1
+        log("#sandbox [GetDateText] [THIS.GetTag] sc_repick_detail none_eligible eligible=[?eligible^num|.0] derailed=[?global.sandbox_derailed_arcs^num|.0] ger=[?repick_ger|.0] ita=[?repick_ita|.0] jap=[?repick_jap|.0] sov=[?repick_sov|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
       $sandbox_log_sc(sc_repick, none_eligible)
     else:
       # Roll like the initial pick (docs/gdd/Scenarios.md "Selection": random
@@ -125,6 +144,7 @@ sandbox_scenario_maybe_repick():
       gen_nazi_germany_scenario_roll_variant()
       gen_fascist_italy_scenario_roll_variant()
       gen_militarist_japan_scenario_roll_variant()
+      gen_soviet_west_scenario_roll_variant()
       sandbox_set_targets()
       sandbox_seed_actors()
       if global.sandbox_scenario == 1:
