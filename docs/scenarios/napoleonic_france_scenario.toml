@@ -17,7 +17,11 @@ suppress = [
 ]
 
 notes = """
-The non-historical arc.
+The non-historical arc: France leaves the Third Republic behind, restores an
+empire, and presses its natural borders into the Low Countries. A single target
+set (BEL, HOL, LUX) means no variant roll; the ladder releases claims and
+incidents at the crises rung and ultimatums plus join offers at peak. Join
+offers are filtered to states on France's continent that share its government.
 """
 
 [ladder]

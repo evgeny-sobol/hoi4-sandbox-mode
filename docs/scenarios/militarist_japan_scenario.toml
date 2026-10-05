@@ -9,7 +9,11 @@ key = "militarist_japan"
 targets = { a = ["CHI", "AST"], b = ["SOV", "MON"] }
 
 notes = """
-The historical arc.
+The historical arc: Japan tightens its hold on Manchuria and northern China,
+then turns on its rivals across the continent and the Pacific. The variant roll
+picks the southward pair (CHI, AST) or the strike-north pair (SOV, MON); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
 """
 
 [ladder]

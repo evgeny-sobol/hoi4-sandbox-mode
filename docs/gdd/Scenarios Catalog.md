@@ -204,7 +204,11 @@ flowchart TD
 
 ### Arc 3: Militarist japan scenario
 
-The historical arc.
+The historical arc: Japan tightens its hold on Manchuria and northern China,
+then turns on its rivals across the continent and the Pacific. The variant roll
+picks the southward pair (CHI, AST) or the strike-north pair (SOV, MON); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
 
 **Telemetry labels**: `sc_goal`: ast_on_jap, chi_on_jap, jap_on_ast, jap_on_chi, jap_on_mon, jap_on_sov, mon_on_jap, sov_on_jap; `sc_justify`: jap_on_ast, jap_on_chi, jap_on_mon, jap_on_sov.
 
@@ -311,7 +315,11 @@ flowchart TD
 
 ### Arc 5: Napoleonic france scenario
 
-The non-historical arc.
+The non-historical arc: France leaves the Third Republic behind, restores an
+empire, and presses its natural borders into the Low Countries. A single target
+set (BEL, HOL, LUX) means no variant roll; the ladder releases claims and
+incidents at the crises rung and ultimatums plus join offers at peak. Join
+offers are filtered to states on France's continent that share its government.
 
 **Telemetry labels**: `sc_goal`: bel_on_fra, fra_on_bel, fra_on_hol, fra_on_lux, hol_on_fra, lux_on_fra; `sc_justify`: fra_on_bel, fra_on_hol, fra_on_lux.
 
