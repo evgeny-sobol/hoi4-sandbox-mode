@@ -28,6 +28,7 @@ peak_func = "sandbox_fire_soviet_west_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+invite_event = "sandbox_soviet_west.4"
 
 [[paths]]
 variants = ["a"]

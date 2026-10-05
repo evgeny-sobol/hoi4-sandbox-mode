@@ -302,3 +302,77 @@ flowchart TD
         SOV_claims_in_baltic x--x SOV_respect_baltic_self_determination
     end
 ```
+
+## France
+
+| # | Aggressor | Arc | Variant a | Key focuses | Status |
+|---|---|---|---|---|---|
+| 5 | FRA | Napoleonic france scenario | BEL, HOL, LUX | `proclaim_the_third_empire`, `army_reform` | ready |
+
+### Arc 5: Napoleonic france scenario
+
+The non-historical arc.
+
+**Telemetry labels**: `sc_goal`: bel_on_fra, fra_on_bel, fra_on_hol, fra_on_lux, hol_on_fra, lux_on_fra; `sc_justify`: fra_on_bel, fra_on_hol, fra_on_lux.
+
+```mermaid
+flowchart TD
+    subgraph arc5
+        FRA_aggressive_focus["FRA_aggressive_focus"]
+        FRA_air_dominance["FRA_air_dominance"]
+        FRA_air_ground_cooperation["FRA_air_ground_cooperation"]
+        FRA_alpine_forts["FRA_alpine_forts"]
+        FRA_army_reform[["FRA_army_reform"]]
+        FRA_artillery_focus["FRA_artillery_focus"]
+        FRA_battle_of_maneuver["FRA_battle_of_maneuver"]
+        FRA_begin_rearmament(["FRA_begin_rearmament"])
+        FRA_cas_focus["FRA_cas_focus"]
+        FRA_defensive_focus["FRA_defensive_focus"]
+        FRA_extend_the_maginot_line["FRA_extend_the_maginot_line"]
+        FRA_firepower_kills["FRA_firepower_kills"]
+        FRA_flying_artillery["FRA_flying_artillery"]
+        FRA_fortification_focus["FRA_fortification_focus"]
+        FRA_heavy_armor_focus["FRA_heavy_armor_focus"]
+        FRA_infantry_focus["FRA_infantry_focus"]
+        FRA_light_medium_armor["FRA_light_medium_armor"]
+        FRA_mechanized_focus["FRA_mechanized_focus"]
+        FRA_methodical_battle["FRA_methodical_battle"]
+        FRA_motorized_focus["FRA_motorized_focus"]
+        FRA_proclaim_the_third_empire[["FRA_proclaim_the_third_empire"]]
+        FRA_repeal_the_law_of_exile["FRA_repeal_the_law_of_exile"]
+        FRA_revise_the_constitution["FRA_revise_the_constitution"]
+        FRA_revive_the_national_bloc(["FRA_revive_the_national_bloc"])
+        FRA_the_council_of_rambouillet["FRA_the_council_of_rambouillet"]
+        FRA_utilize_the_leagues["FRA_utilize_the_leagues"]
+        FRA_aggressive_focus --> FRA_air_dominance
+        FRA_aggressive_focus --> FRA_battle_of_maneuver
+        FRA_air_dominance --> FRA_cas_focus
+        FRA_air_ground_cooperation --> FRA_flying_artillery
+        FRA_alpine_forts --> FRA_extend_the_maginot_line
+        FRA_artillery_focus --> FRA_heavy_armor_focus
+        FRA_battle_of_maneuver --> FRA_motorized_focus
+        FRA_begin_rearmament --> FRA_aggressive_focus
+        FRA_begin_rearmament --> FRA_defensive_focus
+        FRA_cas_focus --> FRA_air_ground_cooperation
+        FRA_defensive_focus --> FRA_firepower_kills
+        FRA_defensive_focus --> FRA_methodical_battle
+        FRA_extend_the_maginot_line --> FRA_army_reform
+        FRA_firepower_kills --> FRA_infantry_focus
+        FRA_flying_artillery --> FRA_army_reform
+        FRA_fortification_focus --> FRA_alpine_forts
+        FRA_heavy_armor_focus --> FRA_army_reform
+        FRA_infantry_focus --> FRA_artillery_focus
+        FRA_light_medium_armor --> FRA_army_reform
+        FRA_mechanized_focus --> FRA_light_medium_armor
+        FRA_methodical_battle --> FRA_fortification_focus
+        FRA_motorized_focus --> FRA_mechanized_focus
+        FRA_repeal_the_law_of_exile --> FRA_proclaim_the_third_empire
+        FRA_revise_the_constitution --> FRA_repeal_the_law_of_exile
+        FRA_revive_the_national_bloc --> FRA_utilize_the_leagues
+        FRA_the_council_of_rambouillet --> FRA_revise_the_constitution
+        FRA_utilize_the_leagues --> FRA_the_council_of_rambouillet
+        FRA_aggressive_focus x--x FRA_defensive_focus
+        FRA_air_dominance x--x FRA_battle_of_maneuver
+        FRA_firepower_kills x--x FRA_methodical_battle
+    end
+```

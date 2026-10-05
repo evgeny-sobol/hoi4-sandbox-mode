@@ -1,0 +1,40 @@
+# Arc 5: Napoleonic France expansion (vanilla)
+
+id = "napoleonic_france_scenario"
+number = 5
+status = "ready"
+aggressor = "FRA"
+key = "napoleonic_france"
+
+targets = { a = ["BEL", "HOL", "LUX"] }
+
+suppress = [
+  "FRA_form_the_popular_front",
+  "FRA_review_foreign_policy",
+  "FRA_national_regeneration",
+  "FRA_orleanist_restoration",
+  "FRA_the_legitimate_heir"
+]
+
+notes = """
+The non-historical arc.
+"""
+
+[ladder]
+crises_at_month = 14
+peak_at_month = 30
+crises_func = "sandbox_fire_napoleonic_france_crises"
+peak_func = "sandbox_fire_napoleonic_france_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+invite_event = "sandbox_napoleonic_france.4"
+require = ["same_ideology", "same_continent"]
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "FRA_proclaim_the_third_empire",
+  "FRA_army_reform"
+]

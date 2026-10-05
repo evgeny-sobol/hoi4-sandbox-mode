@@ -23,3 +23,7 @@ sandbox_scenario:
     name(soviet_west)
     text("RULE_OPTION_SANDBOX_SOVIET_WEST")
     desc("RULE_OPTION_SANDBOX_SOVIET_WEST_DESC")
+  option:
+    name(napoleonic_france)
+    text("RULE_OPTION_SANDBOX_NAPOLEONIC_FRANCE")
+    desc("RULE_OPTION_SANDBOX_NAPOLEONIC_FRANCE_DESC")

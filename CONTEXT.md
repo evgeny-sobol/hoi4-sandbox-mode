@@ -44,8 +44,9 @@ means it is authored but not in the pool. `number` (the director's
 _Avoid_: implemented, planned, coded
 
 **Target variant**:
-The arc's chosen target set, A or B, rolled 50/50 at pick and fixed for the
-session. Variant A is the historical default; variant B is the catalog alt.
+The arc's chosen target set, one of the spec's `targets` keys, rolled evenly at
+pick and fixed for the session. Variant A is the historical default; later
+variants are catalog alts; a single-variant arc always uses A.
 _Avoid_: target set, option, side
 
 **Aggressor**:
@@ -76,8 +77,16 @@ _Avoid_: trigger, success (success is logged separately as `sc_success`)
 
 **Join lever**:
 The peak-phase mechanism that invites the top-2 scored outsiders to the
-aggressor's side. One shared scorer, no per-arc parameters; no faction forms.
+aggressor's side. One shared scorer, per-arc filters (see Join filter); no
+faction forms.
 _Avoid_: recruitment, alliance, ally system, bloc
+
+**Join filter**:
+A per-arc condition on a join lever's candidate pool, declared in the spec's
+`require` list: `same_ideology` (candidate and aggressor share a government
+group) or `same_continent` (their capitals are on one continent). A filter
+narrows the pool; the scorer ranks what remains.
+_Avoid_: join gate, join condition, constraint
 
 **Content-portable arc**:
 An arc whose key focuses and targets exist in the target mod without

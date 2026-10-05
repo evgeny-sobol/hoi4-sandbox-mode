@@ -21,6 +21,7 @@ peak_func = "sandbox_fire_militarist_japan_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+invite_event = "sandbox_militarist_japan.4"
 
 [[paths]]
 variants = ["a"]

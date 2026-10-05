@@ -2,7 +2,7 @@
 # once at on_startup in HAI scope; the ladder tick runs monthly.
 # State (globals, all 0 until picked):
 #   sandbox_scenario: 0 none, 1 nazi_germany, 2 fascist_italy, 3 militarist_japan, 4 soviet_west,
-#     5 eng_soviet, 6 usa_warplan (7 reserved: France is not content-portable)
+#     5 napoleonic_france, 6 usa_warplan (7 reserved)
 #   sandbox_scenario_phase: 0 smolder, 1 crises, 2 peak, 3 ended
 #   sandbox_scenario_pin: 0 random, 1 pinned to the picked arc
 #   sandbox_derailed_arcs[]: ids that derailed this session
@@ -21,10 +21,7 @@ sandbox_set_targets():
   if global.sandbox_scenario == 4:
     gen_soviet_west_scenario_set_targets()
   if global.sandbox_scenario == 5:
-    if global.sandbox_target_variant == 0:
-      global.&sandbox_targets[].add(SOV)
-    else:
-      global.&sandbox_targets[].add(SOV)
+    gen_napoleonic_france_scenario_set_targets()
   if global.sandbox_scenario == 6:
     if global.sandbox_target_variant == 0:
       global.&sandbox_targets[].add(JAP)
@@ -54,6 +51,7 @@ sandbox_pick_scenario():
   gen_fascist_italy_scenario_pin()
   gen_militarist_japan_scenario_pin()
   gen_soviet_west_scenario_pin()
+  gen_napoleonic_france_scenario_pin()
   if global.sandbox_scenario_pin == 0:
     # Random pick (default): equal roll over eligible arcs (aggressor exists).
     global.&sandbox_scenario_pin = 0
@@ -62,6 +60,7 @@ sandbox_pick_scenario():
     gen_fascist_italy_scenario_eligible()
     gen_militarist_japan_scenario_eligible()
     gen_soviet_west_scenario_eligible()
+    gen_napoleonic_france_scenario_eligible()
     if eligible[].size() == 0:
       global.&sandbox_scenario = 0
     else:
@@ -76,14 +75,14 @@ sandbox_pick_scenario():
   gen_fascist_italy_scenario_roll_variant()
   gen_militarist_japan_scenario_roll_variant()
   gen_soviet_west_scenario_roll_variant()
+  gen_napoleonic_france_scenario_roll_variant()
   sandbox_set_targets()
   sandbox_seed_actors()
   gen_nazi_germany_scenario_pick_log()
   gen_fascist_italy_scenario_pick_log()
   gen_militarist_japan_scenario_pick_log()
   gen_soviet_west_scenario_pick_log()
-  if global.sandbox_scenario == 5:
-    $sandbox_log_sc(sc_pick, eng_soviet)
+  gen_napoleonic_france_scenario_pick_log()
   if global.sandbox_scenario == 6:
     $sandbox_log_sc(sc_pick, usa_warplan)
   $sandbox_log_sc(sc_phase, smolder)
@@ -96,6 +95,7 @@ sandbox_scenario_log_variant():
   gen_fascist_italy_scenario_log_variant()
   gen_militarist_japan_scenario_log_variant()
   gen_soviet_west_scenario_log_variant()
+  gen_napoleonic_france_scenario_log_variant()
 
 # docs/gdd/Scenarios.md "Selection": repick after a derail on random.
 sandbox_scenario_maybe_repick():
@@ -112,6 +112,8 @@ sandbox_scenario_maybe_repick():
       eligible[].add(3)
     if country_exists(SOV) and 4 not in global.sandbox_derailed_arcs[]:
       eligible[].add(4)
+    if country_exists(FRA) and 5 not in global.sandbox_derailed_arcs[]:
+      eligible[].add(5)
     if eligible[].size() == 0:
       # Issue 32: a none_eligible repick is only sane when every aggressor is
       # really gone or already derailed. Record the inputs so the next
@@ -145,6 +147,7 @@ sandbox_scenario_maybe_repick():
       gen_fascist_italy_scenario_roll_variant()
       gen_militarist_japan_scenario_roll_variant()
       gen_soviet_west_scenario_roll_variant()
+      gen_napoleonic_france_scenario_roll_variant()
       sandbox_set_targets()
       sandbox_seed_actors()
       if global.sandbox_scenario == 1:
@@ -160,8 +163,8 @@ sandbox_scenario_maybe_repick():
         $sandbox_log_sc(sc_repick, soviet_west)
         $sandbox_log_sc(sc_pick, soviet_west)
       if global.sandbox_scenario == 5:
-        $sandbox_log_sc(sc_repick, eng_soviet)
-        $sandbox_log_sc(sc_pick, eng_soviet)
+        $sandbox_log_sc(sc_repick, napoleonic_france)
+        $sandbox_log_sc(sc_pick, napoleonic_france)
       if global.sandbox_scenario == 6:
         $sandbox_log_sc(sc_repick, usa_warplan)
         $sandbox_log_sc(sc_pick, usa_warplan)
@@ -181,8 +184,7 @@ sandbox_seed_actors():
   if global.sandbox_scenario == 4:
     gen_soviet_west_scenario_seed()
   if global.sandbox_scenario == 5:
-    ENG:
-      sandbox_seed_from_targets()
+    gen_napoleonic_france_scenario_seed()
   if global.sandbox_scenario == 6:
     USA:
       sandbox_seed_from_targets()
@@ -208,14 +210,7 @@ sandbox_scenario_tick():
   gen_fascist_italy_scenario_tick()
   gen_militarist_japan_scenario_tick()
   gen_soviet_west_scenario_tick()
-  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
-    global.&sandbox_scenario_phase = 1
-    $sandbox_log_sc(sc_phase, crises)
-    sandbox_fire_eng_soviet_crises()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_eng_soviet_peak()
+  gen_napoleonic_france_scenario_tick()
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
@@ -290,21 +285,6 @@ sandbox_fire_nazi_germany_peak():
     GER:
       sandbox_select_nazi_germany_joiners()
 
-# Join levers for nazi_germany: open-pool top-2 by scenario_join_scorer.
-sandbox_select_nazi_germany_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_nazi_germany.4)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_nazi_germany.4)
-      $sandbox_log_sc(sc_offer, invited)
-
 # Crises phase for fascist_italy: provocation lands on the aggressor's desk.
 sandbox_fire_fascist_italy_crises():
   if global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1:
@@ -362,21 +342,6 @@ sandbox_fire_fascist_italy_peak():
     ITA:
       sandbox_select_fascist_italy_joiners()
 
-# Join levers for fascist_italy: open-pool top-2 by scenario_join_scorer.
-sandbox_select_fascist_italy_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_fascist_italy.4)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_fascist_italy.4)
-      $sandbox_log_sc(sc_offer, invited)
-
 # Crises phase for militarist_japan: provocation lands on the aggressor's desk.
 sandbox_fire_militarist_japan_crises():
   if global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1:
@@ -433,21 +398,6 @@ sandbox_fire_militarist_japan_peak():
             id(sandbox_militarist_japan.3)
     JAP:
       sandbox_select_militarist_japan_joiners()
-
-# Join levers for militarist_japan: open-pool top-2 by scenario_join_scorer.
-sandbox_select_militarist_japan_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_militarist_japan.4)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_militarist_japan.4)
-      $sandbox_log_sc(sc_offer, invited)
 
 # Crises phase for soviet_west: provocation lands on the aggressor's desk.
 sandbox_fire_soviet_west_crises():
@@ -516,72 +466,51 @@ sandbox_fire_soviet_west_peak():
     SOV:
       sandbox_select_soviet_west_joiners()
 
-# Join levers for soviet_west: open-pool top-2 by scenario_join_scorer.
-sandbox_select_soviet_west_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_soviet_west.4)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_soviet_west.4)
-      $sandbox_log_sc(sc_offer, invited)
-
-# Crises phase for eng_soviet: provocation lands on the aggressor's desk.
-sandbox_fire_eng_soviet_crises():
+# Crises phase for napoleonic_france: provocation lands on the aggressor's desk.
+sandbox_fire_napoleonic_france_crises():
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1:
-    ENG:
-      if country_exists(SOV) and not ENG->has_war_with(SOV):
-        ENG:
+    FRA:
+      if country_exists(BEL) and not FRA->has_war_with(BEL):
+        FRA:
           country_event:
-            id(sandbox_eng_soviet.1)
+            id(sandbox_napoleonic_france.1)
 
-# Peak phase for eng_soviet: ultimatums to the chosen targets, then join offers.
-sandbox_fire_eng_soviet_peak():
+# Peak phase for napoleonic_france: ultimatums to the chosen targets, then join offers.
+sandbox_fire_napoleonic_france_peak():
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == 0:
-      if country_exists(SOV):
-        SOV:
-          $sandbox_log_target_status(ENG)
+      if country_exists(BEL):
+        BEL:
+          $sandbox_log_target_status(FRA)
       else:
-        ENG:
-          $sandbox_log_sc(sc_target, sov_gone)
-      if country_exists(SOV) and not ENG->has_war_with(SOV):
-        SOV:
+        FRA:
+          $sandbox_log_sc(sc_target, bel_gone)
+      if country_exists(BEL) and not FRA->has_war_with(BEL):
+        BEL:
           country_event:
-            id(sandbox_eng_soviet.2)
-    else:
-      if country_exists(SOV):
-        SOV:
-          $sandbox_log_target_status(ENG)
+            id(sandbox_napoleonic_france.2)
+      if country_exists(HOL):
+        HOL:
+          $sandbox_log_target_status(FRA)
       else:
-        ENG:
-          $sandbox_log_sc(sc_target, sov_gone)
-      if country_exists(SOV) and not ENG->has_war_with(SOV):
-        SOV:
+        FRA:
+          $sandbox_log_sc(sc_target, hol_gone)
+      if country_exists(HOL) and not FRA->has_war_with(HOL):
+        HOL:
           country_event:
-            id(sandbox_eng_soviet.2)
-    ENG:
-      sandbox_select_eng_soviet_joiners()
-
-# Join levers for eng_soviet: open-pool top-2 by scenario_join_scorer.
-sandbox_select_eng_soviet_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_eng_soviet.3)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_eng_soviet.3)
-      $sandbox_log_sc(sc_offer, invited)
+            id(sandbox_napoleonic_france.3)
+      if country_exists(LUX):
+        LUX:
+          $sandbox_log_target_status(FRA)
+      else:
+        FRA:
+          $sandbox_log_sc(sc_target, lux_gone)
+      if country_exists(LUX) and not FRA->has_war_with(LUX):
+        LUX:
+          country_event:
+            id(sandbox_napoleonic_france.5)
+    FRA:
+      sandbox_select_napoleonic_france_joiners()
 
 # Crises phase for usa_warplan: provocation lands on the aggressor's desk.
 sandbox_fire_usa_warplan_crises():
@@ -656,36 +585,7 @@ sandbox_scenario_s7_telemetry():
   if global.sandbox_scenario == 4 and global.sandbox_scenario_phase < 3:
     gen_soviet_west_scenario_telemetry()
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == 0:
-      ENG:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(SOV):
-        SOV:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-      ENG:
-        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, eng_on_sov)
-        if is_justifying_wargoal_against(SOV):
-          $sandbox_log_sc(sc_justify, eng_on_sov)
-    else:
-      ENG:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(SOV):
-        SOV:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-      ENG:
-        if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, eng_on_sov)
-        if is_justifying_wargoal_against(SOV):
-          $sandbox_log_sc(sc_justify, eng_on_sov)
+    gen_napoleonic_france_scenario_telemetry()
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == 0:
       USA:
@@ -745,9 +645,9 @@ sandbox_log_scenario_success():
     $sandbox_log_sc(sc_success, soviet_west_war)
     $sandbox_log_sc(sc_end, soviet_west_war)
   elif global.sandbox_scenario == 5:
-    $sandbox_log_sc(sc_ignite, eng_soviet_war)
-    $sandbox_log_sc(sc_success, eng_soviet_war)
-    $sandbox_log_sc(sc_end, eng_soviet_war)
+    $sandbox_log_sc(sc_ignite, napoleonic_france_war)
+    $sandbox_log_sc(sc_success, napoleonic_france_war)
+    $sandbox_log_sc(sc_end, napoleonic_france_war)
   elif global.sandbox_scenario == 6:
     $sandbox_log_sc(sc_ignite, usa_warplan_war)
     $sandbox_log_sc(sc_success, usa_warplan_war)
@@ -774,7 +674,7 @@ sandbox_scenario_check_ignite_by_war():
       SOV:
         sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 5:
-      ENG:
+      FRA:
         sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 6:
       USA:
@@ -797,7 +697,7 @@ sandbox_scenario_check_civil_war_derail():
       SOV:
         $sandbox_check_aggressor_civil_war()
     elif global.sandbox_scenario == 5:
-      ENG:
+      FRA:
         $sandbox_check_aggressor_civil_war()
     elif global.sandbox_scenario == 6:
       USA:
@@ -817,19 +717,7 @@ sandbox_scenario_check_derail():
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     gen_soviet_west_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
-    if not country_exists(ENG):
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, eng_gone)
-      $sandbox_log_sc(sc_end, eng_gone)
-    elif ENG->has_capitulated():
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, eng_capitulated)
-      $sandbox_log_sc(sc_end, eng_capitulated)
-    else:
-      if global.sandbox_target_variant == 0:
-        $sandbox_check_targets_derail1(ENG, SOV)
-      else:
-        $sandbox_check_targets_derail1(ENG, SOV)
+    gen_napoleonic_france_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     if not country_exists(USA):
       global.&sandbox_scenario_phase = 3

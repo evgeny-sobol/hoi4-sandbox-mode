@@ -24,6 +24,7 @@ peak_func = "sandbox_fire_fascist_italy_peak"
 [joiners]
 select = "top_n_by_scorer"
 n = 2
+invite_event = "sandbox_fascist_italy.4"
 
 [[paths]]
 variants = ["a"]

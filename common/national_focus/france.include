@@ -7,6 +7,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_suppress()
+      +modifier:
         $root_modifier()
       +modifier:
         f = (mtth:democracy_factor + mtth:communism_factor) /
@@ -19,6 +21,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor + mtth:fascism_factor) /
@@ -29,6 +33,9 @@ focus_tree[id = french_focus]:
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_revive_the_national_bloc)
+
   focus[id = FRA_invite_communist_ministers]:
     ai_will_do:
       +modifier:
@@ -43,6 +50,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_suppress()
+      +modifier:
         f = mtth:democracy_factor * 3
         factor(f)
         is_sandbox_mode_on()
@@ -52,6 +61,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
@@ -59,10 +70,15 @@ focus_tree[id = french_focus]:
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █       ▀▀▄
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_utilize_the_leagues)
+
   focus[id = FRA_national_regeneration]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
       +modifier:
         f = mtth:fascism_factor / (mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
@@ -73,6 +89,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         f = mtth:monarchy_factor / (mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
@@ -80,6 +98,9 @@ focus_tree[id = french_focus]:
 # █▀▀▄ █▀▀▀ █   █ ▄▀▀▄ █    █  █ █▀▀▀      █▀▀▀ █▀▀▄ ▄▀▀▄ █▄  █ ▄▀▀▄
 # █  █ █▀▀   █ █  █▀▀█ █    █  █ █▀▀       █▀▀  █▀▀▄ █▀▀█ █ ▀▄█ █  ▄
 # ▀▀▀  ▀▀▀▀   ▀   ▀  ▀ ▀▀▀▀  ▀▀  ▀▀▀▀      ▀    ▀  ▀ ▀  ▀ ▀   ▀  ▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_the_council_of_rambouillet)
+
   focus[id = FRA_devalue_the_franc]:
     ai_will_do:
       +modifier:
@@ -165,66 +186,106 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_begin_rearmament)
+
 
   focus[id = FRA_defensive_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_defensive_focus)
+
 
   focus[id = FRA_aggressive_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_aggressive_focus)
+
 
   focus[id = FRA_firepower_kills]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_firepower_kills)
+
 
   focus[id = FRA_methodical_battle]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_methodical_battle)
+
 
   focus[id = FRA_infantry_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_infantry_focus)
+
 
   focus[id = FRA_artillery_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_artillery_focus)
+
 
   focus[id = FRA_heavy_armor_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_heavy_armor_focus)
+
 
   focus[id = FRA_division_cuirassee]:
     ai_will_do:
@@ -238,28 +299,48 @@ focus_tree[id = french_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_fortification_focus)
+
 
   focus[id = FRA_alpine_forts]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_alpine_forts)
+
 
   focus[id = FRA_extend_the_maginot_line]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_extend_the_maginot_line)
+
 
   focus[id = FRA_army_reform]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_army_reform)
+
 
   focus[id = FRA_infantry_tanks]:
     ai_will_do:
@@ -287,64 +368,104 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_battle_of_maneuver)
+
 
   focus[id = FRA_air_dominance]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_air_dominance)
+
 
   focus[id = FRA_motorized_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_motorized_focus)
+
 
   focus[id = FRA_mechanized_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_mechanized_focus)
+
 
   focus[id = FRA_light_medium_armor]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_light_medium_armor)
+
 
   focus[id = FRA_cas_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_cas_focus)
+
 
   focus[id = FRA_air_ground_cooperation]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_air_ground_cooperation)
+
 
   focus[id = FRA_flying_artillery]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
 
 # ▄▀▀▄ ▄▀▀▀▄ █▄ ▄█ █▄ ▄█ █  █ █▄  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 # █  ▄ █   █ █ ▀ █ █ ▀ █ █  █ █ ▀▄█ █  ▀▀▄   █    ▀▀▄
 #  ▀▀   ▀▀▀  ▀   ▀ ▀   ▀  ▀▀  ▀   ▀ ▀ ▀▀▀    ▀   ▀▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_flying_artillery)
+
   focus[id = FRA_strengthen_the_unions]:
     ai_will_do:
       +modifier:
@@ -1026,16 +1147,28 @@ focus_tree[id = french_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_revise_the_constitution)
+
 
   focus[id = FRA_repeal_the_law_of_exile]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_repeal_the_law_of_exile)
+
 
   focus[id = FRA_orleanist_restoration]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
       +modifier:
         $crossroad_modifier(3)
 
@@ -1044,6 +1177,8 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_suppress()
+      +modifier:
         $crossroad_modifier(3)
 
   focus[id = FRA_proclaim_the_third_empire]:
@@ -1051,7 +1186,12 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(3)
+    +completion_reward:
+      $sandbox_log_sc_focus(FRA_proclaim_the_third_empire)
+
 
   focus[id = FRA_guarantee_the_constitution]:
     ai_will_do:
