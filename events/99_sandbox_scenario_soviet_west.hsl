@@ -47,6 +47,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, soviet_west_ult_2_defy)
 
 # Ultimatum 3 (LAT | ROM).
@@ -74,6 +75,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, soviet_west_ult_3_defy)
 
 # Ultimatum 5 (LIT alone: variant A fields three targets).
@@ -101,6 +103,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, soviet_west_ult_5_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the bloc.

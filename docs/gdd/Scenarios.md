@@ -136,6 +136,11 @@ wrong fork cannot win the AI's pick even before the boost applies.
 get a bloc invitation. The scorer gates on ideology and hostility and scores
 strength plus goodwill; a joiner leaves its old faction first (no Honor charge).
 
+**Ultimatum casus belli**: a refused peak ultimatum must give the aggressor a
+wargoal (`create_wargoal`), or ignition waits on the AI's own war decision and
+can miss the `peak_timeout`. Arcs war through their ultimatum events, not
+wargoals on the focus tree (issue 34).
+
 ## Lifecycle
 
 The arc ends at **ignition**: any war between declared scenario enemies, in
