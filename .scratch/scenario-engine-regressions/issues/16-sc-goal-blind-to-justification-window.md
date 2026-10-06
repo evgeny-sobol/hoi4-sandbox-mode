@@ -1,8 +1,8 @@
 # 16 - `sc_goal` stays silent while the aggressor actively justifies
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
-Blocked by: 14
+Blocked by: none
 
 ## What to build
 
@@ -56,3 +56,25 @@ story from `sc_justify` alone.
 - The event-ultimatum path, which is issue 13.
 - The sampling cadence of the s7 package, which is issue 15.
 - The tag-drift question, which issue 14 settles first.
+
+## Verification: PASSED (static)
+
+Code:
+- Every s7 `sc_goal` guard now reads
+  `has_wargoal_against(T) or is_justifying_wargoal_against(T)` (24 sites in
+  `_sandbox`, 138 in `_sandbox-r56`); no plain `has_wargoal_against(T)` guard
+  remains. A pair with neither a held wargoal nor an active justification still
+  logs nothing, so the "no pressure -> no line" criterion holds by
+  construction.
+- `is_justifying_wargoal_against` is a vanilla country trigger (used in vanilla
+  `common/ai_strategy/`), taken in the aggressor scope with the target tag as
+  argument. The event-ultimatum path is untouched (issue 13).
+- Issue 14's tag-drift code shipped alongside in the same files, so the block
+  on it is cleared.
+
+Compile: both mods recompile clean; generated `.txt` carry 24/138
+`is_justifying_wargoal_against` occurrences.
+
+Observer confirmation is deferred by maintainer decision: no `_sandbox` session
+produced a justification, so the justification window could not be observed.
+Accepted on code + compiler.

@@ -1,262 +1,332 @@
 # NZL_army_reforms
 
 ```mermaid
-flowchart TD
-    n1(("NZL_army_reforms"))
-    n2["NZL_artillery_focus"]
-    n3["NZL_big_bob_tank"]
-    n4["NZL_bob_semple_tank"]
-    n5["NZL_charlton_automatic_rifle"]
-    n6["NZL_department_of_scientific_and_industrial_research"]
-    n7["NZL_domestic_arms_industry"]
-    n8["NZL_expand_the_university_of_auckland"]
-    n9["NZL_full_employment"]
-    n10["NZL_long_range_patrol"]
-    n11["NZL_research_collaboration"]
-    n12["NZL_schofield_tank"]
-    n13["NZL_think_big"]
-    n12 --> n2
-    n2 --> n3
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("NZL_army_reforms"))
+        n2["NZL_department_of_scientific_and_industrial_research"]
+        n3["NZL_full_employment"]
+    end
+    subgraph tier_1["Tier 1"]
+        n4["NZL_bob_semple_tank"]
+        n5["NZL_charlton_automatic_rifle"]
+    end
+    subgraph tier_2["Tier 2"]
+        n6["NZL_domestic_arms_industry"]
+        n7["NZL_schofield_tank"]
+    end
+    subgraph tier_3["Tier 3"]
+        n8["NZL_artillery_focus"]
+        n9["NZL_long_range_patrol"]
+        n10["NZL_think_big"]
+    end
+    subgraph tier_4["Tier 4"]
+        n11["NZL_big_bob_tank"]
+        n12["NZL_expand_the_university_of_auckland"]
+    end
+    subgraph tier_5["Tier 5"]
+        n13["NZL_research_collaboration"]
+    end
+    n7 --> n8
+    n8 --> n11
     n1 --> n4
     n1 --> n5
-    n5 --> n7
-    n13 --> n8
-    n6 --> n8
-    n7 --> n10
-    n3 --> n11
-    n13 --> n11
-    n4 --> n12
-    n9 --> n13
-    n7 --> n13
+    n5 --> n6
+    n10 --> n12
+    n2 --> n12
+    n6 --> n9
+    n11 --> n13
+    n10 --> n13
+    n4 --> n7
+    n3 --> n10
+    n6 --> n10
 ```
 
 # NZL_bureau_of_industry
 
 ```mermaid
-flowchart TD
-    n3["NZL_big_bob_tank"]
-    n14(("NZL_bureau_of_industry"))
-    n6["NZL_department_of_scientific_and_industrial_research"]
-    n15["NZL_direct_the_coal_industry"]
-    n7["NZL_domestic_arms_industry"]
-    n16["NZL_domestic_car_industry"]
-    n8["NZL_expand_the_university_of_auckland"]
-    n9["NZL_full_employment"]
-    n17["NZL_heavy_bombers"]
-    n18["NZL_ministry_of_public_works"]
-    n19["NZL_modern_fighters"]
-    n20["NZL_national_defense_institute"]
-    n21["NZL_national_roads_board"]
-    n22["NZL_new_zealand_steel"]
-    n23["NZL_project_seal"]
-    n24["NZL_rail_standardization"]
-    n11["NZL_research_collaboration"]
-    n25["NZL_restart_the_onekaka_ironworks"]
-    n26["NZL_scrap_metal_recycling"]
-    n27["NZL_support_allies_with_meat"]
-    n28["NZL_taranaki_oil"]
-    n13["NZL_think_big"]
-    n29["NZL_wairarapa_sheep_farms"]
-    n30["NZL_women_in_the_workforce"]
-    n22 --> n6
-    n21 --> n16
-    n25 --> n16
-    n13 --> n8
-    n6 --> n8
-    n24 --> n9
-    n15 --> n9
-    n22 --> n9
-    n16 --> n9
-    n23 --> n20
-    n25 --> n22
-    n17 --> n23
-    n19 --> n23
-    n6 --> n23
-    n3 --> n11
-    n13 --> n11
-    n14 --> n25
-    n25 --> n26
-    n29 --> n27
-    n18 --> n28
-    n14 --> n28
-    n9 --> n13
-    n7 --> n13
-    n14 --> n29
-    n18 --> n30
-    n14 --> n30
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n11["NZL_big_bob_tank"]
+        n14(("NZL_bureau_of_industry"))
+        n15["NZL_direct_the_coal_industry"]
+        n6["NZL_domestic_arms_industry"]
+        n16["NZL_heavy_bombers"]
+        n17["NZL_ministry_of_public_works"]
+        n18["NZL_modern_fighters"]
+        n19["NZL_national_roads_board"]
+        n20["NZL_rail_standardization"]
+    end
+    subgraph tier_1["Tier 1"]
+        n21["NZL_restart_the_onekaka_ironworks"]
+        n22["NZL_taranaki_oil"]
+        n23["NZL_wairarapa_sheep_farms"]
+        n24["NZL_women_in_the_workforce"]
+    end
+    subgraph tier_2["Tier 2"]
+        n25["NZL_domestic_car_industry"]
+        n26["NZL_new_zealand_steel"]
+        n27["NZL_scrap_metal_recycling"]
+        n28["NZL_support_allies_with_meat"]
+    end
+    subgraph tier_3["Tier 3"]
+        n2["NZL_department_of_scientific_and_industrial_research"]
+        n3["NZL_full_employment"]
+    end
+    subgraph tier_4["Tier 4"]
+        n29["NZL_project_seal"]
+        n10["NZL_think_big"]
+    end
+    subgraph tier_5["Tier 5"]
+        n12["NZL_expand_the_university_of_auckland"]
+        n30["NZL_national_defense_institute"]
+        n13["NZL_research_collaboration"]
+    end
+    n26 --> n2
+    n19 --> n25
+    n21 --> n25
+    n10 --> n12
+    n2 --> n12
+    n20 --> n3
+    n15 --> n3
+    n26 --> n3
+    n25 --> n3
+    n29 --> n30
+    n21 --> n26
+    n16 --> n29
+    n18 --> n29
+    n2 --> n29
+    n11 --> n13
+    n10 --> n13
+    n14 --> n21
+    n21 --> n27
+    n23 --> n28
+    n17 --> n22
+    n14 --> n22
+    n3 --> n10
+    n6 --> n10
+    n14 --> n23
+    n17 --> n24
+    n14 --> n24
 ```
 
 # NZL_expand_the_nzpaf
 
 ```mermaid
-flowchart TD
-    n31{"NZL_bomber_focus"}
-    n32["NZL_coastal_defense"]
-    n33["NZL_defend_our_islands"]
-    n6["NZL_department_of_scientific_and_industrial_research"]
-    n34(("NZL_expand_the_nzpaf"))
-    n35{"NZL_fighter_focus"}
-    n36{"NZL_form_the_rnzaf"}
-    n17["NZL_heavy_bombers"]
-    n19["NZL_modern_fighters"]
-    n20["NZL_national_defense_institute"]
-    n23["NZL_project_seal"]
-    n37["NZL_the_plan"]
-    n36 --> n31
-    n36 --> n33
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n31["NZL_coastal_defense"]
+        n2["NZL_department_of_scientific_and_industrial_research"]
+        n32(("NZL_expand_the_nzpaf"))
+    end
+    subgraph tier_1["Tier 1"]
+        n33{"NZL_form_the_rnzaf"}
+    end
+    subgraph tier_2["Tier 2"]
+        n34{"NZL_bomber_focus"}
+        n35["NZL_defend_our_islands"]
+        n36{"NZL_fighter_focus"}
+    end
+    subgraph tier_3["Tier 3"]
+        n16["NZL_heavy_bombers"]
+        n18["NZL_modern_fighters"]
+    end
+    subgraph tier_4["Tier 4"]
+        n29["NZL_project_seal"]
+        n37["NZL_the_plan"]
+    end
+    subgraph tier_5["Tier 5"]
+        n30["NZL_national_defense_institute"]
+    end
+    n33 --> n34
+    n33 --> n35
+    n31 --> n35
+    n33 --> n36
     n32 --> n33
-    n36 --> n35
-    n34 --> n36
-    n35 --> n17
-    n31 --> n17
-    n35 --> n19
-    n31 --> n19
-    n23 --> n20
-    n17 --> n23
-    n19 --> n23
-    n6 --> n23
-    n17 --> n37
-    n19 --> n37
-    n31 x--x n35
-    n17 x--x n19
+    n36 --> n16
+    n34 --> n16
+    n36 --> n18
+    n34 --> n18
+    n29 --> n30
+    n16 --> n29
+    n18 --> n29
+    n2 --> n29
+    n16 --> n37
+    n18 --> n37
+    n34 x--x n36
+    n16 x--x n18
 ```
 
 # NZL_ministry_of_public_works
 
 ```mermaid
-flowchart TD
-    n38["NZL_abolish_the_railways_board"]
-    n3["NZL_big_bob_tank"]
-    n14["NZL_bureau_of_industry"]
-    n6["NZL_department_of_scientific_and_industrial_research"]
-    n15["NZL_direct_the_coal_industry"]
-    n7["NZL_domestic_arms_industry"]
-    n16["NZL_domestic_car_industry"]
-    n39["NZL_electrification"]
-    n40["NZL_establish_the_ncb"]
-    n8["NZL_expand_the_university_of_auckland"]
-    n9["NZL_full_employment"]
-    n18(("NZL_ministry_of_public_works"))
-    n41["NZL_national_broadcasting_service"]
-    n21["NZL_national_roads_board"]
-    n22["NZL_new_zealand_steel"]
-    n24["NZL_rail_standardization"]
-    n11["NZL_research_collaboration"]
-    n25["NZL_restart_the_onekaka_ironworks"]
-    n28["NZL_taranaki_oil"]
-    n13["NZL_think_big"]
-    n30["NZL_women_in_the_workforce"]
-    n18 --> n38
-    n18 --> n15
-    n21 --> n16
-    n25 --> n16
-    n18 --> n39
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n11["NZL_big_bob_tank"]
+        n14["NZL_bureau_of_industry"]
+        n2["NZL_department_of_scientific_and_industrial_research"]
+        n6["NZL_domestic_arms_industry"]
+        n17(("NZL_ministry_of_public_works"))
+        n26["NZL_new_zealand_steel"]
+        n21["NZL_restart_the_onekaka_ironworks"]
+    end
+    subgraph tier_1["Tier 1"]
+        n38["NZL_abolish_the_railways_board"]
+        n15["NZL_direct_the_coal_industry"]
+        n39["NZL_electrification"]
+        n19["NZL_national_roads_board"]
+        n22["NZL_taranaki_oil"]
+        n24["NZL_women_in_the_workforce"]
+    end
+    subgraph tier_2["Tier 2"]
+        n25["NZL_domestic_car_industry"]
+        n40["NZL_establish_the_ncb"]
+        n41["NZL_national_broadcasting_service"]
+        n20["NZL_rail_standardization"]
+    end
+    subgraph tier_3["Tier 3"]
+        n3["NZL_full_employment"]
+    end
+    subgraph tier_4["Tier 4"]
+        n10["NZL_think_big"]
+    end
+    subgraph tier_5["Tier 5"]
+        n12["NZL_expand_the_university_of_auckland"]
+        n13["NZL_research_collaboration"]
+    end
+    n17 --> n38
+    n17 --> n15
+    n19 --> n25
+    n21 --> n25
+    n17 --> n39
     n15 --> n40
-    n13 --> n8
-    n6 --> n8
-    n24 --> n9
-    n15 --> n9
-    n22 --> n9
-    n16 --> n9
-    n21 --> n41
-    n18 --> n21
-    n38 --> n24
-    n3 --> n11
-    n13 --> n11
-    n18 --> n28
-    n14 --> n28
-    n9 --> n13
-    n7 --> n13
-    n18 --> n30
-    n14 --> n30
+    n10 --> n12
+    n2 --> n12
+    n20 --> n3
+    n15 --> n3
+    n26 --> n3
+    n25 --> n3
+    n19 --> n41
+    n17 --> n19
+    n38 --> n20
+    n11 --> n13
+    n10 --> n13
+    n17 --> n22
+    n14 --> n22
+    n3 --> n10
+    n6 --> n10
+    n17 --> n24
+    n14 --> n24
 ```
 
 # NZL_the_first_labor_government
 
 ```mermaid
-flowchart TD
-    n42["NZL_2nzef"]
-    n43["NZL_amend_the_maori_affairs_act"]
-    n44["NZL_arrest_pacifist_leaders"]
-    n45["NZL_befriend_japan"]
-    n46["NZL_constitution_amendment_act"]
-    n47["NZL_empower_the_working_class"]
-    n48{"NZL_in_the_darkness"}
-    n49["NZL_independent_new_zealand"]
-    n50["NZL_join_comintern"]
-    n51["NZL_maori_affairs_act"]
-    n52["NZL_maori_conscription"]
-    n53["NZL_maori_volunteers"]
-    n54["NZL_ratana_alliance"]
-    n55["NZL_rule_them_all"]
-    n56["NZL_social_security_act"]
-    n57{"NZL_statute_of_westminster"}
-    n58["NZL_strengthen_the_commonwealth"]
-    n59["NZL_technology_sharing_with_britain"]
-    n60["NZL_technology_sharing_with_japan"]
-    n61["NZL_technology_sharing_with_soviet_union"]
-    n62{"NZL_the_first_labor_government"}
-    n63["NZL_the_lee_affair"]
-    n64{"NZL_the_manpower_act"}
-    n65["NZL_waitangi_tribunal"]
-    n58 --> n42
-    n64 --> n43
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n42{"NZL_the_first_labor_government"}
+    end
+    subgraph tier_1["Tier 1"]
+        n43["NZL_ratana_alliance"]
+        n44{"NZL_statute_of_westminster"}
+        n45["NZL_strengthen_the_commonwealth"]
+    end
+    subgraph tier_2["Tier 2"]
+        n46["NZL_2nzef"]
+        n47["NZL_constitution_amendment_act"]
+        n48{"NZL_in_the_darkness"}
+        n49["NZL_maori_affairs_act"]
+        n50["NZL_social_security_act"]
+        n51["NZL_the_lee_affair"]
+    end
+    subgraph tier_3["Tier 3"]
+        n52["NZL_arrest_pacifist_leaders"]
+        n53["NZL_befriend_japan"]
+        n54["NZL_empower_the_working_class"]
+        n55["NZL_independent_new_zealand"]
+        n56["NZL_rule_them_all"]
+        n57{"NZL_the_manpower_act"}
+    end
+    subgraph tier_4["Tier 4"]
+        n58["NZL_amend_the_maori_affairs_act"]
+        n59["NZL_join_comintern"]
+        n60["NZL_technology_sharing_with_britain"]
+        n61["NZL_technology_sharing_with_japan"]
+        n62["NZL_waitangi_tribunal"]
+    end
+    subgraph tier_5["Tier 5"]
+        n63["NZL_maori_conscription"]
+        n64["NZL_maori_volunteers"]
+        n65["NZL_technology_sharing_with_soviet_union"]
+    end
+    n45 --> n46
+    n57 --> n58
+    n46 --> n52
+    n48 --> n53
+    n44 --> n47
+    n51 --> n54
+    n44 --> n48
+    n47 --> n55
+    n54 --> n59
+    n43 --> n49
+    n58 --> n63
+    n62 --> n64
+    n42 --> n43
+    n48 --> n56
+    n43 --> n50
     n42 --> n44
-    n48 --> n45
-    n57 --> n46
-    n63 --> n47
-    n57 --> n48
-    n46 --> n49
-    n47 --> n50
-    n54 --> n51
-    n43 --> n52
-    n65 --> n53
-    n62 --> n54
-    n48 --> n55
-    n54 --> n56
-    n62 --> n57
-    n62 --> n58
-    n44 --> n59
-    n45 --> n60
-    n50 --> n61
-    n57 --> n63
-    n56 --> n64
-    n51 --> n64
-    n64 --> n65
-    n43 x--x n65
-    n45 x--x n55
-    n46 x--x n48
-    n46 x--x n63
-    n48 x--x n63
-    n57 x--x n58
+    n42 --> n45
+    n52 --> n60
+    n53 --> n61
+    n59 --> n65
+    n44 --> n51
+    n50 --> n57
+    n49 --> n57
+    n57 --> n62
+    n58 x--x n62
+    n53 x--x n56
+    n47 x--x n48
+    n47 x--x n51
+    n48 x--x n51
+    n44 x--x n45
 ```
 
 # NZL_transfer_the_new_zealand_division
 
 ```mermaid
-flowchart TD
-    n66["NZL_capital_ship_effort"]
-    n32["NZL_coastal_defense"]
-    n33["NZL_defend_our_islands"]
-    n67["NZL_destroyer_effort"]
-    n68{"NZL_expand_devonport_naval_base"}
-    n36["NZL_form_the_rnzaf"]
-    n69["NZL_form_the_rnzn"]
-    n70["NZL_light_cruiser_effort"]
-    n71["NZL_purchase_old_ships"]
-    n72["NZL_submarine_effort"]
-    n73(("NZL_transfer_the_new_zealand_division"))
-    n67 --> n66
-    n72 --> n66
-    n69 --> n32
-    n36 --> n33
-    n32 --> n33
-    n68 --> n67
-    n69 --> n68
-    n73 --> n69
-    n67 --> n70
-    n72 --> n70
-    n69 --> n71
-    n68 --> n72
-    n67 x--x n72
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n33["NZL_form_the_rnzaf"]
+        n66(("NZL_transfer_the_new_zealand_division"))
+    end
+    subgraph tier_1["Tier 1"]
+        n67["NZL_form_the_rnzn"]
+    end
+    subgraph tier_2["Tier 2"]
+        n31["NZL_coastal_defense"]
+        n68{"NZL_expand_devonport_naval_base"}
+        n69["NZL_purchase_old_ships"]
+    end
+    subgraph tier_3["Tier 3"]
+        n35["NZL_defend_our_islands"]
+        n70["NZL_destroyer_effort"]
+        n71["NZL_submarine_effort"]
+    end
+    subgraph tier_4["Tier 4"]
+        n72["NZL_capital_ship_effort"]
+        n73["NZL_light_cruiser_effort"]
+    end
+    n70 --> n72
+    n71 --> n72
+    n67 --> n31
+    n33 --> n35
+    n31 --> n35
+    n68 --> n70
+    n67 --> n68
+    n66 --> n67
+    n70 --> n73
+    n71 --> n73
+    n67 --> n69
+    n68 --> n71
+    n70 x--x n71
 ```

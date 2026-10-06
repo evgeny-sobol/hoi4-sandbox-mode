@@ -1,0 +1,134 @@
+# docs/gdd/Scenarios Catalog.md: arc events for soviet_west.
+add_namespace(sandbox_soviet_west)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_soviet_west.1)
+  title(sandbox_soviet_west_1_t)
+  desc(sandbox_soviet_west_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_soviet_west_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, soviet_west_crisis)
+    $sandbox_add_rivalry_vs(EST, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_soviet_west_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (EST | POL).
+country_event:
+  id(sandbox_soviet_west.2)
+  title(sandbox_soviet_west_2_t)
+  desc(sandbox_soviet_west_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(EST | POL)
+  option:
+    name(sandbox_soviet_west_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_2_submit)
+  option:
+    name(sandbox_soviet_west_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_2_defy)
+
+# Ultimatum 3 (LAT | ROM).
+country_event:
+  id(sandbox_soviet_west.3)
+  title(sandbox_soviet_west_3_t)
+  desc(sandbox_soviet_west_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(LAT | ROM)
+  option:
+    name(sandbox_soviet_west_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_3_submit)
+  option:
+    name(sandbox_soviet_west_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_3_defy)
+
+# Ultimatum 5 (LIT alone: variant A fields three targets).
+country_event:
+  id(sandbox_soviet_west.5)
+  title(sandbox_soviet_west_5_t)
+  desc(sandbox_soviet_west_5_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(LIT)
+  option:
+    name(sandbox_soviet_west_5_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_5_submit)
+  option:
+    name(sandbox_soviet_west_5_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, soviet_west_ult_5_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+country_event:
+  id(sandbox_soviet_west.4)
+  title(sandbox_soviet_west_4_t)
+  desc(sandbox_soviet_west_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(SOV)
+  option:
+    name(sandbox_soviet_west_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(SOV)
+    SOV:
+      give_military_access(PREV)
+    $add_opinion_modifier(SOV, scenario_ally)
+    $sandbox_log_sc(sc_join, soviet_west_joined)
+  option:
+    name(sandbox_soviet_west_4_b)
+    ai_chance:
+      factor(10)

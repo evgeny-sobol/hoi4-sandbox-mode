@@ -2,7 +2,7 @@
 *.txt
 
 ### Obsidian
-docs/gdd/.obsidian/*
+docs/.obsidian/*
 
 ### Python
 __pycache__/

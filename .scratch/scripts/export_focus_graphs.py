@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
-"""Export HoI4 national focus trees into Mermaid flowchart Markdown files.
+"""Export HoI4 national focus trees into Mermaid diagram Markdown files.
 
 Usage:
-    python export_focus_graphs.py
+    python export_focus_graphs.py [--mode swimlane|flowchart] [--src DIR] [--out DIR]
 
-Reads common/national_focus/*.txt in the current project tree and writes
+Reads common/national_focus/*.txt (default: in the current project tree) and writes
 Markdown files into docs/gdd/National Focuses/, mirroring the source name.
 Each Markdown file contains one diagram per root focus (a focus without
 prerequisites) and all of its descendants; focuses not reachable from any
 root are grouped into an "orphans" diagram.
+
+Modes:
+    swimlane (default)  swimlane-beta TD, one lane per depth tier
+                        (distance from the root of the sub-diagram).
+    flowchart           flowchart TD, plain node list plus edges.
 """
+import argparse
 import re
 from pathlib import Path
 
@@ -273,6 +279,37 @@ def _edge_lines(
     return lines
 
 
+def _depths(
+    nodes: set[str],
+    effective_prereqs: dict[str, list[str]],
+) -> dict[str, int]:
+    """Longest-path depth from the roots via topological order.
+
+    Nodes inside a prerequisite cycle are left out of the result.
+    """
+    children: dict[str, set[str]] = {}
+    indegree: dict[str, int] = {}
+    for node in nodes:
+        prereqs = [prereq for prereq in effective_prereqs.get(node, []) if prereq in nodes]
+        indegree[node] = len(prereqs)
+        for prereq in prereqs:
+            children.setdefault(prereq, set()).add(node)
+    depth: dict[str, int] = {}
+    queue = sorted(node for node, degree in indegree.items() if degree == 0)
+    for node in queue:
+        depth[node] = 0
+    cursor = 0
+    while cursor < len(queue):
+        current = queue[cursor]
+        cursor += 1
+        for child in sorted(children.get(current, ())):
+            depth[child] = max(depth.get(child, 0), depth[current] + 1)
+            indegree[child] -= 1
+            if indegree[child] == 0:
+                queue.append(child)
+    return depth
+
+
 def build_mermaid(
     title: str,
     prerequisites: dict[str, list[str]],
@@ -295,12 +332,60 @@ def build_mermaid(
     return "\n".join(lines)
 
 
-def process_source(project_root: Path) -> None:
-    out_root = project_root / "docs" / "gdd" / "National Focuses"
-    out_root.mkdir(parents=True, exist_ok=True)
-    patterns = list((project_root / "common" / "national_focus").glob("*.txt"))
+def build_swimlane(
+    title: str,
+    prerequisites: dict[str, list[str]],
+    mutexes: dict[str, list[str]],
+    aliaser: Aliaser,
+) -> str:
+    lines = [f"# {title}", "", "```mermaid", "swimlane-beta TD"]
+    if not prerequisites:
+        lines.append('    subgraph tier_0["(no focuses parsed)"]')
+        lines.append('        empty["(no focuses parsed)"]')
+        lines.append("    end")
+    else:
+        nodes, effective_prereqs, effective_mutexes, decision_nodes, root_nodes = _resolve_nodes(
+            prerequisites, mutexes
+        )
+        depth = _depths(nodes, effective_prereqs)
+        unplaced = sorted(node for node in nodes if node not in depth)
+        tiers: dict[int, list[str]] = {}
+        for node, tier in depth.items():
+            tiers.setdefault(tier, []).append(node)
+        for tier in sorted(tiers):
+            lines.append(f'    subgraph tier_{tier}["Tier {tier}"]')
+            for node in sorted(tiers[tier]):
+                lines.append(f"        {_node_declaration(node, decision_nodes, root_nodes, aliaser)}")
+            lines.append("    end")
+        if unplaced:
+            lines.append('    subgraph tier_unplaced["Unplaced (cycle)"]')
+            for node in unplaced:
+                lines.append(f"        {_node_declaration(node, decision_nodes, root_nodes, aliaser)}")
+            lines.append("    end")
+        for edge in _edge_lines(nodes, effective_prereqs, effective_mutexes, aliaser):
+            lines.append(f"    {edge}")
+    lines.append("```")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def render_diagram(
+    mode: str,
+    title: str,
+    prerequisites: dict[str, list[str]],
+    mutexes: dict[str, list[str]],
+    aliaser: Aliaser,
+) -> str:
+    if mode == "flowchart":
+        return build_mermaid(title, prerequisites, mutexes, aliaser)
+    return build_swimlane(title, prerequisites, mutexes, aliaser)
+
+
+def process_source(src_dir: Path, out_dir: Path, mode: str) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    patterns = list(src_dir.glob("*.txt"))
     if not patterns:
-        raise SystemExit(f"no .txt sources under {project_root / 'common' / 'national_focus'}")
+        raise SystemExit(f"no .txt sources under {src_dir}")
     written: list[Path] = []
     for txt in patterns:
         text = txt.read_text(encoding="utf-8", errors="replace")
@@ -309,18 +394,40 @@ def process_source(project_root: Path) -> None:
         aliaser = Aliaser()
         parts: list[str] = []
         for diag_title, sub_prereqs, sub_mutexes in diagrams:
-            parts.append(build_mermaid(diag_title, sub_prereqs, sub_mutexes, aliaser))
-        out_path = out_root / f"{txt.stem}.md"
+            parts.append(render_diagram(mode, diag_title, sub_prereqs, sub_mutexes, aliaser))
+        out_path = out_dir / f"{txt.stem}.md"
         out_path.write_text("\n".join(parts), encoding="utf-8")
         written.append(out_path)
-    print(f"wrote {len(written)} focus graph files under {out_root}")
+    print(f"wrote {len(written)} focus graph files (mode={mode}) from {src_dir} under {out_dir}")
     for path in written:
-        print(f"  - {path.relative_to(project_root)}")
+        print(f"  - {path}")
 
 
 def main(argv: list[str]) -> int:
+    parser = argparse.ArgumentParser(description="Export HoI4 focus trees as Mermaid diagrams.")
+    parser.add_argument(
+        "--mode",
+        choices=("swimlane", "flowchart"),
+        default="swimlane",
+        help="diagram type to emit (default: swimlane)",
+    )
+    parser.add_argument(
+        "--src",
+        type=Path,
+        default=None,
+        help="directory with *.txt focus sources (default: <mod>/common/national_focus)",
+    )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="output directory for *.md diagrams (default: <mod>/docs/gdd/National Focuses)",
+    )
+    args = parser.parse_args(argv[1:])
     base = Path(__file__).resolve().parents[2]
-    process_source(base)
+    src_dir = args.src if args.src is not None else base / "common" / "national_focus"
+    out_dir = args.out if args.out is not None else base / "docs" / "gdd" / "National Focuses"
+    process_source(src_dir, out_dir, args.mode)
     return 0
 
 

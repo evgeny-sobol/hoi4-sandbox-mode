@@ -1,6 +1,6 @@
 # 15 - The s7 diagnostic package has no sampling policy, so one probe floods the log daily
 
-Status: ready-for-agent
+Status: resolved
 Type: bug
 Blocked by: none
 
@@ -62,3 +62,26 @@ length rather than with the number of distinct events.
 - The content of each line (which fields it carries); that is settled.
 - Adding new s7 members.
 - The `sc_goal` silence reported in issue 16, which is a missing line rather than a cadence problem.
+
+## Verification: PASSED (static)
+
+Code:
+- The daily `on_justifying_wargoal_pulse` no longer logs: the shared skeleton
+  (`core/common/on_actions/99_sandbox_core_on_actions.hsl`) and both mods drop
+  the `sandbox_arc_justify_hook()` call; the pulse keeps the Honor drip only.
+- `core/tools/extract_arc_hooks.py` no longer emits a justify hook; both mods'
+  regenerated `99_sandbox_arc_hooks.hsl` carry only the expire hook.
+- `sc_justify` is sampled in the monthly s7 telemetry: one guard per
+  aggressor-direction declared pair (`is_justifying_wargoal_against(T)`),
+  added by `.scratch/scripts/add_monthly_justify_sample.py` (24 sites in
+  `_sandbox`, 106 in `_sandbox-r56`).
+- Both `docs/gdd/Scenarios.md` state the cadence and the rule: a recurring
+  state is sampled monthly (`sc_power`, `sc_goal`, `sc_justify`); a transition
+  is logged when it happens (`sc_goal_end`).
+
+Compile: both mods recompile clean; generated `.txt` carry 0 daily `sc_justify`
+lines (the hook is gone) and 24/106 monthly `sc_justify` lines.
+
+Observer confirmation is deferred by maintainer decision: across three
+`_sandbox` sessions the AI never opened a justification, so no positive session
+case was reachable. Accepted on code + compiler.

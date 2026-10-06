@@ -1,159 +1,183 @@
 # CHI_invite_foreign_investors
 
 ```mermaid
-flowchart TD
-    n1{"CHI_anti_imperialism"}
-    n2["CHI_british_cooperation"]
-    n3["CHI_burma_road"]
-    n4["CHI_camco"]
-    n5["CHI_carrier_air_wing"]
-    n6["CHI_chinese_expeditionary_force"]
-    n7["CHI_chinese_general_staff"]
-    n8["CHI_chinese_panzers"]
-    n9["CHI_closer_ties_with_germany"]
-    n10["CHI_coastal_patrol_planes"]
-    n11["CHI_collaboration_with_the_japanese"]
-    n12["CHI_combined_arms_warfare"]
-    n13["CHI_commit_to_korean_independence"]
-    n14{"CHI_conquer_tibet"}
-    n15["CHI_construction_battalions"]
-    n16["CHI_demand_mongolia"]
-    n17["CHI_dominate_japan"]
-    n18["CHI_elite_mountaineers"]
-    n19["CHI_experimental_mechanised_unit"]
-    n20["CHI_fighter_purchases"]
-    n21["CHI_french_drill"]
-    n22["CHI_french_military_mission"]
-    n23["CHI_give_falkenhausen_citizenship"]
-    n24["CHI_guarantee_the_hanoi_route"]
-    n25["CHI_guidance_and_support"]
-    n26["CHI_heavy_cruiser_project"]
-    n27["CHI_heavy_weapons"]
-    n28["CHI_hire_chennault"]
-    n29["CHI_hire_soviet_designer"]
-    n30["CHI_imperial_legacy"]
-    n31["CHI_indian_cooperation"]
-    n32["CHI_influence_mongolia"]
-    n33{"CHI_integrate_tibet"}
-    n34["CHI_investment_into_shipbuilding"]
-    n35{"CHI_invite_foreign_investors"}
-    n36["CHI_invite_soviet_advisers"]
-    n37["CHI_invite_the_flying_tigers"]
-    n38["CHI_joint_tank_development"]
-    n39["CHI_ledo_road"]
-    n40["CHI_light_cruiser_project"]
-    n41["CHI_local_bomber_production"]
-    n42["CHI_local_fighter_production"]
-    n43{"CHI_mission_to_germany"}
-    n44{"CHI_mission_to_the_soviet_union"}
-    n45["CHI_mission_to_the_us"]
-    n46["CHI_modern_logistics"]
-    n47["CHI_modern_submarines"]
-    n48["CHI_naval_aviation"]
-    n49{"CHI_one_china_policy"}
-    n50["CHI_order_destroyers"]
-    n51["CHI_overlordship_over_indochina"]
-    n52["CHI_purchase_tanks"]
-    n53["CHI_rapprochement_with_soviet_union"]
-    n54["CHI_reach_out_to_france"]
-    n55{"CHI_renegotiate_the_unequal_treaties"}
-    n56["CHI_renounce_the_mcmahon_line"]
-    n57["CHI_secure_the_peninsula"]
-    n58["CHI_sino_american_cooperative_organization"]
-    n59["CHI_small_arms_expertise"]
-    n60["CHI_tank_plant"]
-    n61["CHI_the_chu_x_po"]
-    n62["CHI_the_hump"]
-    n63["CHI_the_soviet_volunteer_group"]
-    n64["CHI_train_marines"]
-    n65["CHI_wargaming_division"]
-    n55 --> n1
-    n35 --> n2
-    n2 --> n3
-    n20 --> n4
-    n48 --> n5
-    n62 --> n6
-    n23 --> n7
-    n9 --> n7
-    n52 --> n8
-    n9 --> n8
-    n43 --> n9
-    n47 --> n10
-    n35 --> n11
-    n19 --> n12
-    n25 --> n13
-    n49 --> n14
-    n24 --> n15
-    n3 --> n15
-    n56 --> n16
-    n30 --> n17
-    n36 --> n18
-    n59 --> n18
-    n52 --> n19
-    n2 --> n20
-    n45 --> n20
-    n27 --> n21
-    n22 --> n21
-    n24 --> n22
-    n43 --> n23
-    n54 --> n24
-    n1 --> n25
-    n40 --> n26
-    n18 --> n27
-    n45 --> n28
-    n52 --> n29
-    n53 --> n29
-    n55 --> n30
-    n1 --> n31
-    n31 --> n32
-    n49 --> n33
-    n45 --> n34
-    n11 --> n34
-    n44 --> n36
-    n28 --> n37
-    n29 --> n38
-    n3 --> n39
-    n62 --> n39
-    n45 --> n40
-    n50 --> n40
-    n42 --> n41
-    n3 --> n42
-    n4 --> n42
-    n35 --> n43
-    n35 --> n44
-    n35 --> n45
-    n21 --> n46
-    n39 --> n46
-    n11 --> n47
-    n50 --> n47
-    n26 --> n48
-    n10 --> n48
-    n55 --> n49
-    n34 --> n50
-    n30 --> n51
-    n9 --> n52
-    n53 --> n52
-    n44 --> n53
-    n35 --> n54
-    n46 --> n55
-    n12 --> n55
-    n48 --> n55
-    n33 --> n56
-    n14 --> n56
-    n51 --> n57
-    n37 --> n58
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"CHI_invite_foreign_investors"}
+    end
+    subgraph tier_1["Tier 1"]
+        n2["CHI_british_cooperation"]
+        n3["CHI_collaboration_with_the_japanese"]
+        n4{"CHI_mission_to_germany"}
+        n5{"CHI_mission_to_the_soviet_union"}
+        n6["CHI_mission_to_the_us"]
+        n7["CHI_reach_out_to_france"]
+    end
+    subgraph tier_2["Tier 2"]
+        n8["CHI_burma_road"]
+        n9["CHI_closer_ties_with_germany"]
+        n10["CHI_fighter_purchases"]
+        n11["CHI_give_falkenhausen_citizenship"]
+        n12["CHI_guarantee_the_hanoi_route"]
+        n13["CHI_hire_chennault"]
+        n14["CHI_investment_into_shipbuilding"]
+        n15["CHI_invite_soviet_advisers"]
+        n16["CHI_rapprochement_with_soviet_union"]
+        n17["CHI_small_arms_expertise"]
+    end
+    subgraph tier_3["Tier 3"]
+        n18["CHI_camco"]
+        n19["CHI_chinese_general_staff"]
+        n20["CHI_construction_battalions"]
+        n21["CHI_elite_mountaineers"]
+        n22["CHI_french_military_mission"]
+        n23["CHI_invite_the_flying_tigers"]
+        n24["CHI_order_destroyers"]
+        n25["CHI_purchase_tanks"]
+        n26["CHI_the_soviet_volunteer_group"]
+    end
+    subgraph tier_4["Tier 4"]
+        n27["CHI_chinese_panzers"]
+        n28["CHI_experimental_mechanised_unit"]
+        n29["CHI_heavy_weapons"]
+        n30["CHI_hire_soviet_designer"]
+        n31["CHI_light_cruiser_project"]
+        n32["CHI_local_fighter_production"]
+        n33["CHI_modern_submarines"]
+        n34["CHI_sino_american_cooperative_organization"]
+        n35["CHI_the_chu_x_po"]
+        n36["CHI_the_hump"]
+        n37["CHI_train_marines"]
+        n38["CHI_wargaming_division"]
+    end
+    subgraph tier_5["Tier 5"]
+        n39["CHI_chinese_expeditionary_force"]
+        n40["CHI_coastal_patrol_planes"]
+        n41["CHI_combined_arms_warfare"]
+        n42["CHI_french_drill"]
+        n43["CHI_heavy_cruiser_project"]
+        n44["CHI_joint_tank_development"]
+        n45["CHI_ledo_road"]
+        n46["CHI_local_bomber_production"]
+        n47["CHI_tank_plant"]
+    end
+    subgraph tier_6["Tier 6"]
+        n48["CHI_modern_logistics"]
+        n49["CHI_naval_aviation"]
+    end
+    subgraph tier_7["Tier 7"]
+        n50["CHI_carrier_air_wing"]
+        n51{"CHI_renegotiate_the_unequal_treaties"}
+    end
+    subgraph tier_8["Tier 8"]
+        n52{"CHI_anti_imperialism"}
+        n53["CHI_imperial_legacy"]
+        n54{"CHI_one_china_policy"}
+    end
+    subgraph tier_9["Tier 9"]
+        n55{"CHI_conquer_tibet"}
+        n56["CHI_dominate_japan"]
+        n57["CHI_guidance_and_support"]
+        n58["CHI_indian_cooperation"]
+        n59{"CHI_integrate_tibet"}
+        n60["CHI_overlordship_over_indochina"]
+    end
+    subgraph tier_10["Tier 10"]
+        n61["CHI_commit_to_korean_independence"]
+        n62["CHI_influence_mongolia"]
+        n63["CHI_renounce_the_mcmahon_line"]
+        n64["CHI_secure_the_peninsula"]
+    end
+    subgraph tier_11["Tier 11"]
+        n65["CHI_demand_mongolia"]
+    end
+    n51 --> n52
+    n1 --> n2
+    n2 --> n8
+    n10 --> n18
+    n49 --> n50
+    n36 --> n39
+    n11 --> n19
+    n9 --> n19
+    n25 --> n27
+    n9 --> n27
+    n4 --> n9
+    n33 --> n40
+    n1 --> n3
+    n28 --> n41
+    n57 --> n61
+    n54 --> n55
+    n12 --> n20
+    n8 --> n20
+    n63 --> n65
+    n53 --> n56
+    n15 --> n21
+    n17 --> n21
+    n25 --> n28
+    n2 --> n10
+    n6 --> n10
+    n29 --> n42
+    n22 --> n42
+    n12 --> n22
+    n4 --> n11
+    n7 --> n12
+    n52 --> n57
+    n31 --> n43
+    n21 --> n29
+    n6 --> n13
+    n25 --> n30
+    n16 --> n30
+    n51 --> n53
+    n52 --> n58
+    n58 --> n62
     n54 --> n59
-    n8 --> n60
-    n4 --> n61
-    n4 --> n62
-    n28 --> n62
-    n36 --> n63
-    n50 --> n64
-    n7 --> n65
-    n1 x--x n30
-    n2 x--x n54
-    n9 x--x n53
-    n11 x--x n45
-    n14 x--x n33
-    n31 x--x n56
+    n6 --> n14
+    n3 --> n14
+    n5 --> n15
+    n13 --> n23
+    n30 --> n44
+    n8 --> n45
+    n36 --> n45
+    n6 --> n31
+    n24 --> n31
+    n32 --> n46
+    n8 --> n32
+    n18 --> n32
+    n1 --> n4
+    n1 --> n5
+    n1 --> n6
+    n42 --> n48
+    n45 --> n48
+    n3 --> n33
+    n24 --> n33
+    n43 --> n49
+    n40 --> n49
+    n51 --> n54
+    n14 --> n24
+    n53 --> n60
+    n9 --> n25
+    n16 --> n25
+    n5 --> n16
+    n1 --> n7
+    n48 --> n51
+    n41 --> n51
+    n49 --> n51
+    n59 --> n63
+    n55 --> n63
+    n60 --> n64
+    n23 --> n34
+    n7 --> n17
+    n27 --> n47
+    n18 --> n35
+    n18 --> n36
+    n13 --> n36
+    n15 --> n26
+    n24 --> n37
+    n19 --> n38
+    n52 x--x n53
+    n2 x--x n7
+    n9 x--x n16
+    n3 x--x n6
+    n55 x--x n59
+    n58 x--x n63
 ```

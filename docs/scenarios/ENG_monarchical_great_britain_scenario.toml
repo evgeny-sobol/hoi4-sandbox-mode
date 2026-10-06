@@ -1,0 +1,64 @@
+# Arc 6: Monarchical Great Britain expansion
+
+id = "monarchical_great_britain_scenario"
+number = 6
+status = "ready"
+aggressor = "ENG"
+key = "monarchical_great_britain"
+
+targets = { a = ["ITA", "IRE"], b = ["JAP", "IRE"], c = ["SOV", "IRE"], d = ["USA", "IRE"] }
+
+suppress = [
+  "ENG_organize_the_blackshirts",
+  "ENG_revisit_colonial_policy",
+  "ENG_steady_as_she_goes",
+  "ENG_concessions_to_the_trade_unions"
+]
+
+notes = """
+The non-historical arc: Britain turns to the Crown, consolidates the Isles,
+then presses its chosen rival among the great powers. The variant roll picks
+the rival pair - Italy, Japan, the Soviets or the United States - always beside
+Ireland; the ladder releases claims and incidents at the crises rung and
+ultimatums plus join offers at peak.
+"""
+
+[ladder]
+crises_at_month = 10
+peak_at_month = 20
+crises_func = "sandbox_fire_monarchical_great_britain_crises"
+peak_func = "sandbox_fire_monarchical_great_britain_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+invite_event = "sandbox_monarchical_great_britain.4"
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "ENG_consolidate_the_british_isles",
+  "ENG_take_out_the_regia_marina"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "ENG_consolidate_the_british_isles",
+  "ENG_bring_the_dominions_back_into_the_fold"
+]
+
+[[paths]]
+variants = ["c"]
+focuses = [
+  "ENG_consolidate_the_british_isles",
+  "ENG_imperial_conscription",
+  "ENG_pre_empt_the_ideological_threat"
+]
+
+[[paths]]
+variants = ["d"]
+focuses = [
+  "ENG_consolidate_the_british_isles",
+  "ENG_unite_the_anglosphere"
+]

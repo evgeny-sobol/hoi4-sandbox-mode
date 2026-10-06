@@ -1,14 +1,14 @@
 # docs/gdd/Scenarios.md "Selection": pin-rule options for the scenario pick.
 # has_game_rule needs a verbatim two-key block, hence raw inline.
-sandbox_scenario_pin_is_axis:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_axis_expansion }
-sandbox_scenario_pin_is_sov_south:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_sov_south }
-sandbox_scenario_pin_is_japanese:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_japanese_expansion }
-sandbox_scenario_pin_is_italian:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_italian_expansion }
-sandbox_scenario_pin_is_eng_soviet:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_eng_soviet }
-sandbox_scenario_pin_is_usa_warplan:
-  raw has_game_rule: { rule = sandbox_scenario option = sandbox_usa_warplan }
+sandbox_scenario_pin_is_nazi_germany:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_nazi_germany }
+sandbox_scenario_pin_is_fascist_italy:
+  raw has_game_rule: { rule = sandbox_scenario option = fascist_italy }
+sandbox_scenario_pin_is_militarist_japan:
+  raw has_game_rule: { rule = sandbox_scenario option = militarist_japan }
+sandbox_scenario_pin_is_soviet_west:
+  raw has_game_rule: { rule = sandbox_scenario option = soviet_west }
+sandbox_scenario_pin_is_napoleonic_france:
+  raw has_game_rule: { rule = sandbox_scenario option = napoleonic_france }
+sandbox_scenario_pin_is_monarchical_great_britain:
+  raw has_game_rule: { rule = sandbox_scenario option = monarchical_great_britain }

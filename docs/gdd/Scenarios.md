@@ -24,23 +24,109 @@ and most documentation; this file describes what is specific to vanilla.
 One arc per session, chosen at startup: pinned by a game rule or rolled at
 random over the arcs whose aggressor exists. Arc ids are fixed per major
 (1 GER, 2 SOV, 3 JAP, 4 ITA, 5 ENG, 6 USA); id 7 is a documented gap (France is
-not content-portable; see `docs/gdd/Scenarios Catalog.md`). The pick rolls the
+not content-portable; see below). The pick rolls the
 A/B target variant 50/50 and logs `sc_pick` plus `sc_variant`.
+
+### Pool and selection
+
+- Random sessions pick from the pool with equal weights, over arcs whose
+  aggressor exists. Pin options exist for all six.
+- A derail repicks the next eligible never-derailed arc; a derailed arc never
+  re-enters the pool in the same session.
+- Target variants are rolled at pick (50/50) and remain fixed for the session.
+
+### Excluded majors
+
+- **FRA**: the Bonapartist branch is Rt56-only, and the revanchist and Plan XIV
+  branches are likewise absent. No French arc is content-portable, so arc id 7
+  is left as a documented gap rather than filled with a substituted arc.
+- **HUN**: the Habsburg restoration arc is out of scope for this pool by user
+  decision; its vanilla focuses do exist should it be added later.
 
 ## Arc schema
 
+Each arc is described by one TOML **arc spec** in `docs/scenarios/<id>.toml`
+(one per arc per mod). Shared tooling reads the specs and derives the catalog,
+the focus diagrams, the focus-boost closure and the expected telemetry labels;
+scripted events and effects stay hand-written in the HSL catalog.
+
+```toml
+id = "axis_expansion"       # slug; identity and file name
+number = 1                  # the director's arc id; written when the arc has code
+status = "ready"            # ready (in the shipped pool) | draft (authored, not selected)
+aggressor = "GER"           # a single tag
+key = "axis"                # short slug for the pin trigger and pick label; optional
+
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
+suppress = ["GER_austria_first"]  # optional: focus ids the AI must not pick while the arc is live
+
+[ladder]                    # months from arc start
+crises_at_month = 12
+peak_at_month = 24
+# Content rungs (optional pair): hand-written functions the tick calls.
+# Both or neither; absent means the arc has no generated tick branch yet.
+crises_func = "sandbox_fire_axis_crises"
+peak_func = "sandbox_fire_axis_peak"
+
+[joiners]                   # shared scorer, no per-arc parameters
+select = "top_n_by_scorer"
+n = 2
+
+[gate]                      # optional; absent means no gate
+# Derail pair (optional): park the arc when the aggressor is off ideology.
+ideology = "fascism"
+at_phase = "crises"
+# Hold set (optional, all three together): freeze the arc clock while the
+# aggressor is not yet on hold_ideology, then run the ladder; if it never
+# changes, park the arc after hold_max_months months with hold_reason.
+hold_ideology = "neutrality"
+hold_max_months = 30
+hold_reason = "no_regime_change"
+
+# Ordered focus paths: each table runs from a branch entry to a war leaf and
+# declares the variants it serves (absent means shared across all variants).
+[[paths]]
+focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
+
+# Optional `after`: gate this path's boost on the listed focuses being done, so
+# a later stage waits for an earlier path. Shared ancestors stay ungated.
+[[paths]]
+after = ["GER_anschluss"]
+focuses = ["GER_austria_first"]
+
+notes = """
+Free rationale prose, printed into the catalog beside the arc.
+"""
 ```
-sandbox_scenario_<id>:
-  aggressor: GER            # a single tag
-  type: historical          # every vanilla arc; no flip gate
-  targets:
-    a: [CZE, POL]           # variant A (historical default)
-    b: [FRA, ENG]           # variant B (alt)
-  joiners: open_pool_top2   # shared scorer, no per-arc parameters
-  ladder: template          # smolder / crises / peak
-  block: axis               # faction name if one forms
-  content_refs: ...         # per-mod focus/event ids
-```
+
+Top-level keys come before `[table]` headers: in TOML everything after a
+header belongs to that table. `id` must match the file name; `number` is
+unique and must match the code dispatcher; a `ready` arc requires a `number`.
+Every key focus must exist in the aggressor's focus graph. The ladder content
+functions come as an optional pair (`crises_func` + `peak_func` naming the
+hand-written rung functions); absent means no generated tick branch. The
+optional `key` names the pin trigger suffix and pick label; absent means no
+generated pick data. Every variant holds 1-4 targets (the derail arms cover
+that range). Every `targets` key is covered by at least one path; every listed
+`variants` entry is a `targets` key. Boosts follow the live variant: shared
+focuses stay boosted whenever the aggressor is live, path-specific focuses
+only while their variant runs, and an entry's optional `after` holds its boost
+back until every listed focus is completed (shared ancestors of a gated path
+stay ungated). The peak rung waits for the AI to complete
+the last focus of the live path (humans proceed on schedule), with a
+fallback twelve months past the peak month; put rarely-bypassed focuses
+last, since a bypassed tail stalls to the fallback. The optional `suppress`
+list closes focuses for the AI while the aggressor is live
+(`$ai_scenario_focus_suppress()`, factor 0); a suppressed id must exist in the
+graph and must not be a key focus, so suppressing a fork forces the AI onto a
+sibling (issue 33: the SOV purge-opposition forks, leaving `the_centre`). There
+is no `type`, `block` or `content_refs` field. The optional `gate` table either
+holds the arc until a regime flip (the `hold_*` trio) or carries the derail
+pair (`ideology`/`at_phase`); the hold freezes `arc_months` at zero while the
+aggressor is off `hold_ideology` and parks the arc with `hold_reason` once
+`hold_max_months` held months pass, so a ladder whose premise is a regime
+change never fires into the old regime. A hold needs the ladder content pair
+(its tick is where the rungs live).
 
 ## Ladder
 
@@ -63,11 +149,18 @@ AI weights push war planning. Rivalry is the main lever; no new AI code.
 spliced onto the arc's war focuses and their branch roots, so the AI actually
 walks the war branch (the s10 lesson: a boost behind an unboosted fork is dead).
 Which focuses each arc boosts is drawn per arc in
-`docs/gdd/Scenarios Catalog.md`.
+`docs/gdd/Scenarios Catalog.md`. The spec's `suppress` list adds
+`$ai_scenario_focus_suppress()` (factor 0) to focuses the arc closes, so a
+wrong fork cannot win the AI's pick even before the boost applies.
 
 **Join levers**: at peak the two highest-scoring outsiders (`scenario_join_scorer`)
 get a bloc invitation. The scorer gates on ideology and hostility and scores
 strength plus goodwill; a joiner leaves its old faction first (no Honor charge).
+
+**Ultimatum casus belli**: a refused peak ultimatum must give the aggressor a
+wargoal (`create_wargoal`), or ignition waits on the AI's own war decision and
+can miss the `peak_timeout`. Arcs war through their ultimatum events, not
+wargoals on the focus tree (issue 34).
 
 ## Lifecycle
 
@@ -93,12 +186,27 @@ derail repicks; pinned sessions go quiet.
   `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a
   declared target), so an unrelated country's focus does not pollute the arc.
 
+### Sampling cadence
+
+A recurring state is sampled on a schedule; a transition is logged when it
+happens. The s7 diagnostic package follows this rule:
+
+| Line | Cadence |
+| --- | --- |
+| `sc_power` | monthly per live actor |
+| `sc_goal` | monthly per declared pair with a held wargoal or an active justification |
+| `sc_justify` | monthly per declared pair with an active justification |
+| `sc_goal_end` | on wargoal expiry (transition) |
+
+`sc_justify` used to ride the daily justification pulse (one line per day per
+justification); since issue 15 it is a monthly sample like the rest of s7, so
+a long justification costs lines per month, not per day.
+
 ### Telemetry label convention
 
 `sc_goal` and `sc_justify` carry one label per aggressor/target pair, always
 `<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The
-catalog writes the `sc_goal` labels by hand; `sc_justify` is generated from the
-same pair by `core/tools/extract_arc_hooks.py`, which lowercases. Both must
+catalog writes both label sets by hand in the s7 telemetry; both must
 match exactly, or one arc reads as two keys when a session is grepped.
 
 - `sc_goal` logs wargoals in **both** directions, so it also holds

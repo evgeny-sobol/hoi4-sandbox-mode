@@ -1,0 +1,46 @@
+# Arc 3: Militarist Japan scenario
+
+id = "militarist_japan_scenario"
+number = 3
+status = "ready"
+aggressor = "JAP"
+key = "militarist_japan"
+
+targets = { a = ["CHI", "AST"], b = ["SOV", "MON"] }
+
+notes = """
+The historical arc: Japan tightens its hold on Manchuria and northern China,
+then turns on its rivals across the continent and the Pacific. The variant roll
+picks the southward pair (CHI, AST) or the strike-north pair (SOV, MON); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
+"""
+
+[ladder]
+crises_at_month = 12
+peak_at_month = 24
+crises_func = "sandbox_fire_militarist_japan_crises"
+peak_func = "sandbox_fire_militarist_japan_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+invite_event = "sandbox_militarist_japan.4"
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "JAP_reinforce_the_beijing_garrison",
+  "JAP_new_order_in_east_asia",
+  "JAP_sea_greater_east_asian_co_properity_sphere",
+  "JAP_nanshin_ron"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "JAP_ensure_temporary_peace_with_china",
+  "JAP_formalize_japan_china_manchukuo_alliance",
+  "JAP_sea_greater_east_asian_co_properity_sphere",
+  "JAP_hokushin_ron"
+]
