@@ -27,3 +27,7 @@ sandbox_scenario:
     name(napoleonic_france)
     text("RULE_OPTION_SANDBOX_NAPOLEONIC_FRANCE")
     desc("RULE_OPTION_SANDBOX_NAPOLEONIC_FRANCE_DESC")
+  option:
+    name(monarchical_great_britain)
+    text("RULE_OPTION_SANDBOX_MONARCHICAL_GREAT_BRITAIN")
+    desc("RULE_OPTION_SANDBOX_MONARCHICAL_GREAT_BRITAIN_DESC")

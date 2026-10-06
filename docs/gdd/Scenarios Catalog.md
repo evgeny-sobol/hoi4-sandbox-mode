@@ -417,3 +417,58 @@ flowchart TD
         FRA_firepower_kills x--x FRA_methodical_battle
     end
 ```
+
+## United Kingdom
+
+| # | Aggressor | Arc | Variant a | Variant b | Variant c | Variant d | Key focuses | Status |
+|---|---|---|---|---|---|---|---|---|
+| 6 | ENG | Monarchical great britain scenario | ITA, IRE | JAP, IRE | SOV, IRE | USA, IRE | `consolidate_the_british_isles`, `take_out_the_regia_marina`, `consolidate_the_british_isles`, `bring_the_dominions_back_into_the_fold`, `consolidate_the_british_isles`, `imperial_conscription`, `pre_empt_the_ideological_threat`, `consolidate_the_british_isles`, `unite_the_anglosphere` | ready |
+
+### Arc 6: Monarchical great britain scenario
+
+The non-historical arc.
+
+**Telemetry labels**: `sc_goal`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa, ire_on_eng, ita_on_eng, jap_on_eng, sov_on_eng, usa_on_eng; `sc_justify`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa.
+
+```mermaid
+flowchart TD
+    subgraph arc6
+        ENG_a_change_in_course(["ENG_a_change_in_course"])
+        ENG_alliance_with_germany["ENG_alliance_with_germany"]
+        ENG_appeal_to_imperial_loyalists["ENG_appeal_to_imperial_loyalists"]
+        ENG_bring_the_dominions_back_into_the_fold[["ENG_bring_the_dominions_back_into_the_fold"]]
+        ENG_ceylon_forward_operating_base["ENG_ceylon_forward_operating_base"]
+        ENG_consolidate_the_british_isles[["ENG_consolidate_the_british_isles"]]
+        ENG_god_save_the_king["ENG_god_save_the_king"]
+        ENG_imperial_conscription[["ENG_imperial_conscription"]]
+        ENG_isolate_the_mediterranean_threat["ENG_isolate_the_mediterranean_threat"]
+        ENG_noninterference_treaty_with_germany["ENG_noninterference_treaty_with_germany"]
+        ENG_organize_the_blackshirts["ENG_organize_the_blackshirts"]
+        ENG_pre_empt_the_ideological_threat[["ENG_pre_empt_the_ideological_threat"]]
+        ENG_reassess_continental_commitments["ENG_reassess_continental_commitments"]
+        ENG_take_out_the_regia_marina[["ENG_take_out_the_regia_marina"]]
+        ENG_the_kings_party["ENG_the_kings_party"]
+        ENG_unite_the_anglosphere[["ENG_unite_the_anglosphere"]]
+        ENG_a_change_in_course --> ENG_organize_the_blackshirts
+        ENG_a_change_in_course --> ENG_the_kings_party
+        ENG_alliance_with_germany --> ENG_take_out_the_regia_marina
+        ENG_appeal_to_imperial_loyalists --> ENG_bring_the_dominions_back_into_the_fold
+        ENG_bring_the_dominions_back_into_the_fold --> ENG_unite_the_anglosphere
+        ENG_ceylon_forward_operating_base --> ENG_imperial_conscription
+        ENG_god_save_the_king --> ENG_appeal_to_imperial_loyalists
+        ENG_god_save_the_king --> ENG_ceylon_forward_operating_base
+        ENG_god_save_the_king --> ENG_consolidate_the_british_isles
+        ENG_imperial_conscription --> ENG_pre_empt_the_ideological_threat
+        ENG_imperial_conscription --> ENG_unite_the_anglosphere
+        ENG_isolate_the_mediterranean_threat --> ENG_alliance_with_germany
+        ENG_isolate_the_mediterranean_threat --> ENG_noninterference_treaty_with_germany
+        ENG_noninterference_treaty_with_germany --> ENG_take_out_the_regia_marina
+        ENG_organize_the_blackshirts --> ENG_god_save_the_king
+        ENG_reassess_continental_commitments --> ENG_isolate_the_mediterranean_threat
+        ENG_take_out_the_regia_marina --> ENG_pre_empt_the_ideological_threat
+        ENG_the_kings_party --> ENG_god_save_the_king
+        ENG_the_kings_party --> ENG_reassess_continental_commitments
+        ENG_alliance_with_germany x--x ENG_noninterference_treaty_with_germany
+        ENG_organize_the_blackshirts x--x ENG_the_kings_party
+    end
+```

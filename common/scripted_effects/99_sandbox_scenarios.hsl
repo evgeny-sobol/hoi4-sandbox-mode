@@ -2,7 +2,7 @@
 # once at on_startup in HAI scope; the ladder tick runs monthly.
 # State (globals, all 0 until picked):
 #   sandbox_scenario: 0 none, 1 nazi_germany, 2 fascist_italy, 3 militarist_japan, 4 soviet_west,
-#     5 napoleonic_france, 6 usa_warplan (7 reserved)
+#     5 napoleonic_france, 6 monarchical_great_britain (7 reserved)
 #   sandbox_scenario_phase: 0 smolder, 1 crises, 2 peak, 3 ended
 #   sandbox_scenario_pin: 0 random, 1 pinned to the picked arc
 #   sandbox_derailed_arcs[]: ids that derailed this session
@@ -23,11 +23,7 @@ sandbox_set_targets():
   if global.sandbox_scenario == 5:
     gen_napoleonic_france_scenario_set_targets()
   if global.sandbox_scenario == 6:
-    if global.sandbox_target_variant == 0:
-      global.&sandbox_targets[].add(JAP)
-    else:
-      global.&sandbox_targets[].add(ENG)
-      global.&sandbox_targets[].add(CAN)
+    gen_monarchical_great_britain_scenario_set_targets()
 
 # Hand-written arc hooks for the shared on_actions skeleton. The two
 # generated hooks (wargoal_expire / justify) live in
@@ -52,6 +48,7 @@ sandbox_pick_scenario():
   gen_militarist_japan_scenario_pin()
   gen_soviet_west_scenario_pin()
   gen_napoleonic_france_scenario_pin()
+  gen_monarchical_great_britain_scenario_pin()
   if global.sandbox_scenario_pin == 0:
     # Random pick (default): equal roll over eligible arcs (aggressor exists).
     global.&sandbox_scenario_pin = 0
@@ -61,6 +58,7 @@ sandbox_pick_scenario():
     gen_militarist_japan_scenario_eligible()
     gen_soviet_west_scenario_eligible()
     gen_napoleonic_france_scenario_eligible()
+    gen_monarchical_great_britain_scenario_eligible()
     if eligible[].size() == 0:
       global.&sandbox_scenario = 0
     else:
@@ -76,6 +74,7 @@ sandbox_pick_scenario():
   gen_militarist_japan_scenario_roll_variant()
   gen_soviet_west_scenario_roll_variant()
   gen_napoleonic_france_scenario_roll_variant()
+  gen_monarchical_great_britain_scenario_roll_variant()
   sandbox_set_targets()
   sandbox_seed_actors()
   gen_nazi_germany_scenario_pick_log()
@@ -83,8 +82,7 @@ sandbox_pick_scenario():
   gen_militarist_japan_scenario_pick_log()
   gen_soviet_west_scenario_pick_log()
   gen_napoleonic_france_scenario_pick_log()
-  if global.sandbox_scenario == 6:
-    $sandbox_log_sc(sc_pick, usa_warplan)
+  gen_monarchical_great_britain_scenario_pick_log()
   $sandbox_log_sc(sc_phase, smolder)
   sandbox_scenario_log_variant()
 
@@ -96,6 +94,7 @@ sandbox_scenario_log_variant():
   gen_militarist_japan_scenario_log_variant()
   gen_soviet_west_scenario_log_variant()
   gen_napoleonic_france_scenario_log_variant()
+  gen_monarchical_great_britain_scenario_log_variant()
 
 # docs/gdd/Scenarios.md "Selection": repick after a derail on random.
 sandbox_scenario_maybe_repick():
@@ -148,6 +147,7 @@ sandbox_scenario_maybe_repick():
       gen_militarist_japan_scenario_roll_variant()
       gen_soviet_west_scenario_roll_variant()
       gen_napoleonic_france_scenario_roll_variant()
+      gen_monarchical_great_britain_scenario_roll_variant()
       sandbox_set_targets()
       sandbox_seed_actors()
       if global.sandbox_scenario == 1:
@@ -166,8 +166,8 @@ sandbox_scenario_maybe_repick():
         $sandbox_log_sc(sc_repick, napoleonic_france)
         $sandbox_log_sc(sc_pick, napoleonic_france)
       if global.sandbox_scenario == 6:
-        $sandbox_log_sc(sc_repick, usa_warplan)
-        $sandbox_log_sc(sc_pick, usa_warplan)
+        $sandbox_log_sc(sc_repick, monarchical_great_britain)
+        $sandbox_log_sc(sc_pick, monarchical_great_britain)
       $sandbox_log_sc(sc_phase, smolder)
       sandbox_scenario_log_variant()
 
@@ -186,8 +186,7 @@ sandbox_seed_actors():
   if global.sandbox_scenario == 5:
     gen_napoleonic_france_scenario_seed()
   if global.sandbox_scenario == 6:
-    USA:
-      sandbox_seed_from_targets()
+    gen_monarchical_great_britain_scenario_seed()
 
 # Runs in the aggressor's scope. Each live target slot is seeded as a
 # rival and both sides record scenario_enemies[]. Body lives in the shared
@@ -211,14 +210,7 @@ sandbox_scenario_tick():
   gen_militarist_japan_scenario_tick()
   gen_soviet_west_scenario_tick()
   gen_napoleonic_france_scenario_tick()
-  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
-    global.&sandbox_scenario_phase = 1
-    $sandbox_log_sc(sc_phase, crises)
-    sandbox_fire_usa_warplan_crises()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
-    global.&sandbox_scenario_phase = 2
-    $sandbox_log_sc(sc_phase, peak)
-    sandbox_fire_usa_warplan_peak()
+  gen_monarchical_great_britain_scenario_tick()
   sandbox_scenario_s7_telemetry()
 
 # Shared join-2.0 helper: industry snapshot for the scorer. Body lives in
@@ -512,67 +504,104 @@ sandbox_fire_napoleonic_france_peak():
     FRA:
       sandbox_select_napoleonic_france_joiners()
 
-# Crises phase for usa_warplan: provocation lands on the aggressor's desk.
-sandbox_fire_usa_warplan_crises():
+# Crises phase for monarchical_great_britain: provocation lands on the aggressor's desk.
+sandbox_fire_monarchical_great_britain_crises():
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1:
-    USA:
-      if country_exists(JAP) and not USA->has_war_with(JAP):
-        USA:
+    ENG:
+      if country_exists(IRE) and not ENG->has_war_with(IRE):
+        ENG:
           country_event:
-            id(sandbox_usa_warplan.1)
+            id(sandbox_monarchical_great_britain.1)
 
-# Peak phase for usa_warplan: ultimatums to the chosen targets, then join offers.
-sandbox_fire_usa_warplan_peak():
+# Peak phase for monarchical_great_britain: ultimatums to the chosen targets, then join offers.
+sandbox_fire_monarchical_great_britain_peak():
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == 0:
+      if country_exists(ITA):
+        ITA:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, ita_gone)
+      if country_exists(ITA) and not ENG->has_war_with(ITA):
+        ITA:
+          country_event:
+            id(sandbox_monarchical_great_britain.2)
+      if country_exists(IRE):
+        IRE:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, ire_gone)
+      if country_exists(IRE) and not ENG->has_war_with(IRE):
+        IRE:
+          country_event:
+            id(sandbox_monarchical_great_britain.3)
+    elif global.sandbox_target_variant == 1:
       if country_exists(JAP):
         JAP:
-          $sandbox_log_target_status(USA)
+          $sandbox_log_target_status(ENG)
       else:
-        USA:
+        ENG:
           $sandbox_log_sc(sc_target, jap_gone)
-      if country_exists(JAP) and not USA->has_war_with(JAP):
+      if country_exists(JAP) and not ENG->has_war_with(JAP):
         JAP:
           country_event:
-            id(sandbox_usa_warplan.2)
+            id(sandbox_monarchical_great_britain.2)
+      if country_exists(IRE):
+        IRE:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, ire_gone)
+      if country_exists(IRE) and not ENG->has_war_with(IRE):
+        IRE:
+          country_event:
+            id(sandbox_monarchical_great_britain.3)
+    elif global.sandbox_target_variant == 2:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, sov_gone)
+      if country_exists(SOV) and not ENG->has_war_with(SOV):
+        SOV:
+          country_event:
+            id(sandbox_monarchical_great_britain.2)
+      if country_exists(IRE):
+        IRE:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, ire_gone)
+      if country_exists(IRE) and not ENG->has_war_with(IRE):
+        IRE:
+          country_event:
+            id(sandbox_monarchical_great_britain.3)
     else:
-      if country_exists(ENG):
-        ENG:
-          $sandbox_log_target_status(USA)
-      else:
+      if country_exists(USA):
         USA:
-          $sandbox_log_sc(sc_target, eng_gone)
-      if country_exists(ENG) and not USA->has_war_with(ENG):
-        ENG:
-          country_event:
-            id(sandbox_usa_warplan.2)
-      if country_exists(CAN):
-        CAN:
-          $sandbox_log_target_status(USA)
+          $sandbox_log_target_status(ENG)
       else:
+        ENG:
+          $sandbox_log_sc(sc_target, usa_gone)
+      if country_exists(USA) and not ENG->has_war_with(USA):
         USA:
-          $sandbox_log_sc(sc_target, can_gone)
-      if country_exists(CAN) and not USA->has_war_with(CAN):
-        CAN:
           country_event:
-            id(sandbox_usa_warplan.3)
-    USA:
-      sandbox_select_usa_warplan_joiners()
-
-# Join levers for usa_warplan: open-pool top-2 by scenario_join_scorer.
-sandbox_select_usa_warplan_joiners():
-  sandbox_snapshot_join_industry()
-  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
-  if scenario_join_scores[0] > 0:
-    var:scenario_join_candidates[0]:
-      country_event:
-        id(sandbox_usa_warplan.4)
-      $sandbox_log_sc(sc_offer, invited)
-  if scenario_join_scores[1] > 0:
-    var:scenario_join_candidates[1]:
-      country_event:
-        id(sandbox_usa_warplan.4)
-      $sandbox_log_sc(sc_offer, invited)
+            id(sandbox_monarchical_great_britain.2)
+      if country_exists(IRE):
+        IRE:
+          $sandbox_log_target_status(ENG)
+      else:
+        ENG:
+          $sandbox_log_sc(sc_target, ire_gone)
+      if country_exists(IRE) and not ENG->has_war_with(IRE):
+        IRE:
+          country_event:
+            id(sandbox_monarchical_great_britain.3)
+    ENG:
+      sandbox_select_monarchical_great_britain_joiners()
 
 # s7 diagnostic (read-only): monthly strength + wargoal snapshot.
 sandbox_scenario_s7_telemetry():
@@ -587,45 +616,7 @@ sandbox_scenario_s7_telemetry():
   if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3:
     gen_napoleonic_france_scenario_telemetry()
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3:
-    if global.sandbox_target_variant == 0:
-      USA:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(JAP):
-        JAP:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-      USA:
-        if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
-          $sandbox_log_sc(sc_goal, usa_on_jap)
-        if is_justifying_wargoal_against(JAP):
-          $sandbox_log_sc(sc_justify, usa_on_jap)
-    else:
-      USA:
-        sc_div = num_divisions
-        sc_fab = num_of_factories
-        $sandbox_log_sc_power()
-      if country_exists(ENG):
-        ENG:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-      if country_exists(CAN):
-        CAN:
-          sc_div = num_divisions
-          sc_fab = num_of_factories
-          $sandbox_log_sc_power()
-      USA:
-        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, usa_on_eng)
-        if is_justifying_wargoal_against(ENG):
-          $sandbox_log_sc(sc_justify, usa_on_eng)
-        if has_wargoal_against(CAN) or is_justifying_wargoal_against(CAN):
-          $sandbox_log_sc(sc_goal, usa_on_can)
-        if is_justifying_wargoal_against(CAN):
-          $sandbox_log_sc(sc_justify, usa_on_can)
+    gen_monarchical_great_britain_scenario_telemetry()
 
 sandbox_log_scenario_success():
   if global.sandbox_scenario == 1:
@@ -649,9 +640,9 @@ sandbox_log_scenario_success():
     $sandbox_log_sc(sc_success, napoleonic_france_war)
     $sandbox_log_sc(sc_end, napoleonic_france_war)
   elif global.sandbox_scenario == 6:
-    $sandbox_log_sc(sc_ignite, usa_warplan_war)
-    $sandbox_log_sc(sc_success, usa_warplan_war)
-    $sandbox_log_sc(sc_end, usa_warplan_war)
+    $sandbox_log_sc(sc_ignite, monarchical_great_britain_war)
+    $sandbox_log_sc(sc_success, monarchical_great_britain_war)
+    $sandbox_log_sc(sc_end, monarchical_great_britain_war)
 
 # docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario
 # enemies ignites the arc (symmetric). Two paths share the log table:
@@ -677,7 +668,7 @@ sandbox_scenario_check_ignite_by_war():
       FRA:
         sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 6:
-      USA:
+      ENG:
         sandbox_ignite_if_at_war()
 
 # docs/gdd/Scenarios.md "Lifecycle": an aggressor stuck in a civil war
@@ -700,7 +691,7 @@ sandbox_scenario_check_civil_war_derail():
       FRA:
         $sandbox_check_aggressor_civil_war()
     elif global.sandbox_scenario == 6:
-      USA:
+      ENG:
         $sandbox_check_aggressor_civil_war()
 
 # docs/gdd/Scenarios.md "Lifecycle": derail dispatcher.
@@ -719,18 +710,6 @@ sandbox_scenario_check_derail():
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
     gen_napoleonic_france_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
-    if not country_exists(USA):
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, usa_gone)
-      $sandbox_log_sc(sc_end, usa_gone)
-    elif USA->has_capitulated():
-      global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, usa_capitulated)
-      $sandbox_log_sc(sc_end, usa_capitulated)
-    else:
-      if global.sandbox_target_variant == 0:
-        $sandbox_check_targets_derail1(USA, JAP)
-      else:
-        $sandbox_check_targets_derail2(USA, ENG, CAN)
+    gen_monarchical_great_britain_scenario_derail()
   if phase_before < 3 and global.sandbox_scenario_phase == 3:
     sandbox_scenario_maybe_repick()

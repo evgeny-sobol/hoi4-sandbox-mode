@@ -798,3 +798,270 @@ sandbox_select_napoleonic_france_joiners():
       $sandbox_log_sc(sc_offer, invited)
   global.&scenario_join_same_ideology = 0
   global.&scenario_join_same_continent = 0
+
+gen_monarchical_great_britain_scenario_set_targets():
+  if global.sandbox_target_variant == 0:
+    global.&sandbox_targets[].add(ITA)
+    global.&sandbox_targets[].add(IRE)
+  elif global.sandbox_target_variant == 1:
+    global.&sandbox_targets[].add(JAP)
+    global.&sandbox_targets[].add(IRE)
+  elif global.sandbox_target_variant == 2:
+    global.&sandbox_targets[].add(SOV)
+    global.&sandbox_targets[].add(IRE)
+  else:
+    global.&sandbox_targets[].add(USA)
+    global.&sandbox_targets[].add(IRE)
+
+gen_monarchical_great_britain_scenario_seed():
+  ENG:
+    sandbox_seed_from_targets()
+
+gen_monarchical_great_britain_scenario_tick():
+  if global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 10:
+    global.&sandbox_scenario_phase = 1
+    $sandbox_log_sc(sc_phase, crises)
+    sandbox_fire_monarchical_great_britain_crises()
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 20:
+    if global.sandbox_target_variant == 0:
+      ENG:
+        if has_completed_focus(ENG_take_out_the_regia_marina):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif ENG->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif global.sandbox_scenario_arc_months >= 32:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+    elif global.sandbox_target_variant == 1:
+      ENG:
+        if has_completed_focus(ENG_bring_the_dominions_back_into_the_fold):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif ENG->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif global.sandbox_scenario_arc_months >= 32:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+    elif global.sandbox_target_variant == 2:
+      ENG:
+        if has_completed_focus(ENG_pre_empt_the_ideological_threat):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif ENG->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif global.sandbox_scenario_arc_months >= 32:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+    else:
+      ENG:
+        if has_completed_focus(ENG_unite_the_anglosphere):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif ENG->is_ai(no):
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+        elif global.sandbox_scenario_arc_months >= 32:
+          global.&sandbox_scenario_phase = 2
+          $sandbox_log_sc(sc_phase, peak)
+          sandbox_fire_monarchical_great_britain_peak()
+
+gen_monarchical_great_britain_scenario_roll_variant():
+  if global.sandbox_scenario == 6:
+    variant_roll = randi(0, 3)
+    if variant_roll == 0:
+      global.&sandbox_target_variant = 0
+    elif variant_roll == 1:
+      global.&sandbox_target_variant = 1
+    elif variant_roll == 2:
+      global.&sandbox_target_variant = 2
+    else:
+      global.&sandbox_target_variant = 3
+
+gen_monarchical_great_britain_scenario_log_variant():
+  if global.sandbox_scenario == 6 and global.sandbox_target_variant == 0:
+    $sandbox_log_sc(sc_variant, a)
+  elif global.sandbox_scenario == 6 and global.sandbox_target_variant == 1:
+    $sandbox_log_sc(sc_variant, b)
+  elif global.sandbox_scenario == 6 and global.sandbox_target_variant == 2:
+    $sandbox_log_sc(sc_variant, c)
+  elif global.sandbox_scenario == 6 and global.sandbox_target_variant == 3:
+    $sandbox_log_sc(sc_variant, d)
+
+gen_monarchical_great_britain_scenario_telemetry():
+  if global.sandbox_target_variant == 0:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(ITA):
+      ITA:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ita_on_eng)
+    if country_exists(IRE):
+      IRE:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ire_on_eng)
+    ENG:
+      if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+        $sandbox_log_sc(sc_goal, eng_on_ita)
+      if is_justifying_wargoal_against(ITA):
+        $sandbox_log_sc(sc_justify, eng_on_ita)
+      if has_wargoal_against(IRE) or is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_goal, eng_on_ire)
+      if is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_justify, eng_on_ire)
+  elif global.sandbox_target_variant == 1:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(JAP):
+      JAP:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, jap_on_eng)
+    if country_exists(IRE):
+      IRE:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ire_on_eng)
+    ENG:
+      if has_wargoal_against(JAP) or is_justifying_wargoal_against(JAP):
+        $sandbox_log_sc(sc_goal, eng_on_jap)
+      if is_justifying_wargoal_against(JAP):
+        $sandbox_log_sc(sc_justify, eng_on_jap)
+      if has_wargoal_against(IRE) or is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_goal, eng_on_ire)
+      if is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_justify, eng_on_ire)
+  elif global.sandbox_target_variant == 2:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(SOV):
+      SOV:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, sov_on_eng)
+    if country_exists(IRE):
+      IRE:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ire_on_eng)
+    ENG:
+      if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_goal, eng_on_sov)
+      if is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_justify, eng_on_sov)
+      if has_wargoal_against(IRE) or is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_goal, eng_on_ire)
+      if is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_justify, eng_on_ire)
+  else:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(USA):
+      USA:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, usa_on_eng)
+    if country_exists(IRE):
+      IRE:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ire_on_eng)
+    ENG:
+      if has_wargoal_against(USA) or is_justifying_wargoal_against(USA):
+        $sandbox_log_sc(sc_goal, eng_on_usa)
+      if is_justifying_wargoal_against(USA):
+        $sandbox_log_sc(sc_justify, eng_on_usa)
+      if has_wargoal_against(IRE) or is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_goal, eng_on_ire)
+      if is_justifying_wargoal_against(IRE):
+        $sandbox_log_sc(sc_justify, eng_on_ire)
+
+gen_monarchical_great_britain_scenario_derail():
+  if not country_exists(ENG):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, eng_gone)
+    $sandbox_log_sc(sc_end, eng_gone)
+  elif ENG->has_capitulated():
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, eng_capitulated)
+    $sandbox_log_sc(sc_end, eng_capitulated)
+  else:
+    if global.sandbox_target_variant == 0:
+      $sandbox_check_targets_derail2(ENG, ITA, IRE)
+    elif global.sandbox_target_variant == 1:
+      $sandbox_check_targets_derail2(ENG, JAP, IRE)
+    elif global.sandbox_target_variant == 2:
+      $sandbox_check_targets_derail2(ENG, SOV, IRE)
+    else:
+      $sandbox_check_targets_derail2(ENG, USA, IRE)
+
+gen_monarchical_great_britain_scenario_pin():
+  if sandbox_scenario_pin_is_monarchical_great_britain():
+    global.&sandbox_scenario_pin = 1
+    global.&sandbox_scenario = 6
+
+gen_monarchical_great_britain_scenario_eligible():
+  if country_exists(ENG):
+    eligible[].add(6)
+
+gen_monarchical_great_britain_scenario_pick_log():
+  if global.sandbox_scenario == 6:
+    $sandbox_log_sc(sc_pick, monarchical_great_britain)
+
+sandbox_select_monarchical_great_britain_joiners():
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
+  sandbox_snapshot_join_industry()
+  get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
+  if scenario_join_scores[0] > 0:
+    var:scenario_join_candidates[0]:
+      country_event:
+        id(sandbox_monarchical_great_britain.4)
+      $sandbox_log_sc(sc_offer, invited)
+  if scenario_join_scores[1] > 0:
+    var:scenario_join_candidates[1]:
+      country_event:
+        id(sandbox_monarchical_great_britain.4)
+      $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0

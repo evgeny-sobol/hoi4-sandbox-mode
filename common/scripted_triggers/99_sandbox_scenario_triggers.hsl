@@ -10,3 +10,5 @@ sandbox_scenario_pin_is_soviet_west:
   raw has_game_rule: { rule = sandbox_scenario option = soviet_west }
 sandbox_scenario_pin_is_napoleonic_france:
   raw has_game_rule: { rule = sandbox_scenario option = napoleonic_france }
+sandbox_scenario_pin_is_monarchical_great_britain:
+  raw has_game_rule: { rule = sandbox_scenario option = monarchical_great_britain }

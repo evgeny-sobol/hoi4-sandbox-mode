@@ -42,8 +42,14 @@ sandbox_arc_wargoal_expire_hook():
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 6:
     if global.sandbox_target_variant == 0:
-      if tag(USA | JAP):
+      if tag(ENG | ITA | IRE):
+        $sandbox_log_sc(sc_goal_end, goal_expired)
+    elif global.sandbox_target_variant == 1:
+      if tag(ENG | JAP | IRE):
+        $sandbox_log_sc(sc_goal_end, goal_expired)
+    elif global.sandbox_target_variant == 2:
+      if tag(ENG | SOV | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(USA | ENG | CAN):
+      if tag(ENG | USA | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
