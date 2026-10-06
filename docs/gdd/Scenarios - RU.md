@@ -1,4 +1,4 @@
-<!-- source: 2d17a6c7fd23a677998917138e92e99278b080bd -->
+<!-- source: a5c0c073a00b6a655ce8209702f5586e5a841bb3 -->
 # Scenarios - RU
 
 Sandbox-only директор, дающий каждой сессии кризис, в котором жить: на старте он выбирает одну **арку** (правдоподобный конфликт 1930-х), роллит ее target variant, сидит агрессора против целей и прогоняет трехрунговую лестницу, толкающую ИИ к войне. Игрок либо втягивается, либо смотрит, как горит мир. Система спроектирована переиспользовать остальные sandbox-механики (Honor, Tyranny, Rivals, Civil Wars, National Focuses), а не добавлять новые.
@@ -53,8 +53,15 @@ select = "top_n_by_scorer"
 n = 2
 
 [gate]                      # optional; absent means no gate
+# Derail pair (optional): park the arc when the aggressor is off ideology.
 ideology = "fascism"
 at_phase = "crises"
+# Hold set (optional, all three together): freeze the arc clock while the
+# aggressor is not yet on hold_ideology, then run the ladder; if it never
+# changes, park the arc after hold_max_months months with hold_reason.
+hold_ideology = "neutrality"
+hold_max_months = 30
+hold_reason = "no_regime_change"
 
 # Ordered focus paths: each table runs from a branch entry to a war leaf and
 # declares the variants it serves (absent means shared across all variants).
