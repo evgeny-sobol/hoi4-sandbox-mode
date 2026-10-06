@@ -9,13 +9,18 @@ key = "monarchical_great_britain"
 targets = { a = ["ITA", "IRE"], b = ["JAP", "IRE"], c = ["SOV", "IRE"], d = ["USA", "IRE"] }
 
 suppress = [
+  "ENG_organize_the_blackshirts",
   "ENG_revisit_colonial_policy",
   "ENG_steady_as_she_goes",
   "ENG_concessions_to_the_trade_unions"
 ]
 
 notes = """
-The non-historical arc.
+The non-historical arc: Britain turns to the Crown, consolidates the Isles,
+then presses its chosen rival among the great powers. The variant roll picks
+the rival pair - Italy, Japan, the Soviets or the United States - always beside
+Ireland; the ladder releases claims and incidents at the crises rung and
+ultimatums plus join offers at peak.
 """
 
 [ladder]

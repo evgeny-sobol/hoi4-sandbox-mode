@@ -9,6 +9,7 @@ key = "napoleonic_france"
 targets = { a = ["BEL", "HOL", "LUX"] }
 
 suppress = [
+  "FRA_defensive_focus",
   "FRA_form_the_popular_front",
   "FRA_review_foreign_policy",
   "FRA_national_regeneration",

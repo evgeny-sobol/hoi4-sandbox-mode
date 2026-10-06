@@ -200,13 +200,11 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_suppress()
       +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(FRA_defensive_focus)
 
 
   focus[id = FRA_aggressive_focus]:

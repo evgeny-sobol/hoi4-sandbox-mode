@@ -426,7 +426,11 @@ flowchart TD
 
 ### Arc 6: Monarchical great britain scenario
 
-The non-historical arc.
+The non-historical arc: Britain turns to the Crown, consolidates the Isles,
+then presses its chosen rival among the great powers. The variant roll picks
+the rival pair - Italy, Japan, the Soviets or the United States - always beside
+Ireland; the ladder releases claims and incidents at the crises rung and
+ultimatums plus join offers at peak.
 
 **Telemetry labels**: `sc_goal`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa, ire_on_eng, ita_on_eng, jap_on_eng, sov_on_eng, usa_on_eng; `sc_justify`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa.
 
