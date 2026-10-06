@@ -100,3 +100,29 @@ After this change, an analyst can tell "the arc applied pressure" from "the arc 
 - Changing the sampling cadence of the diagnostic package; that is issue 15.
 - Changing tag-drift handling; that is issue 14.
 - Adding new diagnostic line types.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 13
+(same arc-1 run as check 22).
+
+### Attempt 2026-10-01: partial (the run ignited, but off the peak)
+
+Pinned arc 1, 1936.1-1937.11. The ignition came through the event path with the
+goal probe silent, which is the ticket's core claim:
+
+```
+1937.1.1  GER sc_crisis sudeten_unrest   sc=1 phase=1 t=12
+1937.11.1 GER sc_ignite axis_war         sc=1 phase=3 t=22
+```
+
+Zero `sc_goal`, `sc_justify` and `sc_goal_end` lines for the whole session,
+while the arc escalated and then ignited. That supports the "goal probe is
+wargoal-only, crisis lines carry the event-path pressure" reading.
+
+It does **not** yet show per-target crisis lines at peak: GER warred a declared
+target at month 22, before the peak at month 24, so the per-target ultimata
+(`sandbox_axis.2`/`.3`) never fired (the same obstacle as issue 22). The GDD
+coverage rule and the acceptance-checklist wording can be written from this
+evidence, but the per-target coverage box should be confirmed by a run that
+reaches the peak.

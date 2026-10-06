@@ -205,3 +205,14 @@ scenario_join_scorer:
       modifier:
         factor(0)
         has_enemy_ideology_with_FROM()
+      # Join filters (docs/adr/0005): per-call global flags set by the joiners
+      # selection function. Off (0) means no filter; on, the gate drops
+      # candidates that fail the condition.
+      modifier:
+        factor(0)
+        global.scenario_join_same_ideology > 0
+        not has_same_ideology_as_FROM()
+      modifier:
+        factor(0)
+        global.scenario_join_same_continent > 0
+        not is_on_same_continent_as(FROM)

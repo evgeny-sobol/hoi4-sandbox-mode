@@ -1,0 +1,106 @@
+# docs/gdd/Scenarios Catalog.md: arc events for monarchical_great_britain.
+add_namespace(sandbox_monarchical_great_britain)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_monarchical_great_britain.1)
+  title(sandbox_monarchical_great_britain_1_t)
+  desc(sandbox_monarchical_great_britain_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_monarchical_great_britain_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, monarchical_great_britain_crisis)
+    $sandbox_add_rivalry_vs(IRE, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_monarchical_great_britain_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (the variant's rival: ITA | JAP | SOV | USA).
+country_event:
+  id(sandbox_monarchical_great_britain.2)
+  title(sandbox_monarchical_great_britain_2_t)
+  desc(sandbox_monarchical_great_britain_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA | JAP | SOV | USA)
+  option:
+    name(sandbox_monarchical_great_britain_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, monarchical_great_britain_ult_2_submit)
+  option:
+    name(sandbox_monarchical_great_britain_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, monarchical_great_britain_ult_2_defy)
+
+# Ultimatum 3 (Ireland, in every variant).
+country_event:
+  id(sandbox_monarchical_great_britain.3)
+  title(sandbox_monarchical_great_britain_3_t)
+  desc(sandbox_monarchical_great_britain_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(IRE)
+  option:
+    name(sandbox_monarchical_great_britain_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, monarchical_great_britain_ult_3_submit)
+  option:
+    name(sandbox_monarchical_great_britain_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, monarchical_great_britain_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+country_event:
+  id(sandbox_monarchical_great_britain.4)
+  title(sandbox_monarchical_great_britain_4_t)
+  desc(sandbox_monarchical_great_britain_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(ENG)
+  option:
+    name(sandbox_monarchical_great_britain_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(ENG)
+    ENG:
+      give_military_access(PREV)
+    $add_opinion_modifier(ENG, scenario_ally)
+    $sandbox_log_sc(sc_join, monarchical_great_britain_joined)
+  option:
+    name(sandbox_monarchical_great_britain_4_b)
+    ai_chance:
+      factor(10)

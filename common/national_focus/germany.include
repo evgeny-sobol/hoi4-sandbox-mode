@@ -2583,15 +2583,11 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_cooperation_modifier($CZE)
       +modifier:
         factor(0)
         $CZE in rivals[]
         is_sandbox_mode_on()
-    +completion_reward:
-      $sandbox_log_sc_focus(GER_befriend_czechoslovakia)
 
 
   focus[id = GER_integrate_czechoslovakia]:
@@ -2782,11 +2778,7 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $crossroad_modifier(2)
-    +completion_reward:
-      $sandbox_log_sc_focus(GER_danzig_for_slovakia)
 
 
   focus[id = GER_danzig_or_war]:

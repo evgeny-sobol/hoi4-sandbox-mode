@@ -73,3 +73,26 @@ arc's targets", and an arc can run against a target the engine no longer conside
 - The `sc_goal` silence while the aggressor was actively justifying; that is issue 16.
 - The sampling cadence of the s7 package; that is issue 15.
 - The eligibility rules that pick the targets in the first place.
+
+## Verification run
+
+See `.scratch/scenario-engine-regressions/verification-run.md`, check 14
+(a declared target whose tag drifts).
+
+### Session 2026-10-04: D04 substitution again, plus stale fragment timestamps
+
+Random `nazi_germany` A (CZE/POL declared), peak delayed to t=36 by the
+tail gate, `peak_timeout` at t=48, clean repick to `fascist_italy` B. At
+peak the POL slot logged a live fragment for the second time:
+
+```
+1939.1  CZE sc_target subject + CZE sc_crisis nazi_germany_ult_2_submit (t=36)
+1939.1  D04 sc_target open + D04 sc_crisis nazi_germany_ult_3_defy (t=18!)
+```
+
+Two new details: (1) D04 repeats (seen in r56 before, now vanilla) — the
+pattern is systematic, not a one-off tag; (2) the fragment lines carry a
+stale `t=` (18 vs 36 here, 16 vs 36 for D06) while everything else at peak
+shares the rung timestamp. A neutralized target (CZE subject) still
+received its ultimatum — the peak pressures whoever holds the slot, and
+only the derail arm treats neutralization as removal.

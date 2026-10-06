@@ -1,0 +1,65 @@
+# Arc 7: Fascist United States of America
+
+id = "fascist_america_scenario"
+status = "draft"
+aggressor = "USA"
+key = "fascist_america"
+
+targets = { a = ["CAN", "MEX"] }
+
+suppress = [
+  "USA_continue_the_new_deal",
+  "USA_limited_intervention",
+  "USA_neutrality_act"
+]
+
+notes = """
+The non-historical arc: a fascist America turns on the hemisphere. The name is
+fiction - the vanilla mechanics deliver a non-aligned "American Junta" (the
+civil-war regime), so the join filter reads non-aligned, not fascism. The arc
+holds its clock until that regime change, then releases claims and incidents at
+the crises rung and ultimatums plus join offers at peak.
+"""
+
+[gate]
+hold_ideology = "neutrality"
+hold_max_months = 48
+hold_reason = "no_regime_change"
+
+[ladder]
+crises_at_month = 10
+peak_at_month = 20
+crises_func = "sandbox_fire_fascist_america_crises"
+peak_func = "sandbox_fire_fascist_america_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+require = ["same_ideology"]
+n = 2
+invite_event = "sandbox_fascist_america.4"
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "USA_ally_with_the_silver_shirts",
+  "USA_recruit_the_free_corps",
+  "USA_work_with_the_bund"
+]
+
+[[paths]]
+variants = ["a"]
+after = ["USA_ally_with_the_silver_shirts"]
+focuses = [
+  "USA_voter_registration_act"
+]
+
+[[paths]]
+variants = ["a"]
+after = ["USA_recruit_the_free_corps", "USA_work_with_the_bund"]
+focuses = [
+  "USA_national_prosperity_program",
+  "USA_privatize_the_TVA",
+  "USA_de_regulate_the_banking_sector",
+  "USA_national_employment_strategy",
+  "USA_honor_the_confederacy"
+]

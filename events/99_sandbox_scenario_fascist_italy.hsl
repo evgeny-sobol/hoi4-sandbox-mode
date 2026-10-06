@@ -1,95 +1,93 @@
-# docs/gdd/Scenarios Catalog.md: arc events for italian.
-add_namespace(sandbox_italian)
+# docs/gdd/Scenarios Catalog.md: arc events for fascist_italy.
+add_namespace(sandbox_fascist_italy)
 
 # Crisis: provocation lands on the aggressor's desk.
 country_event:
-  id(sandbox_italian.1)
-  title(sandbox_italian_1_t)
-  desc(sandbox_italian_1_d)
+  id(sandbox_fascist_italy.1)
+  title(sandbox_fascist_italy_1_t)
+  desc(sandbox_fascist_italy_1_d)
   picture(GFX_news_event_002)
   is_triggered_only(yes)
   trigger:
     tag(ITA)
   option:
-    name(sandbox_italian_1_a)
+    name(sandbox_fascist_italy_1_a)
     ai_chance:
       factor(85)
-    $sandbox_log_sc(sc_crisis, italian_crisis)
-    $sandbox_add_rivalry_vs(YUG, 10)
+    $sandbox_log_sc(sc_crisis, fascist_italy_crisis)
+    $sandbox_add_rivalry_vs(ENG, 10)
     add_war_support(0.05)
   option:
-    name(sandbox_italian_1_b)
+    name(sandbox_fascist_italy_1_b)
     ai_chance:
       factor(15)
 
-# Ultimatum 2 (YUG | FRA).
+# Ultimatum 2 (ENG | YUG).
 country_event:
-  id(sandbox_italian.2)
-  title(sandbox_italian_2_t)
-  desc(sandbox_italian_2_d)
+  id(sandbox_fascist_italy.2)
+  title(sandbox_fascist_italy_2_t)
+  desc(sandbox_fascist_italy_2_d)
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
-    tag(YUG | FRA)
+    tag(ENG | YUG)
   option:
-    name(sandbox_italian_2_a)
+    name(sandbox_fascist_italy_2_a)
     ai_chance:
       factor(30)
     add_war_support(-0.10)
     ITA:
       add_war_support(0.05)
-    $sandbox_log_sc(sc_crisis, italian_ult_2_submit)
+    $sandbox_log_sc(sc_crisis, fascist_italy_ult_2_submit)
   option:
-    name(sandbox_italian_2_b)
+    name(sandbox_fascist_italy_2_b)
     ai_chance:
       factor(70)
     add_war_support(0.10)
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
-    $sandbox_log_sc(sc_crisis, italian_ult_2_defy)
+    $sandbox_log_sc(sc_crisis, fascist_italy_ult_2_defy)
 
-# Ultimatum 3 (GRE | ENG).
+# Ultimatum 3 (FRA | SWI).
 country_event:
-  id(sandbox_italian.3)
-  title(sandbox_italian_3_t)
-  desc(sandbox_italian_3_d)
+  id(sandbox_fascist_italy.3)
+  title(sandbox_fascist_italy_3_t)
+  desc(sandbox_fascist_italy_3_d)
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
-    tag(GRE | ENG)
+    tag(FRA | SWI)
   option:
-    name(sandbox_italian_3_a)
+    name(sandbox_fascist_italy_3_a)
     ai_chance:
       factor(30)
     add_war_support(-0.10)
     ITA:
       add_war_support(0.05)
-    $sandbox_log_sc(sc_crisis, italian_ult_3_submit)
+    $sandbox_log_sc(sc_crisis, fascist_italy_ult_3_submit)
   option:
-    name(sandbox_italian_3_b)
+    name(sandbox_fascist_italy_3_b)
     ai_chance:
       factor(70)
     add_war_support(0.10)
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
-    $sandbox_log_sc(sc_crisis, italian_ult_3_defy)
+    $sandbox_log_sc(sc_crisis, fascist_italy_ult_3_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
-# The exit from any old faction is Honor-free (one-shot skip flag, like a
-# released nation). No faction is created: see the note above.
 country_event:
-  id(sandbox_italian.4)
-  title(sandbox_italian_4_t)
-  desc(sandbox_italian_4_d)
+  id(sandbox_fascist_italy.4)
+  title(sandbox_fascist_italy_4_t)
+  desc(sandbox_fascist_italy_4_d)
   picture(GFX_news_event_004)
   is_triggered_only(yes)
   trigger:
     is_ai(yes)
     not is_in_faction_with(ITA)
   option:
-    name(sandbox_italian_4_a)
+    name(sandbox_fascist_italy_4_a)
     ai_chance:
       factor(90)
     if is_in_faction(yes):
@@ -99,8 +97,8 @@ country_event:
     ITA:
       give_military_access(PREV)
     $add_opinion_modifier(ITA, scenario_ally)
-    $sandbox_log_sc(sc_join, italian_joined)
+    $sandbox_log_sc(sc_join, fascist_italy_joined)
   option:
-    name(sandbox_italian_4_b)
+    name(sandbox_fascist_italy_4_b)
     ai_chance:
       factor(10)

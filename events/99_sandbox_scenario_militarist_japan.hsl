@@ -1,0 +1,104 @@
+# docs/gdd/Scenarios Catalog.md: arc events for militarist_japan.
+add_namespace(sandbox_militarist_japan)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_militarist_japan.1)
+  title(sandbox_militarist_japan_1_t)
+  desc(sandbox_militarist_japan_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_militarist_japan_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, militarist_japan_crisis)
+    $sandbox_add_rivalry_vs(CHI, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_militarist_japan_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (CHI | SOV).
+country_event:
+  id(sandbox_militarist_japan.2)
+  title(sandbox_militarist_japan_2_t)
+  desc(sandbox_militarist_japan_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CHI | SOV)
+  option:
+    name(sandbox_militarist_japan_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, militarist_japan_ult_2_submit)
+  option:
+    name(sandbox_militarist_japan_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, militarist_japan_ult_2_defy)
+
+# Ultimatum 3 (AST | MON).
+country_event:
+  id(sandbox_militarist_japan.3)
+  title(sandbox_militarist_japan_3_t)
+  desc(sandbox_militarist_japan_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(AST | MON)
+  option:
+    name(sandbox_militarist_japan_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, militarist_japan_ult_3_submit)
+  option:
+    name(sandbox_militarist_japan_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, militarist_japan_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+country_event:
+  id(sandbox_militarist_japan.4)
+  title(sandbox_militarist_japan_4_t)
+  desc(sandbox_militarist_japan_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(JAP)
+  option:
+    name(sandbox_militarist_japan_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(JAP)
+    JAP:
+      give_military_access(PREV)
+    $add_opinion_modifier(JAP, scenario_ally)
+    $sandbox_log_sc(sc_join, militarist_japan_joined)
+  option:
+    name(sandbox_militarist_japan_4_b)
+    ai_chance:
+      factor(10)

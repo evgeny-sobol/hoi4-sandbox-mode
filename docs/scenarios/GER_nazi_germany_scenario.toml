@@ -1,0 +1,39 @@
+# Arc 1: Axis expansion. Aggressor GER drives a historical
+# confrontation first with CZE and POL, then with FRA and ENG.
+
+id = "nazi_germany_scenario"
+number = 1
+status = "ready"
+aggressor = "GER"
+key = "nazi_germany"
+
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }
+
+notes = """
+The historical arc: Germany remilitarizes, absorbs Austria, pressures
+Czechoslovakia and Poland through ultimatums, then turns on France. The
+variant roll picks the eastern pair (CZE, POL) or the western pair
+(FRA, ENG); the ladder releases claims and incidents at the crises rung
+and ultimatums plus join offers at peak.
+"""
+
+[ladder]
+crises_at_month = 12
+peak_at_month = 24
+crises_func = "sandbox_fire_nazi_germany_crises"
+peak_func = "sandbox_fire_nazi_germany_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+invite_event = "sandbox_nazi_germany.4"
+
+[[paths]]
+focuses = [
+  "GER_remilitarize_the_rhineland",
+  "GER_anschluss",
+  "GER_demand_sudetenland",
+  "GER_danzig_or_war",
+  "GER_around_maginot",
+  "GER_war_with_france"
+]

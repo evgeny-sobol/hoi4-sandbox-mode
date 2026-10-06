@@ -1,0 +1,134 @@
+# docs/gdd/Scenarios Catalog.md: arc events for napoleonic_france.
+add_namespace(sandbox_napoleonic_france)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_napoleonic_france.1)
+  title(sandbox_napoleonic_france_1_t)
+  desc(sandbox_napoleonic_france_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(FRA)
+  option:
+    name(sandbox_napoleonic_france_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_crisis)
+    $sandbox_add_rivalry_vs(BEL, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_napoleonic_france_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (BEL).
+country_event:
+  id(sandbox_napoleonic_france.2)
+  title(sandbox_napoleonic_france_2_t)
+  desc(sandbox_napoleonic_france_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(BEL)
+  option:
+    name(sandbox_napoleonic_france_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    FRA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_2_submit)
+  option:
+    name(sandbox_napoleonic_france_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    FRA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_2_defy)
+
+# Ultimatum 3 (HOL).
+country_event:
+  id(sandbox_napoleonic_france.3)
+  title(sandbox_napoleonic_france_3_t)
+  desc(sandbox_napoleonic_france_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(HOL)
+  option:
+    name(sandbox_napoleonic_france_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    FRA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_3_submit)
+  option:
+    name(sandbox_napoleonic_france_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    FRA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_3_defy)
+
+# Ultimatum 5 (LUX: the arc fields three targets).
+country_event:
+  id(sandbox_napoleonic_france.5)
+  title(sandbox_napoleonic_france_5_t)
+  desc(sandbox_napoleonic_france_5_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(LUX)
+  option:
+    name(sandbox_napoleonic_france_5_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    FRA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_5_submit)
+  option:
+    name(sandbox_napoleonic_france_5_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    FRA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, napoleonic_france_ult_5_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+country_event:
+  id(sandbox_napoleonic_france.4)
+  title(sandbox_napoleonic_france_4_t)
+  desc(sandbox_napoleonic_france_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(FRA)
+  option:
+    name(sandbox_napoleonic_france_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(FRA)
+    FRA:
+      give_military_access(PREV)
+    $add_opinion_modifier(FRA, scenario_ally)
+    $sandbox_log_sc(sc_join, napoleonic_france_joined)
+  option:
+    name(sandbox_napoleonic_france_4_b)
+    ai_chance:
+      factor(10)

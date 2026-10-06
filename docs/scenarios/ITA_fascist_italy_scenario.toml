@@ -1,0 +1,47 @@
+# Arc 2: Fascist Italy expansion
+
+id = "fascist_italy_scenario"
+number = 2
+status = "ready"
+aggressor = "ITA"
+key = "fascist_italy"
+
+targets = { a = ["ENG", "FRA"], b = ["YUG", "SWI"] }
+
+notes = """
+The historical arc: Italy consolidates at home and in Ethiopia, then presses
+its rivals around the Mediterranean. The variant roll picks the western pair
+(ENG, FRA) or the Adriatic-Alpine pair (YUG, SWI); the ladder releases claims
+and incidents at the crises rung and ultimatums plus join offers at peak.
+"""
+
+[ladder]
+crises_at_month = 12
+peak_at_month = 24
+crises_func = "sandbox_fire_fascist_italy_crises"
+peak_func = "sandbox_fire_fascist_italy_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+invite_event = "sandbox_fascist_italy.4"
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "ITA_ethiopian_war_logistics_bba",
+  "ITA_italian_highways_bba",
+  "ITA_culto_del_duce",
+  "ITA_strengthen_the_regime",
+  "ITA_subdue_the_sentinels"
+]
+
+[[paths]]
+variants = ["b"]
+focuses = [
+  "ITA_ethiopian_war_logistics_bba",
+  "ITA_italian_highways_bba",
+  "ITA_culto_del_duce",
+  "ITA_strengthen_the_regime",
+  "ITA_all_roads_lead_to_rome"
+]

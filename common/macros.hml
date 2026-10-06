@@ -204,6 +204,25 @@ macro ai_scenario_focus_boost():
   factor(5)
   is_live_scenario_aggressor()
 
+# Variant-gated form: the boost holds only while the rolled target variant
+# matches. Shared focuses (in every variant's paths) keep the plain form.
+macro ai_scenario_focus_boost_variant(_variant_):
+  factor(5)
+  is_live_scenario_aggressor()
+  global.sandbox_target_variant == _variant_
+
+# Completion-gated form (docs/gdd/Scenarios.md "Paths"): one line per focus in
+# a path entry's `after` list; the boost holds only once all of them are done.
+macro ai_scenario_focus_gate_after(_focus_):
+  has_completed_focus(_focus_)
+
+# Zero-weight form: closes a focus for the AI while the arc is live (for the
+# SOV purge forks it leaves only the_centre). Spec-driven: the arc spec lists
+# the ids in `suppress` (issue 33).
+macro ai_scenario_focus_suppress():
+  factor(0)
+  is_live_scenario_aggressor()
+
 # Civil-war AI (docs/gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
 # be separate modifiers: if the cap trigger fails, that modifier is skipped
 # and a folded factor(0) would also drop the 0.25.
@@ -282,7 +301,7 @@ macro sandbox_log_cw_war(_event_):
   sandbox_log_other = 0
 
 # docs/gdd/Scenarios.md "Hooks and telemetry". Mirrors the cw_ line shape.
-# Arc ids: 0 none, 1 axis_expansion. Phases: 0 smolder, 1 crises, 2 peak.
+# Arc ids are per-mod scenario keys (0 none). Phases: 0 smolder, 1 crises, 2 peak.
 macro sandbox_log_sc(_event_, _id_):
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
     log("#sandbox [GetDateText] [THIS.GetTag] _event_ _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")

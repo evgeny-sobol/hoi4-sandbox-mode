@@ -1,0 +1,240 @@
+# Verification run for the open observer halves (17-22)
+
+Status: ready-to-run
+Scope: one `_sandbox-r56` observer session per check below, or one longer
+session that covers them in sequence.
+
+The source halves of issues 17, 19, 20, 21 and 22 are done and guarded; 13 and
+14 are still open tickets. Each check here turns one `[ ]` observer box into
+`[x]` with a telemetry quote. No code changes are expected from this run; if a
+check fails, file a new issue in the usual place.
+
+## How to steer the run
+
+The scenario is chosen at game start by the game rule `sandbox_scenario`
+(see `common/scripted_triggers/99_sandbox_scenario_triggers.hsl`). Pinning an
+option forces `sandbox_scenario_pin = 1` and the matching arc, so the run does
+not depend on the random pick. Run with the Rt56 mod set and observe as an
+uninvolved country.
+
+The default option `sandbox_random` is the one that permits a repick: the
+repick function (`sandbox_scenario_maybe_repick`) runs only when
+`sandbox_scenario_pin == 0`. A pinned run never repicks, so any check that
+needs a repick must use `sandbox_random`.
+
+| Check | Rule option | Arc | Why this arc |
+|-------|-------------|-----|--------------|
+| 19 | `sandbox_fra_plan_xiv` | 22 | FRA aggressor, inline derail branch (pin guarantees it) |
+| 21 | `sandbox_random` | any | a repick only happens unpinned |
+| 20 | `sandbox_sov_south` | 11 | three targets in both variants |
+| 22 | `sandbox_axis_expansion` | 1 | A-variant peak with CZE and POL |
+| 13 | `sandbox_axis_expansion` | 1 | event-path pressure with no wargoals |
+| 14 | `sandbox_random` | any | watch a target whose tag is split by civil war |
+
+Checks 22 and 13 share the arc-1 run. Check 19 and check 21 do **not** share a
+run: 19 needs the pin, 21 needs the random pick.
+
+## Analyse the log
+
+Always through the extractor, never raw grep:
+
+```
+python "C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56\.scratch\scripts\extract_sandbox.py"
+```
+
+Read `logs/sandbox_extract.txt`. `sc_power` lines are the s7 sampling package;
+every other `sc_*` line is scenario telemetry.
+
+## Check 19: an inline arc parks on a dead aggressor
+
+Arc 22 (`fra_plan_xiv`) is inline in the derail dispatcher, not a named helper.
+Let FRA be defeated while the arc is live (or console-`annex FRA` / let it
+capitulate), after the arc has been picked.
+
+Pass when the extract shows the aggressor arm firing on the inline branch:
+
+```
+<date> HAI sc_derail france_capitulated  sc=22 phase=<0..2>
+<date> HAI sc_end     france_capitulated  sc=22 phase=3
+```
+
+Gone variant (console `annex FRA` or a tag change):
+
+```
+<date> HAI sc_derail france_gone  sc=22 ...
+```
+
+Fail if the arc sits at peak until `peak_timeout`, keeps logging `sc_power`,
+or parks with a target reason instead of the aggressor reason.
+
+Quoting the observed lines into issue 19 closes its remaining acceptance box.
+The label for an inline arc is the same shape as the named helpers
+(`<country>_gone` / `<country>_capitulated`).
+
+## Check 21: a dead arc is not offered at the pick
+
+This needs an **unpinned** run: pick `sandbox_random`. The repick only runs
+when `sandbox_scenario_pin == 0`. Note the arc the run lands on, let it derail
+(a dead aggressor, a neutralized target set, or a peak timeout), then watch the
+repick.
+
+Pass when, after the derail, the repick lands on another arc:
+
+```
+<date> HAI sc_repick <other arc>  sc=<n> ...
+<date> HAI sc_pick   <other arc>  sc=<n> ...
+```
+
+and the derailed arc is not re-picked (it is also barred by the
+`derailed_arcs` filter, so the pick-gate fix itself is best seen on the
+**first pick** of a session where an arc's aggressor starts off-ideology).
+
+Fail if the derailed arc is re-picked, or if an arc whose aggressor already
+fails its gate is picked in the first place. The pick now also requires the
+aggressor's government (breadcrumb: `check_pick_gate.py`), so an off-ideology
+aggressor must be skipped.
+
+## Check 20: a three-target arc arms all three
+
+Pin `sandbox_sov_south` (arc 11). Variant is random; either set is fine:
+
+- A: TUR, IRQ, PER
+- B: PAK, RAJ, AFG
+
+Arc 11 reaches crises at 18 months and peak at 30 months. Wait for peak. Pass
+when every declared target of the running variant logs both a status line and a
+crisis outcome:
+
+```
+<date> <T1> sc_target <state>
+<date> <T2> sc_target <state>
+<date> <T3> sc_target <state>
+<date> <T1> sc_crisis <t1>_submit   (or _defy)
+<date> <T2> sc_crisis <t2>_submit   (or _defy)
+<date> <T3> sc_crisis <t3>_submit   (or _defy)
+```
+
+Fail if any declared target logs `sc_target` and then nothing (the pre-fix
+symptom: PER logged `open` with no outcome). Note the variant in the report so
+the B set is covered too; a run covers one variant, so a second run with the
+other is needed to close the ticket fully.
+
+## Check 22: arc 1 variant A presses both targets at peak
+
+Pin `sandbox_axis_expansion` (arc 1). Arc 1 reaches crises at 12 months and peak
+at 24 months (`arc_months`). The peak must run **before** the aggressor wars a
+declared target, because `sandbox_ignite_if_at_war()` ends the arc the month
+GER is at war with CZE or POL.
+
+Pinning alone does not guarantee this: two pinned runs (2026-09 and 2026-10)
+both saw GER war a target at month 22, two months short of the peak. The r56
+German AI takes `GER_demand_sudetenland` (CZE) or `GER_danzig_or_war` (POL)
+around late 1937, which is inside the 24-month window. To reach the peak,
+prevent that war, for example:
+
+- console-tag GER and delete the wargoal or the target's border tension, or
+- console `annex CZE` and `annex POL` is wrong (that triggers `targets_gone`),
+  so instead delay the focuses: `add_ideas`/focus-cancel via console, or
+- start the arc earlier is not possible (the pin starts it at 1936.1), so the
+  workable trick is to keep GER from taking the war focus by keeping its tension
+  low, or to console-`activate_mission`/skip the focus.
+
+Verify progress from the extract: `sc_phase peak` must appear at `t=24` before
+any `sc_ignite`. If `sc_ignite` lands first, the run did not reach the peak and
+check 22 stays open.
+
+Variant A targets CZE and POL. Pass when both log a submit/defy outcome:
+
+```
+<date> <CZE|POL> sc_target <state>
+<date> <POL> sc_crisis polish_submit   (or polish_defy)
+<date> <CZE> sc_crisis czech_submit    (or czech_defy)
+```
+
+Fail if the peak logs status lines for both but no `sc_crisis` for one of them
+(the pre-fix symptom: both calls dropped because the event trigger rejected the
+receiving tag). Quote the lines into issue 22.
+
+## Check 13: event-path pressure is readable without goal lines
+
+Same arc-1 run. Arc 1 wars through ultimatum events, not wargoals, so
+`sc_goal` / `sc_justify` stay silent by design. Pass when the ignition is
+preceded by crisis lines for the targets:
+
+```
+<date> GER sc_crisis <target>_submit   (or _defy)
+...
+<date> GER sc_ignite axis_war + sc_success + sc_end
+```
+
+with `sc_goal` count zero and the crisis lines carrying the pressure. Record
+the counts side by side: this is the evidence that the `sc_crisis` lines are
+the pressure proof on the event path (`sc_goal` is wargoal-only). The GDD
+"Scenarios" coverage rule and the acceptance checklist both key off this.
+
+## Check 14: a declared target whose tag drifts
+
+The hard one to force: a declared target that stops resolving to its country
+(civil war, annexation, re-tag). The earlier evidence was POL splitting into
+`D09` in January 1938 while the derail arm keyed to POL stayed silent.
+
+Pass when the slot logs the declared tag plus `_gone` rather than a different
+live tag:
+
+```
+<date> GER sc_target pol_gone
+```
+
+or the arc parks with a target-gone derail:
+
+```
+<date> HAI sc_derail targets_gone
+<date> HAI sc_end     targets_gone
+```
+
+Fail if `sc_power` shows a tag that is not the declared one filling the slot
+(the pre-fix symptom: `POL sc_power` through 1937.12, then `D09 sc_power` from
+1938.1) while the derail arm stays silent and the arc runs on. This check is
+probabilistic; a run where POL, CZE or another declared target civil-wars is
+the useful one. If no target drifts, the check stays open.
+
+## After the run
+
+- Quote the observed lines into the matching ticket's acceptance box and flip
+  it to `[x]`.
+- Run all guards once more (`.scratch/scripts/check_*.py`); a run should not
+  change them.
+- If a check fails, file a new issue; do not reopen 17-22 (their source halves
+  are done and guarded).
+
+## Issue 29: the `soviet_west` slot (pinned)
+
+The slot-4 rewire (`5d194b4`) plus the telemetry/prune build (issues 30-31)
+leave three observer boxes on issue 29 and one on issue 32. Pinned runs only;
+a repick needs `sandbox_random` (see issue 32).
+
+Pin: `sandbox_scenario` = `soviet_west`. Observe as an uninvolved country.
+
+1. **Slot seed + pick** (issue 29 box 1): the first lines show
+   `sc_seed t0=EST t1=LAT t2=LIT` (variant A) or `t0=POL t1=ROM` (variant B),
+   then `sc_pick soviet_west`, `sc_variant a|b`, `sc_phase smolder`.
+2. **Ladder to peak, both variants** (issue 29 box 2): the variant is rolled
+   50/50 per session, so run until both `sc_variant a` and `sc_variant b` have
+   reached peak. Pass when each declared target logs a submit/defy:
+   - A: EST/POL `sandbox_soviet_west.2`, LAT/ROM `.3`, LIT `.5`
+   - B: POL `.2`, ROM `.3`
+   and the seven path foci log `sc_focus` (the drift issue 31 removed:
+   `SOV_baltic_security`, `SOV_claims_in_baltic`, `SOV_secure_leningrad`,
+   `SOV_control_scandinavia`, `SOV_respect_baltic_self_determination`,
+   `SOV_claims_on_poland`, `SOV_demand_eastern_poland`). Peak is at `t=24`
+   when the variant gate focus is done, else the `t=36` fallback; either way it
+   must precede any `sc_ignite`.
+3. **Remove SOV** (issue 29 box 3): a pinned live run, console `annex SOV` (or
+   let it capitulate). Pass on
+   `<date> HAI sc_derail sov_gone|sov_capitulated` + `sc_end`, not
+   `peak_timeout`.
+4. **`none_eligible`** (issue 32): a separate `sandbox_random` run, watched for
+   `sc_repick_detail`; see that ticket.
+
+Analyse through `extract_sandbox.py`; quote the observed lines into the ticket
+boxes.
