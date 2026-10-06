@@ -73,8 +73,15 @@ select = "top_n_by_scorer"
 n = 2
 
 [gate]                      # optional; absent means no gate
+# Derail pair (optional): park the arc when the aggressor is off ideology.
 ideology = "fascism"
 at_phase = "crises"
+# Hold set (optional, all three together): freeze the arc clock while the
+# aggressor is not yet on hold_ideology, then run the ladder; if it never
+# changes, park the arc after hold_max_months months with hold_reason.
+hold_ideology = "neutrality"
+hold_max_months = 30
+hold_reason = "no_regime_change"
 
 # Ordered focus paths: each table runs from a branch entry to a war leaf and
 # declares the variants it serves (absent means shared across all variants).
@@ -105,7 +112,13 @@ list closes focuses for the AI while the aggressor is live
 (`$ai_scenario_focus_suppress()`, factor 0); a suppressed id must exist in the
 graph and must not be a key focus, so suppressing a fork forces the AI onto a
 sibling (issue 33: the SOV purge-opposition forks, leaving `the_centre`). There
-is no `type`, `block` or `content_refs` field.
+is no `type`, `block` or `content_refs` field. The optional `gate` table either
+holds the arc until a regime flip (the `hold_*` trio) or carries the derail
+pair (`ideology`/`at_phase`); the hold freezes `arc_months` at zero while the
+aggressor is off `hold_ideology` and parks the arc with `hold_reason` once
+`hold_max_months` held months pass, so a ladder whose premise is a regime
+change never fires into the old regime. A hold needs the ladder content pair
+(its tick is where the rungs live).
 
 ## Ladder
 

@@ -73,6 +73,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
   global.&sandbox_scenario_arc_months = 0
+  global.&sandbox_scenario_hold_months = 0
   gen_nazi_germany_scenario_roll_variant()
   gen_fascist_italy_scenario_roll_variant()
   gen_militarist_japan_scenario_roll_variant()
@@ -153,6 +154,7 @@ sandbox_scenario_maybe_repick():
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
       global.&sandbox_scenario_arc_months = 0
+      global.&sandbox_scenario_hold_months = 0
       gen_nazi_germany_scenario_roll_variant()
       gen_fascist_italy_scenario_roll_variant()
       gen_militarist_japan_scenario_roll_variant()
@@ -761,9 +763,8 @@ sandbox_scenario_check_civil_war_derail():
     elif global.sandbox_scenario == 6:
       ENG:
         $sandbox_check_aggressor_civil_war()
-    elif global.sandbox_scenario == 7:
-      USA:
-        $sandbox_check_aggressor_civil_war()
+    # Arc 7 is exempt: its civil war is the pre-phase the regime gate waits on,
+    # not a failure. The hold gate parks it if the regime never changes.
 
 # docs/gdd/Scenarios.md "Lifecycle": derail dispatcher.
 sandbox_scenario_check_derail():

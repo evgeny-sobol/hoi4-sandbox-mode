@@ -485,7 +485,11 @@ flowchart TD
 
 ### Arc 7: Fascist america scenario
 
-The non-historical arc.
+The non-historical arc: a fascist America turns on the hemisphere. The name is
+fiction - the vanilla mechanics deliver a non-aligned "American Junta" (the
+civil-war regime), so the join filter reads non-aligned, not fascism. The arc
+holds its clock until that regime change, then releases claims and incidents at
+the crises rung and ultimatums plus join offers at peak.
 
 **Telemetry labels**: `sc_goal`: can_on_usa, mex_on_usa, usa_on_can, usa_on_mex; `sc_justify`: usa_on_can, usa_on_mex.
 

@@ -1137,17 +1137,27 @@ gen_fascist_america_scenario_telemetry():
         $sandbox_log_sc(sc_justify, usa_on_mex)
 
 gen_fascist_america_scenario_derail():
-  if not country_exists(USA):
-    global.&sandbox_scenario_phase = 3
-    $sandbox_log_sc(sc_derail, usa_gone)
-    $sandbox_log_sc(sc_end, usa_gone)
-  elif USA->has_capitulated():
-    global.&sandbox_scenario_phase = 3
-    $sandbox_log_sc(sc_derail, usa_capitulated)
-    $sandbox_log_sc(sc_end, usa_capitulated)
+  if country_exists(USA) and not USA->has_government(neutrality):
+    global.&sandbox_scenario_hold_months += 1
+    global.&sandbox_scenario_arc_months = 0
+    if global.sandbox_scenario_hold_months >= 30:
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, no_regime_change)
+      $sandbox_log_sc(sc_end, no_regime_change)
   else:
-    if global.sandbox_target_variant == 0:
-      $sandbox_check_targets_derail2(USA, CAN, MEX)
+    global.&sandbox_scenario_hold_months = 0
+  if global.sandbox_scenario_phase < 3:
+    if not country_exists(USA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, usa_gone)
+      $sandbox_log_sc(sc_end, usa_gone)
+    elif USA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, usa_capitulated)
+      $sandbox_log_sc(sc_end, usa_capitulated)
+    else:
+      if global.sandbox_target_variant == 0:
+        $sandbox_check_targets_derail2(USA, CAN, MEX)
 
 gen_fascist_america_scenario_pin():
   if sandbox_scenario_pin_is_fascist_america():
