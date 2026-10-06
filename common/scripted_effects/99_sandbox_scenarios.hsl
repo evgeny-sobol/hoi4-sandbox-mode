@@ -204,6 +204,11 @@ sandbox_seed_actors():
     gen_monarchical_great_britain_scenario_seed()
   if global.sandbox_scenario == 7:
     gen_fascist_america_scenario_seed()
+    # Fascist America needs FDR out of the White House: the 1936 election
+    # (event usa.6) zeroes the Roosevelt option when this flag is set, so
+    # Landon wins and USA_reestablish_the_gold_standard becomes available.
+    USA:
+      set_country_flag(USA_AI_RANDOM_FASCIST)
 
 # Runs in the aggressor's scope. Each live target slot is seeded as a
 # rival and both sides record scenario_enemies[]. Body lives in the shared
