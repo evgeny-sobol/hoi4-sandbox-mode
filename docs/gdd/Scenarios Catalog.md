@@ -476,3 +476,28 @@ flowchart TD
         ENG_organize_the_blackshirts x--x ENG_the_kings_party
     end
 ```
+
+## United States
+
+| # | Aggressor | Arc | Variant a | Key focuses | Status |
+|---|---|---|---|---|---|
+| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `war_powers_act` | ready |
+
+### Arc 7: Fascist america scenario
+
+The non-historical arc.
+
+**Telemetry labels**: `sc_goal`: can_on_usa, mex_on_usa, usa_on_can, usa_on_mex; `sc_justify`: usa_on_can, usa_on_mex.
+
+```mermaid
+flowchart TD
+    subgraph arc7
+        USA_ally_with_the_silver_shirts[["USA_ally_with_the_silver_shirts"]]
+        USA_america_first["USA_america_first"]
+        USA_reestablish_the_gold_standard(["USA_reestablish_the_gold_standard"])
+        USA_war_powers_act[["USA_war_powers_act"]]
+        USA_america_first --> USA_ally_with_the_silver_shirts
+        USA_america_first --> USA_war_powers_act
+        USA_reestablish_the_gold_standard --> USA_america_first
+    end
+```

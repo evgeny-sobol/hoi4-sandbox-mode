@@ -1,0 +1,38 @@
+# Arc 7: Fascist United States of America
+
+id = "fascist_america_scenario"
+number = 7
+status = "ready"
+aggressor = "USA"
+key = "fascist_america"
+
+targets = { a = ["CAN", "MEX"] }
+
+suppress = [
+  "USA_continue_the_new_deal",
+  "USA_limited_intervention",
+  "USA_neutrality_act"
+]
+
+notes = """
+The non-historical arc.
+"""
+
+[ladder]
+crises_at_month = 10
+peak_at_month = 20
+crises_func = "sandbox_fire_fascist_america_crises"
+peak_func = "sandbox_fire_fascist_america_peak"
+
+[joiners]
+select = "top_n_by_scorer"
+require = ["same_ideology"]
+n = 2
+invite_event = "sandbox_fascist_america.4"
+
+[[paths]]
+variants = ["a"]
+focuses = [
+  "USA_ally_with_the_silver_shirts",
+  "USA_war_powers_act"
+]

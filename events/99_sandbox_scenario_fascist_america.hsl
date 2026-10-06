@@ -1,0 +1,106 @@
+# docs/gdd/Scenarios Catalog.md: arc events for fascist_america.
+add_namespace(sandbox_fascist_america)
+
+# Crisis: provocation lands on the aggressor's desk.
+country_event:
+  id(sandbox_fascist_america.1)
+  title(sandbox_fascist_america_1_t)
+  desc(sandbox_fascist_america_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_fascist_america_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, fascist_america_crisis)
+    $sandbox_add_rivalry_vs(CAN, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_fascist_america_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum 2 (CAN).
+country_event:
+  id(sandbox_fascist_america.2)
+  title(sandbox_fascist_america_2_t)
+  desc(sandbox_fascist_america_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CAN)
+  option:
+    name(sandbox_fascist_america_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, fascist_america_ult_2_submit)
+  option:
+    name(sandbox_fascist_america_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, fascist_america_ult_2_defy)
+
+# Ultimatum 3 (MEX).
+country_event:
+  id(sandbox_fascist_america.3)
+  title(sandbox_fascist_america_3_t)
+  desc(sandbox_fascist_america_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(MEX)
+  option:
+    name(sandbox_fascist_america_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, fascist_america_ult_3_submit)
+  option:
+    name(sandbox_fascist_america_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
+    $sandbox_log_sc(sc_crisis, fascist_america_ult_3_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the bloc.
+country_event:
+  id(sandbox_fascist_america.4)
+  title(sandbox_fascist_america_4_t)
+  desc(sandbox_fascist_america_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(USA)
+  option:
+    name(sandbox_fascist_america_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    give_military_access(USA)
+    USA:
+      give_military_access(PREV)
+    $add_opinion_modifier(USA, scenario_ally)
+    $sandbox_log_sc(sc_join, fascist_america_joined)
+  option:
+    name(sandbox_fascist_america_4_b)
+    ai_chance:
+      factor(10)

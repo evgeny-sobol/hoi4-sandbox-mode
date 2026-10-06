@@ -7,6 +7,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_suppress()
+      +modifier:
         $root_modifier()
       +modifier:
         f = 2 * (mtth:democracy_factor + mtth:communism_factor) /
@@ -19,6 +21,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         f = 2 * (mtth:democracy_factor + mtth:fascism_factor) /
@@ -29,15 +33,22 @@ focus_tree[id = usa_focus]:
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀ 
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_reestablish_the_gold_standard)
+
   focus[id = USA_limited_intervention]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
 
   focus[id = USA_neutrality_act]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_suppress()
 
   focus[id = USA_suspend_the_presecution]:
     ai_will_do:
@@ -69,17 +80,24 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_civil_war_root_modifier()
       +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
     completion_reward:
       $sandbox_log_cw_root(USA_america_first)
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_america_first)
+
 
   focus[id = USA_ally_with_the_silver_shirts]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
@@ -96,6 +114,9 @@ focus_tree[id = usa_focus]:
 # ▄▀▀▄ █▀▀▀ █▄  █ ▀▀█▀▀ █▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 # █  ▄ █▀▀  █ ▀▄█   █   █▀▀▄ █  ▀▀▄   █    ▀▀▄
 #  ▀▀  ▀▀▀▀ ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_ally_with_the_silver_shirts)
+
   focus[id = USA_wpa]:
     +ai_will_do:
       modifier:
@@ -503,6 +524,11 @@ focus_tree[id = usa_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(USA_war_powers_act)
+
 
   focus[id = USA_seize_cuba]:
     available:
@@ -668,11 +694,7 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_intervention_in_europe)
 
   focus[id = USA_war_plan_gold]:
     ai_will_do:
@@ -692,12 +714,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_war_plan_black)
 
   focus[id = USA_destroyers_for_bases]:
     +ai_will_do:
@@ -746,34 +764,22 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_intervention_in_asia)
 
 
   focus[id = USA_war_plan_orange]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_war_plan_orange)
 
   focus[id = USA_war_plan_yellow]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_mic_modifier()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_war_plan_yellow)
 
 
   focus[id = USA_defense_of_the_pacific]:
@@ -782,8 +788,6 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -798,8 +802,6 @@ focus_tree[id = usa_focus]:
 # █   █ ▄▀▀▄ █▀▀▄      █▀▀▄ █▀▀▀ █▀▀▄ ▄▀▀▄ █▀▀▄ ▀▀█▀▀ █▄ ▄█ █▀▀▀ █▄  █ ▀▀█▀▀
 # █ ▄ █ █▀▀█ █▀▀▄      █  █ █▀▀  █▀▀  █▀▀█ █▀▀▄   █   █ ▀ █ █▀▀  █ ▀▄█   █  
 #  ▀ ▀  ▀  ▀ ▀  ▀      ▀▀▀  ▀▀▀▀ ▀    ▀  ▀ ▀  ▀   ▀   ▀   ▀ ▀▀▀▀ ▀   ▀   ▀  
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_defense_of_the_pacific)
   focus[id = USA_war_department]:
     ai_will_do:
       +modifier:
