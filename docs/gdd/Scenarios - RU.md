@@ -1,4 +1,4 @@
-<!-- source: a5c0c073a00b6a655ce8209702f5586e5a841bb3 -->
+<!-- source: 08b5ae65ddc1c2ee46629bf08fd600f415cb66ec -->
 # Scenarios - RU
 
 Sandbox-only директор, дающий каждой сессии кризис, в котором жить: на старте он выбирает одну **арку** (правдоподобный конфликт 1930-х), роллит ее target variant, сидит агрессора против целей и прогоняет трехрунговую лестницу, толкающую ИИ к войне. Игрок либо втягивается, либо смотрит, как горит мир. Система спроектирована переиспользовать остальные sandbox-механики (Honor, Tyranny, Rivals, Civil Wars, National Focuses), а не добавлять новые.
@@ -67,6 +67,12 @@ hold_reason = "no_regime_change"
 # declares the variants it serves (absent means shared across all variants).
 [[paths]]
 focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
+
+# Optional `after`: gate this path's boost on the listed focuses being done, so
+# a later stage waits for an earlier path. Shared ancestors stay ungated.
+[[paths]]
+after = ["GER_anschluss"]
+focuses = ["GER_austria_first"]
 
 notes = """
 Free rationale prose, printed into the catalog beside the arc.
