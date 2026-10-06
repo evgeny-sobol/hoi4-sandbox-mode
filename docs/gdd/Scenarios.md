@@ -88,6 +88,12 @@ hold_reason = "no_regime_change"
 [[paths]]
 focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
 
+# Optional `after`: gate this path's boost on the listed focuses being done, so
+# a later stage waits for an earlier path. Shared ancestors stay ungated.
+[[paths]]
+after = ["GER_anschluss"]
+focuses = ["GER_austria_first"]
+
 notes = """
 Free rationale prose, printed into the catalog beside the arc.
 """
@@ -104,7 +110,9 @@ generated pick data. Every variant holds 1-4 targets (the derail arms cover
 that range). Every `targets` key is covered by at least one path; every listed
 `variants` entry is a `targets` key. Boosts follow the live variant: shared
 focuses stay boosted whenever the aggressor is live, path-specific focuses
-only while their variant runs. The peak rung waits for the AI to complete
+only while their variant runs, and an entry's optional `after` holds its boost
+back until every listed focus is completed (shared ancestors of a gated path
+stay ungated). The peak rung waits for the AI to complete
 the last focus of the live path (humans proceed on schedule), with a
 fallback twelve months past the peak month; put rarely-bypassed focuses
 last, since a bypassed tail stalls to the fallback. The optional `suppress`

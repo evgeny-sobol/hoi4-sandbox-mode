@@ -481,7 +481,7 @@ flowchart TD
 
 | # | Aggressor | Arc | Variant a | Key focuses | Status |
 |---|---|---|---|---|---|
-| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `war_powers_act` | ready |
+| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `voter_registration_act`, `recruit_the_free_corps`, `work_with_the_bund`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | ready |
 
 ### Arc 7: Fascist america scenario
 
@@ -496,12 +496,41 @@ the crises rung and ultimatums plus join offers at peak.
 ```mermaid
 flowchart TD
     subgraph arc7
+        USA_adjusted_compensation_act["USA_adjusted_compensation_act"]
         USA_ally_with_the_silver_shirts[["USA_ally_with_the_silver_shirts"]]
         USA_america_first["USA_america_first"]
+        USA_de_regulate_the_banking_sector[["USA_de_regulate_the_banking_sector"]]
+        USA_empower_the_huac["USA_empower_the_huac"]
+        USA_extend_the_chinese_exclusion_acts["USA_extend_the_chinese_exclusion_acts"]
+        USA_honor_the_confederacy[["USA_honor_the_confederacy"]]
+        USA_invite_foreign_support["USA_invite_foreign_support"]
+        USA_labour_management_relations_act["USA_labour_management_relations_act"]
+        USA_national_employment_strategy[["USA_national_employment_strategy"]]
+        USA_national_prosperity_program[["USA_national_prosperity_program"]]
+        USA_privatize_the_TVA[["USA_privatize_the_TVA"]]
+        USA_recruit_the_free_corps[["USA_recruit_the_free_corps"]]
         USA_reestablish_the_gold_standard(["USA_reestablish_the_gold_standard"])
-        USA_war_powers_act[["USA_war_powers_act"]]
+        USA_send_lindbergh_to_germany["USA_send_lindbergh_to_germany"]
+        USA_voter_registration_act[["USA_voter_registration_act"]]
+        USA_work_with_the_bund[["USA_work_with_the_bund"]]
+        USA_adjusted_compensation_act --> USA_labour_management_relations_act
+        USA_ally_with_the_silver_shirts --> USA_invite_foreign_support
+        USA_ally_with_the_silver_shirts --> USA_national_prosperity_program
         USA_america_first --> USA_ally_with_the_silver_shirts
-        USA_america_first --> USA_war_powers_act
+        USA_america_first --> USA_extend_the_chinese_exclusion_acts
+        USA_de_regulate_the_banking_sector --> USA_national_employment_strategy
+        USA_empower_the_huac --> USA_voter_registration_act
+        USA_extend_the_chinese_exclusion_acts --> USA_empower_the_huac
+        USA_invite_foreign_support --> USA_send_lindbergh_to_germany
+        USA_labour_management_relations_act --> USA_empower_the_huac
+        USA_national_employment_strategy --> USA_honor_the_confederacy
+        USA_national_prosperity_program --> USA_de_regulate_the_banking_sector
+        USA_national_prosperity_program --> USA_privatize_the_TVA
+        USA_privatize_the_TVA --> USA_national_employment_strategy
+        USA_reestablish_the_gold_standard --> USA_adjusted_compensation_act
         USA_reestablish_the_gold_standard --> USA_america_first
+        USA_send_lindbergh_to_germany --> USA_recruit_the_free_corps
+        USA_send_lindbergh_to_germany --> USA_work_with_the_bund
+        USA_work_with_the_bund --> USA_honor_the_confederacy
     end
 ```

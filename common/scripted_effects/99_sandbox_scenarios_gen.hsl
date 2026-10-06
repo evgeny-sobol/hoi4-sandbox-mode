@@ -1083,7 +1083,7 @@ gen_fascist_america_scenario_tick():
   elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 20:
     if global.sandbox_target_variant == 0:
       USA:
-        if has_completed_focus(USA_war_powers_act):
+        if has_completed_focus(USA_work_with_the_bund):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_fascist_america_peak()

@@ -32,6 +32,7 @@ TREE_LEVEL = re.compile(r"^  \+completion_reward:\s*$")
 UNGATED = "$sandbox_log_sc(sc_focus"
 FOCUS_HEAD = re.compile(r"^  focus\[id = ([A-Za-z0-9_]+)\]:", re.M)
 BOOST_MARKER = "$ai_scenario_focus_boost"
+GATE_MARKER = "$ai_scenario_focus_gate_after"
 LOG_MARKER = "$sandbox_log_sc_focus"
 LOG_ID_RE = re.compile(r"\$sandbox_log_sc_focus\(([A-Za-z0-9_]+)\)")
 
@@ -62,7 +63,7 @@ def main() -> int:
             if not parity:
                 continue
             for fid, block in focus_blocks(text):
-                boosted = BOOST_MARKER in block
+                boosted = BOOST_MARKER in block or GATE_MARKER in block
                 ids = LOG_ID_RE.findall(block)
                 if boosted and ids != [fid]:
                     offenders += 1

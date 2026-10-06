@@ -211,6 +211,11 @@ macro ai_scenario_focus_boost_variant(_variant_):
   is_live_scenario_aggressor()
   global.sandbox_target_variant == _variant_
 
+# Completion-gated form (docs/gdd/Scenarios.md "Paths"): one line per focus in
+# a path entry's `after` list; the boost holds only once all of them are done.
+macro ai_scenario_focus_gate_after(_focus_):
+  has_completed_focus(_focus_)
+
 # Zero-weight form: closes a focus for the AI while the arc is live (for the
 # SOV purge forks it leaves only the_centre). Spec-driven: the arc spec lists
 # the ids in `suppress` (issue 33).
