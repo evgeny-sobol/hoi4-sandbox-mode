@@ -510,11 +510,11 @@ gen_soviet_west_scenario_seed():
     sandbox_seed_from_targets()
 
 gen_soviet_west_scenario_tick():
-  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
+  if global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 16:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_soviet_west_crises()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 32:
     if global.sandbox_target_variant == 0:
       SOV:
         if has_completed_focus(SOV_control_scandinavia):
@@ -525,7 +525,7 @@ gen_soviet_west_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
-        elif global.sandbox_scenario_arc_months >= 36:
+        elif global.sandbox_scenario_arc_months >= 44:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
@@ -539,7 +539,7 @@ gen_soviet_west_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
-        elif global.sandbox_scenario_arc_months >= 36:
+        elif global.sandbox_scenario_arc_months >= 44:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
@@ -656,7 +656,7 @@ gen_soviet_west_scenario_pick_log():
     $sandbox_log_sc(sc_pick, soviet_west)
 
 sandbox_select_soviet_west_joiners():
-  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_ideology = 1
   global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])

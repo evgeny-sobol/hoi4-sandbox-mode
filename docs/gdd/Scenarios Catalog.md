@@ -269,7 +269,7 @@ flowchart TD
 
 | # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
 |---|---|---|---|---|---|---|
-| 4 | SOV | Soviet west scenario | EST, LAT, LIT | POL, ROM | `the_comintern`, `baltic_security`, `claims_in_baltic`, `secure_leningrad`, `control_scandinavia`, `the_comintern`, `baltic_security`, `respect_baltic_self_determination`, `claims_on_poland`, `demand_eastern_poland` | ready |
+| 4 | SOV | Soviet west scenario | EST, LAT, LIT | POL, ROM | `restoration_and_development`, `the_bloc_of_rights_and_trotskyites`, `the_comintern`, `baltic_security`, `claims_in_baltic`, `secure_leningrad`, `control_scandinavia`, `restoration_and_development`, `the_bloc_of_rights_and_trotskyites`, `the_comintern`, `baltic_security`, `respect_baltic_self_determination`, `claims_on_poland`, `demand_eastern_poland` | ready |
 
 ### Arc 4: Soviet west scenario
 
@@ -289,21 +289,54 @@ flowchart TD
         SOV_claims_on_poland[["SOV_claims_on_poland"]]
         SOV_control_scandinavia[["SOV_control_scandinavia"]]
         SOV_demand_eastern_poland[["SOV_demand_eastern_poland"]]
+        SOV_finish_the_five_year_plan["SOV_finish_the_five_year_plan"]
+        SOV_heavy_industry(["SOV_heavy_industry"])
+        SOV_industrial_modernization["SOV_industrial_modernization"]
+        SOV_infrastructure_effort_nsb(["SOV_infrastructure_effort_nsb"])
+        SOV_optimize_production_lines["SOV_optimize_production_lines"]
+        SOV_reorganize_the_pc_of_heavy_industry["SOV_reorganize_the_pc_of_heavy_industry"]
         SOV_respect_baltic_self_determination[["SOV_respect_baltic_self_determination"]]
+        SOV_restoration_and_development[["SOV_restoration_and_development"]]
         SOV_secure_leningrad[["SOV_secure_leningrad"]]
+        SOV_shift_to_armaments_production["SOV_shift_to_armaments_production"]
+        SOV_the_anti_soviet_trotskyist_center["SOV_the_anti_soviet_trotskyist_center"]
+        SOV_the_bloc_of_rights_and_trotskyites[["SOV_the_bloc_of_rights_and_trotskyites"]]
+        SOV_the_centre["SOV_the_centre"]
         SOV_the_comintern[["SOV_the_comintern"]]
+        SOV_the_military_conspiracy["SOV_the_military_conspiracy"]
         SOV_the_path_of_marxism_leninism(["SOV_the_path_of_marxism_leninism"])
+        SOV_the_stalin_constitution["SOV_the_stalin_constitution"]
+        SOV_the_workers_dictatorship["SOV_the_workers_dictatorship"]
+        SOV_the_zinovyevite_terrorist_center["SOV_the_zinovyevite_terrorist_center"]
+        SOV_third_five_year_plan["SOV_third_five_year_plan"]
         SOV_baltic_security --> SOV_claims_in_baltic
         SOV_baltic_security --> SOV_respect_baltic_self_determination
         SOV_claims_in_baltic --> SOV_claims_on_poland
         SOV_claims_in_baltic --> SOV_secure_leningrad
         SOV_claims_on_poland --> SOV_demand_eastern_poland
+        SOV_finish_the_five_year_plan --> SOV_third_five_year_plan
+        SOV_heavy_industry --> SOV_finish_the_five_year_plan
+        SOV_industrial_modernization --> SOV_restoration_and_development
+        SOV_infrastructure_effort_nsb --> SOV_finish_the_five_year_plan
+        SOV_optimize_production_lines --> SOV_restoration_and_development
+        SOV_reorganize_the_pc_of_heavy_industry --> SOV_industrial_modernization
         SOV_respect_baltic_self_determination --> SOV_claims_on_poland
         SOV_respect_baltic_self_determination --> SOV_secure_leningrad
         SOV_secure_leningrad --> SOV_control_scandinavia
+        SOV_shift_to_armaments_production --> SOV_optimize_production_lines
+        SOV_the_anti_soviet_trotskyist_center --> SOV_the_workers_dictatorship
+        SOV_the_centre --> SOV_the_stalin_constitution
         SOV_the_comintern --> SOV_baltic_security
+        SOV_the_military_conspiracy --> SOV_the_bloc_of_rights_and_trotskyites
+        SOV_the_path_of_marxism_leninism --> SOV_the_centre
         SOV_the_path_of_marxism_leninism --> SOV_the_comintern
+        SOV_the_stalin_constitution --> SOV_the_zinovyevite_terrorist_center
+        SOV_the_workers_dictatorship --> SOV_the_military_conspiracy
+        SOV_the_zinovyevite_terrorist_center --> SOV_the_anti_soviet_trotskyist_center
+        SOV_third_five_year_plan --> SOV_reorganize_the_pc_of_heavy_industry
+        SOV_third_five_year_plan --> SOV_shift_to_armaments_production
         SOV_claims_in_baltic x--x SOV_respect_baltic_self_determination
+        SOV_reorganize_the_pc_of_heavy_industry x--x SOV_shift_to_armaments_production
     end
 ```
 

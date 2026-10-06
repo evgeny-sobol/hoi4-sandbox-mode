@@ -39,6 +39,11 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_centre)
+
   focus[id = SOV_the_left_opposition]:
     +ai_will_do:
       modifier:
@@ -80,31 +85,46 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_infrastructure_effort_nsb)
+
 
   focus[id = SOV_heavy_industry]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $root_modifier()
       +modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_heavy_industry)
+
 
   focus[id = SOV_finish_the_five_year_plan]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_1)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_finish_the_five_year_plan)
+
 
   focus[id = SOV_improve_railway_network]:
     ai_will_do:
@@ -115,10 +135,15 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_2)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_third_five_year_plan)
+
 
   focus[id = SOV_increase_state_reserves]:
     +ai_will_do:
@@ -129,23 +154,33 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_3)
         is_sandbox_mode_on()
       modifier:
         $crossroad_modifier(2)
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_reorganize_the_pc_of_heavy_industry)
+
 
   focus[id = SOV_shift_to_armaments_production]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_3)
         is_sandbox_mode_on()
       modifier:
         $crossroad_modifier(2)
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_shift_to_armaments_production)
+
 
   focus[id = SOV_steel_casting_industry]:
     +ai_will_do:
@@ -166,28 +201,43 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_4)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_industrial_modernization)
+
 
   focus[id = SOV_optimize_production_lines]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         not $compare(num_of_controlled_factories, "<", SOV_fyp_factory_requirement_tier_4)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_optimize_production_lines)
+
 
   focus[id = SOV_restoration_and_development]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         SOV_fourth_five_year_plan_available()
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_restoration_and_development)
+
 
   focus[id = SOV_fourth_five_year_plan]:
     +ai_will_do:
@@ -923,11 +973,21 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_stalin_constitution)
+
 
   focus[id = SOV_the_zinovyevite_terrorist_center]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_zinovyevite_terrorist_center)
+
 
   focus[id = SOV_secure_the_administration]:
     +ai_will_do:
@@ -943,15 +1003,25 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_anti_soviet_trotskyist_center)
+
 
   focus[id = SOV_the_workers_dictatorship]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         factor(@HIGH_PRIORITY)
         $has_country_flag_days(SOV_second_moscow_trial_flag, 105)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_workers_dictatorship)
+
 
   focus[id = SOV_organization_centralization_discipline]:
     +ai_will_do:
@@ -971,11 +1041,21 @@ focus_tree[id = soviet_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_military_conspiracy)
+
 
   focus[id = SOV_the_bloc_of_rights_and_trotskyites]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(SOV_the_bloc_of_rights_and_trotskyites)
+
 
   focus[id = SOV_behead_the_snake]:
     +ai_will_do:

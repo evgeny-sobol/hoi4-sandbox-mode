@@ -20,8 +20,8 @@ join offers at peak.
 suppress = ["SOV_the_left_opposition", "SOV_the_right_opposition"]
 
 [ladder]
-crises_at_month = 12
-peak_at_month = 24
+crises_at_month = 16
+peak_at_month = 32
 crises_func = "sandbox_fire_soviet_west_crises"
 peak_func = "sandbox_fire_soviet_west_peak"
 
@@ -29,10 +29,13 @@ peak_func = "sandbox_fire_soviet_west_peak"
 select = "top_n_by_scorer"
 n = 2
 invite_event = "sandbox_soviet_west.4"
+require = ["same_ideology"]
 
 [[paths]]
 variants = ["a"]
 focuses = [
+  "SOV_restoration_and_development",
+  "SOV_the_bloc_of_rights_and_trotskyites",
   "SOV_the_comintern",
   "SOV_baltic_security",
   "SOV_claims_in_baltic",
@@ -43,6 +46,8 @@ focuses = [
 [[paths]]
 variants = ["b"]
 focuses = [
+  "SOV_restoration_and_development",
+  "SOV_the_bloc_of_rights_and_trotskyites",
   "SOV_the_comintern",
   "SOV_baltic_security",
   "SOV_respect_baltic_self_determination",
