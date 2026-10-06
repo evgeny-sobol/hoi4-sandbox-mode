@@ -2,7 +2,7 @@
 
 id = "fascist_america_scenario"
 number = 7
-status = "ready"
+status = "draft"
 aggressor = "USA"
 key = "fascist_america"
 
@@ -24,7 +24,7 @@ the crises rung and ultimatums plus join offers at peak.
 
 [gate]
 hold_ideology = "neutrality"
-hold_max_months = 30
+hold_max_months = 48
 hold_reason = "no_regime_change"
 
 [ladder]
@@ -43,9 +43,15 @@ invite_event = "sandbox_fascist_america.4"
 variants = ["a"]
 focuses = [
   "USA_ally_with_the_silver_shirts",
-  "USA_voter_registration_act",
   "USA_recruit_the_free_corps",
   "USA_work_with_the_bund"
+]
+
+[[paths]]
+variants = ["a"]
+after = ["USA_ally_with_the_silver_shirts"]
+focuses = [
+  "USA_voter_registration_act"
 ]
 
 [[paths]]

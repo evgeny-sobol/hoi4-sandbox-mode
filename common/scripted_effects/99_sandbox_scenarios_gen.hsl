@@ -1140,7 +1140,7 @@ gen_fascist_america_scenario_derail():
   if country_exists(USA) and not USA->has_government(neutrality):
     global.&sandbox_scenario_hold_months += 1
     global.&sandbox_scenario_arc_months = 0
-    if global.sandbox_scenario_hold_months >= 30:
+    if global.sandbox_scenario_hold_months >= 48:
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, no_regime_change)
       $sandbox_log_sc(sc_end, no_regime_change)

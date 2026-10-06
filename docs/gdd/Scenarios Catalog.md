@@ -481,7 +481,7 @@ flowchart TD
 
 | # | Aggressor | Arc | Variant a | Key focuses | Status |
 |---|---|---|---|---|---|
-| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `voter_registration_act`, `recruit_the_free_corps`, `work_with_the_bund`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | ready |
+| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `recruit_the_free_corps`, `work_with_the_bund`, `voter_registration_act`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | draft |
 
 ### Arc 7: Fascist america scenario
 

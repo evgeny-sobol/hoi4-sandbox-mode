@@ -257,7 +257,9 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
+        factor(5)
+        is_live_scenario_aggressor()
     +completion_reward:
       $sandbox_log_sc_focus(USA_adjusted_compensation_act)
 
@@ -267,7 +269,9 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
+        factor(5)
+        is_live_scenario_aggressor()
     +completion_reward:
       $sandbox_log_sc_focus(USA_labour_management_relations_act)
 
@@ -476,7 +480,9 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
+        factor(5)
+        is_live_scenario_aggressor()
     +completion_reward:
       $sandbox_log_sc_focus(USA_extend_the_chinese_exclusion_acts)
 
@@ -486,7 +492,9 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
+        factor(5)
+        is_live_scenario_aggressor()
     +completion_reward:
       $sandbox_log_sc_focus(USA_empower_the_huac)
 
@@ -496,7 +504,9 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
+        factor(5)
+        is_live_scenario_aggressor()
     +completion_reward:
       $sandbox_log_sc_focus(USA_voter_registration_act)
 
