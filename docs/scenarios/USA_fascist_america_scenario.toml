@@ -1,7 +1,6 @@
 # Arc 7: Fascist United States of America
 
 id = "fascist_america_scenario"
-number = 7
 status = "draft"
 aggressor = "USA"
 key = "fascist_america"

@@ -31,7 +31,3 @@ sandbox_scenario:
     name(monarchical_great_britain)
     text("RULE_OPTION_SANDBOX_MONARCHICAL_GREAT_BRITAIN")
     desc("RULE_OPTION_SANDBOX_MONARCHICAL_GREAT_BRITAIN_DESC")
-  option:
-    name(fascist_america)
-    text("RULE_OPTION_SANDBOX_FASCIST_AMERICA")
-    desc("RULE_OPTION_SANDBOX_FASCIST_AMERICA_DESC")

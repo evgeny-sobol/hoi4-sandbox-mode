@@ -7,8 +7,6 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_suppress()
-      +modifier:
         $root_modifier()
       +modifier:
         f = 2 * (mtth:democracy_factor + mtth:communism_factor) /
@@ -21,8 +19,6 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $root_modifier()
       +modifier:
         f = 2 * (mtth:democracy_factor + mtth:fascism_factor) /
@@ -33,22 +29,16 @@ focus_tree[id = usa_focus]:
 # ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 # █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀ 
 #  ▀▀  ▀  ▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀  ▀  ▀▀▀  ▀  ▀ ▀▀▀       ▀▀▀▀
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_reestablish_the_gold_standard)
 
   focus[id = USA_limited_intervention]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_suppress()
 
   focus[id = USA_neutrality_act]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_suppress()
 
   focus[id = USA_suspend_the_presecution]:
     ai_will_do:
@@ -80,24 +70,18 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_civil_war_root_modifier()
       +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
     completion_reward:
       $sandbox_log_cw_root(USA_america_first)
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_america_first)
 
 
   focus[id = USA_ally_with_the_silver_shirts]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
@@ -115,8 +99,6 @@ focus_tree[id = usa_focus]:
 # ▄▀▀▄ █▀▀▀ █▄  █ ▀▀█▀▀ █▀▀▄ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 # █  ▄ █▀▀  █ ▀▄█   █   █▀▀▄ █  ▀▀▄   █    ▀▀▄
 #  ▀▀  ▀▀▀▀ ▀   ▀   ▀   ▀  ▀ ▀ ▀▀▀    ▀   ▀▀▀
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_ally_with_the_silver_shirts)
 
   focus[id = USA_wpa]:
     +ai_will_do:
@@ -256,24 +238,12 @@ focus_tree[id = usa_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_adjusted_compensation_act)
 
 
   focus[id = USA_labour_management_relations_act]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_labour_management_relations_act)
 
 
   focus[id = USA_protectionist_tariffs]:
@@ -479,141 +449,72 @@ focus_tree[id = usa_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_extend_the_chinese_exclusion_acts)
 
 
   focus[id = USA_empower_the_huac]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_empower_the_huac)
 
 
   focus[id = USA_voter_registration_act]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_ally_with_the_silver_shirts)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_voter_registration_act)
 
 
   focus[id = USA_national_prosperity_program]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_recruit_the_free_corps)
-        $ai_scenario_focus_gate_after(USA_work_with_the_bund)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_national_prosperity_program)
 
 
   focus[id = USA_privatize_the_TVA]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_recruit_the_free_corps)
-        $ai_scenario_focus_gate_after(USA_work_with_the_bund)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_privatize_the_TVA)
 
 
   focus[id = USA_de_regulate_the_banking_sector]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_recruit_the_free_corps)
-        $ai_scenario_focus_gate_after(USA_work_with_the_bund)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_de_regulate_the_banking_sector)
 
 
   focus[id = USA_national_employment_strategy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_recruit_the_free_corps)
-        $ai_scenario_focus_gate_after(USA_work_with_the_bund)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_national_employment_strategy)
 
 
   focus[id = USA_invite_foreign_support]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_invite_foreign_support)
 
 
   focus[id = USA_send_lindbergh_to_germany]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_send_lindbergh_to_germany)
 
 
   focus[id = USA_work_with_the_bund]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_work_with_the_bund)
 
 
   focus[id = USA_recruit_the_free_corps]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_recruit_the_free_corps)
 
 
   focus[id = USA_honor_the_confederacy]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_gate_after(USA_recruit_the_free_corps)
-        $ai_scenario_focus_gate_after(USA_work_with_the_bund)
-        factor(5)
-        is_live_scenario_aggressor()
-    +completion_reward:
-      $sandbox_log_sc_focus(USA_honor_the_confederacy)
 
 
   focus[id = USA_war_powers_act]:

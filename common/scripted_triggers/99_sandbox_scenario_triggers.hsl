@@ -12,5 +12,3 @@ sandbox_scenario_pin_is_napoleonic_france:
   raw has_game_rule: { rule = sandbox_scenario option = napoleonic_france }
 sandbox_scenario_pin_is_monarchical_great_britain:
   raw has_game_rule: { rule = sandbox_scenario option = monarchical_great_britain }
-sandbox_scenario_pin_is_fascist_america:
-  raw has_game_rule: { rule = sandbox_scenario option = fascist_america }

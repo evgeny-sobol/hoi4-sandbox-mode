@@ -11,6 +11,64 @@ do not edit by hand. The arc schema lives in `docs/gdd/Scenarios.md`.
 - `A --> B` - B requires A.
 - `A x--x B` - mutually exclusive: taking one hides the other.
 
+## United States
+
+| # | Aggressor | Arc | Variant a | Key focuses | Status |
+|---|---|---|---|---|---|
+| - | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `recruit_the_free_corps`, `work_with_the_bund`, `voter_registration_act`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | draft |
+
+### Arc -: Fascist america scenario
+
+The non-historical arc: a fascist America turns on the hemisphere. The name is
+fiction - the vanilla mechanics deliver a non-aligned "American Junta" (the
+civil-war regime), so the join filter reads non-aligned, not fascism. The arc
+holds its clock until that regime change, then releases claims and incidents at
+the crises rung and ultimatums plus join offers at peak.
+
+**Telemetry labels**: `sc_goal`: ; `sc_justify`: .
+
+```mermaid
+flowchart TD
+    subgraph arc0
+        USA_adjusted_compensation_act["USA_adjusted_compensation_act"]
+        USA_ally_with_the_silver_shirts[["USA_ally_with_the_silver_shirts"]]
+        USA_america_first["USA_america_first"]
+        USA_de_regulate_the_banking_sector[["USA_de_regulate_the_banking_sector"]]
+        USA_empower_the_huac["USA_empower_the_huac"]
+        USA_extend_the_chinese_exclusion_acts["USA_extend_the_chinese_exclusion_acts"]
+        USA_honor_the_confederacy[["USA_honor_the_confederacy"]]
+        USA_invite_foreign_support["USA_invite_foreign_support"]
+        USA_labour_management_relations_act["USA_labour_management_relations_act"]
+        USA_national_employment_strategy[["USA_national_employment_strategy"]]
+        USA_national_prosperity_program[["USA_national_prosperity_program"]]
+        USA_privatize_the_TVA[["USA_privatize_the_TVA"]]
+        USA_recruit_the_free_corps[["USA_recruit_the_free_corps"]]
+        USA_reestablish_the_gold_standard(["USA_reestablish_the_gold_standard"])
+        USA_send_lindbergh_to_germany["USA_send_lindbergh_to_germany"]
+        USA_voter_registration_act[["USA_voter_registration_act"]]
+        USA_work_with_the_bund[["USA_work_with_the_bund"]]
+        USA_adjusted_compensation_act --> USA_labour_management_relations_act
+        USA_ally_with_the_silver_shirts --> USA_invite_foreign_support
+        USA_ally_with_the_silver_shirts --> USA_national_prosperity_program
+        USA_america_first --> USA_ally_with_the_silver_shirts
+        USA_america_first --> USA_extend_the_chinese_exclusion_acts
+        USA_de_regulate_the_banking_sector --> USA_national_employment_strategy
+        USA_empower_the_huac --> USA_voter_registration_act
+        USA_extend_the_chinese_exclusion_acts --> USA_empower_the_huac
+        USA_invite_foreign_support --> USA_send_lindbergh_to_germany
+        USA_labour_management_relations_act --> USA_empower_the_huac
+        USA_national_employment_strategy --> USA_honor_the_confederacy
+        USA_national_prosperity_program --> USA_de_regulate_the_banking_sector
+        USA_national_prosperity_program --> USA_privatize_the_TVA
+        USA_privatize_the_TVA --> USA_national_employment_strategy
+        USA_reestablish_the_gold_standard --> USA_adjusted_compensation_act
+        USA_reestablish_the_gold_standard --> USA_america_first
+        USA_send_lindbergh_to_germany --> USA_recruit_the_free_corps
+        USA_send_lindbergh_to_germany --> USA_work_with_the_bund
+        USA_work_with_the_bund --> USA_honor_the_confederacy
+    end
+```
+
 ## Germany
 
 | # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
@@ -474,63 +532,5 @@ flowchart TD
         ENG_the_kings_party --> ENG_reassess_continental_commitments
         ENG_alliance_with_germany x--x ENG_noninterference_treaty_with_germany
         ENG_organize_the_blackshirts x--x ENG_the_kings_party
-    end
-```
-
-## United States
-
-| # | Aggressor | Arc | Variant a | Key focuses | Status |
-|---|---|---|---|---|---|
-| 7 | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `recruit_the_free_corps`, `work_with_the_bund`, `voter_registration_act`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | draft |
-
-### Arc 7: Fascist america scenario
-
-The non-historical arc: a fascist America turns on the hemisphere. The name is
-fiction - the vanilla mechanics deliver a non-aligned "American Junta" (the
-civil-war regime), so the join filter reads non-aligned, not fascism. The arc
-holds its clock until that regime change, then releases claims and incidents at
-the crises rung and ultimatums plus join offers at peak.
-
-**Telemetry labels**: `sc_goal`: can_on_usa, mex_on_usa, usa_on_can, usa_on_mex; `sc_justify`: usa_on_can, usa_on_mex.
-
-```mermaid
-flowchart TD
-    subgraph arc7
-        USA_adjusted_compensation_act["USA_adjusted_compensation_act"]
-        USA_ally_with_the_silver_shirts[["USA_ally_with_the_silver_shirts"]]
-        USA_america_first["USA_america_first"]
-        USA_de_regulate_the_banking_sector[["USA_de_regulate_the_banking_sector"]]
-        USA_empower_the_huac["USA_empower_the_huac"]
-        USA_extend_the_chinese_exclusion_acts["USA_extend_the_chinese_exclusion_acts"]
-        USA_honor_the_confederacy[["USA_honor_the_confederacy"]]
-        USA_invite_foreign_support["USA_invite_foreign_support"]
-        USA_labour_management_relations_act["USA_labour_management_relations_act"]
-        USA_national_employment_strategy[["USA_national_employment_strategy"]]
-        USA_national_prosperity_program[["USA_national_prosperity_program"]]
-        USA_privatize_the_TVA[["USA_privatize_the_TVA"]]
-        USA_recruit_the_free_corps[["USA_recruit_the_free_corps"]]
-        USA_reestablish_the_gold_standard(["USA_reestablish_the_gold_standard"])
-        USA_send_lindbergh_to_germany["USA_send_lindbergh_to_germany"]
-        USA_voter_registration_act[["USA_voter_registration_act"]]
-        USA_work_with_the_bund[["USA_work_with_the_bund"]]
-        USA_adjusted_compensation_act --> USA_labour_management_relations_act
-        USA_ally_with_the_silver_shirts --> USA_invite_foreign_support
-        USA_ally_with_the_silver_shirts --> USA_national_prosperity_program
-        USA_america_first --> USA_ally_with_the_silver_shirts
-        USA_america_first --> USA_extend_the_chinese_exclusion_acts
-        USA_de_regulate_the_banking_sector --> USA_national_employment_strategy
-        USA_empower_the_huac --> USA_voter_registration_act
-        USA_extend_the_chinese_exclusion_acts --> USA_empower_the_huac
-        USA_invite_foreign_support --> USA_send_lindbergh_to_germany
-        USA_labour_management_relations_act --> USA_empower_the_huac
-        USA_national_employment_strategy --> USA_honor_the_confederacy
-        USA_national_prosperity_program --> USA_de_regulate_the_banking_sector
-        USA_national_prosperity_program --> USA_privatize_the_TVA
-        USA_privatize_the_TVA --> USA_national_employment_strategy
-        USA_reestablish_the_gold_standard --> USA_adjusted_compensation_act
-        USA_reestablish_the_gold_standard --> USA_america_first
-        USA_send_lindbergh_to_germany --> USA_recruit_the_free_corps
-        USA_send_lindbergh_to_germany --> USA_work_with_the_bund
-        USA_work_with_the_bund --> USA_honor_the_confederacy
     end
 ```
