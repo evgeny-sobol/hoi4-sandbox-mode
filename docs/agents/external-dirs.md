@@ -1,14 +1,15 @@
 # External Directories
 
-The agent's working directory is the `_sandbox` mod, but relevant files live in five directories. Consult all reachable ones before answering; do not assume everything is inside the working directory.
+The agent's working directory is the `_sandbox` mod, but relevant files live in six directories. Consult all reachable ones before answering; do not assume everything is inside the working directory.
 
-| Path                                                                               | Contents                                                                                                     | Access                                                               |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `C:\Games\Steam\steamapps\common\Hearts of Iron IV`                                | Vanilla game files; reference for base mechanics, vanilla focuses, triggers, effects                         | Read-only: never edit, create, or delete files here                  |
-| `C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox`     | This repo (working directory); sandbox-only overhaul of vanilla                                              | Editable: primary place for edits                                    |
-| `C:\Games\Steam\steamapps\workshop\content\394360\820260968`                       | The Road to 56 workshop mod; reference for Rt56-only content                                                 | Read-only: never edit, create, or delete files here                  |
-| `C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56` | Adaptation of the `_sandbox` mod for Rt56                                                                    | Editable via absolute path when the task touches the Rt56 adaptation |
-| `C:\Users\evgeny\Repos\HoI4\sandbox-mod-core`                                      | Shared modules used by both `_sandbox` and `_sandbox-r56`; authoritative source of `core/` submodule content | Editable via absolute path when the task touches shared behavior     |
+| Path                                                                               | Contents                                                                                                     | Access                                                                                        |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| `C:\Games\Steam\steamapps\common\Hearts of Iron IV`                                | Vanilla game files; reference for base mechanics, vanilla focuses, triggers, effects                         | Read-only: never edit, create, or delete files here                                           |
+| `C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox`     | This repo (working directory); sandbox-only overhaul of vanilla                                              | Editable: primary place for edits                                                             |
+| `C:\Games\Steam\steamapps\workshop\content\394360\820260968`                       | The Road to 56 workshop mod; reference for Rt56-only content                                                 | Read-only: never edit, create, or delete files here                                           |
+| `C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56` | Adaptation of the `_sandbox` mod for Rt56                                                                    | Editable via absolute path when the task touches the Rt56 adaptation                          |
+| `C:\Users\evgeny\Repos\HoI4\sandbox-mod-core`                                      | Shared modules used by both `_sandbox` and `_sandbox-r56`; authoritative source of `core/` submodule content | Editable via absolute path when the task touches shared behavior                              |
+| `C:\Users\evgeny\Repos\HoI4\hsl`                                                   | A Python-like language that compiles to Hearts of Iron IV (Clausewitz) script                                | Editable via absolute path when the optimal way to implement the task requires changes to HSL |
 
 ## Rules
 
