@@ -93,3 +93,24 @@ An arc whose key focuses and targets exist in the target mod without
 substitution and without a DLC gate. Portability is a per-mod property: an arc
 can be portable in one mod and not another.
 _Avoid_: compatible, supported, available
+
+**Character**:
+A person record: name, portraits, and one or more roles.
+_Avoid_: advisor (a role, not the person)
+
+**Advisor**:
+A hireable role of a character in a slot (political advisor, army chief):
+the player or AI spends political power to hire it. Hiring is gated by
+`available` (hard gate) and weighted for the AI by `ai_will_do`.
+_Avoid_: character, minister
+
+**Opinion**:
+The engine-tracked country-to-country total: individual modifiers add into
+it and the clamp cuts the sum, [-100, 100] in vanilla and [-200, 200]
+in Rt56.
+_Avoid_: rivalry, relation
+
+**Rivalry**:
+The mod's own 0-100 per-slot intensity toward a declared rival; it feeds
+opinion through fixed modifiers and never reads it.
+_Avoid_: opinion, hostility
