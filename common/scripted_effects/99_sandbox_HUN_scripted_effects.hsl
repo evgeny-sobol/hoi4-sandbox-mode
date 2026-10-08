@@ -13,7 +13,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &HUN_take_austria_by_force_antagonism = 1 - sum_f / n
       else:
@@ -31,7 +31,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &HUN_demand_the_vojvodina_antagonism = 1 - sum_f / n
       else:
@@ -53,7 +53,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_reintigrate_slovakia_antagonism = 1 - sum_f / n
       else:
@@ -72,7 +72,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_the_triple_kingdom_antagonism = 1 - sum_f / n
       else:
@@ -92,7 +92,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_restore_the_lombardo_venetian_kingdom_antagonism = 1 - sum_f / n
       else:
@@ -113,7 +113,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_undoing_the_yugoslav_mistake_antagonism = 1 - sum_f / n
       else:
@@ -134,7 +134,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_reclaim_the_slovak_possessions_antagonism = 1 - sum_f / n
       else:
@@ -155,7 +155,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_revenge_for_1919_antagonism = 1 - sum_f / n
       else:
@@ -173,7 +173,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_demand_the_vojvodina_antagonism = 1 - sum_f / n
       else:
@@ -201,7 +201,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_reclaim_the_pannonian_steppe_antagonism = 1 - sum_f / n
       else:
@@ -222,7 +222,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_the_second_northern_campaign_antagonism = 1 - sum_f / n
       else:
@@ -243,7 +243,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_revenge_for_the_romanian_humiliations_antagonism = 1 - sum_f / n
       else:
@@ -262,7 +262,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &wuw_HUN_march_south_antagonism = 1 - sum_f / n
       else:
@@ -322,7 +322,7 @@ update_HUN_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &HUN_balkan_ambitions_antagonism = 1 - sum_f / n
       else:

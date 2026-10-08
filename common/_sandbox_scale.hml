@@ -1,0 +1,9 @@
+# Per-mod opinion clamp (vanilla scale). Shared opinion math divides by
+# this macro; see .scratch/opinion-scale/issues/01-parameterize-opinion-divisor.md.
+# Rt56 carries its own copy returning 200; this file is invisible to
+# sync_core.py (mod-only, absent from core).
+# Load order: macro libraries compile in sorted-path order and
+# common/macros.hml calls this macro, so this file must sort before it
+# ('_' sorts before 'm').
+macro sandbox_opinion_scale():
+  100

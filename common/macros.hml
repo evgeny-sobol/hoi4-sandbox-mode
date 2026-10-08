@@ -347,7 +347,7 @@ macro crossroad_modifier(_number_of_choices_):
   is_sandbox_mode_on()
 
 macro opinion_factor(_tag_):
-  clamp(opinion@_tag_ / 100, -1.0, 1.0)
+  clamp(opinion@_tag_ / $sandbox_opinion_scale(), -1.0, 1.0)
 
 macro ai_cooperation_modifier(_tag_):
   cooperation = 1 + $opinion_factor(_tag_)

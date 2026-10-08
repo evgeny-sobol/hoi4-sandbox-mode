@@ -43,7 +43,7 @@ update_GER_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &GER_realize_mittelafrika_antagonism = 1 - sum_f / n
       else:
@@ -72,7 +72,7 @@ update_GER_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &GER_carve_up_czechoslovakia_antagonism = 1 - sum_f / n
       else:
@@ -92,7 +92,7 @@ update_GER_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &GER_demand_slovenia_antagonism = 1 - sum_f / n
       else:
