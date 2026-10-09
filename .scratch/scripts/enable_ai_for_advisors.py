@@ -270,8 +270,16 @@ def process_dir(in_dir, out_dir):
             print(f"  {fname}: no targets{extra}")
             continue
         out_name = fname[:-len(".txt")] + ".include"
+        out_text = build_include(targets, in_dir)
+        # A hand-maintained `<stem>.extra` beside the output is appended verbatim,
+        # so manual patches to a generated include survive regeneration.
+        extra_path = os.path.join(out_dir, fname[:-len(".txt")] + ".extra")
+        if os.path.isfile(extra_path):
+            with open(extra_path, "r", encoding="utf-8-sig") as ef:
+                extra_text = ef.read().rstrip("\n")
+            out_text = out_text.rstrip("\n") + "\n\n" + extra_text + "\n"
         with open(os.path.join(out_dir, out_name), "w", encoding="utf-8") as f:
-            f.write(build_include(targets, in_dir))
+            f.write(out_text)
         total_targets += len(targets)
         extra = f"; skipped conditional: {', '.join(skip_ids)}" if skip_ids else ""
         print(f"  {fname}: {len(targets)} target(s) -> {out_name}{extra}")
