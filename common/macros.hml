@@ -272,6 +272,28 @@ macro sandbox_log_cw_defer(_id_):
 macro sandbox_log_cw_event(_id_):
   $sandbox_log_cw_focus(cw_event, _id_)
 
+# cw_support - a major backs the kin side of an ongoing civil war (feature:
+# civil-war backing). Caller (the backer) sets the temps sandbox_cw_kin /
+# sandbox_cw_rival to the two sides' tags. Emitted once per (backer, war).
+macro sandbox_log_cw_support():
+  hidden_effect:
+    if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
+      sandbox_cw_ai = 0
+      if is_ai(yes):
+        sandbox_cw_ai = 1
+      log("#sandbox [GetDateText] [THIS.GetTag] cw_support kin=[?sandbox_cw_kin.GetTag] rival=[?sandbox_cw_rival.GetTag] ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+# cw_withdraw - a backer drops a kin side it no longer matches after a
+# government change (feature: civil-war backing, issue 04). Caller (the
+# backer) sets the temp sandbox_cw_kin to the dropped side's tag.
+macro sandbox_log_cw_withdraw():
+  hidden_effect:
+    if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
+      sandbox_cw_ai = 0
+      if is_ai(yes):
+        sandbox_cw_ai = 1
+      log("#sandbox [GetDateText] [THIS.GetTag] cw_withdraw kin=[?sandbox_cw_kin.GetTag] ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
 # Decision ai_will_do: skip the whole modifier when the cap is free.
 macro ai_civil_war_decision_cap():
   factor(0)

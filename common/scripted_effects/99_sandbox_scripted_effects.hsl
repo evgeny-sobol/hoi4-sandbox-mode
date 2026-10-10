@@ -720,6 +720,135 @@ update_sandbox_civil_war_count():
     $sandbox_log_cw_snapshot(cw_count)
 
 
+# ---------------------------------------------------------------------------
+# Civil-war backing (spec .scratch/civil-war-backing, issues 01-04).
+# A major backs the side of every ongoing civil war whose ruling government
+# matches its own (the "kin side") and opposes the other side (the "rival
+# side"). The choice is recorded once, per major, in that major's own ledger
+# and cleared when the war ends. Runs weekly from the HAI census host; the
+# sweep leaves original_tag_to_check unbound (see update_sandbox_civil_war_count).
+# ---------------------------------------------------------------------------
+
+
+# THIS = HAI. Fan out to every eligible AI major; each runs its own pass in
+# its scope. The sweep is the frozen-choice prune: it only drops a backing
+# whose war ended (see sandbox_cw_backing_for_major).
+sandbox_cw_backing_sweep():
+  for m in every_country().which(sandbox_cw_backer_eligible()):
+    sandbox_cw_strict = 0
+    sandbox_cw_backing_for_major()
+
+
+# THIS = a major. Drop backings whose war ended (and their opinion), then back
+# each newly matching side once. Ledger (per major): &cw_back_kin[] /
+# &cw_back_rival[] hold the two sides of each backed war. Normally the choice
+# is frozen: only a war end drops it. The government-change path sets
+# sandbox_cw_strict, which additionally drops a kin side the major no longer
+# matches and logs cw_withdraw.
+sandbox_cw_backing_for_major():
+  sandbox_cwb_keep[].clear()
+  sandbox_cwb_keep_rival[].clear()
+  for w, idx in &cw_back_kin[]:
+    r = cw_back_rival[idx]
+    &sandbox_cwb_live = 0
+    if country_exists(w):
+      var:w:
+        if has_civil_war():
+          PREV:
+            if sandbox_cw_strict == 0:
+              &sandbox_cwb_live = 1
+            else:
+              if has_same_ideology_as_PREV():
+                &sandbox_cwb_live = 1
+    if &sandbox_cwb_live == 1:
+      sandbox_cwb_keep[].add(w)
+      sandbox_cwb_keep_rival[].add(r)
+    else:
+      if country_exists(w):
+        var:w:
+          PREV:
+            $remove_opinion_modifier(PREV, cw_back_kin)
+            if sandbox_cw_strict == 1:
+              &sandbox_cw_kin = w
+              $sandbox_log_cw_withdraw()
+      if country_exists(r):
+        var:r:
+          PREV:
+            $remove_opinion_modifier(PREV, cw_back_rival)
+  &cw_back_kin[].clear()
+  &cw_back_rival[].clear()
+  for v, _ in sandbox_cwb_keep[]:
+    &cw_back_kin[].add(v)
+  for v, _ in sandbox_cwb_keep_rival[]:
+    &cw_back_rival[].add(v)
+
+  # A civil-war side matching THIS major's government, not its own war, not
+  # already backed: back it (positive opinion) from the major's scope. Ledger
+  # and values live on the major (PREV) so they survive the scope hops.
+  for s in every_country().which(has_civil_war()):
+    if has_same_ideology_as_PREV():
+      if not PREV->has_war_with(THIS):
+        if THIS not in PREV.&cw_back_kin[]:
+          PREV.&cw_back_kin[].add(THIS)
+          PREV.&sandbox_cw_kin = THIS
+          PREV.&sandbox_cw_rival = 0
+          for every_country_with_original_tag():
+            raw original_tag_to_check = THIS
+            if has_civil_war():
+              if not has_same_ideology_as_PREV():
+                PREV.PREV.&sandbox_cw_rival = THIS
+          PREV:
+            $add_opinion_modifier(PREV, cw_back_kin)
+            give_military_access(PREV)
+            $add_ai_strategy(send_lend_lease_desire, PREV, 200)
+            if has_government(fascism) or has_government(communism):
+              $add_ai_strategy(send_volunteers_desire, PREV, 200)
+            if country_exists(sandbox_cw_rival):
+              &cw_back_rival[].add(sandbox_cw_rival)
+              var:sandbox_cw_rival:
+                PREV:
+                  $add_opinion_modifier(PREV, cw_back_rival)
+            else:
+              &cw_back_rival[].add(0)
+            $sandbox_log_cw_support()
+
+
+# THIS = HAI (on_monthly host). Fan out to eligible AI majors; each supplies
+# its active backings. Monthly so the grant repeats while the war runs and
+# stops once the prune drops the ended war.
+sandbox_cw_backing_monthly():
+  for m in every_country().which(sandbox_cw_backer_eligible()):
+    sandbox_cw_backing_monthly_for_major()
+
+
+# THIS = a major. Send one month of equipment to every kin side it backs,
+# scaled by the backer's industry with a fixed floor.
+sandbox_cw_backing_monthly_for_major():
+  sandbox_cwb_amount = 100
+  if num_of_military_factories > 0:
+    sandbox_cwb_amount = num_of_military_factories * 5
+  if sandbox_cwb_amount < 100:
+    sandbox_cwb_amount = 100
+  if sandbox_cwb_amount > 2000:
+    sandbox_cwb_amount = 2000
+  for w, idx in &cw_back_kin[]:
+    if country_exists(w):
+      var:w:
+        if has_civil_war():
+          PREV:
+            $send_equipment(infantry_equipment, sandbox_cwb_amount, PREV)
+
+
+# THIS = a country whose government changed (on_government_change). A major
+# re-evaluates at once: the strict prune drops backings that no longer match
+# its new government (logging cw_withdraw), and the same pass picks up the
+# newly matching side without waiting for the weekly sweep.
+sandbox_cw_backing_on_gov_change():
+  if sandbox_cw_backer_eligible():
+    sandbox_cw_strict = 1
+    sandbox_cw_backing_for_major()
+
+
 # Called on every country each week. fire_only_once missions cannot be
 # cancelled, so add days while the AI is blocked (docs/gdd/Civil Wars.md).
 # The entries below exist in vanilla; mod-specific missions are appended by

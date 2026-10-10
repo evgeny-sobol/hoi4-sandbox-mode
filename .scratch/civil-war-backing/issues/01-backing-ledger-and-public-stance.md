@@ -1,6 +1,6 @@
 # 01 - Backing ledger and public stance
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -29,3 +29,7 @@ proximity requirement.
 - [ ] No player-controlled major is forced to back a side.
 - [ ] Backing applies once per war per major and is cleared when the war ends,
       so a later war can be backed fresh.
+
+## Answer
+
+Implemented on the integration branch: sandbox_cw_backing_sweep()/sandbox_cw_backing_for_major() in core, cw_support telemetry, cw_back_kin/cw_back_rival opinion, weekly sweep from the HAI census. Observer run: cw_support lines name the kin side, once per (major, war). core 2e7e632, mods e1d870c / e814d6f.

@@ -231,6 +231,8 @@ First line is the version (`#sandbox Mode Overhaul v0.1.2`). Next is `sandbox_st
 | `cw_ignition` / `cw_root` | focus `completion_reward` | `ai=0` is the player. Root has no cap; ignition must not complete while `cap=1` for an AI. |
 | `cw_defer` | Pattern C skip this week | Tag + fuse id (`spain`, mission id, `BBA_italy_civil_war.1`, `on_daily_AST`). Proves the AI is waiting, not that vanilla has not rolled yet. |
 | `cw_event` | fuse actually fired | `spain.1` / `spain.10`, `election.11.b` / `12.b`, ITA retry. `ai=` is THIS (the country running the event), not a rebel. |
+| `cw_support` | weekly backing sweep | A major backs a civil-war kin side (feature: civil-war backing). `kin=` / `rival=` name the two sides; `ai=1` always (backing is AI-only). Emitted once per (backer, war). |
+| `cw_withdraw` | `on_government_change` | A backer drops a kin side it no longer matches after its own government changed (issue 04). `kin=` names the dropped side. |
 
 **Fail the cap** if any `cw_pulse` / `cw_count` has `cw=` **greater than 3**, or an AI (`ai=1`) `cw_declare` whose arrow is `3->4`. A `2->3` line with `cap=1` is the third war, not a fail. A player (`ai=0`) may push `cw` above 3; that is allowed.
 

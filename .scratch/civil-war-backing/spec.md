@@ -1,6 +1,6 @@
 # Civil-war backing
 
-Status: ready-for-agent
+Status: resolved
 Type: spec
 
 ## Context
@@ -56,7 +56,8 @@ and catches wars that the declaration hook misses.
 
 ## What backing does
 
-Applied once, when the war is first seen, and held until the war ends:
+Applied once, when the war is first seen, and held until the war ends. The
+only re-evaluation is a backer's own government change (see Out of scope):
 
 - Opinion: a positive modifier toward the kin side and a negative modifier
   toward the rival side. Quarrels between backers are left to the existing
@@ -87,11 +88,15 @@ player-facing events.
 
 ## Out of scope (deferred)
 
-- Re-evaluating backing when a backer's government changes mid-war:
-  `issues/01-government-change-reevaluation.md`.
 - Backers joining the war; escalation stays with the existing Rivals and
   wargoal systems.
 - Expeditionary forces (not scriptable).
+
+Implemented after the original design: re-evaluating backing when a backer's
+government changes mid-war (`issues/04-government-change-reevaluation.md`).
+A backer that changes ruling ideology drops a kin side it no longer matches
+(logging `cw_withdraw`) and backs the newly matching side. This is the one
+exception to the frozen choice above.
 
 ## Scope of change
 

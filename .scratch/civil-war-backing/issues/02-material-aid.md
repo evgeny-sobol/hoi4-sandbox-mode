@@ -1,6 +1,6 @@
 # 02 - Material aid
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 01
 
@@ -17,3 +17,8 @@ fixed floor.
       that scales with the backer's strength and never drops below the floor.
 - [ ] A weak major gives noticeably less than a strong one.
 - [ ] The grant stops when the war ends.
+
+## Answer
+
+give_military_access on first backing; monthly send_equipment scaled by
+num_of_military_factories (floor 100, cap 2000) from sandbox_cw_backing_monthly(). Stops when the war ends via the ledger prune. Observer run clean.

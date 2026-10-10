@@ -22,6 +22,8 @@
   LocKey_rivalry_band_feud:              "Feud"
   national_rival:                        "National rival"
   leaders_rival:                         "Personal rival of the ruler"
+  cw_back_kin:                           "Backs our side in a civil war"
+  cw_back_rival:                         "Backs the opposing side of a civil war"
   LocKey_honor_tt:                       "  - Honor: [?honor|.2+] ([?honor_gain_monthly_factor|.2=+] monthly)\n  - Tyranny: [?tyranny|.2+] ([?tyranny_gain_monthly_factor|.2=+] monthly)"
   LocKey_honor_change_tt:                "Honor $VALUE|C$."
   LocKey_tyranny_change_tt:              "Tyranny $VALUE|C$."

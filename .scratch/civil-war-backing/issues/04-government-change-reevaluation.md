@@ -1,6 +1,6 @@
 # 04 - Re-evaluate civil-war backing when a backer's government changes
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 01, 02, 03
 
@@ -31,3 +31,7 @@ Should a government change let a backer switch sides mid-war (start backing
 the newly matching side), or only withdraw from a side it no longer matches?
 Switching sides is the more interesting behaviour but the larger change;
 decide before implementing.
+
+## Answer
+
+on_government_change -> sandbox_cw_backing_on_gov_change() sets sandbox_cw_strict; the strict prune drops a kin side the backer's new government no longer matches (logging cw_withdraw) and the same pass picks the newly matching side. Withdraw-then-reback; the weekly sweep stays frozen (only a war end drops a backing). Observer run: cw_withdraw fired once, no errors.

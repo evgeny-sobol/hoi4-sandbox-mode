@@ -223,3 +223,12 @@ sandbox_jap_sfl_fuse_ready:
   not has_completed_focus(JAP_the_unthinkable_option)
   not has_completed_focus(JAP_strengthen_civilian_government)
   not has_completed_focus(JAP_revoke_the_peace_preservation_law)
+
+# A major that may take a backing action (spec .scratch/civil-war-backing):
+# major power, AI, not itself in a civil war, and not near collapse. "Near
+# collapse" is the stability floor (no engine collapse read exists).
+sandbox_cw_backer_eligible:
+  is_major(yes)
+  is_ai(yes)
+  not has_civil_war()
+  $has_stability(0.2)
