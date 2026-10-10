@@ -1,13 +1,4 @@
-# Focus completion_reward queues these with hours = 1. Discard while the
-# AI is capped; sandbox_retry_sov_civil_war_fuse re-fires after a slot opens.
-country_event[id = NSB_soviet_communist_civil_war.001]:
-  trigger:
-    sandbox_civil_war_ai_allowed()
-
-country_event[id = NSB_soviet_communist_civil_war.003]:
-  trigger:
-    sandbox_civil_war_ai_allowed()
-
-country_event[id = NSB_Soviet_fascist_civil_war.001]:
-  trigger:
-    sandbox_civil_war_ai_allowed()
+# No overlay. The SOV ignition focuses (SOV_left_opposition_coup /
+# SOV_coup_detat / SOV_the_hands_do) queue these events, and their only AI path
+# is the focus, so they are exempt from the cap (docs/gdd/Civil Wars.md "Focus
+# exemption"). The vanilla on_daily_SOV fuse is player-only.

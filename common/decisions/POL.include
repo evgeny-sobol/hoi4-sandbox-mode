@@ -2,3 +2,16 @@ POL_peasant_strike_category:
   POL_peasants_strike:
     activation:
       sandbox_civil_war_ai_allowed()
+
+# The sanation decisions are the prime POL hole: their timeout_effect runs
+# POL_sanation_*_opposition_up, which starts the war. Gate the AI take
+# (Pattern D) here and the timeout in sandbox_delay_capped_cw_missions.
+POL_sanation_decisions:
+  POL_sanation_left_irritation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+  POL_sanation_right_irritation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

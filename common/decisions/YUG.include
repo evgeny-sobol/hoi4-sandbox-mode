@@ -1,3 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern D: the AI does not take the ignition decision
+# while the cap is full. YUG_communist_coup runs start_civil_war in its effect.
 YUG_peasant_uprisings:
   YUG_communist_coup:
     ai_will_do:

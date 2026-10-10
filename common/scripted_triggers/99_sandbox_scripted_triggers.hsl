@@ -168,16 +168,23 @@ GER_sandbox_three_inner_circle_chosen:
 is_rival_of_ROOT:
   $is_rival_of(ROOT)
 
-# Distinct original_tags currently in a civil war. Cap is 3 (docs/gdd/Civil Wars.md).
+# Distinct original_tags currently in a civil war. Cap is 1 (docs/gdd/Civil Wars.md).
 sandbox_civil_war_cap_reached:
   is_sandbox_mode_on()
-  global.sandbox_civil_war_count >= 3
+  global.sandbox_civil_war_count >= 1
+
+# The slot is held after a capped civil war ends (docs/gdd/Civil Wars.md "Cooldown").
+sandbox_civil_war_cooldown_active:
+  is_sandbox_mode_on()
+  global.sandbox_civil_war_cooldown > 0
 
 # AI must not light a new fuse. Do not fold is_ai into the cap trigger:
 # focus ai_will_do is already AI-only, and aiview still needs the country fact.
 sandbox_civil_war_ai_blocked:
   is_ai(yes)
-  sandbox_civil_war_cap_reached()
+  OR:
+    sandbox_civil_war_cap_reached()
+    sandbox_civil_war_cooldown_active()
 
 # Inverse of ai_blocked. Use this in vanilla `limit` / `trigger` overlays:
 # custom `scripted_trigger = no` is unreliable, so callers want an `= yes` form.

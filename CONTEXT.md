@@ -138,3 +138,37 @@ _Avoid_: enemy side, opposing side
 Any country where the engine's `is_major = yes` holds, so Rt56 `set_major`
 grants (e.g. China later) count.
 _Avoid_: great power, big country (a major is not a world power)
+
+**Civil-war cap**:
+The limit of one concurrent civil war for the AI: while one war runs, the AI
+starts no new event/mission ignition. A focus ignition is exempt, but a
+running focus ignition still occupies the slot.
+_Avoid_: limit, threshold
+
+**Focus ignition**:
+A civil war that starts from a national-focus completion reward, directly or
+through a script the focus always calls. Exempt from the civil-war cap and
+its cooldown.
+_Avoid_: ignition (that is the scenario term), focus war
+
+**Event/mission ignition**:
+A civil war that starts from a non-focus script (event, mission, decision,
+on_action, balance of power). Subject to the civil-war cap.
+_Avoid_: scripted war, event war
+
+**Civil-war cooldown**:
+The random wait of 0 to 12 months after a capped civil war ends, before the
+AI may start another event/mission ignition. A focus ignition ignores it.
+_Avoid_: delay, pause
+
+**Civil-war fuse**:
+A script that can start a civil war for a country: a focus reward, an event, a
+mission timeout, a decision, an on_action, or a balance of power. A focus fuse
+is a focus ignition (exempt from the cap); every other fuse is an event/mission
+ignition (capped).
+_Avoid_: trigger, source, spark
+
+**Ignition overlay**:
+The mod's gate on a civil-war fuse: an `sandbox_civil_war_ai_allowed()` check
+added to the fuse, so a capped AI defers it instead of losing it.
+_Avoid_: block, filter, patch

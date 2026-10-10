@@ -830,9 +830,6 @@ focus_tree[id = mu_czech_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $crossroad_modifier(2)
     completion_reward:
       $sandbox_log_cw_ignition(CZE_kohler_faction)

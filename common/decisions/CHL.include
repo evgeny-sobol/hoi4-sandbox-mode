@@ -1,0 +1,7 @@
+# docs/gdd/Civil Wars.md Pattern D: the AI does not take the ignition decision
+# while the cap is full. CHL_initiate_a_revolution runs start_civil_war.
+CHL_the_hispanic_revolutions_decisions:
+  CHL_initiate_a_revolution:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

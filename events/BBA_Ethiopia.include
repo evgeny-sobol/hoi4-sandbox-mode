@@ -1,0 +1,40 @@
+# docs/gdd/Civil Wars.md Pattern B: the AI does not pick the civil-war option
+# while the cap is full. The BBA Ethiopia family (BoP + fascist) was never
+# overlaid, so it leaked past the cap.
+country_event[id = BBA_ethiopia_balance_of_power_events.01]:
+  option[name = BBA_ethiopia_balance_of_power_events.01.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+  option[name = BBA_ethiopia_balance_of_power_events.01.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+  option[name = BBA_ethiopia_balance_of_power_events.01.c]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+
+country_event[id = BBA_ethiopia_fascist_events.02]:
+  option[name = BBA_ethiopia_fascist_events.02.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+
+country_event[id = BBA_ethiopia_fascist_events.03]:
+  option[name = BBA_ethiopia_fascist_events.03.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+
+country_event[id = BBA_ethiopia_fascist_events.04]:
+  option[name = BBA_ethiopia_fascist_events.04.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()

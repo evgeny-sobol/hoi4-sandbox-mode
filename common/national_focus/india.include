@@ -60,9 +60,6 @@ focus_tree[id = indian_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $ai_cooperation_modifier($RAJ)
       +modifier:
         factor(0)
@@ -104,9 +101,6 @@ focus_tree[id = indian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_cooperation_modifier($RAJ)
       +modifier:

@@ -694,6 +694,18 @@ reset_honor_for_new_ruler():
   reroll_leader_rival()
 
 
+# Roll the cooldown that holds the slot after a capped civil war ends
+# (docs/gdd/Civil Wars.md "Cooldown"). Global: one slot, one cooldown.
+sandbox_civil_war_roll_cooldown():
+  global.&sandbox_civil_war_cooldown = randi(0, 12)
+
+
+# Decrement the cooldown once a month (docs/gdd/Civil Wars.md "Cooldown").
+sandbox_civil_war_cooldown_tick():
+  if global.sandbox_civil_war_cooldown > 0:
+    global.&sandbox_civil_war_cooldown -= 1
+
+
 # Distinct original_tags with has_civil_war. seen[] is rebuilt from scratch
 # every call (docs/gdd/Civil Wars.md). every_country_with_original_tag uses the
 # candidate's original_tag, so SPR/SPA/SPB count as one slot.
@@ -718,6 +730,9 @@ update_sandbox_civil_war_count():
         global.&sandbox_civil_war_count += 1
   if global.sandbox_civil_war_count != sandbox_cw_old:
     $sandbox_log_cw_snapshot(cw_count)
+  # The slot just freed: hold it behind a fresh random cooldown.
+  if sandbox_cw_old > 0 and global.sandbox_civil_war_count == 0:
+    sandbox_civil_war_roll_cooldown()
 
 
 # ---------------------------------------------------------------------------
@@ -880,6 +895,16 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
     $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
     $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
+    $sandbox_delay_mission_if_capped(draft_dodging_mission)
+    $sandbox_delay_mission_if_capped(strikes_mission)
+    $sandbox_delay_mission_if_capped(mutiny_mission)
+    $sandbox_delay_mission_if_capped(demob_economic_mission)
+    $sandbox_delay_mission_if_capped(demob_manpower_mission)
+    $sandbox_delay_mission_if_capped(BUL_impending_zveno_coup)
+    $sandbox_delay_mission_if_capped(HUN_the_incoming_fascist_civil_war_mission)
+    $sandbox_delay_mission_if_capped(GUAY_military_coup_mission)
+    $sandbox_delay_mission_if_capped(RAJ_communist_unions_promised_worker_safety_mission)
+    $sandbox_delay_mission_if_capped(RAJ_communist_unions_promised_minimum_wage_mission)
     sandbox_delay_capped_cw_missions_mod()
 
 

@@ -1996,9 +1996,6 @@ focus_tree[id = soviet_focus]:
         is_sandbox_mode_on()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(SOV_the_hands_do)
 
@@ -2176,9 +2173,6 @@ focus_tree[id = soviet_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(SOV_left_opposition_coup)
 
@@ -2347,9 +2341,6 @@ focus_tree[id = soviet_focus]:
         $ai_high_tyranny_tilt()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(SOV_coup_detat)
 

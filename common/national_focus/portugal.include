@@ -363,9 +363,6 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $ai_war_support_modifier()
       modifier:
         $ai_antagonism_modifier($POR)
@@ -439,9 +436,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(POR_workers_of_iberia_unite)
   focus[id = POR_the_iberian_socialist_union]:
@@ -550,9 +544,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -721,9 +712,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -899,9 +887,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(POR_restoration_of_the_monarchy)
 

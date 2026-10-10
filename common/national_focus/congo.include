@@ -356,9 +356,6 @@ focus_tree[id = congo_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(COG_strike_while_the_rion_is_hot)
 
@@ -674,9 +671,6 @@ focus_tree[id = congo_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
