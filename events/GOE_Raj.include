@@ -1,0 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern A: GOE_RAJ.46 is queued by
+# common/decisions/RAJ_GOE.txt. Discard it while the AI is capped.
+country_event[id = GOE_RAJ.46]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

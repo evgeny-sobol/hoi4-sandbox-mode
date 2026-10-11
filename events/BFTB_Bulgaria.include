@@ -1,0 +1,8 @@
+# docs/gdd/Civil Wars.md Pattern A: the Fatherland Front coup starts the civil
+# war in this event's immediate. Discard it while the AI is capped; the weekly
+# on_weekly_BUL retry fires BUL_ff_tries_to_stage_a_coup_effect again.
+country_event[id = bftb_bulgaria_fatherland_front.2]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(bftb_bulgaria_fatherland_front.2)

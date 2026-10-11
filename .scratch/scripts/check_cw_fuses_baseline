@@ -25,7 +25,8 @@ common/decisions/LIT.txt:LIT_ignite_civil_war_in_POL
 common/decisions/POL.txt:POL_peasants_strike
 common/decisions/RAJ_GOE.txt:RAJ_communist_unions_promised_minimum_wage_mission
 common/decisions/RAJ_GOE.txt:RAJ_communist_unions_promised_worker_safety_mission
-common/decisions/SWE.txt:SWE_royal_visit
+common/decisions/SWE.txt:SWE_pull_the_trigger_den
+common/decisions/SWE.txt:SWE_pull_the_trigger_nor
 common/decisions/USA.txt:USA_indonesian_liberation
 common/decisions/YUG.txt:YUG_communist_coup
 common/decisions/political_decisions.txt:ignite_the_communist_civil_war
@@ -36,7 +37,7 @@ common/decisions/stability_war_support.txt:demob_manpower_mission
 common/decisions/stability_war_support.txt:draft_dodging_mission
 common/decisions/stability_war_support.txt:mutiny_mission
 common/decisions/stability_war_support.txt:strikes_mission
-common/on_actions/16_taog_on_actions.txt:?
+common/on_actions/16_taog_on_actions.txt:on_daily_AST
 common/operations/00_operations.txt:operation_coup_government
 common/operations/LaR_FRA_operations.txt:FRA_instigate_workers_revolution_germany
 common/operations/LaR_FRA_operations.txt:FRA_instigate_workers_revolution_italy
@@ -64,9 +65,6 @@ events/AAT_Denmark.txt:denmark_fascist_event.3
 events/AAT_Sweden.txt:AAT_Sweden_communism.4
 events/AAT_Sweden.txt:AAT_Sweden_flashpoints.53
 events/BBA_Ethiopia.txt:BBA_ethiopia_balance_of_power_events.01
-events/BBA_Ethiopia.txt:BBA_ethiopia_fascist_events.02
-events/BBA_Ethiopia.txt:BBA_ethiopia_fascist_events.03
-events/BBA_Ethiopia.txt:BBA_ethiopia_fascist_events.04
 events/BBA_Ethiopia.txt:BBA_ethiopia_fascist_events.07
 events/BBA_Italy.txt:BBA_italy_civil_war.1
 events/BFTB_Bulgaria.txt:bftb_bulgaria_fatherland_front.2
@@ -77,7 +75,6 @@ events/BFTB_Greece.txt:bftb_greece.48
 events/BFTB_Turkey.txt:bftb_turkey.22
 events/BFTB_Turkey.txt:bftb_turkey.67
 events/Britain.txt:britain.23
-events/DOD_Czechoslovakia.txt:czech.14
 events/DOD_Yugoslavia.txt:DOD_yugoslavia.184
 events/ElectionEvents.txt:election.11
 events/ElectionEvents.txt:election.12
@@ -115,8 +112,6 @@ events/NSB_Soviet.txt:NSB_soviet_communist_civil_war.003
 events/PoliticalEvents.txt:political.21
 events/PoliticalEvents.txt:political.22
 events/PoliticalEvents.txt:political.23
-events/PoliticalEvents.txt:political.5
-events/PoliticalEvents.txt:political.7
 events/SEA_Japan.txt:SEA_japan_foreign_policy.131
 events/SEA_Japan.txt:SEA_japan_foreign_policy.26
 events/SEA_Japan.txt:SEA_japan_foreign_policy.57
@@ -130,8 +125,6 @@ events/SEA_Japan.txt:SEA_japan_popup_events.38
 events/SEA_Nat_China.txt:SEA_china_democratic.5
 events/SEA_Warlords.txt:SEA_warlords.39
 events/SEA_Warlords.txt:SEA_warlords.46
-events/SovietUnion.txt:soviet.24
-events/SovietUnion.txt:soviet.36
 events/Spain.txt:spain.1
 events/Spain.txt:spain.10
 events/TAOG_Indonesia.txt:INS_communist_events.4

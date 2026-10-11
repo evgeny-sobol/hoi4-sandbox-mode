@@ -1,0 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern A: AUS_political_events.89 is queued by a
+# common/decisions decision (not a focus). Discard it while the AI is capped.
+country_event[id = AUS_political_events.89]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -1,0 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern A: france.14 is queued by
+# common/ideas/GER.txt (on_remove). Discard it while the AI is capped.
+country_event[id = france.14]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

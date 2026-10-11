@@ -1,0 +1,10 @@
+# docs/gdd/Civil Wars.md Pattern A: CHL_political_events.83 / .85 are MTTH
+# events (not focus-queued) whose options start a civil war. Discard them while
+# the AI is capped. (CHL_political_events.14 is gated via the CHL mission.)
+country_event[id = CHL_political_events.83]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = CHL_political_events.85]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

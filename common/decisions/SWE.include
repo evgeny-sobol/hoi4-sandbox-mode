@@ -1,0 +1,13 @@
+# docs/gdd/Civil Wars.md Pattern D: the AI does not take the ignition decision
+# while the cap is full. SWE_pull_the_trigger_nor / _den start a civil war in
+# NOR / DEN. The decisions are unlocked by a Swedish focus, but they are AI
+# decisions, not focus ignitions.
+SWE_communist_foreign_influence:
+  SWE_pull_the_trigger_nor:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+  SWE_pull_the_trigger_den:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

@@ -5,3 +5,11 @@ CHL_the_hispanic_revolutions_decisions:
     ai_will_do:
       +modifier:
         $ai_civil_war_decision_cap()
+
+# docs/gdd/Civil Wars.md activation gate + Pattern C: CHL_nacista_coup_attempt (978-day
+# timeout) fires CHL_political_events.14, which starts the civil war. Gate the
+# activation and keep the timeout in sandbox_delay_capped_cw_missions.
+CHL_nacista_insurgency_decisions:
+  CHL_nacista_coup_attempt:
+    activation:
+      sandbox_civil_war_ai_allowed()

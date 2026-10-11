@@ -75,6 +75,10 @@ focus_tree[id = argentine_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(ARG_march_to_la_casa_rosada)
 
   focus[id = ARG_intervenciones_federales]:
     ai_will_do:
@@ -560,6 +564,10 @@ focus_tree[id = argentine_focus_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_mic_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(ARG_joint_military_exercises)
 
   focus[id = ARG_join_the_allies]:
     ai_will_do:

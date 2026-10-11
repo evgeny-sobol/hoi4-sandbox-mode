@@ -21,9 +21,20 @@ from pathlib import Path
 SCAN_DIRS = ["common/decisions", "common/scripted_effects", "common/on_actions",
              "common/balance_of_power", "common/operations", "events"]
 EVENT_ID = re.compile(r"^\s*id\s*=\s*([A-Za-z0-9_.]+)")
-DEC_ID = re.compile(r"^\t([A-Za-z0-9_]+)\s*=\s*\{")
+DEC_ID = re.compile(r"^\t{1,2}([A-Za-z0-9_]+)\s*=\s*\{")
 SE_NAME = re.compile(r"^([A-Za-z0-9_]+)\s*[:=]\s*\{?\s*$")
 OP_ID = re.compile(r"^([A-Za-z0-9_]+)\s*=\s*\{")
+ON_ACTION_ID = re.compile(r"^\s*(on_[A-Za-z0-9_]+)\s*=\s*\{")
+# Generic DSL keys are not decision ids; skip them so the baseline names the
+# decision, not its inner block.
+GENERIC_KEYS = {
+    "timeout_effect", "remove_effect", "complete_effect", "cancel_effect",
+    "ai_will_do", "available", "visible", "activation", "targeted_modifier",
+    "modifier", "effect", "immediate", "option", "trigger", "select_effect",
+    "custom_effect_tooltip", "cancel_trigger", "targets", "highlight_states",
+    "on_complete", "completion_reward", "allowed", "icon", "cost",
+    "target_root_trigger", "target_trigger", "target_array",
+}
 BASELINE = Path(__file__).with_name("check_cw_fuses_baseline")
 
 
@@ -34,6 +45,8 @@ def id_matcher(rel: str):
         return DEC_ID
     if rel.startswith("common/scripted_effects/"):
         return SE_NAME
+    if rel.startswith("common/on_actions/"):
+        return ON_ACTION_ID
     return OP_ID
 
 
@@ -50,10 +63,15 @@ def current(root: Path) -> set[str]:
             rx = id_matcher(rel)
             cur = "?"
             for ln in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
+                # A real fuse is a `start_civil_war = {` effect. Skip comments
+                # and display-only tooltips, which contain the same substring.
+                code = ln.split("#", 1)[0]
+                if "custom_effect_tooltip" in code or "effect_tooltip" in code:
+                    continue
                 m = rx.match(ln)
-                if m and "start_civil_war" not in ln:
+                if m and "start_civil_war" not in ln and m.group(1) not in GENERIC_KEYS:
                     cur = m.group(1)
-                if "start_civil_war" in ln:
+                if "start_civil_war" in code:
                     out.add(f"{rel}:{cur}")
     return out
 

@@ -1,0 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern A: mtg_news.58 is a news_event queued by a
+# common/on_actions on_action (not a focus). Discard it while the AI is capped.
+news_event[id = mtg_news.58]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -895,6 +895,10 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BALTIC_belarus_uprising)
     $sandbox_delay_mission_if_capped(LIT_iron_wolf_partisans)
     $sandbox_delay_mission_if_capped(SIA_war_fervor_coup)
+    # The khana-ratsadon coup missions start a civil war on timeout too
+    # (SIA_military_coup / SIA_civilian_coup -> SIA_start_opposing_civil_war).
+    $sandbox_delay_mission_if_capped(SIA_khana_ratsadon_military_coup_mission)
+    $sandbox_delay_mission_if_capped(SIA_khana_ratsadon_civilian_coup_mission)
     $sandbox_delay_mission_if_capped(draft_dodging_mission)
     $sandbox_delay_mission_if_capped(strikes_mission)
     $sandbox_delay_mission_if_capped(mutiny_mission)
@@ -903,6 +907,8 @@ sandbox_delay_capped_cw_missions():
     $sandbox_delay_mission_if_capped(BUL_impending_zveno_coup)
     $sandbox_delay_mission_if_capped(HUN_the_incoming_fascist_civil_war_mission)
     $sandbox_delay_mission_if_capped(GUAY_military_coup_mission)
+    $sandbox_delay_mission_if_capped(CHL_nacista_coup_attempt)
+    $sandbox_delay_mission_if_capped(ARG_military_coup_attempt)
     $sandbox_delay_mission_if_capped(RAJ_communist_unions_promised_worker_safety_mission)
     $sandbox_delay_mission_if_capped(RAJ_communist_unions_promised_minimum_wage_mission)
     sandbox_delay_capped_cw_missions_mod()

@@ -1,0 +1,22 @@
+# docs/gdd/Civil Wars.md Pattern A: the wuw_GER war events are queued by
+# common/ideas/GER.txt (on_remove) and common/decisions/GER.txt. Discard them
+# while the AI is capped.
+country_event[id = wuw_GER_civil_war.6]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wuw_GER_diplomacy.75]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wuw_GER_realpolitik.27]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wuw_GER_realpolitik.28]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wuw_GER_realpolitik.29]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

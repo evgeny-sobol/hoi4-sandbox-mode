@@ -1,0 +1,17 @@
+# docs/gdd/Civil Wars.md Pattern A: chained German civil-war events, not
+# focus-queued. Discard them while the AI is capped.
+country_event[id = wtt_germany.31]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wtt_germany.32]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wtt_germany.33]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = wtt_germany.34]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

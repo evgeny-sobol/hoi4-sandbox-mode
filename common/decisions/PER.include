@@ -2,3 +2,12 @@ PER_civil_unrest_category:
   PER_civil_war_imminent:
     activation:
       sandbox_civil_war_ai_allowed()
+    # The mission timeout queues PER_revolution_events.1 (the war). The Pattern
+    # C delay did not hold (observed PER 1937-11), so gate the timeout too:
+    # while capped, skip the event. The weekly
+    # sandbox_retry_per_civil_war_fuse re-fires it once the slot opens.
+    -timeout_effect:
+    +timeout_effect:
+      if sandbox_civil_war_ai_allowed():
+        country_event(PER_revolution_events.1)
+      activate_mission(PER_civil_war_imminent)

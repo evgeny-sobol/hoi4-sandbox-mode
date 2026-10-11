@@ -4,7 +4,7 @@ country_event[id = LAT_events.7]:
     ai_chance:
       +modifier:
         factor(0)
-        sandbox_civil_war_cap_reached()
+        sandbox_civil_war_ai_blocked()
     $sandbox_log_cw_event(LAT_events.7.a)
 
 # Both options start a war. Not fire_only_once. Mission `available` is also

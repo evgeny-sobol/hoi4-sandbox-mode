@@ -5,7 +5,7 @@ country_event[id = election.11]:
     ai_chance:
       +modifier:
         factor(0)
-        sandbox_civil_war_cap_reached()
+        sandbox_civil_war_ai_blocked()
     $sandbox_log_cw_event(election.11.b)
 
 country_event[id = election.12]:
@@ -13,5 +13,5 @@ country_event[id = election.12]:
     ai_chance:
       +modifier:
         factor(0)
-        sandbox_civil_war_cap_reached()
+        sandbox_civil_war_ai_blocked()
     $sandbox_log_cw_event(election.12.b)

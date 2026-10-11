@@ -1,0 +1,4 @@
+# docs/gdd/Civil Wars.md Pattern A: MTTH civil-war event, not focus-queued.
+country_event[id = mtg_usa_civil_war_democrats.20]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -1,0 +1,6 @@
+# docs/gdd/Civil Wars.md Pattern A: ARG_political_events.11 is queued by
+# common/decisions/ARG.txt and common/on_actions/10_toa_on_actions.txt (not a
+# focus). Discard it while the AI is capped.
+country_event[id = ARG_political_events.11]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

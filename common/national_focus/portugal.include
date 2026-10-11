@@ -880,6 +880,10 @@ focus_tree[id = portuguese_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(POR_the_empire_of_brazil)
 
   focus[id = POR_restoration_of_the_monarchy]:
     +ai_will_do:

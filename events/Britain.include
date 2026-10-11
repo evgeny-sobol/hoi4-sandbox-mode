@@ -1,0 +1,6 @@
+# docs/gdd/Civil Wars.md Pattern A: britain.23 starts a civil war and is
+# chained from britain.19 / .20 (not focus-queued). Discard it while the AI is
+# capped.
+country_event[id = britain.23]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

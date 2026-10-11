@@ -1,0 +1,10 @@
+# docs/gdd/Civil Wars.md Pattern A: germany.65 is queued by
+# common/decisions/GER.txt. Discard it while the AI is capped.
+country_event[id = germany.65]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+# Chained from the German conspiracy events (not a focus).
+country_event[id = germany.73]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

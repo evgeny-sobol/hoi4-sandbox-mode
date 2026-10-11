@@ -44,6 +44,10 @@ focus_tree[id = german_focus]:
         f = (1 - mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(GER_oppose_hitler_ww)
 
 #II. ▄▀▀▄ █▀▀▄ ▄▀▀▀▄ ▄▀▀▀ ▄▀▀▀ █▀▀▄ ▄▀▀▀▄ ▄▀▀▄ █▀▀▄      ▀▀▀▄
 #    █  ▄ █▀▀▄ █   █  ▀▀▄  ▀▀▄ █▀▀▄ █   █ █▀▀█ █  █      ▄▀▀

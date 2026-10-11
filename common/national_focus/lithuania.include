@@ -519,6 +519,10 @@ focus_tree[id = lithuania_tree]:
         $ai_rivalry_modifier($POL)
       +modifier:
         $ai_betrayal_modifier_vs($POL)
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(LIT_king_of_poland)
 
   focus[id = LIT_POL_union]:
     available:

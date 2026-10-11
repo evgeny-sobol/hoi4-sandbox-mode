@@ -1,0 +1,4 @@
+# docs/gdd/Civil Wars.md Pattern A: MTTH civil-war event, not focus-queued.
+country_event[id = tfv_canada.30]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -255,6 +255,10 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(JAP_revoke_the_peace_preservation_law)
 
 #III. ▄▀▀▄ ▄▀▀▀▄ █▄ ▄█ █▄ ▄█ █  █ █▄  █ █ ▄▀▀▀ ▀▀█▀▀ ▄▀▀▀
 #     █  ▄ █   █ █ ▀ █ █ ▀ █ █  █ █ ▀▄█ █  ▀▀▄   █    ▀▀▄
@@ -817,6 +821,10 @@ focus_tree[id = japan_wtt_focus]:
         $ai_rivalry_modifier($KOR)
       +modifier:
         $ai_betrayal_modifier_vs($KOR)
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(JAP_ignite_the_korean_peninsula)
 
   focus[id = JAP_protect_the_manchurians]:
     available:

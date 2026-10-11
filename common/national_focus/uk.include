@@ -1059,8 +1059,11 @@ focus_tree[id = british_focus]:
         $ai_scenario_focus_boost_variant(c)
       +modifier:
         $ai_scenario_focus_boost_variant(a)
+      +modifier:
+        $ai_civil_war_ignition_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(ENG_isolate_the_mediterranean_threat)
+      $sandbox_log_cw_ignition(ENG_isolate_the_mediterranean_threat)
 
 
   focus[id = ENG_alliance_with_germany]:
