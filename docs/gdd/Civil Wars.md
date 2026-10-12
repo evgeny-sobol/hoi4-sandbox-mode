@@ -243,7 +243,7 @@ Rivals: `on_civil_war_end` already re-rolls the winner's personal rival. No extr
 
 ## How to read `game.log`
 
-First line is the version (`#sandbox Mode Overhaul v0.1.2`). Next is `sandbox_start historical=0` or `historical=1`.
+First line is the version (`#sandbox Mode Overhaul v0.3.0`). Next is `sandbox_start historical=0` or `historical=1`.
 
 | Token | When | What to read |
 | --- | --- | --- |
