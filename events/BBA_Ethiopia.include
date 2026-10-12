@@ -1,0 +1,9 @@
+# docs/gdd/Civil Wars.md Pattern A: the Ethiopia BoP event is discarded while
+# the AI is capped; weekly sandbox_retry_eth_civil_war_fuse re-fires it.
+# (The fascist .02 / .03 / .04 events only carry `custom_effect_tooltip`
+# tooltips, not a real `start_civil_war`, so they are not gated.)
+country_event[id = BBA_ethiopia_balance_of_power_events.01]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(BBA_ethiopia_balance_of_power_events.01)

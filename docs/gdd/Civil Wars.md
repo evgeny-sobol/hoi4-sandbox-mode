@@ -2,7 +2,7 @@
 
 A civil war is the most expensive way a country can change its politics: it splits the tag, burns divisions, and pulls neighbours in. In a randomised sandbox world a few of these are flavour. A dozen at once is noise — the player cannot tell a story in a map that is already on fire.
 
-This document is about **how often** the AI starts one. It does not redesign vanilla civil-war content (Spanish Civil War, Cedillo, Vaps, second Finnish war). Those scripts stay. Sandbox only changes whether the AI walks into them, and whether a fourth country is allowed to explode while three are already burning.
+This document is about **how often** the AI starts one. It does not redesign vanilla civil-war content (Spanish Civil War, Cedillo, Vaps, second Finnish war). Those scripts stay. Sandbox only changes whether the AI walks into them, and whether the AI is allowed to start another while one is already burning.
 
 Civil wars are **not**:
 - Honor. Starting a civil war does not cost Honor; Honor is about promises to *other* countries (`docs/gdd/Honor System.md`).
@@ -26,9 +26,9 @@ What does **not** cause this pile-up (leave it alone in this iteration):
 
 ## Design goals
 
-1. At most a handful of civil wars run at the same time. Spain plus two others is the default picture; a fourth waits until one of them ends.
+1. At most one event/mission civil war runs for the AI at a time. A focus ignition may overlap it, so the map can still show two wars; a new event/mission ignition waits until the slot frees and its cooldown ends.
 2. A civil-war focus is a rare political beat, not a peer of "build civilian factories". The AI may still take it, especially a high-Tyranny ruler on an ideological branch.
-3. Weight the **root** of a civil-war branch, not only the last focus. Otherwise the AI spends a year on the branch and detonates the moment a slot frees.
+3. Weight the **root** of a civil-war branch, not only the last focus. The cooldown, not the root weight, now stops the AI from detonating the moment a slot frees.
 4. Do not cancel or rewrite vanilla `start_civil_war` payloads (states, ideology, OOBs, character splits). The cap applies to *new* AI-started wars from **any** script that lights the fuse — focus, event, mission, decision, BoP range, `on_action`. Wars already running continue.
 5. Player-started wars are unrestricted. Cap and the 0.25 factor are AI-only (`ai_will_do` / `ai_chance` / `is_ai = yes` on the overlay). A human Spain still gets 1936; a human Mexico still gets Cedillo if they let the mission expire.
 
@@ -53,19 +53,29 @@ every_country:
       sandbox_civil_war_count += 1
 ```
 
-**Cap: 3.** Scripted trigger `sandbox_civil_war_cap_reached`: `is_sandbox_mode_on()` and `sandbox_civil_war_count >= 3`.
+**Cap: 1.** Scripted trigger `sandbox_civil_war_cap_reached`: `is_sandbox_mode_on()` and `sandbox_civil_war_count >= 1`.
 
-While the cap is reached, the AI must not start another civil war. Wars already running continue. The player may still ignite another.
+While the cap is reached, the AI must not start another event/mission civil war. Wars already running continue. The player may still ignite another. A **focus ignition** is exempt (see "Focus exemption").
 
 AI-blocked helper (events, missions, on_actions, BoP — anything that is not `ai_will_do`):
 
 ```
 sandbox_civil_war_ai_blocked:
   is_ai = yes
-  sandbox_civil_war_cap_reached()
+  OR:
+    sandbox_civil_war_cap_reached()
+    sandbox_civil_war_cooldown_active()
 ```
 
-`sandbox_civil_war_cap_reached` already requires sandbox mode. Do not fold `is_ai` into the cap trigger: focus `ai_will_do` is already AI-only, and aiview should still show the cap as a country-level fact.
+`sandbox_civil_war_cap_reached` already requires sandbox mode. Do not fold `is_ai` into the cap trigger: aiview should still show the cap as a country-level fact.
+
+### Focus exemption
+
+A war that starts from a national-focus completion reward, directly or through a script the focus always calls, is a **focus ignition**. It is exempt from both the cap and the cooldown: the AI chose that branch on purpose, and the observed pile-up came from event/mission fuses, not focuses. A running focus ignition still counts in `sandbox_civil_war_count`, so it occupies the slot and blocks event/mission ignitions. Do not add a cap modifier to an ignition focus's `ai_will_do`; keep `$ai_civil_war_ignition_modifier()` (0.25) alone. No origin is recorded: the exemption lives at the ignition site, not in the counter.
+
+### Cooldown
+
+After a capped civil war ends, the slot is not free at once. A global `sandbox_civil_war_cooldown` holds the months left: it is set to `randi(0, 12)` at session start and every time `sandbox_civil_war_count` drops to 0, and decremented once a month. `sandbox_civil_war_cooldown_active` is `sandbox_civil_war_cooldown > 0`. The cooldown gates event/mission and decision ignitions; a focus ignition ignores it.
 
 ### Civil-war focus (definition)
 
@@ -108,19 +118,16 @@ macro ai_civil_war_ignition_modifier():
   is_sandbox_mode_on()
 ```
 
-The cap is a **separate** modifier so aiview still shows 0.25 when the cap is free:
+No cap modifier sits on the ignition focus: a focus ignition is exempt from the cap and cooldown ("Focus exemption"). The weight is only:
 
 ```
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
 ```
 
 `factor(0.25)` applies even with an empty map: civil war is uncommon, not "only when the cap is hit". Combined with party/Tyranny factors the ignition focus is still takeable for a fascist/communist despot on an empty cap.
 
-**Root** (`$ai_civil_war_root_modifier()`): same 0.25, **no cap**. Blocking the root when Spain is already at war would freeze every alt-history political branch in 1936. The cap only stops the match that lights the fuse. If the AI walked the branch and the cap is full, it idles on other available focuses until a slot opens, then may take the ignition focus.
+**Root** (`$ai_civil_war_root_modifier()`): same 0.25, **no cap**. Neither root nor ignition is capped now: a focus ignition is exempt, so a branch the AI committed to can always fire. The cap and cooldown stop event/mission ignitions only.
 
 Tyranny: ignition focuses that are also unconstitutional already have `$ai_high_tyranny_tilt()` / fork macros. Keep those. Do not add a second tyranny factor on the same block.
 
@@ -144,7 +151,7 @@ On the option that calls `start_civil_war`:
 ai_chance:
   +modifier:
     factor(0)
-    sandbox_civil_war_cap_reached()
+    sandbox_civil_war_ai_blocked()
 ```
 
 The peaceful / other option stays. Player still sees both. If **every** option starts a war (ITA `BBA_italy_civil_war.1`), this pattern cannot save it — use C at the **caller** (BoP `on_activate`, focus, mission). `ai_chance = 0` cannot log a skip; the civil-war option logs `cw_event` when taken.
@@ -166,7 +173,7 @@ For ITA BoP: do not fire `BBA_italy_civil_war.1` while blocked; check again when
 
 ### Pattern D — Decisions the AI can take
 
-Same as focuses: `ai_will_do` `factor(0)` when `sandbox_civil_war_cap_reached()`. `available` unchanged (player). Includes ENG decisions that `start_civil_war` on a dominion.
+Same as focuses: `ai_will_do` `factor(0)` via `$ai_civil_war_decision_cap()`, which fires when `sandbox_civil_war_cap_reached()` OR `sandbox_civil_war_cooldown_active()` (the cooldown gates decision ignitions too). `available` unchanged (player). Includes ENG decisions that `start_civil_war` on a dominion.
 
 ## Coverage
 
@@ -176,7 +183,7 @@ Tag every vanilla focus whose reward contains `start_civil_war` (or `effect_tool
 
 - Direct `start_civil_war` in the focus: `AFG_the_faqirs_revolt`, `AFG_return_of_the_emir`, `AFG_parliamentary_democracy`, `AFG_socialist_coup`, `ARG_viva_la_revolucion`, `BALTIC_overthrow_the_government`, `BALTIC_arm_baltic_reds`, `BRA_ban_political_parties`, `BRA_launch_the_revolution`, `BUL_overthrow_the_tsar`, `BUL_abolish_the_monarchy`, `BUL_depose_the_tsar`, `CHL_avenge_the_pacification_of_araucania`, `COG_strike_while_the_rion_is_hot`, `COG_uniao_dos_povos_do_norte_de_angola`, `CZE_kohler_faction`, `DEN_seize_power`, `DEN_ask_for_support`, `EST_march_on_talinn`, `FIN_the_second_finnish_civil_war`, `FIN_a_fascist_regime`, `FRA_destroy_the_counter_revolution`, `wuw_HUN_reviving_the_spirit_of_1848`, `RAJ_give_me_blood_and_i_will_grant_you_freedom`, `RAJ_indian_peoples_army`, `RAJ_indian_national_army`, `IRQ_kurdish_revolt`, `JAP_cast_the_die`, `JAP_pre_emptive_coup`, `PER_strengthen_iranian_parliament`, `PER_force_abdication`, `PER_iranian_socialist_revolution`, `PER_march_on_saadabad`, `POR_reorganization_of_the_communist_party`, `lar_portugal_iberian_workers_united`, `POR_allow_free_elections`, `POR_ditadura_militar`, `POR_restoration_of_the_monarchy`, `SIA_the_kings_gambit`, `SIA_and_spring_the_trap`, `SIA_unseat_the_government`, `SAF_support_the_german_coup`, `AAT_Sweden_nationalists`, `TUR_restack_the_officer_corps`.
 
-- Event / scripted-effect ignition **from a focus**: still tag **root + ignition** on NOR / EST / LAT / LIT / POL / USA / MEX. The focus cap remains; this pass also overlays the event/mission the focus fires, so a player-completed focus at cap still starts the war, and an AI-completed focus cannot sneak around the cap via the event.
+- Event / scripted-effect ignition **from a focus**: tag **root + ignition** on NOR / EST / LAT / LIT / POL / USA / MEX. A focus ignition is exempt from the cap, so the overlay must not block the event/mission the focus fires. Un-overlay the events reachable only from an ignition focus (`PER_revolution_events.1` in both mods; r56 `lithuania.16`, `portugal.44` / `portugal.45`; the vanilla NSB war-starters `.001` / `.003` / `fascist.001`). Keep the overlay where a non-focus fuse shares the event (r56 `NSB_soviet_civil_war_common.003` from `on_daily_SOV`): there the focus ignition stays capped. The r56 USA focuses that fire `mtg_usa_civil_war_*` are untagged; tag them with `$ai_civil_war_ignition_modifier()`.
 
 Do not tag intervention / "lessons from the Spanish Civil War" / volunteer focuses.
 
@@ -188,16 +195,32 @@ Walk vanilla `start_civil_war` outside `common/national_focus/`. Overlay every i
 - **Mexico**: `MEX_mission_cedillos_rebellion` timeout → `mexico.1`; Cristiada / second-revolution missions → `mexico.28` / `mexico.30`.
 - **Australia**: `on_daily_AST` veterans revolt; `AST_veterans_revolt` mission timeout; TAOG paths that call `AST_instigate_civil_war_in_target` on AST itself.
 - **Greece**: BFTB events that `start_civil_war` (`bftb_greece.105` via `bftb_greece.100` else_if + weekly retry, `.218` from `.207.b` Pattern B — not the "start a war in Turkey" options unless TUR is the target slot).
-- **Poland**: peasant-strike / sanation mission timeouts and `POL_scripted_effects` civil-war effects.
+- **Poland**: sanation decisions (`POL.txt` -> `POL_sanation_left_opposition_up` / `POL_sanation_right_opposition_up`, Pattern D), `NSB_poland_monarchist_events.5` (Pattern B), and the peasant-strike timeout (Pattern C). The sanation path was the prime ungated hole; the peasant strike was gated only at `activation`.
 - **Baltic**: LIT/LAT/EST decisions and NSB events that start a war in ROOT (and LIT events that start one in POL — gate the actor, count the target). `EST_vaps_down_effect` (same pattern as Iron Wolf). `EST_events.7` trigger + weekly retry. `LAT_events.8` (both options war; mission `available` + event trigger). `LIT_events.10` / `EST_events.9` Pattern B.
 - **Persia**: `PER_revolution_events.1` (event trigger + weekly retry) and ignition on `PER_revive_old_ways`; `PER_civil_war_imminent` mission delay.
 - **Italy**: BoP `ITA_grand_council_total_control_range` → `BBA_italy_civil_war.1` (event trigger + weekly retry). Overlays use `sandbox_civil_war_ai_allowed()` (`= yes`), not `scripted_trigger = no`.
 - **Ethiopia**: BoP total-control ranges → `BBA_ethiopia_balance_of_power_events.01`; weekly retry while the range is still live.
-- **Siam**: `siam.8` (Songsuradet, delayed from `siam.7`); `SIA_war_fervor_coup` mission.
+- **Siam**: `siam.8` (Songsuradet, delayed from `siam.7`); `SIA_war_fervor_coup` mission; the khana-ratsadon coup missions `SIA_khana_ratsadon_military_coup_mission` / `SIA_khana_ratsadon_civilian_coup_mission` (activation gate + mission delay). `SIA_war_fervor_coup_dummy` has no caller in vanilla and is unreachable.
 - **Soviets**: ignition focuses `SOV_left_opposition_coup` / `SOV_coup_detat` / `SOV_the_hands_do`, plus the events they queue.
 - **Lithuania**: `LIT_iron_wolf_partisans` / `LIT_iron_wolf_down_effect` (Iron Wolf idea tick at bad_4). `EST_vaps_down_effect` is the same family.
 - **Elections**: `election.11.b` / `election.12.b` — Pattern B.
 - **UK/dominions**: ENG decisions that `start_civil_war` on CAN/SAF/AST/NZL.
+- **Stability crises**: `common/decisions/stability_war_support.txt` missions (`draft_dodging`, `strikes_mission`, and the other `start_civil_war` timeouts) - Pattern C. The v0.2 playtest showed they cluster, so they are now under the cap.
+- **Decisions**: the CHL / BUL / GUAY / HUN / USA / RAJ_GOE / SWE / BALTIC decisions that `start_civil_war` - each AI path verified and gated (Pattern D). CHL / BUL / SWE now have overlays; GUAY / HUN / RAJ_GOE go through the mission delay; USA / BALTIC were already gated. CHL also has the `CHL_nacista_coup_attempt` mission (978-day timeout -> `CHL_political_events.14`) - Pattern A + C. The `ignite_the_*_civil_war` decisions are player-only (`ai_will_do factor = 0`).
+- **Spy coups**: `common/operations/00_operations.txt` (`operation_coup_government`) and the LaR_FRA coup can start an AI civil war past the cap. Deliberately left ungated (see Out of scope).
+- **Ethiopia (BBA)**: the BoP `.01` event - Pattern A (a Pattern B `ai_chance` gate did not stop the forced option). The fascist `.02` / `.03` / `.04` events only carry `custom_effect_tooltip` tooltips, not a real `start_civil_war`, so they are not gated; `.07` is focus-queued and exempt.
+- **Bulgaria (BFTB)**: `bftb_bulgaria_fatherland_front.2` (Pattern A; the weekly `on_weekly_BUL` retry re-fires `BUL_ff_tries_to_stage_a_coup_effect`).
+- **Yugoslavia (DOD)**: `DOD_yugoslavia.701.b` (Pattern B; the resist option runs `YUG_start_peters_coup`). `DOD_yugoslavia.1` has no caller in vanilla.
+- **Japan (SEA)**: `SEA_japan_popup_events.22` / `.29` are queued only by the Japan focus tree, so they are focus-exempt and left ungated.
+- **Focus-queued ignitions**: a focus whose reward queues a civil-war event is a focus ignition (exempt). Log `cw_ignition` on the focus (`$sandbox_log_cw_ignition`) plus the `$ai_civil_war_ignition_modifier()`, so the acceptance run can tell an exempt ignition from a leak. Tagged this pass: `GER_oppose_hitler_ww` (queues `wtt_germany.1`), `ETH_declare_for_italy` (`BBA_ethiopia_fascist_events.07`), `ITA_defy_the_duce` (`BBA_italy_civil_war.300`), `JAP_revoke_the_peace_preservation_law` (`SEA_japan_popup_events.22` / `.29`), `LIT_king_of_poland` (`NSB_poland_monarchist_events.5`), `SPR_portuguese_anarchism` / `SPR_support_french_communists`, `ARG_march_to_la_casa_rosada` / `ARG_joint_military_exercises`, `TUR_democratic_capstone_focus` / `TUR_support_the_golden_square`, `GRE_ally_tito`, `ENG_isolate_the_mediterranean_threat`, `POR_the_empire_of_brazil`, `JAP_ignite_the_korean_peninsula`, `AST_support_indonesian_uprising`. (`CZE_exclude_the_slovaks`, `BEL_adriaan_martens_crisis` / `BEL_snap_election`, `YUG_purchase_foreign` and `MAN_tsr_a_new_dawn_over_manchuria` were checked and are NOT ignitions, so they are not tagged.)
+- **Self-rearming / countdown missions**: `POL_sanation_left_irritation` / `POL_sanation_right_irritation` start the war in their `timeout_effect` and re-arm. The Pattern C mission delay alone did not hold (observed POL 1937-09, PER 1937-11), so the `timeout_effect` is replaced (`-timeout_effect:` + `+timeout_effect:`) with a gated version that skips the war while `sandbox_civil_war_ai_allowed()` is false but keeps re-arming. `PER_civil_war_imminent` gets the same `timeout_effect` gate. `BUL_impending_zveno_coup` gets only an activation gate (it auto-activates on `BUL_impending_zveno_coup_flag`); its 236-line `timeout_effect` is not expressible in the overlay DSL, so a cap that fills mid-mission relies on the Pattern C delay alone. The `-name:` removal is a new overlay capability, used only here.
+- **Event / idea / on_action families** (Pattern A unless noted, all confirmed not focus-queued): `france.14`, `germany.65` / `germany.73`, the eight `SEA_japan_foreign_policy.*` war events, `wuw_GER_civil_war.6` / `wuw_GER_diplomacy.75` / `wuw_GER_realpolitik.27-29`, `mtg_britain.33` / `.55`, `mtg_netherlands.73`, `mtg_usa_civil_war_democrats.20`, `mtg_news.58`, `AAT_Sweden_communism.4` / `AAT_Sweden_flashpoints.53`, `AUS_political_events.89`, `ARG_political_events.11`, `INS_communist_events.4`, `tfv_canada.30`, `south_american_news.8`, `GOE_RAJ.46`, `lar_low_stability_civil_war.1` / `.2`, `wtt_germany.31-34`, `britain.23`, `CHL_political_events.83` / `.85`, `ss_recruitment_event.14` / `.26`, `stability.33`, `DOD_yugoslavia.184.a` (Pattern B).
+- **Player-only, not gated**: `political_decisions.txt` `ignite_the_*_civil_war` (`ai_will_do factor = 0`), the spy coups (`common/operations`), and the commented-out `soviet.24` / `.36` / `czech.14` sites.
+- **Focus-queued, left exempt**: `congo_independence_struggle.15` / `.24`, `SEA_warlords.39` / `.46`, `wtt_germany.28`, `germany.61` / `.66` / `.92`, `SEA_japan_popup_events.38`, `SEA_china_democratic.5`, `denmark_fascist_event.3` (Danish focus -> `.1.b` -> `.3`).
+- **Not ignitions, do not overlay**: `political.5` / `.7` (every `start_civil_war` is commented out) and `political.21` / `.22` / `.23` (AI war options already `ai_chance = 0`; the AI takes the referendum).
+- **Soviets (NSB)**: the war-starter events are queued only by the SOV ignition focuses, so they are focus-exempt and left ungated.
+- **Norway**: `NOR_start_communist_civil_war` / `NOR_fcw_effect_*` are reached only from the focus tree, a debug decision, or player-only paths, so no AI-reachable non-focus fuse remains.
+- Pattern B (`ai_chance` 0) blocks on `sandbox_civil_war_ai_blocked()` (cap OR cooldown), not `sandbox_civil_war_cap_reached()` alone, so a cooldown also steers the AI off the war option.
 
 If unsure whether a `random_list` can skip the war, still overlay: the cap only delays the AI, it does not delete the reward.
 
@@ -211,7 +234,7 @@ Rivals: `on_civil_war_end` already re-rolls the winner's personal rival. No extr
 
 - Counter and `seen[]` live in global scope. `seen[]` is a temp rebuild, not a persistent list of old wars. Dedup with `every_country_with_original_tag` / `original_tag_to_check = THIS` — do not bind a loop variable that compiles `THIS` to the weekly ROOT.
 - `sandbox_civil_war_cap_reached` is a scripted trigger so focus files do not read the variable with a raw `compare`. Vanilla overlay `limit` / `trigger` blocks use `sandbox_civil_war_ai_allowed()` (`NOT` of `sandbox_civil_war_ai_blocked`). Do not write `sandbox_civil_war_ai_blocked = no`: custom `scripted_trigger = no` does not reliably invert.
-- `$ai_civil_war_ignition_modifier` must **not** fold `factor(0)` for the cap into the same block as `factor(0.25)`: if the cap trigger fails, the whole modifier is skipped and the 0.25 would vanish. Two modifiers, as in the snippet above.
+- `$ai_civil_war_ignition_modifier` is `factor(0.25)` alone. Do not add a `factor(0)` cap block: a focus ignition is exempt from the cap and cooldown.
 - `$ai_sandbox_modifier()` stays on those focuses. Order: sandbox 40, then 0.25, then cap, then party/Tyranny as today.
 - Rebuild the counter on `on_weekly`, `on_civil_war_end`, and civil-war `on_declare_war`. Do not wait a week after Spain ends to open a slot.
 - `original_tag` of a rebel is usually the parent's. If a dynamic `Dxx` tag ever shows `has_civil_war` with its own original_tag, it counts as its own slot; accept that.
@@ -220,7 +243,7 @@ Rivals: `on_civil_war_end` already re-rolls the winner's personal rival. No extr
 
 ## How to read `game.log`
 
-First line is the version (`#sandbox Mode Overhaul v0.1.2`). Next is `sandbox_start historical=0` or `historical=1`.
+First line is the version (`#sandbox Mode Overhaul v0.3.0`). Next is `sandbox_start historical=0` or `historical=1`.
 
 | Token | When | What to read |
 | --- | --- | --- |
@@ -228,15 +251,17 @@ First line is the version (`#sandbox Mode Overhaul v0.1.2`). Next is `sandbox_st
 | `cw_count` | counter actually changed | Same fields; the arrow *is* the delta. |
 | `cw_declare` | civil-war `on_declare_war` | Slot taken. Arrow should be `N->N+1` (Spain is 1, not SPR+SPA). `ai=0` if **either** ROOT or FROM is human (ROOT is often a Dxx rebel). `other=` is the other side — use that, not Dxx, to name the war. |
 | `cw_end` | `on_civil_war_end` | Slot freed the same day. Then a waiting fuse may fire that day or within a week. |
-| `cw_ignition` / `cw_root` | focus `completion_reward` | `ai=0` is the player. Root has no cap; ignition must not complete while `cap=1` for an AI. |
+| `cw_ignition` / `cw_root` | focus `completion_reward` | `ai=0` is the player. Neither root nor ignition is capped; a focus ignition is exempt. |
 | `cw_defer` | Pattern C skip this week | Tag + fuse id (`spain`, mission id, `BBA_italy_civil_war.1`, `on_daily_AST`). Proves the AI is waiting, not that vanilla has not rolled yet. |
 | `cw_event` | fuse actually fired | `spain.1` / `spain.10`, `election.11.b` / `12.b`, ITA retry. `ai=` is THIS (the country running the event), not a rebel. |
+| `cw_support` | weekly backing sweep | A major backs a civil-war kin side (feature: civil-war backing). `kin=` / `rival=` name the two sides; `ai=1` always (backing is AI-only). Emitted once per (backer, war). |
+| `cw_withdraw` | `on_government_change` | A backer drops a kin side it no longer matches after its own government changed (issue 04). `kin=` names the dropped side. |
 
-**Fail the cap** if any `cw_pulse` / `cw_count` has `cw=` **greater than 3**, or an AI (`ai=1`) `cw_declare` whose arrow is `3->4`. A `2->3` line with `cap=1` is the third war, not a fail. A player (`ai=0`) may push `cw` above 3; that is allowed.
+**Fail the cap** if an event/mission ignition starts while `cap=1` or `cool>0`, or if `cw=` rises without a focus ignition behind it. `cool=` is months left in the cooldown (0 = inactive). A player (`ai=0`) is unrestricted.
 
 **Name an ungated fuse:** an AI `cw_declare` that raises the count with no `cw_ignition`, `cw_event`, or `cw_defer` for that original_tag in the days before it. v0.1.1 playtest extras (AST, GRE, MEX, LIT, PER, POL, ITA) must now show `cw_defer` or `cw_event` first. A new extra without those tokens is a hole (NSB events, `bftb_greece.105` from `.100`, `bftb_greece.218`).
 
-**Silent by design:** Pattern B skip (`ai_chance` 0) and Pattern D (`ai_will_do` 0) do not log. Prove them by the fail rule above, not by a defer line.
+**Silent by design:** Pattern A (`+trigger`), Pattern B skip (`ai_chance` 0) and Pattern D (`ai_will_do` 0) do not log the *deferral*: while the cap is full the event / option / decision is discarded, so no `cw_*` line is emitted. A Pattern A overlay may still log `cw_event` when the event fires once the cap frees (e.g. Ethiopia). Prove them by the fail rule above, not by a defer line. (Pattern C logs `cw_defer`.)
 
 Historical: after `sandbox_start historical=1` the rest of the log must not contain `cw_`. Overlay files still exist; their gates require sandbox mode, so they are no-ops.
 
@@ -245,30 +270,30 @@ Historical: after `sandbox_start historical=1` the rest of the log must not cont
 Log-first. Observer sandbox unless the item says human or aiview. Tick only when the grep holds (compound items split so a partial pass is visible).
 
 - [x] First `#sandbox` line is the current version; next is `sandbox_start historical=0`.
-- [x] Spain 1936 with `cw<3`: `cw_event spain.1` / `spain.10` / `lar_spain.2` then `cw_count` whose arrow is `N->N+1` (not +2 for SPA/SPB).
-- [ ] AI Spain while `cap=1` and no SCW yet: weekly `cw_defer spain` (and `cw_defer SPA_military_plot_nationalists` / `SPR_military_plot_republicans` if LaR missions are already ticking). No `cw_event spain.1` until a `cw_end` drops `cap` to 0.
+- [ ] Spain 1936 with `cw=0` once the session-start cooldown expires (the start roll may delay it 0-12 months): `cw_event spain.1` / `spain.10` / `lar_spain.2` then `cw_count` whose arrow is `0->1` (not +2 for SPA/SPB).
+- [ ] AI Spain while `cap=1` and no SCW yet: weekly `cw_defer spain` (and `cw_defer SPA_military_plot_nationalists` / `SPR_military_plot_republicans` if LaR missions are already ticking). No `cw_event spain.1` until a `cw_end` drops the count to 0 and the cooldown expires.
 - [ ] Human SPR at `cap=1`: no `cw_defer spain`; `cw_event spain.1` with `ai=0`; `cw_declare` `ai=0`.
-- [x] After Spain, a second and a third AI war may start (`cw=` 2 then 3) from focus (`cw_ignition`), event (`cw_event`), or mission (`cw_defer` then `cw_declare`).
-- [x] No AI `cw_declare` with arrow `3->4` or `cw=` 4 on a pulse. v0.1.1 hit 8 via event/mission after `cap=1`; that must not recur through 1938.
+- [x] After Spain, one more event/mission war may start (`cw=` 1) from event (`cw_event`) or mission (`cw_defer` then `cw_declare`); a focus ignition (`cw_ignition`) may overlap it.
+- [x] No AI event/mission `cw_declare` while `cap=1` or `cool>0`, except a spy coup. v0.1.1 hit 8 via event/mission after `cap=1`; that must not recur through 1938.
 - [ ] Capped ITA BoP: `cw_defer BBA_italy_civil_war.1` weekly while the range is active; after `cw_end`, `cw_event BBA_italy_civil_war.1` (same week or next).
 - [x] Capped Cedillo / peasants / veterans with the mission already ticking: `cw_defer MEX_mission_cedillos_rebellion` (or `POL_peasants_strike` / `AST_veterans_revolt` / `on_daily_AST`); after `cw_end`, the timeout may fire within a week (no more defer, then `cw_declare`).
-- [ ] `cw_root USA_america_first` may appear while `cap=1`. `cw_ignition USA_ally_with_the_silver_shirts` / `USA_union_representation_act` must not appear for an AI (`ai=1`) while `cap=1`.
+- [ ] `cw_root USA_america_first` may appear while `cap=1`. A focus ignition (`cw_ignition USA_ally_with_the_silver_shirts` / `USA_union_representation_act`) is exempt, so it may appear at `cap=1`; only event/mission ignitions must wait.
 - [ ] Human USA ignition or human Mexico Cedillo timeout at `cap=1`: `cw_ignition` / `cw_declare` with `ai=0`; no `cw_defer` from that player tag.
 - [ ] Historical: `sandbox_start historical=1`, then no `cw_` lines. Vanilla Spain 1936 still happens in-game.
-- [ ] aiview (in-game, not the log) on an ignition focus, cap free: sandbox 40 × 0.25 = 10, times party/Tyranny. Cap reached: 0.
+- [ ] aiview (in-game, not the log) on an ignition focus: sandbox 40 x 0.25 = 10, times party/Tyranny, at any cap (a focus ignition is not capped).
 
 ## Out of scope for this iteration
 
 - Rewriting Spain, Cedillo, or any `start_civil_war` payload (states, ideology, OOBs).
 - Player decisions "start / join a civil war" besides applying the same AI gate as other decisions.
-- Spy coup operations (`00_operations.txt`).
-- Stability-crisis civil wars (`stability.3`) unless a playtest shows they cluster; then use Pattern C on that mission.
+- Spy coup operations (`00_operations.txt`). They can still start an AI civil war past the cap. This is deliberate: the coup is the spy system's outcome, not a scripted civil-war fuse, and a spy-coup `cw_declare` is an allowed exception to the acceptance rule.
+- (Stability-crisis missions moved in scope: the v0.2 playtest showed they cluster - see Coverage.)
 - News events / notifications about the cap.
-- A game rule for the cap (3 vs 2). Hard-code 3; promote to a rule only if testers want it tighter.
+- A game rule for the cap. Hard-code 1; promote to a rule only if testers want it tighter.
 
 ## Second iteration (not blocking)
 
 - If the 1936 cluster is still too hot because many AIs *finish* the branch the week Spain starts: lower root 0.25, or delay ignition with `days = 30` only when the cap is reached (hidden event) — that second option is a content change, not a weight change, and needs a separate pass.
-- Reserve a slot for Spain so 1936 always fires even if two others went first — only if testers want Spain guaranteed rather than "up to three including Spain".
+- Reserve a slot for Spain so 1936 always fires even if another war went first - only if testers want Spain guaranteed.
 - Count "player's civil war" toward the cap or not (currently it does, which is what we want: the player's Spanish playthrough still occupies a slot for the AI).
-- `stability.3` if wartime crises start clustering.
+- `stability.3` is now gated (see Coverage); revisit if the mission delay proves too weak.

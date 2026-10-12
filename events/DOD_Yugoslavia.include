@@ -1,0 +1,21 @@
+# docs/gdd/Civil Wars.md Pattern B: the AI picks the peaceful option while the
+# cap is full or cooling. DOD_yugoslavia.701.b runs YUG_start_peters_coup and
+# DOD_yugoslavia.184.a starts a civil war in the target. DOD_yugoslavia.1 has no
+# caller in vanilla, so it is not gated.
+country_event[id = DOD_yugoslavia.701]:
+  option[name = DOD_yugoslavia.701.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_ai_blocked()
+    $sandbox_log_cw_event(DOD_yugoslavia.701.b)
+
+# The communist coup option starts a civil war in the target; the AI picks the
+# peaceful takeover (.b) while the cap is full or cooling.
+country_event[id = DOD_yugoslavia.184]:
+  option[name = DOD_yugoslavia.184.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_ai_blocked()
+    $sandbox_log_cw_event(DOD_yugoslavia.184.a)

@@ -1115,6 +1115,10 @@ focus_tree[id = ethiopia_tree]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(ETH_declare_for_italy)
 
   focus[id = ETH_restore_the_country]:
     +ai_will_do:

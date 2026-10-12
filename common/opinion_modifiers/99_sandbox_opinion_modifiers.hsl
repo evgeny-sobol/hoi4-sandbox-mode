@@ -19,3 +19,9 @@ opinion_modifiers:
 
   scenario_ally:
     value(40)
+
+  cw_back_kin:
+    value(20)
+
+  cw_back_rival:
+    value(-20)

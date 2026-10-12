@@ -71,9 +71,6 @@ focus_tree[id = brazil_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(BRA_ban_political_parties)
 
@@ -719,9 +716,6 @@ focus_tree[id = brazil_tree]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(BRA_launch_the_revolution)
 

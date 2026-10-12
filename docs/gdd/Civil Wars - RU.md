@@ -220,7 +220,7 @@ Rivals: `on_civil_war_end` уже переролливает личного ри
 
 ## How to read `game.log` - RU
 
-Первая строка - версия (`#sandbox Mode Overhaul v0.1.2`). Дальше `sandbox_start historical=0` или `historical=1`.
+Первая строка - версия (`#sandbox Mode Overhaul v0.3.0`). Дальше `sandbox_start historical=0` или `historical=1`.
 
 | Token | When | What to read |
 | --- | --- | --- |

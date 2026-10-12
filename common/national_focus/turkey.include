@@ -78,6 +78,10 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(TUR_democratic_capstone_focus)
 
   focus[id = TUR_the_sanayiciler]:
     ai_will_do:
@@ -212,9 +216,6 @@ focus_tree[id = turkish_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(TUR_restack_the_officer_corps)
 
@@ -954,6 +955,11 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(TUR_support_the_golden_square)
+
   focus[id = TUR_secure_the_iraqi_oil]:
     available:
       $IRQ->can_PREV_get_wargoal_on_THIS()

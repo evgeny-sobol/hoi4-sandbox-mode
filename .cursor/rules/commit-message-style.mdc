@@ -1,5 +1,5 @@
 ---
-description: Git commit messages — one-line when small, subject plus * bullets when not
+description: Git commit messages — Conventional Commits, one-line when small, subject plus * bullets when not
 alwaysApply: true
 ---
 
@@ -7,20 +7,23 @@ alwaysApply: true
 
 **Every response that creates, edits, moves, or deletes files in this mod must end with a ready-to-use commit message for those changes**, placed at the very end under a `Commit message:` heading (fenced block or plain block, so it can be copied as-is). Generate it from the changes made in that response even when the user did not ask for one and did not stage anything; this is a standing instruction, not a per-request task. If the response changed no mod files, do not add one.
 
-When writing a git commit message (or a comment for staged changes), use this style. Prefer English. Imperative mood.
+When writing a git commit message (or a comment for staged changes), use Conventional Commits. Prefer English. Imperative mood.
+
+Format: `type(scope): subject`. Scope is optional and names the area (traits, opinion, scenarios, gdd, core, rules). Subject is one sentence, no trailing period, imperative, summarizes the whole commit.
+
+Use one of: feat, fix, balance, docs, refactor, test, chore. Use balance for numeric tuning that is neither a new feature nor a bug fix.
 
 If the change is small (one concern, a few files, no extra context needed), use **only a single subject line**. Do not add a body.
 
 If there are several distinct changes or the why/how is not obvious from the subject, use a subject line, a blank line, then `*` bullets. Each bullet starts with a verb and names what was added, changed, or removed.
 
 ```
-Add hall handrail sabotage trap with occupancy hold and need-point disable
+feat(traits): rebalance honor license costs and liberty penalties
 
-* Add AttractDevice_HallHandrails, Handrails_Explosive / Exp_Handrails, empty attract emitter, and playground placement
-* Add TriggerCollisionHoldSeconds: occupancy is sampled with OverlapBox so leaving the volume resets the timer (handrails hold 7s)
-* Disable NeedSatisfactionPoint on fire, treat disabled points as not alive, and skip dead queue targets
+* Raise honorable license discount to -0.15 and righteous to -0.35, mirror penalties for dishonorable and treacherous
+* Lower libertarian subversive penalty to 0.15 and despotic resistance growth to 0.03
 ```
 
-- Subject: one sentence, no trailing period, summarizes the whole commit.
+- Subject: `type(scope): subject`, no trailing period.
 - Bullets: one per distinct change; keep them concrete (names, numbers, behavior), not a file list.
 - Do not pad a one-line commit with empty bullets or a restatement of the subject.

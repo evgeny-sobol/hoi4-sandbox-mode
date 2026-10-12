@@ -1,0 +1,11 @@
+# docs/gdd/Civil Wars.md Pattern A: AAT_Sweden_communism.4 is queued by
+# common/on_actions/09_aat_on_actions.txt (not a focus). Discard it while the AI
+# is capped.
+country_event[id = AAT_Sweden_communism.4]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+# MTTH event (is_triggered_only = no), not focus-queued.
+country_event[id = AAT_Sweden_flashpoints.53]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

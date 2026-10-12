@@ -2,3 +2,28 @@ POL_peasant_strike_category:
   POL_peasants_strike:
     activation:
       sandbox_civil_war_ai_allowed()
+
+# The sanation missions arm a 175-day countdown whose timeout_effect runs
+# POL_sanation_*_opposition_up (the war) and then re-activates itself. The
+# Pattern C delay is not enough (observed POL 1937-09), so replace the
+# timeout_effect: while the AI is capped, skip the war but keep re-arming the
+# mission, so the sanation defers instead of firing (docs/gdd/Civil Wars.md).
+POL_sanation_decisions:
+  POL_sanation_left_irritation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+    -timeout_effect:
+    +timeout_effect:
+      if sandbox_civil_war_ai_allowed():
+        POL_sanation_left_opposition_up()
+      activate_mission(POL_sanation_left_irritation)
+  POL_sanation_right_irritation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+    -timeout_effect:
+    +timeout_effect:
+      if sandbox_civil_war_ai_allowed():
+        POL_sanation_right_opposition_up()
+      activate_mission(POL_sanation_right_irritation)

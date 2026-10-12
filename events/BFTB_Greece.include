@@ -4,7 +4,7 @@ country_event[id = bftb_greece.207]:
     ai_chance:
       +modifier:
         factor(0)
-        sandbox_civil_war_cap_reached()
+        sandbox_civil_war_ai_blocked()
 
 # Hidden dispatcher. When the four plot flags are set, this queues .105.
 # Skip that else_if while the AI is capped; weekly retry re-fires .100.

@@ -40,8 +40,11 @@ import sys
 # ---------------------------------------------------------------------------
 
 _WORD_CHARS = set(
-    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'
 )
+# NOTE: '-' is a word char because Paradox ids contain hyphens
+# (AUS_arthur_seyss-inquart, AST_vickers-ruwolt_organization_idea). Without
+# it a block header split at the last '-' and the tail misparsed as the name.
 
 
 def _is_word_char(text, i):

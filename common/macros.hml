@@ -240,6 +240,10 @@ macro ai_civil_war_root_modifier():
 #   cw_ignition / cw_root — focus complete; ai=0 is the player (cap does not block)
 #   cw_defer — Pattern C skip this tick (mission +8, BoP, Spain wait, AST daily)
 #   cw_event — the fuse actually fired (Spain MTTH, election option, ITA retry)
+# Months left in the civil-war cooldown (0 = inactive), for the cool= field.
+macro sandbox_cw_set_cool():
+  sandbox_cw_cool = global.sandbox_civil_war_cooldown
+
 macro sandbox_log_cw_snapshot(_event_):
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
     sandbox_cw_cap = 0
@@ -247,7 +251,8 @@ macro sandbox_log_cw_snapshot(_event_):
     if sandbox_civil_war_cap_reached():
       sandbox_cw_cap = 1
       sandbox_cw_base = 0
-    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    $sandbox_cw_set_cool()
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] cool=[?sandbox_cw_cool|.0] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
 
 macro sandbox_log_cw_focus(_kind_, _focus_):
   hidden_effect:
@@ -258,7 +263,8 @@ macro sandbox_log_cw_focus(_kind_, _focus_):
       sandbox_cw_cap = 0
       if sandbox_civil_war_cap_reached():
         sandbox_cw_cap = 1
-      log("#sandbox [GetDateText] [THIS.GetTag] _kind_ _focus_ ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+      $sandbox_cw_set_cool()
+      log("#sandbox [GetDateText] [THIS.GetTag] _kind_ _focus_ ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] cool=[?sandbox_cw_cool|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
 
 macro sandbox_log_cw_ignition(_focus_):
   $sandbox_log_cw_focus(cw_ignition, _focus_)
@@ -272,10 +278,34 @@ macro sandbox_log_cw_defer(_id_):
 macro sandbox_log_cw_event(_id_):
   $sandbox_log_cw_focus(cw_event, _id_)
 
-# Decision ai_will_do: skip the whole modifier when the cap is free.
+# cw_support - a major backs the kin side of an ongoing civil war (feature:
+# civil-war backing). Caller (the backer) sets the temps sandbox_cw_kin /
+# sandbox_cw_rival to the two sides' tags. Emitted once per (backer, war).
+macro sandbox_log_cw_support():
+  hidden_effect:
+    if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
+      sandbox_cw_ai = 0
+      if is_ai(yes):
+        sandbox_cw_ai = 1
+      log("#sandbox [GetDateText] [THIS.GetTag] cw_support kin=[?sandbox_cw_kin.GetTag] rival=[?sandbox_cw_rival.GetTag] ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+# cw_withdraw - a backer drops a kin side it no longer matches after a
+# government change (feature: civil-war backing, issue 04). Caller (the
+# backer) sets the temp sandbox_cw_kin to the dropped side's tag.
+macro sandbox_log_cw_withdraw():
+  hidden_effect:
+    if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
+      sandbox_cw_ai = 0
+      if is_ai(yes):
+        sandbox_cw_ai = 1
+      log("#sandbox [GetDateText] [THIS.GetTag] cw_withdraw kin=[?sandbox_cw_kin.GetTag] ai=[?sandbox_cw_ai|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+# Decision ai_will_do: skip the whole modifier when the cap is free or cooling.
 macro ai_civil_war_decision_cap():
   factor(0)
-  sandbox_civil_war_cap_reached()
+  OR:
+    sandbox_civil_war_cap_reached()
+    sandbox_civil_war_cooldown_active()
 
 # Push a fire-once mission's timeout while the AI is blocked (gdd Pattern C).
 macro sandbox_delay_mission_if_capped(_mission_):
@@ -297,7 +327,8 @@ macro sandbox_log_cw_war(_event_):
     if sandbox_civil_war_cap_reached():
       sandbox_cw_cap = 1
       sandbox_cw_base = 0
-    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] ai=[?sandbox_cw_ai|.0] other=[?sandbox_log_other.GetTag] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
+    $sandbox_cw_set_cool()
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] cool=[?sandbox_cw_cool|.0] ai=[?sandbox_cw_ai|.0] other=[?sandbox_log_other.GetTag] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
   sandbox_log_other = 0
 
 # docs/gdd/Scenarios.md "Hooks and telemetry". Mirrors the cw_ line shape.
@@ -347,7 +378,7 @@ macro crossroad_modifier(_number_of_choices_):
   is_sandbox_mode_on()
 
 macro opinion_factor(_tag_):
-  clamp(opinion@_tag_ / 100, -1.0, 1.0)
+  clamp(opinion@_tag_ / $sandbox_opinion_scale(), -1.0, 1.0)
 
 macro ai_cooperation_modifier(_tag_):
   cooperation = 1 + $opinion_factor(_tag_)

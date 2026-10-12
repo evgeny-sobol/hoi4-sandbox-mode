@@ -1,0 +1,34 @@
+# docs/gdd/Civil Wars.md Pattern A: the SEA_japan_foreign_policy war events are
+# queued by common/ideas/JAP.txt (on_add/on_remove), not by a focus. Discard
+# them while the AI is capped.
+country_event[id = SEA_japan_foreign_policy.26]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.57]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.59]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.60]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.66]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.67]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.68]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = SEA_japan_foreign_policy.69]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -118,9 +118,6 @@ focus_tree[id = estonia_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(EST_march_on_talinn)
 

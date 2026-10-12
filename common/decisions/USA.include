@@ -1,0 +1,7 @@
+# docs/gdd/Civil Wars.md Pattern D: the AI does not take the ignition decision
+# while the cap is full. USA_indonesian_liberation runs start_civil_war.
+USA_decolonisation:
+  USA_indonesian_liberation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

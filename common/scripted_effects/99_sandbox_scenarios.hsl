@@ -40,7 +40,9 @@ sandbox_arc_tick_hosts():
 # (sandbox_delay_capped_cw_missions) keeps only ids that exist in vanilla;
 # this mod has none to add (docs/gdd/Civil Wars.md).
 sandbox_delay_capped_cw_missions_mod():
-  pass
+  # Vanilla-only ids: r56 replaces the POL sanation decisions.
+  $sandbox_delay_mission_if_capped(POL_sanation_left_irritation)
+  $sandbox_delay_mission_if_capped(POL_sanation_right_irritation)
 
 sandbox_pick_scenario():
   gen_nazi_germany_scenario_pin()

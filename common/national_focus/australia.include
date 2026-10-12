@@ -462,6 +462,10 @@ focus_tree[id = australian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(AST_support_indonesian_uprising)
 
   focus[id = AST_demand_new_zealand]:
     available:

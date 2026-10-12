@@ -1,0 +1,10 @@
+# docs/gdd/Civil Wars.md activation gate + Pattern C: bftb_bulgaria_factions.12 sets
+# BUL_impending_zveno_coup_flag and the mission auto-activates on that flag; its
+# timeout starts the Zveno civil war. Gate the activation so a capped AI does
+# not start the countdown; the mission delay covers a cap that fills mid-mission.
+# The 236-line timeout_effect is not expressible in the overlay DSL, so it is not
+# replaced (unlike the POL / PER countdowns).
+BUL_internal_factions:
+  BUL_impending_zveno_coup:
+    activation:
+      sandbox_civil_war_ai_allowed()

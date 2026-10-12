@@ -1,0 +1,5 @@
+# docs/gdd/Civil Wars.md Pattern A: south_american_news.8 is a news_event, not
+# focus-queued. Discard it while the AI is capped.
+news_event[id = south_american_news.8]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

@@ -6,3 +6,16 @@ SIA_war_fervor_cat:
       if:
         limit:
           sandbox_civil_war_ai_allowed()
+
+# docs/gdd/Civil Wars.md activation gate + Pattern C: the khana-ratsadon coup missions start
+# a civil war on timeout (SIA_military_coup / SIA_civilian_coup ->
+# SIA_start_opposing_civil_war). Gate the activation so a capped AI never
+# starts the countdown, and keep the timeout in sandbox_delay_capped_cw_missions
+# for a cap that fills mid-mission.
+SIA_khana_ratsadon_cat:
+  SIA_khana_ratsadon_military_coup_mission:
+    activation:
+      sandbox_civil_war_ai_allowed()
+  SIA_khana_ratsadon_civilian_coup_mission:
+    activation:
+      sandbox_civil_war_ai_allowed()

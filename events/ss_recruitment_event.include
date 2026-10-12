@@ -1,0 +1,9 @@
+# docs/gdd/Civil Wars.md Pattern A: the SS recruitment events start a civil war
+# for GER and were never overlaid.
+country_event[id = ss_recruitment_event.14]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = ss_recruitment_event.26]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

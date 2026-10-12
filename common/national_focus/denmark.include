@@ -762,9 +762,6 @@ focus_tree[id = danish_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $ai_high_tyranny_tilt()
     completion_reward:
       $sandbox_log_cw_ignition(DEN_seize_power)
@@ -779,9 +776,6 @@ focus_tree[id = danish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       modifier:
         f = 1 + mtth:fascism_factor
         factor(f)

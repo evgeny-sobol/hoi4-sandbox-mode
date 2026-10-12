@@ -1,0 +1,13 @@
+# docs/gdd/Civil Wars.md activation gate + Pattern C: ARG_military_coup_attempt
+# (365-day timeout) fires ARG_political_events.9, which starts the civil war.
+# Gate the activation and replace the timeout_effect so a capped AI re-arms
+# instead of firing.
+ARG_military_coup_decisions:
+  ARG_military_coup_attempt:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    -timeout_effect:
+    +timeout_effect:
+      if sandbox_civil_war_ai_allowed():
+        country_event(ARG_political_events.9)
+      activate_mission(ARG_military_coup_attempt)

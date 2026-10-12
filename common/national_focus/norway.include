@@ -84,9 +84,6 @@ focus_tree[id = norwegian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(NOR_workers_and_farmers_rise)
 
@@ -559,9 +556,6 @@ focus_tree[id = norwegian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(NOR_quislings_coup)
 

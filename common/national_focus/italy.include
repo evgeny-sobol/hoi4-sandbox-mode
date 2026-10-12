@@ -2226,6 +2226,10 @@ focus_tree[id = italian_focus]:
         f = (mtth:democracy_factor + mtth:communism_factor) / (mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + 2 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+      modifier:
+        $ai_civil_war_ignition_modifier()
+    completion_reward:
+      $sandbox_log_cw_ignition(ITA_defy_the_duce)
 
   focus[id = ITA_appeal_to_the_bourgeoisie]:
     +ai_will_do:

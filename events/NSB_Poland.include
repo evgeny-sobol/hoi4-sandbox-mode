@@ -1,0 +1,9 @@
+# docs/gdd/Civil Wars.md Pattern B: the AI picks the peaceful option while the
+# cap is full. The war option runs POL_monarchist_civil_war_effect.
+country_event[id = NSB_poland_monarchist_events.5]:
+  option[name = NSB_poland_monarchist_events.5.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_ai_blocked()
+    $sandbox_log_cw_event(NSB_poland_monarchist_events.5.b)

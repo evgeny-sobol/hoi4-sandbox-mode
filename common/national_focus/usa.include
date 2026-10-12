@@ -55,9 +55,6 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         f = 4 * mtth:communism_factor /
           (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
@@ -84,9 +81,6 @@ focus_tree[id = usa_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
         not is_live_scenario_aggressor()
       +modifier:
         f = 4 * mtth:fascism_factor /

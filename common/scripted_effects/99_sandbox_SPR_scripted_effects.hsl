@@ -26,7 +26,7 @@ update_SPR_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &SPA_claim_west_africa_antagonism = 1 - sum_f / n
       else:

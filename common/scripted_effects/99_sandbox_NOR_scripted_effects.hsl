@@ -14,7 +14,7 @@ update_NOR_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &NOR_swedish_claims_antagonism = 1 - sum_f / n
       else:
@@ -33,7 +33,7 @@ update_NOR_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &NOR_bjarmeland_antagonism = 1 - sum_f / n
       else:
@@ -52,7 +52,7 @@ update_NOR_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &NOR_claims_on_scotland_antagonism = 1 - sum_f / n
       else:
@@ -71,7 +71,7 @@ update_NOR_national_focuses():
           if owner != THIS:
             n += 1
             var:owner:
-              PREV.sum_f += clamp(PREV.opinion@THIS / 100, -1.0, 1.0)
+              PREV.sum_f += clamp(PREV.opinion@THIS / $sandbox_opinion_scale(), -1.0, 1.0)
       if n > 0:
         &NOR_old_vinland_antagonism = 1 - sum_f / n
       else:

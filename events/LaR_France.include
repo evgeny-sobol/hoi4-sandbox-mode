@@ -1,0 +1,10 @@
+# docs/gdd/Civil Wars.md Pattern A: the low-stability civil-war events are
+# queued by common/ideas/FRA.txt (on_add/on_remove). Discard them while the AI
+# is capped.
+country_event[id = lar_low_stability_civil_war.1]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+country_event[id = lar_low_stability_civil_war.2]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

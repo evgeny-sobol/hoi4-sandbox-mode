@@ -1,0 +1,6 @@
+# docs/gdd/Civil Wars.md Pattern A: mtg_netherlands.73 is queued by
+# common/on_actions/04_mtg_on_actions.txt (not a focus). Discard it while the AI
+# is capped.
+country_event[id = mtg_netherlands.73]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

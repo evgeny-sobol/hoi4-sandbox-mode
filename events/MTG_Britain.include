@@ -1,0 +1,10 @@
+# docs/gdd/Civil Wars.md Pattern A: mtg_britain.55 is queued by
+# common/ideas/ENG.txt (on_remove). Discard it while the AI is capped.
+country_event[id = mtg_britain.55]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+
+# MTTH event, not focus-queued.
+country_event[id = mtg_britain.33]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()

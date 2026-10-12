@@ -1,0 +1,8 @@
+# docs/gdd/Civil Wars.md Pattern A: the stability-crisis civil war is discarded
+# while the cap is full. Queued from stability.21 for any tag with low
+# stability, so it can fire for any country.
+country_event[id = stability.33]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(stability.33)
