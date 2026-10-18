@@ -1,5 +1,5 @@
 ---
-description: Git commit messages — Conventional Commits, one-line when small, subject plus * bullets when not
+description: Git commit messages - Conventional Commits, one-line when small, subject plus * bullets when not
 alwaysApply: true
 ---
 
