@@ -14,7 +14,7 @@ Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
 
 ### External directories
 
-Work spans five directories (vanilla, Rt56, both mods, shared core, HSL). See `docs/agents/external-dirs.md`.
+Work spans six directories (vanilla, Rt56, both mods, shared core, HSL). See `docs/agents/external-dirs.md`.
 
 ### Language
 
