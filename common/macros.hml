@@ -1,6 +1,7 @@
 # game.log line for GDD checklists. Grep `#sandbox`. This base macro is a
 # generic writer; callers pick the gated wrapper for their system:
-#   $sandbox_log_honor / $sandbox_log_tyranny / $sandbox_log_rivals
+#   $sandbox_log_honor / $sandbox_log_tyranny / $sandbox_log_rivals /
+#   $sandbox_log_economic
 # Callers set sandbox_log_old / _new / _delta, and optionally
 # sandbox_log_other (tag), sandbox_log_slot (rivals 0-2, else -1) and
 # sandbox_log_age (months an obligation window was open; 0 = not applicable).
@@ -28,6 +29,13 @@ macro sandbox_log_tyranny(_event_):
 
 macro sandbox_log_rivals(_event_):
   if has_global_flag(sandbox_log_rivals):
+    $sandbox_log(_event_)
+
+# Economic posture (spec .scratch/economic-posture, "Telemetry"): discrete acts
+# only, no monthly census. The event name carries what the shared format has no
+# field for - the lift reason and the licensed equipment.
+macro sandbox_log_economic(_event_):
+  if has_global_flag(sandbox_log_economic):
     $sandbox_log(_event_)
 
 # GER inner-circle: slot/old/new/delta = completed count among the 7 foci.
@@ -102,6 +110,12 @@ macro add_tyranny(_var_, _event_ = tyranny_focus):
     localization_key(LocKey_tyranny_change_tt)
     VALUE(_var_)
 
+# The three band macros below also carry the addressed economic bias
+# (ADR-0007, docs/gdd/Economic Posture.md): the plan for a tag already exists
+# and is already enabled on its band, so the market entries ride here instead
+# of costing a fourth plan per tag. A reader looking for market bias reads
+# rival_base / rival_contain / rival_feud. Values are starter values calibrated
+# from telemetry, not derived from balance.
 macro rival_base(_country_):
   allowed:
     always()
@@ -127,21 +141,39 @@ macro rival_contain(_country_):
     always()
   enable:
     is_sandbox_mode_on()
+    # Rival band, 25-74. The upper bound keeps this plan off at Feud: the
+    # economic entry below must not stack with the -200 of rival_feud (issue
+    # 02), and contain 100 is superseded there by conquer / prepare_for_war.
     OR:
       AND:
         rivals[0] == _country_
         rivalry[0] >= 25
+        rivalry[0] < 75
       AND:
         rivals[1] == _country_
         rivalry[1] >= 25
+        rivalry[1] < 75
       AND:
         rivals[2] == _country_
         rivalry[2] >= 25
+        rivalry[2] < 75
   abort_when_not_enabled()
   ai_strategy:
     type(contain)
     id(_country_)
     value(100)
+  # Economic posture wave 1 (issue 02): no buying from a rival, and a -50
+  # trade desire. Arms Against Tyranny content; the plan cannot be guarded per
+  # entry (every condition lives in `enable`), so the entries are written
+  # unguarded and verified clean on the base game.
+  ai_strategy:
+    type(equipment_market_trade_desire)
+    id(_country_)
+    value(-50)
+  ai_strategy:
+    type(equipment_market_buy)
+    seller(_country_)
+    value(-200)
 
 macro rival_feud(_country_):
   allowed:
@@ -167,6 +199,98 @@ macro rival_feud(_country_):
     type(prepare_for_war)
     id(_country_)
     value(100)
+  # Economic posture (issues 02 and 05): Feud tier. The -200 trade desire
+  # replaces the -50 of the Rival tier, which stops at 75.
+  ai_strategy:
+    type(equipment_market_trade_desire)
+    id(_country_)
+    value(-200)
+  ai_strategy:
+    type(equipment_market_buy)
+    seller(_country_)
+    value(-200)
+  # Wave 3 denial half (issue 05): no market access to a Feud target. Arms
+  # Against Tyranny content, unguarded for issue 02's reason.
+  ai_strategy:
+    type(diplo_action_desire)
+    id(_country_)
+    target(market_access_rights)
+    value(-200)
+
+# ---------------------------------------------------------------------------
+# Economic posture (spec .scratch/economic-posture; docs/gdd/Economic Posture.md)
+# Two axes, and every act reads exactly one:
+#   hostility - rivalry[] bands: Cold below 25, Rival 25-74, Feud 75 and above
+#   sympathy  - our own opinion of the target, as a fraction of the per-mod
+#               opinion scale ($sandbox_opinion_scale(): 100 vanilla, 200 Rt56),
+#               never a literal
+# The predicates are plain trigger expressions, so one form serves `enable`,
+# `limit`, `available` and ai_will_do alike. A temp-writing form would fail in
+# the strict trigger contexts (docs/gdd/Rivals System.md, "National focuses").
+# ---------------------------------------------------------------------------
+
+# Highest rivalry among the slots holding _tag_ is at or above _value_.
+macro is_rivalry_at_least(_tag_, _value_):
+  OR:
+    AND:
+      rivals[0] == _tag_
+      rivalry[0] >= _value_
+    AND:
+      rivals[1] == _tag_
+      rivalry[1] >= _value_
+    AND:
+      rivals[2] == _tag_
+      rivalry[2] >= _value_
+
+# The veto every positive act calls: a slot at Rival or above blocks it,
+# whatever the opinion (rule 1 of the model).
+macro is_rival_or_above(_tag_):
+  $is_rivalry_at_least(_tag_, 25)
+
+macro is_feud(_tag_):
+  $is_rivalry_at_least(_tag_, 75)
+
+# Cold band, and the whole no-slot case with it: no slot is not a hostility
+# signal, so a positive act may read opinion there (rule 2).
+macro is_cold_band(_tag_):
+  not $is_rival_or_above(_tag_)
+
+# Sympathy: our own opinion of the country given, at or above half the mod's
+# scale. The argument is whatever the engine accepts in `has_opinion`'s target:
+# a tag, a scope keyword (ROOT / PREV / FROM) or `var:NAME`. A bare temp name is
+# not one of them - the game answers `Malformed token` - so a caller holding a
+# country in a temp passes `var:NAME`.
+macro opinion_good(_country_):
+  has_opinion:
+    target(_country_)
+    value($sandbox_opinion_scale())
+
+# Shields for a hostile act: the target still exists, and we are not allied
+# with, in a faction with or in a pact with it. Pure triggers, so the same
+# macro guards an `if` in an effect and a `limit` in a plan.
+macro target_still_exists(_tag_):
+  country_exists(_tag_)
+
+macro can_act_hostile_towards(_tag_):
+  country_exists(_tag_)
+  not is_ally_with(_tag_)
+  not is_in_faction_with(_tag_)
+  not has_non_aggression_pact_with(_tag_)
+
+# Our own embargo ledger holds _tag_ (three-slot bound, issue 03). The engine
+# has no reverse query for our embargoes, so the ledger is the only source.
+macro is_embargoed_by_us(_tag_):
+  OR:
+    embargoes[0] == _tag_
+    embargoes[1] == _tag_
+    embargoes[2] == _tag_
+
+# _tag_ was embargoed and lifted less than six months ago (issue 03).
+macro embargo_cooldown_holds(_tag_):
+  OR:
+    embargo_cooldown[0] == _tag_
+    embargo_cooldown[1] == _tag_
+    embargo_cooldown[2] == _tag_
 
 macro ideology_factor(_ideology_):
   base(0)

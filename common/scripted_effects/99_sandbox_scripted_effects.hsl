@@ -2,6 +2,15 @@ initialize_country_for_sandbox_mode():
   set_country_flag(sandbox_initialized)
   &rivals[].resize(3)
   &rivalry[].resize(3)
+  # Economic posture state (spec .scratch/economic-posture, "State and limits"):
+  # the bounded ledger of our own embargoes, the re-embargo cooldown and the
+  # once-a-year licence stamp. Bounded exactly like rivals[]; the engine has no
+  # reverse query for our embargoes.
+  &embargoes[].resize(3)
+  &embargo_since[].resize(3)
+  &embargo_cooldown[].resize(3)
+  &embargo_cooldown_month[].resize(3)
+  &last_license_month = 0
   initialize_new_country_leader()
   shuffle_political_party_popularities()
   for i in range(2):
@@ -1350,3 +1359,208 @@ sandbox_log_census():
         if original_tag(GER):
           GER_sandbox_count_inner_circle_foci()
           $sandbox_log_ger_inner_circle_state(GER_inner_circle_census)
+
+
+# ---------------------------------------------------------------------------
+# Economic posture (spec .scratch/economic-posture, issues 03-04;
+# docs/gdd/Economic Posture.md).
+# Wave 1: embargoes. Wave 2: a forced licence. The addressed market denial is
+# declarative and lives in the rival band macros (ADR-0007), not here.
+# One axis per act: rivalry[] bands for hostility, opinion for sympathy.
+# Called from on_monthly after review_rivals() / update_rivalry_monthly(), so
+# rivals[] is settled and months_elapsed already counts this month.
+# Bounded: the embargo sweep walks this country's own three slots and its own
+# ledgers, and the licence pass walks its own faction members - never the world,
+# so nothing here costs an any_country / every_country scan.
+# ---------------------------------------------------------------------------
+
+
+# THIS = a country. AI only: the player keeps the vanilla diplomatic actions.
+sandbox_economic_posture_monthly():
+  if is_ai(yes):
+    sandbox_economic_embargo_review()
+    sandbox_economic_embargo_send()
+    sandbox_economic_license_grant()
+
+
+# Lift an embargo when the target is gone, when the two became allies, faction
+# partners or pact partners, or once the band has cooled below 60 after the
+# six-month minimum (hysteresis against the 75 send threshold). Frees the slot
+# and records the six-month re-embargo cooldown. By Blood Alone only: without
+# it no embargo can exist, so the whole ledger is inert.
+sandbox_economic_embargo_review():
+  if has_dlc("By Blood Alone"):
+    for i in range(3):
+      t = embargoes[i]
+      if t != 0:
+        since = embargo_since[i]
+        held = months_elapsed - since
+        reason = 0
+        if not country_exists(var:t):
+          reason = 1
+        elif is_ally_with(var:t) or is_in_faction_with(var:t) or has_non_aggression_pact_with(var:t):
+          reason = 3
+        elif held >= 6 and not $is_rivalry_at_least(var:t, 60):
+          reason = 2
+        if reason != 0:
+          break_embargo(var:t)
+          sandbox_ec_tag = t
+          sandbox_economic_embargo_cooldown_add()
+          sandbox_log_other = t
+          sandbox_log_old = held
+          sandbox_log_new = 0
+          sandbox_log_delta = 0 - held
+          sandbox_log_age = held
+          sandbox_log_slot = i
+          if reason == 1:
+            $sandbox_log_economic(ec_embargo_lifted_gone)
+          elif reason == 3:
+            $sandbox_log_economic(ec_embargo_lifted_alliance)
+          else:
+            $sandbox_log_economic(ec_embargo_lifted_detente)
+          &embargoes[i] = 0
+          &embargo_since[i] = 0
+    # Expire the re-embargo cooldown: six months after a lift the same target
+    # may be embargoed again. The elapsed months go through a temp: a bare
+    # arithmetic expression on the left of a trigger comparison is not emitted
+    # in a form the engine parses (the game rejected
+    # `check_variable = { var=('MATH', '-', 'months_elapsed', 'stamp') ... }`).
+    for i in range(3):
+      if embargo_cooldown[i] != 0:
+        stamp = embargo_cooldown_month[i]
+        age = months_elapsed - stamp
+        if age >= 6:
+          &embargo_cooldown[i] = 0
+          &embargo_cooldown_month[i] = 0
+
+
+# Temp: sandbox_ec_tag. Record a six-month re-embargo cooldown for it in the
+# first free ledger slot.
+sandbox_economic_embargo_cooldown_add():
+  for i in range(3):
+    if embargo_cooldown[i] == 0:
+      &embargo_cooldown[i] = sandbox_ec_tag
+      &embargo_cooldown_month[i] = months_elapsed
+      break
+
+
+# Send at most one embargo a month: the first slot at Feud whose target exists,
+# is not already embargoed by us, is not cooling down, and is not an ally,
+# faction partner or pact partner. At most two embargoes at once: EMBARGO_COST
+# is 100 political power each, so a minor power rarely affords more.
+sandbox_economic_embargo_send():
+  if has_dlc("By Blood Alone"):
+    active = 0
+    if embargoes[0] != 0:
+      active += 1
+    if embargoes[1] != 0:
+      active += 1
+    if embargoes[2] != 0:
+      active += 1
+    if active < 2:
+      if political_power >= 100:
+        for i in range(3):
+          t = rivals[i]
+          r = rivalry[i]
+          if t != 0:
+            if r >= 75:
+              if $can_act_hostile_towards(var:t):
+                if not $is_embargoed_by_us(var:t):
+                  if not $embargo_cooldown_holds(var:t):
+                    send_embargo(var:t)
+                    sandbox_log_other = t
+                    sandbox_log_old = 0
+                    sandbox_log_new = r
+                    sandbox_log_delta = -100
+                    sandbox_log_slot = i
+                    $sandbox_log_economic(ec_embargo_sent)
+                    for k in range(3):
+                      if embargoes[k] == 0:
+                        &embargoes[k] = t
+                        &embargo_since[k] = months_elapsed
+                        break
+                    break
+
+
+# Wave 2 (issue 04). The grant side only: no ai_strategy lever exists for
+# asking for a licence. A faction partner at war, Cold towards us and liked by
+# us at or above half the scale, receives at most one forced licence per 12
+# months. The equipment is the best infantry equipment the receiver can field,
+# so the pick is deterministic per receiver and per year, never random.
+# Licensing is Death or Dishonor content: vanilla wraps every
+# create_production_license in that has_dlc, and the allow_licensing game rule
+# itself requires that DLC.
+sandbox_economic_license_grant():
+  if has_dlc("Death or Dishonor"):
+    if not $has_game_rule(allow_licensing, BLOCKED):
+      stamp = last_license_month
+      since = months_elapsed - stamp
+      if since >= 12:
+        sandbox_ec_granted = 0
+        sandbox_ec_since = since
+        every_allied_country:
+          limit:
+            not tag(ROOT)
+            has_war()
+          ROOT:
+            if sandbox_ec_granted == 0:
+              sandbox_ec_partner = PREV
+              if $is_cold_band(sandbox_ec_partner):
+                # The candidate's own name is a temp, but a bare temp is not a
+                # valid `has_opinion` target (`Malformed token: sandbox_ec_partner`),
+                # so the macro reads PREV - the scope keyword vanilla itself uses
+                # for `target = ROOT` in the same trigger.
+                if $opinion_good(PREV):
+                  sandbox_ec_equipment = 0
+                  # The receiver must be able to field what it is granted, so
+                  # the pick reads the receiver's own techs. Deterministic per
+                  # receiver and per year, never random.
+                  var:sandbox_ec_partner:
+                    if has_tech(advanced_infantry_weapons):
+                      PREV:
+                        sandbox_ec_equipment = 3
+                    elif has_tech(improved_infantry_weapons):
+                      PREV:
+                        sandbox_ec_equipment = 2
+                    elif has_tech(infantry_weapons1):
+                      PREV:
+                        sandbox_ec_equipment = 1
+                  if sandbox_ec_equipment != 0:
+                    sandbox_log_other = sandbox_ec_partner
+                    sandbox_log_old = 0
+                    sandbox_log_new = sandbox_ec_equipment
+                    sandbox_log_delta = 0
+                    sandbox_log_age = sandbox_ec_since
+                    sandbox_log_slot = -1
+                    # The engine refuses a temp as the licence target
+                    # (`Malformed token: var:sandbox_ec_partner`), so the grant
+                    # runs from the candidate's scope and names the receiver as
+                    # PREV - the scope-keyword form vanilla uses for
+                    # `target = ROOT`. The log lines below run in the granter's
+                    # scope again, because the inner PREV is the granter.
+                    var:sandbox_ec_partner:
+                      PREV:
+                        if sandbox_ec_equipment == 3:
+                          create_production_license:
+                            target(PREV)
+                            equipment:
+                              type(infantry_equipment_3)
+                            cost_factor(0)
+                          $sandbox_log_economic(ec_license_granted_infantry_equipment_3)
+                        elif sandbox_ec_equipment == 2:
+                          create_production_license:
+                            target(PREV)
+                            equipment:
+                              type(infantry_equipment_2)
+                            cost_factor(0)
+                          $sandbox_log_economic(ec_license_granted_infantry_equipment_2)
+                        else:
+                          create_production_license:
+                            target(PREV)
+                            equipment:
+                              type(infantry_equipment_1)
+                            cost_factor(0)
+                          $sandbox_log_economic(ec_license_granted_infantry_equipment_1)
+                    &last_license_month = months_elapsed
+                    sandbox_ec_granted = 1
+

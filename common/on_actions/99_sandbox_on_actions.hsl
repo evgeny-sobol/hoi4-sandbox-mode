@@ -17,6 +17,7 @@ on_actions:
         # others from game.log by uncommenting the line below.
         HAI->$set_global_flag(sandbox_log_scenarios, 1)
         # HAI->$set_global_flag(sandbox_log_civil_wars, 1)
+        # HAI->$set_global_flag(sandbox_log_economic, 1)
         # HAI->$set_global_flag(sandbox_log_honor, 1)
         # HAI->$set_global_flag(sandbox_log_national_focuses, 1)
         # HAI->$set_global_flag(sandbox_log_rivals, 1)
@@ -82,6 +83,9 @@ on_actions:
         review_rivals()
         update_rivalry_monthly()
         fill_rival_vacancies()
+        # Economic posture (docs/gdd/Economic Posture.md): reads rivals[] after
+        # the three calls above, so the bands are settled for this month.
+        sandbox_economic_posture_monthly()
         sandbox_log_census()
         # Scenario ladder tick (docs/gdd/Scenarios.md "Lifecycle"). on_monthly
         # runs per country, so the tick fires in exactly one host per month:
