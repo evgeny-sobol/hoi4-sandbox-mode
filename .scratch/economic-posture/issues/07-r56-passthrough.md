@@ -1,6 +1,6 @@
 # 07 - Rt56 passthrough
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02, 03, 04, 05
 
@@ -38,3 +38,16 @@ differ.
 
 - Rt56-specific content of its own (its focus trees, its own embargo focuses):
   the posture only reads the rivalry bands and opinion.
+
+Implemented. Both mods compile (the fork against the Rt56 workshop root as its
+`sandbox` root) and the synced core files reach both: the fork's generated plans
+carry the same entries (825 plans, 275 tags) and `check_economic_posture.py`
+passes on the fork's own file. The fork's two per-mod facts are answered in
+`_sandbox-r56/docs/gdd/Economic Posture.md`, "Road to 56": the 200 scale (so
+"good" is 100, never 50 - a literal would make the fork twice as strict), and the
+DLC assumptions (the fork guards its own plans with 75 `has_dlc` checks, adds no
+embargo content of its own, and writes its own `equipment_market_trade_desire` /
+`diplo_action_desire` entries unguarded exactly as we do; the overlap is recorded,
+not guessed). The commented `sandbox_log_economic` gate sits beside its siblings
+in both mods' `on_actions`, and the fork's chapter and `Road to 56.md` both point
+at the scale rule. The fork's observer session is issue 08's configuration 3.

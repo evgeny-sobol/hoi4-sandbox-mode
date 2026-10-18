@@ -10,8 +10,11 @@ vanilla use of `send_embargo` and `break_embargo` is wrapped in
 `belgium.txt`, `events/AAT_Sweden.txt`), and the equipment market plus market
 access are Arms Against Tyranny (`EQUIPMENT_MARKET_*` defines; every vanilla
 `has_dlc = "Arms Against Tyranny"` in `common/ai_strategy` sits next to
-market-access entries). Licences are base-game, embargoes and the market are
-not.
+market-access entries). Licensing was written here as base-game; the
+implementation found otherwise (see "Amendment" below): vanilla wraps every
+`create_production_license` in `has_dlc = "Death or Dishonor"` and the
+`allow_licensing` game rule itself declares `required_dlc = "Death or Dishonor"`.
+So three of the four mechanics are gated, not two.
 
 The repo already carries a term with the opposite instinct: `Content-portable
 arc` in `CONTEXT.md` says an arc must exist "without a DLC gate". A reader who
@@ -52,3 +55,16 @@ rather than a degraded version.
   economic posture and does not relax it for arcs or scenarios.
 - If a DLC-free posture is ever wanted, it has to be argued as a new decision
   about useful levers, not as a restoration of symmetry.
+
+## Amendment (implementation, 2026-10-18)
+
+The licensing lever is Death or Dishonor content, not base-game as the Context
+originally claimed: vanilla wraps every `create_production_license` in that
+`has_dlc` (`common/scripted_effects/BLT_scripted_effects.txt`,
+`00_scripted_effects.txt`'s `bba_create_*_license_effect` chains) and the
+`allow_licensing` game rule declares `required_dlc = "Death or Dishonor"`. The
+decision above is unchanged - the licence branch simply carries the same
+`has_dlc` guard as the embargo branch, so a base-game install sees no licence
+attempt rather than a clean-looking no-op. The mod also respects the
+`allow_licensing` game rule: with the rule set to `BLOCKED`, no grant is
+attempted.

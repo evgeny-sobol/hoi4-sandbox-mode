@@ -127,8 +127,10 @@ They stack to -30 (-60 in Rt56) when the same tag is in both. Through opinion, r
 
 `99_sandbox_rivals_system.hsl` grows from one to three plans per tag, enabled by the `rivalry` of the slot that holds the tag:
 - any rival: `antagonize 200` (sign fixed), `alliance -200`, `befriend -200`;
-- Rival band or higher (`rivalry >= 25`): `contain 100`;
+- Rival band (`rivalry >= 25` and `< 75`): `contain 100`;
 - Feud (`rivalry >= 75`): `conquer 100`, `prepare_for_war 100`.
+
+The Rival tier stops at 75 so the three plans are mutually exclusive on the band: at Feud, `conquer` / `prepare_for_war` replace `contain`, which they superseded there anyway. The exclusivity is also what keeps the economic-posture entries of the tiers from stacking (a -50 trade desire at Rival and a -200 at Feud would sum to -250 otherwise); see `docs/gdd/Economic Posture.md` and ADR-0007, which fold those addressed entries into the same three macros.
 
 The per-tag macro `country_is_rival(_country_)` becomes three macros (`rival_base`, `rival_contain`, `rival_feud`) or one macro emitting three plans; the generator that produced the tag list stays.
 

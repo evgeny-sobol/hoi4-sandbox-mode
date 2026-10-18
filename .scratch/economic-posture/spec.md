@@ -182,44 +182,101 @@ silently.
 
 ## Acceptance
 
-In-game (observer session, both mods):
+In-game (observer session, both mods). Ticked boxes come from the vanilla run of
+2026-10-18 (`.scratch/economic-posture/verification-run.md`); the three
+configuration items are still open.
 
-- [ ] A country at Feud with a threat-generating country sends an embargo
-      within 12 months; `ec_embargo_sent` names actor and target.
-- [ ] That embargo is lifted once the band falls below 60, and the same target
-      is not embargoed again within 6 months (`ec_embargo_lifted` reason).
-- [ ] No third embargo is sent while two are active.
-- [ ] A rival is never granted a licence; a faction partner at war receives at
-      most one per 12 months (`ec_license_granted`).
+- [x] A country at Feud with a threat-generating country sends an embargo
+      within 12 months; `ec_embargo_sent` names actor and target. 200 sends from
+      99 actors 1936-1938, the first ETH -> ITA on 1936.07.01 at band 80.
+- [x] That embargo is lifted once the band falls below 60, and the same target
+      is not embargoed again within 6 months (`ec_embargo_lifted` reason). 5
+      `detente` lifts (6, 6, 8, 16 and 22 months held) and 0 re-embargoes inside
+      the cooldown.
+- [x] No third embargo is sent while two are active. 0 violations replaying the
+      log per actor.
+- [x] A rival is never granted a licence; a faction partner at war receives at
+      most one per 12 months (`ec_license_granted`). 7 grants, all to faction
+      partners at war; GSM received two, exactly 12 months apart.
 - [ ] Base game (no BBA, no AAT): no posture behaviour, no `error.log` lines.
 - [ ] Rt56: opinion thresholds behave on the 200 scale; nothing saturates.
 - [ ] Historical (non-sandbox) session: no posture behaviour, no `ec_` lines.
-- [ ] No `Invalid Scope` lines from the sweep when a rival slot holds a country
-      that ceased to exist mid-month.
+- [x] No `Invalid Scope` lines from the sweep when a rival slot holds a country
+      that ceased to exist mid-month: no posture line reached `error.log` in the
+      run at all.
 
 Static: `.scratch/scripts/check_economic_posture.py` over the generated files
-(issue 06).
+(issue 06). Passes on both mods: 825 plans, 275 tags, `problems: 0`, and the
+negative case fails on a dropped value and on a fourth plan for one tag.
 
 ## Risks and verification items
 
+State at implementation (2026-10-18). Nothing here is proven until issue 08's
+observer run; what changed is which items vanilla evidence settled.
+
 1. `equipment_market_buy` accepts a scoped variable for `seller`
-   (`common/ai_strategy/_documentation.md`: "Can be scoped variable"). If it
-   does not hold in game, wave 3 keeps market-access denial and drops the
-   positive seller channel, without paying the plan cost instead.
+   (`common/ai_strategy/_documentation.md`: "Can be scoped variable"). **Not
+   exercised**: the positive channel is deferred (see 5 and the GDD's "Not yet
+   verified"), because picking a best-opinion partner needs the O(n) world scan
+   this design refuses. The denial half of wave 3 ships in `rival_feud`, and the
+   `ec_channel_unavailable` line stays reserved for the day the channel is
+   attempted.
 2. The `send_embargo` effect does not require the `EMBARGO_THREAT_THRESHOLD`
-   gate: vanilla uses it as a plain effect inside a `has_dlc` wrapper. Must be
-   seen in game before wave 1 is called done.
-3. `diplo_action_desire` with `target = market_access_rights` is accepted in
-   our plan entry (vanilla uses that target, guarded by AAT).
+   gate: vanilla uses it as a plain effect inside a `has_dlc` wrapper.
+   **Settled in game** (2026-10-18 run): 200 embargoes were sent and logged
+   without a single script error, so the effect lands as a plain effect. The
+   sweep calls it guarded by By Blood Alone only, gated by the band, the
+   shields, the two-embargo ceiling and a 100 political power floor
+   (`EMBARGO_COST`).
+3. `diplo_action_desire` with `target = market_access_rights` is accepted in our
+   plan entry. **Shipped and parsed** in `rival_feud` at -200; vanilla uses the
+   same target (guarded by AAT) in `common/ai_strategy/DEN.txt`, and the 1936-38
+   run raised no error from the plan. What it does to the AI's market-access
+   behaviour was not measured.
 4. `ai_strategy` entries cannot be guarded individually: every condition of a
-   plan lives in its `enable`, next to the military entries. The declarative
-   market entries are therefore written unguarded and verified clean on the
-   base game. If that verification fails, the fallback is three DLC-gated
-   economic band plans per tag, which must be brought back to ADR-0007 as an
-   amendment first (issue 02).
-5. `create_production_license` is accepted without BBA: vanilla uses it inside
-   BBA helper chains, which is not proof either way. If it needs BBA, wave 2
-   moves under the same guard as the embargo.
+   plan lives in its `enable`. The declarative market entries are written
+   unguarded; **base-game verification is still open** (issue 08, configuration
+   2). The fallback of three DLC-gated economic band plans per tag was not
+   needed for the build to compile, and stays unbuilt.
+5. `create_production_license` is accepted without BBA: **settled false**.
+   Vanilla wraps every `create_production_license` in
+   `has_dlc = "Death or Dishonor"` and the `allow_licensing` game rule declares
+   that DLC, so wave 2 sits under its own guard and ADR-0008 gained an
+   amendment. The licence branch also respects `allow_licensing = BLOCKED`.
+
+## Implementation decisions (2026-10-18)
+
+Decisions taken while building the eight issues; the GDD chapters and the two
+ADRs carry the same record.
+
+- **Exclusive band tiers.** `rival_contain` is enabled on `rivalry >= 25` and
+  `< 75`, so the three plans of a tag never overlap. Without it the -50 trade
+  desire of the Rival tier and the -200 of the Feud tier would both be active at
+  Feud and sum to -250. `docs/gdd/Rivals System.md` (both mods) records the new
+  bound; `conquer` / `prepare_for_war` already superseded `contain` there.
+- **Buying exclusion sits at Rival and above** (the spec's Values), not on any
+  slot: a Cold slot is neutral for buying, matching rule 2's "no hostile act
+  without a band".
+- **Licences are Death or Dishonor**, not base-game (risk 5), and the
+  `allow_licensing` game rule is respected. The equipment pick is the best
+  infantry equipment the receiver's own techs allow, so it is deterministic per
+  receiver and per year rather than random, and a receiver that can field none
+  gets no grant.
+- **The positive seller channel is deferred**, not guessed: picking a
+  best-opinion partner needs a monthly world scan (the thing this design refuses
+  everywhere), and the engine form is unverified. Wave 3 therefore ships the
+  denial half only; issue 05 stays open for the observer run.
+- **Embargo lift reasons are `gone` / `alliance` / `detente`.** A third-party
+  annexation has no distinct engine signal, so it surfaces as `gone`; the spec's
+  earlier "annexation" and "cooldown" reasons are dropped (a cooldown suppresses
+  a send silently, which the absence of a new `ec_embargo_sent` records).
+- **Telemetry carries what the shared line format cannot**: the lift reason and
+  the licensed equipment are the event name's suffix
+  (`ec_embargo_lifted_detente`, `ec_license_granted_infantry_equipment_2`).
+- **Ledger names**: `embargoes[]` with `embargo_since[]` (active) and
+  `embargo_cooldown[]` with `embargo_cooldown_month[]` (six-month re-embargo
+  block), all sized in `initialize_country_for_sandbox_mode()` beside
+  `rivals[]` / `rivalry[]`.
 
 ## Out of scope
 

@@ -116,6 +116,35 @@ The mod's own 0-100 per-slot intensity toward a declared rival; it feeds
 opinion through fixed modifiers and never reads it.
 _Avoid_: opinion, hostility
 
+**Economic posture**:
+The economic-diplomacy behaviour a country derives from its attitude towards
+another country. Two axes, and every act reads exactly one: hostility (Rivalry
+bands Cold / Rival / Feud) and sympathy (the country's own Opinion of the
+target, thresholds as fractions of the opinion scale). The axes never mix
+arithmetically.
+_Avoid_: stance, relation, trade policy
+
+**Embargo**:
+A persistent hostile act; the engine effects `send_embargo` and `break_embargo`
+(By Blood Alone). The mod tracks its own embargoes in a bounded ledger, because
+the engine's queries are per country.
+_Avoid_: sanction (no such engine concept), blockade
+
+**Licensed production**:
+Engine licensing: a country lets another produce its equipment. The mod steers
+who grants a licence; it cannot make an AI ask for one.
+_Avoid_: licence deal, patent
+
+**Equipment purchase**:
+Buying and selling on the engine's international equipment market (Arms Against
+Tyranny).
+_Avoid_: arms trade, arms sale
+
+**Trade agreement**:
+The market relationship the engine creates (market access plus purchase
+contracts), which posture biases. Not a diplomatic action of our own.
+_Avoid_: trade deal, pact (that is a non-aggression pact)
+
 **Civil-war backing**:
 The rule that a major power backs one side of every ongoing civil war: the
 side whose ruling government matches the major's own.

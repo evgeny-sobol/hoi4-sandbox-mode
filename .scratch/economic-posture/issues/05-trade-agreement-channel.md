@@ -1,6 +1,6 @@
 # 05 - Trade agreement channel: deny rivals, try the positive seller
 
-Status: ready-for-agent
+Status: ready-for-human
 Type: task
 Blocked by: 01
 
@@ -46,3 +46,18 @@ behaviour.
   use it.
 - Purchase contracts as such: the engine creates them; we only bias who is
   chosen, and the contract terms stay the engine's.
+
+Half implemented, waiting on the observer run. **Shipped**: the denial half,
+folded into `rival_feud` (`diplo_action_desire`, `id` = the tag,
+`target = market_access_rights`, -200), so the file still holds three plans per
+tag; vanilla uses the same target in `common/ai_strategy/DEN.txt`, and the
+checker asserts the entry's address and value. **Not shipped**: the positive
+seller channel. Its picking half needs a monthly scan of the country's
+best-opinion partner, which is exactly the O(n) scan this design refuses
+elsewhere, and the `seller` - scoped-variable form is unverified; writing both on
+a guess would have put an unverified entry and a world scan into the monthly path
+for a +30 nudge. What the run has to decide: either the variable form is shown to
+move purchases (then the channel is written, with the scan argued as its own
+decision first), or it is rejected and `ec_channel_unavailable` is emitted once
+per session. `ec_channel_unavailable` is reserved in the GDD's telemetry list and
+emitted by nothing today.

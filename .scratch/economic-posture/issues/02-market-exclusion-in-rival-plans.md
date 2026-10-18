@@ -1,6 +1,6 @@
 # 02 - Addressed market exclusion in the rival plans
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 01
 
@@ -50,3 +50,16 @@ be gated on lives in its `enable`, which also gates the military entries
 - The embargo sweep (03) and the wave 3 market-access denial (05).
 - Buying bias of our own: the engine's opinion coefficients already do it, and a
   target-free bias cannot be attitude-scoped (spec, "Ladder").
+
+Implemented, with one deviation from this ticket's letter forced by its own "do
+not stack" rule. `equipment_market_buy` (`seller` = the tag, -200) and
+`equipment_market_trade_desire` (-50 at Rival, -200 at Feud) are addressed at the
+plan's own tag, and `rival_contain` is now enabled on `rivalry >= 25` **and**
+`< 75`, so the Rival plan is off at Feud and the -50 cannot sum with the -200.
+Removing `contain` at Feud costs nothing: `conquer` / `prepare_for_war` already
+superseded it there, and `docs/gdd/Rivals System.md` in both mods records the new
+bound. The buying exclusion sits at Rival and above - the spec's Values - so a
+Cold slot stays neutral for buying. The file still holds three plans per tag:
+825 plans over 275 tags, asserted by `check_economic_posture.py` (issue 06).
+Base-game cleanliness and the absence of behaviour change without Arms Against
+Tyranny are issue 08's configuration 2.

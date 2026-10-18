@@ -1,6 +1,6 @@
 # 01 - Posture model and shared macros
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: none
 
@@ -45,3 +45,14 @@ array elements are read into temps before math.
   own line).
 - Any change to how `rivals[]` is selected or how `rivalry[]` moves: this issue
   only reads them.
+
+Implemented. Macros in `sandbox-mod-core/common/macros.hml`:
+`$is_rivalry_at_least`, `$is_rival_or_above`, `$is_feud`, `$is_cold_band`,
+`$opinion_good` (built from `$sandbox_opinion_scale()`), `$target_still_exists`,
+`$can_act_hostile_towards`, the ledger readers `$is_embargoed_by_us` /
+`$embargo_cooldown_holds`, and the `sandbox_log_economic` gate. The bands read
+`rivalry[]` only; the predicates are plain trigger expressions rather than temp
+writers, so one form serves `enable`, `limit` and `available` alike (a temp
+writer would be rejected in the strict trigger contexts). The GDD's "Where it
+lives" list names the macros. Both mods compile; `Invalid Scope` on a dead slot
+can only be observed in a session, which issue 08 carries.

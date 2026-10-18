@@ -56,6 +56,12 @@ plans per tag.
 - The three "military" band macros now also carry trade entries, so a reader
   looking for market bias must read `rival_base` / `rival_contain` /
   `rival_feud`. Comments in the macros say so.
+- Measured plan count: 825 (`275` tags x three tiers, the same tag list in both
+  mods), against the 2,475 the Context above estimated.
+- The Rival tier gained an upper bound (`>= 25` and `< 75`) so the three tiers
+  are mutually exclusive: the -50 trade desire of the Rival tier must not stack
+  with the -200 of the Feud tier. At Feud, `conquer` / `prepare_for_war` replace
+  `contain`, which they superseded there anyway.
 - The plan count stays a known quantity: any future addition to this file must
   re-argue the tick cost before it is written.
 - If the three tiers are ever merged into one plan per tag (the GDD's fallback),

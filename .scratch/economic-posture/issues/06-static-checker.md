@@ -1,6 +1,6 @@
 # 06 - Static checker for the generated posture output
 
-Status: ready-for-agent
+Status: resolved
 Type: task
 Blocked by: 02, 03
 
@@ -41,3 +41,23 @@ Invariants:
 
 - Runtime behaviour: this checks the generated text, not the game. The observer
   run is issue 08.
+
+Implemented: `.scratch/scripts/check_economic_posture.py` plus
+`.scratch/scripts/check_economic_posture_baseline`, both owned by
+`sandbox-mod-core` and synced to each mod (added to `SHARED_MISC` in
+`core/tools/sync_core.py`). Invariants covered: the three-plans-per-tag counts and
+their equality (825 plans / 275 tags per mod, against the baseline), each tier's
+band check inside the plan's own `enable` including the `< 75` cut-off that stops
+the -50 and -200 from stacking, every economic entry's address (`id` / `seller` =
+the plan's tag) and value, no `equipment_market_buy` without an addressed field,
+no `send_embargo` / `break_embargo` / `create_production_license` in the generated
+plans, and no literal beside `has_opinion` in either mod's `.hml` / `.hsl`
+sources.
+
+Usage: `python .scratch/scripts/check_economic_posture.py [mod_dir ...]
+[--update]` from either mod root; without arguments it reads both mods.
+Result: `problems: 0`. Negative case: with a `-50` edited to `-60` and a fourth
+plan for `ENG` carrying `send_embargo`, it exits 1 and names
+`...:28: ENG_is_rival_contain equipment_market_trade_desire value is '-60',
+expected -50` and `...:33831: unexpected plan ENG_is_rival_extra`. Both outputs
+are quoted in issue 08.
