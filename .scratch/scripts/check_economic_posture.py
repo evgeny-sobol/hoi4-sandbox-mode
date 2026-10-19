@@ -24,7 +24,11 @@ MODS = [
     pathlib.Path(r"C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56"),
 ]
 PLANS = pathlib.Path("common/ai_strategy/99_sandbox_rivals_system.txt")
+SCALE = pathlib.Path("common/_sandbox_scale.hml")
+EFFECTS = pathlib.Path("common/scripted_effects/99_sandbox_scripted_effects.txt")
 BASELINE = pathlib.Path(__file__).with_name("check_economic_posture_baseline")
+SCALE_MACRO = re.compile(r"macro sandbox_opinion_scale\(\):\s*\n\s*(\d+)")
+GOOD_MACRO = re.compile(r"macro sandbox_opinion_good\(\):\s*\n\s*(\d+)")
 
 PLAN_START = re.compile(r"^([A-Za-z0-9_]+) = \{$")
 PLAN_END = re.compile(r"^\}$")
@@ -180,7 +184,7 @@ def check_mod(mod: pathlib.Path, problems: list[str]) -> tuple[int, int, int, in
 
 
 def opinion_literals(mod: pathlib.Path, problems: list[str]) -> None:
-    """Where a block has_opinion appears, the threshold must be the scale macro."""
+    """Where a block has_opinion appears, the threshold must come from a macro."""
     for path in sorted((mod / "common").rglob("*")):
         if path.suffix not in (".hml", ".hsl") or not path.is_file():
             continue
@@ -190,10 +194,49 @@ def opinion_literals(mod: pathlib.Path, problems: list[str]) -> None:
                 continue
             for follow in lines[n: min(n + 4, len(lines))]:
                 m = re.match(r"\s*value\((.+)\)\s*$", follow)
-                if m and "$sandbox_opinion_scale()" not in m.group(1):
+                if m and "$sandbox_opinion_" not in m.group(1):
                     problems.append(
-                        f"{path}:{n}: opinion threshold {m.group(1)} is not "
-                        "$sandbox_opinion_scale()")
+                        f"{path}:{n}: opinion threshold {m.group(1)} is not a "
+                        "sandbox_opinion_* macro")
+
+
+def opinion_threshold(mod: pathlib.Path, problems: list[str]) -> None:
+    """Sympathy is half the mod's clamp: the per-mod threshold must say so, and
+    the compiled effects must carry that number beside has_opinion."""
+    path = mod / SCALE
+    if not path.is_file():
+        problems.append(f"{path}: missing; cannot check the opinion threshold")
+        return
+    text = path.read_text(encoding="utf-8", errors="replace")
+    scale = SCALE_MACRO.search(text)
+    good = GOOD_MACRO.search(text)
+    if not scale or not good:
+        problems.append(
+            f"{path}: both sandbox_opinion_scale() and sandbox_opinion_good() must "
+            "be defined")
+        return
+    want = int(scale.group(1)) // 2
+    got = int(good.group(1))
+    if got != want:
+        problems.append(
+            f"{path}: sandbox_opinion_good() is {got}, but half of "
+            f"sandbox_opinion_scale() {scale.group(1)} is {want}")
+
+    effects = mod / EFFECTS
+    if not effects.is_file():
+        return
+    lines = effects.read_text(encoding="utf-8", errors="replace").splitlines()
+    for n, line in enumerate(lines, 1):
+        if "has_opinion = {" not in line:
+            continue
+        for follow in lines[n: min(n + 4, len(lines))]:
+            m = re.match(r"\s*value = (-?\d+)", follow)
+            if m:
+                if int(m.group(1)) != got:
+                    problems.append(
+                        f"{effects}:{n}: has_opinion value {m.group(1)} is not the "
+                        f"per-mod good threshold {got}")
+                break
 
 
 def main() -> int:
@@ -208,6 +251,7 @@ def main() -> int:
             return 2
         base, contain, feud, tags = check_mod(mod, problems)
         opinion_literals(mod, problems)
+        opinion_threshold(mod, problems)
         table.append(f"{mod.name} {base + contain + feud} {base} {contain} {feud} {tags}")
 
     if "--update" in sys.argv:

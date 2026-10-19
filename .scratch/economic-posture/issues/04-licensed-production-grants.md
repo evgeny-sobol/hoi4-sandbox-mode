@@ -63,13 +63,15 @@ the embargo (ADR-0008 covers the consequence).
 - Per-pair `ai_license_acceptance` through targeted modifiers: needs generated
   per-pair content and a much larger content budget.
 
-Implemented, and the verification item resolved the other way round: licensing is
-**Death or Dishonor** content, not base-game. Vanilla wraps every
-`create_production_license` in that `has_dlc`
+Implemented. The verification item resolved in two steps. Vanilla's own script
+wraps every `create_production_license` in `has_dlc = "Death or Dishonor"`
 (`common/scripted_effects/BLT_scripted_effects.txt`, the `bba_create_*` chains)
 and the `allow_licensing` game rule declares `required_dlc = "Death or Dishonor"`,
-so `sandbox_economic_license_grant()` carries the guard and
-`docs/adr/0008-economic-posture-is-dlc-dependent.md` gained an amendment.
+so the branch carries that guard. But Death or Dishonor became free and was
+integrated into the base game in patch 1.14.3, so on a current build the guard
+passes through: the 2026-10-19 no-DLC run still granted 4 licences. The guard
+stays for older hosts, and ADR-0008's second amendment records that licensing is
+base content in practice.
 `sandbox_economic_license_grant()` gives at most one forced licence per country
 per 12 months (`last_license_month`, `months_elapsed` stamps) to a faction partner
 that is at war, Cold towards us in its band and liked at half scale or better,

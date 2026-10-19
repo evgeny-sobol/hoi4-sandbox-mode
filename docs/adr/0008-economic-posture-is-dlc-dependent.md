@@ -58,13 +58,28 @@ rather than a degraded version.
 
 ## Amendment (implementation, 2026-10-18)
 
-The licensing lever is Death or Dishonor content, not base-game as the Context
-originally claimed: vanilla wraps every `create_production_license` in that
-`has_dlc` (`common/scripted_effects/BLT_scripted_effects.txt`,
+The licensing lever is Death or Dishonor content in vanilla's own script: every
+`create_production_license` sits inside that `has_dlc`
+(`common/scripted_effects/BLT_scripted_effects.txt`,
 `00_scripted_effects.txt`'s `bba_create_*_license_effect` chains) and the
 `allow_licensing` game rule declares `required_dlc = "Death or Dishonor"`. The
-decision above is unchanged - the licence branch simply carries the same
-`has_dlc` guard as the embargo branch, so a base-game install sees no licence
-attempt rather than a clean-looking no-op. The mod also respects the
-`allow_licensing` game rule: with the rule set to `BLOCKED`, no grant is
-attempted.
+decision above is unchanged - the licence branch carries the same `has_dlc`
+guard as the embargo branch - and the mod respects the `allow_licensing` rule:
+with the rule set to `BLOCKED`, no grant is attempted.
+
+### Second amendment (playtest, 2026-10-19)
+
+Death or Dishonor became free and was permanently integrated into the base game
+in patch 1.14.3, so the guard cannot be observed on a current build. This machine
+runs 1.19.3.0: there is no `dlc004_*` package, and the `allow_licensing` rule
+(whose `required_dlc` names DoD) exists at runtime, while rules of genuinely
+absent DLC are dropped with `game rule ... does not exist` (`LIT_ai_behavior`,
+No Step Back, in the same session). With all 35 launcher-visible DLC disabled the
+1936-38 run still granted licences - 4 `ec_license_granted` lines - and sent no
+embargo at all (0 against 200 in the full-DLC run), so the By Blood Alone guard
+holds while the licence guard passes through.
+
+Keep the guard - it is correct for hosts older than 1.14.3 or without the
+content - but strike "no licence on the base game" from the acceptance
+expectations: on every current install licensing is base content, and the licence
+path is the one posture act a no-DLC session still performs.

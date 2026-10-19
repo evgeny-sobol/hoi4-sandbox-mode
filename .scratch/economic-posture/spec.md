@@ -198,9 +198,23 @@ configuration items are still open.
 - [x] A rival is never granted a licence; a faction partner at war receives at
       most one per 12 months (`ec_license_granted`). 7 grants, all to faction
       partners at war; GSM received two, exactly 12 months apart.
-- [ ] Base game (no BBA, no AAT): no posture behaviour, no `error.log` lines.
-- [ ] Rt56: opinion thresholds behave on the 200 scale; nothing saturates.
-- [ ] Historical (non-sandbox) session: no posture behaviour, no `ec_` lines.
+- [x] Base game (no BBA, no AAT): no posture behaviour, no `error.log` lines.
+      Configuration 2 of the 2026-10-19 run (all 35 installed DLC disabled):
+      `error.log` carries no line from `99_sandbox*` and none mentioning a market
+      or embargo token, and no embargo is sent. Licences still fire because
+      Death or Dishonor became free and part of the base game in patch 1.14.3,
+      so licensing is base content on this 1.19.3.0 install (see
+      `verification-run.md`); the licence guard is a pass-through there.
+- [x] Rt56: opinion thresholds behave on the 200 scale; nothing saturates.
+      Configuration 3 of the 2026-10-19 run (Road to 56, 1936-41): the fork's
+      compiled threshold is 100 against vanilla's 50, `error.log` carries no line
+      from `99_sandbox*`, and 411 `ec_` lines show every act firing. The checker
+      now asserts the half-scale ratio, so a threshold that drifts back to the
+      full clamp fails statically.
+- [x] Historical (non-sandbox) session: no posture behaviour, no `ec_` lines.
+      Configuration 4 of the 2026-10-19 run: `sandbox_start historical=1`, then
+      two `#sandbox` lines in `game.log` for three years (banner and marker) and
+      nothing else.
 - [x] No `Invalid Scope` lines from the sweep when a rival slot holds a country
       that ceased to exist mid-month: no posture line reached `error.log` in the
       run at all.
@@ -235,9 +249,10 @@ observer run; what changed is which items vanilla evidence settled.
    behaviour was not measured.
 4. `ai_strategy` entries cannot be guarded individually: every condition of a
    plan lives in its `enable`. The declarative market entries are written
-   unguarded; **base-game verification is still open** (issue 08, configuration
-   2). The fallback of three DLC-gated economic band plans per tag was not
-   needed for the build to compile, and stays unbuilt.
+   unguarded and **verified clean on the base game** (configuration 2 of the
+   2026-10-19 run, all DLC disabled: no posture line and no market token in
+   `error.log`). The fallback of three DLC-gated economic band plans per tag was
+   never needed.
 5. `create_production_license` is accepted without BBA: **settled false**.
    Vanilla wraps every `create_production_license` in
    `has_dlc = "Death or Dishonor"` and the `allow_licensing` game rule declares

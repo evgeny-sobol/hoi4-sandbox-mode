@@ -255,15 +255,16 @@ macro is_feud(_tag_):
 macro is_cold_band(_tag_):
   not $is_rival_or_above(_tag_)
 
-# Sympathy: our own opinion of the country given, at or above half the mod's
-# scale. The argument is whatever the engine accepts in `has_opinion`'s target:
-# a tag, a scope keyword (ROOT / PREV / FROM) or `var:NAME`. A bare temp name is
-# not one of them - the game answers `Malformed token` - so a caller holding a
-# country in a temp passes `var:NAME`.
+# Sympathy: our own opinion of the country given, at or above the per-mod
+# "good" threshold, which is half of the engine clamp ($sandbox_opinion_good():
+# 50 vanilla, 100 Rt56). The threshold lives in the per-mod scale file, so no
+# literal ever sits beside `has_opinion`. The argument is whatever the engine
+# accepts as a target: a tag, a scope keyword (ROOT / PREV / FROM) or `var:NAME`;
+# a bare temp name is not one of them (the game answers `Malformed token`).
 macro opinion_good(_country_):
   has_opinion:
     target(_country_)
-    value($sandbox_opinion_scale())
+    value($sandbox_opinion_good())
 
 # Shields for a hostile act: the target still exists, and we are not allied
 # with, in a faction with or in a pact with it. Pure triggers, so the same

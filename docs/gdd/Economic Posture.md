@@ -145,9 +145,19 @@ mechanics half-working, and no screen advertises an action the AI cannot take.
 
 Declarative market entries are the one exception: an `ai_strategy` entry carries
 no conditions of its own, so the entries inside the three band plans are written
-unguarded and verified clean on the base game (issue 02). The tokens are
-engine-side and the expectation is that they parse and do nothing when the
-market does not exist.
+unguarded and verified clean on the base game (issue 02). The 2026-10-19
+no-DLC run raised no posture line and no market token in `error.log`, so the
+tokens parse and do nothing when the market does not exist.
+
+One surprise from that same run: Death or Dishonor became free and was
+permanently integrated into the base game in patch 1.14.3, and this game is
+1.19.3.0, so `has_dlc("Death or Dishonor")` is true even with every
+launcher-visible DLC disabled (no `dlc004_*` package; the `allow_licensing` rule
+exists at runtime while rules of genuinely absent DLC are dropped). Licensing is
+therefore base content in practice: a no-DLC session still grants licences, and
+nothing else. The guard stays for hosts older than 1.14.3, but "no licence on the
+base game" is no longer an observable acceptance item; ADR-0008 carries the
+second amendment.
 
 ## Telemetry
 
@@ -185,10 +195,12 @@ thing that can settle the rest:
 2. `send_embargo` needing no threat threshold: **settled in game** (1936-38
    run, 2026-10-18): 200 embargoes were sent and logged, the first ETH -> ITA on
    1936.07.01 at band 80, with no script error from the call.
-3. `create_production_license` being base-game: **settled false**. It is Death
-   or Dishonor content (vanilla guards it and the game rule requires the DLC),
-   so the licence branch carries that guard and ADR-0008's "licences are base
-   game" sentence is corrected in place.
+3. `create_production_license` being base-game: **settled true in practice**.
+   Vanilla's own script guards it with `has_dlc("Death or Dishonor")` and the
+   `allow_licensing` rule names DoD as required, but DoD became free and part of
+   the base game in patch 1.14.3, so on 1.19.3.0 the guard passes through: the
+   2026-10-19 no-DLC run still granted licences. The guard stays for older hosts;
+   see ADR-0008's second amendment.
 4. Declarative market entries written unguarded: unresolved until the base-game
    configuration of the observer run shows a clean `error.log`. The 1936-38
    sandbox run (full DLC) raised no error from the plans, which says nothing
@@ -211,7 +223,9 @@ first cut of the sweep, is `.scratch/economic-posture/verification-run.md`.
       12 months apart.
 - [ ] Base game: no behaviour, clean `error.log`.
 - [ ] Rt56: thresholds behave on the 200 opinion scale.
-- [ ] Historical session: nothing happens, no `ec_` lines.
+- [x] Historical session: nothing happens, no `ec_` lines. Configuration 4 of
+      the 2026-10-19 run: `sandbox_start historical=1`, then the log carries only
+      the two startup `#sandbox` lines for three years.
 - [x] `check_economic_posture.py` passes on both mods' generated files
       (`problems: 0`, 825 plans, 275 tags each; the checker's negative case
       fails on a deliberately edited value and on a fourth plan).
