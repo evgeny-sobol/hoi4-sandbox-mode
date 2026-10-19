@@ -29,10 +29,11 @@ _Avoid_: config, manifest, data file
 **Path**:
 One ordered sequence of key focuses inside an arc's spec, from a branch entry
 to a war leaf. An arc has one or more paths; each path declares the target
-variants it serves (a missing field means shared). The director boosts each
-path's foci plus their prerequisite closure only while one of its variants
-runs; shared focuses stay boosted whenever the aggressor is live. The last
-focus of the live path is the peak gate: AI ultimatums wait for it. Put
+variants it serves (a missing field means shared) and an optional `after` focus
+list that holds the path's boost until those focuses are completed. The director
+boosts each path's foci plus their prerequisite closure only while one of its
+variants runs; shared focuses stay boosted whenever the aggressor is live. The
+last focus of the live path is the peak gate: AI ultimatums wait for it. Put
 rarely-bypassed focuses last: a bypassed tail stalls the arc to the peak
 fallback.
 _Avoid_: branch, chain, route
@@ -76,9 +77,9 @@ direction, detected at declaration or by the monthly ongoing-war sweep.
 _Avoid_: trigger, success (success is logged separately as `sc_success`)
 
 **Join lever**:
-The peak-phase mechanism that invites the top-2 scored outsiders to the
-aggressor's side. One shared scorer, per-arc filters (see Join filter); no
-faction forms.
+The peak-phase mechanism that invites the top-N scored outsiders (`joiners.n`,
+default 2) to the aggressor's side. One shared scorer, per-arc filters (see
+Join filter); no faction forms.
 _Avoid_: recruitment, alliance, ally system, bloc
 
 **Join filter**:
@@ -114,6 +115,35 @@ _Avoid_: rivalry, relation
 The mod's own 0-100 per-slot intensity toward a declared rival; it feeds
 opinion through fixed modifiers and never reads it.
 _Avoid_: opinion, hostility
+
+**Economic posture**:
+The economic-diplomacy behaviour a country derives from its attitude towards
+another country. Two axes, and every act reads exactly one: hostility (Rivalry
+bands Cold / Rival / Feud) and sympathy (the country's own Opinion of the
+target, thresholds as fractions of the opinion scale). The axes never mix
+arithmetically.
+_Avoid_: stance, relation, trade policy
+
+**Embargo**:
+A persistent hostile act; the engine effects `send_embargo` and `break_embargo`
+(By Blood Alone). The mod tracks its own embargoes in a bounded ledger, because
+the engine's queries are per country.
+_Avoid_: sanction (no such engine concept), blockade
+
+**Licensed production**:
+Engine licensing: a country lets another produce its equipment. The mod steers
+who grants a licence; it cannot make an AI ask for one.
+_Avoid_: licence deal, patent
+
+**Equipment purchase**:
+Buying and selling on the engine's international equipment market (Arms Against
+Tyranny).
+_Avoid_: arms trade, arms sale
+
+**Trade agreement**:
+The market relationship the engine creates (market access plus purchase
+contracts), which posture biases. Not a diplomatic action of our own.
+_Avoid_: trade deal, pact (that is a non-aggression pact)
 
 **Civil-war backing**:
 The rule that a major power backs one side of every ongoing civil war: the
@@ -169,6 +199,6 @@ ignition (capped).
 _Avoid_: trigger, source, spark
 
 **Ignition overlay**:
-The mod's gate on a civil-war fuse: an `sandbox_civil_war_ai_allowed()` check
+The mod's gate on a civil-war fuse: a `sandbox_civil_war_ai_allowed()` check
 added to the fuse, so a capped AI defers it instead of losing it.
 _Avoid_: block, filter, patch

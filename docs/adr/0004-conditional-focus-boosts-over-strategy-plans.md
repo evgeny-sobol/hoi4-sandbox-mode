@@ -10,7 +10,7 @@ looked replaceable by vanilla `ai_strategy_plans`: an ordered
 takes, and our own `GER_sandbox_strategy_plan` already uses that mechanism
 for single-focus forcing. A grill session (2026-10-03) tested whether the
 slice overengineers what vanilla gives for free, and fixed its semantics
-first: the director provides priority, never a guarantee — the aggressor
+first: the director provides priority, never a guarantee - the aggressor
 must stay unpredictable.
 
 ## Decision

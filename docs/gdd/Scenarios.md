@@ -23,9 +23,10 @@ and most documentation; this file describes what is specific to vanilla.
 
 One arc per session, chosen at startup: pinned by a game rule or rolled at
 random over the arcs whose aggressor exists. Arc ids are fixed per major
-(1 GER, 2 SOV, 3 JAP, 4 ITA, 5 ENG, 6 USA); id 7 is a documented gap (France is
-not content-portable; see below). The pick rolls the
-A/B target variant 50/50 and logs `sc_pick` plus `sc_variant`.
+(1 GER, 2 ITA, 3 JAP, 4 SOV, 5 FRA, 6 ENG); the USA arc is an authored draft,
+not in the shipped pool. The pick rolls the target variant evenly (`targets`
+keys `a`, `b`, ...; a single-variant arc uses `a`) and logs `sc_pick` plus
+`sc_variant`.
 
 ### Pool and selection
 
@@ -33,29 +34,33 @@ A/B target variant 50/50 and logs `sc_pick` plus `sc_variant`.
   aggressor exists. Pin options exist for all six.
 - A derail repicks the next eligible never-derailed arc; a derailed arc never
   re-enters the pool in the same session.
-- Target variants are rolled at pick (50/50) and remain fixed for the session.
+- Target variants are rolled evenly at pick and remain fixed for the session.
 
 ### Excluded majors
 
-- **FRA**: the Bonapartist branch is Rt56-only, and the revanchist and Plan XIV
-  branches are likewise absent. No French arc is content-portable, so arc id 7
-  is left as a documented gap rather than filled with a substituted arc.
 - **HUN**: the Habsburg restoration arc is out of scope for this pool by user
   decision; its vanilla focuses do exist should it be added later.
+- **USA**: the fascist-America arc is authored as a spec (`draft`, no arc id)
+  but is not in the shipped pool.
 
 ## Arc schema
 
-Each arc is described by one TOML **arc spec** in `docs/scenarios/<id>.toml`
-(one per arc per mod). Shared tooling reads the specs and derives the catalog,
-the focus diagrams, the focus-boost closure and the expected telemetry labels;
-scripted events and effects stay hand-written in the HSL catalog.
+Each arc is described by one TOML **arc spec** in `docs/scenarios/<id>.toml` or
+`docs/scenarios/<aggressor>_<id>.toml` (one per arc per mod). Shared tooling
+(`core/tools/build_scenario_catalog.py`) reads the specs and derives the
+catalog (`docs/gdd/Scenarios Catalog.md`), the per-arc Mermaid diagrams, the
+focus-boost and suppress splices, the expected telemetry labels, and the
+per-arc generated HSL mechanics (`common/scripted_effects/99_sandbox_scenarios_gen.hsl`:
+target seeding, seed actors, variant roll, ladder tick, s7 telemetry, derail
+arms, joiner selection, and pick/pin helpers; see ADR-0003 and ADR-0005).
+Scripted events and `fire_*` effects stay hand-written in the HSL catalog.
 
 ```toml
-id = "axis_expansion"       # slug; identity and file name
-number = 1                  # the director's arc id; written when the arc has code
-status = "ready"            # ready (in the shipped pool) | draft (authored, not selected)
-aggressor = "GER"           # a single tag
-key = "axis"                # short slug for the pin trigger and pick label; optional
+id = "nazi_germany_scenario" # slug; identity (matches <id>.toml or <aggressor>_<id>.toml)
+number = 1                   # the director's arc id; written when the arc has code
+status = "ready"             # ready (in the shipped pool) | draft (authored, not selected)
+aggressor = "GER"            # a single tag
+key = "nazi_germany"         # short slug for the pin trigger and pick label; optional
 
 targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
 suppress = ["GER_austria_first"]  # optional: focus ids the AI must not pick while the arc is live
@@ -65,12 +70,14 @@ crises_at_month = 12
 peak_at_month = 24
 # Content rungs (optional pair): hand-written functions the tick calls.
 # Both or neither; absent means the arc has no generated tick branch yet.
-crises_func = "sandbox_fire_axis_crises"
-peak_func = "sandbox_fire_axis_peak"
+crises_func = "sandbox_fire_nazi_germany_crises"
+peak_func = "sandbox_fire_nazi_germany_peak"
 
-[joiners]                   # shared scorer, no per-arc parameters
+[joiners]                   # shared scorer + optional candidate-pool filters
 select = "top_n_by_scorer"
 n = 2
+invite_event = "sandbox_nazi_germany.4"
+require = ["same_ideology", "same_continent"]  # optional subset of {"same_ideology", "same_continent"}
 
 [gate]                      # optional; absent means no gate
 # Derail pair (optional): park the arc when the aggressor is off ideology.
@@ -100,23 +107,27 @@ Free rationale prose, printed into the catalog beside the arc.
 ```
 
 Top-level keys come before `[table]` headers: in TOML everything after a
-header belongs to that table. `id` must match the file name; `number` is
-unique and must match the code dispatcher; a `ready` arc requires a `number`.
-Every key focus must exist in the aggressor's focus graph. The ladder content
-functions come as an optional pair (`crises_func` + `peak_func` naming the
-hand-written rung functions); absent means no generated tick branch. The
+header belongs to that table. `id` must match the file stem (`<id>` or
+`<aggressor>_<id>`); `number` is unique and must match the code dispatcher; a
+`ready` arc requires a `number` (a spec without a `number` is authoring-only:
+it prints in the catalog, while boosts, suppress, labels and generated HSL are
+skipped). Every key focus must exist in the aggressor's focus graph. The ladder
+content functions come as an optional pair (`crises_func` + `peak_func` naming
+the hand-written rung functions); absent means no generated tick branch. The
 optional `key` names the pin trigger suffix and pick label; absent means no
-generated pick data. Every variant holds 1-4 targets (the derail arms cover
-that range). Every `targets` key is covered by at least one path; every listed
-`variants` entry is a `targets` key. Boosts follow the live variant: shared
-focuses stay boosted whenever the aggressor is live, path-specific focuses
-only while their variant runs, and an entry's optional `after` holds its boost
-back until every listed focus is completed (shared ancestors of a gated path
-stay ungated). The peak rung waits for the AI to complete
-the last focus of the live path (humans proceed on schedule), with a
-fallback twelve months past the peak month; put rarely-bypassed focuses
-last, since a bypassed tail stalls to the fallback. The optional `suppress`
-list closes focuses for the AI while the aggressor is live
+generated pick data. `joiners` requires `select = "top_n_by_scorer"`, positive
+integer `n`, and non-empty `invite_event`, plus optional `require` filters
+(`"same_ideology"`, `"same_continent"`). Every variant holds 1-4 targets (the
+derail arms cover that range). Every `targets` key is covered by at least one
+path; every listed `variants` entry is a `targets` key. Boosts follow the live
+variant: shared focuses stay boosted whenever the aggressor is live,
+path-specific focuses only while their variant runs, and an entry's optional
+`after` holds its boost back until every listed focus is completed (shared
+ancestors of a gated path stay ungated). The peak rung waits for the AI to
+complete the last focus of the live path (humans proceed on schedule), with a
+fallback twelve months past the peak month; put rarely-bypassed focuses last,
+since a bypassed tail stalls to the fallback. The optional `suppress` list
+closes focuses for the AI while the aggressor is live
 (`$ai_scenario_focus_suppress()`, factor 0); a suppressed id must exist in the
 graph and must not be a key focus, so suppressing a fork forces the AI onto a
 sibling (issue 33: the SOV purge-opposition forks, leaving `the_centre`). There
@@ -153,9 +164,11 @@ Which focuses each arc boosts is drawn per arc in
 `$ai_scenario_focus_suppress()` (factor 0) to focuses the arc closes, so a
 wrong fork cannot win the AI's pick even before the boost applies.
 
-**Join levers**: at peak the two highest-scoring outsiders (`scenario_join_scorer`)
-get a bloc invitation. The scorer gates on ideology and hostility and scores
-strength plus goodwill; a joiner leaves its old faction first (no Honor charge).
+**Join levers**: at peak the top `n` highest-scoring outsiders
+(`scenario_join_scorer`, filtered by optional `joiners.require` flags; see
+ADR-0005) get a bloc invitation (`joiners.invite_event`). The scorer gates on
+ideology and hostility and scores strength plus goodwill; a joiner leaves its
+old faction first (no Honor charge).
 
 **Ultimatum casus belli**: a refused peak ultimatum must give the aggressor a
 wargoal (`create_wargoal`), or ignition waits on the AI's own war decision and
@@ -205,9 +218,10 @@ a long justification costs lines per month, not per day.
 ### Telemetry label convention
 
 `sc_goal` and `sc_justify` carry one label per aggressor/target pair, always
-`<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The
-catalog writes both label sets by hand in the s7 telemetry; both must
-match exactly, or one arc reads as two keys when a session is grepped.
+`<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). Both
+label sets are generated from the arc specs into `99_sandbox_scenarios_gen.hsl`
+and checked by `build_scenario_catalog.py --check`, so `sc_goal` and
+`sc_justify` cannot drift apart.
 
 - `sc_goal` logs wargoals in **both** directions, so it also holds
   `<target>_on_<aggressor>` labels (`cze_on_ger`); `sc_justify` only covers the
@@ -217,7 +231,7 @@ match exactly, or one arc reads as two keys when a session is grepped.
 
 ### Join lever
 
-The lever sends `sc_offer` to the top-2 pool candidates. Accepting is
+The lever sends `sc_offer` to the top-N pool candidates (`joiners.n`, default 2). Accepting is
 Honor-free (`sandbox_honor_skip_leave_faction`), grants **mutual military
 access** with the aggressor and the `scenario_ally` opinion modifier, and logs
 `sc_join`. **No faction is formed.** Making the aggressor a faction leader locks
@@ -282,7 +296,8 @@ and surfaced as a raw key in the diplomacy tooltip. Game-rule
 
 - Flip and imperial arcs (DLC-gated focus branches in vanilla; they live in the
   Rt56 overlay).
-- The full 28-arc catalog: only the content-portable subset ships here.
+- The full 28-arc catalog: only the content-portable subset ships here (six
+  arcs plus the USA draft).
 - Player-facing scenario UI beyond the pinning game rule.
 - Concurrent arcs.
 - Scenario behaviour in historical mode: sandbox-only.

@@ -25,7 +25,7 @@ Each **root** in national focuses tree:
 - are not already partitioned by Tyranny factors (a "repression vs. reform" fork)
 - are not already gated by a party-popularity `available` check of `> 0.5`
 - are not already gated by conflicting `has_government` checks (different ruling ideologies cannot appear at once)
-- **none** of the concurrent options has `FOCUS_FILTER_POLITICAL` or `FOCUS_FILTER_POLITICAL_CHARACTER` in `search_filters` (if any sibling has either filter, drop `$crossroad_modifier` from the whole exclusive group — e.g. `GER_heed_von_neuraths_concerns` / `GER_reorganize_the_wehrmacht`)
+- **none** of the concurrent options has `FOCUS_FILTER_POLITICAL` or `FOCUS_FILTER_POLITICAL_CHARACTER` in `search_filters` (if any sibling has either filter, drop `$crossroad_modifier` from the whole exclusive group - e.g. `GER_heed_von_neuraths_concerns` / `GER_reorganize_the_wehrmacht`)
 ```
       +modifier:
         $crossroad_modifier(N)
@@ -86,7 +86,9 @@ A focus that only **tilts** toward a party, without partitioning a fork, uses a 
 
 ### Diplomacy modifiers
 
-**Cooperation** with *single* country (for focuses leading to alliances). Rivals (`docs/gdd/Rivals System.md`) block cooperation: the `available` gate uses `$not_rival_of_PREV($TAG)` — `$is_rival_of()` (at war, or either side lists the other in `rivals[]`) wrapped in the `country_exists` guard so tag aliases are safe — and the AI weight is zeroed when the target is in our `rivals[]`. The rival opinion modifiers (−20/−10) already lower `$ai_cooperation_modifier`, so no extra rivalry factor is needed here.
+`$opinion_factor($TAG)` normalizes `opinion@$TAG` into `[-1.0, 1.0]` by dividing by `$sandbox_opinion_scale()` (`common/_sandbox_scale.hml`: 100 in vanilla, 200 in Rt56).
+
+**Cooperation** with *single* country (for focuses leading to alliances). Rivals (`docs/gdd/Rivals System.md`) block cooperation: the `available` gate uses `$not_rival_of_PREV($TAG)` - `$is_rival_of()` (at war, or either side lists the other in `rivals[]`) wrapped in the `country_exists` guard so tag aliases are safe - and the AI weight is zeroed when the target is in our `rivals[]`. The rival opinion modifiers (-20/-10 in vanilla, -40/-20 in Rt56) already lower `$ai_cooperation_modifier`, so no extra rivalry factor is needed here.
 ```
     available:
       $not_rival_of_PREV($TAG)
@@ -118,7 +120,7 @@ Use `+available:` if the vanilla focus has no `available` block.
         is_sandbox_mode_on()
 ```
 
-**Cooperation** with *three or more* countries (faction-building invitations such as `USA_hemisphere_defense`, `ITA_south_american_alliances`, `GER_safeguard_the_baltic`, `SOV_our_slavic_commitments`): **no** rival gate and **no** `factor(0)`. National rivals are picked from neighbours and the same continent, so with many invitees one of them is almost always a rival and a gate would lock the focus for the player and the AI alike. Keep only the averaged cooperation factor; the rival opinion modifiers pull it down, and the rival's own AI declines the alliance (`alliance −200`).
+**Cooperation** with *three or more* countries (faction-building invitations such as `USA_hemisphere_defense`, `ITA_south_american_alliances`, `GER_safeguard_the_baltic`, `SOV_our_slavic_commitments`): **no** rival gate and **no** `factor(0)`. National rivals are picked from neighbours and the same continent, so with many invitees one of them is almost always a rival and a gate would lock the focus for the player and the AI alike. Keep only the averaged cooperation factor; the rival opinion modifiers pull it down, and the rival's own AI declines the alliance (`alliance -200`).
 ```
     ai_will_do:
       +modifier:
@@ -128,7 +130,7 @@ Use `+available:` if the vanilla focus has no `available` block.
         is_sandbox_mode_on()
 ```
 
-Focuses that lead to war against a **friend** (ally, guarantor, or non-aggression-pact partner; `$is_friend_of()`) are **betrayal focuses**. Never gate them with `is_honored_leader(no)` directly: it ignores the Honor tiers. Two macros in `macros.hml` carry the AI side (`docs/gdd/Honor System.md`, "AI weighting"); the factor is `clamp((25 - honor) / 125, 0, 1)`, so a Treacherous AI betrays at full weight and an Inglorious AI near 25 almost never does. A focus whose targets are not friends is unaffected because the trigger fails and the modifier does not apply:
+Focuses that lead to war against a **friend** (ally, guarantor, or non-aggression-pact partner; `$is_friend_of()`) are **betrayal focuses**. Never gate them with `is_honored_leader(no)` directly: it ignores the Honor tiers. Two macros in `macros.hml` carry the AI side (`docs/gdd/Honor System.md`, "AI weighting"); the factor is `clamp((25 - honor) / 125, 0, 1)`, so a Treacherous AI betrays at full weight and an Inglorious AI near 25 almost never does. Declared scenario enemies (`scenario_enemies[]`, `docs/gdd/Scenarios.md`) are exempt from both the Honor gate and the single-target betrayal factor. A focus whose targets are not friends is unaffected because the trigger fails and the modifier does not apply:
 
 ```
 macro ai_betrayal_modifier():
@@ -140,11 +142,12 @@ macro ai_betrayal_modifier_vs(_tag_):
   $ai_betrayal_modifier()
   country_exists(_tag_)
   _tag_->is_friend_of_PREV()
+  _tag_->is_scenario_enemy_of_PREV(no)
 ```
 
-The Honor penalty itself is never written in the focus block. Vanilla focuses remove pacts with their own `diplomatic_relation`, which the include cannot replace; the −50 is charged by `on_declare_war` through the weekly snapshot and the 6-month dropped-obligation window (`docs/gdd/Honor System.md`, "Honor losses"). Only sandbox-authored focuses that remove a pact use `$break_non_aggression_pact_with($TAG)`, which applies `$add_honor(-50)` directly. Wars on guaranteed countries and faction exits are likewise charged by on_actions.
+The Honor penalty itself is never written in the focus block. Vanilla focuses remove pacts with their own `diplomatic_relation`, which the include cannot replace; the -50 is charged by `on_declare_war` through the weekly snapshot and the 6-month dropped-obligation window (`docs/gdd/Honor System.md`, "Honor losses"). Only sandbox-authored focuses that remove a pact use `$break_non_aggression_pact_with($TAG)`, which applies `$add_honor(-50)` directly. Wars on guaranteed countries and faction exits are likewise charged by on_actions.
 
-**Antagonism** with *single* country (for focus leading to wars). `can_PREV_get_wargoal_on_THIS` is Honor-tiered (see `docs/gdd/Honor System.md`): a NAP requires Inglorious or worse, a guarantee Dishonorable or worse, a faction ally Treacherous; a non-friend is always allowed.
+**Antagonism** with *single* country (for focus leading to wars). `can_PREV_get_wargoal_on_THIS` is Honor-tiered (see `docs/gdd/Honor System.md`): a NAP requires Inglorious or worse, a guarantee Dishonorable or worse, a faction ally Treacherous; a non-friend or a declared scenario enemy is always allowed.
 ```
     available:
       $TAG->can_PREV_get_wargoal_on_THIS()
@@ -160,7 +163,7 @@ The Honor penalty itself is never written in the focus block. Vanilla focuses re
 ```
 Use `+available:` if the vanilla focus has no `available` block.
 
-`$ai_rivalry_modifier($TAG)` (`docs/gdd/Rivals System.md`, "National focuses") is `factor(1 + rivalry_vs / 50)`, where `rivalry_vs` is the highest `rivalry` among our slots holding `TAG` (0 for a non-rival): ×1 for a stranger, ×2 for a rival at 50, ×3 at Feud. It sits beside, not instead of, `$ai_antagonism_modifier`: the rival opinion modifiers already raise antagonism, the rivalry factor adds the intensity that opinion cannot express.
+`$ai_rivalry_modifier($TAG)` (`docs/gdd/Rivals System.md`, "National focuses") is `factor(1 + rivalry_vs / 50)`, where `rivalry_vs` is the highest `rivalry` among our slots holding `TAG` (0 for a non-rival): x1 for a stranger, x2 for a rival at 50, x3 at Feud. It sits beside, not instead of, `$ai_antagonism_modifier`: the rival opinion modifiers already raise antagonism, the rivalry factor adds the intensity that opinion cannot express.
 
 **Antagonism** with *multiple* countries:
 ```
@@ -195,7 +198,7 @@ Use `+available:` if the vanilla focus has no `available` block. `$ai_rivalry_mo
         factor(f)
         is_sandbox_mode_on()
 ```
-Every `$ai_antagonism_modifier` and every multi-target `antagonism = …` block must have a rivalry modifier next to it, shared trees (`*_shared`, `*_joint`, `TSR_*`) included.
+Every `$ai_antagonism_modifier` and every multi-target `antagonism = ...` block must have a rivalry modifier next to it, shared trees (`*_shared`, `*_joint`, `TSR_*`) included.
 
 **Antagonism** with *owners of listed states* (the countries are not fixed tags). Weekly `update_<TAG>_national_focuses()` stores **one owner per state** (the same country may appear more than once, so the focus tooltip names every state owner). The AI factor averages unique other-country owners only. Then the focus uses those slots like `SOV_the_rightful_heir_to_the_empire` / `GER_demand_slovenia`:
 
@@ -218,7 +221,7 @@ Every `$ai_antagonism_modifier` and every multi-target `antagonism = …` block 
 
 If there is only one possible owner, a single `var:focus_targets[0]->can_PREV_get_wargoal_on_THIS()` is enough. Use `+available:` if the vanilla focus has no `available` block. State-owner focuses take rivalry into account through opinion only; a rivalry factor over dynamic targets is a follow-up (`docs/gdd/Rivals System.md`, "Out of scope").
 
-**Antagonism** with a *tag alias*. Some tags used by vanilla focus trees are not countries but aliases from `common/country_tag_aliases/tag_aliases.txt` (`SPA`, `SPB`, `SPC`, `SPD`, `VIC`, `SOU`, `SOB`, `SOS`, `SOT`, `SOP`, `BUF`, `BUZ`, `FGR`, `FNO`, `MOT`, `RDS`, `RSI`, `SB1`–`SB4`). An alias resolves to a country only while its trigger holds (e.g. `SOS` is the Stalinist half of a Soviet civil war); otherwise it is `None`, and entering it as a scope (`$SOS->…`) logs `Invalid Scope` in `error.log` every time the block is evaluated. Ordinary tags are safe even when the country does not exist on the map. For aliases, never enter the scope unguarded:
+**Antagonism** with a *tag alias*. Some tags used by vanilla focus trees are not countries but aliases from `common/country_tag_aliases/tag_aliases.txt` (`SPA`, `SPB`, `SPC`, `SPD`, `VIC`, `SOU`, `SOB`, `SOS`, `SOT`, `SOP`, `BUF`, `BUZ`, `FGR`, `FNO`, `MOT`, `RDS`, `RSI`, `SB1`-`SB4`). An alias resolves to a country only while its trigger holds (e.g. `SOS` is the Stalinist half of a Soviet civil war); otherwise it is `None`, and entering it as a scope (`$SOS->...`) logs `Invalid Scope` in `error.log` every time the block is evaluated. Ordinary tags are safe even when the country does not exist on the map. For aliases, never enter the scope unguarded:
 ```
     available:
       $can_get_wargoal_on($ALIAS)         # OR: NOT country_exists / ALIAS->can_PREV_get_wargoal_on_THIS
@@ -237,7 +240,7 @@ Value forms (`$opinion_factor($ALIAS)`, `has_war_with = ALIAS`) do not enter the
 
 ### Domestic-politics modifiers (Tyranny)
 
-Repressive and liberal focuses are tagged with `$add_tyranny(±X)` in `completion_reward` according to the classification in `docs/gdd/Tyranny System.md` ("Changes from national focuses"); the gates and weights below are the focus-side counterpart. The mtth factors `low_tyranny_factor`, `medium_tyranny_factor`, and `high_tyranny_factor` peak in the Libertarian / Moderate / Despotic bands and reach zero one band away.
+Repressive and liberal focuses are tagged with `$add_tyranny(+/-X)` in `completion_reward` according to the classification in `docs/gdd/Tyranny System.md` ("Changes from national focuses"); the gates and weights below are the focus-side counterpart. The mtth factors `low_tyranny_factor`, `medium_tyranny_factor`, and `high_tyranny_factor` peak in the Libertarian / Moderate / Despotic bands and reach zero one band away.
 
 **Gate**: purge and secret-police focuses (the `+20` class) are unavailable to Liberal-or-lower leaders (`docs/gdd/Tyranny System.md`, "Gating focuses by band"):
 
@@ -266,7 +269,7 @@ Events, missions, decisions, BoP ranges, and `on_action`s that call `start_civil
 
 Do not tag intervention / "lessons from the Spanish Civil War" focuses. Keep existing Tyranny tilts on unconstitutional ignitions; do not stack a second tyranny factor. Player `ai_will_do` is the only surface: `available` is unchanged.
 
-**Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Drop `$crossroad_modifier`. Do **not** multiply by `N` the way party-popularity shares do: between −25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open (Despotic 1.5 : 0.5, Moderate 0.5 : 0.5).
+**Fork** "repression vs. reform": both options are mutually exclusive *with each other* and differ in repressiveness rather than ideology (`SIA_an_absolute_monarchy` / `SIA_a_constitutional_monarchy`, `POL_codify_national_unity` / `POL_draft_a_new_constitution`). Drop `$crossroad_modifier`. Do **not** multiply by `N` the way party-popularity shares do: between -25 and 25 both outer factors are 0, so a Moderate AI would have no weight at all; the `0.5 +` inside the macros keeps the fork open (Despotic 1.5 : 0.5, Moderate 0.5 : 0.5).
 
 ```
       +modifier:
@@ -299,3 +302,13 @@ Do **not** combine Tyranny factors with party-popularity factors on the same for
       +modifier:
         $ai_mic_modifier()
 ```
+
+### Scenario modifiers (generated)
+
+`core/tools/build_scenario_catalog.py` splices scenario focus weights and telemetry into the aggressor `.include` files from `docs/scenarios/*.toml` (`docs/gdd/Scenarios.md`). Do not edit these blocks by hand:
+
+- `$ai_scenario_focus_boost()` (x5 when `is_live_scenario_aggressor()`) on focuses shared across all target variants of the arc's boost closure;
+- `$ai_scenario_focus_boost_variant(N)` when a focus belongs only to specific target variants;
+- `$ai_scenario_focus_gate_after(FOCUS_ID)` with `factor(5)` and `is_live_scenario_aggressor()` when a path declares `after = [...]`;
+- `$ai_scenario_focus_suppress()` (`factor(0)` when `is_live_scenario_aggressor()`) on focuses listed in the spec's `suppress`;
+- `$sandbox_log_sc_focus(FOCUS_ID)` in `+completion_reward:` on every focus in the boost closure.

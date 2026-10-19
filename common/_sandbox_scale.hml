@@ -7,3 +7,8 @@
 # ('_' sorts before 'm').
 macro sandbox_opinion_scale():
   100
+
+# Sympathy threshold for economic posture: an opinion at or above this counts as
+# "good" (docs/gdd/Economic Posture.md). Half the clamp above, so 100 in Rt56.
+macro sandbox_opinion_good():
+  50
