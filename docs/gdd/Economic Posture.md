@@ -24,26 +24,35 @@ Sandbox-only: every rule below runs under `is_sandbox_mode_on()`.
 
 ## Where it lives
 
-- `sandbox-mod-core/common/macros.hml`: the band predicates
+- `core/common/macros.hml`: the band predicates
   (`$is_rivalry_at_least`, `$is_rival_or_above`, `$is_feud`, `$is_cold_band`),
   the opinion threshold (`$opinion_good`, built from
   `$sandbox_opinion_scale()`), the shields (`$target_still_exists`,
   `$can_act_hostile_towards`) and the ledger readers (`$is_embargoed_by_us`,
   `$embargo_cooldown_holds`), plus the economic `ai_strategy` entries folded
   into `rival_base`, `rival_contain` and `rival_feud` (ADR-0007).
-- `common/ai_strategy/99_sandbox_rivals_system.hsl` (per mod, generated): the
-  three plans per tag that carry them.
-- `common/scripted_effects/99_sandbox_scripted_effects.hsl`:
+- `core/common/ai_strategy/99_sandbox_rivals_system.hsl`: the three plan bodies
+  per tag (`<TAG>_is_rival` / `_contain` / `_feud`) that carry them. The file
+  is synced from core into both mods, so the tag list is shared.
+- `core/common/scripted_effects/99_sandbox_scripted_effects.hsl`:
   `sandbox_economic_posture_monthly()`, the bounded embargo ledger and the
-  forced licence.
-- `common/on_actions/99_sandbox_on_actions.hsl`: the monthly call beside
-  `review_rivals()`, and the commented `sandbox_log_economic` gate.
-- `.scratch/economic-posture/`: the spec, the eight issues and the design
-  record of the two ADRs.
+  forced licence, in five effects:
+  `sandbox_economic_posture_monthly()` (the `is_ai` entry point),
+  `sandbox_economic_embargo_review()` (lifts plus the cooldown expiry),
+  `sandbox_economic_embargo_send()`,
+  `sandbox_economic_embargo_cooldown_add()` and
+  `sandbox_economic_license_grant()`.
+- `core/common/on_actions/99_sandbox_core_on_actions.hsl` (copied into each mod
+  as the generated `common/on_actions/99_sandbox_on_actions.hsl`): the monthly
+  call beside `review_rivals()`, and the commented `sandbox_log_economic` gate.
+- `.scratch/economic-posture/`: the spec and the nine issues (01-09). 01-04 and
+  06-07 are resolved; 05 (positive trade channel), 08 (observer run) and 09
+  (making the two-embargo ceiling provable) are still open.
 - `.scratch/scripts/check_economic_posture.py`: the static guard over the
   generated plans (`.scratch/economic-posture` issue 06). It reads both mods by
   default; `--update` rewrites its baseline when the tag list legitimately
-  moves.
+  moves. The shared copy lives in `core/.scratch/scripts/` and syncs into both
+  mods.
 
 ## Model
 
@@ -93,7 +102,19 @@ months, lifted once the band falls below 60, and no re-embargo of the same
 target within six months of a lift. No embargo against an ally, a faction
 partner or a pact partner, even when that country holds a rival slot (the same
 shield, `$can_act_hostile_towards`, guards the send). An embargo follows the
-nation, not the ruler: a government change does not lift it.
+nation, not the ruler: a government change does not lift it. The send also
+requires `political_power >= 100`, because `EMBARGO_COST` in vanilla
+`common/defines/00_defines.lua` is 100 political power per send; the ceiling of
+two is a design choice on top of that cost, not an engine limit.
+
+The `sandbox_economic_posture_monthly()` entry point opens with `if is_ai(yes)`
+and only then runs the review, the send and the licence pass. The embargo half
+is gated again on `has_dlc("By Blood Alone")` and the licence half on
+`has_dlc("Death or Dishonor")` plus
+`not $has_game_rule(allow_licensing, BLOCKED)`, so on a host without those
+mechanics the month costs three trigger reads and nothing else. The whole sweep is bounded: it walks this country's
+own three rival slots, its own three-slot ledgers, and (for the licence) its
+own `every_allied_country` list - never a world scan.
 
 The ledger of our own embargoes is ours, not the engine's: `is_embargoing` and
 `is_embargoed_by` are per country, so finding our own embargoes would mean
@@ -105,7 +126,11 @@ An embargo lifts on three reasons, named in the log line: `gone` (the target no
 longer exists), `alliance` (the two became allies, faction partners or pact
 partners) or `detente` (the band fell below 60 after the six-month minimum).
 A third-party annexation has no distinct signal in the engine, so it surfaces as
-`gone`.
+`gone`. `sandbox_economic_embargo_review()` tests those three reasons in that
+order and lifts at most one slot per test; every lift frees the slot, zeroes
+`embargo_since[]` and records the re-embargo cooldown through
+`sandbox_economic_embargo_cooldown_add()`, which takes the first free cooldown
+slot. Cooldown entries older than six months are expired in the same pass.
 
 Licences: the grant side only, because no lever exists for the asking side. At
 most one granted licence per country per 12 months (`last_license_month`), only
@@ -117,6 +142,12 @@ receiver can field (`infantry_equipment_3/2/1` by the receiver's own
 `advanced_infantry_weapons` / `improved_infantry_weapons` / `infantry_weapons1`
 tech), so the pick is deterministic per receiver and per year rather than
 random, and no grant is attempted to a receiver that can field none of them.
+
+The grant runs as `create_production_license` with `cost_factor(0)`, addressed
+from the receiver's scope as `target(PREV)`; a temp variable is not accepted as
+the target (`Malformed token: var:sandbox_ec_partner`), and the same restriction
+applies to `has_opinion`, which is why `$opinion_good(PREV)` reads the scope
+keyword rather than a temp.
 
 ## Waves
 
@@ -130,7 +161,9 @@ random, and no grant is attempted to a receiver that can field none of them.
    verified").
 
 Each wave stands on its own; the spec (`.scratch/economic-posture/spec.md`) is
-the design record, and each wave has its own issue.
+the design record, and each wave has its own issue: waves 1 and 2 close issues
+01-04 and 07; issue 05 covers the wave-3 positive channel and is still
+`ready-for-human`.
 
 ## DLC
 
@@ -138,8 +171,8 @@ Posture depends on paid content by decision (ADR-0008). Embargoes are By Blood
 Alone, the equipment market and market access are Arms Against Tyranny, and
 licensing turned out to be Death or Dishonor: vanilla wraps every
 `create_production_license` in that `has_dlc` (`common/scripted_effects/BLT_scripted_effects.txt`),
-and the `allow_licensing` game rule itself declares `required_dlc = "Death or
-Dishonor"`. On the base game posture is invisible: no embargoes, no market bias,
+and the `allow_licensing` game rule itself declares
+`required_dlc = "Death or Dishonor"`. On the base game posture is invisible: no embargoes, no market bias,
 no licence. The branches are guarded, so `error.log` stays clean instead of the
 mechanics half-working, and no screen advertises an action the AI cannot take.
 
@@ -163,9 +196,9 @@ second amendment.
 
 Discrete acts only, behind the `sandbox_log_economic` gate, raised the same way
 as the other systems (the commented line sits with its siblings in
-`on_actions`). The shared `#sandbox` line format has fields for the actor, the
-target, the band and a duration, but no free text, so what has no field travels
-in the event name:
+`on_actions`; only `sandbox_log_scenarios` is on out of the box). The shared
+`#sandbox` line format has fields for the actor, the target, the band and a
+duration, but no free text, so what has no field travels in the event name:
 
 - `ec_embargo_sent` - actor is the line's tag, target is `other`, `new` is the
   band that triggered it, `delta` is -100 (the `EMBARGO_COST` political power),
@@ -181,9 +214,9 @@ in the event name:
 
 ## Not yet verified
 
-Each of the three assumed engine behaviours below is now either settled from
-vanilla evidence or carried by the observer run (issue 08), which is the only
-thing that can settle the rest:
+What follows separates the engine behaviours this design depends on from their
+current status. Items 2-4 are settled; item 1 is the only remaining assumption,
+and it is not shipped:
 
 1. A scoped variable accepted as `equipment_market_buy`'s `seller`: **not
    shipped**. The positive seller channel is deferred rather than guessed: the
@@ -201,10 +234,11 @@ thing that can settle the rest:
    the base game in patch 1.14.3, so on 1.19.3.0 the guard passes through: the
    2026-10-19 no-DLC run still granted licences. The guard stays for older hosts;
    see ADR-0008's second amendment.
-4. Declarative market entries written unguarded: unresolved until the base-game
-   configuration of the observer run shows a clean `error.log`. The 1936-38
-   sandbox run (full DLC) raised no error from the plans, which says nothing
-   about the base game.
+4. Declarative market entries written unguarded: **settled clean** for the base
+game. The 2026-10-19 no-DLC run raised no posture line and no market token in
+`error.log` (see "DLC"), so the unguarded entries parse and do nothing when the
+market does not exist. The 1936-38 full-DLC run also raised no error from the
+plans.
 
 The run's full evidence, including the three engine rejections it caught in the
 first cut of the sweep, is `.scratch/economic-posture/verification-run.md`.
@@ -221,7 +255,9 @@ first cut of the sweep, is `.scratch/economic-posture/verification-run.md`.
 - [x] A rival never receives a granted licence; a faction partner at war
       receives at most one per 12 months. 7 grants, one country twice exactly
       12 months apart.
-- [ ] Base game: no behaviour, clean `error.log`.
+- [ ] Base game: no behaviour, clean `error.log`. The engine half is settled
+      (`error.log` was clean in the 2026-10-19 no-DLC run); the "no behaviour"
+      half still needs the same run replayed with the acts asserted.
 - [ ] Rt56: thresholds behave on the 200 opinion scale.
 - [x] Historical session: nothing happens, no `ec_` lines. Configuration 4 of
       the 2026-10-19 run: `sandbox_start historical=1`, then the log carries only
