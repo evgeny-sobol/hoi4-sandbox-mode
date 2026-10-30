@@ -1099,6 +1099,11 @@ focus_tree[id = spanish_focus]:
       modifier:
         $ai_sandbox_modifier()
 
+  focus[id = SPR_factory_and_plant_committees]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
   focus[id = SPR_the_inevitable_counterblow]:
     +ai_will_do:
       modifier:
@@ -1140,6 +1145,11 @@ focus_tree[id = spanish_focus]:
         $ai_sandbox_modifier()
 
   focus[id = SPR_militarize_the_people]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SPR_to_do_that_which_is_right]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()

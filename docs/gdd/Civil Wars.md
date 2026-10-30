@@ -79,12 +79,20 @@ After a capped civil war ends, the slot is not free at once. A global `sandbox_c
 
 ### Civil-war backing
 
-For every ongoing civil war, each eligible AI major power (`sandbox_cw_backer_eligible`: `is_major = yes`, `is_ai = yes`, `not has_civil_war()`, `has_stability > 0.20`, and not at war with the war's `original_tag`) backs the **kin side** whose ruling government group (`democratic`, `fascism`, `communism`, `neutrality`) matches the major's own (`sandbox_cw_backing_sweep()`, run weekly in HAI scope):
+For every ongoing civil war, each eligible AI major power backs the **kin side**: the side whose ruling government group matches the major's own. Eligibility is `sandbox_cw_backer_eligible` (`is_major = yes`, `is_ai = yes`, `not has_civil_war()`, `$has_stability(0.2)`). The existing `not has_war_with(<the war's original_tag>)` rule is applied **per kin side**, not as a gate on the major: the sweep only picks up a side the major is not already at war with (`if not PREV->has_war_with(THIS)`).
 
-- **Opinion**: `cw_back_kin` (+20 in vanilla, +40 in Rt56) toward the kin side, and `cw_back_rival` (-20 in vanilla, -40 in Rt56) toward the **rival side** (`cw_back_kin[]` / `cw_back_rival[]` ledger per major).
+The sweep (`sandbox_cw_backing_sweep()`) runs weekly in HAI scope, fans out to every eligible major, and each major runs its own pass (`sandbox_cw_backing_for_major()`).
+
+The choice is **frozen: only a war end drops it.** There is no ongoing check that the side still matches the backer's government. A backer that changes its own government mid-war re-evaluates on `on_government_change` (`sandbox_cw_backing_on_gov_change()`), which runs the same pass in strict mode: it drops any kin side it no longer matches, logging `cw_withdraw`, and picks up the newly matching side without waiting for the weekly sweep. Nothing else re-evaluates.
+
+Per backed war, from the major's scope:
+
+- **Opinion**: `cw_back_kin` (+20 in vanilla, +40 in Rt56) toward the kin side, and `cw_back_rival` (-20 in vanilla, -40 in Rt56) toward the **rival side** (the other side of the same war, found by walking `every_country_with_original_tag` for a side whose government differs). The ledger is per major: `cw_back_kin[]` / `cw_back_rival[]` hold the two sides of each backed war, index-aligned, with `0` in `cw_back_rival[]` when no rival side was resolved.
 - **Access and AI pressure**: `give_military_access` to the kin side, `send_lend_lease_desire` (`value = 200`), and `send_volunteers_desire` (`value = 200` when the backer is fascist or communist).
-- **Material aid**: `sandbox_cw_backing_monthly()` sends `infantry_equipment` monthly to each backed kin side (`clamp(5 * num_of_military_factories, 100, 2000)`).
-- **Lifecycle**: backing is logged once as `cw_support` and cleared when the civil war ends. If a backer changes its own ruling government mid-war (`on_ruling_party_change`), `sandbox_cw_backing_on_government_change()` drops any kin side it no longer matches (removing the opinion modifiers and logging `cw_withdraw`) and backs the newly matching side.
+- **Material aid**: `sandbox_cw_backing_monthly()` sends `infantry_equipment` monthly to each backed kin side, `clamp(5 * num_of_military_factories, 100, 2000)` with a floor of 100 when the backer has no military factories. It runs from the monthly HAI host, so the grant repeats while the war runs and stops once the prune drops the ended war.
+- **Lifecycle**: backing is logged once per (backer, war) as `cw_support`; the weekly sweep is the prune and drops a backing (plus its two opinion modifiers) once the kin side no longer has `has_civil_war()`.
+
+Gaps to know about: an ally-of-the-war check exists only in the sense above (backer vs the kin side); and a backer that is at war with the *rival* side is unaffected, since the shield reads the kin side.
 
 ### Civil-war focus (definition)
 
@@ -205,16 +213,17 @@ Walk vanilla `start_civil_war` outside `common/national_focus/`. Overlay every i
 - **Australia**: `on_daily_AST` veterans revolt; `AST_veterans_revolt` mission timeout; TAOG paths that call `AST_instigate_civil_war_in_target` on AST itself.
 - **Greece**: BFTB events that `start_civil_war` (`bftb_greece.105` via `bftb_greece.100` else_if + weekly retry, `.218` from `.207.b` Pattern B - not the "start a war in Turkey" options unless TUR is the target slot).
 - **Poland**: sanation decisions (`POL.txt` -> `POL_sanation_left_opposition_up` / `POL_sanation_right_opposition_up`, Pattern D), `NSB_poland_monarchist_events.5` (Pattern B), and the peasant-strike timeout (Pattern C). The sanation path was the prime ungated hole; the peasant strike was gated only at `activation`.
-- **Baltic**: LIT/LAT/EST decisions and NSB events that start a war in ROOT (and LIT events that start one in POL - gate the actor, count the target). `EST_vaps_down_effect` (same pattern as Iron Wolf). `EST_events.7` trigger + weekly retry. `LAT_events.8` (both options war; mission `available` + event trigger). `LIT_events.10` / `EST_events.9` Pattern B.
-- **Persia**: `PER_revolution_events.1` (event trigger + weekly retry) and ignition on `PER_revive_old_ways`; `PER_civil_war_imminent` mission delay.
+- **Baltic**: LIT/LAT/EST decisions and NSB events that start a war in ROOT (and LIT events that start one in POL - gate the actor, count the target). `EST_vaps_down_effect` (same pattern as Iron Wolf). `EST_events.7` trigger + weekly retry (`sandbox_retry_est_civil_war_fuse`). `LAT_events.8` (both options war; mission `available` + event trigger). `LIT_events.10` / `EST_events.9` Pattern B. The mission delay covers `EST_vaps_uprising`, `EST_stomp_the_vaps`, `LAT_perkonkrust_uprising`, `LIT_iron_wolf_partisans` and `BALTIC_belarus_uprising`.
+- **Persia**: `PER_revolution_events.1` (event trigger + weekly retry, `sandbox_retry_per_civil_war_fuse`) and ignition on `PER_revive_old_ways`; `PER_civil_war_imminent` mission delay.
 - **Italy**: BoP `ITA_grand_council_total_control_range` -> `BBA_italy_civil_war.1` (event trigger + weekly retry). Overlays use `sandbox_civil_war_ai_allowed()` (`= yes`), not `scripted_trigger = no`.
 - **Ethiopia**: BoP total-control ranges -> `BBA_ethiopia_balance_of_power_events.01`; weekly retry while the range is still live.
 - **Siam**: `siam.8` (Songsuradet, delayed from `siam.7`); `SIA_war_fervor_coup` mission; the khana-ratsadon coup missions `SIA_khana_ratsadon_military_coup_mission` / `SIA_khana_ratsadon_civilian_coup_mission` (activation gate + mission delay). `SIA_war_fervor_coup_dummy` has no caller in vanilla and is unreachable.
+- **The remaining ids in the shared delay loop** (Mexico is covered above): the four `ENG_support_imperialist_coup_in_{canada,south_africa,australia,new_zealand}_mission_1`, `GRE_civil_war_imminent` plus `_1`..`_4`, `HUN_the_incoming_fascist_civil_war_mission`, `GUAY_military_coup_mission`, `CHL_nacista_coup_attempt`, `ARG_military_coup_attempt`, and the two `RAJ_communist_unions_promised_*_mission` ids. The list lives in `sandbox_delay_capped_cw_missions()` in core plus the per-mod tail; `MEX_mission_second_cristiada` and `MEX_mission_second_revolution` are there too, beside the Cedillo mission.
 - **Soviets**: ignition focuses `SOV_left_opposition_coup` / `SOV_coup_detat` / `SOV_the_hands_do`, plus the events they queue.
 - **Lithuania**: `LIT_iron_wolf_partisans` / `LIT_iron_wolf_down_effect` (Iron Wolf idea tick at bad_4). `EST_vaps_down_effect` is the same family.
 - **Elections**: `election.11.b` / `election.12.b` - Pattern B.
 - **UK/dominions**: ENG decisions that `start_civil_war` on CAN/SAF/AST/NZL.
-- **Stability crises**: `common/decisions/stability_war_support.txt` missions (`draft_dodging`, `strikes_mission`, and the other `start_civil_war` timeouts) - Pattern C. The v0.2 playtest showed they cluster, so they are now under the cap.
+- **Stability crises**: `common/decisions/stability_war_support.txt` missions - Pattern C. The v0.2 playtest showed they cluster, so they are now under the cap. The ids the weekly delay loop actually holds are `draft_dodging_mission`, `strikes_mission`, `mutiny_mission`, `demob_economic_mission` and `demob_manpower_mission` (the GDD previously named the missions without their `_mission` suffix).
 - **Decisions**: the CHL / BUL / GUAY / HUN / USA / RAJ_GOE / SWE / BALTIC decisions that `start_civil_war` - each AI path verified and gated (Pattern D). CHL / BUL / SWE now have overlays; GUAY / HUN / RAJ_GOE go through the mission delay; USA / BALTIC were already gated. CHL also has the `CHL_nacista_coup_attempt` mission (978-day timeout -> `CHL_political_events.14`) - Pattern A + C. The `ignite_the_*_civil_war` decisions are player-only (`ai_will_do factor = 0`).
 - **Spy coups**: `common/operations/00_operations.txt` (`operation_coup_government`) and the LaR_FRA coup can start an AI civil war past the cap. Deliberately left ungated (see Out of scope).
 - **Ethiopia (BBA)**: the BoP `.01` event - Pattern A (a Pattern B `ai_chance` gate did not stop the forced option). The fascist `.02` / `.03` / `.04` events only carry `custom_effect_tooltip` tooltips, not a real `start_civil_war`, so they are not gated; `.07` is focus-queued and exempt.
@@ -249,10 +258,14 @@ Rivals: `on_civil_war_end` already re-rolls the winner's personal rival. No extr
 - `original_tag` of a rebel is usually the parent's. If a dynamic `Dxx` tag ever shows `has_civil_war` with its own original_tag, it counts as its own slot; accept that.
 - Empty `t*` in `#sandbox` pulses often print the pulse ROOT (HAI) when the array slot is empty. Trust `cw=`, not unique `t*` tags.
 - Compile after tagging `.include` files (`compile-after-hsl` rule), including `events/` and `common/decisions/` overlays.
+- The cooldown is global (`sandbox_civil_war_cooldown`), rolled by `sandbox_civil_war_roll_cooldown()` at session start and again inside `update_sandbox_civil_war_count()` whenever the count drops to 0, and decremented monthly by `sandbox_civil_war_cooldown_tick()` from the HAI host.
+- The delay helper is `$sandbox_delay_mission_if_capped(_mission_)`: it adds 8 days to an **active** mission's timeout and logs `cw_defer`. The loop lives in `sandbox_delay_capped_cw_missions()` in core, which holds only vanilla ids; `sandbox_delay_capped_cw_missions_mod()` in each mod's per-mod catalog appends the ids that are not portable (vanilla adds `POL_sanation_left_irritation` / `POL_sanation_right_irritation`; the Rt56 catalog has its own tail). `on_weekly` calls the pair once per country, so every country's own active missions get the extension.
+- The weekly retry helpers `sandbox_retry_ita_civil_war_fuse()`, `sandbox_retry_eth_civil_war_fuse()`, `sandbox_retry_sov_civil_war_fuse()`, `sandbox_retry_gre_civil_war_fuse()`, `sandbox_retry_per_civil_war_fuse()` and `sandbox_retry_est_civil_war_fuse()` fire the fuse **from `on_weekly`, in every country's scope**, each guarded by `original_tag(...)` and `not has_civil_war()`. They are the deferred-ignition path for a `on_activate`/`on_daily` fuse that a Pattern C skip would otherwise eat. `sandbox_log_waiting_cw_fuses()` is the read-only companion that logs `cw_defer` for the Pattern A fuses that cannot log themselves (`spain`, `on_daily_AST`, `sfl.1`).
+- Backing liveness is `has_civil_war()` on the ledger's kin side, not the backer's government. A `cw_back_kin[]` entry whose side still fights is kept even after the backer's government changed; only the `on_government_change` strict pass removes it.
 
 ## How to read `game.log`
 
-First line is the version (`#sandbox Mode Overhaul v0.3.0`). Next is `sandbox_start historical=0` or `historical=1`.
+First line is the version (`#sandbox Mode Overhaul v0.4.1`, matching `descriptor.mod`). Next is `sandbox_start historical=0` or `historical=1`.
 
 | Token | When | What to read |
 | --- | --- | --- |
@@ -285,7 +298,7 @@ Log-first. Observer sandbox unless the item says human or aiview. Tick only when
 - [x] After Spain, one more event/mission war may start (`cw=` 1) from event (`cw_event`) or mission (`cw_defer` then `cw_declare`); a focus ignition (`cw_ignition`) may overlap it.
 - [x] No AI event/mission `cw_declare` while `cap=1` or `cool>0`, except a spy coup. v0.1.1 hit 8 via event/mission after `cap=1`; that must not recur through 1938.
 - [ ] Capped ITA BoP: `cw_defer BBA_italy_civil_war.1` weekly while the range is active; after `cw_end`, `cw_event BBA_italy_civil_war.1` (same week or next).
-- [x] Capped Cedillo / peasants / veterans with the mission already ticking: `cw_defer MEX_mission_cedillos_rebellion` (or `POL_peasants_strike` / `AST_veterans_revolt` / `on_daily_AST`); after `cw_end`, the timeout may fire within a week (no more defer, then `cw_declare`).
+- [x] Capped Cedillo / peasants / veterans with the mission already ticking: `cw_defer MEX_mission_cedillos_rebellion` (or `POL_peasants_strike` / `AST_veterans_revolt` / `on_daily_AST`); after `cw_end`, the timeout may fire within a week (no more defer, then `cw_declare`). `POL_peasants_strike` is gated in its own decision file (`common/decisions/POL.include` puts `sandbox_civil_war_ai_allowed()` on the decision's `activation`), not through the weekly mission-delay loop.
 - [ ] `cw_root USA_america_first` may appear while `cap=1`. A focus ignition (`cw_ignition USA_ally_with_the_silver_shirts` / `USA_union_representation_act`) is exempt, so it may appear at `cap=1`; only event/mission ignitions must wait.
 - [ ] Human USA ignition or human Mexico Cedillo timeout at `cap=1`: `cw_ignition` / `cw_declare` with `ai=0`; no `cw_defer` from that player tag.
 - [ ] Historical: `sandbox_start historical=1`, then no `cw_` lines. Vanilla Spain 1936 still happens in-game.

@@ -2855,8 +2855,8 @@ focus_tree[id = german_focus]:
           is_friend_of_ROOT()
 
   focus[id = GER_first_ljubljana_award]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = GER_fate_of_yugoslavia]:

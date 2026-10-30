@@ -7,7 +7,7 @@
   Run from the mod root (or invoke this script by path). Moves, preserving
   relative paths into _hidden/:
 
-    .cursor/, .scratch/, AGENTS.md, docs/, scripts/, tools/, core/
+    .agents/, .cursor/, .scratch/, AGENTS.md, docs/, scripts/, tools/, core/
     .git* at the mod root
     *.hsl, *.hml, *.include, *.template anywhere except _hidden/
     this script
@@ -68,7 +68,7 @@ New-Item -ItemType Directory -Path $Hidden -Force | Out-Null
 Write-Host "Hiding development files -> _hidden\"
 Write-Host ""
 
-foreach ($name in @('.cursor', '.scratch', 'AGENTS.md', 'docs', 'scripts', 'tools', 'core')) {
+foreach ($name in @('.agents', '.cursor', '.scratch', 'AGENTS.md', 'docs', 'scripts', 'tools', 'core')) {
     Move-ToHidden (Join-Path $Root $name)
 }
 

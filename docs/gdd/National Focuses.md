@@ -31,7 +31,20 @@ Each **root** in national focuses tree:
         $crossroad_modifier(N)
 ```
 
-`$ai_sandbox_modifier()` is `factor(0)` **and** `add(40)` in the **same** `modifier` block. Do not split them across modifiers: the engine multiplies every `factor` into the final weight, so a standalone `factor(0)` leaves the focus at 0 in aiview even after a later `add(40)` fires. To gate a root on a completed political focus, put `factor(0)` + `add(N)` in one modifier with that `has_completed_focus` trigger, and a separate `factor(0)` only in the complementary `NOT` case.
+`$ai_sandbox_modifier()` is `factor(0)` **and** `add(40)` in the **same** `modifier` block. Do not split them across modifiers: the engine multiplies every `factor` into the final weight, so a standalone `factor(0)` leaves the focus at 0 in aiview even after a later `add(40)` fires. To gate a root on a completed political focus, put `factor(0)` + `add(N)` in one modifier with that `has_completed_focus` trigger, and a separate `factor(0)` only in the complementary `NOT` case. `$ai_sandbox_set(N)` is that same-block combination generalised to any `N` (`factor(0)`, `add(N)`, `is_sandbox_mode_on()`); it is what the political roots use, e.g. `$ai_sandbox_set(40)` plus `$ai_sandbox_set(13.33)` as two disjoint shares in `common/national_focus/germany.include`. `$basic_modifier()` is a deprecated alias of `$ai_sandbox_modifier()`.
+
+## Advisors and slot-limited focuses
+
+The same `ai_will_do` discipline covers advisor-like slots. Several focus families hand out one of a fixed number of advisors and vanilla would happily let the AI replace an occupant forever, so the AI is stopped at the slot count instead. The shipped case is the German inner circle: seven foci (`GER_ascension_of_todt` / `_speer` / `_goring` / `_himmler` / `_goebbels`, `GER_party_chancellor_hess` / `_bormann`) that all compete for `GER_ascended_advisor_1/2/3`. Each of the seven carries
+
+```
+      modifier:
+        factor(0)
+        GER_sandbox_three_inner_circle_chosen()
+        is_sandbox_mode_on()
+```
+
+where the scripted trigger is `count_triggers: { amount(3) ... }` over the seven, and the `select_effect` / `completion_reward` call `$sandbox_log_ger_inner_circle_select(...)` / `_done(...)` under the `sandbox_log_national_focuses` gate. The macros count completions (`GER_sandbox_count_inner_circle_foci()`) and log `GER_inner_circle_full` at exactly 3 and `GER_inner_circle_overflow` at 4 or more, so a gate regression shows up in `game.log` as an overflow line rather than as a silent fourth advisor.
 
 ### Party-popularity modifiers
 
@@ -221,6 +234,8 @@ Every `$ai_antagonism_modifier` and every multi-target `antagonism = ...` block 
 
 If there is only one possible owner, a single `var:focus_targets[0]->can_PREV_get_wargoal_on_THIS()` is enough. Use `+available:` if the vanilla focus has no `available` block. State-owner focuses take rivalry into account through opinion only; a rivalry factor over dynamic targets is a follow-up (`docs/gdd/Rivals System.md`, "Out of scope").
 
+The owner lists are built weekly, not per focus evaluation. Each `update_<TAG>_national_focuses()` in `core/common/scripted_effects/99_sandbox_<TAG>_scripted_effects.hsl` runs from `on_startup` and from the per-tag weekly hook (one `99_sandbox_<TAG>_on_actions.hsl` per tagged focus family: AFG, CHI, CHL, COG, ENG, EST, GER, HOL, HUN, JAP, NOR, POL, SOV, SPR, USA). The CHI file is the exception that proves the pattern: it registers eight `on_weekly_*` hooks (CHI, PRC, MAN, YUN, GXC, SHX, XSM, SIK) because the Chinese focus families share one updater. The updater clears the focus's `*_targets[]`, appends each listed state's owner via `$add_state_owner_to_targets(...)`, then computes the antagonism factor over **unique other-country owners** into a single country variable (`GER_demand_slovenia_antagonism`, `GER_carve_up_czechoslovakia_antagonism`, `GER_realize_mittelafrika_antagonism`, ...) as `1 - sum_f / n`, defaulting to `1` when no other owner exists. The focus then reads that variable with a plain `factor(...)`; it never re-walks the states.
+
 **Antagonism** with a *tag alias*. Some tags used by vanilla focus trees are not countries but aliases from `common/country_tag_aliases/tag_aliases.txt` (`SPA`, `SPB`, `SPC`, `SPD`, `VIC`, `SOU`, `SOB`, `SOS`, `SOT`, `SOP`, `BUF`, `BUZ`, `FGR`, `FNO`, `MOT`, `RDS`, `RSI`, `SB1`-`SB4`). An alias resolves to a country only while its trigger holds (e.g. `SOS` is the Stalinist half of a Soviet civil war); otherwise it is `None`, and entering it as a scope (`$SOS->...`) logs `Invalid Scope` in `error.log` every time the block is evaluated. Ordinary tags are safe even when the country does not exist on the map. For aliases, never enter the scope unguarded:
 ```
     available:
@@ -246,10 +261,10 @@ Repressive and liberal focuses are tagged with `$add_tyranny(+/-X)` in `completi
 
 ```
     available:
-      +is_liberal_leader(no)
+      is_liberal_leader(no)
 ```
 
-The Authoritarian bypass for unconstitutional government-change focuses is deferred (see "Party-popularity modifiers"); such focuses get only the tilt below.
+The include splice appends a condition to the existing `available` block, which ANDs with whatever vanilla already required; when the vanilla focus has **no** `available` block, the splice uses `+available:` instead so the block is created rather than merged (e.g. `TUR_purge_the_kemalists`). The Authoritarian bypass for unconstitutional government-change focuses is deferred (see "Party-popularity modifiers"); such focuses get only the tilt below.
 
 ### Civil-war focuses
 
@@ -305,10 +320,12 @@ Do **not** combine Tyranny factors with party-popularity factors on the same for
 
 ### Scenario modifiers (generated)
 
-`core/tools/build_scenario_catalog.py` splices scenario focus weights and telemetry into the aggressor `.include` files from `docs/scenarios/*.toml` (`docs/gdd/Scenarios.md`). Do not edit these blocks by hand:
+`core/tools/build_scenario_catalog.py` splices scenario focus weights and telemetry into the aggressor `.include` files from `docs/scenarios/*.toml` (`docs/gdd/Scenarios.md`). Do not edit these blocks by hand; `.scratch/scripts/check_focus_splices.py` and `check_peak_coverage.py` guard them, and `build_scenario_catalog.py <mod> --check` fails when a splice is missing or when the focus graph is stale.
 
-- `$ai_scenario_focus_boost()` (x5 when `is_live_scenario_aggressor()`) on focuses shared across all target variants of the arc's boost closure;
-- `$ai_scenario_focus_boost_variant(N)` when a focus belongs only to specific target variants;
-- `$ai_scenario_focus_gate_after(FOCUS_ID)` with `factor(5)` and `is_live_scenario_aggressor()` when a path declares `after = [...]`;
-- `$ai_scenario_focus_suppress()` (`factor(0)` when `is_live_scenario_aggressor()`) on focuses listed in the spec's `suppress`;
-- `$sandbox_log_sc_focus(FOCUS_ID)` in `+completion_reward:` on every focus in the boost closure.
+- `$ai_scenario_focus_boost()` (x5 when `is_live_scenario_aggressor()`) on focuses shared across all target variants of the arc's boost closure. The closure is computed by `boost_set()`: the spec's key focuses plus their transitive prerequisite ancestors, with a mutually exclusive sibling dropped when exactly one side of the fork is a key focus.
+- `$ai_scenario_focus_boost_variant(N)` when a focus belongs only to specific target variants (and to no shared focus) - `N` is the numeric variant index, matching `global.sandbox_target_variant`.
+- `$ai_scenario_focus_gate_after(FOCUS_ID)` with `factor(5)` and `is_live_scenario_aggressor()` when a path entry declares `after = [...]`; one line per listed focus, so the boost waits for all of them.
+- `$ai_scenario_focus_suppress()` (`factor(0)` when `is_live_scenario_aggressor()`) on focuses listed in the spec's `suppress`.
+- `$sandbox_log_sc_focus(FOCUS_ID)` in `+completion_reward:` on every focus in the boost closure, gated internally on `is_scenario_actor()`.
+
+The builder owns every form: it strips and re-inserts them on each run, so a rewire cannot ship a path with a stale or duplicated modifier.

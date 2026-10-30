@@ -1,26 +1,80 @@
 #!/usr/bin/env python3
 """
-Generate .include files that append a sandbox-mode modifier to every focus's
-ai_will_do in a HoI4 national_focus directory.
+Generate the base sandbox ai_will_do gate for a HoI4 national_focus directory.
 
-For each focus:
-  * ai_will_do EXISTS  -> navigate into it and CREATE a new modifier:
-        ai_will_do:
-          +modifier:
-            is_sandbox_mode_on()
-            base(1.0)
-  * ai_will_do MISSING -> CREATE the whole block:
-        +ai_will_do:
-          modifier:
-            is_sandbox_mode_on()
-            base(1.0)
+WHAT THIS WRITES, AND WHAT IT DOES NOT
+======================================
+For every focus it emits exactly one structural decision, the same one for all:
 
-Usage:
-    python disable_ai_for_national_focuses.py -in <national_focus_dir> -out <output_dir>
+    $ai_sandbox_modifier()          -> factor(0) + add(40) + is_sandbox_mode_on()
+
+That is the floor described in ``docs/gdd/National Focuses.md`` section
+"Basic modifiers". Every focus gets it; nothing else here is mechanical.
+
+The following are DESIGN decisions and are deliberately NOT generated:
+
+  * ``$root_modifier()`` on a focus with no ``prerequisite`` block. 1,000 of the
+    1,000 artefacts carry it exactly when the focus is a root, but a reader who
+    regenerates blindly would also lose the hand-authored cases.
+  * ``$crossroad_modifier(N)`` on mutually exclusive forks. The gate is
+    "mutually exclusive AND optional AND not already partitioned by party
+    popularity / Tyranny / a ``has_government`` check / a political
+    ``search_filters`` entry" (same section of the GDD). Mechanical detection of
+    the first three predicates alone leaves 79 groups that a faithful
+    regeneration must leave alone - optional MIC and doctrine forks that were
+    deliberately kept at singleton weight (commit 08074b4).
+  * Party-popularity shares, Tyranny tilts, diplomacy modifiers, the MIC and
+    war-support modifiers, advisor slot gates.
+
+So: generate into a scratch directory, then merge by hand. The tool is
+additive by design; it never rewrites an existing include.
+
+ORDER
+=====
+Rows come out in vanilla file order. Some shipped includes (``germany``) are
+hand-grouped by their table-of-contents sections instead, so a diff against a
+fresh generation there is expected and is not a defect.
+
+ROW KIND
+========
+Vanilla carries focus blocks in two shapes, and the include has to mirror the
+shape so the HSL compiler can find the block:
+
+  * inside ``focus_tree = { }``   -> file header ``focus_tree[id = X]:``
+    and rows ``focus[id = ...]`` / ``shared_focus[id = ...]``
+  * at the top level of a file    -> rows ``shared_focus[id = ...]`` /
+    ``joint_focus[id = ...]``, no tree header
+
+A vanilla file is one or the other; no file mixes the two shapes, so the tree
+decision is per file.
+
+CREATING vs NAVIGATING ``ai_will_do``
+=====================================
+The ``+`` in ``+ai_will_do:`` means "create a block". Creating a second
+``ai_will_do`` when vanilla already has one leaves the focus with two blocks
+and the first one's weight is lost outside sandbox mode. 3,248 of the 3,252
+rows are ``+ai_will_do`` because vanilla has no block; 6,973 are a plain
+``ai_will_do:`` because it does. The form is a function of the vanilla file, so
+it is generated, not assumed.
+
+Usage
+=====
+    python disable_ai_for_national_focuses.py -in <vanilla_national_focus_dir> \
+        -out <scratch_dir> [--check] [--verbose]
+
+``--check`` regenerates in memory and diffs against the existing includes in
+the same layout, reporting per focus: a missing row, a row on a focus vanilla
+does not have, and any now-wrong create/navigate form. Use it after a game
+patch: a patch that adds a focus or gives a focus an ``ai_will_do`` block shows
+up as one report line instead of as a silently doubled block.
+
+Output is plain ASCII, LF line endings, no BOM, matching the sibling scripts.
 """
 
 import argparse
 import os
+import re
+import sys
 
 # ---------------------------------------------------------------------------
 # Brace-aware scanning (ported from the HSL project: includes.py /
@@ -31,6 +85,9 @@ import os
 _WORD_CHARS = set(
     'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
 )
+
+# Focus-block row names, in the order a vanilla file may nest them.
+FOCUS_KINDS = ("focus", "shared_focus", "joint_focus")
 
 
 def _is_word_char(text, i):
@@ -183,110 +240,288 @@ def _has_direct_block(text, open_pos, close_pos, key):
 
 
 # ---------------------------------------------------------------------------
-# .include generation
+# Vanilla model
+# ---------------------------------------------------------------------------
+
+class Row:
+    """One focus block found in a vanilla file."""
+
+    __slots__ = ("kind", "focus_id", "has_ai_will_do", "is_root")
+
+    def __init__(self, kind, focus_id, has_ai_will_do, is_root):
+        self.kind = kind
+        self.focus_id = focus_id
+        self.has_ai_will_do = has_ai_will_do
+        self.is_root = is_root
+
+
+def read_vanilla(text):
+    """Return (tree_id, [Row]) for one vanilla focus file.
+
+    tree_id is None when the file holds top-level shared/joint focuses instead
+    of a focus_tree. Vanilla files are one shape or the other; a file with both
+    would need a header per shape and is rejected rather than guessed at."""
+    rows = []
+
+    trees = list(_iter_named_blocks(text, "focus_tree", 0, len(text)))
+    top_rows = []
+    for kind in FOCUS_KINDS:
+        for open_pos, close_pos in _iter_named_blocks(text, kind, 0, len(text)):
+            focus_id = _read_direct_scalar(text, open_pos, close_pos, "id")
+            if focus_id is None:
+                continue  # malformed block without an id
+            top_rows.append(Row(
+                kind,
+                focus_id,
+                _has_direct_block(text, open_pos, close_pos, "ai_will_do"),
+                not _has_direct_block(text, open_pos, close_pos, "prerequisite"),
+            ))
+
+    if len(trees) > 1:
+        raise ValueError("file holds more than one focus_tree; split it first")
+
+    if trees:
+        if top_rows:
+            raise ValueError(
+                "file mixes a focus_tree with top-level shared/joint focuses; "
+                "the include layout cannot address both")
+        tree_open, tree_close = trees[0]
+        tree_id = _read_direct_scalar(text, tree_open, tree_close, "id")
+        if tree_id is None:
+            raise ValueError("focus_tree without an id")
+        for kind in FOCUS_KINDS:
+            for open_pos, close_pos in _iter_named_blocks(
+                    text, kind, tree_open, tree_close):
+                focus_id = _read_direct_scalar(text, open_pos, close_pos, "id")
+                if focus_id is None:
+                    continue
+                rows.append(Row(
+                    kind,
+                    focus_id,
+                    _has_direct_block(text, open_pos, close_pos, "ai_will_do"),
+                    not _has_direct_block(
+                        text, open_pos, close_pos, "prerequisite"),
+                ))
+        return tree_id, rows
+
+    if not top_rows:
+        return None, []
+    return None, top_rows
+
+
+# ---------------------------------------------------------------------------
+# .include rendering
 # ---------------------------------------------------------------------------
 
 INDENT = "  "  # two-space indent, matching the HSL/.include convention
 
 
-def build_include(text):
-    """Return the .include text for one focus-tree file, or None if it has no
-    focuses to override."""
+def render_row(row):
+    """Render one row with only the base sandbox floor."""
+    lines = [f"{INDENT}{row.kind}[id = {row.focus_id}]:"]
+    if row.has_ai_will_do:
+        # Navigate into the existing block and append a modifier.
+        lines.append(f"{INDENT * 2}ai_will_do:")
+        lines.append(f"{INDENT * 3}+modifier:")
+    else:
+        # Create the block; vanilla has none.
+        lines.append(f"{INDENT * 2}+ai_will_do:")
+        lines.append(f"{INDENT * 3}modifier:")
+    lines.append(f"{INDENT * 4}$ai_sandbox_modifier()")
+    return lines
+
+
+def render_include(tree_id, rows):
+    """Render the .include body for one vanilla file, or None if no rows."""
+    if not rows:
+        return None
     lines = []
-
-    # focus blocks live inside focus_tree = { ... }; handle multiple trees.
-    tree_ranges = list(_iter_named_blocks(text, "focus_tree", 0, len(text)))
-    if not tree_ranges:
-        return None
-
-    emitted_any = False
-
-    for tree_open, tree_close in tree_ranges:
-        tree_id = _read_direct_scalar(text, tree_open, tree_close, "id")
-        if tree_id is None:
-            # Cannot address a tree without an id; skip it.
-            continue
-
-        focus_lines = []
-        for f_open, f_close in _iter_named_blocks(text, "focus", tree_open, tree_close):
-            focus_id = _read_direct_scalar(text, f_open, f_close, "id")
-            if focus_id is None:
-                continue  # malformed focus without id
-
-            has_awd = _has_direct_block(text, f_open, f_close, "ai_will_do")
-
-            focus_lines.append("")  # blank line before each focus block
-            focus_lines.append(f"{INDENT}focus[id = {focus_id}]:")
-            if has_awd:
-                # Navigate into existing ai_will_do, create a new modifier.
-                focus_lines.append(f"{INDENT*2}ai_will_do:")
-                focus_lines.append(f"{INDENT*3}+modifier:")
-                focus_lines.append(f"{INDENT*4}is_sandbox_mode_on()")
-                focus_lines.append(f"{INDENT*4}base(1.0)")
-            else:
-                # Create the whole ai_will_do block.
-                focus_lines.append(f"{INDENT*2}+ai_will_do:")
-                focus_lines.append(f"{INDENT*3}modifier:")
-                focus_lines.append(f"{INDENT*4}is_sandbox_mode_on()")
-                focus_lines.append(f"{INDENT*4}base(1.0)")
-
-        if focus_lines:
-            lines.append(f"focus_tree[id = {tree_id}]:")
-            lines.extend(focus_lines)
-            emitted_any = True
-
-    if not emitted_any:
-        return None
+    if tree_id is not None:
+        lines.append(f"focus_tree[id = {tree_id}]:")
+    for row in rows:
+        # A tree header owns the first separator; a header-less file starts
+        # straight with its first row.
+        if lines:
+            lines.append("")
+        lines.extend(render_row(row))
     return "\n".join(lines) + "\n"
 
 
+# ---------------------------------------------------------------------------
+# --check: compare the vanilla model against the existing includes
+# ---------------------------------------------------------------------------
+
+def parse_include(text):
+    """Map focus id -> (kind, creates_block) from an existing .include."""
+    out = {}
+    for m in re.finditer(
+            r"(?m)^" + INDENT + r"(focus|shared_focus|joint_focus)"
+            r"\[id = ([A-Za-z0-9_\-]+)\]:", text):
+        kind, focus_id = m.group(1), m.group(2)
+        out[focus_id] = (kind, _include_tail(text, m.end()))
+    return out
+
+
+def _include_tail(text, start):
+    """True if this row CREATES ai_will_do, False if it navigates, None if it
+    does not touch ai_will_do at all.
+
+    Indexed selectors (``ai_will_do[0]:``) address one of several blocks in the
+    same focus; they are a navigate, not a create."""
+    end = len(text)
+    m = re.search(r"(?m)^" + INDENT + r"(?:focus|shared_focus|joint_focus)"
+                  r"\[id = ", text[start:])
+    if m:
+        end = start + m.start()
+    body = text[start:end]
+    selector = r"ai_will_do(?:\[[^\]]+\])?:"
+    if re.search(r"(?m)^" + INDENT * 2 + r"\+" + selector, body):
+        return True
+    if re.search(r"(?m)^" + INDENT * 2 + selector, body):
+        return False
+    return None
+
+
+def check_one(rel_include, vanilla_text, include_path):
+    """Report drift between vanilla and the shipped include. Returns (errors,
+    warnings)."""
+    try:
+        tree_id, rows = read_vanilla(vanilla_text)
+    except ValueError as exc:
+        return [f"{rel_include}: {exc}"], []
+    errors = []
+    if not rows:
+        return errors, []
+
+    if not os.path.isfile(include_path):
+        errors.append(
+            f"{rel_include}: missing include; vanilla has {len(rows)} focus "
+            f"block(s) with no sandbox gate")
+        return errors, []
+
+    with open(include_path, "r", encoding="utf-8") as f:
+        existing = parse_include(f.read())
+
+    covered = set()
+    for row in rows:
+        if row.focus_id not in existing:
+            errors.append(
+                f"{rel_include}: {row.focus_id} has NO row in the include "
+                f"(vanilla {'has' if row.has_ai_will_do else 'has no'} "
+                f"ai_will_do)")
+            continue
+        covered.add(row.focus_id)
+        kind, creates = existing[row.focus_id]
+        if kind != row.kind:
+            errors.append(
+                f"{rel_include}: {row.focus_id} is a {row.kind} in vanilla "
+                f"but a {kind} in the include")
+        if creates is None:
+            errors.append(
+                f"{rel_include}: {row.focus_id} has a row with no "
+                f"ai_will_do gate")
+        elif creates and row.has_ai_will_do:
+            errors.append(
+                f"{rel_include}: {row.focus_id} CREATES ai_will_do but "
+                f"vanilla already has one (two blocks, the vanilla weight is "
+                f"lost outside sandbox mode)")
+
+    vanilla_ids = {row.focus_id for row in rows}
+    for focus_id in sorted(set(existing) - vanilla_ids):
+        errors.append(
+            f"{rel_include}: {focus_id} has a row but vanilla has no such "
+            f"focus (removed by a patch or wrongly named)")
+    return errors, []
+
+
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
+
 def main():
     ap = argparse.ArgumentParser(
-        description="Generate ai_will_do override .include files for HoI4 focus trees."
-    )
+        description="Generate the base sandbox ai_will_do gate for a HoI4 "
+                    "national_focus directory.")
     ap.add_argument("-in", dest="in_dir", required=True,
-                    help="Path to common/national_focus/ (scanned recursively).")
+                    help="Path to the vanilla common/national_focus/.")
     ap.add_argument("-out", dest="out_dir", required=True,
-                    help="Output directory for generated .include files.")
+                    help="Output directory for generated .include files, or "
+                         "the directory holding the shipped includes with "
+                         "--check.")
+    ap.add_argument("--check", action="store_true",
+                    help="Do not write; compare the vanilla model against the "
+                         "existing includes in -out and report drift.")
+    ap.add_argument("--verbose", action="store_true",
+                    help="Also list every focus written / verified.")
     args = ap.parse_args()
 
-    in_dir = args.in_dir
-    out_dir = args.out_dir
-
-    if not os.path.isdir(in_dir):
-        raise SystemExit(f"Input directory does not exist: {in_dir}")
+    if not os.path.isdir(args.in_dir):
+        raise SystemExit(f"Input directory does not exist: {args.in_dir}")
+    if not args.check:
+        os.makedirs(args.out_dir, exist_ok=True)
 
     generated = 0
     skipped = 0
+    rows_total = 0
+    errors = []
 
-    for root, _dirs, files in os.walk(in_dir):
-        for fn in files:
+    for root, _dirs, files in os.walk(args.in_dir):
+        for fn in sorted(files):
             if not fn.endswith(".txt"):
                 continue
             src_path = os.path.join(root, fn)
             with open(src_path, "r", encoding="utf-8-sig") as f:
                 text = f.read()
 
-            include_text = build_include(text)
+            rel = os.path.relpath(src_path, args.in_dir)
+            rel_include = os.path.splitext(rel)[0] + ".include"
+            dst_path = os.path.join(args.out_dir, rel_include)
+
+            if args.check:
+                found, _ = check_one(rel_include, text, dst_path)
+                errors.extend(found)
+                if args.verbose and not found:
+                    print(f"  ok: {rel_include}")
+                continue
+
+            try:
+                tree_id, rows = read_vanilla(text)
+            except ValueError as exc:
+                errors.append(f"{rel_include}: {exc}")
+                continue
+            include_text = render_include(tree_id, rows)
             if include_text is None:
                 skipped += 1
                 continue
 
-            # Mirror the input's relative layout under out_dir.
-            rel = os.path.relpath(src_path, in_dir)
-            rel_include = os.path.splitext(rel)[0] + ".include"
-            dst_path = os.path.join(out_dir, rel_include)
-            os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-
-            with open(dst_path, "w", encoding="utf-8") as f:
+            os.makedirs(os.path.dirname(dst_path) or ".", exist_ok=True)
+            with open(dst_path, "w", encoding="utf-8", newline="\n") as f:
                 f.write(include_text)
 
-            print(f"  {rel} -> {rel_include}")
+            print(f"  {rel} -> {rel_include} ({len(rows)} row(s))")
             generated += 1
+            rows_total += len(rows)
 
     print("-" * 50)
-    print(f"Generated: {generated} .include file(s); skipped (no focus tree): {skipped}")
+    if args.check:
+        if errors:
+            for line in errors:
+                print(f"error: {line}")
+            print(f"{len(errors)} problem(s)")
+            return 1
+        print("ok: includes match the vanilla focus model")
+        return 0
+
+    print(f"Generated: {generated} .include file(s), {rows_total} row(s); "
+          f"skipped (no focus blocks): {skipped}")
+    if errors:
+        for line in errors:
+            print(f"error: {line}")
+        return 1
+    print("Base gate only: add $root_modifier() to roots and "
+          "$crossroad_modifier(N) to the forks the GDD marks optional, by hand.")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

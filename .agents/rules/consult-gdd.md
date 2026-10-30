@@ -1,0 +1,8 @@
+## Rule: Consult the GDD first
+
+Before making changes in this repository, read the relevant documents under `docs/gdd/` (`docs/gdd/*.md`). Use them as the source of intended design.
+
+- Match the change to the GDD sections that cover that feature, country, or system.
+- If the requested or implied change **contradicts** the GDD, do not apply it. Ask clarifying questions: which document wins, whether the GDD should be updated, or how to reconcile the conflict.
+- If no GDD file covers the area, proceed with the change and do not invent GDD constraints.
+- After GDD-aligned source edits to `.include`, `.hsl`, or `.hml`, still run the compile rule.

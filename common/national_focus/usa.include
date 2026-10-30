@@ -175,17 +175,17 @@ focus_tree[id = usa_focus]:
         $ai_mic_modifier()
 
   focus[id = USA_scientist_haven]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_mic_modifier()
 
   focus[id = USA_manhattan_project]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_mic_modifier()
 
   focus[id = USA_lend_lease_act]:

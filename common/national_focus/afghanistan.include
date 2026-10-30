@@ -540,6 +540,20 @@ focus_tree[id = afghanistan_tree]:
       +modifier:
         $ai_sandbox_modifier()
 
+  focus[id = AFG_turanist_abitions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = AFG_heirs_of_the_chagatai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
   focus[id = AFG_reclaim_the_emperors_lost_domain]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
@@ -554,6 +568,16 @@ focus_tree[id = afghanistan_tree]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = AFG_a_turanian_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AFG_reforging_the_yuan_dynastry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
 
   focus[id = AFG_return_to_delhi]:
     available:
