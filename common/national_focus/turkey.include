@@ -434,6 +434,11 @@ focus_tree[id = turkish_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
+  focus[id = TUR_third_expedition_to_aceh]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = TUR_refining_our_strategies]:
     ai_will_do:
       +modifier:

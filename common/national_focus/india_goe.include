@@ -2191,6 +2191,11 @@ focus_tree[id = indian_focus_goe]:
       +modifier:
         $ai_sandbox_modifier()
 
+  focus[id = RAJ_establish_the_alupuram_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = RAJ_chindits_dlc]:
     ai_will_do:
       +modifier:
