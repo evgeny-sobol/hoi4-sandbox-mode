@@ -138,13 +138,16 @@ select_minor_rival():
         find_idx = idx - 1
         find = candidates[find_idx]
         if find != 0:
-          if rivals[1] == 0:
+          # Issue 06: the slot must be empty AND the tag must not already sit in
+          # another one. The slot-2 branch had half of this; the slot-1 branch
+          # had none, so a tag held in slot 2 could be written into slot 1.
+          if rivals[1] == 0 and find != rivals[0] and find != rivals[2]:
             rival_slot = 1
             rival_tag = find
             rival_intensity = 50
             set_rival()
             break
-          elif rivals[2] == 0 and find != rivals[1]:
+          elif rivals[2] == 0 and find != rivals[0] and find != rivals[1]:
             rival_slot = 2
             rival_tag = find
             rival_intensity = 50
@@ -1047,24 +1050,40 @@ update_tyranny_gain_monthly_factor():
 
 
 # Temps: rival_slot (0-2), rival_tag, rival_intensity (50 or 75).
+# Backstop for slot uniqueness (issue 06). Every write goes through here, so the
+# invariant is enforced once instead of at each of the four call sites: the two
+# select_* scorers, become_event_rival and sandbox_seed_rival. A tag already
+# holding another slot is never written into a second one - the slot is taken
+# out of the running instead, so the caller's own logic stays untouched and a
+# duplicate is simply not created.
+#
+# Reads are scoped per slot because `rival_tag` holds a tag value, and the
+# comparison runs in our own scope: rivals[n] is a tag, var:rival_tag is the
+# same tag as a value.
 set_rival():
-  sandbox_log_old = 0
-  sandbox_log_new = rival_intensity
-  sandbox_log_delta = rival_intensity
-  sandbox_log_slot = rival_slot
-  sandbox_log_other = rival_tag
-  $sandbox_log_rivals(rivals_set)
-  &rivals[rival_slot] = rival_tag
-  &rivalry[rival_slot] = rival_intensity
-  # add/remove_opinion_modifier reject `target = var:x` (Malformed token):
-  # enter the rival's scope and address it as PREV from our own.
-  if country_exists(var:rival_tag):
-    var:rival_tag:
-      PREV:
-        if rival_slot == 0:
-          $add_opinion_modifier(PREV, leaders_rival)
-        else:
-          $add_opinion_modifier(PREV, national_rival)
+  rival_dup = 0
+  for i in range(3):
+    if i != rival_slot:
+      if rivals[i] == var:rival_tag:
+        rival_dup = 1
+  if rival_dup == 0:
+    sandbox_log_old = 0
+    sandbox_log_new = rival_intensity
+    sandbox_log_delta = rival_intensity
+    sandbox_log_slot = rival_slot
+    sandbox_log_other = rival_tag
+    $sandbox_log_rivals(rivals_set)
+    &rivals[rival_slot] = rival_tag
+    &rivalry[rival_slot] = rival_intensity
+    # add/remove_opinion_modifier reject `target = var:x` (Malformed token):
+    # enter the rival's scope and address it as PREV from our own.
+    if country_exists(var:rival_tag):
+      var:rival_tag:
+        PREV:
+          if rival_slot == 0:
+            $add_opinion_modifier(PREV, leaders_rival)
+          else:
+            $add_opinion_modifier(PREV, national_rival)
   rival_intensity = 50
 
 
@@ -1117,14 +1136,25 @@ reroll_leader_rival():
   select_major_rival()
 
 
-# Temps: rival_tag, rivalry_delta. Applies to every slot holding the tag.
+# Temps: rival_tag, rivalry_delta. Applies to exactly ONE slot holding the tag.
+# Issue 07: this used to charge every slot holding it, so a tag duplicated across
+# two slots grew twice as fast as intended and reached Feud in half the time.
+# Issue 06 stops the duplicate being written; this keeps the arithmetic sane for
+# any duplicate that still arrives - an old save, a scenario seed, a future
+# caller. The lowest matching slot wins, so a healthy session is unchanged.
 add_rivalry_vs():
-  if rivals[0] == rival_tag:
-    $add_rivalry(0, rivalry_delta)
-  if rivals[1] == rival_tag:
-    $add_rivalry(1, rivalry_delta)
-  if rivals[2] == rival_tag:
-    $add_rivalry(2, rivalry_delta)
+  rival_slot_found = -1
+  for i in range(3):
+    if rival_slot_found < 0:
+      if rivals[i] == rival_tag:
+        rival_slot_found = i
+  if rival_slot_found >= 0:
+    if rival_slot_found == 0:
+      $add_rivalry(0, rivalry_delta)
+    elif rival_slot_found == 1:
+      $add_rivalry(1, rivalry_delta)
+    else:
+      $add_rivalry(2, rivalry_delta)
 
 
 # Temp: rival_tag (the country that declared war on us). National slots only.
@@ -1355,6 +1385,11 @@ sandbox_log_census():
   if is_sandbox_mode_on():
     if has_global_flag(sandbox_log_honor) or has_global_flag(sandbox_log_tyranny) or has_global_flag(sandbox_log_rivals):
       if is_sandbox_census_country():
+        # Issue 06 cosmetic: an empty slot prints `0` rather than `TAG:0`. The
+        # cached-string form was tried and does NOT work - the game substitutes
+        # the temporary's VALUE, not the text it holds, so `[?r0_text]` printed a
+        # float and broke all 524 census rows in the 1941 session. Keep the
+        # conditional inline.
         log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
         if original_tag(GER):
           GER_sandbox_count_inner_circle_foci()
@@ -1403,7 +1438,10 @@ sandbox_economic_embargo_review():
         elif held >= 6 and not $is_rivalry_at_least(var:t, 60):
           reason = 2
         if reason != 0:
-          break_embargo(var:t)
+          # Defence in depth (issue 03): a stale self-tag must not reach
+          # break_embargo, which errors with "can't have a relation to yourself".
+          if not tag(var:t):
+            break_embargo(var:t)
           sandbox_ec_tag = t
           sandbox_economic_embargo_cooldown_add()
           sandbox_log_other = t
@@ -1467,7 +1505,12 @@ sandbox_economic_embargo_send():
               if $can_act_hostile_towards(var:t):
                 if not $is_embargoed_by_us(var:t):
                   if not $embargo_cooldown_holds(var:t):
-                    send_embargo(var:t)
+                    # Defence in depth (issue 03): the scorers exclude the
+                    # initiator now, but a self-tag in a rival slot would make
+                    # send_embargo fail with "can't have a relation to
+                    # yourself", so refuse it here as well.
+                    if not tag(var:t):
+                      send_embargo(var:t)
                     sandbox_log_other = t
                     sandbox_log_old = 0
                     sandbox_log_new = r

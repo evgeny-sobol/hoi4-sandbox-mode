@@ -30,7 +30,12 @@ major_rivals_scorer:
         is_friend_of_FROM()
       modifier:
         factor(0)
-        FROM == THIS
+        # Identity, not a variable compare. HSL lowers a scope-keyword compare
+        # through check_variable, which tests a variable against a value, so
+        # `FROM == THIS` never excluded the initiator (issue 03). The tag
+        # compare is the idiom vanilla uses inside a scorer
+        # (common/scorers/country/operative_mission_scorer.txt:97).
+        tag(FROM)
       modifier:
         factor(0)
         is_in_faction_with(FROM)
@@ -40,6 +45,12 @@ major_rivals_scorer:
       modifier:
         factor(0)
         FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        # Issue 06: never offer a country that already holds one of our slots.
+        # The slot write is guarded too, but a scorer that keeps proposing the
+        # same tag wastes the roll and leaves the slot empty for the month.
+        THIS in FROM.rivals[]
       modifier:
         factor(0)
         THIS in FROM.former_rivals[]
@@ -104,7 +115,12 @@ minor_rivals_scorer:
               FROM->any_controlled_state->is_on_continent(australia)
       modifier:
         factor(0)
-        FROM == THIS
+        # Identity, not a variable compare. HSL lowers a scope-keyword compare
+        # through check_variable, which tests a variable against a value, so
+        # `FROM == THIS` never excluded the initiator (issue 03). The tag
+        # compare is the idiom vanilla uses inside a scorer
+        # (common/scorers/country/operative_mission_scorer.txt:97).
+        tag(FROM)
       modifier:
         factor(0)
         is_in_faction_with(FROM)
@@ -114,6 +130,12 @@ minor_rivals_scorer:
       modifier:
         factor(0)
         FROM->is_subject_of(THIS)
+      modifier:
+        factor(0)
+        # Issue 06: never offer a country that already holds one of our slots.
+        # The slot write is guarded too, but a scorer that keeps proposing the
+        # same tag wastes the roll and leaves the slot empty for the month.
+        THIS in FROM.rivals[]
       modifier:
         factor(0)
         THIS in FROM.former_rivals[]
@@ -183,7 +205,12 @@ scenario_join_scorer:
         raw has_opinion: { target = FROM value < -50 }
       modifier:
         factor(0)
-        FROM == THIS
+        # Identity, not a variable compare. HSL lowers a scope-keyword compare
+        # through check_variable, which tests a variable against a value, so
+        # `FROM == THIS` never excluded the initiator (issue 03). The tag
+        # compare is the idiom vanilla uses inside a scorer
+        # (common/scorers/country/operative_mission_scorer.txt:97).
+        tag(FROM)
       modifier:
         factor(0)
         is_ai(no)

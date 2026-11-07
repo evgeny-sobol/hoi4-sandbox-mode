@@ -12,3 +12,10 @@ Standing rules live as plain markdown in `.agents/rules/`, one file per rule. Re
 - `analyze-sandbox-logs.md`: read `game.log` through `.scratch/scripts/extract_sandbox.py`.
 
 Global rules in `~/.agents/rules/` (`language.md`, `characters.md`, `git-conventions.md`, `ignore-directories.md`, `python-venv.md`, `no-unauthorized-installations.md`) apply on top; this file does not restate them.
+<!-- lore-attribution-hint: this project is /Users/evgeny/DOCUME~1/PARADO~1/HEARTS~1/mod/_sandbox (see /Users/evgeny/DOCUME~1/PARADO~1/HEARTS~1/mod/_sandbox/AGENTS.md) -->
+
+<!-- This section is maintained by the coding agent via lore (https://github.com/BYK/loreai) -->
+## Long-term Knowledge
+
+For long-term knowledge entries managed by [lore](https://github.com/BYK/loreai) (gotchas, patterns, decisions, architecture), see [`.lore.md`](.lore.md) in the project root.
+<!-- End lore-managed section -->

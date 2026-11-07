@@ -25,10 +25,6 @@ gen_nazi_germany_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_nazi_germany_peak()
-        elif GER->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_nazi_germany_peak()
         elif global.sandbox_scenario_arc_months >= 36:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -36,10 +32,6 @@ gen_nazi_germany_scenario_tick():
     else:
       GER:
         if has_completed_focus(GER_war_with_france):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_nazi_germany_peak()
-        elif GER->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_nazi_germany_peak()
@@ -141,12 +133,13 @@ gen_nazi_germany_scenario_pin():
     global.&sandbox_scenario = 1
 
 gen_nazi_germany_scenario_eligible():
-  if country_exists(GER):
+  if country_exists(GER) and GER->is_ai(yes) and not GER->has_war_with(CZE) and not GER->has_war_with(POL) and not GER->has_war_with(FRA) and not GER->has_war_with(ENG):
     eligible[].add(1)
 
 gen_nazi_germany_scenario_pick_log():
   if global.sandbox_scenario == 1:
     $sandbox_log_sc(sc_pick, nazi_germany)
+
 
 sandbox_select_nazi_germany_joiners():
   global.&scenario_join_same_ideology = 0
@@ -190,10 +183,6 @@ gen_fascist_italy_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_fascist_italy_peak()
-        elif ITA->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_fascist_italy_peak()
         elif global.sandbox_scenario_arc_months >= 36:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -201,10 +190,6 @@ gen_fascist_italy_scenario_tick():
     else:
       ITA:
         if has_completed_focus(ITA_all_roads_lead_to_rome):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_fascist_italy_peak()
-        elif ITA->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_fascist_italy_peak()
@@ -306,12 +291,13 @@ gen_fascist_italy_scenario_pin():
     global.&sandbox_scenario = 2
 
 gen_fascist_italy_scenario_eligible():
-  if country_exists(ITA):
+  if country_exists(ITA) and ITA->is_ai(yes) and not ITA->has_war_with(ENG) and not ITA->has_war_with(FRA) and not ITA->has_war_with(YUG) and not ITA->has_war_with(SWI):
     eligible[].add(2)
 
 gen_fascist_italy_scenario_pick_log():
   if global.sandbox_scenario == 2:
     $sandbox_log_sc(sc_pick, fascist_italy)
+
 
 sandbox_select_fascist_italy_joiners():
   global.&scenario_join_same_ideology = 0
@@ -355,10 +341,6 @@ gen_militarist_japan_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_militarist_japan_peak()
-        elif JAP->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_militarist_japan_peak()
         elif global.sandbox_scenario_arc_months >= 36:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -366,10 +348,6 @@ gen_militarist_japan_scenario_tick():
     else:
       JAP:
         if has_completed_focus(JAP_hokushin_ron):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_militarist_japan_peak()
-        elif JAP->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_militarist_japan_peak()
@@ -471,12 +449,13 @@ gen_militarist_japan_scenario_pin():
     global.&sandbox_scenario = 3
 
 gen_militarist_japan_scenario_eligible():
-  if country_exists(JAP):
+  if country_exists(JAP) and JAP->is_ai(yes) and not JAP->has_war_with(CHI) and not JAP->has_war_with(AST) and not JAP->has_war_with(SOV) and not JAP->has_war_with(MON):
     eligible[].add(3)
 
 gen_militarist_japan_scenario_pick_log():
   if global.sandbox_scenario == 3:
     $sandbox_log_sc(sc_pick, militarist_japan)
+
 
 sandbox_select_militarist_japan_joiners():
   global.&scenario_join_same_ideology = 0
@@ -521,10 +500,6 @@ gen_soviet_west_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
-        elif SOV->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_soviet_west_peak()
         elif global.sandbox_scenario_arc_months >= 44:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -532,10 +507,6 @@ gen_soviet_west_scenario_tick():
     else:
       SOV:
         if has_completed_focus(SOV_demand_eastern_poland):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_soviet_west_peak()
-        elif SOV->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_soviet_west_peak()
@@ -648,12 +619,13 @@ gen_soviet_west_scenario_pin():
     global.&sandbox_scenario = 4
 
 gen_soviet_west_scenario_eligible():
-  if country_exists(SOV):
+  if country_exists(SOV) and SOV->is_ai(yes) and not SOV->has_war_with(EST) and not SOV->has_war_with(LAT) and not SOV->has_war_with(LIT) and not SOV->has_war_with(POL) and not SOV->has_war_with(ROM):
     eligible[].add(4)
 
 gen_soviet_west_scenario_pick_log():
   if global.sandbox_scenario == 4:
     $sandbox_log_sc(sc_pick, soviet_west)
+
 
 sandbox_select_soviet_west_joiners():
   global.&scenario_join_same_ideology = 1
@@ -692,10 +664,6 @@ gen_napoleonic_france_scenario_tick():
     if global.sandbox_target_variant == 0:
       FRA:
         if has_completed_focus(FRA_army_reform):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_napoleonic_france_peak()
-        elif FRA->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_napoleonic_france_peak()
@@ -774,12 +742,13 @@ gen_napoleonic_france_scenario_pin():
     global.&sandbox_scenario = 5
 
 gen_napoleonic_france_scenario_eligible():
-  if country_exists(FRA):
+  if country_exists(FRA) and FRA->is_ai(yes) and not FRA->has_war_with(BEL) and not FRA->has_war_with(HOL) and not FRA->has_war_with(LUX):
     eligible[].add(5)
 
 gen_napoleonic_france_scenario_pick_log():
   if global.sandbox_scenario == 5:
     $sandbox_log_sc(sc_pick, napoleonic_france)
+
 
 sandbox_select_napoleonic_france_joiners():
   global.&scenario_join_same_ideology = 1
@@ -829,10 +798,6 @@ gen_monarchical_great_britain_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_monarchical_great_britain_peak()
-        elif ENG->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_monarchical_great_britain_peak()
         elif global.sandbox_scenario_arc_months >= 32:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -840,10 +805,6 @@ gen_monarchical_great_britain_scenario_tick():
     elif global.sandbox_target_variant == 1:
       ENG:
         if has_completed_focus(ENG_bring_the_dominions_back_into_the_fold):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_monarchical_great_britain_peak()
-        elif ENG->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_monarchical_great_britain_peak()
@@ -857,10 +818,6 @@ gen_monarchical_great_britain_scenario_tick():
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_monarchical_great_britain_peak()
-        elif ENG->is_ai(no):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_monarchical_great_britain_peak()
         elif global.sandbox_scenario_arc_months >= 32:
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
@@ -868,10 +825,6 @@ gen_monarchical_great_britain_scenario_tick():
     else:
       ENG:
         if has_completed_focus(ENG_unite_the_anglosphere):
-          global.&sandbox_scenario_phase = 2
-          $sandbox_log_sc(sc_phase, peak)
-          sandbox_fire_monarchical_great_britain_peak()
-        elif ENG->is_ai(no):
           global.&sandbox_scenario_phase = 2
           $sandbox_log_sc(sc_phase, peak)
           sandbox_fire_monarchical_great_britain_peak()
@@ -1041,12 +994,13 @@ gen_monarchical_great_britain_scenario_pin():
     global.&sandbox_scenario = 6
 
 gen_monarchical_great_britain_scenario_eligible():
-  if country_exists(ENG):
+  if country_exists(ENG) and ENG->is_ai(yes) and not ENG->has_war_with(ITA) and not ENG->has_war_with(IRE) and not ENG->has_war_with(JAP) and not ENG->has_war_with(SOV) and not ENG->has_war_with(USA):
     eligible[].add(6)
 
 gen_monarchical_great_britain_scenario_pick_log():
   if global.sandbox_scenario == 6:
     $sandbox_log_sc(sc_pick, monarchical_great_britain)
+
 
 sandbox_select_monarchical_great_britain_joiners():
   global.&scenario_join_same_ideology = 0

@@ -13,15 +13,15 @@ on_actions:
       if is_historical_focus_on(no):
         $HAI->set_global_flag(sandbox_mode_enabled)
         # Logging gates (docs/gdd/* "Hooks and telemetry"): each system logs only
-        # while its gate is up. Scenarios is the only one on now; raise the
-        # others from game.log by uncommenting the line below.
+        # while its gate is up. All of them are up for a full-telemetry playtest;
+        # comment a line out to quiet that system.
         HAI->$set_global_flag(sandbox_log_scenarios, 1)
-        # HAI->$set_global_flag(sandbox_log_civil_wars, 1)
-        # HAI->$set_global_flag(sandbox_log_economic, 1)
-        # HAI->$set_global_flag(sandbox_log_honor, 1)
-        # HAI->$set_global_flag(sandbox_log_national_focuses, 1)
-        # HAI->$set_global_flag(sandbox_log_rivals, 1)
-        # HAI->$set_global_flag(sandbox_log_tyranny, 1)
+        HAI->$set_global_flag(sandbox_log_civil_wars, 1)
+        HAI->$set_global_flag(sandbox_log_economic, 1)
+        HAI->$set_global_flag(sandbox_log_honor, 1)
+        HAI->$set_global_flag(sandbox_log_national_focuses, 1)
+        HAI->$set_global_flag(sandbox_log_rivals, 1)
+        HAI->$set_global_flag(sandbox_log_tyranny, 1)
         HAI:
           log("#sandbox [GetDateText] [THIS.GetTag] sandbox_start historical=0")
         for every_country():

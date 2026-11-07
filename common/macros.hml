@@ -674,13 +674,15 @@ macro not_rival_of_PREV(_tag_):
 
 # docs/gdd/Scenarios.md "Levers" (kept at the end: macro libraries resolve nested
 # calls top-down, so these come after $add_rivalry).
-# Add _var_ rivalry to every slot holding _tag_ (no-op if absent).
+# Add _var_ rivalry to exactly ONE slot holding _tag_ (no-op if absent). Issue 07:
+# charging every matching slot doubles the growth for a duplicated tag. The
+# lowest matching slot wins, so single-occupancy behaviour is unchanged.
 macro sandbox_add_rivalry_vs(_tag_, _var_):
   if rivals[0] == _tag_:
     $add_rivalry(0, _var_)
-  if rivals[1] == _tag_:
+  elif rivals[1] == _tag_:
     $add_rivalry(1, _var_)
-  if rivals[2] == _tag_:
+  elif rivals[2] == _tag_:
     $add_rivalry(2, _var_)
 
 # Seed _tag_ as our national rival at _intensity_. Already listed: raise to
@@ -819,8 +821,13 @@ macro sandbox_check_peak_timeout():
     global.&sandbox_scenario_peak_months += 1
     if global.sandbox_scenario_peak_months >= 12:
       global.&sandbox_scenario_phase = 3
-      $sandbox_log_sc(sc_derail, peak_timeout)
-      $sandbox_log_sc(sc_end, peak_timeout)
+      # Logged by the per-mod hook, not here. The aggressor's tag lives in the
+      # per-mod catalog and this macro cannot scope into it, so the only way to
+      # make the peak_timeout line self-describing is to let the mod emit it.
+      # Same contract as sandbox_log_scenario_success(): core calls it, each mod
+      # defines it. Emitting a generic pair here as well would print two
+      # peak_timeout lines per timeout and break "one line per event".
+      sandbox_log_peak_timeout_detail()
   else:
     global.&sandbox_scenario_peak_months = 0
 
