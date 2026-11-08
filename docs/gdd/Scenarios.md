@@ -22,7 +22,7 @@ and most documentation; this file describes what is specific to vanilla.
 ## Selection
 
 One arc per session, chosen at startup: pinned by a game rule or rolled at
-random over the arcs whose aggressor exists. Arc ids are fixed per major
+random over the arcs whose aggressor exists **and is run by the AI**. Arc ids are fixed per major
 (1 GER, 2 ITA, 3 JAP, 4 SOV, 5 FRA, 6 ENG); the USA arc is an authored draft
 without a `number`, so the builder emits no code for it and it cannot be picked.
 The pick rolls the target variant evenly (`targets` keys `a`, `b`, ...; a
@@ -33,7 +33,10 @@ single-variant arc uses `a`, and the index - not the letter - is what
 
 `sandbox_pick_scenario()` (HAI scope, `on_startup`) first calls the six generated `gen_<arc>_scenario_pin()` functions, each of which asks its own `sandbox_scenario_pin_is_<arc>()` trigger (a raw `has_game_rule: { rule = sandbox_scenario option = ... }`) and sets `global.sandbox_scenario_pin = 1` on a match. Game-rule option ids are not l10n keys and need no localisation entry; the `sandbox_nazi_germany` option id is the only one with a `sandbox_` prefix, the rest are bare arc keys.
 
-- If the pin is unset (`0`), the pick is a **uniform roll over eligible arcs**, not a scan in id order: each arc appends its id to `eligible[]` when its aggressor exists, then `roll = randi(0, eligible[].size() - 1)`. An empty pool sets `sandbox_scenario = 0` (no arc).
+- A human aggressor is never drawn (ADR-0009). The director's levers all act on AI countries, so an arc whose aggressor the player controls would be an arc nobody drives: the ladder would issue wargoals and wait for the player to press them. `on_startup` and `sandbox_scenario_maybe_repick()` therefore apply the same predicate, `country_exists` **and** `is_ai(yes)`, and the generated `gen_<arc>_scenario_eligible()` carries both. A pinned session is unaffected: the pin bypasses the pool entirely.
+- If the pin is unset (`0`), the pick is a **uniform roll over eligible arcs**, not a scan in id order: each arc appends its id to `eligible[]` when it passes that predicate, then `roll = randi(0, eligible[].size() - 1)`. An empty pool sets `sandbox_scenario = 0` (no arc).
+- An arc already at war is kept out of the pool (issue 04). Strict: the aggressor must not be at war with **any** declared target of **any** variant, so a half-spent arc is skipped rather than handed a war the director did not ignite. The target variant is rolled after the arc is drawn, so this is the only form the filter can take; with it, every variant of a drawable arc is unpressed by construction and the variant roll needs no war test of its own. A skipped arc is not marked derailed, so it returns to the pool on a later repick.
+- The war tests are chained with `and` on the `if` line. HSL compiles a body-level bare condition - including a `NOT:` sub-block - outside the `limit` block, where it gates nothing; the checks only hold when they are part of the `if` expression itself.
 - A derail repicks the same way over the never-derailed arcs (`sandbox_scenario_maybe_repick()`); a derailed arc never re-enters the pool in the same session.
 - Target variants are rolled evenly at pick (`randi(0, key_count - 1)` in the generated `roll_variant`) and remain fixed for the session. Every arc's roll function runs, so a repick re-rolls the variant.
 - After the roll the pick clears the four counters (`arc_months`, `peak_months`, `civil_war_months`, `hold_months`), sets the targets, seeds the actors, logs `sc_pick` and `sc_variant`, and logs `sc_phase smolder`.
@@ -189,14 +192,16 @@ a compressed 10/20, FRA 14/30 and SOV 16/32. The cartesian calendar in
 
 **Peak gating.** The peak rung does not simply fire at `peak_at_month`. The
 builder (`render_peak_gate()` in `core/tools/build_scenario_catalog.py`) emits
-three arms per target variant, using that variant's own `peak_at_month`:
+two arms per target variant, using that variant's own `peak_at_month`:
 
 1. the AI completed the **last focus of the live path** (`path_tail()`, the focus
    last listed in the *first* `paths` entry whose `variants` names the live
    variant) - fires now;
-2. the aggressor is a human (`<aggr>->is_ai(no)`) - fires on schedule;
-3. the fallback: `arc_months >= peak_at_month + 12` - fires even if the tail was
+2. the fallback: `arc_months >= peak_at_month + 12` - fires even if the tail was
    bypassed.
+
+There is no human-aggressor arm: the pick never draws a human aggressor
+(ADR-0009), so a rung for one would be unreachable.
 
 A bypassed tail therefore stalls the arc to the fallback, which is why the
 `docs/gdd/Scenarios Catalog.md` guidance is to put rarely-bypassed focuses last.
@@ -265,6 +270,9 @@ only tests that `FROM` is in `scenario_enemies[]`) or by the monthly ongoing-war
 sweep (`sandbox_scenario_check_ignite_by_war()` -> `sandbox_ignite_if_at_war()`,
 which walks target slots 0-3 in the aggressor's scope). Ignition sets the phase
 to 3 and logs `sc_ignite` + `sc_success` + `sc_end` with an `<arc>_war` label.
+Either path ends the session's arc, so either path repicks: the sweep is caught
+by the tick's own phase snapshot, and a declaration raises
+`sandbox_scenario_repick_pending` for the next tick to consume.
 
 **Derail** parks a dead arc at phase 3. `sandbox_scenario_check_derail()` first
 runs `sandbox_scenario_check_civil_war_derail()` (12 consecutive months of
@@ -283,7 +291,14 @@ ideology at the given phase. No shipped spec uses the flip pair today; the
 generic macros are ready for it.
 
 When the phase crosses from `< 3` to `3`, `sandbox_scenario_maybe_repick()` runs.
-On a random session it appends the arc to `global.sandbox_derailed_arcs[]`,
+The gate lives in `sandbox_scenario_tick()`, which snapshots the phase before
+the ignition sweep and the derail dispatcher can move it, then repicks once if
+the phase came out at 3 (issue 01). The dispatcher does not repick on its own:
+it only decides whether the arc dies, so an ignition and a derail reach the same
+gate. An ignition from `on_declare_war` happens outside the tick and has no
+snapshot to compare against, so it raises `sandbox_scenario_repick_pending`,
+which the next tick consumes for the same repick.
+On a random session the repick appends the arc to `global.sandbox_derailed_arcs[]`,
 clears every country's `scenario_enemies[]`, and rolls a fresh arc over the
 eligible, never-derailed ids 1-7 (equal weights, like the initial pick; ids 1-6
 ship, 7 is the USA draft and is never eligible in practice). Nothing eligible
@@ -300,6 +315,7 @@ All hooks live in the core skeleton `core/common/on_actions/99_sandbox_core_on_a
 - Weekly: `sandbox_arc_on_weekly()` (`pass` in vanilla) for extra fuse retries.
 - Reactions: `on_declare_war` (`sandbox_scenario_ignite()`), `on_wargoal_expire` (`sandbox_arc_wargoal_expire_hook()`, gated on `sandbox_scenario_phase < 3`). The scenario director has **no** `on_annex` / `on_capitulation` / `on_join_allies` / `on_join_faction` hooks: derail detection is entirely monthly (`sandbox_scenario_check_derail()`), and the join lever is tracked by the invitation event's own `sc_join` line, not by a faction hook (no faction is formed).
 - Telemetry: `sc_pick`, `sc_variant`, `sc_seed`, `sc_phase`, `sc_crisis`, `sc_target`, `sc_power`, `sc_goal`, `sc_justify`, `sc_goal_end`, `sc_focus`, `sc_offer`, `sc_ignite`, `sc_success`, `sc_join`, `sc_end`, `sc_derail`, `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a declared target), so an unrelated country's focus does not pollute the arc.
+- `peak_timeout` is the one derail reason whose line is emitted by the mod, not by the shared macro: `sandbox_check_peak_timeout()` cannot scope into the aggressor, so it calls `sandbox_log_peak_timeout_detail()`, which each mod defines (the same contract as `sandbox_log_scenario_success()`). The line carries `ai=0/1`, `alive=N` (declared targets still in the world), `wgo=N` (of those, how many the aggressor holds or is justifying a wargoal against) and the four `t0..t3` tags, so a timeout reads without the `sc_goal` history. That separates the three cases: `ai=1` a human taking its time, design-compliant; `ai=0 wgo>0` levers that produced goals nobody pressed; `ai=0 wgo=0` ultimatums that never landed. Core must NOT also emit a generic pair - that would print two lines per timeout (`.scratch/scripts/check_peak_timeout_detail.py` guards both directions).
 
 The `#sandbox` gate is `sandbox_log_scenarios`, raised by default in `on_startup` (it is the only system whose log gate is up out of the box). `sc_crisis` and `sc_join` are emitted from the arc events in `events/`, everything else from the effect files.
 

@@ -28,6 +28,12 @@ Three slots, as today, with different natures:
 - `rivals[0]` - the **ruler's rival**. Always a major. Bound to the person: re-rolled on every ruler change. Tooltip "Dislikes X".
 - `rivals[1]`, `rivals[2]` - **national rivals**. Neighbours and regional powers, bound to the nation, outlive rulers.
 
+The three slots hold three different countries. Uniqueness is enforced at the write
+(`set_rival()` refuses a tag that already holds another slot; `select_minor_rival()`
+checks the other slots before choosing) and at the choice (`THIS in FROM.rivals[]`
+scores zero). Both are needed: the scenario director seeds rivals through
+`sandbox_seed_rival` and `become_event_rival`, which never reach a scorer.
+
 New parallel array `rivalry[]` - the **intensity** of each slot, an integer in `[0, 100]` (`$add_rivalry` clamps), initialised to 50 when a slot is filled, or to 75 by the event-driven rule.
 
 Bands (shipped boundaries: the Rival tier tests `>= 25` and `< 75`, so it is 25-74, not 25-75):
@@ -49,7 +55,11 @@ An empty slot holds `0` in both arrays.
 ## Selecting a rival (scorer body)
 
 Both scorers (`FROM` is the selecting country, `THIS` the candidate), `base(40)`, with `targets_dynamic(no)` and `target_non_existing(no)`:
-- `factor(0)`: `FROM == THIS`; `is_in_faction_with(FROM)`; `is_subject_of(FROM)`; `FROM->is_subject_of(THIS)`; `THIS in FROM.former_rivals[]` (cooldown, see "Losing a rival").
+- `factor(0)`: `tag(FROM)` (identity, not a scope compare - a scope-keyword
+  comparison lowers to `check_variable` and excludes nothing); `THIS in FROM.rivals[]`
+  (this country already holds one of our slots - one rival, one slot);
+  `is_in_faction_with(FROM)`; `is_subject_of(FROM)`; `FROM->is_subject_of(THIS)`;
+  `THIS in FROM.former_rivals[]` (cooldown, see "Losing a rival").
 - `x0.25`: `is_friend_of_FROM()` (ally, guarantee or pact). A rival under a pact is possible but rare.
 - `x2`: `THIS` owns a core of `FROM`, or `FROM` owns a core of `THIS` (`any_owned_state->is_core_of(...)`). The main "historical" driver.
 - `x2`: `FROM in rivals[]` - i.e. `THIS` already lists `FROM`. Reciprocity turns one-sided dislikes into two-sided conflicts.
@@ -117,7 +127,7 @@ Result: an unfuelled rivalry fades from 50 to 0 in about four years (the drift i
 
 The pair is asymmetric on purpose: after a war the winner cools down and the loser keeps the grudge.
 
-All changes go through `$add_rivalry(slot, value)`, which clamps and triggers the detente clear at 0. There is no slot-lookup helper: each call site writes the three slot comparisons itself, and `rival_slot` is a temp the caller sets (`add_rivalry_vs()` loops over the three slots; `clear_rival()` reads `rival_slot`).
+All changes go through `$add_rivalry(slot, value)`, which clamps and triggers the detente clear at 0. There is no slot-lookup helper: each call site writes the three slot comparisons itself, and `rival_slot` is a temp the caller sets (`add_rivalry_vs()` finds the lowest slot holding the tag and charges only that one; `clear_rival()` reads `rival_slot`).
 
 ## Effects
 
@@ -179,7 +189,7 @@ Arrays and variables (country scope): `rivals[]` (3), `rivalry[]` (3), `former_r
 Effects in `core/common/scripted_effects/99_sandbox_scripted_effects.hsl` (scripted effects take no parameters; arguments travel in temp variables `rival_slot`, `rival_tag`, `rival_intensity`, `rivalry_delta`, `lowest_slot` / `lowest_val`, `should_clear`, `sandbox_clear_kind`):
 - `set_rival()`: writes both arrays, adds the opinion modifier for the slot type (`leaders_rival` for slot 0, `national_rival` for slots 1-2) only if the country exists, resets `rival_intensity` to 50.
 - `clear_rival()`: removes the opinion modifier, zeroes both arrays, appends to `former_rivals[]` / `former_rivals_month[]` unless the one-shot flag `sandbox_clear_rival_no_cooldown` is set (ruler-change re-roll). `sandbox_clear_kind` selects the log event: `1` gone, `2` faction, `3` subject, `4` detente, `6` annex, `7` replace.
-- `$add_rivalry(slot, value)` (macro in `common/macros.hml`): clamp, detente check, and the logging rules. Same discipline as `$add_honor()`: never write `&rivalry[i]` elsewhere. `add_rivalry_vs()` (effect) applies `rivalry_delta` to every slot holding `rival_tag`; `$sandbox_add_rivalry_vs(_tag_, _var_)` is the macro form the scenario events use.
+- `$add_rivalry(slot, value)` (macro in `common/macros.hml`): clamp, detente check, and the logging rules. Same discipline as `$add_honor()`: never write `&rivalry[i]` elsewhere. `add_rivalry_vs()` (effect) applies `rivalry_delta` to the lowest slot holding `rival_tag` and to no other, so a tag duplicated across slots cannot grow twice as fast; `$sandbox_add_rivalry_vs(_tag_, _var_)` is the macro form the scenario events use and follows the same first-match rule.
 - `review_rivals()`, `update_rivalry_monthly()`, `fill_rival_vacancies()`, `expire_former_rivals()`: monthly, from `on_monthly`.
 - `select_major_rival()` / `select_minor_rival()`: weighted-random body; they call `set_rival()` instead of writing `&rivals[i]` so the opinion modifier is applied. `select_minor_rival()` adds one slot per call, so `initialize_country_for_sandbox_mode()` loops `for i in range(2)`.
 - `reroll_leader_rival()`: slots-0 re-roll for a new ruler (clears without a cooldown entry, then `select_major_rival()`).
@@ -225,6 +235,39 @@ Still to verify (not yet settled by an acceptance run):
 ## Telemetry
 
 The `#sandbox` gate is `sandbox_log_rivals`, off by default. `$add_rivalry` logs `rivals_intensity` for any discrete change of 10 or more, and for monthly moves it logs only band crossings: `rivals_feud` (crossing up to 75), `rivals_cold` (dropping below 25), `rivals_rival_band` (crossing up to 25). `set_rival()` logs `rivals_set`; `clear_rival()` logs one of `rivals_clear_reroll` / `rivals_clear_gone` / `rivals_clear_faction` / `rivals_clear_subject` / `rivals_clear_detente` / `rivals_clear_annex` / `rivals_clear_replace` / `rivals_clear`; `expire_former_rivals()` logs `rivals_cooldown_expire`; `apply_rivalry_on_declare_war()` logs `rivals_war_support_declare` / `rivals_war_support_attacked`. The monthly `sandbox_log_census()` line prints all three slots as `r0=<tag>:<intensity>` beside the Honor/Tyranny numbers.
+
+### Per-term probe
+
+The lines above answer "what changed" and never "why". When a delta disagrees with
+the terms this document lists, raise `sandbox_log_rival_terms` and read
+`rivals_terms` instead of reasoning about the if-chain:
+
+```
+HAI = { set_global_flag = sandbox_log_rival_terms }   # from a debug console
+```
+
+One line per slot per month names every term:
+
+```
+rivals_terms slot=2 other=ALB w=0 cu=0 ct=0 id=0 same=0 pact=0 fr=0 lead=0 plus=0 d=-1
+```
+
+| field | term | weight |
+| ----- | ---- | ------ |
+| `w` | at war with the rival | +2 |
+| `cu` | we own a state they core | +2 |
+| `ct` | they own a state we core | +2 |
+| `id` | enemy ideology | +1 |
+| `same` | same government | -1 |
+| `pact` | non-aggression pact | -1 |
+| `fr` | they fight a friend of ours | +1 |
+| `lead` | slot 0 ruler bias | +1 or -1 |
+| `plus` | how many plus terms fired | - |
+| `d` | the delta actually applied | - |
+
+With `plus=0` the `-1` decay applies on top, so `d` is one lower than the terms
+alone suggest. The flag is off by default: it is a diagnostic, not part of the
+monthly record.
 
 ## Acceptance checklist
 

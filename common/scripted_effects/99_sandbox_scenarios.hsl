@@ -52,7 +52,8 @@ sandbox_pick_scenario():
   gen_napoleonic_france_scenario_pin()
   gen_monarchical_great_britain_scenario_pin()
   if global.sandbox_scenario_pin == 0:
-    # Random pick (default): equal roll over eligible arcs (aggressor exists).
+    # Random pick (default): equal roll over eligible arcs (aggressor exists
+    # and is AI-run; ADR-0009).
     global.&sandbox_scenario_pin = 0
     eligible[].clear()
     gen_nazi_germany_scenario_eligible()
@@ -72,6 +73,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_peak_months = 0
   global.&sandbox_scenario_arc_months = 0
   global.&sandbox_scenario_hold_months = 0
+  global.&sandbox_scenario_repick_pending = 0
   gen_nazi_germany_scenario_roll_variant()
   gen_fascist_italy_scenario_roll_variant()
   gen_militarist_japan_scenario_roll_variant()
@@ -100,25 +102,31 @@ sandbox_scenario_log_variant():
   gen_monarchical_great_britain_scenario_log_variant()
 
 # docs/gdd/Scenarios.md "Selection": repick after a derail on random.
+# Eligibility matches the generated pick: the aggressor must exist, be run by the
+# AI (ADR-0009), and not already be at war with ANY declared target of any
+# variant (issue 04). Strict on purpose: the director would rather keep a
+# half-spent arc out of the pool than hand the session a war it did not ignite.
+# A skipped arc is not appended to sandbox_derailed_arcs[], so it returns to the
+# pool on a later repick.
 sandbox_scenario_maybe_repick():
   if global.sandbox_scenario_pin == 0:
     global.&sandbox_derailed_arcs[].add(global.sandbox_scenario)
     for every_country():
       &scenario_enemies[].clear()
     eligible[].clear()
-    if country_exists(GER) and 1 not in global.sandbox_derailed_arcs[]:
+    if country_exists(GER) and GER->is_ai(yes) and 1 not in global.sandbox_derailed_arcs[] and not GER->has_war_with(CZE) and not GER->has_war_with(POL) and not GER->has_war_with(FRA) and not GER->has_war_with(ENG):
       eligible[].add(1)
-    if country_exists(ITA) and 2 not in global.sandbox_derailed_arcs[]:
+    if country_exists(ITA) and ITA->is_ai(yes) and 2 not in global.sandbox_derailed_arcs[] and not ITA->has_war_with(ENG) and not ITA->has_war_with(FRA) and not ITA->has_war_with(YUG) and not ITA->has_war_with(SWI):
       eligible[].add(2)
-    if country_exists(JAP) and 3 not in global.sandbox_derailed_arcs[]:
+    if country_exists(JAP) and JAP->is_ai(yes) and 3 not in global.sandbox_derailed_arcs[] and not JAP->has_war_with(CHI) and not JAP->has_war_with(AST) and not JAP->has_war_with(SOV) and not JAP->has_war_with(MON):
       eligible[].add(3)
-    if country_exists(SOV) and 4 not in global.sandbox_derailed_arcs[]:
+    if country_exists(SOV) and SOV->is_ai(yes) and 4 not in global.sandbox_derailed_arcs[] and not SOV->has_war_with(EST) and not SOV->has_war_with(LAT) and not SOV->has_war_with(LIT) and not SOV->has_war_with(POL) and not SOV->has_war_with(ROM):
       eligible[].add(4)
-    if country_exists(FRA) and 5 not in global.sandbox_derailed_arcs[]:
+    if country_exists(FRA) and FRA->is_ai(yes) and 5 not in global.sandbox_derailed_arcs[] and not FRA->has_war_with(BEL) and not FRA->has_war_with(HOL) and not FRA->has_war_with(LUX):
       eligible[].add(5)
-    if country_exists(ENG) and 6 not in global.sandbox_derailed_arcs[]:
+    if country_exists(ENG) and ENG->is_ai(yes) and 6 not in global.sandbox_derailed_arcs[] and not ENG->has_war_with(ITA) and not ENG->has_war_with(IRE) and not ENG->has_war_with(JAP) and not ENG->has_war_with(SOV) and not ENG->has_war_with(USA):
       eligible[].add(6)
-    if country_exists(USA) and 7 not in global.sandbox_derailed_arcs[]:
+    if country_exists(USA) and USA->is_ai(yes) and 7 not in global.sandbox_derailed_arcs[] and not USA->has_war_with(CAN) and not USA->has_war_with(MEX):
       eligible[].add(7)
     if eligible[].size() == 0:
       # Issue 32: a none_eligible repick is only sane when every aggressor is
@@ -150,6 +158,7 @@ sandbox_scenario_maybe_repick():
       global.&sandbox_scenario_peak_months = 0
       global.&sandbox_scenario_arc_months = 0
       global.&sandbox_scenario_hold_months = 0
+      global.&sandbox_scenario_repick_pending = 0
       gen_nazi_germany_scenario_roll_variant()
       gen_fascist_italy_scenario_roll_variant()
       gen_militarist_japan_scenario_roll_variant()
@@ -211,8 +220,25 @@ sandbox_scenario_tick():
   else:
     if global.sandbox_scenario_phase < 3:
       global.&sandbox_scenario_arc_months += 1
+    # Issue 01: both an ignition and a derail end an arc, and an ignition sets
+    # the phase to 3 in its own scope before the derail check runs. Snapshotting
+    # the phase here, before anything can move it, makes the gate mean "this
+    # tick ended the arc" rather than "the derail dispatcher specifically ended
+    # it", and it covers the war sweep, which never reaches the dispatcher.
+    phase_at_tick_start = global.sandbox_scenario_phase
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
+    # Two ways an arc can be over on entry: it ended during this tick (both
+    # paths, derail or ignition), or it ignited from on_declare_war an hour
+    # earlier and left the pending flag behind. A pinned session is handled by
+    # maybe_repick itself, which goes quiet and keeps the phase at 3.
+    if global.sandbox_scenario_phase == 3:
+      if phase_at_tick_start < 3:
+        global.&sandbox_scenario_repick_pending = 0
+        sandbox_scenario_maybe_repick()
+      elif global.sandbox_scenario_repick_pending == 1:
+        global.&sandbox_scenario_repick_pending = 0
+        sandbox_scenario_maybe_repick()
   gen_nazi_germany_scenario_tick()
   gen_fascist_italy_scenario_tick()
   gen_militarist_japan_scenario_tick()
@@ -627,6 +653,12 @@ sandbox_scenario_s7_telemetry():
     gen_monarchical_great_britain_scenario_telemetry()
 
 sandbox_log_scenario_success():
+  # Issue 01: an arc can also ignite outside the monthly tick, from
+  # on_declare_war, where there is no tick-start snapshot to compare against.
+  # Mark the ended arc so the next tick's gate repicks it. Every caller sets
+  # the phase to 3 first and is itself gated on phase < 3, so this flag is only
+  # ever raised by a real ignition, never by a repeat or a parked arc.
+  global.&sandbox_scenario_repick_pending = 1
   if global.sandbox_scenario == 1:
     $sandbox_log_sc(sc_ignite, nazi_germany_war)
     $sandbox_log_sc(sc_success, nazi_germany_war)
@@ -703,8 +735,55 @@ sandbox_scenario_check_civil_war_derail():
         $sandbox_check_aggressor_civil_war()
 
 # docs/gdd/Scenarios.md "Lifecycle": derail dispatcher.
+# Peak-timeout triage (issue 05). Called from the shared sandbox_check_peak_timeout
+# macro right after the generic sc_derail/sc_end pair, because that macro cannot
+# scope into the aggressor: the arc -> tag mapping lives here. Logs the same pair
+# again, once, with the state that separates the three ways a peak can time out:
+#   ai=1              a human aggressor taking its time - design-compliant;
+#   ai=0 wgo>0        AI holding war goals it never pressed - levers produced,
+#                     nobody pulled;
+#   ai=0 wgo=0        AI with no war goal at all - the ultimatums never landed.
+# Same gate and field style as sc_goal/sc_power; ASCII only.
+sandbox_log_peak_timeout_detail():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    if global.sandbox_scenario == 1:
+      GER:
+        sandbox_log_peak_timeout_actor()
+    elif global.sandbox_scenario == 2:
+      ITA:
+        sandbox_log_peak_timeout_actor()
+    elif global.sandbox_scenario == 3:
+      JAP:
+        sandbox_log_peak_timeout_actor()
+    elif global.sandbox_scenario == 4:
+      SOV:
+        sandbox_log_peak_timeout_actor()
+    elif global.sandbox_scenario == 5:
+      FRA:
+        sandbox_log_peak_timeout_actor()
+    elif global.sandbox_scenario == 6:
+      ENG:
+        sandbox_log_peak_timeout_actor()
+
+# Runs in the aggressor's scope: THIS is the aggressor whose peak timed out.
+sandbox_log_peak_timeout_actor():
+  sc_ai = 0
+  if is_ai(yes):
+    sc_ai = 1
+  sc_alive = 0
+  sc_wgo = 0
+  for i in range(4):
+    t = global.sandbox_targets[i]
+    if t != 0:
+      if country_exists(var:t):
+        sc_alive += 1
+        if has_wargoal_against(var:t) or is_justifying_wargoal_against(var:t):
+          sc_wgo += 1
+  log("#sandbox [GetDateText] [THIS.GetTag] sc_derail peak_timeout ai=[?sc_ai] alive=[?sc_alive] wgo=[?sc_wgo] t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] t2=[?global.sandbox_targets^2.GetTag] t3=[?global.sandbox_targets^3.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+  log("#sandbox [GetDateText] [THIS.GetTag] sc_end peak_timeout ai=[?sc_ai] alive=[?sc_alive] wgo=[?sc_wgo] t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] t2=[?global.sandbox_targets^2.GetTag] t3=[?global.sandbox_targets^3.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+
 sandbox_scenario_check_derail():
-  phase_before = global.sandbox_scenario_phase
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
   if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
@@ -719,5 +798,3 @@ sandbox_scenario_check_derail():
     gen_napoleonic_france_scenario_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     gen_monarchical_great_britain_scenario_derail()
-  if phase_before < 3 and global.sandbox_scenario_phase == 3:
-    sandbox_scenario_maybe_repick()
