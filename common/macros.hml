@@ -38,30 +38,45 @@ macro sandbox_log_economic(_event_):
   if has_global_flag(sandbox_log_economic):
     $sandbox_log(_event_)
 
-# GER inner-circle: slot/old/new/delta = completed count among the 7 foci.
+# GER inner-circle: slot = completed count among the 7 foci. The triplet is
+# filled by the caller, which knows the count before and after its focus; the
+# state-only variant below passes the same count on both sides and a zero delta,
+# because "how many are done" is a reading, not a change.
 macro sandbox_log_ger_inner_circle_state(_event_):
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_national_focuses):
-    sandbox_log_old = GER_inner_circle_count
-    sandbox_log_new = GER_inner_circle_count
-    sandbox_log_delta = GER_inner_circle_count
     sandbox_log_slot = GER_inner_circle_count
     sandbox_log_other = 0
     $sandbox_log(_event_)
 
+# A reading of the current count: no change to report, so was == became and d=0.
+macro sandbox_log_ger_inner_circle_reading(_event_):
+  sandbox_log_old = GER_inner_circle_count
+  sandbox_log_new = GER_inner_circle_count
+  sandbox_log_delta = 0
+  $sandbox_log_ger_inner_circle_state(_event_)
+
+# Count the 7 foci and report the count as a reading: this macro is called
+# where no before-value exists, so it reports no change (was == became, d=0).
 macro sandbox_log_ger_inner_circle(_event_):
   GER_sandbox_count_inner_circle_foci()
-  $sandbox_log_ger_inner_circle_state(_event_)
+  $sandbox_log_ger_inner_circle_reading(_event_)
 
 # Select: count is how many of the 7 are already completed (this one is not yet).
 # Overflow means a 4th pick after the AI gate should have blocked it.
 macro sandbox_log_ger_inner_circle_select(_event_):
   $sandbox_log_ger_inner_circle(_event_)
   if GER_inner_circle_count >= 3:
-    $sandbox_log_ger_inner_circle_state(GER_inner_circle_overflow)
+    $sandbox_log_ger_inner_circle_reading(GER_inner_circle_overflow)
 
 # Complete: count includes this focus. Full at exactly 3; overflow if a 4th finished.
+# Completing a focus raises the count by one, so this is a real change: the
+# before-value is the count minus this focus.
 macro sandbox_log_ger_inner_circle_done(_event_):
-  $sandbox_log_ger_inner_circle(_event_)
+  GER_sandbox_count_inner_circle_foci()
+  sandbox_log_old = GER_inner_circle_count - 1
+  sandbox_log_new = GER_inner_circle_count
+  sandbox_log_delta = 1
+  $sandbox_log_ger_inner_circle_state(_event_)
   if GER_inner_circle_count == 3:
     $sandbox_log_ger_inner_circle_state(GER_inner_circle_full)
   elif GER_inner_circle_count > 3:
@@ -79,8 +94,13 @@ macro add_honor(_var_, _event_ = honor_change):
       &honor += _var_
       $clamp_variable(honor, -100, 100)
       sandbox_log_new = honor
-      sandbox_log_delta = _var_
-      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+      # Triplet rule: d must equal new - old. When the clamp bites, the change
+      # that actually happened is smaller than the one requested, so report the
+      # actual one. The gate below still tests the intended _var_, so a clamped
+      # event is not hidden from the log.
+      honor_change = honor - sandbox_log_old
+      sandbox_log_delta = honor_change
+      if _var_ >= 2 or _var_ <= -2:
         $sandbox_log_honor(_event_)
       else:
         sandbox_log_other = 0
@@ -99,8 +119,13 @@ macro add_tyranny(_var_, _event_ = tyranny_focus):
       &tyranny += _var_
       $clamp_variable(tyranny, -100, 100)
       sandbox_log_new = tyranny
-      sandbox_log_delta = _var_
-      if sandbox_log_delta >= 2 or sandbox_log_delta <= -2:
+      # Triplet rule: d must equal new - old. When the clamp bites, the change
+      # that actually happened is smaller than the one requested, so report the
+      # actual one. The gate below still tests the intended _var_, so a clamped
+      # event is not hidden from the log.
+      tyranny_change = tyranny - sandbox_log_old
+      sandbox_log_delta = tyranny_change
+      if _var_ >= 2 or _var_ <= -2:
         $sandbox_log_tyranny(_event_)
       else:
         sandbox_log_other = 0
@@ -601,7 +626,11 @@ macro add_rivalry(_slot_, _var_):
     cur_rivalry = rivalry[_slot_]
     new_rivalry = clamp(cur_rivalry + _var_, 0, 100)
     &rivalry[_slot_] = new_rivalry
-    sandbox_log_delta = _var_
+    # Triplet rule: d must equal new - old. When the clamp bites, the change
+    # that actually happened is smaller than the one requested, so report the
+    # actual one - reporting _var_ there made 98.00->100.00 claim d=25.00.
+    rivalry_change = new_rivalry - cur_rivalry
+    sandbox_log_delta = rivalry_change
     # Skip monthly ±1/±2; log discrete +15/+25/−50 and similar.
     if sandbox_log_delta >= 10 or sandbox_log_delta <= -10:
       sandbox_log_old = cur_rivalry
@@ -618,21 +647,21 @@ macro add_rivalry(_slot_, _var_):
       if cur_rivalry < 75 and new_rivalry >= 75:
         sandbox_log_old = cur_rivalry
         sandbox_log_new = new_rivalry
-        sandbox_log_delta = _var_
+        sandbox_log_delta = rivalry_change
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
         $sandbox_log_rivals(rivals_feud)
       elif cur_rivalry >= 25 and new_rivalry < 25:
         sandbox_log_old = cur_rivalry
         sandbox_log_new = new_rivalry
-        sandbox_log_delta = _var_
+        sandbox_log_delta = rivalry_change
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
         $sandbox_log_rivals(rivals_cold)
       elif cur_rivalry < 25 and new_rivalry >= 25:
         sandbox_log_old = cur_rivalry
         sandbox_log_new = new_rivalry
-        sandbox_log_delta = _var_
+        sandbox_log_delta = rivalry_change
         sandbox_log_slot = _slot_
         sandbox_log_other = rivals[_slot_]
         $sandbox_log_rivals(rivals_rival_band)

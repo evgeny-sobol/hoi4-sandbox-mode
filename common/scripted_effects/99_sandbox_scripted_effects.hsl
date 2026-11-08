@@ -1210,48 +1210,66 @@ review_rivals():
         clear_rival()
 
 
+# Each term is its own temp so the arithmetic can be read back from a log line
+# instead of guessed. A session disagreed with the old if-chain for every pair
+# in one country's slots, and reading the chain could not say which term fired.
+# The sum is unchanged; only the shape is.
 update_rivalry_monthly():
   for i in range(3):
     if rivals[i] != 0:
       rival_tag = rivals[i]
       if country_exists(var:rival_tag):
-        delta = 0
-        has_plus = 0
+        rv_war = 0
+        rv_core_us = 0
+        rv_core_them = 0
+        rv_ideo = 0
+        rv_same = 0
+        rv_pact = 0
+        rv_friend = 0
+        rv_leader = 0
         if has_war_with(var:rival_tag):
-          delta += 2
-          has_plus = 1
+          rv_war = 1
         if any_owned_state->is_core_of(var:rival_tag):
-          delta += 2
-          has_plus = 1
+          rv_core_us = 1
         var:rival_tag:
-          if any_owned_state->is_core_of(PREV):
-            PREV:
-              delta += 2
-              has_plus = 1
+          # ROOT, not PREV. Inside this scope the current country is the rival,
+          # so `any_owned_state` enumerates the rival's states; PREV resolves to
+          # the rival itself and the test became "does the rival core a state it
+          # owns", true for every country through its own capital. That added +2
+          # to every pair every month, forever. ROOT is the country the effect
+          # was called on, so the test reads "does the rival own a state we
+          # core". Proven by the per-route probe: rv_friend and rv_pact, which
+          # use ROOT and PREV respectively inside this same scope, fire on 5% and
+          # 0.4% of lines, while the old test fired on 100%.
+          if any_owned_state->is_core_of(ROOT):
+            rv_core_them = 1
           if has_enemy_ideology_with_PREV():
-            PREV:
-              delta += 1
-              has_plus = 1
+            rv_ideo = 1
           elif has_government(PREV):
-            PREV:
-              delta -= 1
+            rv_same = 1
           if has_non_aggression_pact_with(PREV):
-            PREV:
-              delta -= 1
+            rv_pact = 1
           # +1 once if the rival fights any friend of ours. ROOT is the country
           # (called from on_monthly only); avoids reading temps across scopes.
           if any_enemy_country->is_friend_of_ROOT():
-            ROOT:
-              delta += 1
-              has_plus = 1
+            rv_friend = 1
         if i == 0:
           if is_authoritarian_leader():
-            delta += 1
-            has_plus = 1
+            rv_leader = 1
           elif is_liberal_leader():
-            delta -= 1
+            rv_leader = -1
+        has_plus = rv_war + rv_core_us + rv_core_them + rv_ideo + rv_friend
+        if rv_leader == 1:
+          has_plus += 1
+        delta = 2*rv_war + 2*rv_core_us + 2*rv_core_them + rv_ideo - rv_same - rv_pact + rv_friend + rv_leader
         if has_plus == 0:
           delta -= 1
+        # Probe (docs/gdd/Rivals System.md "Telemetry"): off unless the operator
+        # raises sandbox_log_rival_terms, so a normal session logs exactly what it
+        # logged before. One line per slot per month, naming every term, is what
+        # makes a delta explainable instead of merely visible.
+        if has_global_flag(sandbox_log_rival_terms):
+          log("#sandbox [GetDateText] [THIS.GetTag] rivals_terms slot=[?i] other=[?rival_tag.GetTag] w=[?rv_war] cu=[?rv_core_us] ct=[?rv_core_them] id=[?rv_ideo] same=[?rv_same] pact=[?rv_pact] fr=[?rv_friend] lead=[?rv_leader] plus=[?has_plus] d=[?delta] t=[?months_elapsed]")
         $add_rivalry(i, delta)
 
 
@@ -1393,7 +1411,9 @@ sandbox_log_census():
         log("#sandbox [GetDateText] [THIS.GetTag] census honor=[?honor|.2] hfac=[?honor_gain_monthly_factor|.2] ob=[?honor_obligation_gain|.2] tyr=[?tyranny|.2] tfac=[?tyranny_gain_monthly_factor|.2] war=[?tyranny_war_rate|.2] stab=[?tyranny_stability_rate|.2] g=[?guaranting^num] jp=[?honor_justify_pulses] r0=[?rivals^0.GetTag]:[?rivalry^0|.0] r1=[?rivals^1.GetTag]:[?rivalry^1|.0] r2=[?rivals^2.GetTag]:[?rivalry^2|.0] cw=[?global.sandbox_civil_war_count|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
         if original_tag(GER):
           GER_sandbox_count_inner_circle_foci()
-          $sandbox_log_ger_inner_circle_state(GER_inner_circle_census)
+          # A reading of the count, not a change: the census has no before-value
+          # to compare against, so it reports was == became and d=0.
+          $sandbox_log_ger_inner_circle_reading(GER_inner_circle_census)
 
 
 # ---------------------------------------------------------------------------
@@ -1511,10 +1531,15 @@ sandbox_economic_embargo_send():
                     # yourself", so refuse it here as well.
                     if not tag(var:t):
                       send_embargo(var:t)
+                    # Triplet rule: this line reports the embargo as an act,
+                    # so 0 -> 1 and d = 1. The target's rivalry strength and
+                    # the political-power price used to sit in "became" and "d"
+                    # here, which made the line read as a rivalry change of
+                    # -100 that never happened.
                     sandbox_log_other = t
                     sandbox_log_old = 0
-                    sandbox_log_new = r
-                    sandbox_log_delta = -100
+                    sandbox_log_new = 1
+                    sandbox_log_delta = 1
                     sandbox_log_slot = i
                     $sandbox_log_economic(ec_embargo_sent)
                     for k in range(3):
@@ -1589,6 +1614,10 @@ sandbox_economic_license_grant():
                             equipment:
                               type(infantry_equipment_3)
                             cost_factor(0)
+                          # Triplet rule: one licence granted in this call.
+                          sandbox_log_old = 0
+                          sandbox_log_new = 3
+                          sandbox_log_delta = 3
                           $sandbox_log_economic(ec_license_granted_infantry_equipment_3)
                         elif sandbox_ec_equipment == 2:
                           create_production_license:
@@ -1596,6 +1625,10 @@ sandbox_economic_license_grant():
                             equipment:
                               type(infantry_equipment_2)
                             cost_factor(0)
+                          # Triplet rule: one licence granted in this call.
+                          sandbox_log_old = 0
+                          sandbox_log_new = 2
+                          sandbox_log_delta = 2
                           $sandbox_log_economic(ec_license_granted_infantry_equipment_2)
                         else:
                           create_production_license:
@@ -1603,6 +1636,10 @@ sandbox_economic_license_grant():
                             equipment:
                               type(infantry_equipment_1)
                             cost_factor(0)
+                          # Triplet rule: one licence granted in this call.
+                          sandbox_log_old = 0
+                          sandbox_log_new = 1
+                          sandbox_log_delta = 1
                           $sandbox_log_economic(ec_license_granted_infantry_equipment_1)
                     &last_license_month = months_elapsed
                     sandbox_ec_granted = 1

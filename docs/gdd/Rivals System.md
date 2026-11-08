@@ -236,6 +236,39 @@ Still to verify (not yet settled by an acceptance run):
 
 The `#sandbox` gate is `sandbox_log_rivals`, off by default. `$add_rivalry` logs `rivals_intensity` for any discrete change of 10 or more, and for monthly moves it logs only band crossings: `rivals_feud` (crossing up to 75), `rivals_cold` (dropping below 25), `rivals_rival_band` (crossing up to 25). `set_rival()` logs `rivals_set`; `clear_rival()` logs one of `rivals_clear_reroll` / `rivals_clear_gone` / `rivals_clear_faction` / `rivals_clear_subject` / `rivals_clear_detente` / `rivals_clear_annex` / `rivals_clear_replace` / `rivals_clear`; `expire_former_rivals()` logs `rivals_cooldown_expire`; `apply_rivalry_on_declare_war()` logs `rivals_war_support_declare` / `rivals_war_support_attacked`. The monthly `sandbox_log_census()` line prints all three slots as `r0=<tag>:<intensity>` beside the Honor/Tyranny numbers.
 
+### Per-term probe
+
+The lines above answer "what changed" and never "why". When a delta disagrees with
+the terms this document lists, raise `sandbox_log_rival_terms` and read
+`rivals_terms` instead of reasoning about the if-chain:
+
+```
+HAI = { set_global_flag = sandbox_log_rival_terms }   # from a debug console
+```
+
+One line per slot per month names every term:
+
+```
+rivals_terms slot=2 other=ALB w=0 cu=0 ct=0 id=0 same=0 pact=0 fr=0 lead=0 plus=0 d=-1
+```
+
+| field | term | weight |
+| ----- | ---- | ------ |
+| `w` | at war with the rival | +2 |
+| `cu` | we own a state they core | +2 |
+| `ct` | they own a state we core | +2 |
+| `id` | enemy ideology | +1 |
+| `same` | same government | -1 |
+| `pact` | non-aggression pact | -1 |
+| `fr` | they fight a friend of ours | +1 |
+| `lead` | slot 0 ruler bias | +1 or -1 |
+| `plus` | how many plus terms fired | - |
+| `d` | the delta actually applied | - |
+
+With `plus=0` the `-1` decay applies on top, so `d` is one lower than the terms
+alone suggest. The flag is off by default: it is a diagnostic, not part of the
+monthly record.
+
 ## Acceptance checklist
 
 Log-first: raise `sandbox_log_rivals` and read the `#sandbox rivals_*` lines plus the monthly census (`r0=<tag>:<intensity>`). An unticked box has its code shipped unless the item says otherwise; the tick waits for a session that shows it.
